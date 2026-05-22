@@ -1,0 +1,103 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 6);
+---
+
+<!doctype html>
+<html lang="zh-TW">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>兩隻熊的旅遊記事</h1>
+				<p>探索未來預言家的洞見、世界趨勢分析與真相拆解</p>
+			</section>
+
+			<section class="latest">
+				<h2>最新文章</h2>
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<h3>{post.data.title}</h3>
+								<time datetime={post.data.pubDate.toISOString()}>
+									<FormattedDate date={post.data.pubDate} />
+								</time>
+							</a>
+						</li>
+					))}
+				</ul>
+				<a href="/blog" class="all-posts">查看所有文章 →</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 2em 0 3em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		margin-bottom: 2em;
+	}
+	.hero h1 {
+		font-size: 2.5em;
+		margin-bottom: 0.5em;
+	}
+	.hero p {
+		color: rgb(var(--gray));
+		font-size: 1.1em;
+	}
+	.latest h2 {
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		border-bottom: 1px solid rgb(var(--gray-light));
+		padding: 1em 0;
+	}
+	li:last-child {
+		border-bottom: none;
+	}
+	li a {
+		text-decoration: none;
+		color: inherit;
+	}
+	li a:hover h3 {
+		color: var(--accent);
+	}
+	li h3 {
+		margin: 0 0 0.3em;
+		font-size: 1.1em;
+	}
+	time {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.all-posts {
+		display: inline-block;
+		margin-top: 1.5em;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.all-posts:hover {
+		text-decoration: underline;
+	}
+</style>

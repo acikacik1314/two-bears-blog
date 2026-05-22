@@ -1,0 +1,9 @@
+---
+title: 'Chiang Mai vlog | Is it a scam to rent a car for a month in Thailand to save money?!'
+description: '清邁旅遊實況分享，帶你深入探索這座泰北城市的美食、咖啡廳與特色景點。'
+pubDate: '2026-05-23'
+tags: ['清邁', '旅遊']
+youtubeId: 'CgLSBR1WnrU'
+---
+
+清邁慢活旅遊全紀錄！兩隻熊帶你走訪尼曼路的網美咖啡廳、在地人愛吃的美食攤，以及讓人流連忘返的特色景點。想感受泰北的獨特氛圍，快來看這部影片！

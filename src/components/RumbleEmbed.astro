@@ -1,0 +1,34 @@
+---
+interface Props {
+  videoId: string;
+  title?: string;
+}
+const { videoId, title = '影片' } = Astro.props;
+---
+
+<div class="video-wrapper">
+  <iframe
+    src={`https://rumble.com/embed/${videoId}/`}
+    title={title}
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 1.5em 0;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

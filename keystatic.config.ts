@@ -1,14 +1,12 @@
 import { config, collection, fields } from '@keystatic/core';
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 export default config({
-  storage: isProduction
+  storage: import.meta.env.PROD
     ? {
         kind: 'github',
         repo: {
-          owner: process.env.GITHUB_REPO_OWNER ?? '',
-          name: process.env.GITHUB_REPO_NAME ?? '',
+          owner: 'acikacik1314',
+          name: 'two-bears-blog',
         },
       }
     : { kind: 'local' },

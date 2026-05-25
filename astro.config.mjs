@@ -4,15 +4,24 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
-import keystatic from '@keystatic/astro';
 import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://twobears.vercel.app',
 	adapter: vercel(),
-	integrations: [mdx(), sitemap(), react(), keystatic()],
+	integrations: [mdx(), sitemap(), react()],
 	vite: {
+		plugins: [
+			{
+				name: 'keystatic-config',
+				resolveId(id) {
+					if (id === 'virtual:keystatic-config') {
+						return this.resolve('./keystatic.config.ts');
+					}
+				},
+			},
+		],
 		optimizeDeps: {
 			exclude: ['@keystatic/astro', '@keystatic/core'],
 		},

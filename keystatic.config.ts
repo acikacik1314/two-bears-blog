@@ -48,7 +48,15 @@ export default config({
           directory: 'src/assets/images',
           publicPath: '/src/assets/images/',
         }),
-        body: fields.text({ label: '文章內容', multiline: true }),
+        body: fields.document({
+          label: '文章內容',
+          formatting: true,
+          links: true,
+          images: {
+            directory: 'src/assets/images',
+            publicPath: '/src/assets/images/',
+          },
+        }),
       },
     }),
   },

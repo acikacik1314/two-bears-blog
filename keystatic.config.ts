@@ -43,11 +43,24 @@ export default config({
         }),
         youtubeId: fields.text({ label: 'YouTube ID（選填）' }),
         rumbleId: fields.text({ label: 'Rumble ID（選填）' }),
-        heroImage: fields.image({
-          label: '封面圖片（選填）',
-          directory: 'src/assets/images',
-          publicPath: '/src/assets/images/',
-        }),
+        heroImage: fields.text({ label: '封面圖片（選填）' }),
+        pixnetSource: fields.text({ label: 'Pixnet 來源（選填）' }),
+        rumblePage: fields.text({ label: 'Rumble 頁面（選填）' }),
+        youtubePost: fields.text({ label: 'YouTube Post（選填）' }),
+        predictions: fields.object({
+          hits: fields.array(
+            fields.text({ label: '命中' }),
+            { label: '命中預言', itemLabel: (props) => props.value ?? '命中' }
+          ),
+          misses: fields.array(
+            fields.text({ label: '未命中' }),
+            { label: '未命中預言', itemLabel: (props) => props.value ?? '未命中' }
+          ),
+          pending: fields.array(
+            fields.text({ label: '待驗證' }),
+            { label: '待驗證預言', itemLabel: (props) => props.value ?? '待驗證' }
+          ),
+        }, { label: '預言驗證' }),
         body: fields.markdoc({
           label: '文章內容',
           extension: 'md',

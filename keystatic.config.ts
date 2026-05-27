@@ -48,14 +48,9 @@ export default config({
           directory: 'src/assets/images',
           publicPath: '/src/assets/images/',
         }),
-        body: fields.document({
+        body: fields.markdoc({
           label: '文章內容',
-          formatting: true,
-          links: true,
-          images: {
-            directory: 'src/assets/images',
-            publicPath: '/src/assets/images/',
-          },
+          extension: 'md',
         }),
       },
     }),

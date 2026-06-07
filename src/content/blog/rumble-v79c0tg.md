@@ -1,9 +1,14 @@
 ---
 title: '泰國預言家 Mor Plai 最新預測：火山、地震、飛機事故全都有！預言又準了？'
-description: '泰國靈媒Mor Plai最新預測涵蓋火山爆發、地震與飛機事故，其過往預言的高準確率讓這次警告格外令人重視。'
+description: '【兩隻熊】泰國預言家 Mor Plai 最新預測：火山、地震、飛機事故全都有！預言又準了？'
 pubDate: '2026-05-22'
 tags: ['預言', '地震', '末日', '台灣']
-rumbleId: 'v79c0tg'
+category: '預言'
+rumbleId: 'v775ct8'
+rumblePage: 'https://rumble.com/v79c0tg--mor-plai-.html'
+predictions:
+  pending:
+    - '特定地區重大天災發生時間點'
 ---
 
 泰國最知名的靈媒預言家Mor Plai以其驚人的預言準確率贏得大批信眾，這次他再度發出涵蓋火山、地震與飛機事故的全面警告。本片完整解析Mor Plai的最新預測內容，回顧他過往應驗的預言記錄，讓你自行判斷這位泰國預言家的可信度。

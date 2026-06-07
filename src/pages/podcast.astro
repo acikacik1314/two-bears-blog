@@ -1,0 +1,213 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+// Fetch RSS at build/request time
+let episodes: Array<{
+	title: string;
+	date: string;
+	audio: string;
+	link: string;
+	duration: string;
+	description: string;
+}> = [];
+
+let coverImage = '';
+let podcastTitle = '';
+let podcastDesc = '';
+
+try {
+	const res = await fetch('https://anchor.fm/s/11310a874/podcast/rss');
+	const xml = await res.text();
+
+	const extractCdata = (tag: string, str: string) => {
+		const m = str.match(new RegExp(`<${tag}><\\!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`));
+		return m ? m[1].trim() : '';
+	};
+	const extractTag = (tag: string, str: string) => {
+		const m = str.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`));
+		return m ? m[1].trim() : '';
+	};
+
+	coverImage = (xml.match(/<itunes:image href="([^"]+)"/) || [])[1] ?? '';
+	podcastTitle = extractCdata('title', xml.split('<item>')[0]);
+	podcastDesc = extractCdata('description', xml.split('<item>')[0]);
+
+	const items = xml.split('<item>').slice(1);
+	episodes = items.map(item => ({
+		title: extractCdata('title', item),
+		date: extractTag('pubDate', item),
+		audio: (item.match(/enclosure url="([^"]+)"/) || [])[1] ?? '',
+		link: extractTag('link', item),
+		duration: extractTag('itunes:duration', item),
+		description: extractCdata('description', item).replace(/<[^>]+>/g, '').slice(0, 200),
+	}));
+} catch (e) {
+	// RSS fetch failed silently
+}
+
+function formatDate(dateStr: string) {
+	if (!dateStr) return '';
+	const d = new Date(dateStr);
+	return d.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function formatDuration(s: string) {
+	if (!s) return '';
+	const n = parseInt(s);
+	if (isNaN(n)) return s;
+	const m = Math.floor(n / 60);
+	const sec = n % 60;
+	return `${m}:${sec.toString().padStart(2, '0')}`;
+}
+---
+
+<!doctype html>
+<html lang="zh-TW">
+	<head>
+		<BaseHead title={`Podcast | ${SITE_TITLE}`} description={podcastDesc || '兩隻熊的未來人預言家 Podcast'} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="podcast-header">
+				{coverImage && <img class="cover" src={coverImage} alt={podcastTitle} />}
+				<div class="podcast-meta">
+					<h1>{podcastTitle || '兩隻熊的未來人預言家'}</h1>
+					<p class="podcast-desc">{podcastDesc}</p>
+					<a class="spotify-btn" href="https://podcasters.spotify.com/pod/show/teddy175" target="_blank" rel="noopener">
+						▶ 在 Spotify 收聽
+					</a>
+				</div>
+			</div>
+
+			<div class="episodes">
+				{episodes.map((ep, i) => (
+					<div class="episode">
+						<div class="ep-header">
+							<span class="ep-num">EP {episodes.length - i}</span>
+							<h2 class="ep-title">{ep.title}</h2>
+						</div>
+						<div class="ep-meta">
+							<span class="ep-date">{formatDate(ep.date)}</span>
+							{ep.duration && <span class="ep-dur">⏱ {formatDuration(ep.duration)}</span>}
+						</div>
+						{ep.description && <p class="ep-desc">{ep.description}…</p>}
+						{ep.audio && (
+							<audio controls preload="none" class="player">
+								<source src={ep.audio} type="audio/mpeg" />
+							</audio>
+						)}
+						{ep.link && (
+							<a class="ep-link" href={ep.link} target="_blank" rel="noopener">在 Spotify 收聽 →</a>
+						)}
+					</div>
+				))}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 760px;
+		margin: auto;
+		padding: 2em 1em 4em;
+	}
+	.podcast-header {
+		display: flex;
+		gap: 1.5em;
+		align-items: flex-start;
+		margin-bottom: 2.5em;
+		padding-bottom: 2em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.cover {
+		width: 140px;
+		height: 140px;
+		object-fit: cover;
+		border-radius: 12px;
+		flex-shrink: 0;
+		box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+	}
+	.podcast-meta h1 {
+		font-size: 1.4em;
+		margin: 0 0 0.4em;
+	}
+	.podcast-desc {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+		margin: 0 0 1em;
+		line-height: 1.5;
+	}
+	.spotify-btn {
+		display: inline-block;
+		background: #1DB954;
+		color: white;
+		padding: 0.5em 1.2em;
+		border-radius: 20px;
+		text-decoration: none;
+		font-size: 0.85em;
+		font-weight: 700;
+	}
+	.spotify-btn:hover { background: #17a349; }
+
+	.episodes { display: flex; flex-direction: column; gap: 1.5em; }
+	.episode {
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.2em 1.4em;
+	}
+	.ep-header {
+		display: flex;
+		align-items: baseline;
+		gap: 0.7em;
+		margin-bottom: 0.4em;
+	}
+	.ep-num {
+		font-size: 0.75em;
+		font-weight: 700;
+		color: var(--accent);
+		background: rgba(var(--accent-dark), 0.08);
+		padding: 0.1em 0.5em;
+		border-radius: 4px;
+		white-space: nowrap;
+	}
+	.ep-title {
+		font-size: 1em;
+		margin: 0;
+		line-height: 1.4;
+	}
+	.ep-meta {
+		display: flex;
+		gap: 1em;
+		font-size: 0.8em;
+		color: rgb(var(--gray));
+		margin-bottom: 0.6em;
+	}
+	.ep-desc {
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+		margin: 0 0 0.8em;
+		line-height: 1.5;
+	}
+	.player {
+		width: 100%;
+		height: 40px;
+		margin-bottom: 0.6em;
+	}
+	.ep-link {
+		font-size: 0.82em;
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.ep-link:hover { text-decoration: underline; }
+
+	@media (max-width: 480px) {
+		.podcast-header { flex-direction: column; }
+		.cover { width: 100px; height: 100px; }
+	}
+</style>

@@ -4,11 +4,40 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-).slice(0, 6);
+);
+
+function getThumbnail(post: CollectionEntry<'blog'>): string | null {
+	if (post.data.youtubeId) {
+		return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
+	}
+	if (post.data.heroImage) {
+		const h = post.data.heroImage as any;
+		return typeof h === 'string' ? h : h?.src ?? null;
+	}
+	return null;
+}
+
+const CATEGORY_GRADIENTS: Record<string, string> = {
+	'預言': 'linear-gradient(135deg, #1a1a2e 0%, #c0392b 100%)',
+	'影片': 'linear-gradient(135deg, #0f3460 0%, #16213e 100%)',
+	'旅遊': 'linear-gradient(135deg, #134e5e 0%, #71b280 100%)',
+	'評測': 'linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%)',
+	'其他': 'linear-gradient(135deg, #373b44 0%, #4286f4 100%)',
+};
+
+const CATEGORY_ICONS: Record<string, string> = {
+	'預言': '🔮',
+	'影片': '🎬',
+	'旅遊': '✈️',
+	'評測': '📦',
+	'其他': '📝',
+};
 ---
 
 <!doctype html>
@@ -24,80 +53,150 @@ const posts = (await getCollection('blog')).sort(
 				<p>探索未來預言家的洞見、世界趨勢分析與真相拆解</p>
 			</section>
 
-			<section class="latest">
-				<h2>最新文章</h2>
-				<ul>
-					{posts.map((post) => (
+			<ul>
+				{posts.map((post) => {
+					const cat = getPostCategory(post);
+					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
+					const thumb = getThumbnail(post);
+					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
+					const icon = CATEGORY_ICONS[cat] ?? '📝';
+					return (
 						<li>
 							<a href={`/blog/${post.id}/`}>
-								<h3>{post.data.title}</h3>
-								<time datetime={post.data.pubDate.toISOString()}>
-									<FormattedDate date={post.data.pubDate} />
-								</time>
+								<div class="card-thumb">
+									{thumb ? (
+										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
+									) : (
+										<div class="card-thumb-placeholder" style={`background: ${gradient}`}>
+											<span class="placeholder-icon">{icon}</span>
+											<span class="placeholder-cat">{cat}</span>
+										</div>
+									)}
+									<span class="cat-badge" style={`background:${color}`}>{cat}</span>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title">{post.data.title}</h4>
+									<p class="card-date"><FormattedDate date={post.data.pubDate} /></p>
+								</div>
 							</a>
 						</li>
-					))}
-				</ul>
-				<a href="/blog" class="all-posts">查看所有文章 →</a>
-			</section>
+					);
+				})}
+			</ul>
 		</main>
 		<Footer />
 	</body>
 </html>
 
 <style>
+	main {
+		width: 1200px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 0 1em 3em;
+	}
 	.hero {
 		text-align: center;
-		padding: 2em 0 3em;
+		padding: 2em 0 2em;
+		margin-bottom: 1.5em;
 		border-bottom: 1px solid rgb(var(--gray-light));
-		margin-bottom: 2em;
 	}
 	.hero h1 {
-		font-size: 2.5em;
-		margin-bottom: 0.5em;
+		font-size: 2em;
+		margin-bottom: 0.4em;
 	}
 	.hero p {
 		color: rgb(var(--gray));
-		font-size: 1.1em;
-	}
-	.latest h2 {
-		font-size: 1.5em;
-		margin-bottom: 1em;
+		font-size: 1em;
 	}
 	ul {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
 		list-style: none;
+		margin: 0;
 		padding: 0;
 	}
-	li {
-		border-bottom: 1px solid rgb(var(--gray-light));
-		padding: 1em 0;
-	}
-	li:last-child {
-		border-bottom: none;
-	}
-	li a {
+	ul li a {
+		display: block;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid rgb(var(--gray-light));
 		text-decoration: none;
-		color: inherit;
+		transition: transform 0.2s, box-shadow 0.2s;
+		height: 100%;
 	}
-	li a:hover h3 {
-		color: var(--accent);
+	ul li a:hover {
+		transform: translateY(-3px);
+		box-shadow: var(--box-shadow);
 	}
-	li h3 {
-		margin: 0 0 0.3em;
-		font-size: 1.1em;
+	.card-thumb {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16/9;
+		overflow: hidden;
+		background: #111;
 	}
-	time {
+	.card-thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: transform 0.3s;
+	}
+	ul li a:hover .card-thumb img {
+		transform: scale(1.04);
+	}
+	.card-thumb-placeholder {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4em;
+	}
+	.placeholder-icon { font-size: 2em; opacity: 0.9; }
+	.placeholder-cat {
+		font-size: 0.75em;
+		color: rgba(255,255,255,0.7);
+		font-weight: 700;
+		letter-spacing: 0.05em;
+	}
+	.cat-badge {
+		position: absolute;
+		top: 0.4em;
+		left: 0.4em;
+		color: white;
+		padding: 0.15em 0.5em;
+		border-radius: 6px;
+		font-size: 0.7em;
+		font-weight: 700;
+		backdrop-filter: blur(4px);
+		background: rgba(0,0,0,0.45);
+	}
+	.card-body { padding: 0.7em; }
+	.card-title {
+		margin: 0 0 0.3em 0;
+		color: rgb(var(--black));
+		line-height: 1.35;
+		font-size: 0.85em;
+		font-weight: 700;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	ul li a:hover .card-title { color: var(--accent); }
+	.card-date {
+		margin: 0;
 		color: rgb(var(--gray));
-		font-size: 0.9em;
+		font-size: 0.75em;
 	}
-	.all-posts {
-		display: inline-block;
-		margin-top: 1.5em;
-		color: var(--accent);
-		text-decoration: none;
-		font-weight: 600;
+	@media (max-width: 900px) {
+		ul { grid-template-columns: repeat(3, 1fr); }
 	}
-	.all-posts:hover {
-		text-decoration: underline;
+	@media (max-width: 600px) {
+		ul { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
 	}
 </style>

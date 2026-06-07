@@ -10,8 +10,8 @@ import { SITE_TITLE } from '../consts';
 let episodes: Array<{
 	title: string;
 	date: string;
-	audio: string;
 	link: string;
+	embedUrl: string;
 	duration: string;
 	description: string;
 }> = [];
@@ -38,14 +38,22 @@ try {
 	podcastDesc = extractCdata('description', xml.split('<item>')[0]);
 
 	const items = xml.split('<item>').slice(1);
-	episodes = items.map(item => ({
-		title: extractCdata('title', item),
-		date: extractTag('pubDate', item),
-		audio: (item.match(/enclosure url="([^"]+)"/) || [])[1] ?? '',
-		link: extractTag('link', item),
-		duration: extractTag('itunes:duration', item),
-		description: extractCdata('description', item).replace(/<[^>]+>/g, '').slice(0, 200),
-	}));
+	episodes = items.map(item => {
+		const link = extractTag('link', item);
+		// Extract episode slug from podcasters.spotify.com URL for embed
+		const slugMatch = link.match(/\/episodes\/([^/\s]+)$/);
+		const embedUrl = slugMatch
+			? `https://creators.spotify.com/pod/show/teddy175/embed/episodes/${slugMatch[1]}`
+			: '';
+		return {
+			title: extractCdata('title', item),
+			date: extractTag('pubDate', item),
+			link,
+			embedUrl,
+			duration: extractTag('itunes:duration', item),
+			description: extractCdata('description', item).replace(/<[^>]+>/g, '').slice(0, 200),
+		};
+	});
 } catch (e) {
 	// RSS fetch failed silently
 }
@@ -97,13 +105,16 @@ function formatDuration(s: string) {
 							{ep.duration && <span class="ep-dur">⏱ {formatDuration(ep.duration)}</span>}
 						</div>
 						{ep.description && <p class="ep-desc">{ep.description}…</p>}
-						{ep.audio && (
-							<audio controls preload="none" class="player">
-								<source src={ep.audio} type="audio/mpeg" />
-							</audio>
-						)}
-						{ep.link && (
-							<a class="ep-link" href={ep.link} target="_blank" rel="noopener">在 Spotify 收聽 →</a>
+						{ep.embedUrl && (
+							<iframe
+								src={ep.embedUrl}
+								width="100%"
+								height="152"
+								frameborder="0"
+								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+								loading="lazy"
+								class="spotify-embed"
+							></iframe>
 						)}
 					</div>
 				))}
@@ -196,17 +207,11 @@ function formatDuration(s: string) {
 		margin: 0 0 0.8em;
 		line-height: 1.5;
 	}
-	.player {
-		width: 100%;
-		height: 40px;
-		margin-bottom: 0.6em;
+	.spotify-embed {
+		border-radius: 12px;
+		border: none;
+		display: block;
 	}
-	.ep-link {
-		font-size: 0.82em;
-		color: var(--accent);
-		text-decoration: none;
-	}
-	.ep-link:hover { text-decoration: underline; }
 
 	@media (max-width: 480px) {
 		.podcast-header { flex-direction: column; }

@@ -93,6 +93,15 @@ function formatDuration(s: string) {
 				</div>
 			</div>
 
+			<iframe
+				src="https://open.spotify.com/embed/show/033nZopH7VWW9G0RdIchZG?utm_source=generator"
+				width="100%"
+				height="450"
+				frameborder="0"
+				allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				class="spotify-show-embed"
+			></iframe>
+
 			<div class="episodes">
 				{episodes.map((ep, i) => (
 					<div class="episode">
@@ -105,16 +114,8 @@ function formatDuration(s: string) {
 							{ep.duration && <span class="ep-dur">⏱ {formatDuration(ep.duration)}</span>}
 						</div>
 						{ep.description && <p class="ep-desc">{ep.description}…</p>}
-						{ep.embedUrl && (
-							<iframe
-								src={ep.embedUrl}
-								width="100%"
-								height="152"
-								frameborder="0"
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-								class="spotify-embed"
-							></iframe>
+						{ep.link && (
+							<a class="ep-link" href={ep.link} target="_blank" rel="noopener">在 Spotify 收聽 →</a>
 						)}
 					</div>
 				))}
@@ -207,11 +208,18 @@ function formatDuration(s: string) {
 		margin: 0 0 0.8em;
 		line-height: 1.5;
 	}
-	.spotify-embed {
+	.spotify-show-embed {
 		border-radius: 12px;
 		border: none;
 		display: block;
+		margin-bottom: 2em;
 	}
+	.ep-link {
+		font-size: 0.82em;
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.ep-link:hover { text-decoration: underline; }
 
 	@media (max-width: 480px) {
 		.podcast-header { flex-direction: column; }

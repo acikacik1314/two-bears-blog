@@ -171,6 +171,23 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? ''
 
     .input-hint { font-size: .65em; color: #334155; text-align: center; margin-top: .4em; }
 
+    /* Rate limit notice */
+    .rate-notice {
+      display: flex; align-items: center; gap: .8em;
+      background: rgba(234,179,8,.08); border: 1px solid rgba(234,179,8,.25);
+      border-radius: 10px; padding: .7em 1em; font-size: .82em;
+    }
+    .rn-icon { font-size: 1.3em; flex-shrink: 0; }
+    .rn-text { flex: 1; color: #fde68a; line-height: 1.5; }
+    .rn-retry {
+      background: rgba(234,179,8,.2); border: 1px solid rgba(234,179,8,.3);
+      color: #fbbf24; border-radius: 20px; padding: .3em .9em;
+      font-size: .78em; font-weight: 700; cursor: pointer; font-family: inherit;
+      white-space: nowrap; transition: background .15s;
+    }
+    .rn-retry:hover { background: rgba(234,179,8,.35); }
+    .rn-retry:disabled { opacity: .5; cursor: not-allowed; }
+
     /* ── No AI state ── */
     .no-ai {
       flex: 1;
@@ -253,6 +270,8 @@ const messages = document.getElementById('messages')
 const input    = document.getElementById('user-input')
 const sendBtn  = document.getElementById('send-btn')
 const history  = []
+let pendingQuestion = null
+let countdownTimer  = null
 
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
@@ -274,6 +293,68 @@ function setLoading(isLoading) {
   if (input)   input.disabled   = isLoading
 }
 
+function buildRateNotice(secs) {
+  return `<div class="rate-notice">
+    <span class="rn-icon">⏳</span>
+    <span class="rn-text">AI額度暫時用完，請等 <strong id="rn-countdown">${secs}</strong> 秒後重試。</span>
+    <button class="rn-retry" id="rn-retry-btn" onclick="retryLast()" disabled>重試</button>
+  </div>`
+}
+
+function startCountdown(secs) {
+  if (countdownTimer) clearInterval(countdownTimer)
+  let remaining = secs
+  countdownTimer = setInterval(() => {
+    remaining--
+    const cd = document.getElementById('rn-countdown')
+    const btn = document.getElementById('rn-retry-btn')
+    if (cd) cd.textContent = remaining
+    if (remaining <= 0) {
+      clearInterval(countdownTimer)
+      countdownTimer = null
+      if (btn) btn.disabled = false
+    }
+  }, 1000)
+}
+
+async function callAPI(question, loadEl) {
+  try {
+    const r = await fetch('/api/biggsgpt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question, history: history.slice(-6) }),
+    })
+    const d = await r.json()
+
+    if (d.rateLimited) {
+      if (loadEl) {
+        loadEl.classList.remove('loading')
+        loadEl.querySelector('.msg-bubble').innerHTML = buildRateNotice(60)
+        startCountdown(60)
+      }
+      return
+    }
+
+    const answer = d.answer || '無法獲得回應，請稍後再試。'
+    if (loadEl) {
+      loadEl.classList.remove('loading')
+      loadEl.querySelector('.msg-bubble').textContent = answer
+    }
+    history.push({ role: 'ai', text: answer })
+    if (messages) messages.scrollTop = messages.scrollHeight
+    pendingQuestion = null
+  } catch {
+    if (loadEl) {
+      loadEl.classList.remove('loading')
+      loadEl.querySelector('.msg-bubble').textContent = '連線失敗，請稍後再試。'
+    }
+    pendingQuestion = null
+  } finally {
+    setLoading(false)
+    input?.focus()
+  }
+}
+
 async function sendMessage() {
   if (!input) return
   const question = input.value.trim()
@@ -283,35 +364,26 @@ async function sendMessage() {
   input.style.height = 'auto'
   setLoading(true)
 
-  // Hide quick btns after first message
   const qb = document.getElementById('quick-btns')
   if (qb) qb.style.display = 'none'
 
   appendMsg('user', question)
   history.push({ role: 'user', text: question })
+  pendingQuestion = question
 
   const loadEl = appendMsg('ai', '⏳ 分析中…', true)
+  await callAPI(question, loadEl)
+}
 
-  try {
-    const r = await fetch('/api/biggsgpt', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, history: history.slice(-6) }),
-    })
-    const d = await r.json()
-    const answer = d.answer || '無法獲得回應，請稍後再試。'
-    if (loadEl) {
-      loadEl.classList.remove('loading')
-      loadEl.querySelector('.msg-bubble').textContent = answer
-    }
-    history.push({ role: 'ai', text: answer })
-    messages.scrollTop = messages.scrollHeight
-  } catch {
-    if (loadEl) loadEl.querySelector('.msg-bubble').textContent = '連線失敗，請稍後再試。'
-  } finally {
-    setLoading(false)
-    input?.focus()
-  }
+window.retryLast = function() {
+  if (!pendingQuestion) return
+  if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null }
+  document.querySelectorAll('.msg.ai').forEach(msg => {
+    if (msg.querySelector('.rate-notice')) msg.remove()
+  })
+  setLoading(true)
+  const loadEl = appendMsg('ai', '⏳ 重新分析中…', true)
+  callAPI(pendingQuestion, loadEl)
 }
 
 window.sendQuick = function(btn) {

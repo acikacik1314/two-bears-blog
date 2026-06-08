@@ -5,6 +5,7 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { getSession } from '../utils/session'
+import { getCollection } from 'astro:content'
 
 const token = Astro.cookies.get('sb_session')?.value
 const user = token ? await getSession(token).catch(() => null) : null
@@ -13,6 +14,22 @@ const uName = user?.name ?? ''
 const uEmail = user?.email ?? ''
 const uPic  = user?.picture ?? ''
 const hasAI = !!(import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY)
+
+let recentPosts: { id: string; title: string; date: string; href: string }[] = []
+if (user) {
+  try {
+    const all = await getCollection('blog')
+    recentPosts = all
+      .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+      .slice(0, 8)
+      .map(p => ({
+        id: p.id,
+        title: String(p.data.title),
+        date: new Date(p.data.pubDate).toLocaleDateString('zh-TW'),
+        href: `/blog/${p.id}/`,
+      }))
+  } catch {}
+}
 ---
 
 <!doctype html>
@@ -107,6 +124,7 @@ const hasAI = !!(import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY)
     <!-- Tab nav -->
     <div class="mc-tabs">
       <button class="mc-tab active" data-tab="dashboard">📊 儀表板</button>
+      <button class="mc-tab" data-tab="secret">🔐 秘密情報</button>
       <button class="mc-tab" data-tab="prophecy">🔮 預言實驗室</button>
       <button class="mc-tab" data-tab="tools">🛠️ 生存工具</button>
       <button class="mc-tab" data-tab="community">💬 社群</button>
@@ -144,6 +162,19 @@ const hasAI = !!(import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY)
           <div class="mc-card-head"><span>📊</span><h3>進階生存指數 <span class="member-tag">會員解鎖</span></h3></div>
           <div id="adv-survival-wrap">
             <div class="mc-loading">載入中…</div>
+          </div>
+        </div>
+
+        <!-- Market snapshot -->
+        <div class="mc-card">
+          <div class="mc-card-head"><span>💹</span><h3>即時市場快照</h3></div>
+          <div class="mkt-grid" id="mkt-snap">
+            <div class="mkt-item"><div class="mkt-name">₿ BTC</div><div class="mkt-val" id="mkt-btc">—</div></div>
+            <div class="mkt-item"><div class="mkt-name">XRP</div><div class="mkt-val" id="mkt-xrp">—</div></div>
+            <div class="mkt-item"><div class="mkt-name">🏅 黃金</div><div class="mkt-val" id="mkt-gold">—</div></div>
+            <div class="mkt-item"><div class="mkt-name">😱 恐慌</div><div class="mkt-val" id="mkt-fng">—</div></div>
+            <div class="mkt-item"><div class="mkt-name">💱 USD/TWD</div><div class="mkt-val" id="mkt-twd">—</div></div>
+            <div class="mkt-item"><div class="mkt-name">⚡ VIX</div><div class="mkt-val" id="mkt-vix">—</div></div>
           </div>
         </div>
 
@@ -397,6 +428,110 @@ const hasAI = !!(import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY)
     </div>
 
     <!-- ══════════════════════════════════════ -->
+    <!-- TAB: 秘密情報                          -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="mc-panel" id="tab-secret">
+      <div class="sec-wrap">
+
+        <!-- Intelligence briefings -->
+        <div class="mc-card wide">
+          <div class="mc-card-head">
+            <span>🔐</span><h3>兩隻熊獨家情報站</h3>
+            <span class="member-tag">🔒 會員限定</span>
+          </div>
+          <div class="intel-grid">
+            <div class="intel-card">
+              <div class="intel-head">
+                <span class="intel-cat xrp">₿ 加密情報</span>
+                <span class="intel-date">本週更新</span>
+              </div>
+              <h4 class="intel-title">XRP 機構積累信號偵測</h4>
+              <p class="intel-body">鏈上數據顯示過去14天巨鯨地址（持有超過100萬 XRP）淨增加 4.2 億顆。結合 Ripple 與多家央行的 CBDC 合作進度，我們評估 Q3 前出現重大催化事件的機率為 67%。重點觀察：ODL 交易量突破前高。</p>
+              <div class="intel-foot"><span class="intel-signal up">📈 看多訊號</span><span class="intel-conf">信心度 67%</span></div>
+            </div>
+            <div class="intel-card">
+              <div class="intel-head">
+                <span class="intel-cat geo">🌍 地緣情報</span>
+                <span class="intel-date">本週更新</span>
+              </div>
+              <h4 class="intel-title">台海情勢：2026下半年警戒窗口</h4>
+              <p class="intel-body">綜合衛星圖像分析、解放軍調度模式與過往演習週期，我們識別出 9–10 月為潛在高風險窗口。建議會員此期間確保備災清單完成度達 80% 以上，並預備 2 週以上的糧食水源儲備。</p>
+              <div class="intel-foot"><span class="intel-signal warn">⚠️ 中等警戒</span><span class="intel-conf">信心度 54%</span></div>
+            </div>
+            <div class="intel-card">
+              <div class="intel-head">
+                <span class="intel-cat gold">🏅 黃金情報</span>
+                <span class="intel-date">本週更新</span>
+              </div>
+              <h4 class="intel-title">黃金衝破 3500 的五個條件</h4>
+              <p class="intel-body">Fed 降息預期升溫、中東情勢持續緊張、全球央行持續增持黃金、美元指數走弱趨勢、以及通膨數據反彈——這五個條件目前已滿足三個。若年底前再達成一個，我們預估黃金有70% 機率挑戰 $3500。</p>
+              <div class="intel-foot"><span class="intel-signal up">📈 看多訊號</span><span class="intel-conf">信心度 70%</span></div>
+            </div>
+            <div class="intel-card">
+              <div class="intel-head">
+                <span class="intel-cat spirit">🔮 靈性情報</span>
+                <span class="intel-date">本週更新</span>
+              </div>
+              <h4 class="intel-title">Baba Vanga 2026 預言交叉比對</h4>
+              <p class="intel-body">Baba Vanga 曾預言「2026年，歐亞大陸將出現前所未有的能源危機，促使一個意想不到的新聯盟誕生」。對照當前俄烏停火談判、歐盟能源重組、以及中東新格局，這個預言的完成度評分為 4.2/10，持續追蹤中。</p>
+              <div class="intel-foot"><span class="intel-signal neutral">🔮 持續追蹤</span><span class="intel-conf">完成度 42%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hot articles from blog -->
+        <div class="mc-card">
+          <div class="mc-card-head"><span>📰</span><h3>熊族精選文章</h3><span class="member-tag">最新發布</span></div>
+          {recentPosts.length > 0 ? (
+            <div class="sec-posts">
+              {recentPosts.map(p => (
+                <a href={p.href} class="sec-post-row" target="_blank" rel="noopener">
+                  <span class="sp-date">{p.date}</span>
+                  <span class="sp-title">{p.title}</span>
+                  <span class="sp-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="mc-empty">尚無文章</div>
+          )}
+        </div>
+
+        <!-- Upcoming exclusive content -->
+        <div class="mc-card">
+          <div class="mc-card-head"><span>🔮</span><h3>即將解鎖</h3><span class="member-tag">敬請期待</span></div>
+          <div class="upcoming-list">
+            <div class="up-item">
+              <div class="up-lock">🔒</div>
+              <div class="up-info">
+                <div class="up-title">末日倒數：完整時間線分析 2026–2030</div>
+                <div class="up-desc">兩隻熊歷時三個月整理的末日預言交叉比對報告，涵蓋 Nostradamus、Baba Vanga、聖經密碼與現代量子力學預言</div>
+              </div>
+              <div class="up-tag coming">製作中</div>
+            </div>
+            <div class="up-item">
+              <div class="up-lock">🔒</div>
+              <div class="up-info">
+                <div class="up-title">XRP 100 倍計劃：完整倉位策略</div>
+                <div class="up-desc">從零開始建立 XRP 倉位的完整指南，含停損設定、分批買入策略與最壞情境應對計畫</div>
+              </div>
+              <div class="up-tag coming">製作中</div>
+            </div>
+            <div class="up-item">
+              <div class="up-lock">🔒</div>
+              <div class="up-info">
+                <div class="up-title">台灣版末日生存手冊（完整版）</div>
+                <div class="up-desc">針對台灣特定情境（地震、颱風、戰爭、停電）設計的完整生存指南，附物資採購清單與疏散路線</div>
+              </div>
+              <div class="up-tag soon">即將發布</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
     <!-- TAB 5: AI助手                          -->
     <!-- ══════════════════════════════════════ -->
     <div class="mc-panel" id="tab-ai">
@@ -555,6 +690,38 @@ function updateTopbar(data) {
   if (tr) tr.textContent = `Lv ${lv.lv} ${lv.name}`
 }
 
+// ── MARKET SNAPSHOT ─────────────────────────────────────────────
+async function loadMarketSnapshot() {
+  try {
+    const [mktRes, fngRes, fxRes] = await Promise.allSettled([
+      fetch('/api/market'),
+      fetch('https://api.alternative.me/fng/?limit=1', { signal: AbortSignal.timeout(5000) }),
+      fetch('https://open.er-api.com/v6/latest/USD', { signal: AbortSignal.timeout(5000) }),
+    ])
+    const set = (id, val, cls) => { const el = document.getElementById(id); if (el) { el.textContent = val; if (cls) el.className = `mkt-val ${cls}`; } }
+    const fmt = (n, dec) => n == null ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: dec ?? (n >= 100 ? 0 : 4) })
+    const chg = (p) => p == null ? '' : ` ${p >= 0 ? '▲' : '▼'}${Math.abs(p).toFixed(1)}%`
+    if (mktRes.status === 'fulfilled' && mktRes.value.ok) {
+      const d = await mktRes.value.json()
+      const qs = {}; for (const q of (d.quotes ?? [])) qs[q.symbol] = q
+      const btc = d.crypto?.bitcoin; const xrp = d.crypto?.ripple
+      if (btc) set('mkt-btc', `$${fmt(btc.usd)}${chg(btc.usd_24h_change)}`, btc.usd_24h_change >= 0 ? 'up' : 'dn')
+      if (xrp) set('mkt-xrp', `$${fmt(xrp.usd, 4)}${chg(xrp.usd_24h_change)}`, xrp.usd_24h_change >= 0 ? 'up' : 'dn')
+      if (qs['GC=F']) set('mkt-gold', `$${fmt(qs['GC=F'].price)}${chg(qs['GC=F'].change)}`, (qs['GC=F'].change ?? 0) >= 0 ? 'up' : 'dn')
+      if (qs['^VIX']) { const v = qs['^VIX'].price; set('mkt-vix', fmt(v,1), v >= 30 ? 'dn' : v >= 20 ? 'warn' : 'up') }
+    }
+    if (fngRes.status === 'fulfilled' && fngRes.value.ok) {
+      const j = await fngRes.value.json(); const val = parseInt(j?.data?.[0]?.value)
+      const label = val >= 75 ? '極貪婪' : val >= 55 ? '貪婪' : val >= 45 ? '中立' : val >= 25 ? '恐懼' : '極恐懼'
+      set('mkt-fng', `${val} ${label}`, val >= 55 ? 'dn' : val <= 35 ? 'up' : 'warn')
+    }
+    if (fxRes.status === 'fulfilled' && fxRes.value.ok) {
+      const j = await fxRes.value.json(); const twd = j?.rates?.TWD
+      if (twd) set('mkt-twd', twd.toFixed(2), null)
+    }
+  } catch {}
+}
+
 // ── SURVIVAL INDEX ───────────────────────────────────────────────
 async function loadSurvival() {
   const wrap = document.getElementById('adv-survival-wrap')
@@ -589,18 +756,41 @@ async function loadCommunityProphecies() {
     if (tbWrap) tbWrap.textContent = list.length
     if (!list.length) { wrap.innerHTML = '<div class="mc-empty">尚無社群預言，來發第一則！</div>'; return }
     const data = load()
-    let html = ''
+    // Vote stats summary
+    const allVotes = Object.values(data.votes || {})
+    const hitCnt  = allVotes.filter(v => v === 'hit').length
+    const missCnt = allVotes.filter(v => v === 'miss').length
+    const pendCnt = allVotes.filter(v => v === 'pend').length
+    const total   = hitCnt + missCnt + pendCnt
+    let statsHtml = ''
+    if (total > 0) {
+      const hPct = Math.round(hitCnt / total * 100)
+      const mPct = Math.round(missCnt / total * 100)
+      const pPct = 100 - hPct - mPct
+      statsHtml = `<div class="vote-stats-bar">
+        <div class="vsb-label">你的投票分布 (共 ${total} 票)</div>
+        <div class="vsb-track">
+          <div class="vsb-hit"  style="width:${hPct}%" title="命中 ${hitCnt}">👍 ${hPct}%</div>
+          <div class="vsb-miss" style="width:${mPct}%" title="未命中 ${missCnt}">👎 ${mPct}%</div>
+          <div class="vsb-pend" style="width:${pPct}%" title="待觀察 ${pendCnt}">⏳ ${pPct}%</div>
+        </div>
+      </div>`
+    }
+    let html = statsHtml
     for (const p of list.slice(0,20)) {
       const myVote = data.votes?.[p.id]
       const catClrs = { '地緣政治':'#ef4444','加密貨幣':'#a855f7','自然災害':'#f97316','台灣':'#3b82f6','靈性預言':'#8b5cf6','其他':'#64748b' }
       const clr = catClrs[p.category] ?? '#64748b'
       const dl = p.deadline ? `<span class="proph-dl">截止 ${p.deadline}</span>` : ''
       const isMe = p.email === uEmail
+      const daysAgo = Math.floor((Date.now() - p.submittedAt) / 86400000)
+      const timeStr = daysAgo === 0 ? '今天' : daysAgo === 1 ? '昨天' : `${daysAgo}天前`
       html += `<div class="proph-card" data-id="${p.id}">
         <div class="proph-card-head">
           <span class="proph-cat-tag" style="background:${clr}">${p.category}</span>
           ${dl}
           ${isMe ? '<span class="proph-mine">我的</span>' : ''}
+          <span class="proph-time">${timeStr}</span>
           <span class="proph-author">${p.author}</span>
         </div>
         <div class="proph-card-text">${escHtml(p.content)}</div>
@@ -958,6 +1148,7 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
   updateChecklistPct(data)
   renderForum(data)
   initWish(data)
+  loadMarketSnapshot()
   loadSurvival()
   loadCommunityProphecies()
   loadLeaderboard()
@@ -1232,6 +1423,61 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
 .ai-input-row input { flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; color: #e2e8f0; padding: .7em 1em; font-size: .88em; }
 .ai-input-row input:focus { outline: none; border-color: rgba(168,85,247,.5); }
 .ai-send-btn { background: linear-gradient(135deg,#7e22ce,#6b21a8); color: white; border: none; border-radius: 10px; padding: .7em 1.5em; font-size: .88em; font-weight: 700; cursor: pointer; }
+
+/* ── MARKET SNAPSHOT ──────────────────────── */
+.mkt-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6em; }
+.mkt-item { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; padding: .7em .8em; }
+.mkt-name { font-size: .7em; color: #64748b; margin-bottom: .2em; }
+.mkt-val { font-size: .9em; font-weight: 700; color: #94a3b8; }
+.mkt-val.up   { color: #86efac; }
+.mkt-val.dn   { color: #fca5a5; }
+.mkt-val.warn { color: #fde68a; }
+
+/* ── VOTE STATS BAR ───────────────────────── */
+.vote-stats-bar { margin-bottom: 1em; padding: .7em; background: rgba(255,255,255,.03); border-radius: 8px; }
+.vsb-label { font-size: .7em; color: #64748b; margin-bottom: .4em; }
+.vsb-track { display: flex; height: 20px; border-radius: 10px; overflow: hidden; }
+.vsb-hit  { background: rgba(34,197,94,.4);  display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
+.vsb-miss { background: rgba(239,68,68,.4);  display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
+.vsb-pend { background: rgba(234,179,8,.35); display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
+.proph-time { font-size: .65em; color: #475569; }
+
+/* ── SECRET ARTICLES ──────────────────────── */
+.sec-wrap { display: flex; flex-direction: column; gap: 1em; }
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+.intel-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 1.1em; display: flex; flex-direction: column; gap: .5em; }
+.intel-head { display: flex; align-items: center; gap: .5em; }
+.intel-cat { font-size: .65em; font-weight: 800; color: white; padding: .2em .6em; border-radius: 20px; }
+.intel-cat.xrp    { background: linear-gradient(135deg,#7e22ce,#a855f7); }
+.intel-cat.geo    { background: linear-gradient(135deg,#991b1b,#ef4444); }
+.intel-cat.gold   { background: linear-gradient(135deg,#92400e,#f59e0b); }
+.intel-cat.spirit { background: linear-gradient(135deg,#1e3a5f,#3b82f6); }
+.intel-date { font-size: .65em; color: #475569; margin-left: auto; }
+.intel-title { font-size: .88em; font-weight: 700; color: #e2e8f0; margin: 0; }
+.intel-body { font-size: .78em; color: #94a3b8; line-height: 1.7; flex: 1; }
+.intel-foot { display: flex; align-items: center; gap: .6em; margin-top: auto; }
+.intel-signal { font-size: .7em; padding: .2em .6em; border-radius: 20px; font-weight: 700; }
+.intel-signal.up      { background: rgba(34,197,94,.15);  color: #86efac; }
+.intel-signal.warn    { background: rgba(239,68,68,.15);  color: #fca5a5; }
+.intel-signal.neutral { background: rgba(168,85,247,.15); color: #c084fc; }
+.intel-conf { font-size: .7em; color: #64748b; margin-left: auto; }
+/* Recent posts */
+.sec-posts { display: flex; flex-direction: column; gap: .3em; }
+.sec-post-row { display: flex; align-items: center; gap: .6em; padding: .55em .6em; border-radius: 8px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.04); transition: background .12s; }
+.sec-post-row:hover { background: rgba(168,85,247,.08); }
+.sp-date { font-size: .68em; color: #475569; white-space: nowrap; min-width: 80px; }
+.sp-title { flex: 1; font-size: .82em; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-arrow { font-size: .75em; color: #64748b; }
+/* Upcoming */
+.upcoming-list { display: flex; flex-direction: column; gap: .8em; }
+.up-item { display: flex; align-items: flex-start; gap: .8em; padding: .8em; background: rgba(255,255,255,.02); border-radius: 10px; border: 1px solid rgba(255,255,255,.06); }
+.up-lock { font-size: 1.2em; flex-shrink: 0; margin-top: .1em; }
+.up-info { flex: 1; }
+.up-title { font-size: .85em; font-weight: 700; color: #e2e8f0; margin-bottom: .3em; }
+.up-desc { font-size: .75em; color: #64748b; line-height: 1.6; }
+.up-tag { font-size: .65em; font-weight: 700; padding: .2em .6em; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: .2em; }
+.up-tag.coming { background: rgba(168,85,247,.2); color: #c084fc; }
+.up-tag.soon   { background: rgba(34,197,94,.2); color: #86efac; }
 
 /* ── RESPONSIVE ───────────────────────────── */
 @media (max-width: 900px) {

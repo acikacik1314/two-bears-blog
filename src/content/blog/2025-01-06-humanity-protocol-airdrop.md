@@ -5,6 +5,7 @@ pubDate: '2025-01-06'
 tags: ['加密貨幣', '空投', 'Web3', '區塊鏈']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071409043'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1484100356142-db6ab6244067?w=800&h=450&fit=crop'
 ---
 
 Sitemap

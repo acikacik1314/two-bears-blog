@@ -5,6 +5,7 @@ pubDate: '2021-04-23'
 tags: ['Chrome', '擴充功能', '耳機', '音效', '教學']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069607128'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1484100356142-db6ab6244067?w=800&h=450&fit=crop'
 ---
 
 混音師真的不好當，耳機成敗的關鍵竟然是在混音，混出來的音感是不是大眾覺得最好聽的，混音師真的是"壓力山大"呀，接下來介紹的google chrome 擴充功能 真的是愛貪小便宜的AC 的心頭好，直接拿出來推薦給大家，拯救你心疼的耳機之外還可以解救家中電腦音響的不足，如果真的有幫助到你請給一個"讚"~  

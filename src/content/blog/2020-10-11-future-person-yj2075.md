@@ -13,6 +13,7 @@ predictions:
     - '2031年第三次世界大戰爆發'
     - '日本首都遷往岡山'
     - '中國氣象控制系統實戰運用'
+heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 ---
 ![1602430712376.jpg](https://pic.pimg.tw/acikacik/1602430739-1078915067-g_l.jpg)
 

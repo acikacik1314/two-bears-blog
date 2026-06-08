@@ -5,6 +5,7 @@ pubDate: '2021-04-18'
 tags: ['房地產', '土地', '鶯歌', '新北市']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069587898'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop'
 ---
 
 # 出售 鳳鳴重劃區六十坪小坪數建地 適合自地自建

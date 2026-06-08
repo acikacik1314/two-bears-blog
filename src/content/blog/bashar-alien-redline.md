@@ -4,6 +4,7 @@ description: '頻道巴夏（Bashar）傳遞的宇宙訊息顯示，高維外星
 pubDate: '2026-05-22'
 tags: ['預言', '巴夏', '外星', '靈性', '和平']
 youtubePost: 'https://www.youtube.com/post/Ugkx3hvDGAaGULJ5bxQKraK7qPabgfBXP4Nj'
+heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
 ---
 
 ## 台灣處於歷史十字路口

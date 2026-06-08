@@ -5,6 +5,7 @@ pubDate: '2020-07-17'
 tags: ['代運', '美國購物', '集貨', '教學']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069141116'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800&h=450&fit=crop'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863903/blog/acikacik/1595170853-3928545908-g_l.jpg)

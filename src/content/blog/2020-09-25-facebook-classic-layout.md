@@ -5,6 +5,7 @@ pubDate: '2020-09-25'
 tags: ['Facebook', 'Chrome', '擴充功能', '教學']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069314301'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop'
 ---
 
 9 月開始電腦版臉書更新成新版，網路上一片哀嚎，雖然還是可以切換回經典版，  

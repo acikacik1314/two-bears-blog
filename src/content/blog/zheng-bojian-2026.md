@@ -4,6 +4,7 @@ description: '知名預言分析師鄭博見發出緊急警告，指出 2026 年
 pubDate: '2026-05-22'
 tags: ['預言', '鄭博見', '三戰', '2026', '末日']
 youtubePost: 'https://www.youtube.com/post/UgkxgE0576l8VFeKxSRjMjlWfbZJoskn4xzC'
+heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
 ---
 
 鄭博見在年初準確預言了盟友會互相拋棄，以下是他的年度預言中，我們該注意的內容。

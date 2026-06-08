@@ -4,6 +4,7 @@ description: 'RedotPay 是 2023 年成立於香港的金融科技公司，提供
 pubDate: '2025-04-06'
 tags: ['數位生活', '雜七雜八']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071489518'
+heroImage: 'https://images.unsplash.com/photo-1484100356142-db6ab6244067?w=800&h=450&fit=crop'
 ---
 
 RedotPay 推薦碼 dc7a9

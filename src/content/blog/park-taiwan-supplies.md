@@ -4,6 +4,7 @@ description: '預言家帕克再度發出緊急警告，強調台灣在全球局
 pubDate: '2026-05-22'
 tags: ['預言', '帕克', '台灣', '備災', '警告']
 youtubePost: 'https://www.youtube.com/post/UgkxH0eGpNFBC7vhtgwOPoqYRdBBBmsCM3OF'
+heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 ---
 
 帕克這次的警告比以往更為直接——他不只說「要出事」，他說「現在就開始準備物資」。

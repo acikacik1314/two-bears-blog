@@ -18,6 +18,7 @@ predictions:
     - '公共交通全面免費化'
     - '機器人婚姻合法化'
     - '日本首都遷往岡山'
+heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop'
 ---
 ![來自 2060 的未來人 KFK 未來預言 Q&A  (網路](https://pic.pimg.tw/acikacik/1593411031-1885580379-g.jpg)
 

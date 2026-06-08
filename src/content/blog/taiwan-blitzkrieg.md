@@ -14,6 +14,7 @@ predictions:
   pending:
     - '北韓加入中國陣線的時間點'
     - '半導體供應鏈重組的幅度'
+heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 ---
 
 ## 中國將在兩天內拿下台灣

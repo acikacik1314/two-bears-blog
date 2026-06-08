@@ -5,6 +5,7 @@ pubDate: '2025-01-07'
 tags: ['加密貨幣', '空投', 'Web3', '區塊鏈', 'MEC']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071410681'
 category: '其他'
+heroImage: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=450&fit=crop'
 ---
 
 https://acikacik.pixnet.net/blog/post/71410681 2025-01-07 monthly 0.8

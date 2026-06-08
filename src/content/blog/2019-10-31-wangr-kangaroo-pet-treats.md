@@ -5,6 +5,7 @@ pubDate: '2019-10-31'
 tags: ['開箱文', '寵物', '狗狗', '零食', '評測']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068472206'
 category: '評測'
+heroImage: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&h=450&fit=crop'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856768/blog/acikacik/1572533850-2988707193.jpg)

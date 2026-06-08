@@ -5,6 +5,7 @@ pubDate: '2019-12-10'
 tags: ['開箱文', '寵物', '狗狗', '口腔保健', '評測']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068566901'
 category: '評測'
+heroImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=450&fit=crop'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780858776/blog/acikacik/1576048801-936695118_l.jpg)

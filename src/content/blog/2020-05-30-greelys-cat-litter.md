@@ -5,6 +5,7 @@ pubDate: '2020-05-30'
 tags: ['開箱文', '貓砂', '寵物', '貓咪', '評測']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069002016'
 category: '評測'
+heroImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=450&fit=crop'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780861813/blog/acikacik/1590850505-130103784_l.jpg)

@@ -4,6 +4,7 @@ description: '過去預言多次命中的帕克，最新預警 2028 年台海將
 pubDate: '2026-05-22'
 tags: ['台灣', '預言', '帕克', '2028']
 youtubePost: 'https://www.youtube.com/post/UgkxgwLewITuw7n7Ex-scw8Gr-IJ45h96qVr'
+heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 ---
 
 以下整理五月一日到五月十六日**帕克（Parker）**對於台灣的預言內容。

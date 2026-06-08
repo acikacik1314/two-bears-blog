@@ -4,6 +4,7 @@ description: '多次精準預言的印度預言家阿南德，宣稱第三次世
 pubDate: '2026-05-22'
 tags: ['預言', '阿南德', '三戰', '美元', 'AI', '加密貨幣']
 youtubePost: 'https://www.youtube.com/post/UgkxMpH0xbFNunmQyuy7dwDViohAeiRAffzE'
+heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h=450&fit=crop'
 ---
 
 阿南德（Anand）的預言紀錄令人印象深刻——他過去的多次預言已陸續應驗，所以當他說「三戰已經開打了」，沒有人敢輕忽。

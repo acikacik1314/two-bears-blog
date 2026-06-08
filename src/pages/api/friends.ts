@@ -36,12 +36,17 @@ async function loadProfiles(): Promise<Profile[]> {
   }
 }
 
-async function saveProfiles(profiles: Profile[]) {
-  await put(BLOB_KEY, JSON.stringify(profiles), {
-    access: 'public',
-    addRandomSuffix: false,
-    contentType: 'application/json',
-  });
+async function saveProfiles(profiles: Profile[]): Promise<boolean> {
+  try {
+    await put(BLOB_KEY, JSON.stringify(profiles), {
+      access: 'public',
+      addRandomSuffix: false,
+      contentType: 'application/json',
+    });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export const GET: APIRoute = async () => {
@@ -81,7 +86,8 @@ export const POST: APIRoute = async ({ request }) => {
       time: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false }),
     };
     profile.comments.push(comment);
-    await saveProfiles(profiles);
+    const saved = await saveProfiles(profiles);
+    if (!saved) return new Response(JSON.stringify({ ok: true, comment, noStorage: true }));
     return new Response(JSON.stringify({ ok: true, comment }));
   }
 
@@ -113,6 +119,7 @@ export const POST: APIRoute = async ({ request }) => {
   };
 
   profiles.unshift(profile); // newest first
-  await saveProfiles(profiles);
+  const saved = await saveProfiles(profiles);
+  if (!saved) return new Response(JSON.stringify({ ok: false, noStorage: true }));
   return new Response(JSON.stringify({ ok: true, profile }));
 };

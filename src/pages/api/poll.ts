@@ -65,9 +65,13 @@ export const POST: APIRoute = async ({ request }) => {
   }
   const votes = await getVotes(weekKey);
   votes[option] = (votes[option] ?? 0) + 1;
-  await put(`poll/${weekKey}.json`, JSON.stringify(votes), {
-    access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
-  });
+  try {
+    await put(`poll/${weekKey}.json`, JSON.stringify(votes), {
+      access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
+  } catch {
+    return new Response(JSON.stringify({ ok: false, noStorage: true }));
+  }
   return new Response(JSON.stringify({ ok: true, votes }), {
     headers: { 'Content-Type': 'application/json' },
   });

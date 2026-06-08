@@ -51,9 +51,13 @@ export const POST: APIRoute = async ({ request }) => {
   });
   messages.push({ text, time });
 
-  await put(`messages/${date}.json`, JSON.stringify(messages), {
-    access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
-  });
+  try {
+    await put(`messages/${date}.json`, JSON.stringify(messages), {
+      access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
+  } catch {
+    return new Response(JSON.stringify({ ok: false, noStorage: true }));
+  }
   return new Response(JSON.stringify({ ok: true }), {
     headers: { 'Content-Type': 'application/json' },
   });

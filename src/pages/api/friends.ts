@@ -23,7 +23,12 @@ interface Profile {
   comments: Comment[];
 }
 
+function hasStorage() {
+  return !!(process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN);
+}
+
 async function loadProfiles(): Promise<Profile[]> {
+  if (!hasStorage()) return [];
   try {
     const { blobs } = await list({ prefix: 'friends/' });
     const blob = blobs.find(b => b.pathname === BLOB_KEY);
@@ -37,6 +42,7 @@ async function loadProfiles(): Promise<Profile[]> {
 }
 
 async function saveProfiles(profiles: Profile[]): Promise<boolean> {
+  if (!hasStorage()) return false;
   try {
     await put(BLOB_KEY, JSON.stringify(profiles), {
       access: 'public',

@@ -29,10 +29,14 @@ function getPoll(weekKey: string) {
   return POLLS[Math.abs(h) % POLLS.length];
 }
 
+function hasStorage() {
+  return !!(process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN);
+}
+
 async function getVotes(weekKey: string): Promise<Record<string, number>> {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return {};
+  if (!hasStorage()) return {};
   try {
-    const { blobs } = await list({ prefix: 'poll/', token: process.env.BLOB_READ_WRITE_TOKEN });
+    const { blobs } = await list({ prefix: 'poll/' });
     const blob = blobs.find(b => b.pathname === `poll/${weekKey}.json`);
     if (!blob) return {};
     const r = await fetch(blob.url);
@@ -50,7 +54,7 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  if (!hasStorage()) {
     return new Response(JSON.stringify({ ok: false, noStorage: true }), { status: 200 });
   }
   const weekKey = getWeekKey();
@@ -67,7 +71,7 @@ export const POST: APIRoute = async ({ request }) => {
   votes[option] = (votes[option] ?? 0) + 1;
   try {
     await put(`poll/${weekKey}.json`, JSON.stringify(votes), {
-      access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
+      access: 'public', addRandomSuffix: false,
     });
   } catch {
     return new Response(JSON.stringify({ ok: false, noStorage: true }));

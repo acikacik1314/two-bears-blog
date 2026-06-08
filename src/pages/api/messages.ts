@@ -4,14 +4,18 @@ import { put, list } from '@vercel/blob';
 const MAX_PER_DAY = 50;
 const MAX_LEN = 40;
 
+function hasStorage() {
+  return !!(process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN);
+}
+
 function getTWDate() {
   return new Date().toLocaleString('sv', { timeZone: 'Asia/Taipei' }).split(' ')[0];
 }
 
 async function getMessages(date: string): Promise<{ text: string; time: string }[]> {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return [];
+  if (!hasStorage()) return [];
   try {
-    const { blobs } = await list({ prefix: 'messages/', token: process.env.BLOB_READ_WRITE_TOKEN });
+    const { blobs } = await list({ prefix: 'messages/' });
     const blob = blobs.find(b => b.pathname === `messages/${date}.json`);
     if (!blob) return [];
     const r = await fetch(blob.url);
@@ -28,7 +32,7 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+  if (!hasStorage()) {
     return new Response(JSON.stringify({ ok: false, noStorage: true }), { status: 200 });
   }
   let text: string;
@@ -53,7 +57,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     await put(`messages/${date}.json`, JSON.stringify(messages), {
-      access: 'public', addRandomSuffix: false, token: process.env.BLOB_READ_WRITE_TOKEN,
+      access: 'public', addRandomSuffix: false,
     });
   } catch {
     return new Response(JSON.stringify({ ok: false, noStorage: true }));

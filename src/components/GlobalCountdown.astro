@@ -1,0 +1,39 @@
+---
+---
+<div class="gc-wrap">
+  <div class="gc-title">⏳ 全球倒數計時</div>
+  <div class="gc-grid" id="gc-grid">
+    <div class="gc-item" data-target="2026-12-25" data-label="🎄 聖誕節"><span class="gc-days">…</span><span class="gc-lbl">🎄 聖誕節</span></div>
+    <div class="gc-item" data-target="2027-01-01" data-label="⏰ 2027年"><span class="gc-days">…</span><span class="gc-lbl">⏰ 2027年</span></div>
+    <div class="gc-item" data-target="2028-04-20" data-label="₿ BTC減半"><span class="gc-days">…</span><span class="gc-lbl">₿ BTC減半</span></div>
+    <div class="gc-item" data-target="2044-02-04" data-label="🔯 九運結束"><span class="gc-days">…</span><span class="gc-lbl">🔯 九運結束</span></div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.gc-item').forEach(el => {
+    const target = new Date(el.dataset.target!).getTime();
+    const daysEl = el.querySelector('.gc-days')!;
+    const days = Math.ceil((target - Date.now()) / 86400000);
+    daysEl.textContent = days > 0 ? `${days.toLocaleString()}天` : '已到達';
+  });
+</script>
+
+<style>
+.gc-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1em;
+}
+.gc-title { font-size: .78em; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .7em; }
+.gc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5em; }
+.gc-item {
+  background: rgba(168,85,247,.06);
+  border: 1px solid rgba(168,85,247,.12);
+  border-radius: 8px; padding: .6em .7em;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.gc-days { font-size: 1.1em; font-weight: 900; color: #c084fc; }
+.gc-lbl { font-size: .65em; color: #64748b; margin-top: .15em; }
+</style>

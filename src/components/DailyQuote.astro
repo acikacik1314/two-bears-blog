@@ -1,0 +1,48 @@
+---
+const QUOTES = [
+  { text: '當你注意到的時候，它已經是那樣了。', author: '國分玲' },
+  { text: '不是時機不對，而是你還沒準備好。', author: 'KFK' },
+  { text: '歷史不會重演，但它會押韻。', author: 'Parker' },
+  { text: '真相不需要辯護，謊言才需要。', author: 'Biggs' },
+  { text: '黑暗之前，必有更深的黑暗。黎明之前，才是最黑的時刻。', author: 'Baba Vanga' },
+  { text: '金錢是最後一道防線，而那道防線正在鬆動。', author: 'Biggs' },
+  { text: '你所恐懼的，往往比你所預期的更快到來。', author: 'KFK' },
+  { text: '地球在呼吸，只是我們忘了傾聽。', author: '國分玲' },
+  { text: '所有的預言，都是給那些願意聽的人說的。', author: 'Parker' },
+  { text: '當鳥不再歌唱，那才是真正的警報。', author: 'Baba Vanga' },
+  { text: '未來不是被預測的，而是被選擇的。', author: 'Anand' },
+  { text: '在系統崩潰之前，它會假裝一切正常。', author: 'Biggs' },
+  { text: '2027年，是所有預言的交叉點。', author: 'KFK' },
+  { text: '台灣是這個時代的鏡子。', author: '國分玲' },
+];
+
+const dayIdx = Math.floor(Date.now() / 86400000);
+const quote = QUOTES[dayIdx % QUOTES.length];
+---
+
+<div class="dq-wrap">
+  <div class="dq-icon">💬</div>
+  <blockquote class="dq-text">「{quote.text}」</blockquote>
+  <div class="dq-author">— {quote.author}</div>
+</div>
+
+<style>
+.dq-wrap {
+  background: linear-gradient(135deg, rgba(88,28,135,0.15), rgba(15,23,42,0.8));
+  border: 1px solid rgba(168,85,247,0.15);
+  border-radius: 16px;
+  padding: 1.5em 2em;
+  text-align: center;
+  margin-top: 1.5em;
+}
+.dq-icon { font-size: 1.5em; margin-bottom: .5em; opacity: .7; }
+.dq-text {
+  font-size: 1em;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.7;
+  margin: 0 0 .6em;
+  font-style: italic;
+}
+.dq-author { font-size: .8em; color: #a855f7; font-weight: 700; }
+</style>

@@ -7,10 +7,14 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
-import DailyFortune from '../components/DailyFortune.astro';
-import EarthquakeWidget from '../components/EarthquakeWidget.astro';
-import MessageWall from '../components/MessageWall.astro';
+import TodayPanel from '../components/TodayPanel.astro';
+import DailyProphecy from '../components/DailyProphecy.astro';
+import GlobalCountdown from '../components/GlobalCountdown.astro';
+import SurvivalIndex from '../components/SurvivalIndex.astro';
+import TodayEvents from '../components/TodayEvents.astro';
+import DailyQuote from '../components/DailyQuote.astro';
 import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
+import MessageWall from '../components/MessageWall.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
 import ProphecyPoll from '../components/ProphecyPoll.astro';
 import NewsWidget from '../components/NewsWidget.astro';
@@ -22,27 +26,21 @@ try {
 } catch {}
 
 const allPosts = await getCollection('blog');
-
 const CATEGORY_ORDER: Record<string, number> = { '預言': 0, '評測': 1, '旅遊': 2, '影片': 3 };
 
 function categoryPriority(post: CollectionEntry<'blog'>): number {
 	const cat = getPostCategory(post);
 	return cat && cat in CATEGORY_ORDER ? CATEGORY_ORDER[cat] : 3;
 }
-
 function score(post: CollectionEntry<'blog'>): number {
 	const slug = `/blog/${post.id.replace(/\.mdx?$/, '')}/`;
 	const views = viewCounts[slug] ?? 0;
-	const ageMs = Date.now() - new Date(post.data.pubDate).getTime();
-	const ageDays = ageMs / 86400000;
-	const recencyBonus = Math.max(0, 30 - ageDays) * 2;
-	return views + recencyBonus;
+	const ageDays = (Date.now() - new Date(post.data.pubDate).getTime()) / 86400000;
+	return views + Math.max(0, 30 - ageDays) * 2;
 }
-
 const posts = allPosts.sort((a, b) => {
-	const catDiff = categoryPriority(a) - categoryPriority(b);
-	if (catDiff !== 0) return catDiff;
-	return score(b) - score(a);
+	const d = categoryPriority(a) - categoryPriority(b);
+	return d !== 0 ? d : score(b) - score(a);
 });
 
 function getThumbnail(post: CollectionEntry<'blog'>): string | null {
@@ -53,7 +51,6 @@ function getThumbnail(post: CollectionEntry<'blog'>): string | null {
 	}
 	return null;
 }
-
 const CATEGORY_GRADIENTS: Record<string, string> = {
 	'預言': 'linear-gradient(135deg,#1a1a2e,#c0392b)',
 	'影片': 'linear-gradient(135deg,#0f3460,#16213e)',
@@ -61,7 +58,6 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 	'評測': 'linear-gradient(135deg,#4a00e0,#8e2de2)',
 	'其他': 'linear-gradient(135deg,#373b44,#4286f4)',
 };
-
 const CATEGORY_ICONS: Record<string, string> = {
 	'預言': '🔮', '影片': '🎬', '旅遊': '✈️', '評測': '📦', '其他': '📝',
 };
@@ -69,401 +65,265 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 <!doctype html>
 <html lang="zh-TW">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main class="home-main">
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+<body>
+<Header />
+<main class="home-main">
 
-			<!-- ── Hero ── -->
-			<section class="hero-section">
-				<div class="hero-badge">⏳ 時空情報觀測站</div>
-				<h1 class="hero-title">
-					誰說旅遊只能留在當下？<br/>
-					<span class="hero-accent">兩隻熊帶你橫跨時空</span>
-				</h1>
-				<p class="hero-sub">探索未來預言家的洞見、世界金融趨勢分析與真相拆解。<br class="hide-mobile"/>不只記錄風景，更記錄時代的演變。</p>
-				<a href="/fortune/" class="hero-cta">🔮 命理分析 — 輸入生日算八字</a>
-			</section>
+	<!-- ── Hero ── -->
+	<section class="hero-section">
+		<div class="hero-inner">
+			<div class="hero-badge">🔥 今日世界異象觀測站</div>
+			<h1 class="hero-title">每天追蹤全球預言<br/><span class="hero-accent">國際局勢・虛擬貨幣・生存資訊</span></h1>
+			<div class="hero-btns">
+				<a href="/blog?cat=預言" class="hero-btn btn-prophecy">🔮 今日預言</a>
+				<a href="/blog?cat=影片" class="hero-btn btn-video">📺 最新影片</a>
+				<a href="/blog" class="hero-btn btn-news">🚨 全球異常事件</a>
+			</div>
+		</div>
+	</section>
 
-			<!-- ── Leaderboard ── -->
-			<section class="lb-section">
-				<ProphecyLeaderboard />
-			</section>
+	<!-- ── Top grid: hero-body + events ── -->
+	<div class="top-grid">
+		<!-- Left: today panel + prophecy -->
+		<div class="left-top">
+			<div class="prophet-row">
+				<TodayPanel />
+				<DailyProphecy />
+			</div>
+		</div>
+		<!-- Right: events feed -->
+		<aside class="right-top">
+			<TodayEvents />
+			<MultiCityWeather />
+		</aside>
+	</div>
 
-			<!-- ── Main grid: articles + tools ── -->
-			<div class="content-grid">
+	<!-- ── Leaderboard full width ── -->
+	<section class="lb-section">
+		<ProphecyLeaderboard />
+	</section>
 
-				<!-- Articles (left 2/3) -->
-				<section class="articles-section">
-					<div class="section-heading">
-						<span class="sh-icon">📰</span>
-						<h2 class="sh-title">最新情報觀測</h2>
-					</div>
-					<ul class="posts-grid">
-						{posts.map((post) => {
-							const cat = getPostCategory(post);
-							const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
-							const thumb = getThumbnail(post);
-							const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
-							const icon = CATEGORY_ICONS[cat] ?? '📝';
-							return (
-								<li class="post-card">
-									<a href={`/blog/${post.id}/`}>
-										<div class="post-thumb">
-											{thumb ? (
-												<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
-											) : (
-												<div class="post-placeholder" style={`background:${gradient}`}>
-													<span class="ph-icon">{icon}</span>
-													<span class="ph-cat">{cat}</span>
-												</div>
-											)}
-											<span class="cat-tag" style={`background:${color}`}>{cat}</span>
+	<!-- ── Main grid: articles + sidebar ── -->
+	<div class="content-grid">
+
+		<!-- Articles -->
+		<section class="articles-section">
+			<div class="section-heading">
+				<span class="sh-icon">✨</span>
+				<h2 class="sh-title">最新文章與趨勢觀測</h2>
+				<span class="sh-sub">今天發生什麼事</span>
+			</div>
+			<ul class="posts-grid">
+				{posts.map((post) => {
+					const cat = getPostCategory(post);
+					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
+					const thumb = getThumbnail(post);
+					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
+					const icon = CATEGORY_ICONS[cat] ?? '📝';
+					return (
+						<li class="post-card">
+							<a href={`/blog/${post.id}/`}>
+								<div class="post-thumb">
+									{thumb ? (
+										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
+									) : (
+										<div class="post-placeholder" style={`background:${gradient}`}>
+											<span class="ph-icon">{icon}</span>
+											<span class="ph-cat">{cat}</span>
 										</div>
-										<div class="post-body">
-											<h4 class="post-title">{post.data.title}</h4>
-											<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
-										</div>
-									</a>
-								</li>
-							);
-						})}
-					</ul>
-				</section>
+									)}
+									<span class="cat-tag" style={`background:${color}`}>{cat}</span>
+								</div>
+								<div class="post-body">
+									<h4 class="post-title">{post.data.title}</h4>
+									<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
+								</div>
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+		</section>
 
-				<!-- Sidebar tools (right 1/3) -->
-				<aside class="tools-sidebar">
-					<div class="section-heading">
-						<span class="sh-icon">🛠️</span>
-						<h2 class="sh-title">觀測生存工具箱</h2>
-					</div>
+		<!-- Sidebar tools -->
+		<aside class="tools-sidebar">
 
-					<!-- Tab buttons -->
-					<div class="tab-bar">
-						<button class="tab-btn active" data-tab="daily">📅 今日指引</button>
-						<button class="tab-btn" data-tab="survival">🛡 防災</button>
-						<button class="tab-btn" data-tab="soul">🕯 心靈</button>
-					</div>
-
-					<div class="tab-content active" id="tab-daily">
-						<DailyFortune />
-					</div>
-					<div class="tab-content" id="tab-survival">
-						<EarthquakeWidget />
-					</div>
-					<div class="tab-content" id="tab-soul">
-						<MessageWall />
-					</div>
-
-					<div class="sidebar-extra">
-						<div class="section-heading" style="margin-top:0.5em">
-							<span class="sh-icon">📡</span>
-							<h2 class="sh-title">即時新聞</h2>
-						</div>
-						<NewsWidget />
-					</div>
-					<div class="sidebar-extra">
-						<MultiCityWeather />
-					</div>
-					<div class="sidebar-extra">
-						<ProphecyPoll />
-					</div>
-				</aside>
+			<!-- Survival + countdown section -->
+			<div class="section-heading">
+				<span class="sh-icon">🔴</span>
+				<h2 class="sh-title">全球倒數計時 & 今日生存指數</h2>
 			</div>
 
-		</main>
-		<Footer />
-	</body>
+			<div class="tab-bar">
+				<button class="tab-btn active" data-tab="guide">📅 今日指引</button>
+				<button class="tab-btn" data-tab="survival">🛡 生存防災</button>
+				<button class="tab-btn" data-tab="soul">🕯 心靈互動</button>
+			</div>
+			<div class="tab-content active" id="tab-guide">
+				<GlobalCountdown />
+				<SurvivalIndex />
+			</div>
+			<div class="tab-content" id="tab-survival">
+				<SurvivalIndex />
+			</div>
+			<div class="tab-content" id="tab-soul">
+				<MessageWall />
+			</div>
+
+			<ProphecyPoll />
+			<NewsWidget />
+		</aside>
+	</div>
+
+	<!-- ── Daily Quote ── -->
+	<DailyQuote />
+
+</main>
+<Footer />
+</body>
 </html>
 
 <script>
   const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
   const tabContents = document.querySelectorAll<HTMLElement>('.tab-content');
-
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      tabContents.forEach(c => {
-        c.classList.toggle('active', c.id === `tab-${target}`);
-      });
+      tabContents.forEach(c => c.classList.toggle('active', c.id === `tab-${target}`));
     });
   });
 </script>
 
 <style>
-	.home-main {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 1.2em 4em;
-		width: 100%;
-	}
+.home-main { max-width: 1200px; margin: 0 auto; padding: 0 1.2em 4em; width: 100%; }
 
-	/* ── Hero ── */
-	.hero-section {
-		position: relative;
-		background: linear-gradient(135deg, #0f172a 0%, rgba(88,28,135,0.25) 50%, #0f172a 100%);
-		border: 1px solid rgba(168,85,247,0.15);
-		border-radius: 20px;
-		padding: 2.5em 2em;
-		margin: 1.5em 0 1.2em;
-		overflow: hidden;
-	}
+/* ── Hero ── */
+.hero-section {
+	background: linear-gradient(135deg, #0f172a 0%, rgba(88,28,135,0.3) 50%, #0f172a 100%);
+	border: 1px solid rgba(168,85,247,0.15);
+	border-radius: 20px;
+	padding: 2em 2em 1.8em;
+	margin: 1.5em 0 1.2em;
+	position: relative;
+	overflow: hidden;
+}
+.hero-section::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 70% 30%, rgba(168,85,247,0.12), transparent 60%);
+	pointer-events: none;
+}
+.hero-inner { position: relative; }
+.hero-badge {
+	display: inline-flex; align-items: center; gap: .4em;
+	background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.25);
+	color: #f87171; font-size: .72em; font-weight: 800;
+	padding: .3em .9em; border-radius: 20px; margin-bottom: .8em;
+	letter-spacing: .04em;
+}
+.hero-title {
+	font-size: clamp(1.5em, 3.5vw, 2.4em);
+	font-weight: 900; color: #f1f5f9; line-height: 1.2; margin-bottom: .8em;
+}
+.hero-accent {
+	background: linear-gradient(135deg, #a855f7, #ec4899);
+	-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-btns { display: flex; flex-wrap: wrap; gap: .6em; }
+.hero-btn {
+	display: inline-flex; align-items: center; gap: .3em;
+	font-size: .85em; font-weight: 700; padding: .55em 1.2em;
+	border-radius: 10px; text-decoration: none; transition: transform .15s, box-shadow .15s;
+}
+.hero-btn:hover { transform: translateY(-2px); }
+.btn-prophecy { background: linear-gradient(135deg,#7e22ce,#6b21a8); color:white; box-shadow:0 4px 16px rgba(126,34,206,.4); }
+.btn-video    { background: linear-gradient(135deg,#1e40af,#1d4ed8); color:white; box-shadow:0 4px 16px rgba(30,64,175,.4); }
+.btn-news     { background: linear-gradient(135deg,#9f1239,#be185d); color:white; box-shadow:0 4px 16px rgba(159,18,57,.4); }
+.hero-btn:hover { color: white; }
 
-	.hero-section::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(circle at 70% 30%, rgba(168,85,247,0.12), transparent 60%);
-		pointer-events: none;
-	}
+/* ── Top grid ── */
+.top-grid {
+	display: grid;
+	grid-template-columns: 1fr 340px;
+	gap: 1.2em;
+	margin-bottom: 1.2em;
+	align-items: start;
+}
+.prophet-row {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 1em;
+	align-items: start;
+}
+.right-top { display: flex; flex-direction: column; gap: .8em; }
 
-	.hero-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4em;
-		background: rgba(168,85,247,0.1);
-		border: 1px solid rgba(168,85,247,0.25);
-		color: #c084fc;
-		font-size: 0.72em;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		padding: 0.3em 0.9em;
-		border-radius: 20px;
-		margin-bottom: 1em;
-	}
+/* ── Leaderboard ── */
+.lb-section { margin-bottom: 1.2em; }
 
-	.hero-title {
-		font-size: clamp(1.6em, 4vw, 2.6em);
-		font-weight: 900;
-		color: #f1f5f9;
-		line-height: 1.25;
-		margin-bottom: 0.6em;
-	}
+/* ── Content grid ── */
+.content-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1.5em; align-items: start; }
 
-	.hero-accent {
-		background: linear-gradient(135deg, #a855f7, #ec4899);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
+/* ── Section heading ── */
+.section-heading { display: flex; align-items: center; gap: .5em; margin-bottom: 1em; padding-bottom: .6em; border-bottom: 1px solid rgba(255,255,255,.07); }
+.sh-icon { font-size: 1.1em; }
+.sh-title { font-size: .95em; font-weight: 700; color: #e2e8f0; margin: 0; text-transform: uppercase; letter-spacing: .04em; }
+.sh-sub { font-size: .72em; color: #64748b; margin-left: .5em; font-weight: 400; text-transform: none; }
 
-	.hero-sub {
-		color: #94a3b8;
-		font-size: 0.95em;
-		line-height: 1.7;
-		margin-bottom: 1.2em;
-	}
+/* ── Post grid ── */
+.posts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .9em; list-style: none; margin: 0; padding: 0; }
+.post-card a {
+	display: flex; flex-direction: column;
+	background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+	border-radius: 12px; overflow: hidden; text-decoration: none; height: 100%;
+	transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.post-card a:hover { transform: translateY(-3px); border-color: rgba(168,85,247,.3); box-shadow: 0 8px 24px rgba(168,85,247,.12); }
+.post-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #0f172a; }
+.post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .85; transition: transform .3s, opacity .3s; }
+.post-card a:hover .post-thumb img { transform: scale(1.05); opacity: 1; }
+.post-placeholder { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3em; }
+.ph-icon { font-size: 2em; opacity: .9; }
+.ph-cat { font-size: .7em; color: rgba(255,255,255,.7); font-weight: 700; }
+.cat-tag { position:absolute;top:.4em;left:.4em;color:white;padding:.12em .45em;border-radius:5px;font-size:.65em;font-weight:700;backdrop-filter:blur(4px); }
+.post-body { padding: .65em .75em; flex: 1; }
+.post-title { margin:0 0 .3em;font-size:.82em;font-weight:700;color:#e2e8f0;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
+.post-card a:hover .post-title { color: #c084fc; }
+.post-date { margin: 0; font-size: .7em; color: #94a3b8; }
 
-	.hero-cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4em;
-		background: linear-gradient(135deg, #7e22ce, #be185d);
-		color: white;
-		font-size: 0.9em;
-		font-weight: 700;
-		padding: 0.65em 1.5em;
-		border-radius: 12px;
-		text-decoration: none;
-		box-shadow: 0 4px 20px rgba(168,85,247,0.3);
-		transition: transform 0.15s, box-shadow 0.15s;
-	}
+/* ── Sidebar ── */
+.tools-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1em; }
+.tab-bar { display: grid; grid-template-columns: repeat(3,1fr); gap: .3em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .3em; }
+.tab-btn { background: transparent; border: none; color: #94a3b8; font-size: .72em; font-weight: 600; padding: .45em .3em; border-radius: 7px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+.tab-btn.active { background: rgba(168,85,247,.2); color: #c084fc; }
+.tab-btn:hover:not(.active) { color: #e2e8f0; background: rgba(255,255,255,.04); }
+.tab-content { display: none; }
+.tab-content.active { display: flex; flex-direction: column; gap: .8em; }
 
-	.hero-cta:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 28px rgba(168,85,247,0.45);
-		color: white;
-	}
-
-	/* ── Leaderboard section ── */
-	.lb-section {
-		margin-bottom: 1.2em;
-	}
-
-	/* ── Content grid ── */
-	.content-grid {
-		display: grid;
-		grid-template-columns: 1fr 380px;
-		gap: 1.5em;
-		align-items: start;
-	}
-
-	/* ── Section heading ── */
-	.section-heading {
-		display: flex;
-		align-items: center;
-		gap: 0.5em;
-		margin-bottom: 1em;
-		padding-bottom: 0.6em;
-		border-bottom: 1px solid rgba(255,255,255,0.07);
-	}
-
-	.sh-icon { font-size: 1.1em; }
-
-	.sh-title {
-		font-size: 1em;
-		font-weight: 700;
-		color: #e2e8f0;
-		margin: 0;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-	}
-
-	/* ── Post grid ── */
-	.posts-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.9em;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.post-card a {
-		display: flex;
-		flex-direction: column;
-		background: rgba(255,255,255,0.03);
-		border: 1px solid rgba(255,255,255,0.07);
-		border-radius: 12px;
-		overflow: hidden;
-		text-decoration: none;
-		height: 100%;
-		transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-	}
-
-	.post-card a:hover {
-		transform: translateY(-3px);
-		border-color: rgba(168,85,247,0.3);
-		box-shadow: 0 8px 24px rgba(168,85,247,0.12);
-	}
-
-	.post-thumb {
-		position: relative;
-		aspect-ratio: 16/9;
-		overflow: hidden;
-		background: #0f172a;
-	}
-
-	.post-thumb img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-		opacity: 0.85;
-		transition: transform 0.3s, opacity 0.3s;
-	}
-
-	.post-card a:hover .post-thumb img {
-		transform: scale(1.05);
-		opacity: 1;
-	}
-
-	.post-placeholder {
-		width: 100%; height: 100%;
-		display: flex; flex-direction: column;
-		align-items: center; justify-content: center;
-		gap: 0.3em;
-	}
-
-	.ph-icon { font-size: 2em; opacity: 0.9; }
-	.ph-cat { font-size: 0.7em; color: rgba(255,255,255,0.7); font-weight: 700; }
-
-	.cat-tag {
-		position: absolute;
-		top: 0.4em; left: 0.4em;
-		color: white;
-		padding: 0.12em 0.45em;
-		border-radius: 5px;
-		font-size: 0.65em;
-		font-weight: 700;
-		backdrop-filter: blur(4px);
-	}
-
-	.post-body { padding: 0.65em 0.75em; flex: 1; }
-
-	.post-title {
-		margin: 0 0 0.3em;
-		font-size: 0.82em;
-		font-weight: 700;
-		color: #e2e8f0;
-		line-height: 1.4;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-
-	.post-card a:hover .post-title { color: #c084fc; }
-
-	.post-date {
-		margin: 0;
-		font-size: 0.7em;
-		color: #94a3b8;
-	}
-
-	/* ── Sidebar ── */
-	.tools-sidebar {
-		position: sticky;
-		top: 100px;
-		display: flex;
-		flex-direction: column;
-		gap: 1em;
-	}
-
-	.tab-bar {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.3em;
-		background: rgba(255,255,255,0.04);
-		border: 1px solid rgba(255,255,255,0.07);
-		border-radius: 10px;
-		padding: 0.3em;
-	}
-
-	.tab-btn {
-		background: transparent;
-		border: none;
-		color: #94a3b8;
-		font-size: 0.72em;
-		font-weight: 600;
-		padding: 0.45em 0.3em;
-		border-radius: 7px;
-		cursor: pointer;
-		transition: all 0.15s;
-		white-space: nowrap;
-	}
-
-	.tab-btn.active {
-		background: rgba(168,85,247,0.2);
-		color: #c084fc;
-	}
-
-	.tab-btn:hover:not(.active) { color: #94a3b8; background: rgba(255,255,255,0.04); }
-
-	.tab-content { display: none; }
-	.tab-content.active { display: block; }
-
-	.sidebar-extra { /* MultiCityWeather + ProphecyPoll */ }
-
-	/* ── Responsive ── */
-	@media (max-width: 1000px) {
-		.content-grid { grid-template-columns: 1fr; }
-		.tools-sidebar { position: static; }
-		.posts-grid { grid-template-columns: repeat(3, 1fr); }
-	}
-
-	@media (max-width: 700px) {
-		.posts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6em; }
-		.hero-section { padding: 1.5em 1em; }
-		.hide-mobile { display: none; }
-	}
-
-	@media (max-width: 480px) {
-		.posts-grid { grid-template-columns: repeat(2, 1fr); }
-	}
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+	.top-grid { grid-template-columns: 1fr; }
+	.right-top { flex-direction: row; flex-wrap: wrap; }
+	.right-top > * { flex: 1; min-width: 240px; }
+}
+@media (max-width: 900px) {
+	.content-grid { grid-template-columns: 1fr; }
+	.tools-sidebar { position: static; }
+	.posts-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 700px) {
+	.prophet-row { grid-template-columns: 1fr; }
+	.posts-grid { grid-template-columns: repeat(2,1fr); gap: .6em; }
+	.hero-section { padding: 1.5em 1em; }
+	.hero-btns { gap: .4em; }
+	.hero-btn { font-size: .78em; padding: .5em .9em; }
+}
+@media (max-width: 480px) {
+	.posts-grid { grid-template-columns: repeat(2,1fr); }
+}
 </style>

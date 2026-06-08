@@ -1,3 +1,4 @@
+export const prerender = false;
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
@@ -13,7 +14,7 @@ export const GET: APIRoute = async () => {
   await Promise.allSettled([
     // Stocks + VIX via Yahoo Finance (try query2/v8 first, fall back to query1/v7)
     (async () => {
-      const symbols = '%5ETWII,%5EGSPC,%5EVIX';
+      const symbols = '%5ETWII,%5EGSPC,%5EVIX,%5EIXIC,CL%3DF';
       let d: any = null;
       try {
         const r = await fetch(

@@ -1,0 +1,245 @@
+---
+export const prerender = false
+
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import { getSession, getSubscribers } from '../../utils/session'
+import { getCollection } from 'astro:content'
+
+const ADMIN_EMAIL = import.meta.env.ADMIN_EMAIL || 'acikacik@gmail.com'
+const token = Astro.cookies.get('sb_session')?.value
+const user = token ? await getSession(token).catch(() => null) : null
+
+if (!user || user.email !== ADMIN_EMAIL) {
+  return Astro.redirect('/')
+}
+
+const subscribers = await getSubscribers()
+const allPosts = await getCollection('blog')
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 10)
+---
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead title="發送電子報 — TwoBears" description="管理員電子報發送" />
+</head>
+<body>
+<Header />
+<main class="nl-main">
+  <div class="nl-header">
+    <h1 class="nl-title">📨 發送電子報</h1>
+    <div class="nl-stats">
+      <span class="nl-stat">👥 訂閱人數：<strong>{subscribers.length}</strong></span>
+    </div>
+  </div>
+
+  <!-- Quick-fill from recent posts -->
+  <div class="nl-section">
+    <h2 class="nl-sh">最近文章（點擊快速填入）</h2>
+    <div class="nl-posts">
+      {recentPosts.map(p => (
+        <button
+          class="nl-post-btn"
+          data-title={p.data.title}
+          data-slug={`/blog/${p.id}/`}
+          data-date={new Date(p.data.pubDate).toLocaleDateString('zh-TW')}
+          data-desc={p.data.description ?? ''}
+        >
+          <span class="nl-post-title">{p.data.title}</span>
+          <span class="nl-post-date">{new Date(p.data.pubDate).toLocaleDateString('zh-TW')}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Compose form -->
+  <div class="nl-section">
+    <h2 class="nl-sh">撰寫內容</h2>
+    <div class="nl-form">
+      <label class="nl-label">主旨</label>
+      <input type="text" id="nl-subject" class="nl-input" placeholder="例：【TwoBears】今日最新預言報告" />
+
+      <label class="nl-label">HTML 內容</label>
+      <textarea id="nl-body" class="nl-textarea" rows="16" placeholder="輸入 HTML 或純文字內容..."></textarea>
+
+      <div class="nl-actions">
+        <button class="nl-preview-btn" id="nl-preview-btn">👁 預覽</button>
+        <button class="nl-send-btn" id="nl-send-btn">📤 發送給所有訂閱者（{subscribers.length} 人）</button>
+      </div>
+
+      <div id="nl-result" class="nl-result" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- Preview modal -->
+  <div class="nl-preview-modal" id="nl-preview-modal" style="display:none">
+    <div class="nl-preview-inner">
+      <button class="nl-close-btn" id="nl-close-btn">✕ 關閉</button>
+      <iframe id="nl-preview-frame" class="nl-preview-frame"></iframe>
+    </div>
+  </div>
+
+  <!-- Subscriber list -->
+  {subscribers.length > 0 && (
+    <div class="nl-section">
+      <h2 class="nl-sh">訂閱名單（{subscribers.length} 人）</h2>
+      <div class="nl-sub-list">
+        {subscribers.map(s => (
+          <div class="nl-sub-item">
+            <span class="nl-sub-name">{s.name}</span>
+            <span class="nl-sub-email">{s.email}</span>
+            <span class="nl-sub-date">{new Date(s.subscribedAt).toLocaleDateString('zh-TW')}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</main>
+<Footer />
+</body>
+</html>
+
+<script>
+const SITE = 'https://twobears.vercel.app'
+
+// Quick-fill from post buttons
+document.querySelectorAll<HTMLButtonElement>('.nl-post-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const title = btn.dataset.title ?? ''
+    const slug = btn.dataset.slug ?? ''
+    const date = btn.dataset.date ?? ''
+    const desc = btn.dataset.desc ?? ''
+    const subject = document.getElementById('nl-subject') as HTMLInputElement
+    const body = document.getElementById('nl-body') as HTMLTextAreaElement
+    subject.value = `【TwoBears預言家】${title}`
+    body.value = `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#0f172a;color:#e2e8f0;padding:2em;border-radius:12px;">
+  <h1 style="color:#c084fc;font-size:1.4em;margin-bottom:.5em;">${title}</h1>
+  <p style="color:#94a3b8;font-size:.85em;margin-bottom:1.5em;">${date}</p>
+  ${desc ? `<p style="color:#cbd5e1;line-height:1.7;margin-bottom:1.5em;">${desc}</p>` : ''}
+  <a href="${SITE}${slug}" style="display:inline-block;background:linear-gradient(135deg,#7e22ce,#a855f7);color:white;text-decoration:none;padding:.7em 1.5em;border-radius:8px;font-weight:700;">閱讀完整文章 →</a>
+  <hr style="margin:2em 0;border-color:rgba(255,255,255,.1);">
+  <p style="font-size:.75em;color:#475569;">您收到此信件是因為您透過 Google 帳號訂閱了 TwoBears 預言家。<br><a href="${SITE}" style="color:#7c3aed;">取消訂閱</a></p>
+</div>`
+  })
+})
+
+// Preview
+document.getElementById('nl-preview-btn')?.addEventListener('click', () => {
+  const body = (document.getElementById('nl-body') as HTMLTextAreaElement).value
+  const modal = document.getElementById('nl-preview-modal') as HTMLElement
+  const frame = document.getElementById('nl-preview-frame') as HTMLIFrameElement
+  modal.style.display = 'flex'
+  frame.srcdoc = body
+})
+document.getElementById('nl-close-btn')?.addEventListener('click', () => {
+  ;(document.getElementById('nl-preview-modal') as HTMLElement).style.display = 'none'
+})
+
+// Send
+document.getElementById('nl-send-btn')?.addEventListener('click', async () => {
+  const subject = (document.getElementById('nl-subject') as HTMLInputElement).value.trim()
+  const html = (document.getElementById('nl-body') as HTMLTextAreaElement).value.trim()
+  const result = document.getElementById('nl-result') as HTMLElement
+
+  if (!subject || !html) {
+    result.style.display = 'block'
+    result.className = 'nl-result nl-error'
+    result.textContent = '請填寫主旨和內容'
+    return
+  }
+
+  const btn = document.getElementById('nl-send-btn') as HTMLButtonElement
+  btn.disabled = true
+  btn.textContent = '發送中…'
+
+  try {
+    const res = await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subject, html }),
+    })
+    const data = await res.json()
+    result.style.display = 'block'
+    result.className = `nl-result ${data.sent > 0 ? 'nl-success' : 'nl-error'}`
+    result.textContent = `✅ 成功發送 ${data.sent} 封，失敗 ${data.failed} 封`
+  } catch {
+    result.style.display = 'block'
+    result.className = 'nl-result nl-error'
+    result.textContent = '發送失敗，請稍後再試'
+  } finally {
+    btn.disabled = false
+    btn.textContent = `📤 發送給所有訂閱者`
+  }
+})
+</script>
+
+<style>
+.nl-main { max-width: 900px; margin: 0 auto; padding: 2em 1.2em 4em; }
+.nl-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2em; flex-wrap: wrap; gap: .8em; }
+.nl-title { font-size: 1.5em; font-weight: 900; color: #e2e8f0; margin: 0; }
+.nl-stat { font-size: .85em; color: #94a3b8; }
+.nl-stat strong { color: #c084fc; }
+
+.nl-section { margin-bottom: 2em; }
+.nl-sh { font-size: .82em; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .8em; }
+
+.nl-posts { display: flex; flex-wrap: wrap; gap: .5em; }
+.nl-post-btn {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 8px; padding: .4em .8em; cursor: pointer; text-align: left;
+  transition: border-color .15s, background .15s;
+}
+.nl-post-btn:hover { border-color: rgba(168,85,247,.4); background: rgba(168,85,247,.06); }
+.nl-post-title { display: block; font-size: .78em; font-weight: 600; color: #e2e8f0; }
+.nl-post-date { display: block; font-size: .65em; color: #475569; margin-top: .1em; }
+
+.nl-form { display: flex; flex-direction: column; gap: .8em; }
+.nl-label { font-size: .78em; font-weight: 600; color: #94a3b8; }
+.nl-input, .nl-textarea {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px; color: #e2e8f0; font-size: .85em; padding: .7em 1em;
+  font-family: inherit; resize: vertical;
+}
+.nl-input:focus, .nl-textarea:focus { outline: none; border-color: rgba(168,85,247,.5); }
+
+.nl-actions { display: flex; gap: .8em; flex-wrap: wrap; }
+.nl-preview-btn, .nl-send-btn {
+  padding: .6em 1.4em; border-radius: 8px; font-size: .85em; font-weight: 700;
+  cursor: pointer; border: none; transition: opacity .15s;
+}
+.nl-preview-btn { background: rgba(255,255,255,.1); color: #e2e8f0; }
+.nl-send-btn { background: linear-gradient(135deg,#7e22ce,#a855f7); color: white; }
+.nl-send-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.nl-result { padding: .7em 1em; border-radius: 8px; font-size: .82em; font-weight: 600; margin-top: .3em; }
+.nl-success { background: rgba(34,197,94,.1); color: #4ade80; border: 1px solid rgba(34,197,94,.2); }
+.nl-error { background: rgba(239,68,68,.1); color: #f87171; border: 1px solid rgba(239,68,68,.2); }
+
+.nl-preview-modal {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7);
+  z-index: 1000; align-items: center; justify-content: center; padding: 1em;
+}
+.nl-preview-inner {
+  background: #1e1b2e; border-radius: 12px; width: 100%; max-width: 700px;
+  height: 80vh; display: flex; flex-direction: column; overflow: hidden;
+}
+.nl-close-btn {
+  background: none; border: none; color: #94a3b8; cursor: pointer;
+  font-size: .82em; padding: .7em 1em; text-align: right; align-self: flex-end;
+}
+.nl-preview-frame { flex: 1; border: none; background: white; }
+
+.nl-sub-list { display: flex; flex-direction: column; gap: .3em; }
+.nl-sub-item {
+  display: flex; align-items: center; gap: 1em;
+  padding: .5em .8em; background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06); border-radius: 8px; font-size: .78em;
+}
+.nl-sub-name { color: #e2e8f0; font-weight: 600; min-width: 100px; }
+.nl-sub-email { color: #94a3b8; flex: 1; }
+.nl-sub-date { color: #475569; white-space: nowrap; }
+</style>

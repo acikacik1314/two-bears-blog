@@ -1,6 +1,7 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import UserMenu from './UserMenu.astro';
 ---
 
 <!-- Ticker bar -->
@@ -8,26 +9,34 @@ import HeaderLink from './HeaderLink.astro';
   <div class="ticker-inner">
     <div class="ticker-track" id="ticker-track">
       <span class="ticker-label">⚡ 即時觀測</span>
-      <span class="ticker-item" id="t-btc">🪙 BTC <span class="t-wait">載入中…</span></span>
-      <span class="ticker-item" id="t-xrp">XRP <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-usdtwd">💱 USD/TWD <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-jpytwd">JPY/TWD <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-sp500">📊 S&P500 <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-twii">台股 <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-gold">🏅 黃金 <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-weather">🌏 台北天氣 <span class="t-wait">載入中…</span></span>
+      <span class="ticker-item" id="t-vix">⚡ VIX <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-oil">🛢 油價 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-xrp">XRP <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-nasdaq">📈 NASDAQ <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-sp500">📊 S&P500 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-fng">😱 恐慌貪婪 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-cnytwd">🇨🇳 CNY/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-usdtwd">💱 USD/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-btc">🪙 BTC <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-twii">台股 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-weather">🌏 台北天氣 <span class="t-wait">—</span></span>
     </div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-track ticker-track-dup" aria-hidden="true">
       <span class="ticker-label">⚡ 即時觀測</span>
-      <span class="ticker-item">🪙 BTC <span id="t-btc2" class="t-wait">—</span></span>
-      <span class="ticker-item">XRP <span id="t-xrp2" class="t-wait">—</span></span>
-      <span class="ticker-item">💱 USD/TWD <span id="t-usdtwd2" class="t-wait">—</span></span>
-      <span class="ticker-item">JPY/TWD <span id="t-jpytwd2" class="t-wait">—</span></span>
-      <span class="ticker-item">📊 S&P500 <span id="t-sp5002" class="t-wait">—</span></span>
-      <span class="ticker-item">台股 <span id="t-twii2" class="t-wait">—</span></span>
-      <span class="ticker-item">🏅 黃金 <span id="t-gold2" class="t-wait">—</span></span>
-      <span class="ticker-item">🌏 台北天氣 <span id="t-weather2" class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-gold2">🏅 黃金 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-vix2">⚡ VIX <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-oil2">🛢 油價 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-xrp2">XRP <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-nasdaq2">📈 NASDAQ <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-sp5002">📊 S&P500 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-fng2">😱 恐慌貪婪 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-cnytwd2">🇨🇳 CNY/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-usdtwd2">💱 USD/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-btc2">🪙 BTC <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-twii2">台股 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-weather2">🌏 台北天氣 <span class="t-wait">—</span></span>
     </div>
   </div>
 </div>
@@ -39,13 +48,17 @@ import HeaderLink from './HeaderLink.astro';
       <span class="logo-bears">🐻🐻</span>
       <span class="logo-title">{SITE_TITLE}</span>
     </a>
-    <nav class="site-nav">
-      <HeaderLink href="/">首頁</HeaderLink>
-      <HeaderLink href="/blog">文章</HeaderLink>
-      <HeaderLink href="/fortune">命理</HeaderLink>
-      <HeaderLink href="/friends">交友</HeaderLink>
-      <HeaderLink href="/about">關於</HeaderLink>
-    </nav>
+    <div class="header-right">
+      <nav class="site-nav">
+        <HeaderLink href="/">首頁</HeaderLink>
+        <HeaderLink href="/blog">文章</HeaderLink>
+        <HeaderLink href="/podcast">播客</HeaderLink>
+        <HeaderLink href="/fortune">命理</HeaderLink>
+        <HeaderLink href="/friends">交友</HeaderLink>
+        <HeaderLink href="/about">關於</HeaderLink>
+      </nav>
+      <UserMenu />
+    </div>
   </div>
 </header>
 
@@ -82,7 +95,14 @@ import HeaderLink from './HeaderLink.astro';
       if (xrp) setTicker('xrp', `XRP <span class="text-purple-300">$${fmt(xrp.usd, 4)}${chg(xrp.usd_24h_change)}</span>`);
       if (qs['^GSPC']) setTicker('sp500', `📊 S&P500 <span>${fmt(qs['^GSPC'].price)}${chg(qs['^GSPC'].change)}</span>`);
       if (qs['^TWII']) setTicker('twii', `台股 <span>${fmt(qs['^TWII'].price)}${chg(qs['^TWII'].change)}</span>`);
-      if (qs['GC=F']) setTicker('gold', `🏅 黃金 <span class="text-yellow-300">$${fmt(qs['GC=F'].price)}</span>`);
+      if (qs['GC=F']) setTicker('gold', `🏅 黃金 <span class="text-yellow-300">$${fmt(qs['GC=F'].price)}${chg(qs['GC=F'].change)}</span>`);
+      if (qs['^VIX']) {
+        const v = qs['^VIX'].price;
+        const vcls = v >= 30 ? 'text-red-400' : v >= 20 ? 'text-yellow-300' : 'text-green-400';
+        setTicker('vix', `⚡ VIX <span class="${vcls}">${fmt(v, 1)}</span>`);
+      }
+      if (qs['^IXIC']) setTicker('nasdaq', `📈 NASDAQ <span>${fmt(qs['^IXIC'].price)}${chg(qs['^IXIC'].change)}</span>`);
+      if (qs['CL=F']) setTicker('oil', `🛢 油價 <span class="text-orange-300">$${fmt(qs['CL=F'].price, 2)}</span>`);
     } catch {}
   }
 
@@ -93,9 +113,12 @@ import HeaderLink from './HeaderLink.astro';
       if (j?.result !== 'success') return;
       const twd = j.rates?.TWD;
       const jpy = j.rates?.JPY;
+      const cny = j.rates?.CNY;
       const jpytwd = twd && jpy ? twd / jpy : null;
+      const cnytwd = twd && cny ? twd / cny : null;
       if (twd) setTicker('usdtwd', `💱 USD/TWD <span class="text-blue-300">${twd.toFixed(2)}</span>`);
       if (jpytwd) setTicker('jpytwd', `JPY/TWD <span class="text-blue-300">${jpytwd.toFixed(4)}</span>`);
+      if (cnytwd) setTicker('cnytwd', `🇨🇳 CNY/TWD <span class="text-blue-300">${cnytwd.toFixed(4)}</span>`);
     } catch {}
   }
 
@@ -111,12 +134,27 @@ import HeaderLink from './HeaderLink.astro';
     } catch {}
   }
 
+  async function loadFearGreed() {
+    try {
+      const r = await fetch('https://api.alternative.me/fng/?limit=1', { signal: AbortSignal.timeout(8000) });
+      const j = await r.json();
+      const d = j?.data?.[0];
+      if (!d) return;
+      const val = parseInt(d.value);
+      const cls = val >= 75 ? 'text-red-400' : val >= 55 ? 'text-orange-300' : val >= 45 ? 'text-yellow-300' : val >= 25 ? 'text-blue-300' : 'text-purple-400';
+      const label = val >= 75 ? '極度貪婪' : val >= 55 ? '貪婪' : val >= 45 ? '中立' : val >= 25 ? '恐懼' : '極度恐懼';
+      setTicker('fng', `😱 恐慌貪婪 <span class="${cls}">${val} (${label})</span>`);
+    } catch {}
+  }
+
   loadMarket();
   loadCurrency();
   loadWeather();
+  loadFearGreed();
   setInterval(loadMarket, 60000);
   setInterval(loadCurrency, 300000);
   setInterval(loadWeather, 600000);
+  setInterval(loadFearGreed, 3600000);
 </script>
 
 <style>
@@ -143,11 +181,11 @@ import HeaderLink from './HeaderLink.astro';
     display: flex;
     gap: 0;
     white-space: nowrap;
-    animation: marquee 35s linear infinite;
+    animation: ticker-scroll 50s linear infinite;
     flex-shrink: 0;
   }
 
-  @keyframes marquee {
+  @keyframes ticker-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
   }
@@ -206,6 +244,12 @@ import HeaderLink from './HeaderLink.astro';
     -webkit-text-fill-color: transparent;
     background-clip: text;
     white-space: nowrap;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
   }
 
   .site-nav {

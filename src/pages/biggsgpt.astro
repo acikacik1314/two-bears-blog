@@ -1,0 +1,338 @@
+---
+export const prerender = false
+const hasAI = !!(import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY)
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? ''
+---
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>比格斯 GPT — 兩隻熊末日預言助手</title>
+  <meta name="description" content="AI末日預言助手，解讀國分玲、Nostradamus、XRP預言，台灣觀點生存情報" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* ── Header ── */
+    .gpt-header {
+      display: flex;
+      align-items: center;
+      gap: .7em;
+      padding: .8em 1.2em;
+      background: rgba(15,23,42,0.98);
+      border-bottom: 1px solid rgba(168,85,247,.25);
+      flex-shrink: 0;
+    }
+    .gpt-avatar {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, #7e22ce, #a855f7);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
+    .gpt-title { font-size: .95em; font-weight: 800; color: #e2e8f0; }
+    .gpt-sub { font-size: .68em; color: #64748b; margin-top: .1em; }
+    .gpt-status {
+      margin-left: auto;
+      display: flex; align-items: center; gap: .4em;
+      font-size: .7em; color: #64748b;
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .4; }
+    }
+
+    /* ── Messages ── */
+    .gpt-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1em 1.2em;
+      display: flex;
+      flex-direction: column;
+      gap: .8em;
+      scroll-behavior: smooth;
+    }
+    .gpt-messages::-webkit-scrollbar { width: 4px; }
+    .gpt-messages::-webkit-scrollbar-track { background: transparent; }
+    .gpt-messages::-webkit-scrollbar-thumb { background: rgba(168,85,247,.3); border-radius: 2px; }
+
+    .msg { display: flex; gap: .6em; max-width: 90%; }
+    .msg.user { flex-direction: row-reverse; align-self: flex-end; }
+    .msg.ai   { align-self: flex-start; }
+    .msg-av {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85em; flex-shrink: 0; margin-top: .1em;
+    }
+    .msg.ai .msg-av   { background: linear-gradient(135deg,#7e22ce,#a855f7); }
+    .msg.user .msg-av { background: rgba(255,255,255,.1); }
+    .msg-bubble {
+      padding: .65em .95em;
+      border-radius: 14px;
+      font-size: .85em;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+    .msg.ai   .msg-bubble { background: rgba(255,255,255,.07); color: #cbd5e1; border-radius: 4px 14px 14px 14px; }
+    .msg.user .msg-bubble { background: linear-gradient(135deg,#7e22ce,#6b21a8); color: white; border-radius: 14px 4px 14px 14px; }
+    .msg.ai.loading .msg-bubble { color: #64748b; }
+
+    /* Greeting / welcome */
+    .welcome-card {
+      background: linear-gradient(135deg, rgba(88,28,135,.25), rgba(15,23,42,.5));
+      border: 1px solid rgba(168,85,247,.2);
+      border-radius: 14px;
+      padding: 1.2em;
+      margin-bottom: .5em;
+    }
+    .wc-title { font-size: .92em; font-weight: 800; color: #e2e8f0; margin-bottom: .4em; }
+    .wc-desc { font-size: .78em; color: #94a3b8; line-height: 1.6; }
+
+    /* Quick questions */
+    .quick-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4em;
+      padding: 0 1.2em .6em;
+      flex-shrink: 0;
+    }
+    .q-btn {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #94a3b8;
+      border-radius: 20px;
+      padding: .35em .9em;
+      font-size: .75em;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .q-btn:hover { background: rgba(168,85,247,.15); color: #c084fc; border-color: rgba(168,85,247,.3); }
+
+    /* ── Input area ── */
+    .gpt-input-area {
+      padding: .8em 1.2em 1em;
+      border-top: 1px solid rgba(255,255,255,.07);
+      flex-shrink: 0;
+    }
+    .gpt-input-row {
+      display: flex;
+      gap: .5em;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: .4em .4em .4em .9em;
+      align-items: flex-end;
+    }
+    .gpt-input-row:focus-within { border-color: rgba(168,85,247,.5); }
+    #user-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #e2e8f0;
+      font-size: .88em;
+      font-family: inherit;
+      resize: none;
+      max-height: 120px;
+      line-height: 1.5;
+      padding: .25em 0;
+    }
+    #user-input::placeholder { color: #475569; }
+    .send-btn {
+      background: linear-gradient(135deg, #7e22ce, #6b21a8);
+      border: none;
+      border-radius: 9px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: opacity .15s, transform .15s;
+      flex-shrink: 0;
+    }
+    .send-btn:hover { opacity: .85; transform: scale(1.05); }
+    .send-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .send-btn svg { width: 16px; height: 16px; fill: white; }
+
+    .input-hint { font-size: .65em; color: #334155; text-align: center; margin-top: .4em; }
+
+    /* ── No AI state ── */
+    .no-ai {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2em;
+      text-align: center;
+      gap: .8em;
+    }
+    .no-ai-icon { font-size: 3em; }
+    .no-ai h3 { color: #e2e8f0; font-size: 1em; }
+    .no-ai p { color: #64748b; font-size: .82em; line-height: 1.6; }
+    .no-ai code { background: rgba(255,255,255,.1); padding: .1em .4em; border-radius: 4px; }
+
+    @media (max-width: 500px) {
+      .gpt-header { padding: .6em .9em; }
+      .gpt-messages { padding: .7em .9em; }
+      .quick-btns { padding: 0 .9em .5em; }
+      .gpt-input-area { padding: .6em .9em .8em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="gpt-header">
+  <div class="gpt-avatar">🐻</div>
+  <div>
+    <div class="gpt-title">比格斯 GPT</div>
+    <div class="gpt-sub">末日預言研究助手 · 兩隻熊</div>
+  </div>
+  <div class="gpt-status">
+    <div class="status-dot"></div>
+    <span id="status-txt">{hasAI ? '線上' : '未啟用'}</span>
+  </div>
+</div>
+
+{hasAI ? (
+  <>
+    <!-- Messages -->
+    <div class="gpt-messages" id="messages">
+      <div class="welcome-card">
+        <div class="wc-title">🔮 歡迎來到比格斯 GPT</div>
+        <div class="wc-desc">我是兩隻熊的AI預言研究助手。可以問我關於：已知預言家的觀點、台海局勢分析、XRP / 比特幣走勢、末日生存準備，或任何神秘學問題。</div>
+      </div>
+    </div>
+
+    <!-- Quick questions -->
+    <div class="quick-btns" id="quick-btns">
+      <button class="q-btn" onclick="sendQuick(this)">🔮 國分玲最新預言</button>
+      <button class="q-btn" onclick="sendQuick(this)">₿ XRP會到27美元嗎？</button>
+      <button class="q-btn" onclick="sendQuick(this)">🇹🇼 台灣今年最大風險</button>
+      <button class="q-btn" onclick="sendQuick(this)">🌍 Nostradamus 2026</button>
+      <button class="q-btn" onclick="sendQuick(this)">🎒 末日備災要準備什麼</button>
+    </div>
+
+    <!-- Input -->
+    <div class="gpt-input-area">
+      <div class="gpt-input-row">
+        <textarea id="user-input" placeholder="問我任何預言、末日、加密貨幣問題…" rows="1" maxlength="500"></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div class="input-hint">比格斯 GPT · 由 Gemini AI 驅動 · 僅供娛樂參考</div>
+    </div>
+  </>
+) : (
+  <div class="no-ai">
+    <div class="no-ai-icon">🤖</div>
+    <h3>比格斯 GPT 尚未啟用</h3>
+    <p>請管理員設定 <code>GEMINI_API_KEY</code> 環境變數後重新部署，即可啟用此功能。</p>
+  </div>
+)}
+
+<script>
+const messages = document.getElementById('messages')
+const input    = document.getElementById('user-input')
+const sendBtn  = document.getElementById('send-btn')
+const history  = []
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+}
+
+function appendMsg(role, text, isLoading = false) {
+  if (!messages) return null
+  const div = document.createElement('div')
+  div.className = `msg ${role}${isLoading ? ' loading' : ''}`
+  const av = role === 'ai' ? '🐻' : '👤'
+  div.innerHTML = `<div class="msg-av">${av}</div><div class="msg-bubble">${escHtml(text)}</div>`
+  messages.appendChild(div)
+  messages.scrollTop = messages.scrollHeight
+  return div
+}
+
+function setLoading(isLoading) {
+  if (sendBtn) sendBtn.disabled = isLoading
+  if (input)   input.disabled   = isLoading
+}
+
+async function sendMessage() {
+  if (!input) return
+  const question = input.value.trim()
+  if (!question) return
+
+  input.value = ''
+  input.style.height = 'auto'
+  setLoading(true)
+
+  // Hide quick btns after first message
+  const qb = document.getElementById('quick-btns')
+  if (qb) qb.style.display = 'none'
+
+  appendMsg('user', question)
+  history.push({ role: 'user', text: question })
+
+  const loadEl = appendMsg('ai', '⏳ 分析中…', true)
+
+  try {
+    const r = await fetch('/api/biggsgpt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question, history: history.slice(-6) }),
+    })
+    const d = await r.json()
+    const answer = d.answer || '無法獲得回應，請稍後再試。'
+    if (loadEl) {
+      loadEl.classList.remove('loading')
+      loadEl.querySelector('.msg-bubble').textContent = answer
+    }
+    history.push({ role: 'ai', text: answer })
+    messages.scrollTop = messages.scrollHeight
+  } catch {
+    if (loadEl) loadEl.querySelector('.msg-bubble').textContent = '連線失敗，請稍後再試。'
+  } finally {
+    setLoading(false)
+    input?.focus()
+  }
+}
+
+window.sendQuick = function(btn) {
+  if (!input) return
+  input.value = btn.textContent.replace(/^[^\s]+\s/, '')
+  sendMessage()
+}
+
+// Auto-resize textarea
+input?.addEventListener('input', () => {
+  input.style.height = 'auto'
+  input.style.height = Math.min(input.scrollHeight, 120) + 'px'
+})
+
+// Enter to send (Shift+Enter for newline)
+input?.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault()
+    sendMessage()
+  }
+})
+</script>
+</body>
+</html>

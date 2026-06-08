@@ -210,6 +210,14 @@ if (user) {
           <div class="todo-total">今日可獲得：<strong>23 pts</strong></div>
         </div>
 
+        <!-- Community poll -->
+        <div class="mc-card wide">
+          <div class="mc-card-head"><span>🗳️</span><h3>本週社群民調</h3><span class="member-tag">即時結果</span></div>
+          <div id="poll-wrap">
+            <div class="mc-loading">載入中…</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -217,6 +225,22 @@ if (user) {
     <!-- TAB 2: 預言實驗室                      -->
     <!-- ══════════════════════════════════════ -->
     <div class="mc-panel" id="tab-prophecy">
+      <!-- Famous prophets section -->
+      <div class="mc-card wide prophet-db-card">
+        <div class="mc-card-head">
+          <span>🏛️</span><h3>已知預言家資料庫</h3>
+          <span class="member-tag">會員可投票評分</span>
+        </div>
+        <div class="prophet-tabs">
+          <button class="pt-btn active" data-prophet="kunikire">🔮 國分玲</button>
+          <button class="pt-btn" data-prophet="parker">₿ Parker</button>
+          <button class="pt-btn" data-prophet="biggs">🐻 比格斯</button>
+        </div>
+        <div id="prophet-panel" class="prophet-panel">
+          <div class="mc-loading">載入中…</div>
+        </div>
+      </div>
+
       <div class="proph-grid">
 
         <!-- Left: submit + my history -->
@@ -690,6 +714,217 @@ function updateTopbar(data) {
   if (tr) tr.textContent = `Lv ${lv.lv} ${lv.name}`
 }
 
+// ── PROPHETS DATABASE ────────────────────────────────────────────
+const PROPHETS = {
+  kunikire: {
+    name: '國分玲', origin: '日本', avatar: '🔮',
+    desc: '日本知名靈媒，擅長預測東亞政治走向及天災，命中率在圈內備受討論',
+    verified: 26, total: 83,
+    predictions: [
+      { id:'kn1', text:'2026年台灣海峽緊張局勢升至歷史新高，但不爆發全面戰爭', year:2026, cat:'台灣', status:'pending' },
+      { id:'kn2', text:'日本2025年底至2026年初將發生規模7以上強震', year:2026, cat:'自然災害', status:'hit' },
+      { id:'kn3', text:'美國2024年大選後出現嚴重社會分裂，引發城市騷亂', year:2025, cat:'美國', status:'hit' },
+      { id:'kn4', text:'2025年全球將出現未知病毒引發新健康危機', year:2025, cat:'疾病', status:'miss' },
+      { id:'kn5', text:'2026年黃金將突破每盎司3500美元', year:2026, cat:'黃金', status:'pending' },
+      { id:'kn6', text:'中東2026年前將出現短暫停火但隨後再度激烈衝突', year:2026, cat:'地緣政治', status:'pending' },
+    ]
+  },
+  parker: {
+    name: 'Parker', origin: '美國', avatar: '₿',
+    desc: 'XRP深度研究者，以加密貨幣末日預言著稱，長期追蹤 Ripple/SEC 案件進展',
+    verified: 31, total: 58,
+    predictions: [
+      { id:'pk1', text:'XRP將在Ripple勝訴後觸及27美元，成為機構結算標準', year:2026, cat:'加密貨幣', status:'pending' },
+      { id:'pk2', text:'比特幣2024-2025年牛市將觸及100,000美元', year:2025, cat:'比特幣', status:'hit' },
+      { id:'pk3', text:'美聯準會2025年至少降息三次以上', year:2025, cat:'經濟', status:'miss' },
+      { id:'pk4', text:'Ripple與SEC和解將催生新一波機構採用浪潮', year:2025, cat:'加密貨幣', status:'hit' },
+      { id:'pk5', text:'2026年全球央行CBDC將大規模推行，XRP成主要橋接貨幣', year:2026, cat:'加密貨幣', status:'pending' },
+      { id:'pk6', text:'以太坊2025年將被超越，XRP市值排名進入前三', year:2025, cat:'加密貨幣', status:'pending' },
+    ]
+  },
+  biggs: {
+    name: '比格斯', origin: '台灣', avatar: '🐻',
+    desc: '末日研究YouTuber，綜合分析全球預言家觀點、地緣政治與加密貨幣，粉絲遍及兩岸三地',
+    verified: 18, total: 45,
+    predictions: [
+      { id:'bg1', text:'2025年台灣將進入備戰心理高峰期，政府啟動相關應急預案', year:2025, cat:'台灣', status:'hit' },
+      { id:'bg2', text:'黃金2026年前成為最強抗風險資產，年化報酬超越比特幣', year:2026, cat:'黃金', status:'pending' },
+      { id:'bg3', text:'2024美國大選結果震撼全球，引發外交格局重組', year:2024, cat:'美國', status:'hit' },
+      { id:'bg4', text:'台灣西部海岸2025年內將發生規模6.5以上地震', year:2025, cat:'自然災害', status:'miss' },
+      { id:'bg5', text:'XRP 2026年底前將觸及$10以上，成為一般散戶資產配置標配', year:2026, cat:'加密貨幣', status:'pending' },
+    ]
+  },
+}
+const CAT_COLORS = { '台灣':'#3b82f6','自然災害':'#f97316','美國':'#ef4444','疾病':'#a855f7','黃金':'#eab308','加密貨幣':'#8b5cf6','比特幣':'#f59e0b','經濟':'#22c55e','地緣政治':'#ef4444' }
+const STATUS_INFO = {
+  hit:     { label:'✅ 命中', cls:'st-hit' },
+  miss:    { label:'❌ 未命中', cls:'st-miss' },
+  pending: { label:'⏳ 驗證中', cls:'st-pend' },
+}
+
+let currentProphet = 'kunikire'
+let prophetVotes: Record<string, { hit:number; miss:number; pend:number }> = {}
+
+async function loadProphetVotes() {
+  try {
+    const r = await fetch('/api/prophet-vote')
+    prophetVotes = await r.json()
+  } catch {}
+  renderProphetPanel()
+}
+
+function renderProphetPanel() {
+  const panel = document.getElementById('prophet-panel')
+  if (!panel) return
+  const p = PROPHETS[currentProphet]
+  const data = load()
+  const myProphVotes = data.prophetVotes || {}
+  const hitRate = p.total ? Math.round(p.verified / p.total * 100) : 0
+  const hrColor = hitRate >= 70 ? '#86efac' : hitRate >= 50 ? '#fde68a' : '#fca5a5'
+
+  let html = `<div class="prophet-profile">
+    <div class="pp-avatar">${p.avatar}</div>
+    <div class="pp-info">
+      <div class="pp-name">${p.name} <span class="pp-origin">${p.origin}</span></div>
+      <div class="pp-desc">${p.desc}</div>
+      <div class="pp-stats">
+        <div class="pp-stat"><span class="pp-stat-v" style="color:${hrColor}">${hitRate}%</span><span class="pp-stat-l">已驗證命中率</span></div>
+        <div class="pp-stat"><span class="pp-stat-v">${p.verified}</span><span class="pp-stat-l">已驗證預言</span></div>
+        <div class="pp-stat"><span class="pp-stat-v">${p.total}</span><span class="pp-stat-l">預言總數</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pred-list">`
+
+  for (const pred of p.predictions) {
+    const st = STATUS_INFO[pred.status]
+    const cv = prophetVotes[pred.id] || { hit:0, miss:0, pend:0 }
+    const cvTotal = cv.hit + cv.miss + cv.pend
+    const myV = myProphVotes[pred.id]
+    const catClr = CAT_COLORS[pred.cat] || '#64748b'
+    const cvBar = cvTotal > 0 ? `<div class="cv-bar">
+      <div class="cv-hit"  style="width:${Math.round(cv.hit/cvTotal*100)}%"></div>
+      <div class="cv-miss" style="width:${Math.round(cv.miss/cvTotal*100)}%"></div>
+      <div class="cv-pend" style="width:${100-Math.round(cv.hit/cvTotal*100)-Math.round(cv.miss/cvTotal*100)}%"></div>
+    </div><div class="cv-counts">社群：👍${cv.hit} 👎${cv.miss} ⏳${cv.pend}</div>` : '<div class="cv-counts no-votes">尚無社群投票</div>'
+    html += `<div class="pred-card">
+      <div class="pred-head">
+        <span class="pred-cat" style="background:${catClr}">${pred.cat}</span>
+        <span class="${st.cls} pred-status">${st.label}</span>
+        <span class="pred-year">${pred.year}</span>
+      </div>
+      <div class="pred-text">${escHtml(pred.text)}</div>
+      ${cvBar}
+      <div class="pred-vote-row">
+        <span class="pred-vote-label">你的評分：</span>
+        <button class="pv-btn hit${myV==='hit'?' pv-voted':''}" data-pid="${pred.id}" data-pv="hit" onclick="castProphetVote(this)">👍 命中</button>
+        <button class="pv-btn miss${myV==='miss'?' pv-voted':''}" data-pid="${pred.id}" data-pv="miss" onclick="castProphetVote(this)">👎 未命中</button>
+        <button class="pv-btn pend${myV==='pend'?' pv-voted':''}" data-pid="${pred.id}" data-pv="pend" onclick="castProphetVote(this)">⏳ 待觀察</button>
+      </div>
+    </div>`
+  }
+  html += '</div>'
+  panel.innerHTML = html
+}
+
+window.castProphetVote = async function(btn) {
+  const pid = btn.dataset.pid
+  const pv  = btn.dataset.pv
+  let data = load()
+  if (!data.prophetVotes) data.prophetVotes = {}
+  const prev = data.prophetVotes[pid]
+  if (prev === pv) return
+  data.prophetVotes[pid] = pv
+  // Award points for first-time vote on this prediction
+  if (!prev) { data.points += 5; data.todayVoted = true }
+  save(data)
+  // Update UI optimistically
+  const card = btn.closest('.pred-card')
+  if (card) { card.querySelectorAll('.pv-btn').forEach(b => b.classList.remove('pv-voted')); btn.classList.add('pv-voted') }
+  updateTopbar(data)
+  // POST to API
+  try {
+    const r = await fetch('/api/prophet-vote', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ predictionId: pid, vote: pv }) })
+    if (r.ok) { prophetVotes[pid] = await r.json(); renderProphetPanel() }
+  } catch {}
+  if (!prev) showToast('✅ 投票成功 +5 pts')
+}
+
+// Prophet tabs
+document.querySelectorAll('.pt-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pt-btn').forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+    currentProphet = btn.dataset.prophet
+    renderProphetPanel()
+  })
+})
+
+// ── COMMUNITY POLL ────────────────────────────────────────────────
+let currentPollIndex = 0
+let pollData: any[] = []
+
+async function loadPoll() {
+  const wrap = document.getElementById('poll-wrap')
+  if (!wrap) return
+  try {
+    const r = await fetch('/api/poll')
+    pollData = await r.json()
+    if (!pollData.length) { wrap.innerHTML = '<div class="mc-empty">本週民調載入中</div>'; return }
+    renderPoll()
+  } catch { wrap.innerHTML = '<div class="mc-empty">民調暫時無法載入</div>' }
+}
+
+function renderPoll() {
+  const wrap = document.getElementById('poll-wrap')
+  if (!wrap || !pollData.length) return
+  const data = load()
+  const poll = pollData[currentPollIndex] || pollData[0]
+  const myVoted = (data.pollVotes || {})[poll.id]
+  const totalVotes = (poll.votes || []).reduce((a: number, b: number) => a + b, 0)
+  const paginationHtml = pollData.length > 1 ? `<div class="poll-pagination">
+    ${pollData.map((p,i) => `<button class="pp-dot${i===currentPollIndex?' active':''}" onclick="switchPoll(${i})">${i+1}</button>`).join('')}
+  </div>` : ''
+  let optionsHtml = ''
+  for (let i = 0; i < poll.options.length; i++) {
+    const cnt = poll.votes?.[i] || 0
+    const pct = totalVotes > 0 ? Math.round(cnt / totalVotes * 100) : 0
+    const voted = myVoted === i
+    optionsHtml += `<div class="poll-option ${voted?'voted':''}" onclick="${myVoted==null?`votePoll('${poll.id}',${i})`:''}">
+      <div class="po-label">${poll.options[i]}</div>
+      <div class="po-bar-wrap">
+        <div class="po-bar" style="width:${myVoted!=null?pct:0}%"></div>
+      </div>
+      <div class="po-pct">${myVoted!=null?pct+'%':''}</div>
+    </div>`
+  }
+  wrap.innerHTML = `<div class="poll-q">${escHtml(poll.question)}</div>${optionsHtml}
+    <div class="poll-footer">${totalVotes} 票・${myVoted==null?'點選投票 <span class="todo-pts">+3 pts</span>':'已投票'}</div>
+    ${paginationHtml}`
+}
+
+window.votePoll = async function(pollId, optionIndex) {
+  let data = load()
+  if (!data.pollVotes) data.pollVotes = {}
+  if (data.pollVotes[pollId] != null) return
+  data.pollVotes[pollId] = optionIndex
+  data.points += 3
+  save(data)
+  updateTopbar(data)
+  // POST
+  try {
+    const r = await fetch('/api/poll', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ option: optionIndex }) })
+    if (r.ok) { const updated = await r.json(); const p = pollData.find(p => p.id === pollId); if (p && updated.votes) p.votes = updated.votes }
+  } catch {}
+  renderPoll()
+  showToast('🗳️ 投票成功 +3 pts')
+}
+
+window.switchPoll = function(idx) {
+  currentPollIndex = idx
+  renderPoll()
+}
+
 // ── MARKET SNAPSHOT ─────────────────────────────────────────────
 async function loadMarketSnapshot() {
   try {
@@ -1149,6 +1384,8 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
   renderForum(data)
   initWish(data)
   loadMarketSnapshot()
+  loadPoll()
+  loadProphetVotes()
   loadSurvival()
   loadCommunityProphecies()
   loadLeaderboard()
@@ -1478,6 +1715,60 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
 .up-tag { font-size: .65em; font-weight: 700; padding: .2em .6em; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: .2em; }
 .up-tag.coming { background: rgba(168,85,247,.2); color: #c084fc; }
 .up-tag.soon   { background: rgba(34,197,94,.2); color: #86efac; }
+
+/* ── PROPHET DATABASE ─────────────────────── */
+.prophet-db-card { margin-bottom: 1em; }
+.prophet-tabs { display: flex; gap: .4em; margin-bottom: 1em; }
+.pt-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #94a3b8; border-radius: 8px; padding: .45em 1.2em; font-size: .82em; font-weight: 700; cursor: pointer; transition: all .15s; }
+.pt-btn.active { background: rgba(168,85,247,.2); color: #c084fc; border-color: rgba(168,85,247,.4); }
+.prophet-panel { min-height: 200px; }
+.prophet-profile { display: flex; gap: 1.2em; margin-bottom: 1.2em; background: rgba(255,255,255,.03); border-radius: 12px; padding: 1em; }
+.pp-avatar { font-size: 2.5em; flex-shrink: 0; }
+.pp-info { flex: 1; }
+.pp-name { font-size: 1em; font-weight: 800; color: #e2e8f0; margin-bottom: .2em; }
+.pp-origin { font-size: .7em; background: rgba(255,255,255,.1); padding: .1em .5em; border-radius: 20px; margin-left: .5em; color: #94a3b8; font-weight: 400; }
+.pp-desc { font-size: .78em; color: #64748b; margin-bottom: .7em; line-height: 1.5; }
+.pp-stats { display: flex; gap: 1.5em; }
+.pp-stat { text-align: center; }
+.pp-stat-v { display: block; font-size: 1.1em; font-weight: 800; color: #a855f7; }
+.pp-stat-l { font-size: .65em; color: #64748b; }
+.pred-list { display: flex; flex-direction: column; gap: .7em; }
+.pred-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .9em; }
+.pred-head { display: flex; align-items: center; gap: .5em; margin-bottom: .5em; }
+.pred-cat { font-size: .65em; font-weight: 700; color: white; padding: .15em .5em; border-radius: 20px; }
+.pred-year { font-size: .65em; color: #475569; margin-left: auto; }
+.pred-status { font-size: .7em; font-weight: 700; padding: .15em .5em; border-radius: 20px; }
+.st-hit  { background: rgba(34,197,94,.15);  color: #86efac; }
+.st-miss { background: rgba(239,68,68,.15);  color: #fca5a5; }
+.st-pend { background: rgba(234,179,8,.15);  color: #fde68a; }
+.pred-text { font-size: .82em; color: #cbd5e1; line-height: 1.6; margin-bottom: .6em; }
+.cv-bar { height: 8px; border-radius: 4px; overflow: hidden; display: flex; margin-bottom: .3em; }
+.cv-hit  { background: rgba(34,197,94,.5); }
+.cv-miss { background: rgba(239,68,68,.5); }
+.cv-pend { background: rgba(234,179,8,.4); }
+.cv-counts { font-size: .68em; color: #64748b; margin-bottom: .5em; }
+.cv-counts.no-votes { font-style: italic; }
+.pred-vote-row { display: flex; align-items: center; gap: .3em; flex-wrap: wrap; }
+.pred-vote-label { font-size: .7em; color: #475569; }
+.pv-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: .2em .65em; font-size: .7em; cursor: pointer; color: #94a3b8; transition: all .15s; }
+.pv-btn.pv-voted { font-weight: 700; }
+.pv-btn.hit.pv-voted  { background: rgba(34,197,94,.15);  border-color: rgba(34,197,94,.4);  color: #86efac; }
+.pv-btn.miss.pv-voted { background: rgba(239,68,68,.15);  border-color: rgba(239,68,68,.4);  color: #fca5a5; }
+.pv-btn.pend.pv-voted { background: rgba(234,179,8,.15);  border-color: rgba(234,179,8,.4);  color: #fde68a; }
+
+/* ── COMMUNITY POLL ───────────────────────── */
+.poll-q { font-size: .92em; font-weight: 700; color: #e2e8f0; margin-bottom: .8em; }
+.poll-option { display: flex; align-items: center; gap: .6em; padding: .5em .7em; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; margin-bottom: .4em; cursor: pointer; transition: background .15s; }
+.poll-option:hover:not(.voted) { background: rgba(168,85,247,.08); }
+.poll-option.voted { border-color: rgba(168,85,247,.3); background: rgba(168,85,247,.06); cursor: default; }
+.po-label { font-size: .82em; color: #e2e8f0; min-width: 120px; }
+.po-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,.06); border-radius: 4px; overflow: hidden; }
+.po-bar { height: 100%; background: linear-gradient(90deg,#7e22ce,#a855f7); border-radius: 4px; transition: width .5s; }
+.po-pct { font-size: .75em; font-weight: 700; color: #a855f7; min-width: 35px; text-align: right; }
+.poll-footer { font-size: .72em; color: #64748b; text-align: right; margin-top: .4em; }
+.poll-pagination { display: flex; gap: .3em; justify-content: center; margin-top: .6em; }
+.pp-dot { background: rgba(255,255,255,.1); border: none; width: 24px; height: 24px; border-radius: 50%; cursor: pointer; color: #64748b; font-size: .72em; }
+.pp-dot.active { background: rgba(168,85,247,.3); color: #c084fc; }
 
 /* ── RESPONSIVE ───────────────────────────── */
 @media (max-width: 900px) {

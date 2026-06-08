@@ -87,26 +87,26 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 	<!-- ── Top grid: hero-body + events ── -->
 	<div class="top-grid">
-		<!-- Left: today panel + prophecy -->
+		<!-- Left: today panel + prophecy + AI -->
 		<div class="left-top">
 			<div class="prophet-row">
 				<TodayPanel />
 				<DailyProphecy />
 			</div>
+			<iframe
+				src="/biggsgpt"
+				width="100%"
+				height="400"
+				class="biggsgpt-top-iframe"
+				style="border:none;border-radius:12px;display:block;margin-top:.8em;"
+				title="比格斯 GPT"
+				loading="lazy"
+			></iframe>
 		</div>
 		<!-- Right: events feed -->
 		<aside class="right-top">
 			<TodayEvents />
 			<MultiCityWeather />
-			<iframe
-				src="/biggsgpt"
-				width="100%"
-				height="420"
-				class="biggsgpt-top-iframe"
-				style="border:none;border-radius:12px;display:block;"
-				title="比格斯 GPT"
-				loading="lazy"
-			></iframe>
 		</aside>
 	</div>
 
@@ -330,7 +330,6 @@ const CATEGORY_ICONS: Record<string, string> = {
 	.top-grid { grid-template-columns: 1fr; }
 	.right-top { flex-direction: row; flex-wrap: wrap; }
 	.right-top > * { flex: 1; min-width: 240px; }
-	.biggsgpt-top-iframe { flex-basis: 100%; min-width: 100%; }
 }
 @media (max-width: 900px) {
 	.content-grid { grid-template-columns: 1fr; }

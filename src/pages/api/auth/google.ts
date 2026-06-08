@@ -13,7 +13,7 @@ export async function GET({ redirect, cookies, url }: APIContext) {
   })
 
   const params = new URLSearchParams({
-    client_id: import.meta.env.GOOGLE_CLIENT_ID ?? '',
+    client_id: (import.meta.env.GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID) ?? '',
     redirect_uri: `${url.origin}/api/auth/callback`,
     response_type: 'code',
     scope: 'openid email profile',

@@ -11,7 +11,7 @@ export function getGeminiKeys(): string[] {
 }
 
 export function getModel(): string {
-  return (import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL) || 'gemini-3.5-flash'
+  return (import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL) || 'gemini-2.0-flash'
 }
 
 export async function callGemini(body: object, keys?: string[]): Promise<{ ok: boolean; text?: string; status?: number }> {
@@ -38,7 +38,7 @@ export async function callGemini(body: object, keys?: string[]): Promise<{ ok: b
       continue
     }
 
-    if (res.status === 429) continue  // Rate limited → try next key
+    if (res.status === 429 || res.status === 401 || res.status === 403) continue  // bad/expired key or rate limit → try next
 
     if (!res.ok) {
       return { ok: false, status: res.status, text: `AI連線失敗 (${res.status})，請稍後再試。` }

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bwge-2025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/fb/s8/1/o/4/z/k/o4zkA.qR4e-small-2025..jpg'
 ---
 
 巴夏這次的警告比以往任何一次都更為緊迫：2025年的災難進程已經啟動，而更深遠的影響是人類集體現實即將分裂為截然不同的兩條時間線。本片深入解析巴夏所描述的「現實分裂」現象，探討這種靈性意義上的分歧將如何在物質世界中具體呈現，以及每個人該如何確保自己走向光明的那條時間線。

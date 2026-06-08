@@ -14,6 +14,7 @@ predictions:
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/b5/s8/1/A/c/L/l/AcLlA.qR4e-small-2026AI..jpg'
 ---
 
 比格斯（Brandon Biggs）再度發出震撼預言，這次直指2026年將是全人類命運的關鍵轉折點。從台灣地緣危機、AI技術失控，到全球金融體系的崩盤，他的預言正一件件以驚人速度應驗。本片帶你深入解析這些預言背後的真實意涵，以及我們該如何面對即將到來的巨變。

@@ -6,6 +6,7 @@ tags: ['靈性', '潛意識', '顯化']
 category: '影片'
 rumbleId: 'v775jci'
 rumblePage: 'https://rumble.com/v79c7cq--2026-.html'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/a4/s8/1/6/u/D/k/6uDkA.qR4e-small--2026-..jpg'
 ---
 
 延續上集的靈性探索，《與神對話》第一冊下集進一步解答那些人類最深層的生命疑問：我們為什麼在這裡？死亡之後會發生什麼？愛的本質是什麼？本片以平易近人的口語方式呈現書中的宇宙智慧，讓更多人能夠接觸並理解這份珍貴的靈性教導。

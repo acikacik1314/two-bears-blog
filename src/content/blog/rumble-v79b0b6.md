@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79b0b6-mor-plai-2026.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/52/s8/1/s/T/p/k/sTpkA.qR4e-small-Mor-Plai-2026..jpg'
 ---
 
 泰國靈媒Mor Plai聲稱在通靈過程中直接接觸到閻羅王，並帶回了2026年最嚴峻的終極預言。閻羅王以「烈馬闖火」這個震撼意象，預示一場火焰與衝突並存的全球性大災難即將降臨。本片完整呈現這段神秘通靈對話的內容，以及這個意象所預示的具體災難面貌。

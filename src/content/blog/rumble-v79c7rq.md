@@ -6,6 +6,7 @@ tags: ['靈性', '潛意識', '顯化']
 category: '影片'
 rumbleId: 'v775jri'
 rumblePage: 'https://rumble.com/v79c7rq-438949718.html'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/9d/s8/1/w/D/D/k/wDDkA.qR4e-small-..jpg'
 ---
 
 尼爾·唐納·沃許（Neale Donald Walsch）的《與神對話》第一冊是當代最具影響力的靈性經典之一。本片（上集）以口語化方式解說書中精華，帶你理解神與人類之間的真實對話，以及「你就是你最好的版本」這個改變無數人一生的核心信念。

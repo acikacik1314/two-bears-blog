@@ -13,6 +13,7 @@ predictions:
     - '第三次世界大戰全面爆發（截至2026年5月尚未發生）'
   pending:
     - '2028年預言事件（尚未到驗證期）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/a5/s8/1/K/z/8/j/Kz8jA.qR4e-small-2028..jpg'
 ---
 
 Looking beyond the immediate 2026 crisis, this video examines a 2028 prophecy that paints a detailed picture of the post-crisis world: Trump's political trajectory, the new strategic balance between the US, China, and Russia, and the shape of international order after the dust settles. Understanding 2028 helps contextualize why the decisions made in 2026 carry such long-lasting consequences.

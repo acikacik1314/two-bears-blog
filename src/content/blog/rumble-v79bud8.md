@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bud8-232022100.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/e1/s8/1/8/n/z/k/8nzkA.qR4e-small-232022100..jpg'
 ---
 
 這份被列為最高機密的蘇聯檔案終於在網路上流傳，內容記載著一段令人難以置信的歷史事件：一名自稱來自23世紀的時間旅行者在蘇聯境內墜落，並在被捕後留下了長達100年的人類命運預言。本片完整呈現這份禁忌檔案的內容，探討其真實性與驚人預言的現代印證。

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bvhe-2025911.html'
 predictions:
   hits:
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/44/s8/1/I/K/z/k/IKzkA.qR4e-small-2025911..jpg'
 ---
 
 2025年九月的全球崩盤警報正式響起，多位預言家不約而同指向這個時間節點，稱其將是一場「911級」的歷史性巨變。本片聚焦於鮑威爾的聯準會政策如何成為吹破全球泡沫的最後一根針，以及這場金融地震將如何在政治、軍事與社會層面引發連鎖反應。

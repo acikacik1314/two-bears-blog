@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c16g-438941176.html'
 predictions:
   hits:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/7a/s8/1/4/x/B/k/4xBkA.qR4e-small-..jpg'
 ---
 
 保江邦夫是日本最受矚目的預言家與物理學家之一，他的預言往往融合科學、靈性與神道文化的多重視角。本片帶你深入了解他對台灣危機的最新預測、北海道在未來地理格局中的特殊位置，以及天川神社那段令人難以置信的外星文明傳說。

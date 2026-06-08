@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bvlu-2025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/8f/s8/6/c/N/z/k/cNzkA.faa.jpg'
 ---
 
 阿米（Ami）是一位聲稱與外星文明有深厚連結的靈童，他所傳達的「靈魂之愛」概念遠超一般人對愛的理解。本片完整呈現阿米對靈魂之愛的深刻詮釋，以及為何他認為這是在2025年人類命運大篩選中通過考驗的唯一方法，帶你從靈性角度重新思考愛的力量。

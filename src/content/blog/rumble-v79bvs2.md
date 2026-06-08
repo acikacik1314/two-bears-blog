@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bvs2-2025.html'
 predictions:
   hits:
     - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/61/s8/1/I/Q/z/k/IQzkA.qR4e-small-2025..jpg'
 ---
 
 諾查丹瑪斯的預言詩集中，有相當數量的詩句被解讀為指向2025年的末日倒數情境。本片系統性地整理這些預言，從核戰威脅、金融體系的全面崩潰，到全球政治秩序的重新洗牌，帶你全面了解這位500年前的預言家如何描繪出一個令人震驚的2025年末日圖景。

@@ -12,6 +12,7 @@ predictions:
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/f0/s8/1/y/G/o/k/yGokA.qR4e-small-20261-320263..jpg'
 ---
 
 Amid a flood of dire Taiwan warnings, Brandon Biggs offers a dramatically different vision: a miraculous ceasefire in early 2026 that defies all expectations. This video explores Biggs' hopeful prophecy, the conditions he says must be met for this ceasefire to materialize, and whether the January to March 2026 window he identifies will indeed bring a surprising resolution to the Taiwan crisis.

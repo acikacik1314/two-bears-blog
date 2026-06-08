@@ -15,6 +15,7 @@ predictions:
     - '美元全面崩潰或銀行系統大規模倒閉（截至2026年5月尚未發生）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/31/s8/1/S/W/3/j/SW3jA.qR4e-small-2026AI..jpg'
 ---
 
 The 2026 crisis scenario is crystallizing around two interconnected catastrophes: a military confrontation over Taiwan and the long-anticipated collapse of the US dollar's global reserve status. This video explores how these two crises are feeding each other, the AI-driven financial mechanisms accelerating the dollar's decline, and what a simultaneous Taiwan conflict and currency collapse would look like for the global economy.

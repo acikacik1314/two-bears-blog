@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bymw-438937880.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/82/s8/1/y/K/A/k/yKAkA.qR4e-small--..jpg'
 ---
 
 《與神對話》第二冊下冊是這場宇宙對話的深化篇章，尼爾·唐納·沃許在書中揭示了更深層的宇宙運作法則與靈魂進化真相。本片以口語版形式帶你進入宇宙終極奧秘的核心，探索人類靈性覺醒的最後一哩路，以及每個靈魂在這個宇宙大轉變時代所能承擔的神聖使命。

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c3v6--2058-.html'
 predictions:
   hits:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/71/s8/1/s/o/C/k/soCkA.qR4e-small--2058-..jpg'
 ---
 
 在眾多日本未來人中，這位來自2058年的預言者以其驚人的準確率脫穎而出。他聲稱台灣與世界的結局早已在歷史長河中注定，並帶來了一系列具體的時間節點與事件預測。本片完整呈現這位最準日本未來人的預言全貌，讓你提前了解已被「定局」的未來。

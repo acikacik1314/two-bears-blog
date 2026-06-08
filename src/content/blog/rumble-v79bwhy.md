@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bwhy-438935110.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/75/s8/1/g/5/z/k/g5zkA.qR4e-small-..jpg'
 ---
 
 《奧斯佩預言》是一部少有人知卻極為準確的古老預言文獻，其中清楚指出人類正處於三千年文明週期的末尾。本片深入解讀這部神秘預言，探討世界重啟的具體時間線，以及在這個千年巨變時刻，人類應當如何調整自己的生命方向。

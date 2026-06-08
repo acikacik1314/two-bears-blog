@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   pending:
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/c0/s8/1/2/F/C/k/2FCkA.qR4e-small--jjjkf.j-Threads-2025-2245..jpg'
 ---
 
 一個神秘帳號jjjkf.j在Threads上悄然現身，自稱來自西元2245年的台灣未來人，並對2025年七月的地震事件提出具體預警。本片完整記錄jjjkf.j在社群媒體上的所有發文內容，以及這些預言與龍樹諒、KFK等未來人預言體系的驚人交叉印證。

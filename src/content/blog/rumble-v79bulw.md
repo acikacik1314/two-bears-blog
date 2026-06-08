@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bulw-2025mor-plai-nasa.html'
 predictions:
   pending:
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/5c/s8/1/0/s/z/k/0szkA.qR4e-small-2025Mor-Plai-NASA..jpg'
 ---
 
 泰國知名預言家Mor Plai以其獨特的「椰樹崩塌」意象，預警2025年將爆發毀滅性的海嘯災難，而這一預言竟與NASA的最新觀測數據驚人吻合。本片完整解析Mor Plai的預言細節，探討這場命運大反轉將如何改變亞太地區的未來走向。

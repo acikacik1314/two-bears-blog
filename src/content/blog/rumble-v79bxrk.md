@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bxrk--20257.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/af/s8/1/W/s/A/k/WsAkA.qR4e-small--20257..jpg'
 ---
 
 日本預言家龍樹諒的新書《天使的遺言》甫一出版即引發廣泛討論，書中對2025年7月大災難的詳細預示令人不安。本片帶你深入解讀這本新書的核心內容，包括龍樹諒如何透過夢境接收天使訊息，以及這些訊息中隱藏的2025七月災難密碼。

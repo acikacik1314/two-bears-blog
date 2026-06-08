@@ -6,6 +6,7 @@ tags: ['旅遊', '台灣']
 category: '旅遊'
 rumbleId: 'v775ar2'
 rumblePage: 'https://rumble.com/v79byra-7yaima9.html'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/74/s8/1/2/M/A/k/2MAkA.qR4e-small-7YAIMA9..jpg'
 ---
 
 基隆直航石垣島的夢想即將成真！YAIMA丸號渡輪預計9月正式開航，將台灣到沖繩離島的旅行時間大幅縮短至僅需7小時。本片提供這條新航線的完整攻略，包括票價資訊、訂票方式、船上設施介紹，以及抵達石垣島後的旅遊建議。

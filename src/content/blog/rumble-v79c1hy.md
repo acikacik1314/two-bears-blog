@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c1hy-2062vadi-kfkcp.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/3c/s8/1/w/E/B/k/wEBkA.qR4e-small-2062VADI-KFKCP..jpg'
 ---
 
 2062年未來人ADI帶來的不只是預言，更是一套實用的命運掌控方法論。本片深入探討ADI所揭示的命運法則，以及在即將到來的全球動盪中，普通人如何透過具體行動提升自己的能量頻率，從而在時間線的分叉點上選擇更有利的命運走向。

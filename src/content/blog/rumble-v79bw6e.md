@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bw6e-438934694.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/69/s8/1/M/Y/z/k/MYzkA.qR4e-small-11..jpg'
 ---
 
 當哈佛大學教授公開聲稱外星飛船正在逼近地球，整個科學界與預言圈同時震動。這個消息不禁讓人聯想到劉慈欣《三體》中描繪的黑暗森林法則：在宇宙的沉默之中，每一個文明都是潛在的獵人與獵物。本片深入探討這項警告的科學依據，以及如果《三體》的情節真的開始上演，人類將面臨怎樣的命運。

@@ -12,6 +12,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/b6/s8/1/M/P/o/k/MPokA.qR4e-small-20262..jpg'
 ---
 
 Hamilton Parker's February 2026 prophecy is among his most specific and alarming: a high-profile political assassination and a major volcanic eruption will both occur in the same month, sending shockwaves through global politics and natural disaster preparedness. This video analyzes Parker's predictions, the potential targets and locations he has identified, and how these events could cascade into wider global instability.

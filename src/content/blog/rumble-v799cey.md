@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ad/s8/1/A/W/8/j/AW8jA.qR4e-small-20261947AI..jpg'
 ---
 
 British astrologer Jessica Adams has built a reputation for eerily accurate geopolitical predictions, and her 2026 forecast is her most dramatic yet: the world map will be redrawn as dramatically as it was in 1947. This video examines Adams' prophecy about which borders will change, which nations will emerge or dissolve, and how Taiwan fits into this sweeping cartographic transformation of the post-2026 world.

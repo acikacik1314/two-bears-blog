@@ -14,6 +14,7 @@ predictions:
     - '美元全面崩潰或銀行系統大規模倒閉（截至2026年5月尚未發生）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/11/s8/1/G/I/7/j/GI7jA.qR4e-small-20263..jpg'
 ---
 
 Two simultaneous catastrophes are converging in 2026: a massive grid blackout paralyzing China's industrial and military capabilities, paired with the final stages of the US dollar's collapse as the world's reserve currency. This video analyzes how these two events are connected, the prophetic and analytical sources pointing to this dual crisis, and the profound implications for global trade, Taiwan's security, and everyday financial life.

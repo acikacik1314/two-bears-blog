@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bw3k--32025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/87/s8/1/a/X/z/k/aXzkA.qR4e-small--32025..jpg'
 ---
 
 巴夏在這份終極指南中，將顯化實相的方法濃縮為最關鍵的三個步驟，讓任何人都能在2025年的混亂中掌握主動權。本片詳細解說這三個步驟的實際操作方式，以及如何在全球動盪的背景下運用這套顯化系統，在人類命運大轉折的時代創造屬於自己的美好未來。

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bz1k--2025.html'
 predictions:
   pending:
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/4c/s8/1/O/S/A/k/OSAkA.qR4e-small--2025..jpg'
 ---
 
 巴巴萬加（Baba Vanga）是20世紀最著名的預言家之一，這位保加利亞盲眼靈媒在世時留下了大量驚人預言，其中許多已陸續應驗。本片聚焦她對2025年的預言，包括毀滅性大地震與全球強權陷入危機的警告，對照當前世界局勢，探討這些預言是否正在成真。

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c7xy--2060-kfk-q-and-a-.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/73/s8/1/2/G/D/k/2GDkA.qR4e-small--2060-KFK-Q-and-A-..jpg'
 ---
 
 KFK是目前網路上最受矚目的未來人之一，自稱來自2060年的他以Q&A形式直接回應各界疑問。本片完整收錄KFK針對台灣未來、全球戰爭走向、科技發展以及人類存亡等關鍵議題的解答，是了解KFK預言體系最完整的一份記錄。

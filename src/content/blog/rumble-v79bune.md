@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bune-2027.html'
 predictions:
   pending:
     - '2027年預言事件（尚未到驗證期）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/c3/s8/1/Q/t/z/k/QtzkA.qR4e-small-2027..jpg'
 ---
 
 巴夏（Bashar）帶來2027年的震撼預言，同時傳達一個顛覆認知的訊息：痛苦並非真實存在，而是人類作為「限制大師」自行創造的幻象。本片深入探討巴夏對人類未來命運的洞見，以及如何透過意識提升來面對即將到來的全球轉變。

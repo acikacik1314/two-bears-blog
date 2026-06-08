@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79axo4-2025100.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/24/s8/1/0/3/o/k/03okA.qR4e-small-2025100..jpg'
 ---
 
 As Venezuela's Maduro faces arrest and global events unfold with eerie precision, many prophecy watchers are asking: is our reality truly scripted? This video examines the stunning convergence of fulfilled prophecies in 2025-2026, drawing parallels to the Matrix simulation theory and exploring whether the events of 2026 are following a predetermined cosmic script that seers have been reading for decades.

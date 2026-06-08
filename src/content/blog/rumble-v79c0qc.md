@@ -6,6 +6,7 @@ tags: ['金融', '加密貨幣']
 category: '影片'
 rumbleId: 'v775cq4'
 rumblePage: 'https://rumble.com/v79c0qc-2025.html'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/4d/s8/1/0/o/B/k/0oBkA.qR4e-small-2025..jpg'
 ---
 
 當股神巴菲特宣布退休，全球金融市場為之震動。2025年波克夏海瑟威股東會不僅是一個時代的終結，更是無數投資者重新思考未來策略的轉折點。本片以中文詳細解說這場歷史性股東會的完整內容，包括巴菲特的最後投資哲學分享與對未來世界的看法。

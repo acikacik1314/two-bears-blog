@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/9b/s8/1/c/g/p/k/cgpkA.qR4e-small-202624..jpg'
 ---
 
 Multiple prophecy sources are converging on a specific window — February to April 2026 — as the period when Taiwan will experience a sudden and dramatic "lightning change." This video analyzes what this rapid transformation might entail, which prophets have identified this timeframe, and what Taiwanese people and global observers should watch for during these critical months.

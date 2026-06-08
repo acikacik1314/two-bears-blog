@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bwni-2025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/96/s8/1/o/8/z/k/o8zkA.qR4e-small-2025..jpg'
 ---
 
 《日月神示》是日本昭和年間留下的神秘預言文獻，其中對人類文明末期的「三大清洗」有著驚人的詳細描述。本片首度完整解析這份塵封已久的預言，揭示三大清洗究竟指的是什麼，以及2025年的全球局勢是否正按照這份古老預言的腳本一步步展開。

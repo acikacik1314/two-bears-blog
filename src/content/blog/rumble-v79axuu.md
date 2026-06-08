@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/d4/s8/1/M/7/o/k/M7okA.qR4e-small-2026..jpg'
 ---
 
 Hamilton Parker's latest prophecy paints a chilling picture of 2026's endgame: Taiwan engulfed in war while Hong Kong faces a devastating fire, both serving as flashpoints for a broader World War III scenario. This video breaks down Parker's specific predictions, timeline, and the geopolitical triggers he identifies as the catalysts for this global catastrophe.

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bvfg-2025eckhart-tolle.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/7b/s8/1/C/J/z/k/CJzkA.qR4e-small-2025Eckhart-Tolle..jpg'
 ---
 
 當眾多預言家紛紛發出末日警告時，靈性大師艾克哈特·托勒帶來了截然不同的聲音：這個時代所有的混亂與動盪，其實是人類集體意識正在經歷的覺醒陣痛。本片深入解析托勒的2025年觀點，探討如何在末日恐懼的氛圍中保持內在的臨在與平靜，將危機轉化為覺醒的契機。

@@ -10,6 +10,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/d9/s8/1/6/7/p/k/67pkA.qR4e-small-50Mor-Plai2025NASA..jpg'
 ---
 
 泰國靈媒Mor Plai在距離關鍵時間節點還有50天的倒數時刻，發出了關於海底火山的嚴峻警告。他預言在2025年底前，太平洋海底的火山將以多米諾骨牌效應接連爆發，引發海嘯連鎖反應。本片完整解析這項警告的地質學背景，以及與NASA觀測數據的相關性。

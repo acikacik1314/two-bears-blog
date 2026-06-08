@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c20s-20622025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/d5/s8/1/8/O/B/k/8OBkA.qR4e-small-20622025..jpg'
 ---
 
 一位來自2062年的神秘未來人在網路上留下加密訊息，經過解碼後竟明確指向2025年七月的重大災難，並附上「爬到山上去」這句令人不寒而慄的求生警告。本片完整解析這些密碼的含義，對照其他預言家的相關預測，探討這場2025七月災難的可能面貌。

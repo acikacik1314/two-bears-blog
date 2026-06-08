@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79ata8-2026.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/72/s8/1/a/F/n/k/aFnkA.qR4e-small-2026..jpg'
 ---
 
 Athos Salomé, dubbed the "Living Nostradamus" for his uncanny ability to predict world events, now turns his prophetic eye toward the WWIII scenario he foresees for 2026. This video presents Salomé's complete 2026 war prophecy, his specific predictions for the conflict's origins and escalation, and why his impressive track record makes this warning impossible to dismiss.

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c4zw--2026-.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/20/s8/1/m/L/C/k/mLCkA.qR4e-small--2026-..jpg'
 ---
 
 潛意識的核心信念決定了我們吸引到什麼樣的人與事物進入生命。本片聚焦於兩個最根本的潛意識限制：「我不值得被愛」與「我不值得被肯定」，並提供具體有效的潛意識重塑方法，幫助你從根本改變自我價值感，進而創造更豐盛、更充滿愛的人生。

@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79azce-hjt2026.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/9d/s8/1/U/z/p/k/UzpkA.qR4e-small-HJT2026..jpg'
 ---
 
 摩普萊在最新預言中用神秘代號「H·J·T」指稱三個即將陷入重大危機的國家，強烈警告任何人在2026年上半年都不要前往這三個地方。本片試圖解密這三個代號所代表的國家，結合摩普萊的其他預言脈絡，探討這場2026上半年的區域危機將以何種面貌展開。

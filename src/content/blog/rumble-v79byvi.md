@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79byvi-3036nasa.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/a1/s8/1/o/P/A/k/oPAkA.qR4e-small-3036NASA..jpg'
 ---
 
 這位自稱穿越自3036年的時間旅人帶來了人類文明史上最令人震驚的訊息：人類滅亡的時間早已確定，而NASA也早在多年前就掌握了這份絕密資料。本片完整呈現他的警告內容，探討這些指控背後的可能真相，以及面對「已定命運」時人類所能做的選擇。

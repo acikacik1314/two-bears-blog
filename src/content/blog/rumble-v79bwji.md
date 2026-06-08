@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bwji-302025.html'
 predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/9d/s8/1/-/5/z/k/-5zkA.qR4e-small-302025..jpg'
 ---
 
 這名男子聲稱被外星人帶離地球整整30天，回來後整個人完全改變，並帶回關於人類未來的驚人預言。他表示2025年是一個無法回頭的命運分歧點，人類將在這一年做出影響整個文明走向的關鍵抉擇。本片帶你深入了解這段神秘失蹤經歷，以及他所帶回的宇宙訊息。

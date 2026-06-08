@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79ayu4-438891484.html'
 predictions:
   hits:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/32/s8/1/C/p/p/k/CppkA.qR4e-small-6..jpg'
 ---
 
 越來越多人反映出現不明原因的身體刺痛感、持續性耳鳴以及無來由的焦躁情緒，卻找不到任何醫學解釋。金星人歐米娜對此給出了一個顛覆認知的答案：這些症狀不是病，而是人類DNA正在升級、意識正在提升維度的具體徵兆。本片帶你了解這場悄然進行的人類升維過程。

@@ -12,6 +12,7 @@ predictions:
     - 'AI技術在2025-2026年出現重大突破，社會衝擊持續擴大'
   pending:
     - '2045年預言事件（尚未到驗證期）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/30/s8/1/W/w/z/k/WwzkA.qR4e-small-2045Titor-X-..jpg'
 ---
 
 來自2045年的神秘未來人Titor X，與著名通靈者朵洛莉絲的預言竟然高度吻合，兩者都指向台灣即將面臨前所未有的「消失」危機。本片深入探討這兩位跨越時空的預言者所描述的奇點時代，以及台灣在人類文明轉折點中所扮演的關鍵角色。

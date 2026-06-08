@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c0tg--mor-plai-.html'
 predictions:
   pending:
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/33/s8/1/K/q/B/k/KqBkA.qR4e-small--Mor-Plai-..jpg'
 ---
 
 泰國最知名的靈媒預言家Mor Plai以其驚人的預言準確率贏得大批信眾，這次他再度發出涵蓋火山、地震與飛機事故的全面警告。本片完整解析Mor Plai的最新預測內容，回顧他過往應驗的預言記錄，讓你自行判斷這位泰國預言家的可信度。

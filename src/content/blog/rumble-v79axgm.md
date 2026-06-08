@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79axgm-2026ct.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/33/s8/1/M/Z/o/k/MZokA.qR4e-small-2026CT..jpg'
 ---
 
 Thai prophet Mor Plai's latest 2026 vision puts Elon Musk at an unexpected crossroads of world history, as WWIII tensions reach a critical threshold. This video examines Mor Plai's prophecy about Musk's role in the escalating global conflict, including his CT (communications technology) influence, and what the prophet sees as the key moments when Musk's decisions could tip the balance between war and peace.

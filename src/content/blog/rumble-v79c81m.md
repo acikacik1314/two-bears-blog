@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79c81m--2026-.html'
 predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/75/s8/1/6/I/D/k/6IDkA.qR4e-small--2026-..jpg'
 ---
 
 喬．迪斯本扎博士結合神經科學與量子物理，證明人類大腦具有創造現實的強大能力。本片帶你深入了解他的核心理論：如何透過冥想、意念與情緒的配合，重新編程大腦神經迴路，進而在現實生活中吸引並創造出你真正渴望的理想未來。

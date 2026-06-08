@@ -12,6 +12,7 @@ predictions:
     - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/71/s8/1/G/M/n/k/GMnkA.qR4e-small-326020261-37..jpg'
 ---
 
 As economic warning signs mount, Mor Plai's prophecy about a 2026 economic collapse is looking increasingly confirmed. This video reviews the specific economic indicators and events that are validating Mor Plai's predictions, traces the timeline from his original prophecy through to current developments, and examines what the full collapse scenario looks like as the countdown from day 3 to 26 progresses.

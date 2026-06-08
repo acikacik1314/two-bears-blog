@@ -9,6 +9,7 @@ rumblePage: 'https://rumble.com/v79bxfe-20257.html'
 predictions:
   pending:
     - '特定地區重大天災發生時間點'
+heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/d9/s8/1/6/l/A/k/6lAkA.qR4e-small-20257..jpg'
 ---
 
 令人毛骨悚然的巧合：知名靈能法師三木大雲與預言家龍樹諒在同一天晚上，分別夢見了規模相當於東日本大震災三倍的巨大海嘯。本片完整記錄這兩位預言者對同一夢境的描述，以及他們共同指向的2025年7月關鍵時間節點，探討這場前所未有的預言共振意味著什麼。

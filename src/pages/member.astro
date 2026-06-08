@@ -1783,9 +1783,14 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
 }
 @media (max-width: 600px) {
   .mc-topbar { grid-template-columns: 1fr; }
-  .mc-tabs { overflow-x: auto; }
-  .mc-tab { font-size: .7em; }
+  .mc-tabs { overflow-x: auto; padding-bottom: .3em; }
+  .mc-tab { flex: 0 0 auto; font-size: .7em; padding: .5em .7em; }
   .dash-stats-row { grid-template-columns: repeat(2,1fr); }
   .lf-grid { grid-template-columns: 1fr 1fr; }
+  .mkt-grid { grid-template-columns: 1fr 1fr; }
+  .intel-grid { grid-template-columns: 1fr; }
+  .tribe-stats { grid-template-columns: repeat(3,1fr); font-size: .85em; }
+  .geo-item { grid-template-columns: 90px 1fr 32px; gap: .4em; }
+  .adv-cat { grid-template-columns: 80px 1fr 36px; gap: .5em; }
 }
 </style>

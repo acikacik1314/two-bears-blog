@@ -1,0 +1,668 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <BaseHead title="交友頻道 — 兩隻熊" description="老式交友留言板，寫下你的故事，等待緣分相遇" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero">
+        <h1>💌 交友頻道</h1>
+        <p>老式留言板風格 · 寫下你的故事 · 等待緣分相遇</p>
+      </section>
+
+      <!-- Create Profile Form -->
+      <div class="card form-card" id="form-section">
+        <div class="card-title-row">
+          <span class="card-icon">✏️</span>
+          <h2 class="card-title">留下你的自我介紹</h2>
+        </div>
+        <form id="friend-form" class="friend-form">
+          <div class="form-grid">
+            <div class="field">
+              <label>暱稱 <span class="req">*</span></label>
+              <input type="text" name="nickname" maxlength="20" placeholder="你的暱稱（最多20字）" required />
+            </div>
+            <div class="field">
+              <label>年齡</label>
+              <input type="text" name="age" maxlength="10" placeholder="例：28歲" />
+            </div>
+            <div class="field">
+              <label>性別</label>
+              <select name="gender">
+                <option value="">不透露</option>
+                <option>男</option>
+                <option>女</option>
+                <option>非二元</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>居住地</label>
+              <input type="text" name="location" maxlength="20" placeholder="例：台北、高雄、海外..." />
+            </div>
+          </div>
+          <div class="field">
+            <label>興趣喜好</label>
+            <input type="text" name="interests" maxlength="80" placeholder="例：旅遊、神秘學、美食、電影..." />
+          </div>
+          <div class="field">
+            <label>我在尋找</label>
+            <input type="text" name="lookingFor" maxlength="60" placeholder="例：聊天朋友、旅伴、靈魂伴侶..." />
+          </div>
+          <div class="field">
+            <label>自我介紹 <span class="req">*</span></label>
+            <textarea name="intro" maxlength="200" rows="3" placeholder="說說你是誰、你的故事...（最多200字）" required></textarea>
+          </div>
+          <div class="field">
+            <label>聯絡方式</label>
+            <input type="text" name="contact" maxlength="60" placeholder="例：IG @xxx、LINE ID、Email（自願填寫）" />
+          </div>
+          <div class="form-footer">
+            <p class="form-disclaimer">✦ 請勿填寫真實姓名或敏感個人資料。本頻道為開放式社群空間。</p>
+            <button type="submit" class="submit-btn" id="submit-btn">發佈自我介紹</button>
+          </div>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+
+      <!-- Profile List -->
+      <div class="section-header">
+        <h2>📋 交友列表</h2>
+        <span class="section-sub">點擊任何卡片可展開留言</span>
+      </div>
+
+      <div id="profiles-container" class="profiles-list">
+        <div class="loading-state">載入中…</div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  interface Comment {
+    id: string;
+    text: string;
+    time: string;
+  }
+  interface Profile {
+    id: string;
+    nickname: string;
+    age: string;
+    gender: string;
+    location: string;
+    interests: string;
+    lookingFor: string;
+    intro: string;
+    contact: string;
+    createdAt: string;
+    comments: Comment[];
+  }
+
+  const GENDER_EMOJI: Record<string, string> = { '男': '♂', '女': '♀', '非二元': '⚧', '': '…' };
+
+  function renderProfile(p: Profile): string {
+    const genderEmoji = GENDER_EMOJI[p.gender] ?? '…';
+    const metaTags = [p.age, p.gender ? `${genderEmoji} ${p.gender}` : '', p.location]
+      .filter(Boolean)
+      .map(t => `<span class="meta-tag">${t}</span>`)
+      .join('');
+
+    const commentsHtml = p.comments.length > 0
+      ? p.comments.map(c => `
+          <div class="comment-item">
+            <span class="comment-time">${c.time}</span>
+            <span class="comment-text">${escHtml(c.text)}</span>
+          </div>`).join('')
+      : '<p class="no-comments">還沒有人留言，來第一個吧！</p>';
+
+    return `
+    <div class="profile-card" data-id="${p.id}">
+      <div class="profile-header" onclick="toggleProfile('${p.id}')">
+        <div class="profile-avatar">${getInitial(p.nickname)}</div>
+        <div class="profile-summary">
+          <span class="profile-name">${escHtml(p.nickname)}</span>
+          <div class="profile-meta">${metaTags}</div>
+          ${p.interests ? `<div class="profile-interests">🎯 ${escHtml(p.interests)}</div>` : ''}
+        </div>
+        <div class="profile-right">
+          <span class="comment-count">💬 ${p.comments.length}</span>
+          <span class="expand-icon" id="icon-${p.id}">▼</span>
+        </div>
+      </div>
+      <div class="profile-body" id="body-${p.id}" style="display:none">
+        <div class="profile-intro">${escHtml(p.intro)}</div>
+        ${p.lookingFor ? `<div class="profile-looking"><span class="looking-label">尋找：</span>${escHtml(p.lookingFor)}</div>` : ''}
+        ${p.contact ? `<div class="profile-contact">📱 ${escHtml(p.contact)}</div>` : ''}
+        <div class="profile-date">📅 ${p.createdAt}</div>
+        <div class="comments-section">
+          <div class="comments-title">留言板</div>
+          <div class="comments-list" id="comments-${p.id}">${commentsHtml}</div>
+          <div class="comment-form">
+            <input type="text" class="comment-input" id="cinput-${p.id}" maxlength="100" placeholder="留下你的話（最多100字）…" />
+            <button class="comment-btn" onclick="submitComment('${p.id}')">留言</button>
+          </div>
+          <p class="comment-status" id="cstatus-${p.id}"></p>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function escHtml(s: string): string {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function getInitial(name: string): string {
+    return name ? name.charAt(0).toUpperCase() : '?';
+  }
+
+  const avatarColors = ['#7611a6','#2563eb','#059669','#dc2626','#d97706','#0891b2','#7c3aed'];
+  function getAvatarColor(id: string): string {
+    let hash = 0;
+    for (const c of id) hash = (hash * 31 + c.charCodeAt(0)) & 0xffffffff;
+    return avatarColors[Math.abs(hash) % avatarColors.length];
+  }
+
+  async function loadProfiles() {
+    const container = document.getElementById('profiles-container');
+    if (!container) return;
+    try {
+      const r = await fetch('/api/friends');
+      const profiles: Profile[] = await r.json();
+      if (profiles.length === 0) {
+        container.innerHTML = '<div class="empty-state">還沒有人發佈自我介紹，來第一個吧！✨</div>';
+        return;
+      }
+      container.innerHTML = profiles.map(renderProfile).join('');
+
+      // Apply avatar colors
+      profiles.forEach(p => {
+        const avatar = container.querySelector(`.profile-card[data-id="${p.id}"] .profile-avatar`) as HTMLElement | null;
+        if (avatar) avatar.style.background = getAvatarColor(p.id);
+      });
+    } catch {
+      container.innerHTML = '<div class="empty-state">載入失敗，請重新整理頁面</div>';
+    }
+  }
+
+  (window as any).toggleProfile = function(id: string) {
+    const body = document.getElementById(`body-${id}`);
+    const icon = document.getElementById(`icon-${id}`);
+    if (!body) return;
+    const open = body.style.display === 'none';
+    body.style.display = open ? 'block' : 'none';
+    if (icon) icon.textContent = open ? '▲' : '▼';
+  };
+
+  (window as any).submitComment = async function(profileId: string) {
+    const input = document.getElementById(`cinput-${profileId}`) as HTMLInputElement | null;
+    const statusEl = document.getElementById(`cstatus-${profileId}`);
+    if (!input) return;
+    const text = input.value.trim();
+    if (!text) return;
+
+    try {
+      const r = await fetch('/api/friends', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'comment', profileId, text }),
+      });
+      const d = await r.json();
+      if (d.ok) {
+        input.value = '';
+        const listEl = document.getElementById(`comments-${profileId}`);
+        if (listEl) {
+          const noComments = listEl.querySelector('.no-comments');
+          if (noComments) noComments.remove();
+          const div = document.createElement('div');
+          div.className = 'comment-item';
+          div.innerHTML = `<span class="comment-time">${d.comment.time}</span><span class="comment-text">${escHtml(d.comment.text)}</span>`;
+          listEl.appendChild(div);
+        }
+        // Update comment count
+        const card = document.querySelector(`.profile-card[data-id="${profileId}"]`);
+        const countEl = card?.querySelector('.comment-count');
+        if (countEl) {
+          const cur = parseInt(countEl.textContent?.replace(/\D/g,'') ?? '0');
+          countEl.textContent = `💬 ${cur + 1}`;
+        }
+        if (statusEl) { statusEl.textContent = '✓ 留言成功！'; setTimeout(() => { if(statusEl) statusEl.textContent=''; }, 3000); }
+      } else {
+        if (statusEl) statusEl.textContent = d.error === 'comments full' ? '此卡片留言已滿' : '留言失敗，請稍後再試';
+      }
+    } catch {
+      if (statusEl) statusEl.textContent = '留言失敗，請稍後再試';
+    }
+  };
+
+  // Profile submission form
+  const form = document.getElementById('friend-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const formStatus = document.getElementById('form-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '發佈中…';
+
+    const fd = new FormData(form);
+    const body = Object.fromEntries(fd.entries());
+
+    try {
+      const r = await fetch('/api/friends', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const d = await r.json();
+      if (d.ok) {
+        form.reset();
+        if (formStatus) formStatus.textContent = '✓ 發佈成功！你的介紹已出現在下方列表中';
+        loadProfiles();
+      } else if (d.error === 'board full') {
+        if (formStatus) formStatus.textContent = '留言板已滿，感謝你的熱情！';
+      } else {
+        if (formStatus) formStatus.textContent = '發佈失敗，請確認必填欄位';
+      }
+    } catch {
+      if (formStatus) formStatus.textContent = '發佈失敗，請稍後再試';
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = '發佈自我介紹';
+  });
+
+  loadProfiles();
+</script>
+
+<style>
+  main {
+    width: 860px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 0 1em 3em;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 2em 0 1.5em;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+    margin-bottom: 0.3em;
+    color: rgb(var(--black));
+  }
+
+  .hero p {
+    color: rgb(var(--gray));
+    font-size: 0.95em;
+  }
+
+  /* Form Card */
+  .card {
+    background: #fff;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 14px;
+    padding: 1.2em 1.4em;
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 8px rgba(var(--gray), 8%);
+  }
+
+  .card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  .card-icon { font-size: 1.2em; }
+
+  .card-title {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 700;
+    color: rgb(var(--black));
+  }
+
+  .friend-form { display: flex; flex-direction: column; gap: 0.8em; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 0.3em; }
+
+  .field label {
+    font-size: 0.78em;
+    font-weight: 600;
+    color: rgb(var(--gray));
+  }
+
+  .req { color: #e11d48; }
+
+  .field input,
+  .field select,
+  .field textarea {
+    background: #f8fafc;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 8px;
+    color: rgb(var(--black));
+    font-size: 0.85em;
+    padding: 0.5em 0.7em;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: rgba(118,17,166,0.5);
+  }
+
+  .field textarea { resize: vertical; }
+
+  .field input::placeholder,
+  .field textarea::placeholder { color: rgb(var(--gray)); opacity: 0.6; }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .form-disclaimer {
+    font-size: 0.72em;
+    color: rgb(var(--gray));
+    margin: 0;
+    flex: 1;
+  }
+
+  .submit-btn {
+    background: var(--accent, #7611a6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.88em;
+    font-weight: 700;
+    padding: 0.55em 1.4em;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .submit-btn:hover { opacity: 0.85; }
+  .submit-btn:disabled { opacity: 0.45; cursor: default; }
+
+  .form-status {
+    font-size: 0.78em;
+    color: #4ade80;
+    margin: 0;
+    min-height: 1.2em;
+  }
+
+  /* Section Header */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7em;
+    margin-bottom: 0.8em;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.05em;
+    font-weight: 700;
+    color: rgb(var(--black));
+  }
+
+  .section-sub {
+    font-size: 0.75em;
+    color: rgb(var(--gray));
+  }
+
+  /* Profiles List */
+  .profiles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  .loading-state, .empty-state {
+    text-align: center;
+    color: rgb(var(--gray));
+    font-size: 0.85em;
+    padding: 2em 0;
+  }
+
+  /* Profile Card */
+  .profile-card {
+    background: #fff;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(var(--gray), 8%);
+  }
+
+  .profile-card:hover { border-color: rgba(118,17,166,0.35); box-shadow: 0 3px 12px rgba(var(--gray), 15%); }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9em;
+    padding: 0.9em 1em;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .profile-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #7611a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .profile-summary { flex: 1; min-width: 0; }
+
+  .profile-name {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: rgb(var(--black));
+    display: block;
+    margin-bottom: 0.25em;
+  }
+
+  .profile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    margin-bottom: 0.2em;
+  }
+
+  .meta-tag {
+    font-size: 0.68em;
+    background: rgb(var(--gray-light));
+    border: 1px solid rgba(var(--gray), 0.2);
+    border-radius: 10px;
+    padding: 0.1em 0.5em;
+    color: rgb(var(--gray-dark));
+    white-space: nowrap;
+  }
+
+  .profile-interests {
+    font-size: 0.72em;
+    color: rgb(var(--gray));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .profile-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-shrink: 0;
+  }
+
+  .comment-count {
+    font-size: 0.75em;
+    color: rgb(var(--gray));
+  }
+
+  .expand-icon {
+    font-size: 0.75em;
+    color: rgb(var(--gray));
+    transition: transform 0.2s;
+  }
+
+  /* Profile Body */
+  .profile-body {
+    border-top: 1px solid rgb(var(--gray-light));
+    padding: 1em;
+    background: #fafbfc;
+  }
+
+  .profile-intro {
+    font-size: 0.88em;
+    color: rgb(var(--black));
+    line-height: 1.6;
+    margin-bottom: 0.6em;
+    white-space: pre-wrap;
+  }
+
+  .profile-looking {
+    font-size: 0.78em;
+    color: rgb(var(--gray));
+    margin-bottom: 0.4em;
+  }
+
+  .looking-label {
+    font-weight: 600;
+    color: #a78bfa;
+  }
+
+  .profile-contact {
+    font-size: 0.78em;
+    color: rgb(var(--gray));
+    margin-bottom: 0.3em;
+  }
+
+  .profile-date {
+    font-size: 0.7em;
+    color: rgb(var(--gray));
+    opacity: 0.6;
+    margin-bottom: 1em;
+  }
+
+  /* Comments */
+  .comments-section {
+    border-top: 1px solid rgb(var(--gray-light));
+    padding-top: 0.8em;
+  }
+
+  .comments-title {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: rgb(var(--gray));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6em;
+  }
+
+  .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45em;
+    margin-bottom: 0.7em;
+  }
+
+  .comment-item {
+    display: flex;
+    gap: 0.6em;
+    font-size: 0.8em;
+  }
+
+  .comment-time {
+    color: rgb(var(--gray));
+    opacity: 0.6;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.9em;
+  }
+
+  .comment-text { color: rgb(var(--black)); }
+
+  .no-comments {
+    font-size: 0.78em;
+    color: rgb(var(--gray));
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  .comment-form {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .comment-input {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 7px;
+    color: rgb(var(--black));
+    font-size: 0.8em;
+    padding: 0.4em 0.7em;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .comment-input::placeholder { color: rgb(var(--gray)); }
+  .comment-input:focus { border-color: rgba(118,17,166,0.4); }
+
+  .comment-btn {
+    background: var(--accent, #7611a6);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.78em;
+    font-weight: 700;
+    padding: 0.4em 0.9em;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .comment-btn:hover { opacity: 0.85; }
+
+  .comment-status {
+    font-size: 0.72em;
+    color: #4ade80;
+    margin: 0.3em 0 0;
+    min-height: 1em;
+  }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>

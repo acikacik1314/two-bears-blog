@@ -1,0 +1,800 @@
+---
+interface ProphecyItem {
+  title: string;
+  url: string;
+  pubDate: string;
+}
+interface Props {
+  prophecies: ProphecyItem[];
+}
+const { prophecies } = Astro.props;
+---
+
+<div class="liveinfo">
+
+  <!-- ── Row 1: Date / Time / 農曆 / 月相 / 節氣 ── -->
+  <div class="li-datebar">
+    <div class="li-clock-wrap">
+      <span class="li-time" id="li-time">--:--:--</span>
+      <span class="li-tz">台灣標準時間</span>
+    </div>
+    <div class="li-date-info">
+      <span class="li-date-main" id="li-date">----年--月--日 週-</span>
+      <span class="li-lunar" id="li-lunar">農曆載入中</span>
+      <span class="li-moon" id="li-moon">🌕</span>
+      <span class="li-jieqi" id="li-jieqi"></span>
+    </div>
+    <div class="li-cal-outer">
+      <div class="li-cal" id="li-cal"></div>
+    </div>
+  </div>
+
+  <!-- ── Row 2: 5 data cards ── -->
+  <div class="li-grid">
+
+    <!-- Weather -->
+    <div class="li-card">
+      <div class="li-clabel">🌏 台北天氣</div>
+      <div class="li-cval"><span id="li-wemoji">⏳</span> <span id="li-wtemp">--°C</span></div>
+      <div class="li-csub" id="li-wdesc">載入中…</div>
+      <div class="li-cextra" id="li-whum"></div>
+    </div>
+
+    <!-- Currency -->
+    <div class="li-card">
+      <div class="li-clabel">💱 即時匯率</div>
+      <div class="li-cval" id="li-usdtwd">USD/TWD —</div>
+      <div class="li-csub" id="li-jpytwd">JPY/TWD —</div>
+      <div class="li-cextra" id="li-usdeur">USD/EUR —</div>
+    </div>
+
+    <!-- Gold + Silver -->
+    <div class="li-card">
+      <div class="li-clabel">🏅 貴金屬</div>
+      <div class="li-cval" id="li-gold">黃金 $—</div>
+      <div class="li-csub" id="li-silver">白銀 $—</div>
+      <div class="li-cextra" id="li-fng"></div>
+    </div>
+
+    <!-- Crypto + F&G -->
+    <div class="li-card">
+      <div class="li-clabel">🪙 加密貨幣</div>
+      <div class="li-cval" id="li-btc">₿ BTC —</div>
+      <div class="li-csub" id="li-xrp">XRP —</div>
+      <div class="li-cextra" id="li-fng2"></div>
+    </div>
+
+    <!-- Stocks + VIX -->
+    <div class="li-card">
+      <div class="li-clabel">📊 股市指數</div>
+      <div class="li-cval" id="li-twii">台股 —</div>
+      <div class="li-csub" id="li-sp500">S&amp;P500 —</div>
+      <div class="li-cextra" id="li-vix"></div>
+    </div>
+
+  </div>
+
+  <!-- ── Row 3: Today's prophet + countdown ── -->
+  <div class="li-prophet-row">
+    <div class="li-today-prophet">
+      <span class="li-tp-label">今日特輯</span>
+      <span class="li-tp-name" id="li-prophet-name">—</span>
+      <a class="li-tp-link" id="li-prophet-link" href="/category/預言/">查看預言 →</a>
+    </div>
+    <div class="li-countdown" id="li-countdown">
+      <span class="li-cd-label" id="li-cd-name">載入中</span>
+      <span class="li-cd-timer" id="li-cd-timer">—</span>
+    </div>
+  </div>
+
+  <!-- ── Row 4: Prophecy carousel ── -->
+  {prophecies.length > 0 && (
+    <div class="li-prophecy">
+      <span class="li-prop-badge">⚡ 最新預言</span>
+      <button class="li-prop-nav" id="li-prop-prev" aria-label="上一則">‹</button>
+      <div class="li-prop-body">
+        <a class="li-prop-title" id="li-prop-link" href="/">[載入中]</a>
+        <time class="li-prop-date" id="li-prop-date"></time>
+      </div>
+      <button class="li-prop-nav" id="li-prop-next" aria-label="下一則">›</button>
+      <span class="li-prop-count" id="li-prop-count">1/{prophecies.length}</span>
+    </div>
+  )}
+
+</div>
+
+<script define:vars={{ prophecies }}>
+  /* ──────────────────────────────────────────────
+     Taipei time helpers
+  ────────────────────────────────────────────── */
+  function twNow() {
+    const s = new Date().toLocaleString('sv', { timeZone: 'Asia/Taipei' });
+    const [date, time] = s.split(' ');
+    const [y, m, d] = date.split('-').map(Number);
+    const [h, mi, se] = time.split(':').map(Number);
+    const dow = new Date(y, m - 1, d).getDay();
+    return { y, m, d, h, mi, se, dow };
+  }
+
+  /* ──────────────────────────────────────────────
+     Lunar calendar via Intl API
+  ────────────────────────────────────────────── */
+  const lunarFmt = new Intl.DateTimeFormat('zh-TW-u-ca-chinese', {
+    month: 'long', day: 'numeric',
+  });
+
+  function getLunar() {
+    try { return lunarFmt.format(new Date()); }
+    catch { return ''; }
+  }
+
+  /* ──────────────────────────────────────────────
+     Moon phase (Meeus algorithm)
+  ────────────────────────────────────────────── */
+  function moonPhase() {
+    const jd = Date.now() / 86400000 + 2440587.5;
+    const phase = ((jd - 2451550.1) / 29.53058867) % 1;
+    const p = phase < 0 ? phase + 1 : phase;
+    if (p < 0.03 || p > 0.97) return '🌑 新月';
+    if (p < 0.22) return '🌒 眉月';
+    if (p < 0.28) return '🌓 上弦月';
+    if (p < 0.47) return '🌔 盈凸月';
+    if (p < 0.53) return '🌕 滿月';
+    if (p < 0.72) return '🌖 虧凸月';
+    if (p < 0.78) return '🌗 下弦月';
+    return '🌘 殘月';
+  }
+
+  /* ──────────────────────────────────────────────
+     Solar terms 節氣 (2026–2027)
+  ────────────────────────────────────────────── */
+  const JIEQI = [
+    ['2026-01-05','小寒'],['2026-01-20','大寒'],
+    ['2026-02-04','立春'],['2026-02-18','雨水'],
+    ['2026-03-06','驚蟄'],['2026-03-20','春分'],
+    ['2026-04-05','清明'],['2026-04-20','穀雨'],
+    ['2026-05-06','立夏'],['2026-05-21','小滿'],
+    ['2026-06-06','芒種'],['2026-06-21','夏至'],
+    ['2026-07-07','小暑'],['2026-07-23','大暑'],
+    ['2026-08-07','立秋'],['2026-08-23','處暑'],
+    ['2026-09-08','白露'],['2026-09-23','秋分'],
+    ['2026-10-08','寒露'],['2026-10-23','霜降'],
+    ['2026-11-07','立冬'],['2026-11-22','小雪'],
+    ['2026-12-07','大雪'],['2026-12-22','冬至'],
+    ['2027-01-05','小寒'],['2027-01-20','大寒'],
+    ['2027-02-03','立春'],
+  ];
+
+  function getCurrentJieqi(y, m, d) {
+    const today = `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    // find current or next term
+    let current = '', next = '', nextDate = '';
+    for (let i = 0; i < JIEQI.length; i++) {
+      const [dt, name] = JIEQI[i];
+      if (dt === today) return `✦ 今日${name}`;
+      if (dt < today) current = name;
+      else if (!next) { next = name; nextDate = dt; }
+    }
+    if (next) {
+      const diff = Math.ceil((new Date(nextDate) - new Date(today)) / 86400000);
+      return `下個節氣：${next}（${diff}天後）`;
+    }
+    return current ? `節氣：${current}後` : '';
+  }
+
+  /* ──────────────────────────────────────────────
+     Date/time display + mini calendar
+  ────────────────────────────────────────────── */
+  const DOW_NAMES = ['日','一','二','三','四','五','六'];
+  let lastCalMonth = -1;
+
+  function updateClock() {
+    const t = twNow();
+    const pad = n => String(n).padStart(2,'0');
+
+    const timeEl = document.getElementById('li-time');
+    const dateEl = document.getElementById('li-date');
+    const lunarEl = document.getElementById('li-lunar');
+    const moonEl = document.getElementById('li-moon');
+    const jieqiEl = document.getElementById('li-jieqi');
+
+    if (timeEl) timeEl.textContent = `${pad(t.h)}:${pad(t.mi)}:${pad(t.se)}`;
+    if (dateEl) dateEl.textContent = `${t.y}年${t.m}月${t.d}日 週${DOW_NAMES[t.dow]}`;
+    if (lunarEl) lunarEl.textContent = getLunar();
+    if (moonEl) moonEl.textContent = moonPhase().split(' ')[0];
+    if (jieqiEl && t.m !== lastCalMonth) jieqiEl.textContent = getCurrentJieqi(t.y, t.m, t.d);
+
+    if (t.m !== lastCalMonth) {
+      buildCal(t.y, t.m, t.d);
+      lastCalMonth = t.m;
+    }
+  }
+
+  function buildCal(year, month, today) {
+    const el = document.getElementById('li-cal');
+    if (!el) return;
+    const first = new Date(year, month - 1, 1).getDay();
+    const days = new Date(year, month, 0).getDate();
+    const heads = ['日','一','二','三','四','五','六'];
+    let h = `<div class="li-cgrid"><div class="li-cmonth">${month}月</div>`;
+    heads.forEach(d => h += `<b>${d}</b>`);
+    for (let i = 0; i < first; i++) h += '<span></span>';
+    for (let day = 1; day <= days; day++)
+      h += `<span${day === today ? ' class="li-ctoday"' : ''}>${day}</span>`;
+    h += '</div>';
+    el.innerHTML = h;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  /* ──────────────────────────────────────────────
+     Weather (Open-Meteo, Taipei)
+  ────────────────────────────────────────────── */
+  const WMO = {
+    0:'☀️ 晴天', 1:'🌤 晴朗', 2:'⛅ 多雲', 3:'☁️ 陰天',
+    45:'🌫 霧', 48:'🌫 霧',
+    51:'🌦 毛毛雨', 53:'🌦 毛毛雨', 55:'🌧 毛毛雨',
+    61:'🌧 小雨', 63:'🌧 中雨', 65:'🌧 大雨',
+    71:'🌨 小雪', 73:'🌨 中雪', 75:'❄️ 大雪',
+    80:'🌦 陣雨', 81:'🌧 陣雨', 82:'🌩 暴雨',
+    95:'⛈ 雷陣雨', 96:'⛈ 雷暴', 99:'⛈ 強雷暴',
+  };
+
+  async function loadWeather() {
+    try {
+      const r = await fetch(
+        'https://api.open-meteo.com/v1/forecast?latitude=25.0330&longitude=121.5654&current=temperature_2m,weather_code,relative_humidity_2m&timezone=Asia/Taipei',
+        { signal: AbortSignal.timeout(8000) }
+      );
+      const j = await r.json();
+      const c = j?.current;
+      if (!c) return;
+      const parts = (WMO[c.weather_code] ?? '🌡 未知').split(' ');
+      const temp = Math.round(c.temperature_2m);
+      const emoEl = document.getElementById('li-wemoji');
+      const tmpEl = document.getElementById('li-wtemp');
+      const dscEl = document.getElementById('li-wdesc');
+      const humEl = document.getElementById('li-whum');
+      if (emoEl) emoEl.textContent = parts[0];
+      if (tmpEl) tmpEl.textContent = `${temp}°C`;
+      if (dscEl) dscEl.textContent = parts[1] ?? '';
+      if (humEl) humEl.textContent = `💧 濕度 ${c.relative_humidity_2m}%`;
+    } catch {}
+  }
+
+  loadWeather();
+  setInterval(loadWeather, 10 * 60 * 1000);
+
+  /* ──────────────────────────────────────────────
+     Currency (Frankfurter API)
+     User requested: USD/TWD and JPY/TWD
+  ────────────────────────────────────────────── */
+  async function loadCurrency() {
+    try {
+      const r = await fetch('https://api.frankfurter.app/latest?from=USD&to=TWD,JPY,EUR', {
+        signal: AbortSignal.timeout(8000),
+      });
+      const j = await r.json();
+      const rates = j?.rates;
+      if (!rates) return;
+      const twd = rates.TWD;
+      const jpy = rates.JPY;
+      const eur = rates.EUR;
+      const jpytwd = twd && jpy ? twd / jpy : null;
+      const el1 = document.getElementById('li-usdtwd');
+      const el2 = document.getElementById('li-jpytwd');
+      const el3 = document.getElementById('li-usdeur');
+      if (el1 && twd) el1.textContent = `USD/TWD ${twd.toFixed(2)}`;
+      if (el2 && jpytwd) el2.textContent = `JPY/TWD ${jpytwd.toFixed(4)}`;
+      if (el3 && eur) el3.textContent = `USD/EUR ${eur.toFixed(4)}`;
+    } catch {}
+  }
+
+  loadCurrency();
+  setInterval(loadCurrency, 5 * 60 * 1000);
+
+  /* ──────────────────────────────────────────────
+     Fear & Greed Index (alternative.me)
+  ────────────────────────────────────────────── */
+  async function loadFearGreed() {
+    try {
+      const r = await fetch('https://api.alternative.me/fng/?limit=1', {
+        signal: AbortSignal.timeout(6000),
+      });
+      const j = await r.json();
+      const item = j?.data?.[0];
+      if (!item) return;
+      const v = parseInt(item.value);
+      const cls = v <= 25 ? 'li-dn' : v <= 45 ? 'li-warn' : v <= 55 ? '' : v <= 75 ? 'li-up' : 'li-up';
+      const label = item.value_classification;
+      const tw = {'Extreme Fear':'極度恐慌','Fear':'恐慌','Neutral':'中性','Greed':'貪婪','Extreme Greed':'極度貪婪'}[label] ?? label;
+      const html = `恐懼貪婪 <span class="${cls}">${v} ${tw}</span>`;
+      const el1 = document.getElementById('li-fng');
+      const el2 = document.getElementById('li-fng2');
+      if (el1) el1.innerHTML = html;
+      if (el2) el2.innerHTML = html;
+    } catch {}
+  }
+
+  loadFearGreed();
+  setInterval(loadFearGreed, 30 * 60 * 1000);
+
+  /* ──────────────────────────────────────────────
+     Market data: stocks + gold + XRP + VIX + BTC
+  ────────────────────────────────────────────── */
+  function chg(pct) {
+    if (pct == null) return '';
+    const sign = pct >= 0 ? '▲' : '▼';
+    return ` <span class="${pct >= 0 ? 'li-up' : 'li-dn'}">${sign}${Math.abs(pct).toFixed(2)}%</span>`;
+  }
+  function fmt(p, dec) {
+    if (p == null) return '—';
+    return p.toLocaleString('en-US', { maximumFractionDigits: dec ?? (p >= 100 ? 0 : 4) });
+  }
+
+  async function loadMarket() {
+    try {
+      const r = await fetch('/api/market', { signal: AbortSignal.timeout(10000) });
+      const d = await r.json();
+
+      const qs = {};
+      for (const q of (d.quotes ?? [])) qs[q.symbol] = q;
+
+      const set = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = text;
+      };
+
+      if (qs['^TWII']) set('li-twii', `台股 ${fmt(qs['^TWII'].price)}${chg(qs['^TWII'].change)}`);
+      if (qs['^GSPC']) set('li-sp500', `S&P500 ${fmt(qs['^GSPC'].price)}${chg(qs['^GSPC'].change)}`);
+      if (qs['^VIX']) {
+        const v = qs['^VIX'].price;
+        const vLabel = v < 15 ? '低波動' : v < 25 ? '中波動' : v < 35 ? '⚠️ 高波動' : '🔴 恐慌';
+        set('li-vix', `VIX ${fmt(v, 1)} <span class="${v > 25 ? 'li-dn' : ''}">${vLabel}</span>`);
+      }
+      if (qs['GC=F']) set('li-gold', `黃金 $${fmt(qs['GC=F'].price)}${chg(qs['GC=F'].change)}`);
+      if (qs['XRP-USD']) set('li-xrp', `XRP $${fmt(qs['XRP-USD'].price, 4)}${chg(qs['XRP-USD'].change)}`);
+
+      const btc = d.crypto?.bitcoin;
+      const eth = d.crypto?.ethereum;
+      if (btc) set('li-btc', `₿ $${fmt(btc.usd)}${chg(btc.usd_24h_change)}`);
+
+      // Show silver placeholder (Yahoo: SI=F, not always available)
+      const si = qs['SI=F'];
+      if (si) set('li-silver', `白銀 $${fmt(si.price)}${chg(si.change)}`);
+      else {
+        const silEl = document.getElementById('li-silver');
+        if (silEl && silEl.textContent === '白銀 $—') silEl.textContent = '';
+      }
+    } catch {}
+  }
+
+  loadMarket();
+  setInterval(loadMarket, 60 * 1000);
+
+  /* ──────────────────────────────────────────────
+     Weekly prophet rotation (user's schedule)
+  ────────────────────────────────────────────── */
+  const WEEKLY_PROPHETS = [
+    { name: '其他預言家', tag: null },       // 日
+    { name: '國分玲', tag: '國分玲' },       // 一
+    { name: '摩普萊', tag: '摩普萊' },       // 二
+    { name: '帕克', tag: '帕克' },           // 三
+    { name: '薩洛梅', tag: '薩洛梅' },       // 四
+    { name: '比格斯', tag: '比格斯' },       // 五
+    { name: '阿南德', tag: '阿南德' },       // 六
+  ];
+
+  function updateProphet() {
+    const { dow } = twNow();
+    const p = WEEKLY_PROPHETS[dow];
+    const nameEl = document.getElementById('li-prophet-name');
+    const linkEl = document.getElementById('li-prophet-link');
+    if (nameEl) nameEl.textContent = p.name;
+    if (linkEl && p.tag) {
+      linkEl.href = `/category/預言/?prophet=${encodeURIComponent(p.tag)}`;
+      linkEl.textContent = `查看 ${p.name} 預言 →`;
+    }
+  }
+
+  updateProphet();
+
+  /* ──────────────────────────────────────────────
+     Prophecy countdown timers
+  ────────────────────────────────────────────── */
+  const COUNTDOWNS = [
+    { name: '九紫離火運結束', date: '2043-02-04' },
+    { name: '2039 防火牆倒塌窗口', date: '2039-01-01' },
+    { name: '2027 預言窗口', date: '2027-01-01' },
+    { name: '2026 美國中期選舉', date: '2026-11-03' },
+  ];
+
+  function updateCountdown() {
+    const now = Date.now();
+    const active = COUNTDOWNS.find(c => new Date(c.date).getTime() > now);
+    if (!active) return;
+    const diff = new Date(active.date).getTime() - now;
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const cdName = document.getElementById('li-cd-name');
+    const cdTimer = document.getElementById('li-cd-timer');
+    if (cdName) cdName.textContent = `⏳ 距離「${active.name}」`;
+    if (cdTimer) cdTimer.textContent = `${days}天 ${pad(hrs)}:${pad(mins)}:${pad(secs)}`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ──────────────────────────────────────────────
+     Prophecy carousel
+  ────────────────────────────────────────────── */
+  if (prophecies && prophecies.length > 0) {
+    let idx = 0;
+
+    function showProp(i) {
+      const p = prophecies[i];
+      if (!p) return;
+      const linkEl = document.getElementById('li-prop-link');
+      const dateEl = document.getElementById('li-prop-date');
+      const countEl = document.getElementById('li-prop-count');
+      if (linkEl) { linkEl.textContent = p.title; linkEl.href = p.url; }
+      if (dateEl) dateEl.textContent = p.pubDate;
+      if (countEl) countEl.textContent = `${i + 1}/${prophecies.length}`;
+    }
+
+    showProp(0);
+
+    document.getElementById('li-prop-prev')?.addEventListener('click', () => {
+      idx = (idx - 1 + prophecies.length) % prophecies.length;
+      showProp(idx);
+    });
+    document.getElementById('li-prop-next')?.addEventListener('click', () => {
+      idx = (idx + 1) % prophecies.length;
+      showProp(idx);
+    });
+
+    setInterval(() => {
+      idx = (idx + 1) % prophecies.length;
+      showProp(idx);
+    }, 8000);
+  }
+</script>
+
+<style>
+  .liveinfo {
+    background: linear-gradient(160deg, #0b0f23 0%, #162040 60%, #0b1528 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 1em 1.1em 0.85em;
+    margin-bottom: 1.5em;
+    color: #e2e8f0;
+  }
+
+  /* ── Date bar ── */
+  .li-datebar {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2em;
+    padding-bottom: 0.8em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: wrap;
+  }
+
+  .li-clock-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+  }
+
+  .li-time {
+    font-size: 1.5em;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    color: #f8fafc;
+    line-height: 1;
+  }
+
+  .li-tz {
+    font-size: 0.6em;
+    color: #475569;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .li-date-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    justify-content: center;
+  }
+
+  .li-date-main {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+
+  .li-lunar {
+    font-size: 0.78em;
+    color: #94a3b8;
+  }
+
+  .li-moon {
+    font-size: 1em;
+  }
+
+  .li-jieqi {
+    font-size: 0.72em;
+    color: #64748b;
+  }
+
+  /* Mini calendar */
+  .li-cal-outer {
+    flex-shrink: 0;
+  }
+
+  :global(.li-cgrid) {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    font-size: 0.58em;
+    text-align: center;
+    line-height: 1.7;
+    min-width: 140px;
+  }
+
+  :global(.li-cmonth) {
+    grid-column: 1 / -1;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #64748b;
+    text-align: center;
+    padding-bottom: 2px;
+  }
+
+  :global(.li-cgrid b) {
+    color: #475569;
+    font-weight: 700;
+  }
+
+  :global(.li-ctoday) {
+    background: var(--accent, #7611a6);
+    color: white !important;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  /* ── 5-card grid ── */
+  .li-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6em;
+    margin-bottom: 0.7em;
+  }
+
+  .li-card {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 10px;
+    padding: 0.6em 0.7em;
+    min-width: 0;
+  }
+
+  .li-clabel {
+    font-size: 0.62em;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .li-cval {
+    font-size: 0.88em;
+    font-weight: 700;
+    color: #f1f5f9;
+    line-height: 1.3;
+    margin-bottom: 0.12em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .li-csub {
+    font-size: 0.74em;
+    color: #94a3b8;
+    margin-bottom: 0.08em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .li-cextra {
+    font-size: 0.68em;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* change indicators — injected via innerHTML */
+  :global(.li-up) { color: #4ade80; }
+  :global(.li-dn) { color: #f87171; }
+  :global(.li-warn) { color: #fbbf24; }
+
+  /* ── Today's prophet + countdown ── */
+  .li-prophet-row {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 0.6em;
+    flex-wrap: wrap;
+  }
+
+  .li-today-prophet {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background: rgba(118,17,166,0.2);
+    border: 1px solid rgba(118,17,166,0.35);
+    border-radius: 8px;
+    padding: 0.4em 0.8em;
+  }
+
+  .li-tp-label {
+    font-size: 0.68em;
+    color: #a78bfa;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .li-tp-name {
+    font-size: 0.9em;
+    font-weight: 800;
+    color: #f1f5f9;
+  }
+
+  .li-tp-link {
+    font-size: 0.72em;
+    color: #a78bfa;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .li-tp-link:hover { color: #c4b5fd; text-decoration: underline; }
+
+  .li-countdown {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.4em 0.8em;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .li-cd-label {
+    font-size: 0.72em;
+    color: #94a3b8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .li-cd-timer {
+    font-size: 0.88em;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: #fbbf24;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  /* ── Prophecy carousel ── */
+  .li-prophecy {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.42em 0.75em;
+  }
+
+  .li-prop-badge {
+    flex-shrink: 0;
+    background: var(--accent, #7611a6);
+    color: white;
+    font-size: 0.68em;
+    font-weight: 700;
+    padding: 0.2em 0.55em;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .li-prop-nav {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #cbd5e1;
+    font-size: 1.05em;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.15s;
+    line-height: 1;
+  }
+
+  .li-prop-nav:hover { background: rgba(255,255,255,0.18); }
+
+  .li-prop-body {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .li-prop-title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.84em;
+    font-weight: 600;
+    color: #f1f5f9;
+    text-decoration: none;
+  }
+
+  .li-prop-title:hover { color: #a78bfa; text-decoration: underline; }
+
+  .li-prop-date {
+    font-size: 0.67em;
+    color: #475569;
+  }
+
+  .li-prop-count {
+    flex-shrink: 0;
+    font-size: 0.68em;
+    color: #475569;
+    white-space: nowrap;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1000px) {
+    .li-grid { grid-template-columns: repeat(3, 1fr); }
+    .li-cal-outer { display: none; }
+    .li-datebar { gap: 0.8em; }
+  }
+
+  @media (max-width: 700px) {
+    .liveinfo { padding: 0.75em; }
+    .li-grid { grid-template-columns: repeat(2, 1fr); }
+    .li-datebar { flex-direction: column; gap: 0.4em; }
+    .li-clock-wrap { flex-direction: row; gap: 0.5em; align-items: baseline; }
+    .li-time { font-size: 1.2em; }
+    .li-prophet-row { flex-direction: column; }
+    .li-countdown { flex-direction: column; align-items: flex-start; gap: 0.2em; }
+    .li-prop-count { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .li-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4em; }
+  }
+</style>

@@ -7,6 +7,7 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
+import LiveInfoBar from '../components/LiveInfoBar.astro';
 
 // Fetch view counts (returns {} if Blob not configured yet)
 let viewCounts: Record<string, number> = {};
@@ -72,6 +73,19 @@ const CATEGORY_ICONS: Record<string, string> = {
 	'評測': '📦',
 	'其他': '📝',
 };
+
+// Prophecy posts for the info bar carousel (most recent 12)
+const prophecyPosts = allPosts
+	.filter(p => getPostCategory(p) === '預言')
+	.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+	.slice(0, 12)
+	.map(p => ({
+		title: p.data.title,
+		url: `/blog/${p.id.replace(/\.mdx?$/, '')}/`,
+		pubDate: p.data.pubDate.toLocaleDateString('zh-TW', {
+			year: 'numeric', month: 'long', day: 'numeric',
+		}),
+	}));
 ---
 
 <!doctype html>
@@ -82,6 +96,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 	<body>
 		<Header />
 		<main>
+			<LiveInfoBar prophecies={prophecyPosts} />
+
 			<section class="hero">
 				<h1>兩隻熊的旅遊記事</h1>
 				<p>探索未來預言家的洞見、世界趨勢分析與真相拆解</p>

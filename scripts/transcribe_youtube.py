@@ -77,10 +77,13 @@ def download_audio(video_id, output_path):
 
 
 def transcribe_audio(audio_path):
-    import whisper
-    model = whisper.load_model("medium")
-    result = model.transcribe(audio_path, language="zh", fp16=False)
-    return result["text"]
+    import mlx_whisper
+    result = mlx_whisper.transcribe(
+        audio_path,
+        path_or_hf_repo='mlx-community/whisper-medium-mlx',
+        language='zh'
+    )
+    return ' '.join(s['text'] for s in result.get('segments', []))
 
 
 def format_transcript(raw_text):
@@ -136,12 +139,6 @@ def main():
 
     log(f"Processing {len(videos)} videos")
 
-    # Load whisper model once
-    import whisper
-    log("Loading Whisper medium model...")
-    model = whisper.load_model("medium")
-    log("Model loaded.")
-
     success = 0
     skipped = 0
     errors = 0
@@ -175,9 +172,8 @@ def main():
         try:
             log(f"  → transcribing...")
             t0 = time.time()
-            result = model.transcribe(audio_path, language="zh", fp16=False)
+            text = transcribe_audio(audio_path)
             elapsed = time.time() - t0
-            text = result["text"]
             log(f"  → transcribed {len(text)} chars in {elapsed:.0f}s")
         except Exception as e:
             log(f"  → TRANSCRIBE ERROR: {e}")

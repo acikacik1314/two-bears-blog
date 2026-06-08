@@ -7,196 +7,196 @@ heroImage: '/images/blog/2019-10-29-frigidaire-air-purifier-fap4205r.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068466821'
 ---
 
-![](https://pic.pimg.tw/acikacik/1572341624-745796688_l.jpg?v=1572341625)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856732/blog/acikacik/1572341624-745796688_l.jpg)
 **出門在家口罩不離身**
 前一陣子颱風天天空異常的晴朗，兩隻熊看新聞說來自大陸的霧霾被吹回去了，過了幾天颱風過去了天空彷彿又被鋪上了一層薄霧，兩隻熊就連在房間裡都會連續的打噴嚏哈啾哈啾，雖然密閉的空間還是需要帶著口罩，台灣像我們一樣對空氣過敏的人越來越多了，空氣汙染已經變成一種全球化的趨勢，因為住在工業區附近的兩隻熊窗戶也不敢打開透透氣，開始擔心是不是有化學空汙的汙染傷害身體，一旦引發了導致過敏的因子，就會引起過敏反應而成為過敏體質，就算是房門窗戶都不開，如果感冒了身體不適病毒在房間裡循環肆虐，室內空氣都不流動的狀態也讓感冒很久都不會好，這些惱人的空污問題是不是可以有法子解決呢? 所以選一台持久有效的空氣清淨機成為兩隻熊最重要也最艱難的任務。
-![](https://pic.pimg.tw/acikacik/1572342624-3601510089_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572342624-3601510089_l.jpg)
 **壁癌黴菌孳生**
 最近科技越來越發達，用紫外線燈管在家裡就可以種菜，但是因為兩隻熊住在桃園的山區，家裡潮濕到不只可以種香菇還產生了壁癌，牆壁上充斥了許多的黴菌粉塵，這些惱人的黴菌孢子充斥在空氣裡面，往往一段時間兩隻熊身上就會出現一些詭異的皮膚病，醫生說這是黴菌感染要擦藥，不只是皮膚會感染呼吸道、肺部胸腔、以至於心臟腦部都可能身受其害，每天擔心也會影響身心靈，如何消除黴菌感染也變成一場長期作戰。
-![](https://pic.pimg.tw/acikacik/1572343769-2929853845_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856736/blog/acikacik/1572343769-2929853845_l.jpg)
 **愛寵物更要遠離皮膚病**
 家裡有養了三隻寵物長毛的黃金獵犬、鬔毛的鬆獅犬、還有一隻細微毛髮的異國短毛貓，都會經常掉毛與掉皮屑，而家裡不時因為潮濕與病菌而充滿了寵物身上的異味，或是空氣中貓狗的屎尿氣味，皮屑芽孢菌伴隨著空氣品質惡化也會持續的孳生，讓寵物身上也長出了一些一粒粒的小山丘，而這些皮屑芽孢菌迅速增加60%的黴菌也會傳染給家人，想要好好照顧這些寵物還有家人，就該找方法讓空氣更清新，杜絕黴菌散播的溫床吧!!
-![](https://pic.pimg.tw/acikacik/1572343950-2038810415_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572343950-2038810415_l.jpg)
 **作好防護才能真正的放心**
 新聞總是說PM2.5，而PM2.5以下的懸浮微粒充斥在我們身邊，而PM2.5懸浮微粒的大小約莫頭髮直徑的1/28大，我們帶一般的口罩或是用鼻毛濾除都是無法過濾的，會直接從呼吸道進入肺部進到血管裡，造成慢性疾病、氣喘、乃至於無法挽回的身體疾病，因為它體積小、重量輕，不易沉降至地面，所以會在空氣中長時間飄浮，人體纖毛和黏液也無法過濾，而直接抵達細支氣管壁，還會干擾肺裡面的氣體交換能力。
-![](https://pic.pimg.tw/acikacik/1572346720-2395290137_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572346720-2395290137_l.jpg)
 AC 本身是很容易被傳染到感冒的體質，如果是一感冒就很難好一拖就是一兩個星期以上，總覺得是因為房間裡充斥著感冒病毒，這時空氣清淨機來幫忙吸附病菌才不會傳染給家人，有的人跟AC 以前一樣騎完機車不洗臉，直接用面紙擦臉看起來好像很乾淨，其實把髒汙都擦到毛細孔裡了，一個毛孔塞下40顆 PM2.5的懸浮微粒這麼多，臉上當然會狂長痘痘，所以每天回家都要洗臉，讓皮膚產生天然的屏障，避免空汙造成皮膚老化、色素沉澱、黑斑倒置用再多的化妝品皮膚還是沒有光澤。
-![](https://pic.pimg.tw/acikacik/1572346720-1721880652_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572346720-1721880652_l.jpg)
 兩隻熊在家裡已經盡量不開窗了，窗戶打開家裡的空氣品質懸浮微粒就會瞬間飆到20~30，如果附近有地方在施工粉塵更是會讓懸浮微粒50~60，陰雨綿綿的日子黴菌孢子更是萌發滋生的更劇烈。
-![](https://pic.pimg.tw/acikacik/1572346720-2682280866_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572346720-2682280866_l.jpg)
 **哪裡有一次到位的空氣清淨機**
 市面上空氣清淨機這麼多，因為各種品牌的眾多功能，讓AC 感到迷惑，到底要選擇哪一款才可以一勞永逸的解決空汙的問題而CP值也比較高呢?   
 FRIGIDAIRE 富及第是美國百年品牌，美國富及第 Frigidaire 設備在北美也多達三成的市佔率，可說是國民愛用的電器設備，富及第不只是美國在加拿大也是市佔第一的大品牌，因為AC 是富及第商品的愛用者，可以說第一台小冰箱就是富及第的，後來用了可以降到負21度C 富及第無霜冷凍櫃就徹底地愛上它，後來陸陸續續有了窄款冰箱、洗碗機，空氣清淨機、洗脫烘的窄身洗衣機，不但是讓居家的生活品味提升了，因為省下了時間省下了電費，也多了很多跟家人相處的時間，2019年富及第也推出了"靜電集塵"最新款的清淨機，就連身體健康都能幫忙照顧到，真的是讓人愛不釋手的好品牌呀。
-![](https://pic.pimg.tw/acikacik/1572280232-137909045_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856736/blog/acikacik/1572280232-137909045_l.jpg)
 **充滿期待的開箱**
 這次「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」從安排貨單到出貨相當的快速，隔日就收到貨運的來電，說有三件包裹要送來，想說三件不是一件嗎?原來現在購買新機有個"限時活動"，買新機加碼送 一片初效濾網(市價$990)和一個靜電集塵器 (市價$4500)，這也太好康了吧，而且三份商品是分別算運費的，富及第送東西真的很大氣。
-![](https://pic.pimg.tw/acikacik/1572280228-1832351528_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572280228-1832351528_l.jpg)
 打開瓦楞紙外箱有厚實的保麗龍保護著「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」整個機身，打開防護套就可看到「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」的機身，就跟防護套說聲掰掰了。從今天開始兩隻熊要請你幫忙把空氣清潔乾淨一切拜託了~ ^_^
-![](https://pic.pimg.tw/acikacik/1572280229-2485167901_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280249-2979243039_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856735/blog/acikacik/1572280229-2485167901_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856736/blog/acikacik/1572280249-2979243039_l.jpg)
 在機身上的保護膠帶都被兩隻熊一條一條的撕開，撕膠帶的過程真的很療癒，開箱就是一種美妙的儀式，不久美麗的黑色機身完美的呈現在兩隻熊面前了。
-![](https://pic.pimg.tw/acikacik/1572280245-2086673143_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280245-1487910149_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280245-3721136348_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280246-1857452760_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856738/blog/acikacik/1572280245-2086673143_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856737/blog/acikacik/1572280245-1487910149_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856739/blog/acikacik/1572280245-3721136348_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856738/blog/acikacik/1572280246-1857452760_l.jpg)
 這黑色機身窄身設計外型顯得非常摩登讓人好喜歡，可以說放在家裡的任何一個角落都非常的好看，簡約線條時尚又美觀。
-![](https://pic.pimg.tw/acikacik/1572280232-611705246_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280244-2385797490_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856738/blog/acikacik/1572280232-611705246_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856739/blog/acikacik/1572280244-2385797490_l.jpg)
 說明書也拿起來好好研究一下，話說看起來很簡單操作，也不能迫不及待的亂按吧~ XD
-![](https://pic.pimg.tw/acikacik/1572280245-3341616385_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280248-3645131565_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856737/blog/acikacik/1572280245-3341616385_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856739/blog/acikacik/1572280248-3645131565_l.jpg)
 而且外型較扁大小適中也不占空間，進氣方向是從左邊進入右邊出風，所以不會有上方進氣下方出風容易揚起地面灰塵的困擾，而且因為左右進出風所以可以貼靠牆面擺放不佔空間。
-![](https://pic.pimg.tw/acikacik/1572280242-179939766_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280232-2817968119_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856739/blog/acikacik/1572280242-179939766_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856738/blog/acikacik/1572280232-2817968119_l.jpg)
 空氣品質的燈號也是採用兩圈孔洞來變換燈光顏色的設計，一體成型更是俐落美觀，簡單明瞭的圖像指示燈號也可以不用思考無腦的了解目前的空氣品質數據以及正在運行的模式。
-![](https://pic.pimg.tw/acikacik/1572276225-3867561016_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276226-2814982250_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572276225-3867561016_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572276226-2814982250_l.jpg)
 簡單來說就是一台簡單、素面、高質感既方便操作又好看的空氣清淨機。
-![](https://pic.pimg.tw/acikacik/1572276228-3152101209_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276228-610531468_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572276228-3152101209_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572276228-610531468_l.jpg)
 **五層過濾更乾淨
 「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」採用五層過濾可以說是面面俱到，不管是PM2.5微小顆的懸浮微粒、微生物、花粉、細菌、黴菌孢子、寵物皮屑、灰塵、塵埃、絮狀物任何可以傷害身體的微小物質，都逃不過這台五層過濾的捕捉功能，就像是充滿磁性的大磁鐵一般，就算如粉塵般的金屬微粒也可以通通一網打盡，就像以前柯達軟片李立群的廣告"他抓得住我"~ (暴露年齡了) = =
-![](https://pic.pimg.tw/acikacik/1572280228-1333925630.jpg)
-![](https://pic.pimg.tw/acikacik/1572280228-2853660338_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280232-2513410231_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280234-3831116163_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572280228-1333925630.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572280228-2853660338_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572280232-2513410231_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572280234-3831116163_l.jpg)
 **初濾網過濾**
 初始濾網可以把大顆粒的灰塵與寵物的毛髮等阻擋過濾。
-![](https://pic.pimg.tw/acikacik/1572280247-616032475_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572280247-616032475_l.jpg)
 **如果需要洗滌初效濾網**
 這次的限時免費初效濾網就可以隨時拿出來可以更換。
-![](https://pic.pimg.tw/acikacik/1572280236-1389202168_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280236-1073095774_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572280236-1389202168_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856745/blog/acikacik/1572280236-1073095774_l.jpg)
 **永久使用的過濾效果"靜電集塵"(免耗材花費)**
 靜電集塵能還原新鮮空氣? 靜電集塵利用靜電裡正負相吸的原理讓各式灰塵粒子吸附再集塵板上達到除塵的效果，經過放電金屬絲將細菌與灰塵變成正離子，當它們通過帶負電的集塵板時就會被吸附住，而這樣的方式就可以輕易地捕捉空氣中各種的有害物質，「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」可過濾細懸浮微粒的尺寸最小可以吸附0.01微米顆粒的懸浮物，所以可以過濾吸附的微粒子包含了灰塵、花粉、二手菸、汽車廢氣、病毒、細菌、黴菌孢子及塵蹣排泄物，對付PM2.5 遠離過敏原，完全消除任何可能引發鼻炎、氣喘、呼吸道或是誘發心血管疾病、甚至是系統組織發炎、進入肺部經由血液循環引起對身體有害的懸浮粒子。
-![](https://pic.pimg.tw/acikacik/1572280238-150771770_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856745/blog/acikacik/1572280238-150771770_l.jpg)
 美國的靜電集塵空氣清淨機市佔率大約30%，運用正負電荷相吸的原理，高壓形成強電場產生大量的電子和離子，來吸附空氣的PM2.5等顆粒物相互碰撞而附著在集塵板上，使空氣中的有害物質減少達到凈化空氣的目的，主要吸附髒汙不需要傳統HEPA濾網來過濾，而集塵板經過清洗擦拭正常的保養就能長期使用無須更換耗材，使用越久就越省錢。
-![](https://pic.pimg.tw/acikacik/1572280237-2997010744_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280237-969797743_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572280237-2997010744_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572280237-969797743_l.jpg)
 **甲醛/異味濾網組(不能水洗)  **
 AC 喜歡作手工皂，每次作肥皂都要戴口罩，又不知道戴了有沒有用，那些經過化學方式製皂而揮發的氣體，現在也有了能有效過濾的方法，空氣清淨機的VOC活性碳除甲醛異味吸附濾網，對於可能產生致癌的有機揮發物具有一定的消除能力、異味造成呼吸道的不舒服也得以化解，讓AC 可以更放心的進行喜歡的手工肥皂創作，這款過濾模組是不能用水洗的，只要固定一段時間拿到陽光下面曝曬來中和吸附的有機揮發物即可。  
 如果家裡有添購新的家具或是裝潢木板有甲醛，已經吸附使用過舊的過濾網，可以購買新的甲醛過濾濾網組來替換，但是一般家庭無甲醛疑慮則無需替換濾網。
-![](https://pic.pimg.tw/acikacik/1572280249-2723621186_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280249-2438365598_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572280249-2723621186_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572280249-2438365598_l.jpg)
 **微量臭氧消除**
 靜電集塵雖然會產生臭氧但是濃度很低，臭氧的活性強雖然產生容易也會很快的反應掉不累積，生活中太陽很大的時候就會產生臭氧，臭氧原本就是大氣中會微量存在的氣體，而臭氧其實也可以幫助空氣清淨，靜電集塵的空氣清淨機都是通過政府的臭氧檢驗合乎標準，可以將臭氧控制在低於0.05ppm左右，再經過臭氧過濾基本上可以非常安全又安心的使用，臭氧過濾是通過貴金屬催化還原的機制，將空氣中的臭氧變為氧氣，雖然臭氧濾網不容易髒，但是用的時間久了還是想要清掃一下，直接拿吸塵器大約吸一下就可以了。
-![](https://pic.pimg.tw/acikacik/1572280249-4184030292_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572280249-4184030292_l.jpg)
 **負離子產生器**
 對於空氣中的煙害或是塵埃，可以經由負離子沉降懸浮微粒，對於空氣汙染進行淨化，再吸入空氣清淨機中過濾，同時釋放出對人體有益的負氧離子，讓空氣變得更為清新。
-![](https://pic.pimg.tw/acikacik/1572280242-3085997509_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856745/blog/acikacik/1572280242-3085997509_l.jpg)
 **靜電集塵與HEPA濾網的差異**
 AC 也有用過必須經常更換耗材HEPA濾網的空氣清淨機，HEPA濾網的過濾效果會隨過濾收集量增加而遞減，裝上HEPA濾網後一兩年後會忘記換HEPA濾網，因為HEPA濾網價格不便宜，也會有跟AC 一樣撐著不換的可能，雖然可以放心的使用半年，如果一旦沒有及時的更換濾網就陷入空氣汙染的空窗期，如果每半年換一次HEPA濾網，每個濾網1800元來看，三年總共的濾網花費是10800元，當然如果以方便跟長效來看是很值得的，但是現在有更省錢的好方法，高CP值的好選擇就是靜電集塵法。
-![](https://pic.pimg.tw/acikacik/1572340944-3271566742_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856744/blog/acikacik/1572340944-3271566742_l.jpg)
 一般需要替換耗材的"HEPA濾網"最高可以過濾99.97%，靜電集塵大約是90-95%，但是因為空氣是一直循環過濾的，所以只要看CADR數值，多久可以過濾一次換新一次室內空氣，差個零點幾的過濾率也沒有太大的差別，畢竟我們不是需要再無塵室生活，只是單純想找個乾淨無汙染的生活空間過過小日子。
-![](https://pic.pimg.tw/acikacik/1572280239-4172647303_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856745/blog/acikacik/1572280239-4172647303_l.jpg)
 **適用坪數 CADR值（Clean Air Delivery Rate）**
 CADR值就是潔淨空氣速率的指標(每分鐘潔淨空氣輸出量)，也許很多人都像AC 一樣，對於這種專有名詞有點頭痛，我們就以「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」200CADR做個例子，計算方式是這樣的 (坪數x560"固定"/200"CADR"=處理時間)，AC 的臥室大約十坪大，套公式算出來(10x560/200=12)就只需要28分鐘，如果是倉庫五坪的空間每14分鐘清潔一次、小傅的房間有七坪19.6分鐘清潔更新室內空氣一次，這樣來看兩隻熊居家環境平均每小時約可以換氣約2~4次，當然更換室內空氣的時間越快越好，但是CADR 200這個數據已經足夠用了，如果房間裡面的家具很多，有沙發、床、衣櫃....那空間又更小了，處理起來就更快速，「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」可以讓 7~10坪以下的空間都能保持在無空氣汙染的潔淨狀態。
 **空氣清淨機的累積淨化量 CCM**
 CCM 是空氣清淨機的累績淨化量，以淨化能力來判斷這台空氣清淨機濾網的壽命，這個量值是指在這個坪數的淨化空間累績的量值達到哪一個等級，美國富及第 FRIGIDAIRE 靜電集塵 智慧型清淨機對應淨化顆粒物的總重量超過12000mg以上，能力達到業界最高等級 P4 的等級，代表靜電集塵濾網累積淨化能力是不容易衰退的。
-![](https://pic.pimg.tw/acikacik/1572276228-3152101209_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856742/blog/acikacik/1572276228-3152101209_l.jpg)
 **隱藏把手**
 走樓梯好搬運，空氣清淨機本身的機身不重，就算是家庭主婦也可以輕鬆搬上樓。
-![](https://pic.pimg.tw/acikacik/1572280230-4273606659_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572280230-4273606659_l.jpg)
 **操作過程
 **LED觸控面板使用方式**
 令人眼睛一亮的就是「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」高質感的觸控面板，易於操控的觸控面板沒有突出的按鍵，空氣清淨機內部設有空氣品質感測器面板，這個優點就是可以立刻就知道目前的空氣品質即時檢視是好還是壞，等於是隨時可以提醒使用者目前室內的空氣污染狀態，空氣清淨機也會自動調節風量跟淨化能力，如果忘記把窗戶關起來而讓指數提升了就要盡速關窗，如果瞬間爆發的空氣汙染也可以及時載上口罩來預防呼吸道傷害。
-![](https://pic.pimg.tw/acikacik/1572280243-3276231622_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572280243-3276231622_l.jpg)
 **開機還有關機**
 因為第一次使用這台空氣清淨機，迫不及待的按下開關鍵，開啟機器自動進入"自動模式"運行，這樣每次AC 打開使用都不用調整任何選項進入懶人模式，操控非常的直覺簡單，再按一次空氣清淨機即時關機。
-![](https://pic.pimg.tw/acikacik/1572276253-1368193844_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572276253-1368193844_l.jpg)
 **風量調整(3+1段風速)**
 風速選擇輕壓面板上的"自動/風量"選項，按壓一次亮起 | 是低檔風量，按壓兩次亮起|| 是中擋風量，如果要快速清潔空氣按壓三次亮起||| 強檔風量風力全數前進，AC 最愛用的是"自動模式"只要輕觸按鍵四次進入自動模式，會依照目前空氣品質的好壞自動調整出風的風量與淨化能力。
-![](https://pic.pimg.tw/acikacik/1572276256-1601170486_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572276256-1601170486_l.jpg)
 **LED指示燈**
 「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」由四個顏色來顯示空氣品質的狀況，最乾淨是"綠色"、普通汙染"淺黃色"、中度汙染"橙色"、重度汙染"紅色"警戒。
-![](https://pic.pimg.tw/acikacik/1572276227-4275907277_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276226-118145418_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276226-1792188393_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856747/blog/acikacik/1572276227-4275907277_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572276226-118145418_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856749/blog/acikacik/1572276226-1792188393_l.jpg)
 **兒童鎖**
 防止兒童嬉戲不小心誤觸面板，美國富及第 FRIGIDAIRE 靜電集塵 智慧型清淨機設計了"兒童鎖"，只要長按五秒，聽到"嗶"的一聲就設定完成，鎖定後所有的按鍵都不能操作，重複按五秒就能輕易解鎖。
-![](https://pic.pimg.tw/acikacik/1572276254-985843044_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856749/blog/acikacik/1572276254-985843044_l.jpg)
 **定時操作**
 按"定時器"可以從一小時定時到九小時，如果沒有按定時器，則是持續運行不停止，可以選擇運行的時間人不在的時候也不浪費電。
-![](https://pic.pimg.tw/acikacik/1572276255-636773133_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572276255-636773133_l.jpg)
 **睡眠模式**
 按壓"夜間模式"來開啟睡眠模式顯示器跟空氣品質指示燈同時會變"暗"，如果像AC 一樣睡覺時很淺眠一點點光線都不能有，再輕觸一次"夜間模式"這時整個面板燈號都會關閉，而且採用低噪音的方式運行，運轉時的風切音很小，完全對睡眠品質沒有影響。
-![](https://pic.pimg.tw/acikacik/1572276256-876017921_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856748/blog/acikacik/1572276256-876017921_l.jpg)
 **集塵清潔指示燈**
 如果"集塵器清潔"指示燈閃爍的時候，代表集塵器已經髒了需要馬上清潔，定時清潔集塵器更能保持空氣品質維持在最佳的狀態。
-![](https://pic.pimg.tw/acikacik/1572276253-1097111099_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572276253-1097111099_l.jpg)
 **近於零耗材費用**
 部分的靜電集塵會擔心鎢絲斷裂，舊款的鎢絲跟集塵板是做在一起的，因為鎢絲在集塵板的內部所以清洗起來頗費力，也不容易洗乾淨，新款的鎢絲電極線已經獨立出來，可拆解清洗減少暴力清洗的機會，拆解成為"帶電電場的電極線"以及"吸附髒汙的金屬集塵箱"兩個單元，只要簡單的將其中的鎖扣打開，就可以單獨分別清洗，集塵箱是金屬製的清洗起來相當容易，刷子刷、中性清潔劑浸泡清洗完也可以用電風扇、吹風機來吹乾，集塵箱是特殊金屬板，所以不容易被消耗損壞，而富及第的特製鎢絲電極線也可以用刷子輕輕的刷洗，相當的簡單不費力。
-![](https://pic.pimg.tw/acikacik/1572280236-1389202168_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856741/blog/acikacik/1572280236-1389202168_l.jpg)
 **清洗也很簡單**
 準備要清洗「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」濾網，前置作業先把插頭拔掉，AC 左看右看上看下看再看看說明書，照著書上寫的蹲著抓住前方面板的左右兩側的上方角落，面板就輕易地取下來了，把面板妥善地放在一旁，就可以看到裡面的五層濾網非常整齊排列的展現在眼前了。
-![](https://pic.pimg.tw/acikacik/1572280247-3650703058_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856753/blog/acikacik/1572280247-3650703058_l.jpg)
 然後把初始濾網拉出來，並沖洗乾淨要等到晾乾才能放回機身裡。
-![](https://pic.pimg.tw/acikacik/1572340946-3286036240_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340946-300380295_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340948-1122059613.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340946-3286036240_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340946-300380295_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856752/blog/acikacik/1572340948-1122059613.gif)
 重點就是要洗滌集塵器，集塵器先把上下的鎖扣旋轉就巧妙地打開了，然後把集塵器拉出就完美的呈現在AC 的眼前，這時把放電絲組件跟集塵器分開，再把放電絲組件還有集塵器都放到水槽裡面浸泡就完成一半了。
-![](https://pic.pimg.tw/acikacik/1572280248-3222760305_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572280248-3222760305_l.jpg)
 空氣清淨機隨機都會附上旋轉毛刷，這個旋轉毛刷是可以清洗到各處不易清洗的死角的，只要輕輕刷洗即可不用很大力。
-![](https://pic.pimg.tw/acikacik/1572340945-3939905598_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340946-1662295531_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340945-3685396892_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340946-4259462828_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340945-2548866618_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340947-1807064697_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340947-3388573050_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340948-2639580719.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340945-3939905598_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340946-1662295531_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340945-3685396892_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856751/blog/acikacik/1572340946-4259462828_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856756/blog/acikacik/1572340945-2548866618_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856755/blog/acikacik/1572340947-1807064697_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856756/blog/acikacik/1572340947-3388573050_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856755/blog/acikacik/1572340948-2639580719.gif)
 集塵器如果積垢特別嚴重之後，可以用中性的洗劑噴在集塵器的鋁片上，正反兩面都要噴，等幾分鐘之後再用水沖洗掉，或是用有加入中性洗滌劑的溫水裡面，就可以有效的清除這些頑固的髒汙殘留，再用水沖洗乾淨即可。
-![](https://pic.pimg.tw/acikacik/1572340947-2431293940_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572340948-4149948383_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856756/blog/acikacik/1572340947-2431293940_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856755/blog/acikacik/1572340948-4149948383_l.jpg)
 洗好之後集塵器放在太陽下面晾曬三個小時以上，或是把集塵器甩一甩再拿去曬，其實AC 喜歡把集塵器放在電風扇前面吹，有空的時候翻個面，只要吹個一個下午就可以加速晾乾了。
-![](https://pic.pimg.tw/acikacik/1572340945-2271714425_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856755/blog/acikacik/1572340945-2271714425_l.jpg)
 等集塵器完全乾之後鎖好上下鎖扣，就可以把集塵器裝回空氣清淨機的機箱裡了，不要還濕濕的就裝進去，濕濕的集塵箱可能會影響機器壽命呦~ 濕濕的也無法正常運作。
-![](https://pic.pimg.tw/acikacik/1572280248-2978953710_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856756/blog/acikacik/1572280248-2978953710_l.jpg)
 最後再將前面板裝回去，外殼是用磁鐵吸扣，面板只要靠近就會直接吸住就可以了。
-![](https://pic.pimg.tw/acikacik/1572280249-595081337_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856755/blog/acikacik/1572280249-595081337_l.jpg)
 **清潔進/出風柵**
 在前面板的內側有個刷子，將刷子取出就可以拿來清掃出風柵，上下清潔乾淨之後再放回去就可以了。
-![](https://pic.pimg.tw/acikacik/1572280242-4243946693_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280248-1471492618_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856756/blog/acikacik/1572280242-4243946693_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572280248-1471492618_l.jpg)
 **空氣品質實驗測試**
 是否有效去除 PM2.5? 剛好兩隻熊的家中有點沉香、作完實驗才知道點沉香對於環境懸浮微粒汙染很大，這台使用後某些固定位置會有的異味狀況也都消失了。
 **點燃沉香**
-![](https://pic.pimg.tw/acikacik/1572276228-2151968799_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276256-4205886112_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572260196-367400433.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856758/blog/acikacik/1572276228-2151968799_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856758/blog/acikacik/1572276256-4205886112_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572260196-367400433.gif)
 **數字變化(竟然懸浮微粒很快的快破千了)**
-![](https://pic.pimg.tw/acikacik/1572276257-3344723383_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572276257-3344723383_l.jpg)
 **打開富及第靜電集塵智慧型清淨機(數字逐漸的下降)**
-![](https://pic.pimg.tw/acikacik/1572260137-2082238558.gif)
-![](https://pic.pimg.tw/acikacik/1572260196-2061964816.gif)
-![](https://pic.pimg.tw/acikacik/1572260197-1530456171.gif)
-![](https://pic.pimg.tw/acikacik/1572276257-3718022396.jpg)
-![](https://pic.pimg.tw/acikacik/1572276256-58865953_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572260137-2082238558.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572260196-2061964816.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856761/blog/acikacik/1572260197-1530456171.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856759/blog/acikacik/1572276257-3718022396.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856758/blog/acikacik/1572276256-58865953_l.jpg)
 **數字降到十左右(懸浮微粒警報解除)**
-![](https://pic.pimg.tw/acikacik/1572276257-850631485_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572276257-850631485_l.jpg)
 空間越大空氣清理的時間當然會越久，AC 沒有把房間門關上「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」偵測到房間指數上升照樣會更強力的清理室內空氣，但是其實就連走廊跟客廳樓上樓下的空氣品質也都被淨化了，拿空氣品質測試儀來測量就連廁所裡的空氣污染指數也降低了，當然是要在密閉的空間裡持續的清除一段很長的時間，只要關閉好門窗AC 相信整個房子的空氣就能持續的被清乾淨了，當然濾網清洗的次數也會變多啦~ XD
-![](https://pic.pimg.tw/acikacik/1572280244-1171981623_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572280245-448258968_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572280244-1171981623_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572280245-448258968_l.jpg)
 **家裡的空氣都煥然一新了**
 第一天用一直呈現橘黃色的燈號，代表房間的懸浮微粒真的很多，沒用前也不覺得家中空氣有多差，用了幾天之後打開空氣清淨機的濾網，怎麼有這麼多極細的灰塵在空氣中，檢查集塵器滿滿的極細的灰塵，如果不用空氣清淨機來清除就變成讓肺要來吸收這些髒東西了。
-![](https://pic.pimg.tw/acikacik/1572260195-2016004569.gif)
-![](https://pic.pimg.tw/acikacik/1572276228-2151968799_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856765/blog/acikacik/1572260195-2016004569.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856758/blog/acikacik/1572276228-2151968799_l.jpg)
 **怎麼會這麼安靜**
 靜電集塵比起HEPA濾網的風速音量低很多，因為HEPA濾網很密集的過濾網讓風阻變得很高，要吹過去的風量就會大很多，而靜電集塵是如同展開的百葉窗一樣低風阻、低噪音，因為集塵板的間格大阻擋風的阻力很小，所以相對風量跟音量風阻都小非常之多，兩者之間同樣的CADR200 等級，HEPA濾網音量是50dB、靜電集塵是40dB，音量相差了十個分貝以上。
-![](https://pic.pimg.tw/acikacik/1572276223-2273026285_l.jpg)
-![](https://pic.pimg.tw/acikacik/1572276225-874900765_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572276223-2273026285_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572276225-874900765_l.jpg)
 **捲線器收納方便**
 「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」底部有個電源線隱藏式的捲線器，電線不使用時方便收納起來，滑動時也不容易絆倒。
-![](https://pic.pimg.tw/acikacik/1572280246-3207690395_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572280246-3207690395_l.jpg)
 **移動方便**
 「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」下方備有四個移動方便的滾輪設計，可以輕易的將空氣清淨機推動，移動到需要清潔的室內空間，節省購買多台的開銷可機動使用。
-![](https://pic.pimg.tw/acikacik/1572280246-169618313_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572280246-169618313_l.jpg)
 **缺點(其實是優點)**
 唯一的缺點就是環境空氣很髒的話，每隔兩周到一個月要清洗一次，每次用清洗來代替花錢買耗材，之前AC 會擔心如果清洗的時候會不會室內空氣就慢慢變差了，畢竟還要等靜電集塵器晾乾，但是這點富及第已經幫我們想到了，現在購買新機時有"限時活動"隨貨多附贈了一組"初效濾網與靜電集塵器"，可以在清洗的同時有另一套乾淨的濾網與集塵器可以替代使用，等於是完全零時差的將室內空氣保持最佳狀態，真的是就~甘心。
-![](https://pic.pimg.tw/acikacik/1572261016-2207781080.gif)
-![](https://pic.pimg.tw/acikacik/1572262148-3530868429.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856764/blog/acikacik/1572261016-2207781080.gif)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856765/blog/acikacik/1572262148-3530868429.gif)
 **要買就買有用的才能安心放心**
 「美國富及第 FRIGIDAIRE 靜電集塵智慧型清淨機」使用上是真的很滿意，沒用之前不覺得家裡的空氣髒，用之後才知道家裡灰塵之多 = = 真的好恐怖喔，而且這還只是空氣中的固態懸浮物而已，使用過後感覺空氣特別清新，空氣的品質真的改善很多、平常的一些雜味跟臭味也消失了，而且濾網可以清洗重複使用等於買了一台"一次到位"真正有效果"的空氣清淨機，沒有其他耗材費用真的省錢超"有感"，也許剛開始花的錢比較多一點，但是整體用下來以三年來說，平均起來還是比一般更換消耗性濾網的機型便宜的多。
-![](https://pic.pimg.tw/acikacik/1572276258-2472726142_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856767/blog/acikacik/1572276258-2472726142_l.jpg)
 本文為合作之廠商邀稿體驗文 ，皆為本人親自試用過後的體驗心得(非商業性質)僅供參考。
 (兩隻大熊的旅遊記事)

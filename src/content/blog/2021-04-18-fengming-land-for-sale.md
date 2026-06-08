@@ -26,9 +26,9 @@ category: '其他'
 可參考附件圖片
 有興趣可來信 acikacik@gmail.com
 或是加 Line:acikacik
-![](https://pic.pimg.tw/acikacik/1618751073-2293792684-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618751073-3097250499-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618751073-3095033189-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618751099-326052362-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618751099-2881589512-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618751099-4188331626-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868243/blog/acikacik/1618751073-2293792684-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868245/blog/acikacik/1618751073-3097250499-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868244/blog/acikacik/1618751073-3095033189-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868245/blog/acikacik/1618751099-326052362-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868244/blog/acikacik/1618751099-2881589512-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868244/blog/acikacik/1618751099-4188331626-g_l.jpg)

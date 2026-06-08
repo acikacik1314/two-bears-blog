@@ -7,155 +7,155 @@ heroImage: '/images/blog/2018-12-03-frigidaire-dishwasher-fdw8001tb.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067531725'
 ---
 
-![](https://pic.pimg.tw/acikacik/1543841972-3188052243_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853482/blog/acikacik/1543841972-3188052243_l.jpg)
 兩隻熊一直想買一台洗碗機，因為愛做菜的AC 每天會生出許許多多髒碗盤，尤其是中秋節烤肉或是過年大家族聚會，難免很多油膩膩的碗盤，常常因為忙碌、來不及每一餐都洗碗，往往擺滿整個洗碗槽、招來許多的小飛蟲與隔夜的酸臭味，如果又遇到有朋友來借廁所，那時真的讓人很糗。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842020-1612204733_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842020-1612204733_l.jpg)
 每天除了煮菜做家事還要洗碗寫文章，雖然自己做菜很健康，但是想到後來要花很多時間清洗碗盤，就覺得時間總是覺得不夠用，幻想著如果能有一台洗碗機多一點時間出來陪陪家人該有多好?
-![](https://pic.pimg.tw/acikacik/1543841972-574300495_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853485/blog/acikacik/1543841972-574300495_l.jpg)
 每天辛苦的賺錢是為了什麼? 為什麼不對自己好一點? 我爸爸說:"工欲善其事、必先利其器"，買一台好的機器，還可以省下手部乾裂來去買護手霜的錢~何樂而不為呢? 這次有機會接觸到 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」，從網路上的圖片就非常的吸引人，竟然可以洗八人份的鍋碗瓢盆，由於富及第是美國品牌，美國人通常都自己做菜做點心，一整天不知道會產生多少待洗碗盤，所以幾十年前洗碗機就在美國幾乎是人人都有的電器用品，美國富及第 Frigidaire 廚房設備在北美也多達三成的市佔率，可說是國民愛用的電器設備，富及第不只是美國在加拿大也是市佔第一的大品牌，AC 非常喜歡 富及第的商品，家裡的一樓有富及第無霜冷凍櫃，二樓有富及第小冰箱、洗碗機，臥室有富及第空氣清淨機，每一種都是耐用又美觀讓人好放心。
-![](https://pic.pimg.tw/acikacik/1543842020-1463258375_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842020-1463258375_l.jpg)
 **預約配送安裝的時間**
 因為這台「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」是全新2018年的升級版，之前只有出到六人份而這款是八人份，所以AC 非常的期待能體驗大家庭版的洗碗機，兩天前安裝師傅就親自打電話過來，預約送貨與安裝的時間，也可以配合AC 的時間安排在下午，由於正門比較窄安裝人員選擇從後門進來，由於今年廚房從二樓改到一樓之後，一樓的動線也比較蜿蜒，還好兩位師傅手腳非常的俐落，因為全程都舉高高，小心翼翼的將洗碗機搬送到二樓的小廚房真的是辛苦了，二樓空間較為狹窄，現在已經作為一半儲藏室一半洗碗置物櫃使用，所以這次決定將洗碗機放置在原來瓦斯爐的位置，喜愛木工的roger 親手打造一個木製的洗碗機底座，背後用壁紙將之前瓦斯爐油煙熏黑的壁板貼起來，之前使用過的痕跡、感覺已經沒有那麼突兀了。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842048-267476562_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842048-267476562_l.jpg)
 **洗碗機擺哪裡都好看、上方還可以置物喔~**
 如果有了好的裝潢好的廚具，還能有個精品一樣的家電該有多好?  
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」採取桌上型設計，可以擺放在家裡的任何地方，附近只要有水管還有排汙水的地方就可以安裝了，當然也可以坎入櫥櫃裡，測量擺放的空間如果剛好或是量身訂做的櫥櫃，就可以鑲崁進去也蠻美觀的，AC 的廚房是歐式制式櫥櫃，把黑色鏡面的「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」一放瞬間變身精品豪宅，鏡面黑色平時只要用抹布擦拭常保光亮，就像一個微波爐或是烤箱般的擺放，不管是維修或是安裝都很容易，如果租房子住要搬走也很方便，洗碗機真的是幫廚房畫龍點睛，讓廚房乾淨又美觀。
-![](https://pic.pimg.tw/acikacik/1543842019-3661221182_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853485/blog/acikacik/1543842019-3661221182_l.jpg)
 **安裝**
 兩位安裝師傅在約定的時間前來安裝，年輕的師傅先將「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」扛進來，兩位師傅合力將洗碗機一樓抬到二樓安裝，開箱過程很簡單，師傅將零件取出組裝，師傅詢問要在水龍頭上安裝分流還是洗孔安裝，礙於方便性與美觀，AC 選擇在流理台的水槽旁邊挖洞，師傅一邊理管線一邊詳細的說明管線配置的方式，這方面AC 就像是上了一堂管線安裝課程，「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」的電壓是採用一般110V，注意使用有接地線的插座即可。
-![](https://pic.pimg.tw/acikacik/1543842034-3489848024_l.jpg?v=1543842431)
-![](https://pic.pimg.tw/acikacik/1543842034-2893014849_l.jpg?v=1543842431)
-![](https://pic.pimg.tw/acikacik/1543842035-1318486399_l.jpg?v=1543842431)
-![](https://pic.pimg.tw/acikacik/1543842046-1578579470_l.jpg?v=1543842431)
-![](https://pic.pimg.tw/acikacik/1543842047-153915131_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842048-978831489_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853485/blog/acikacik/1543842034-3489848024_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842034-2893014849_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842035-1318486399_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853485/blog/acikacik/1543842046-1578579470_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853486/blog/acikacik/1543842047-153915131_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842048-978831489_l.jpg)
 本來放置瓦斯爐的地方，我們吃飯都在二樓，但是因為空間的關係我家有四個大冰箱與冷藏櫃，所以廚房就改在一樓，二樓剛好可以拿來收藏碗盤跟洗碗機，機體尺寸593mmX550mmX500mm這個尺寸擺起來剛剛好，師傅把進出水的水管與電源線的位置都拉出來，因為剛好安排在洗手槽旁邊，看師傅在流理臺上鑽洞真的是很療癒，然後有條有理的整理後方管線，師傅爬進入流理臺下方鎖上黃色進水口，再將黃色進水口與灰軟管出水口分別拉線然後再用束口袋綁在一起，出水的水管可以自由的放入水槽，洗碗的髒水就會由此排出，或是取出作為日常水槽使用，安裝完畢，師傅開啟機洗的功能，因為機器出場都會有機械油，第一次使用前需要做內部清洗，順便現場讓AC 測試功能是否正常，最後由師傅詳細的說明洗碗機的用法，師傅還貼心的幫我們的洗水槽用矽立康將周邊的縫隙補滿，以免水會流到櫥櫃內，未來如果有維修安裝的需要，師傅也留了一張名片可以做為諮詢。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842050-2203142317_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842051-738854304_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842051-1154793181_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842047-94915691_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842049-3691516305_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842046-3873856155_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842050-2203142317_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842051-738854304_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842051-1154793181_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842047-94915691_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842049-3691516305_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853489/blog/acikacik/1543842046-3873856155_l.jpg)
 **洗碗粉**
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」有附贈專用的洗碗粉，師傅說:"如果直接用硬水洗碗，水裡的結晶太多容易讓碗盤刮傷"，兩隻熊住的地方是桃園龜山這裡，日常供水來自石門水庫的水，幸運的是大台北地區都是比較偏軟的水，如果是住在中部南部花東地區都是偏硬的水，洗碗粉本身就有硬水軟化的功能，使用專用的洗碗粉，洗碗機裡就不用添加軟化鹽了，一舉兩得而且送了好多罐可以洗兩年吧，師傅提醒不可添加一般的清潔劑使用，以免縮短洗碗機的壽命，"富及第洗碗機專用濃縮洗碗粉"成分有酵素跟橘子油、還有不容易起泡的環保界面活性劑，因為配方是濃縮的，一次使用的量只需要半杓湯匙，約15g的量就夠了。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842112-3658649999_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842112-2999701783_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842112-128245690_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842018-2656801177_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842112-3658649999_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842112-2999701783_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853488/blog/acikacik/1543842112-128245690_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853490/blog/acikacik/1543842018-2656801177_l.jpg)
 **亮碟劑**
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」還有兩罐很多餐廳都會用的"亮碟劑"，用過之後可以加速碗盤乾燥的速度，最重要的是可以讓表面又光滑又白亮，平常AC 在家裡洗碗是不太需要添加亮碟劑，崇尚天然的熊好~ XD，如果是有請朋友來家裡作客，用亮碟劑洗一些玻璃杯、酒杯，碗盤也弄的亮亮的，相當的體面，亮碟劑上面有刻度，一次倒進去適當的量，洗碗機會依照選擇的刻度，每次釋出一滴或是兩滴的量即可，也是相當的節省呀~
-![](https://pic.pimg.tw/acikacik/1543842124-295109150_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842124-3210072096_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842124-814160514_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853491/blog/acikacik/1543842124-295109150_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853491/blog/acikacik/1543842124-3210072096_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853491/blog/acikacik/1543842124-814160514_l.jpg)
 **添加軟化鹽**
 AC 看「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」鐵架下方的左手邊，是置放軟水鹽的"軟水器"旋鈕，只要放滿一次的量即可。
-![](https://pic.pimg.tw/acikacik/1543842161-677704462_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842161-151418895_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842019-1365431521_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853490/blog/acikacik/1543842161-677704462_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853490/blog/acikacik/1543842161-151418895_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853491/blog/acikacik/1543842019-1365431521_l.jpg)
 **過濾器**
 再來中間有金屬的部分是"過濾器"，這個"過濾器"可以蒐集洗滌後留下的殘渣，平時洗好碗就拆起來將殘渣倒除，沖洗好再放回去，如果"過濾器"久沒有清理難免會有些不好聞的氣味，過濾器依照箭頭裝回去即可。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842170-1793072738_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842170-1451871550_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842170-2412070249_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842170-1161936295_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853490/blog/acikacik/1543842170-1793072738_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853490/blog/acikacik/1543842170-1451871550_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853491/blog/acikacik/1543842170-2412070249_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842170-1161936295_l.jpg)
 **22道噴孔洗得更乾淨**
 洗碗機最厲害就是用水的力量去清洗，AC 看過一些做模具的影片，細小又強力的水刀竟然可以切"鋼鐵"這麼堅硬的材質，「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」運用螺旋槳造型的洗滌噴條，上面有22個噴孔噴出可調節溫度的水快速清洗，熊蓋讚以前喜歡買一些日本的洗潔劑清洗碗盤，因為日本的對於處理超級油膩的碗盤有強力除油的成分，但是這樣的洗劑清潔力強但是難免會怕殘留一些洗劑被吃下肚，所以就用大量的清水洗滌，又浪費水又浪費清潔劑，日本貨真的不便宜呀~ 所以「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」有高達22道噴水口，如同風扇旋轉的方式，讓每個角落擺放的碗盤都能被洗到，運用高溫殺菌消毒也比家裡用了不知道多久的菜瓜布洗來的讓人放心許多，想到用燙燙的熱水去油汙，餐廳處理油垢也都是用熱水，AC 看過有知名的控肉飯店員戴手套，然後先把盤子放在熱水下面沖，再丟到洗碗區洗，但是可以想見這間餐廳的瓦斯費應該很可觀~ XD
-![](https://pic.pimg.tw/acikacik/1543842203-502300996_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842203-3879703114_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842203-502300996_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853494/blog/acikacik/1543842203-3879703114_l.jpg)
 **組合架的使用方式、中式的碗盤也可以放**
 為了測試「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」是不是可以把碗盤洗乾淨，這次三天不洗碗，看看八人份的洗碗機可以放進去多少的碗盤，可不可以洗得乾淨呢? 
-![](https://pic.pimg.tw/acikacik/1543842187-2025405835_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842212-845525337_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842212-3650818776_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842219-4286347180_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842229-96113577_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842235-3859976065_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842187-2025405835_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842212-845525337_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842212-3650818776_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842219-4286347180_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842229-96113577_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842235-3859976065_l.jpg)
 AC 覺得洗碗機真的要買越大的越好，因為一次可以容納的量或是可以洗滌的容器樣式也會比較多，像這款「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」有上下兩層，上排適合放小碟子、小碗、小杯盤、醬料碟、大湯匙、鍋鏟，而下層適合放湯麵碗、杯子、奶瓶、馬克杯、保鮮盒、茶杯、菜盤、湯鍋、還有蔬果、狗狗的飼料盆都可以放進去洗，AC平常刀子手把跟刀面的縫隙也不常洗，還有鐵夾子的縫隙也洗不到，這些難題都可以迎刃而解，下層的洗碗籃有可調式支撐架，只要把下層的支撐架放倒，就可以任意調整碗筷的擺放空間，如果有超大的湯鍋或是電鍋的內鍋、或是有手把的炒菜鍋也不怕，筷子、刀叉、湯匙也有專用的筷插籃掛架，也都固定的好好的，也可以調整到左邊、右邊或中間，因應空間需要做調整，左邊有兩片杯托，杯托的縫隙是用來卡住高腳杯的，讓杯子不會被高壓的水柱沖開，如果鍋子實在太大放不進去，上層的洗碗籃可以整個取出來，讓空間直接加大，可以洗滌非常深的湯鍋，上下層的洗碗籃的滑輪都很"古溜"，拉出來推進去都完全不費力，就算是家裡有年紀大的長者也可以輕易的使用，擺放方式採取碗面朝下放的方式擺放，因為水柱是由下而上的沖洗，所以只要順著溝槽的方向，向中間呈八字形花瓣式擺放，都會沖的蠻乾淨的，餐盤之間留一點空隙，讓水柱可以沖進去洗滌即可，AC 是屬於很貪心的個性，所以通常都會盡量的擺滿，如果是金/銀的盤子或是水晶器皿，洗完表面可能會霧霧的，比較不適合用洗碗機來清洗，說真的絕大部分的杯盤碗都完全能洗乾淨~ 洗完鏡面會柔柔亮亮閃閃動人的，真的是"太神奇了~傑克"(老笑話~ 沒梗) = =。
-![](https://pic.pimg.tw/acikacik/1543842245-3114945264_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842245-1225572524_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842251-3185982674_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842251-4148012286_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842245-3114945264_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842245-1225572524_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842251-3185982674_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842251-4148012286_l.jpg)
 每次過年就會有很多親戚朋友團聚，今年的過年AC 可以風光一下，不管是再多的碗盤，都可以任意的放進「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」清洗，就連家裡的油煙機集油槽，這種十幾年都不曾洗過的東西，還有每次烘完豬肉條就油膩膩的食物乾燥機，不管是用多少的洗潔劑洗完還是油膩膩的，用洗碗機也是放進去直接搞定~ XD ，洗碗不再是一個苦差事，更像是一個好玩變魔術般的樂趣。
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842049-1192726727_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842049-1192726727_l.jpg)
 **影片 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」外觀美得像精品之開箱安裝篇 **
 **把不喜歡碰到的髒水花、油膩感交給洗碗機(七種智能清洗簡單選)**
 人生的旅程中有許多機會與家人共度，如果能多陪伴身旁的家人，也可以省下很多洗碗的時間，多了娛樂時間(打電動、追韓劇、宮廷劇)..等，再也不用被催促去洗碗了，只要5分鐘左右簡單的放入洗碗機，一切就搞定~  
 不用戴手套，不怕富貴手，終於來到開機行程的實機測試，在「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」黑色機身的控制面板LED 顯示螢幕上，有七種清洗模式可以選擇，還有三十分鐘清洗蔬果可以用感覺好方便。把碗盤擺好之後，握住隱形把手慢慢把洗碗機門闔上，就可以按下"電源"的按鈕，然後按下選擇"行程"(幾乎每一種行程AC 都測試過了)，然後按下"啟動"就開始跑了~ 是不是很容易呢! XD
-![](https://pic.pimg.tw/acikacik/1543842018-805134611.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853495/blog/acikacik/1543842018-805134611.jpg)
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」的行程包含了七種:
 "強力洗"清洗時間約 3小時10分鐘，如果有非常髒的鍋子或是烤盤、油汙嚴重的燒烤餐具，或是抽油煙機的集油槽、濾網都可以選這個最高溫度70度的行程。 
-![](https://pic.pimg.tw/acikacik/1543842319-3235259452_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842316-2090458721_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842319-3235259452_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853495/blog/acikacik/1543842316-2090458721_l.jpg)
 "標準洗"清洗時間約 2小時35分鐘，比方陶製或是瓷碗製品、平時油膩的碗盤、醬油碟子、吃過咖哩飯的碗筷，就是每天最無腦簡單的一種洗滌方式，就讓它跑正常程序，慢慢的洗好碗筷，這個行程是最讓AC 放心乾淨的洗滌方式。
-![](https://pic.pimg.tw/acikacik/1543842321-1374407229_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842316-1213118048_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853495/blog/acikacik/1543842321-1374407229_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842316-1213118048_l.jpg)
 "經濟洗"清洗時間約 3小時15分鐘，這個行程雖然行程最長，其實是比強力洗與標準洗還要省電省水的一種行程，如果閒來無事，也不趕時間，就選擇這個模式代替標準洗，可以節省水電又可以達到一樣的清洗效果。
-![](https://pic.pimg.tw/acikacik/1543842321-1986661781_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842316-3910508077_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842321-1986661781_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853500/blog/acikacik/1543842316-3910508077_l.jpg)
 "玻璃洗"清洗時間約 1小時45分鐘，如果手邊有玻璃製品，希望洗出來有亮晶晶的效果，這個比較溫柔的玻璃洗，溫度最高到55度，不傷害細緻表面，洗完玻璃杯都讓AC 愛不釋手。 
-![](https://pic.pimg.tw/acikacik/1543842320-40675122_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842316-2122203159_l.jpg?v=1543842432)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853499/blog/acikacik/1543842320-40675122_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842316-2122203159_l.jpg)
 "90分鐘"清洗時間約 1小時30分鐘，滿足輕度髒汙簡單洗滌的需要，AC 比較喜歡這個模式，畢竟不喜歡等太久，而且只要碗筷沒有太難清除的油垢，就可以用這個模式用高溫殺菌也很省水電。 
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842320-3609113233_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842317-2595275609_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842320-3609113233_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842317-2595275609_l.jpg)
 "快速洗"清洗時間約 30分鐘，40度如同泡湯般泉水的溫度，拿來洗蔬果葉菜類把蔬果青菜上面的農藥洗淨，減少煮菜前準備的時間，只要不要太複雜的蔬果都可以用這個清洗。
-![](https://pic.pimg.tw/acikacik/1543842320-3788117509_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842318-1764673391_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842320-3788117509_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853499/blog/acikacik/1543842318-1764673391_l.jpg)
 "自清洗"清洗時間約 1小時35分鐘，最後這個平常機器做保養，或是第一次使用前需要把機身內部的機械油清洗乾淨的行程。
-![](https://pic.pimg.tw/acikacik/1543842316-2571636203_l.jpg?v=1543842432)
-![](https://pic.pimg.tw/acikacik/1543842319-1645041335_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842316-2571636203_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853499/blog/acikacik/1543842319-1645041335_l.jpg)
 **24小時預約功能**
 再來就是「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」特別的預約功能，最少預約一個小後開始洗，最長預約24小時後洗，因為洗碗機可以運用自己的餘熱來烘乾碗盤，所以如果無法在睡前洗完，來不及打開烘碗機，可以安排在隔天早上起床時間前洗完，比方預定六個小時後的"標準洗"，洗個兩個半小時後剛好也起床了，不疾不徐的打開洗碗機那種成就感真的是很了不起，帶來一整天的好心情。
-![](https://pic.pimg.tw/acikacik/1543842334-1520994368_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853498/blog/acikacik/1543842334-1520994368_l.jpg)
 **洗完開門熱蒸氣烘乾**
 當「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」清洗完成面板會出現End 的提醒字樣與聲響，只要打開隱形把手讓洗碗機敞開一個縫隙，讓裡面的熱蒸氣散發出來，用餘熱蒸發水分不一會兒就完全乾了，其實洗碗機用熱蒸氣來烘乾碗盤是很節省電費的，拿出來的杯盤用手觸摸都會發出"吱~吱~"的噁心聲音，那就對了，就是那種乾淨的摩擦聲，聽久了會上癮呢~ XD  
-![](https://pic.pimg.tw/acikacik/1543842335-756864870_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853502/blog/acikacik/1543842335-756864870_l.jpg)
 **把菜渣簡單沖一下省時又省事**
 AC 本來以為洗碗就是把碗盤丟進去，然後就會有大量的水去沖，自然就會乾淨，代誌不是憨人想的那樣~ = = 其實洗碗盤前，要先把碗盤上面的菜渣過水，硬掉的飯粒也要稍微弄掉，鍋子上的鍋巴跟燒焦的鍋底最好先稍微刷洗一下，因為洗碗機雖然洗油汙非常厲害，但是碗盤上陳年硬掉的汙垢就算是AC 猛刷也不一定可以馬上刷除，放進去的餐具都來沖個水，把菜渣先沖掉，不過懶一點也可以不用沖水啦，因為洗碗機裡面也有菜渣集中器，鍋子底下的燒焦處稍微用菜瓜布抹一下，油汙可以不用管，出來就會亮晶晶、猴里嗨~ 如果杯子裡有陳年茶漬，AC 試過陳年的茶漬大約洗個兩次就OK 了。
-![](https://pic.pimg.tw/acikacik/1543842338-1267244985_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853501/blog/acikacik/1543842338-1267244985_l.jpg)
 **洗碗機省時又省力、把大把的時間還給我**
 "熊蓋讚"本來說不需要洗碗機，因為他是個喜歡買清潔用品的人，比方每次去百貨公司購物他都會在清潔劑與洗衣精區域逗留個十幾分鐘，就是要找到好用又清潔力超強的高檔商品，然後不斷的說明這有多划算多好用，但是如果有了一台洗碗機就剝奪了他選購清潔用品的樂趣，不過說老實話誰會喜歡洗碗呢?
-![](https://pic.pimg.tw/acikacik/1543842351-1328237360_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853501/blog/acikacik/1543842351-1328237360_l.jpg)
 以前洗碗這種這個重責大任都交給"熊蓋讚"了，但是總是三催四請不是說洗就洗的事情，洗碗的時候粗心大意一不小心手滑而摔破碗，花上半小時洗碗，罰站站到腳痠也是常有的事情，這樣的生活一點都不文青也不優雅~  
 現在用「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」只要把菜渣沖一下放進去洗碗籃上，稍微排列一下按個行程只要兩分鐘不到，之後只要擦擦桌子整理垃圾，省下了很多時間可以好好休息跟家人一起看電視，也不用弄得滿身滿手的油膩感與待乾濕濕的水漬，如果一天省下半小時，一年也能省下170個小時的寶貴時間，這些時間可以看看電影，逛逛街運運動跑跑操場什麼的，AC 也可以寫寫部落格，熊蓋讚 玩玩電動，這才是我要的人生呀~ XD
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543842245-3114945264_l.jpg)
-![](https://pic.pimg.tw/acikacik/1543842245-1225572524_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853493/blog/acikacik/1543842245-3114945264_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853496/blog/acikacik/1543842245-1225572524_l.jpg)
 **家庭主婦真的需要一台洗碗機(冬天洗手台沒有熱水)**
 使用這台「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」，"熊蓋讚"第一次清洗完成的時候，眼神充滿了感動，哇~ 洗碗機裡拿出來的碗~ 竟然是溫熱的，真是太感人了 QQ ，因為家裡的洗水槽沒有熱水，所以冬天洗碗盤沖水手都冰到僵掉，"熊蓋讚"的手碰到冰冷的水讓洗碗更像是一個苦差事，而且油膩膩的碗盤碰到冰冷的水更會結成油凍，就算用兩倍的重油汙洗潔劑怎麼洗都洗不乾淨，以後冬天再也不用洗碗盤了，這些油膩膩的碗盤，許多家裡的媽媽在冷冷的冬天也不用再害怕手部乾裂了，省下買護手乳的錢，而且那些髒亂小飛蟲的洗手槽就再也不會出現了~ XD
-![](https://pic.pimg.tw/acikacik/1543842338-2032957014_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853501/blog/acikacik/1543842338-2032957014_l.jpg)
 **豬油凝固的碗盤也可以洗**
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」從低溫40度清洗的行程到70度高溫沖洗，每一種的行程設計都針對不同需要細部做設定，有的朋友會跟AC 一樣在買洗碗機之前會想~ 用機器洗會洗的乾淨嗎? 因為內部的水流是經過加熱與22噴口加壓均勻的清洗，水經過隱藏的加熱器才會沖出，最高溫度可以來到70度這麼高，油膩膩的汙漬光是這樣就很容易溶解了，除了帶走油垢還可以消除異味，高溫殺菌消毒如果跟AC 一樣有自己做優格的朋友，也可以用洗碗機來清洗製作優格的容器，就省下消毒的手續了。
-![](https://pic.pimg.tw/acikacik/1543842402-1250684337_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842402-2105287516_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853501/blog/acikacik/1543842402-1250684337_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853502/blog/acikacik/1543842402-2105287516_l.jpg)
 **像AC 這樣的懶人也能簡單操作**
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」真的是懶人的救星，只要四個步驟，首先將殘渣沖走，再來所有碗盤的開口朝下擺放，第三步放入洗碗粉，最後選好洗滌行程按開始就大功告成了。
-![](https://pic.pimg.tw/acikacik/1543842395-2772738550_l.jpg)
-![](https://pic.pimg.tw/acikacik/1543842395-4171056971_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853502/blog/acikacik/1543842395-2772738550_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853501/blog/acikacik/1543842395-4171056971_l.jpg)
 **洗一次兩塊錢?**
 喜歡用「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」不只是因為好用，而且每次洗碗最低用不到一塊錢，真的沒看錯只要一塊錢，就算是強力行程來洗也不用兩塊錢，這種掉到地上也不一定想撿起來的錢幣金額，真的是省到讓AC 什麼都想放進去洗了，比方用電鍋耗電量需要 800 瓦，烤麵包機耗電量大約是 900 瓦，而「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」最低只需要耗電量 580 瓦的電量，竟然比烤麵包機還低真的是太超值了，難怪有人會想拿來洗蔬果跟青菜，畢竟也是一種多功能省水電的方法呀~ XD 
-![](https://pic.pimg.tw/acikacik/1543842018-805134611.jpg?v=1543842431)
-![](https://pic.pimg.tw/acikacik/1543842020-4008042197_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853495/blog/acikacik/1543842018-805134611.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1543842020-4008042197_l.jpg)
 **自己洗比較省水還是用洗碗機洗省水**
 耗水量的多寡也是大家會很想知道事情，朋友問說這樣沖洗不會很浪費水嗎? 經過測試手洗碗的用水量是約 80公升的水量，因為我們洗碗要先上一次洗碗精，怕清潔劑殘留還要用水一直沖洗，通常也不會注意水量的大小，就這樣讓水一直流出去~ ，而使用「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」用最強力的行程也只需要 11公升的水量，因為洗碗機用的水採取循環的方式清洗，經過三四次的清洗過後，所以使用的水量只有手洗的1/3不到，是不是很省~ 
-![](https://pic.pimg.tw/acikacik/1543842019-3661221182_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853485/blog/acikacik/1543842019-3661221182_l.jpg)
 **重油汙洗的超乾淨、終於可以眼不見為淨(洗前跟洗後的對照圖)**
 AC 用了「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」兩週之後，已經愛上了洗碗機，洗碗變一種很開心的事情，不管是各種容器器皿各種東西都放進去洗，看到拿出來亮晶晶的感覺就很療癒~ "熊蓋讚"說:本來都我在洗碗，現在不用麻煩了，因為你都洗上癮了以後就你洗碗好了。好呀~ 真的一點都不麻煩呢~ XD  
-![](https://pic.pimg.tw/acikacik/1543842378-431296099_l.jpg?v=1543842433)
-![](https://pic.pimg.tw/acikacik/1543842378-729616973_l.jpg?v=1543842433)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1543842378-431296099_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1543842378-729616973_l.jpg)
 **影片 美國富及第Frigidaire 桌上型智慧 八人份 洗碗機 操作篇 FDW-8002TF (升級款)**
 **洗碗機到底好不好用?!**
 AC 本身喜歡用懶人的各種料理，比方電鍋煮好菜，把火鍋料都丟進去然後把湯頭也放進去，或是丟個咖哩塊又變成另一道菜，還有整隻雞請人家剁好，丟下去放鹽香菇跟柴魚粉就變成超好喝的香菇雞湯，像這樣的懶人電鍋料理，已經完全節省了AC的日常生活所珍惜的寶貴時間，有了洗碗機更大大的省時省力，這樣的夢幻商品竟然現在才知道，真的有一種相見恨晚的感覺呀~ XD  
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」經由國際大廠原裝並且通過德國TUV３Ａ認證，也通過台灣 BSMI 安全測試，拿到的新機全機並享有 "三年" 原廠到府保固，不管如何AC 自從有了富及第的各種家電用品，慢慢的改善了生活便利性，實用耐用的美式家電，也讓兩隻熊的懶人生活過的越來越好，心情也跟著好了許多，真的早點買就好了，早知道~ 早知道~ 千金難買早知道~ :D
 MOMO 購物網 富及第 八人份 洗碗機
-![](https://pic.pimg.tw/acikacik/1543841972-2795516131_l.jpg?v=1543842431)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1543841972-2795516131_l.jpg)
 MOMO 購物網 富及第 八人份 洗碗機  
 「富及第FRIGIDAIRE桌上型洗碗機 8人份洗碗機 FDW-8001TB」是不是洗的乾淨？水電費會增加嗎？參考選購指南~ 
 https://www.relonintl.com.tw/pages/about-dishwasher

@@ -7,7 +7,7 @@ heroImage: '/images/blog/2022-09-10-future-person-2058-kokubunn.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5070182930'
 ---
 
-![](https://pic.pimg.tw/acikacik/1662815909-712378945-g_n.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871219/blog/acikacik/1662815909-712378945-g_n.jpg)
 Q. 會有新的國家出現嗎？  
 A. 歐洲的加泰羅尼亞和蘇格蘭，亞洲的台灣。
 Q：在你的世界裡，中國是什麼樣的？  

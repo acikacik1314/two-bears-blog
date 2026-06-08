@@ -7,144 +7,144 @@ heroImage: '/images/blog/2020-08-17-tk-seafood-steak-taipei.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069223860'
 ---
 
-![](https://pic.pimg.tw/acikacik/1597651181-3281630437-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651181-3281630437-g.jpg)
 2015年開幕「TK SEAFOOD & STEAK」是位於賦樂旅居 HOTEL PROVERBS Taipei 飯店一樓的牛排館，是台北頂峰等級的爐烤熟成牛排與海鮮料理餐廳，也是很多有身分地位的人士經常光顧的餐廳，兩隻熊這次因緣際會有幸能品嚐到一頓法式創意料理，每一道料理都相當驚艷令人印象深刻，如果預定"賦樂旅居一起玩一夏"入住都會客房 3天2夜只要8,398元，住房送餐飲折抵金專案，送1800元的餐飲折抵金超級划算的。
-![](https://pic.pimg.tw/acikacik/1597327780-4010623772-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597327780-4010623772-g_l.jpg)
 一進門的右手邊有一個乾式熟成頂級牛肉的玻璃櫃，裡面陳列了許多肉品以及可以幫助熟成的玫瑰鹽岩，走進餐廳映入眼簾的是一盞盞歐式水晶吊燈，並且鋪滿來自百年古堡浮雕鐵片，地板使用義大利仿舊巧拼磚，彷彿進入了哈利波特的霍格華茲魔法與巫術學院，隨時會有巫師從天花板飛下來般的夢幻，兩隻熊兩個麻瓜也準備入座享受這場夢幻般的料理，戶外充滿綠意陽光從窗外穿透進餐廳，產生拍電影般拍照能自動擁有暈光的迷幻光影，由於光影效果在這裡合照或是自拍都會非常好看，這裡非常適合帶女朋友或是另一伴來寵愛對方，所以「TK SEAFOOD & STEAK」也號稱最適合情人的"約會餐廳"，值得一提的是「TK SEAFOOD & STEAK」使用來自西班牙的 JOSPER 頂級烤箱，不用插電也不用瓦斯，直接用浸濕的美國田納西州波本威士忌酒廠 JACK DANIEL’S 白橡木桶木屑直火爐烤，高溫可以到達三四百度來炭烤食材，炭火在烤箱內循環讓肉類及蔬菜表面上色，同時能鎖住濕潤肉汁，料理過的食材還會有微微威士忌多層次的酒香。
-![](https://pic.pimg.tw/acikacik/1597651180-844174405-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651182-1536615099-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651182-2054534857-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597847392-3503725899-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651180-844174405-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651182-1536615099-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651182-2054534857-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597847392-3503725899-g_l.jpg)
 「TK SEAFOOD & STEAK」新任主廚頗有來頭，Hung 吳慶鴻 擁有 20年廚藝料理與完整的法國菜資歷，新主廚曾執掌 Monsieur L Restaurant 和任職於 L’ATELIER de Joël Robuchon(侯布雄)開幕時的團隊，也曾遠赴義大利Ristorante Andreina、西班牙 Mirador de Ulía 等米其林一星餐廳工作，他的廚藝哲學在融合傳統跟創新之間，包含酥脆、軟嫩而滑順、酸爽解膩元素的概念「以法菜講究極致的手法詮釋台灣食材」突顯食材的原味與質地形成現在經典的各式料理，吳主廚說：「對於食材的了解，進而運用食材本身特性去創造，是絕對不能忽視的基本功。」，所以這次兩隻熊有幸體驗到如米其林一星般的料理，除了滿心期待並且深感榮幸。
-![](https://pic.pimg.tw/acikacik/1597651189-410505929-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651191-3993626511-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651180-45343332-g_l.jpg?v=1597651180)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651189-410505929-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651191-3993626511-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597651180-45343332-g_l.jpg)
 吳慶鴻主廚 (圖 TK SEAFOOD & STEAK提供)
 這裡有美味的料理以及舒適的用餐環境，服務人員井然有序的上菜方式也很值得讚許，幾乎每吃完一到餐就會整理桌面隨時補充飲水，很值得選個中午的時段來這裡用餐，品嘗精心烹調的老饕級料理。
-![](https://pic.pimg.tw/acikacik/1597651188-3808670226-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864573/blog/acikacik/1597651188-3808670226-g_l.jpg)
 這次兩隻熊配餐飲料選擇 義大利**聖沛黎洛** S.Pellegrino 氣泡水。
-![](https://pic.pimg.tw/acikacik/1597651190-3170175459-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651188-3509703672-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864573/blog/acikacik/1597651190-3170175459-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864572/blog/acikacik/1597651188-3509703672-g_l.jpg)
 這次兩隻熊因緣際會在 「TK SEAFOOD & STEAK」享受中餐專屬的**午間套餐** Lunch Special 並且多試了幾款菜色，幸福來的太突然~ 也可以好好犒賞自己近日來的認真趕稿~ XD
-![](https://pic.pimg.tw/acikacik/1597651181-421574467-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651181-1937327286-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864573/blog/acikacik/1597651181-421574467-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864572/blog/acikacik/1597651181-1937327286-g_l.jpg)
 **開胃小點**
 **爐烤手工麵包**
 布里歐麵包立式造型也是十分討喜，麵包炭燒的表層黃金酥脆光是單吃那烤過的奶油香就撲鼻而來，平時兩隻熊吃的麵包奶油都是另外放自己抹，廚師非常貼心的已經先將麵包用奶油烤過，這麵包要趁熱吃咬下時配有卡滋的特殊音效，麵包內層鬆軟可口帶有一些炭火微焦香味，把橄欖油與巴薩米克醋滴在麵包上面時橄欖油味道不會被奶油蓋過去，油醋會沉澱在下面要用小湯匙挖起來，可以沾著吃增添口感，油醋不會讓人酸到不舒服微酸微酸的還會在喉嚨留下香氣的餘味，這麵包真的好好吃呀~~~讓人意猶未盡。
-![](https://pic.pimg.tw/acikacik/1597651190-1761855709-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651191-1604450977-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651193-2814357576-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651192-3297280386-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651193-947209048-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651194-130017509-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864572/blog/acikacik/1597651190-1761855709-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864572/blog/acikacik/1597651191-1604450977-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864573/blog/acikacik/1597651193-2814357576-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864572/blog/acikacik/1597651192-3297280386-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864573/blog/acikacik/1597651193-947209048-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864576/blog/acikacik/1597651194-130017509-g_l.jpg)
 **開胃湯品**
 **老母雞湯/野生澎湖明蝦/巴西蘑菇**
 湯碗有一種懷石料理的質感，家常的桂丁老母雞熬煮三小時形成鮮甜的雞湯湯底，食用前在湯中加入了巴西蘑菇、薑絲、檸檬皮、山芹菜及巴斯克區的辣椒粉讓入口時充滿多種層次的香氣，雞湯聞起來巴西蘑菇的味道很濃，本來會以為湯頭會比較油香一點但是喝起來很清爽，跟喝台式的老母雞湯不太一樣，煮這個雞湯應該很費工夫要一直將油撈掉，又能喝到巴西蘑菇的香氣，清爽的雞湯中央有顆蝦丸，這慕斯蝦丸可是澎湖野生現撈手工打的蝦漿，蝦丸裏頭還有蛋白、鮮奶油、蓮藕、飛魚卵，剛吃到這蝦丸有嚇一跳，腦袋裡想的是它是丸子它是丸子但是吃下去的時候竟然是入口即化日式布丁的滑嫩口感，剛咬下的時候海鮮的味道就爆漿竄出來像是把整個海洋的風味放到嘴中一樣，好好吃歐~ 這兩隻熊可以吃三十顆，魚丸裡面有飛魚卵咬起來有啵啵啵啵的，加上丸子裡面脆口的蓮藕，各種口感就像嘴在裡面打仗一樣劈哩啪啦劈哩啪啦，讓蝦丸口感更上一層樓，雞湯的味道不會搶去丸子本身的鮮味，把山珍跟海味都加入了這碗湯裡面，暖胃舒心的一種法式打招呼的感覺，一開始就讓AC 滿嘴好滋味，就更期待後續的各式料理。
-![](https://pic.pimg.tw/acikacik/1597651196-3856530118-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651194-3776028983-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651195-2774424946-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651195-3074280798-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864576/blog/acikacik/1597651196-3856530118-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864576/blog/acikacik/1597651194-3776028983-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651195-2774424946-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651195-3074280798-g_l.jpg)
 **首發開胃前菜**
 **波士頓龍蝦/苦瓜/鹹蛋黃**
 以往吃排餐都是簡單上個湯跟麵包或是沒什麼新意的開胃前菜稍微吃一下墊墊肚子，Hung 吳慶鴻 將開胃前菜下功夫，就連龍蝦都可以拿來當前菜，頓時開場就讓人眼睛為之一亮。
-![](https://pic.pimg.tw/acikacik/1597651196-3665149779-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651196-3665149779-g_l.jpg)
 從外表上來看這道波士頓龍蝦很像一道甜點，製作手續繁複層層堆疊頗費心思，因為太精緻不知道要從哪裡下手，AC 最怕吃苦了，不愛喝苦茶更不會主動吃苦瓜，所以雖然苦瓜對身體好很健康，這些嚐苦的印象終究讓人卻步，主廚運用法式 Bavaroise 手法將苦瓜加入紫蘇梅、日本米醋及糖醃漬把精華加入吉利丁後拌入苦瓜裡，嗯~~~就變成平時愛吃的帶光澤軟滑又爽脆的果凍，這個是適合夏天的前菜口感，紫蘇梅的微酸表現高雅、糖醃漬的微甜、苦瓜的微苦更是提升了香氣和口感層次，波士頓龍蝦基底是用龍蝦膏跟鮮奶油，使用"巴伐利亞奶油"的手法製作的慕斯質地，龍蝦膏一開始吃下去有一種餅乾的香氣，當含在嘴中龍蝦膏的香氣就會慢慢在嘴中擴散開來，經由汆燙的波士頓龍蝦肉浸泡在鹽水中新鮮擺盤，然後最後在波士頓龍蝦肉上面灑上滿滿烤過的鹹蛋黃，鹹蛋黃是採用碎末不會一次吃到一大顆鹹蛋黃而感覺過膩，因為龍蝦本身味道偏淡，加上鹹蛋黃濃郁與龍蝦清爽的口味相呼應，不僅是有趣更增添了龍蝦的風味、口感與形色俱都誘人，鹹蛋黃提味更兼顧五感平衡，歐買尬~~ 那鹹蛋黃的香氣光用看的就很逼人了~ XD
-![](https://pic.pimg.tw/acikacik/1597651194-3584348839-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651196-732339561-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651194-3584348839-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864576/blog/acikacik/1597651196-732339561-g_l.jpg)
 **美國生牛肉韃靼/榨菜/黑蒜泥**
 這盤生牛肉一上桌，對於愛嚐鮮的兩隻熊是充滿期待，中央有一個蛋黃可以先打散與生牛肉一同攪拌增加滑嫩的口感，榨菜跟芝麻葉拌在一起可以提升牛肉入口的香氣，可以一邊吃一邊佐旁邊點綴的黑蒜泥，黑蒜泥很好吃~ 酸酸甜甜的好像葡萄乾之類的水果，生牛肉口感滑嫩，咀嚼後口味算是清淡的不會有很重的牛味、入口後豐富細緻味道鮮美，與芝麻葉一起吃同時可以感受到芝麻葉的那種特殊的香氣不會被生牛肉搶走，法國菜就是這樣在挑動我的味蕾，讓人難以捉摸但是十分的美妙，生牛肉沒有太多的脂肪對於維持體重的朋友會很喜歡，很清爽適合夏天吃，當作開胃前菜也相當稱職。
-![](https://pic.pimg.tw/acikacik/1597651197-2088020061-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651197-760225286-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651197-3720206389-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651198-149094767-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651197-2088020061-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864575/blog/acikacik/1597651197-760225286-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651197-3720206389-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651198-149094767-g_l.jpg)
 **第二開胃前菜**
 **北海道干貝/玉米/葡萄酸豆泥**
 AC 很愛吃干貝，這次吃北海道生干貝上菜時就很讓人期待，這道菜裡水果玉米運用了三種製作方式層次堆疊，廚師以洗練的手法用西班牙 JOSPER 烤箱燻烤過的水果玉米帶有迷人的煙燻香氣有點像是烤玉米的滋味，再者把水果玉米與防風根打成泥，吃起來會像是在吃馬鈴薯泥卻是玉米的香氣，運用防風根的清香與玉米的甜味豐富成熟的氣味跟干貝很搭，玉米脆片酥脆的口感也讓這道菜更突出，運用法菜的手法香煎干貝把表面烤的焦脆，鹽漬酸豆、黃金葡萄乾、巴薩米克醋做成葡萄酸豆泥帶給整體酸性柔和，北海道生食級干貝用噴槍炙燒過，干貝光是放入口中咬都沒咬就滿嘴香氣，很輕鬆的稍微用舌頭抿一下干貝的纖維就散開了，鮮甜滋味溫潤縈繞在嘴中久久不散，兩隻熊發現主廚蠻喜歡運用自製酸甜的醬汁搭配，加上法式料理的靈魂焦化奶油醬汁，再搭上酸黃瓜口感柔和滋味微酸提升了干貝的鮮味，這道菜不只是干貝好吃玉米的甜味小朋友應該也很喜歡，在這裡可以吃到原有新鮮食材的美味，廚師用心做的這些配菜它有獨特的風味，但是配菜不會蓋過食材原有鮮美的滋味，細膩的搭配每一口都有驚喜的感覺。
-![](https://pic.pimg.tw/acikacik/1597651202-4014540355-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651199-4031665344-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651199-589171078-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651201-3556093721-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651201-4273113029-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651201-1869783695-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651202-4014540355-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864578/blog/acikacik/1597651199-4031665344-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864578/blog/acikacik/1597651199-589171078-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651201-3556093721-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651201-4273113029-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864578/blog/acikacik/1597651201-1869783695-g_l.jpg)
 **爐烤鴨肝/茴香蘑菇刈包/焦糖花生粉**
 烤過的鴨肝有點焦香味，底部襯著烤箱烤上色的刈包這個點子真的很妙，烤過的刈包QQ的單吃就很好吃了，把中西式餐點組合起來用法式手法製作非常的別出心裁，最特別的就是服務人員桌邊將雲林來的焦糖花生棒刨上花生細絲，花生香氣跟鴨肝烤過的味道和在一起相當的誘人，視覺上有衝擊感也很特別有趣，佐爐烤鵝肝上面點綴了香菜苗一起享用好吃又很悅目，並以茴香炒過的蘑菇點綴的恰如其份味道也很和諧，兩隻熊細細的品味咀嚼，鴨肝剛入口時肉汁就像在吃烤鴨的那層皮脂一樣的濃郁，鴨肝口感滑嫩完全沒有腥味，鴨肝跟蘑菇再配上淡淡的花生香氣，法式料理就是運用主廚的創意再結合台灣的在地食材，幻化成讓人眼睛為之一亮的作品，讓這道鴨肝料理每一口都相當豐富精彩，吃完鴨肝會口齒留香，而且鴨肝香氣會衝到鼻腔裡真的好吃極了!! AC 會盡量每一口都不會切的很大塊，讓這個幸福感可以延續更長的時間。
-![](https://pic.pimg.tw/acikacik/1597651198-3029129068-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651199-2544491828-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651200-896638223-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651200-1530380514-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864578/blog/acikacik/1597651198-3029129068-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864577/blog/acikacik/1597651199-2544491828-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651200-896638223-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651200-1530380514-g_l.jpg)
 **海鮮前菜**
 **爐烤2天熟成屏東枋寮午仔魚/綠竹筍/薑味醬汁**
 廚師以爐火純青的手法選擇屏東枋寮午仔魚去除內臟抹上鹽掛起來兩天做熟成，也就是製作成俗稱的一夜干來爐烤烹調，以創新翻玩的熟成方式香氣再上層樓，將魚肉最好的滋味呈現給饕客，把平時的家常的一夜干以法式技法重新製作，綠竹筍一開始看還以為是櫛瓜，綠竹筍經過廚師巧手烤過焦化，旁邊有些焦黑增添焦香味，台灣農業真的很棒可以把蔬菜種植出水果的甜味，這也只有在台灣才可以吃到然後烤過又帶了一股香氣，真的好好吃喔~ 擺盤時放上綠色的蝦夷蔥，以及粉紅色醃漬過的日本洋蔥，日本洋蔥醃過之後有一種酸甜的水果風味，主廚很喜歡以酸甜提味的配菜而且酸甜的味覺體驗都滿一致的，並與點綴呈盤的薑汁醬汁相佐，一夜干會比一般新鮮的魚更多了一份香氣，魚肉的肉質與味道會有一種偏向鮮蝦的香氣，經過兩天的風乾之後味道更濃郁更甜，烤過的魚含油脂有焦香，運用法菜講究極致料理手法躍然於豐盛的餐桌上，兩隻熊一邊吃著鮮美的魚肉一邊享受著浪漫的異國風情。
-![](https://pic.pimg.tw/acikacik/1597651202-419407398-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651205-1784711719-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651204-1243838588-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651206-3280990850-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651202-419407398-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864580/blog/acikacik/1597651205-1784711719-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864580/blog/acikacik/1597651204-1243838588-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651206-3280990850-g_l.jpg)
 **刺參，伊比利臘腸，鮮蝦醬汁**
 很少人用刺參當作前菜，兩隻熊抱著好奇心嚐嚐看，廚師把蘑菇、紅蘿蔔、大白菜用蝦油炒軟後與蝦丁製成蝦丸一起鑲入具有彈性的烏參中，不但吃到鮮蝦的鮮還可以吃到蔬菜的甜，並佐上用蝦頭、泰國紅咖哩及蝦高湯一同熬煮的濃郁鮮蝦醬汁，試一口醬汁~ 好濃的蝦味，口感是比較重口味微微辣的醬汁，最後嵌上生菠菜葉及伊比利臘腸，伊比利臘腸只有薄薄的一片就可以吃到很濃郁的鹹味，不建議單獨享用因為刺參口味比較清淡剛好相輔相成，少許檸檬皮提味，刺參遠遠看像一顆小麵包，剛咬下可以感受到刺參的新鮮QQ脆脆口感滿像是燉過很容易咬斷的牛筋，主廚選擇刺參就是要它的口感，因為刺參口感相當的特別，搭配香濃的鮮蝦蔬菜醬汁海味十足賦予多層次的口感，刺參搭配醬汁跟臘腸一起吃真的是一絕，好吃。
-![](https://pic.pimg.tw/acikacik/1597651203-1699331501-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651204-3025876491-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651204-1093878475-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651205-1131863494-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651205-359947914-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864580/blog/acikacik/1597651203-1699331501-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651204-3025876491-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864581/blog/acikacik/1597651204-1093878475-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864580/blog/acikacik/1597651205-1131863494-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651205-359947914-g_l.jpg)
 **主餐**
 在上主菜前桌面上更換了刀叉，兩隻熊懷抱著期待準備大快朵頤~ XD
-![](https://pic.pimg.tw/acikacik/1597651202-294539922-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651202-294539922-g_l.jpg)
 **澳洲新南威爾斯州和牛橫隔膜** 5oz 2680
 和牛不只是軟嫩，和牛內臟中的橫隔膜也可以有別於和牛其他部位軟嫩口感，因為橫膈膜的油脂比較少是一種非凡味覺體驗，並且在和牛橫隔膜塗上橄欖油與龍眼蜂蜜調製成的燒烤醬汁，用 JOSPER 烤箱 運用威士忌酒廠JACK DANIEL’S 白橡木桶木屑，讓和牛橫隔膜滲入威士忌的酒香炭火煙燻焦香，直火烤到三分熟外酥內軟卻不失嚼勁帶點深紅色的肉色，最後淋上以牛肋骨及牛肉熬煮的醬汁，兩隻熊也很少吃到和牛的橫膈膜比一般肉多了一些韌性，只有法國餐廳才會出現的和牛橫膈膜運用法菜料理，跳脫顛覆原有對於和牛料理的油質豐富的印象，吃食材本身的原始野性的風味，也可以沾英國馬爾頓的海鹽來品嚐，海鹽讓和牛橫膈膜的甜味更出來，是一種很新的嘗試，一旁的生菜可以消除口腔裡的肉味，配菜烤大蒜也是鬆軟好吃。
-![](https://pic.pimg.tw/acikacik/1597651211-2616314146-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651211-1614739924-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651213-3682747200-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651213-4020854543-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651213-4045555686-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651214-2669385847-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651215-2245745077-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651211-2616314146-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864583/blog/acikacik/1597651211-1614739924-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864583/blog/acikacik/1597651213-3682747200-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651213-4020854543-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651213-4045555686-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864583/blog/acikacik/1597651214-2669385847-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864582/blog/acikacik/1597651215-2245745077-g_l.jpg)
 **馬鈴薯泥**
 沒有華麗盤飾薯泥裝在熱燙燙的鑄鐵鍋裡上桌，加上起司香氣四溢味道非常誘人，薯泥熱熱的吃口感綿密入口即融化，口感在綿密之餘如雲朵般輕柔，因為很愛吃起司馬鈴薯所以常常在台灣夜市買起司馬鈴薯吃但是由於是廉價起司吃久了會膩，這個用品質好的馬鈴薯與起司製特別香濃又不會膩，真的是超好吃的，薯泥食感輕盈是平衡牛排濃郁醬汁暖胃的舒心配菜。
-![](https://pic.pimg.tw/acikacik/1597651211-1219521947-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651223-2125751415-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864583/blog/acikacik/1597651211-1219521947-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651223-2125751415-g_l.jpg)
 **爐烤波士頓活龍蝦** 2980(整隻)
 AC 最期待就是這隻活龍蝦了，爐烤直火烤到完美的波士頓活龍蝦霸氣上桌，用爐烤代表波士頓龍蝦特別的新鮮，不需要用焗烤的厚重風味蓋掉海鮮原本的香氣，兩隻熊總覺得焗烤的方式吃不出來龍蝦本身迷人的肉質甜味，吃焗烤龍蝦總覺得有點可惜跟失望，更想到三年前去波士頓吃的龍蝦還沒有這次吃的新鮮，看著餐盤上一對超大的蝦螯肉多又美味，迫不及待等著要把龍蝦肉挑出來大快朵頤一番，只要用叉子一叉龍蝦肉就輕易的與蝦殼分離，滿滿的龍蝦肉還有肉汁簡直銷魂值得細細品嚐，龍蝦中段還佈滿甜甜濃郁的蝦膏，烤的時間掌握的很好，蝦肉有點生而富有肉汁，沒烤太熟比較有一種鮮甜的滋味，龍蝦肉新鮮富有彈性吃起來份外過癮，這道龍蝦大餐讓人食指大動，絕對是兩隻熊推薦不能錯過的必吃美食。
-![](https://pic.pimg.tw/acikacik/1597651211-126386075-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651211-1351810452-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651211-126386075-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651211-1351810452-g_l.jpg)
 一定要佐一旁小碟子上的焦化過的奶油醬汁，一般奶油是固體狀的就已經很好吃了，香味撲鼻的焦化奶油是液態的讓奶油香氣滋味又提升到另一個層次，龍蝦沾奶油就像在吃無糖的森永牛奶糖的感覺~ 越嚼越香，龍蝦肉配奶油醬汁非常香~~~~ 有時候會怕吃海鮮太單調，一邊吃一邊沾奶油增添咀嚼樂趣，除了吃本身龍蝦肉的鮮甜更有些許提味效果，只能說真的是太好吃了啦!
-![](https://pic.pimg.tw/acikacik/1597651212-1654107714-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651214-1705234378-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651212-1654107714-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651214-1705234378-g_l.jpg)
 **小菜**
 **爐烤季節時蔬/法式香草醬**
 廚師以當令食材入饌，選取櫛瓜用西班牙的 JOSPER 頂級烤箱直火爐烤，高溫煎櫛瓜表面上色酥黃焦香，掌控火焰的功力更烤甜了的櫛瓜，在吃過大餐的過後品嚐到新鮮單純天然的甜脆櫛瓜，撒上榛果芝麻與起司絲，旁邊是法國酸黃瓜 酸豆與蛋白調製的酸味醬汁可以跟櫛瓜搭配一起吃，越是簡單的料理越是考驗到廚師溫和細緻的手藝，這道點心展現了法式料理講究極致的精神，櫛瓜也是比較清淡的再配上紫蘇酸味醬汁剛好可以滿足味覺的豐富性，櫛瓜香烤保水十分美味。
-![](https://pic.pimg.tw/acikacik/1597651216-1945454015-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651217-23851858-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651216-1945454015-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651217-23851858-g_l.jpg)
 **點心**
 **斗南町越光米/蕈菇**
 台灣也有頂級的越光米，就是斗南町越光米，來自日本福井天皇御用米種，米粒晶瑩飽滿略帶光澤的透明感，越光米會發出珍珠的光澤，運用法式手法製作日式懷石料理的精神來做出的蕈菇飯的概念，醬料是綜合的菇類經過拌炒，裡面有黑木耳 白木耳 金針菇跟蕈菇，拌炒到焦化增加更多香氣，另外再加點紅蔥頭蒜跟薑來提味，濃縮之後炒成黑色的醬料，加了紅蔥真的很像素肉燥，光單吃飯真的很純淨粒粒分明，上面放了綠色的香菜苗做點綴，白色一點一點的是炸過的爆米香，一整碗古樸簡約具有創意飯上鋪上特製蕈菇卻不失優雅，色、香、味、形交織味道清楚且強烈，聞起來芳香撲鼻吃起來唇齒留香。
-![](https://pic.pimg.tw/acikacik/1597651215-1425488417-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651216-2229274681-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651217-1960297077-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651217-2660667756-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651215-1425488417-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651216-2229274681-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864585/blog/acikacik/1597651217-1960297077-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864588/blog/acikacik/1597651217-2660667756-g_l.jpg)
 **甜點**
 **愛玉/鳳梨/紫蘇**
 愛玉是台灣之光，因為只有生長在台灣，具有代表台灣本土的特色食材，愛玉是用了阿里山泉水洗滌過，這道甜品運用了愛玉的口感鳳梨的微酸紫蘇的清香交織而成，吃完鹹的再吃愛玉感覺就很清爽，上面撒上杏仁製作的脆片嚼起來很香很好吃，甜點的甜味來自於主廚醃鳳梨的甜，細膩的整合微酸微甜交融的滋味使人心情舒暢，嚐起來輕盈清新繁花似錦就像個小花園一樣。
-![](https://pic.pimg.tw/acikacik/1597651218-2863656020-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651219-2314204405-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651220-4051376444-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651220-2819480868-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864588/blog/acikacik/1597651218-2863656020-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864587/blog/acikacik/1597651219-2314204405-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864588/blog/acikacik/1597651220-4051376444-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864587/blog/acikacik/1597651220-2819480868-g_l.jpg)
 **芒果和巧克力**
 正統法式甜品運用芒果製作出不同口感的甜品，芒果肉 芒果巧克力以及酸甜酸甜的芒果冰沙還有芒果慕斯，將各自獨立的幾種甜點組合呈盤，本來以為芒果巧克力會甜到不行，咬一口其實是巧克力脆餅，脆脆的很好吃不會很甜，宛如珠寶盒一般的讓人期待與探索，感覺高級甜點做的很細緻，充滿創意並饒富食趣，芒果與巧克力以及餅乾襯底組合豐富華麗，絢麗的光滑圓潤搶眼吸睛。
-![](https://pic.pimg.tw/acikacik/1597651221-2454512060-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651221-3427216908-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651222-3014307827-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864587/blog/acikacik/1597651221-2454512060-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864587/blog/acikacik/1597651221-3427216908-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864587/blog/acikacik/1597651222-3014307827-g_l.jpg)
 **琥珀糖和餅乾**
 廚師運用細膩廚功演繹簡單的四個正方，展現和諧度溫馨之美，堅果做成的抹茶餅乾偏奶油的香氣，咀嚼餅乾時抹茶的清香就在嘴中散開越嚼越香，杏桃琥珀糖有點像是方糖糖酥之類的口感但是又不會過甜，讓整體更加平衡，做工講究極具巧思使人快樂而滿足，琥珀糖與堅果餅乾和紅茶非常搭配。
-![](https://pic.pimg.tw/acikacik/1597651222-868621178-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651222-34333506-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651222-567098494-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651223-692879083-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864588/blog/acikacik/1597651222-868621178-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864588/blog/acikacik/1597651222-34333506-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864590/blog/acikacik/1597651222-567098494-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864590/blog/acikacik/1597651223-692879083-g_l.jpg)
 **飲茶**
 最後以茶香完美的結束這趟旅程，兩隻熊坐在位子上聊聊家常一直無法離開，一邊喝著現泡的紅茶與阿里山烏龍茶一邊回味午間吃過的每一道料理，兩隻熊以前在餐廳最後點紅茶都是一包茶包丟在裡面，因為紅茶泡太久會變苦澀，TK SEAFOOD & STEAK 會先把紅茶泡好茶包拿出來再上桌讓紅茶不會因泡太久而苦澀，阿里山烏龍茶也是幫忙將茶葉囊取出後才請賓客享用非常的細心，這個小動作可以喝到泡出來最佳時機的好茶味，阿里山烏龍茶就像是在叔伯家裡自己泡的好茶葉有一種清香跟花香，法式餐點最特別的就是精緻而份量不會很多，但是兩隻熊吃到一半已經有點飽了，未來有機會外國朋友來台灣，也很推薦這間餐廳給外國的朋友，因為除了主廚料理方式廚藝精湛，更是運用具特色的台灣本土的食材製作，值得外國朋友與愛嚐鮮的台灣朋友撥空自我犒賞一下，法式技法不只是味覺上的滿足，整個吃下來兩隻熊的身心靈都被療育了。
-![](https://pic.pimg.tw/acikacik/1597651218-413423844-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651218-2007831923-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651220-623471505-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597651220-1789279590-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864589/blog/acikacik/1597651218-413423844-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864590/blog/acikacik/1597651218-2007831923-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864590/blog/acikacik/1597651220-623471505-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864590/blog/acikacik/1597651220-1789279590-g_l.jpg)
 **TK SEAFOOD & STEAK** ( HOTEL PROVERBS Taipei 賦樂旅居 1樓 )
 台北市大安區大安路一段56號1樓
 座位數：50 / 2 樓多功能廳包廂共 3 間，打通可容納 32 位

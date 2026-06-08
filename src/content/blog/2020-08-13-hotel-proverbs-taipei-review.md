@@ -7,256 +7,256 @@ heroImage: '/images/blog/2020-08-13-hotel-proverbs-taipei-review.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069214040'
 ---
 
-![](https://pic.pimg.tw/acikacik/1597328575-771461380-g_l.jpg?v=1597328575)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597328575-771461380-g_l.jpg)
 台灣有特色的飯店越來越多了，但是要在台北市中心創造異國度假氛圍的飯店就不那麼多了，兩隻熊記得七年前去泰國曼谷繆斯飯店-美憬閣精選(Hotel Muse Bangkok Langsuan - MGallery Collection)留下了深刻的印象，那是一個都市型的精品度假旅店，頂樓有個曼谷數一數二的空中酒吧，是曼谷政商名流明星們必去的奢華檔次的酒店，這次拜訪的賦樂旅居讓我想起了這個特色酒店，酒店燈光以幽暗色系呈現，彷彿來到另一個國度，每個細節都值得細細的品味。
 飯店設計靈感和名稱由來，是受到西班牙藝術家 Francisco De Goya的作品"Los Proverbios"，其系列內容呈現了世間眾生相，中譯為「諺語」的 釋義，則闡述了人生道理與智慧集結。彷彿在這42間客房上演著如電影般有趣的人生百態。設計者將西班牙鬥牛士的元素融入了每個細節中，古代鬥牛是傳統的娛樂活動，鬥牛士運用長矛短槍親手將一頭牛插上並且等牛筋疲力盡之後，鬥牛士就會出場在歡呼聲中，讓牛拼命地往紅色的布幕上衝撞，其實這是一種既危險又刺激的活動，「賦樂旅居 HOTEL PROVERBS taipei」的設計師將紅色的元素運用在酒廊 電梯 以至於床單罩上，向這些不俱死亡勇敢的鬥牛士們致敬，這是一間具有男性化風格的旅店，順道一說賦樂旅居的三樓有一個全台灣唯一入選亞洲五十大最佳酒吧的飯店型酒吧，這次有機會一親芳澤真的是很激動呢。
-![](https://pic.pimg.tw/acikacik/1597327458-1031519465-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327458-1031519465-g_l.jpg)
 歐式古堡加上鐵件 LOFT風格，混搭氣息從遠處就非常的醒目，這次從忠孝復興站出口走路約五分鐘(其實離捷運忠孝復興站地下街14號出口最近，而且上下都有手扶梯拿行李很方便)，黑色鐵件金屬外觀彷彿經過千錘百鍊的鍛造過後，除了風雨無懼並運用玻璃根鐵件落地窗穿插的元素，將工業風與復古風可以完全的融合，在棟距很近的台北市也很適合運用鐵件來保有隱私，將室內跟室外的兩種場域用鐵件區隔開來，讓光線可以流暢的撒入室內，俐落的線條新鮮的空氣也可以暢快流動，但是讓旅人保有私領域的舒適感，一個一個窗框彷彿將都市美景收納入旅客的眼簾，成為一處處別出心裁的特製都市端景。
-![](https://pic.pimg.tw/acikacik/1597327458-89014181-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327458-868079390-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327458-2951362817-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327460-4041826491-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327458-89014181-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327458-868079390-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327458-2951362817-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327460-4041826491-g_l.jpg)
 兩隻熊進入旅店時，禮賓人員親手為你開門也成了暖心的一刻，沁涼的冷氣瞬間帶走室外煩躁的盆地悶熱感，櫃台辦理Check in 前一旁準備了酒精乾洗手提供旅客自行取用，寧靜優雅的賦樂旅居擁有挑高三層樓的大廳，雖然犧牲了兩層住客的房間，換來向上延伸寬廣視野與陳設了多盞水晶吊燈，從外觀看很有隱密性的飯店其實內部光線是通透的，設計師巧妙的運用大片的玻璃攝取了自然光，黑鐵件彷彿阻止不了戶外美麗的綠意一點也不顯沉重。
-![](https://pic.pimg.tw/acikacik/1597327474-2867572011-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327473-3533512544-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327474-2914199150-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327474-1555270099-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327475-4047003811-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327475-3639667355-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327474-2867572011-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327473-3533512544-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327474-2914199150-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863919/blog/acikacik/1597327474-1555270099-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863921/blog/acikacik/1597327475-4047003811-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327475-3639667355-g_l.jpg)
 「賦樂旅居 HOTEL PROVERBS taipei」由著名設計師 Ray Chen 陳瑞憲操刀，這裡的美需要細細品味，許多細節不容易被發覺，時髦的裝飾中用的可都是真材實料的好東西，融合了現代工業功能主義風格、時尚仿古和經典等元素，猶如不朽的時尚大師 聖羅蘭說過「時尚會褪色，風格才是永恆。」，「賦樂旅居 HOTEL PROVERBS taipei」創造出自我的一種風格令人印象深刻成為典範。
-![](https://pic.pimg.tw/acikacik/1597327475-1729873437-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327475-2875096446-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327476-1148839195-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327476-1554102708-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327475-1729873437-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863921/blog/acikacik/1597327475-2875096446-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863921/blog/acikacik/1597327476-1148839195-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327476-1554102708-g_l.jpg)
 由於喜愛攝影對於暗黑色系的綺麗的光影也頗有好感，現在這個科技的時代什麼都有擬真的材料製作，所以許多飯店(包含五星級飯店)都會用到一些看似真實其實是合成塑料製作的建材，在「賦樂旅居 HOTEL PROVERBS taipei」運用了大量昂貴的建材家具，構築迷人的一景一物，彷彿置身另一個時間空間的鏡像景致，AC 之前住宿清境農場的"老英格蘭"就是將英國景物直接空運來台，讓旅客彷彿置身歐洲的一種錯覺，在因為疫情而無法任意出國又沒有小叮噹任意門的時代，打開「賦樂旅居 HOTEL PROVERBS taipei」的大門就能置身西班牙，彷彿弗朗明哥舞孃即將出現在這裡一般，跟著優雅的音樂張開雙手在兩隻熊的心中婆娑起舞。
-![](https://pic.pimg.tw/acikacik/1597327478-2820906769-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327481-2152814918-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327478-2820906769-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327481-2152814918-g_l.jpg)
 自從兩隻熊有了萬豪頂級精英會員資格，就會專門為了體驗房間升等或是追求包三餐的行政待遇，但是近年來漸漸改變了需求，有沒有滿足口腹之慾吃到飽已經不再是唯一的期待，擁有難忘的住宿體驗才是真正可以在未來回想起來津津樂道的，兩隻熊喜歡細緻的精品飯店，各種體驗有別於以往的商務客澎湃吃到飽，細膩而精緻會更容易使人沉浸在那個氛圍中。
-![](https://pic.pimg.tw/acikacik/1597327478-21500675-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863921/blog/acikacik/1597327478-21500675-g_l.jpg)
 **硬派風格套房**
 這次兩隻熊入住的是位於12層的1201號房，剛搭乘電梯就有一種神秘的氣息，紅色的地毯與深暗電梯空間彷彿走入酒窖的錯覺，電梯打開是紅銅色的壁面空間，門上用銅棒鑄造1201的字樣，沒錯是這一間了尊崇歐洲傳統門把的設計，是使用掀蓋式復古鑰匙鎖來開門，這個小動作AC 到現在還是記憶猶新，開門就像是一種儀式，運用傳統鑰匙轉開而鑰匙是連著感應卡的，微複雜的程序打開門豁然開朗，就連一旁的電燈開關都是工業風的設計，冷氣已經是開放的狀態，彷彿已經準備好所有細節呈現給入住的旅人。
-![](https://pic.pimg.tw/acikacik/1597327499-2167333549-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327499-1056463057-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327507-3091146130-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327507-3344176750-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327507-2220237160-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327507-3845572338-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863922/blog/acikacik/1597327499-2167333549-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863923/blog/acikacik/1597327499-1056463057-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327507-3091146130-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327507-3344176750-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327507-2220237160-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327507-3845572338-g_l.jpg)
 一進門就可以看到許多種不同素材共同展現出來的異域空間，摸了會出現紋路觸感的毛料牆表布、銅製鏡面壁板、鬃毛座椅、室外鑄黑帖件、西班牙風格地磚、北美原橡木的輕木色、設計師特意保留的毛胚水泥質感，房間很寬敞滿足每個偏愛時尚住宿的旅人，簇擁日光純淨彌漫一室，溫潤的木紋原色質感湧現，黃銅鏡面開展 區隔出玄關與小客廳的空間。
-![](https://pic.pimg.tw/acikacik/1597327529-2653416241-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327545-1439052335-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327529-2071931047-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327529-1493709672-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327529-2653416241-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327545-1439052335-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863923/blog/acikacik/1597327529-2071931047-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863924/blog/acikacik/1597327529-1493709672-g_l.jpg)
 比方紐約人就很愛LOFT ，但是對於復古風的舊家具又是情有獨鍾，用獨具個性的精品沙發單品成就一個角落一個景的生活態度，不嬌柔造作的天花亂墜就單一簡單的簡約搭配，運用家具本身的線條勾勒整個房間的調性，兩隻熊之前在威尼斯的住過一間 也是萬豪系列 戴多吉超豪華酒店 - 傲途格精選酒店(Grand Hotel Dei Dogi, The Dedica Anthology)，這間飯店很特別他有自己的小花園，而且兩隻熊住的房間面海，房間窗戶看出去就是海面幾乎可以看到海水潮起潮落，賦樂客房的陳設讓我回憶起威尼斯飯店精緻的美，實木的床頭與歐式床頭燈彷彿可以拿一本童話故事書，聊聊哈利波特與魔法學院的種種趣事，這裡還有歐式奢華酒店愛用的實木地板，住慣了簡約風格的五星級飯店，AC 更愛優雅奢華具有故事性歷史感的歐式精品酒店，讓我的心到現在還留在賦樂旅居寢刻之間~
-![](https://pic.pimg.tw/acikacik/1597327545-949261333-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327545-452276501-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327547-3739506206-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327547-797636260-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327547-4185399848-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327547-342015946-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327549-2807071800-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327550-1858102709-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327550-2478180685-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863923/blog/acikacik/1597327545-949261333-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327545-452276501-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327547-3739506206-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327547-797636260-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327547-4185399848-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327547-342015946-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327549-2807071800-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327550-1858102709-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327550-2478180685-g_l.jpg)
 復古風燈飾裝飾床頭，彷彿是來自中世紀別緻的家具，床面上的床單非常的柔軟，罩上一個纖維略為粗糙的紅色毯子，床中央擺放了歡迎兩隻熊的問候明信片，床的兩邊都有插座對於需要呼吸器的朋友也很方便，床頭的開關除了控制房間燈光還有一個是可以旋轉的，用來調整水晶吊燈的光線，晚上看書看電視都不刺眼，枕頭有四個是軟的羽毛枕睡覺時AC 把頭卡在兩個枕頭的中間整個被包覆住，真的是很好睡一覺到天亮，早上起床還特別掀開床單來看是什麼牌子的床墊，原來是"老K牌"King size彈簧床墊，兩隻熊睡過很多種床墊，這個床很容易入睡真的超級好睡。
-![](https://pic.pimg.tw/acikacik/1597327545-272609781-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327545-3211448623-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327546-4167724098-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327548-470420969-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327549-1998339985-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327550-2897459780-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327552-504069732-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327552-38652210-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327553-3217670782-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327545-272609781-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863926/blog/acikacik/1597327545-3211448623-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327546-4167724098-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327548-470420969-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327549-1998339985-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327550-2897459780-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863929/blog/acikacik/1597327552-504069732-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863929/blog/acikacik/1597327552-38652210-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327553-3217670782-g_l.jpg)
 **電視**
 電視上出現了兩隻熊的中英文全名，YAMAHA 山葉頂級的音響系統擁有杜比立體聲音效，賦樂客房一層樓只有兩間，隔音很好電視聲音可以開很大，看電影彷彿置身電影院裡，而且所有可以選擇的電影都是免付費的，兩隻熊光是兩天一夜就看了三部院線片一部動畫片，電視是可以拉開180度多方向旋轉，所以在沙發區或是躺在床上都可以很舒服地看，因為音效很好晚上把燈關掉彷彿是個小電影院，這種賴在飯店什麼地方也不去，頗高級的享受真的有給他滿足到。
-![](https://pic.pimg.tw/acikacik/1597327617-1822169337-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327617-436585225-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327617-1332431069-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327617-3272571284-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863928/blog/acikacik/1597327617-1822169337-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863929/blog/acikacik/1597327617-436585225-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863929/blog/acikacik/1597327617-1332431069-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327617-3272571284-g_l.jpg)
 **床邊雅座**
 宮廷式水晶吊燈搭配鬃毛沙發座椅，如果一個人住大套房空虛寂寞覺得冷，找幾個朋友來嗑嗑牙這麼好的空間真的不要浪費了，如果難得住這麼好的房間，不要忘記約個"伴"這一晚我要加點來自"英倫風格的浪漫"。
-![](https://pic.pimg.tw/acikacik/1597327553-377592177-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327553-556845102-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327553-1514747245-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863931/blog/acikacik/1597327553-377592177-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327553-556845102-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327553-1514747245-g_l.jpg)
 **西裝架**
 對於商務旅客總會有西裝不好吊掛的困擾，一般衣架會讓西裝變形，不銹鋼鍍銀的西裝架彷彿是零零七才會有的陳列品，現在也出現在兩隻熊的眼前，這次沒帶西裝放個背心也可以~ XD
-![](https://pic.pimg.tw/acikacik/1597327569-2691195219-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327569-2364232142-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863931/blog/acikacik/1597327569-2691195219-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863931/blog/acikacik/1597327569-2364232142-g_l.jpg)
 **小客廳**
 沙發區用棉麻質的地毯鋪設，暗色調的絨布質感沙發可以招待朋友在此小敘，非常適合拿一個畫架在這裡畫一幅顏色鮮艷的油畫，當個優雅的英倫情人。
-![](https://pic.pimg.tw/acikacik/1597327604-3478662301-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327604-93055081-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327604-4202063691-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327604-3478662301-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327604-93055081-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863930/blog/acikacik/1597327604-4202063691-g_l.jpg)
 **原木書桌**
 書桌上滿滿的雜誌，不想強烈的聲光效果，放點抒情的音樂，泡杯咖啡坐在沙發上或是書桌上看一本本的雜誌，這裡有最新的時尚訊息，經典主流的文藝刊物，就是沒有無趣或是無聊的可能。  
 書桌上有包含修正帶、螢光筆等文具組，原子筆也相當的高級，桌上有一個木質的方塊，拿起來之後出現了幾點幾分幾度C 原來是一個桌上的時鐘，如果住客臨時有需要辦公上網，飯店也提供MAC 筆電免費租借的服務，外出也有免費的WIFI分享機可以出借，滿足旅遊所有需求超棒的。
-![](https://pic.pimg.tw/acikacik/1597327628-2819540396-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327628-1894833772-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327628-1329143226-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327629-850599214-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327628-239345118-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327630-402071289-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327629-3493847571-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327630-2339551950-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327631-3841050267-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863931/blog/acikacik/1597327628-2819540396-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327628-1894833772-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327628-1329143226-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327629-850599214-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327628-239345118-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327630-402071289-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327629-3493847571-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327630-2339551950-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327631-3841050267-g_l.jpg)
 **半開放式的壁櫃**
 備品水準很高尤其是室內棉拖鞋包覆性好蓬鬆柔軟好穿，附帶嵌入式的保險櫃，把衣服放在壁櫃中彷彿就像是專櫃裡的陳列間，每個貴婦都會有一個夢想的衣物陳列室，就算只是一件T Shirt 吊在裡面也可以這麼有味道，標個價一萬應該也說得過去吧~ XD
-![](https://pic.pimg.tw/acikacik/1597327645-3674527686-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327645-3572498432-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327645-3040275213-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327645-2238229073-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327647-3621369853-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327647-1721382610-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327647-4224273879-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327647-3426410882-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327561-1288268094-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327561-3039039833-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327645-3674527686-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863933/blog/acikacik/1597327645-3572498432-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864544/blog/acikacik/1597327645-3040275213-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864544/blog/acikacik/1597327645-2238229073-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864545/blog/acikacik/1597327647-3621369853-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864544/blog/acikacik/1597327647-1721382610-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864545/blog/acikacik/1597327647-4224273879-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864544/blog/acikacik/1597327647-3426410882-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864545/blog/acikacik/1597327561-1288268094-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864545/blog/acikacik/1597327561-3039039833-g_l.jpg)
 **免費提供眾多小吃和飲品**
 MiniBar 吧檯除了紅酒之外 糖果、鹹甜點心餅乾、Nespresso 膠囊咖啡、茶包通通都不用錢免費取用。  
 冰箱打開滿滿儲備充足的飲品 雪碧、可爾必思、可樂還有AC 最愛的零卡可樂、原萃等飲品都是免費的，如果有購買FOODPANDA 還有大小的餐盤跟餐具刀叉可以使用，說真的住在這裡可以不用出門，就算是朋友邀約也可以把他們約在這裡 熱鬧熱鬧~ XD
-![](https://pic.pimg.tw/acikacik/1597327590-3682383170-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327590-3419386552-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327590-3082684233-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327590-2527290668-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327590-530116709-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327591-1461778749-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327592-805575371-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327592-2027121943-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327592-592949602-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864545/blog/acikacik/1597327590-3682383170-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864544/blog/acikacik/1597327590-3419386552-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864547/blog/acikacik/1597327590-3082684233-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864548/blog/acikacik/1597327590-2527290668-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864548/blog/acikacik/1597327590-530116709-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864547/blog/acikacik/1597327591-1461778749-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864547/blog/acikacik/1597327592-805575371-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864548/blog/acikacik/1597327592-2027121943-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864547/blog/acikacik/1597327592-592949602-g_l.jpg)
 **浴室空間**
 浴室的空間並沒有比房間小，格局是長方形各司其職，彷彿紙醉金迷的好萊塢一擲千金的瘋狂生活，給我來杯紅酒在這裡大醉一場吧~
-![](https://pic.pimg.tw/acikacik/1597327701-3510872183-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327681-3320081685-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327681-595430540-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327681-3816004545-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864548/blog/acikacik/1597327701-3510872183-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864547/blog/acikacik/1597327681-3320081685-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864548/blog/acikacik/1597327681-595430540-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327681-3816004545-g_l.jpg)
 **浴缸**
 巨人用超級大的浴缸 182公分的AC 坐著泡湯腳都摸不到邊，泡起來好舒服，一邊泡著溫熱的熱水還可以愜意的看看小電視，此時此刻感到徹底的放鬆，還有一包浴鹽住在這裡一天泡上兩次澡都不嫌多。
-![](https://pic.pimg.tw/acikacik/1597327701-115003491-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327700-890892631-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327701-1941471296-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327702-1431545765-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327703-1398360148-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327701-115003491-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327700-890892631-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327701-1941471296-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864551/blog/acikacik/1597327702-1431545765-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327703-1398360148-g_l.jpg)
 **馬桶**
 TOTO微電腦免治馬桶蓋靠近感應就會自己打開，而且還散發出藍色的測光相當的科技感，兩隻熊更在意馬桶蓋的大小，由於人高馬大屁股寬度也比一般人需要更大的馬桶(羞)，賦樂客房的馬桶就能滿足兩隻熊的需求，如廁時前後左右都能恰到好處。
-![](https://pic.pimg.tw/acikacik/1597327709-4142209408-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327709-2533518398-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327709-4280995516-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327709-4142209408-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864551/blog/acikacik/1597327709-2533518398-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864551/blog/acikacik/1597327709-4280995516-g_l.jpg)
 **洗手台**
 「賦樂旅居 HOTEL PROVERBS taipei」浴室的壁面就像是LV皮件一般有對稱花紋的綠紋底大理石，彷彿置身在水墨風格的畫作之中，真材實料彰顯了尊貴與不凡，廁所有四盞有如光劍般閃亮的壁燈，就在鏡子的兩邊，前後有兩組洗手台檯面上有滿滿的浴洗備品 有牙刷牙膏、髮束帶、漱口水、浴帽、棉花棒、牙線棒、沐浴絲瓜布、就連針線包都有兩組，不只是夠用還超過了平時的需求。
-![](https://pic.pimg.tw/acikacik/1597327691-1559116532-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327691-2389447798-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327692-754470340-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327694-1508930313-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327694-3701062682-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327694-663668782-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327695-3026387623-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864550/blog/acikacik/1597327691-1559116532-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327691-2389447798-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864552/blog/acikacik/1597327692-754470340-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327694-1508930313-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864552/blog/acikacik/1597327694-3701062682-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327694-663668782-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864552/blog/acikacik/1597327695-3026387623-g_l.jpg)
 銅製的毛巾架吊掛著厚實手感的大浴巾、厚棉浴袍穿起來既舒適又自在，後來發現浴袍的發明應該是針對洗好澡不想穿內衣的人設計的，可以照顧到保暖又不會有束縛感，厚手感的浴衣還可以當個小被子，躺在沙發上也不怕著涼~~(題外話)
-![](https://pic.pimg.tw/acikacik/1597327681-2236658784-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327681-3671694910-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327681-2236658784-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864552/blog/acikacik/1597327681-3671694910-g_l.jpg)
 洗手台的下方有一個PANASONIC吹風機 還有一台體重機，這次兩隻熊鼓起勇氣量了一下，竟然這兩天又肥了一公斤。 ="=
-![](https://pic.pimg.tw/acikacik/1597327693-4233505086-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327693-4233505086-g_l.jpg)
 **淋浴間**
 以前AC 不是很懂洗澡的樂趣，自從住了一些頂級飯店，發現蓮蓬頭的出水量與水的衝擊方式深深地影響了洗澡的感受，「賦樂旅居 HOTEL PROVERBS taipei」賦樂客房的蓮蓬頭是銅製的冷熱水對向轉開使用，蓮蓬頭出水的感覺就像在熱帶雨林淋雨的感覺，水量不小的從頭頂淋下來，用水將身體輕撫了一遍，同時也將整天的疲憊帶走，水溫調好之後也不會忽冷忽熱的。
-![](https://pic.pimg.tw/acikacik/1597327717-378067203-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327717-1258675410-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327717-414311589-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864553/blog/acikacik/1597327717-378067203-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327717-1258675410-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327717-414311589-g_l.jpg)
 **洗浴用品**
 「賦樂旅居 HOTEL PROVERBS taipei」的洗浴用品是採用 Apothicals by Damana 這個品牌，品牌精神是對於傳統草藥專家的致敬，祖傳的配方皆含有95％的天然成份，屬於華麗香熏洗沐產品，有木質調還有薰衣草的香氣，使用起來心曠神怡頗有禪意。
-![](https://pic.pimg.tw/acikacik/1597327717-3652162289-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327717-3652162289-g_l.jpg)
 **陽台**
 「賦樂旅居 HOTEL PROVERBS taipei」落地窗密實讓我聽不到室外可能出現的噪音，打開落地窗後感受到戶外炎熱的潮濕氣息，雖然兩隻熊很少待在陽台上，但是在台北有個陽台可以看美景就是奢華，高空陽台可以俯瞰大安路東區的街景，這樣的日常對於AC 是個很稀有的回憶，早上夕陽夜晚都有很不一樣的景色。
-![](https://pic.pimg.tw/acikacik/1597327657-155073667-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327657-2196460712-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327657-4032725339-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327657-2585675266-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327657-912887046-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327659-1832357778-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327659-2439904181-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327657-155073667-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327657-2196460712-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327657-4032725339-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327657-2585675266-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327657-912887046-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864555/blog/acikacik/1597327659-1832357778-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864556/blog/acikacik/1597327659-2439904181-g_l.jpg)
 **屋頂游泳池**
 由於兩隻熊這次入住的房型是在頂樓，所以走出來到游泳池只需要二十步的距離，可以說隨時想游泳都可以，水深1.25公尺所以有帶小朋友的家長要陪同一起玩水，這天的陽光非常的充足，雖然前一晚下過雨水池水還有一些冰冷，但是炎熱的陽光加上沁涼的池水，讓AC 感受到亞熱帶氣候的度假氛圍，這時候如果來點水果跟蘇打水調酒，真的是做夢也會笑啦~ XD
 如果想健身的朋友，「賦樂旅居 HOTEL PROVERBS taipei」跟小巨蛋的健身房有簽約，住客可以搭捷運兩三站到小巨蛋免費健身。
-![](https://pic.pimg.tw/acikacik/1597327740-3832943317-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327741-2651836807-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327741-2941149138-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327740-2796796774-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327741-3973134528-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327744-605704509-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327740-3832943317-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327741-2651836807-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327741-2941149138-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327740-2796796774-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327741-3973134528-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864559/blog/acikacik/1597327744-605704509-g_l.jpg)
 **夜床服務**
 「賦樂旅居 HOTEL PROVERBS taipei」夜晚還有夜床服務，會在用餐回來之後發現床頭多了兩瓶"品牌氣泡蘇打水"，而且床面被重新整理了，拖鞋也會各就各位的整齊陳列擺放在床的兩側，最神奇的是所有吃過的點心與飲料都會神奇的補充至原來充足的狀態，這是什麼巫師的魔法嗎? 兩隻熊不在的這段時間發生了什麼事(自動補腦忙碌的房務人員勤勞的爭取時間的畫面)，兩隻熊深深感覺到物質被妥善照顧到心靈也被撫慰到的感覺。
-![](https://pic.pimg.tw/acikacik/1597327666-4002150981-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327665-1975979828-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327665-980173314-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327665-3432220518-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327666-4002150981-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327665-1975979828-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327665-980173314-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864558/blog/acikacik/1597327665-3432220518-g_l.jpg)
 * **East End** 酒吧
 「**East End** 酒吧」是一個英倫風格酒吧，源於倫敦東區酒吧林立的局域，從酒吧內部往外看似乎可以感受到倫敦街區的都會輪廓，名列亞洲50大最佳酒吧之一，白天這裡是住客的休息室，晚上搖身一變成為設計風格獨具令人驚嘆的酒吧，也是「賦樂旅居 HOTEL PROVERBS taipei」最具有潮味的酒吧空間 "其實賣的酒才是最吸引人的" ~ XD。
-![](https://pic.pimg.tw/acikacik/1597327758-1503375237-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327776-3463582887-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327776-3570410148-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327776-3325418353-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327776-3489053884-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327776-3995246104-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327777-2256496027-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327778-3043527239-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327778-460368042-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327779-2044047586-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864560/blog/acikacik/1597327758-1503375237-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864560/blog/acikacik/1597327776-3463582887-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864561/blog/acikacik/1597327776-3570410148-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864560/blog/acikacik/1597327776-3325418353-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864561/blog/acikacik/1597327776-3489053884-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864561/blog/acikacik/1597327776-3995246104-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864560/blog/acikacik/1597327777-2256496027-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864560/blog/acikacik/1597327778-3043527239-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864561/blog/acikacik/1597327778-460368042-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864561/blog/acikacik/1597327779-2044047586-g_l.jpg)
 挑高鏡像天花板充滿了皮革浮雕拼貼，角落的書報架很有味道，彷彿可以看到戴圓眼鏡穿西裝的90年代的紳士站在旁邊看著報紙吃著三明治，這個值得私藏~ 享受成年人氛圍的地方，兩隻熊的朋友們也經常需要時尚 高品味享用雞尾酒的地點，才喝幾口酒就想拿起電話跟朋友推薦「East End酒吧」了。
-![](https://pic.pimg.tw/acikacik/1597327779-3540169691-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327780-1184496471-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327779-3540169691-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327780-1184496471-g_l.jpg)
 「East End酒吧」歌德風格的迷離空間越夜越美麗，大約八九點人潮就漸漸的出現了，座在圓潤木質的座椅上感受這個具有現代感但是又很古典充滿感官新穎印象，又充滿詩意撲朔迷離的細膩空間裡，與國際級的潮流接軌堆砌專屬於台北的調酒文化，虛幻的讓兩隻熊喝的有點"茫"的品酒風景。
-![](https://pic.pimg.tw/acikacik/1597327780-3461241244-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327780-279407965-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327781-2424008757-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327781-2979477741-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327782-1546744972-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327780-3461241244-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327780-279407965-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327781-2424008757-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864562/blog/acikacik/1597327781-2979477741-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327782-1546744972-g_l.jpg)
 調酒師身穿背心打著領帶眼神中帶著自信的站在布幕前調著雞尾酒，服務人員低著頭為兩隻熊有問必答細細解說著每一款酒的故事，說出了一串串調酒品酒的心得，在蘇格蘭威士忌難以捉摸的世界裡，也能從門外漢窺見品酒的美妙之處。
-![](https://pic.pimg.tw/acikacik/1597327782-276318749-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327783-1664569705-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327783-3301758383-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864563/blog/acikacik/1597327782-276318749-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864562/blog/acikacik/1597327783-1664569705-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864562/blog/acikacik/1597327783-3301758383-g_l.jpg)
 **精心調製的混合雞尾酒(酒後不開車。未滿十八歲禁止飲酒)**
 **TEA Hi-Fi** 450
 使用燻製龍舌蘭、洋梨白蘭地、「采采食茶」金萱茶、「采采食茶」烏龍茶、夏威夷火山鹽調製
 這款酒口感非常的豐富很適合男生喝也適合女生喝，因為它有一種木質的香氣又酸酸甜甜的，真的是"一酒入魂"因為加了"奶洗"的技法，就是去除乳脂的牛奶保留牛奶的香醇但是顏色更為清澈滑順，讓調酒喝起來像是絲綢般的特別，除了喝幾口略帶微燻，口感的豐富性、味蕾的刺激還有風味的體驗，酒體通過口腔後後味是茶香從鼻息中竄出，在酒杯中央的大方冰塊沁涼到底，冰塊上有一簇火山黑鹽舔了一下，原本就有甜味舔了黑鹽後讓甜味更加提升，反差感的黑鹽漸漸的融化改變酒的整體風味，這款調酒厲害的就是有酒味但是又非常好入口，值得推薦的經典酒款。
-![](https://pic.pimg.tw/acikacik/1597327787-3908244659-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327788-1379613518-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327787-3908244659-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327788-1379613518-g_l.jpg)
 **REDRUM** 350
 使用玉山陳高、赤玉紅酒餐前酒、蘋果汁、澄清牛奶、酒漬櫻桃調製
 "**REDRUM** "是啟發自驚悚大師史蒂芬金的鬼店中著名的場景所命名的，這杯就很適合女生來喝，粉紅色的基底調酒真的是滋養靈魂的好調酒，經過"奶洗"之後的玉山陳高跟赤玉紅酒，兩隻熊很驚訝竟然喝不出來高粱的刺激濃烈風味，口感滑順讓我不自覺中飲盡，櫻桃的甜略帶蘋果香更讓整款酒品帶著水果香氣，是一種喝多少都不嫌多，餘味繚繞、回味再三 酒精濃度很剛好喝得很順嘴，喝下這杯調酒彷彿順著喉嚨會在體內發酵微醺的感覺，是讓兩隻熊會想再來一杯的調酒。
-![](https://pic.pimg.tw/acikacik/1597327788-3214209756-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327788-3214209756-g_l.jpg)
 松露薯條 180
 大力推薦來客必點的這款薯條，第一口吃進嘴裡就相當的驚豔，聽到是松露就覺得好奢華，松露搭配著薯條的酥脆還可以吃到薯條本身內部的鬆軟，馬鈴薯都有特別挑過香氣特別足，起司絲跟鹹度也是剛好可以用來配酒的，這滋味也太迷人了，可以說是一口接一口讓凡人無法擋，而且它的價位也相當的平易近人，只需要180元來續個幾盤都沒問題，非常好吃非常超值非常值得推薦的一項配酒單品。
-![](https://pic.pimg.tw/acikacik/1597327785-1472761905-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327785-1472761905-g_l.jpg)
 **"微醺一夏專案" 週日～週四入住，精采客房只要 5,199元（不含早餐） 不但享住宿還送 「**East End** 酒吧」調酒微醺組合（指定特調任選2杯＋風味薯條1份)三樣的含稅價共980元，所以平均一個人2110元就可以住 賦樂旅居 一晚真的很划算。
-![](https://pic.pimg.tw/acikacik/1597327785-1705441940-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864566/blog/acikacik/1597327785-1705441940-g_l.jpg)
 「**East End** 酒吧」的餐點不只是酒吧裡的配角，每一道料理都是細膩費工，滿足了視覺味覺的多重感受，對應調酒的精采度相形之下並不遜色~
-![](https://pic.pimg.tw/acikacik/1597327786-1736406131-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327788-748679379-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327786-1736406131-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864566/blog/acikacik/1597327788-748679379-g_l.jpg)
 **蟹肉桂花檸檬** 220
 這道點心看起來像是甜點其實是鹹甜口味，是用蟹肉與桂花凍製作所以有一種果凍感，下方是用餛飩皮酥炸過後的當作塔皮襯托，蟹肉運用檸檬汁鹽跟胡椒涼拌的方式放在酥炸塔上面，上面桂花做成的果凍會有一點酸甜的感覺，還有運用一些季節的菊花花瓣做裝飾，蟹肉塔本身也是鹹鹹甜甜的口味很適合搭配調酒來喝，點心做的跟調酒互相呼應缺一不可。
-![](https://pic.pimg.tw/acikacik/1597327785-3360024798-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864566/blog/acikacik/1597327785-3360024798-g_l.jpg)
 **鮮蚵/塔塔醬/香菜苗** 280
 這道菜發想來自台南人熟悉的美食小吃「蚵卷」，從外觀就讓人充滿好奇感，鮮蚵用香菜苗包起來油炸讓口感不會膩，然後再用非常細的希臘式米線將鮮蚵團團纏繞，因為米線的線很細光是看就能想像炸過之後酥脆的口感，並且佐以醃漬過的酸黃瓜與酸豆、巴西里葉等製作的法式塔塔醬，因為塔塔醬含有酸豆會偏酸一點但是這樣沾起來吃很清爽，每咬一口都是回味無窮，裡面是濕潤鮮甜的鮮蚵與外面酥炸過後的脆皮香氣互相呼應，好像在吃法式的蚵爹一樣，法國料理手法就是很細膩在把台灣小吃粗曠的食材，融合搖身一變變成一盤精緻的法式美食，吃起來很特別有一種很類似的衝突感，跟我們台灣小吃很像但是又很細緻，用手捧著深怕少了幾絲的米線，兩隻熊滿足的分食了這個色香味俱全的小食，這個廚師很喜歡讓客人感受口感很豐富的料理，非常適合搭配調酒品嚐。
-![](https://pic.pimg.tw/acikacik/1597327785-2691865748-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327785-2691865748-g_l.jpg)
 **干貝塔塔/昆布凍/蒔蘿油/麵包脆片** 320
 讓老饕朋友們讚不絕的干貝塔塔，有點像是冷盤生食的感覺，中間主角干貝運用昆布高湯用法式清湯的作法做出高湯，高湯用吉利丁寒天做成湯凍鎖住了干貝的香氣，下方運用蒔蘿浸泡再橄欖油中萃取蒔蘿的香氣，淋上法式手指檸檬點綴些微的酸氣，有點像是魚子醬的大小，咬開來會有點酸味又高雅的香氣，可搭配一旁的脆餅挖一點蒔蘿油干貝在脆餅上面直接吃。
-![](https://pic.pimg.tw/acikacik/1597327789-2227348005-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327789-1625211481-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864565/blog/acikacik/1597327789-2227348005-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864568/blog/acikacik/1597327789-1625211481-g_l.jpg)
 **煎牛舌/孢子甘藍/蒙契格薯泥/黑啤香料醬汁/青花椒油** 480
 將醃漬一天的前中後段三種部位的牛舌燉煮香煎至軟嫩，光是看著就讓兩隻熊口水直流，香煎上色佐以微苦味的孢子甘藍與乳酪絲，熊蓋讚先單吃牛舌 一入口就讓人拍案叫絕，喔~~ 口感很嫩香氣更是越嚼越有滋味，嫩度還會隨著前中後段的牛舌產生口感的變化，牛舌本身調味的不會很重，試吃上面的甘藍是比較偏鹹的，所以建議搭配牛舌一起享用，牛舌細膩的口感與蒙契格薯泥甘藍一同入口帶出一種微微的甜味更是令人滿足，蒙契格薯泥是用四種薯泥與蒙契格羊奶酪調製而成，一旁點綴的醬汁也是費心熬製的，將紅酒與黑啤酒香料調成的醬汁淋上，帶點苦韻跟黑啤酒可可皮革的香氣，點綴幾滴青花椒油，隨時沾點一旁的醬汁一起吃，這調製的醬汁都跟牛舌很搭吃起來很舒服，牛舌很厲害雖然搭配薯泥跟起司，卻沒有被濃郁的起司味道蓋過去，讓人撫慰近日煩悶的心情，美食就是可以療癒人心呀~
-![](https://pic.pimg.tw/acikacik/1597327788-623199161-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327789-25141212-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864567/blog/acikacik/1597327788-623199161-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864568/blog/acikacik/1597327789-25141212-g_l.jpg)
 **「**East End** 酒吧」營業時間：週日至週四 17：00 - 01：00｜週五至週六 17：00 - 02：00
 **多功能廳**
 如果有會議需求二樓也能滿足需要，不管是8人小包廂或是16人的大包廂，住客有兩個小時免費使用的資格，有賓客拜訪或是員工簡單的會議都可以事先預訂，以前如果AC 還在公司上班一定會經常來住宿，這樣便利又舒適的環境真的是不可多得呀~ XD
-![](https://pic.pimg.tw/acikacik/1597327757-3729755236-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327757-437621852-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327757-3283337432-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327757-2979651282-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597327757-2885116128-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864568/blog/acikacik/1597327757-3729755236-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864567/blog/acikacik/1597327757-437621852-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864567/blog/acikacik/1597327757-3283337432-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864568/blog/acikacik/1597327757-2979651282-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864567/blog/acikacik/1597327757-2885116128-g_l.jpg)
 **逛街早晚吃喝首選**
 這裡的地點相當的好，在台北市的蛋黃區也就是SOGO 本館的後方，周邊晚間的時候逛街的人潮越來越多，因為是小吃餐館林立的一條街道，所以美食的選擇也特別豐富，由於入住的這天颱風剛好經過台灣海峽，帶來豐沛的雨勢所以本來想出門吃個晚餐，看到大雨想出門的意願就退縮了，這時櫃檯人員面帶笑容的告知我們如果雨稍小的時候會打電話通知，這個暖心的舉動讓兩隻熊有一種備受呵護的感覺，在過了十幾分鐘之後果然接到櫃檯人員的電話"外面雨比較小了喔~"，櫃台人員還準備了兩把傘，果然出門後雨就停了。
-![](https://pic.pimg.tw/acikacik/1597328576-1419586703-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1597328575-3150154658-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864567/blog/acikacik/1597328576-1419586703-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864568/blog/acikacik/1597328575-3150154658-g_l.jpg)
 「賦樂旅居 HOTEL PROVERBS taipei」提供免費的高速無線網路，如果有開車前往也有提供免費的停車服務，這個佇立東區的時髦地標，一棟只經營42間房間的飯店，小而美的規模不會有上百間房間的人流可以好好照顧到每一個來訪的旅客，讓兩隻熊的回憶留下美麗的印記，也是兩隻熊喜歡飯店裡銅製牆面留下手印的原因，我想再度回到這個美麗的世外桃源，讓每日工作之餘心靈再度得到撫慰與滿足，美食、舒適、美酒、游水 讓疲憊的身心得到很好的呵護與照顧。
-![](https://pic.pimg.tw/acikacik/1597327473-2137648214-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864570/blog/acikacik/1597327473-2137648214-g_l.jpg)
 **振興三倍劵優惠專案，折扣後房價每滿1,000元，就送100元招待券，每房每晚最高回饋300元(可當次折抵)。  
 **「賦樂旅居 Hotel Proverbs Taipei」也有參與政府"安心旅遊"住宿可以省一千元。  
 **萬豪會員也將視現場房況做房型升等(通常房型升等 會比原定房型高一級)、提早入住、延遲退房。

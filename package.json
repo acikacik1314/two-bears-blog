@@ -17,12 +17,16 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.7",
-    "@keystatic/astro": "^5.0.6",
+    "@keystatic/astro": "^5.1.0",
     "@keystatic/core": "^0.5.50",
     "@vercel/analytics": "^2.0.1",
     "astro": "^6.3.7",
+    "cloudinary": "^2.10.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "node-html-parser": "^7.1.0"
   }
 }

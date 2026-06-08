@@ -7,99 +7,99 @@ heroImage: '/images/blog/2021-06-26-frigidaire-freezer-260l.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069689862'
 ---
 
-![](https://pic.pimg.tw/acikacik/1627993149-3310232395-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1627993149-3310232395-g.jpg)
 兩隻大熊家中原來就有一台老式的家用冰箱，因為網路購物常常為了湊免運費就買一堆，一時之間吃不完就往冷凍庫裡放，實在是放不下的關係，打開冷凍庫的門就會有食物掉出來，是時候再增加一台冷凍櫃了，果然皇天不負苦心人第二台冷凍櫃終於要出現了。
 (下圖是家裡舊式的冷凍櫃已經雜亂不堪了)
-![](https://pic.pimg.tw/acikacik/1624696727-3133666356-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1624696727-3133666356-g_l.jpg)
 **要用就用最好的**
 居家防疫的必備家電當然可以說是「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」，為了不要焦慮跟煩惱下一餐出門該買些什麼，多準備一些食材囤起來絕對是最解憂的方法，富及第-16度~-24度C 保存食物的功能，保鮮時間可以拉很長，讓保存更多的食物變得更大膽了，美國人一個月要去大賣場採買一次所以家中都有大型的冷凍櫃。
 美國富及第 Frigidaire 製造了全球第一台的冰箱，富及第冰箱在北美也占了約三成的市占率，可說是有國民冰箱稱呼的設備，不只是美國~在加拿大也是市佔第一的大品牌，富及第更是生產全球第一台臥式冷凍櫃的製造商。所以耐用的美國製的冷凍櫃讓人很放心的，富及第的冷凍櫃保鮮度與冷凍的穩定度是可以經過時間考驗的。
-![](https://pic.pimg.tw/acikacik/1624695079-528141600-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1624695079-528141600-g_l.jpg)
 **運送過程很妥當**
 當購買冷凍櫃之後，富及第會先電話聯絡方便收件的時間，師傅大哥在送貨出發前也有與大熊電話聯繫，確認在下午兩點半約定的時間送達，心中都會有很好的準備要迎接這個嶄新的冷凍櫃成為我們的新成員了 ~ XD。
-![](https://pic.pimg.tw/acikacik/1624695073-1988667357-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1624695073-1988667357-g_l.jpg)
 兩隻大熊的廚房在二樓(搬運二樓需加樓層費用100元)，師傅大哥從貨車上仔細的把包裝好的冷凍櫃含外箱一起搬上二樓，師傅大哥並不會為了縮減空間而拿掉外箱，因為動線實在太小，一邊搬運一邊協助挪移一樓倉庫內的物品，費了九牛二虎之力終於到達樓梯間，這時搬運師傅彼此打氣，費力的搬運終於到達廚房(耶~~)。
-![](https://pic.pimg.tw/acikacik/1624695074-277569374-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1624695074-277569374-g_l.jpg)
 師傅將外箱割開將保麗龍取出，白色的冷凍櫃就呈現在兩隻大熊的面前，嶄新的外型讓人非常的喜愛，師傅再次確認檢查冷凍櫃有沒有瑕疵，隨即蹲下來調整了冷凍櫃下方腳柱高低讓冷凍櫃平衡，長時間使用穩定不容易晃動 (外箱要保留七天使用上沒有問題就可以把紙箱回收)。
 白皙的冷凍櫃讓小小的廚房增添了時尚感，師傅簡單介紹操作方式與拆除內部的保護襯墊，第一次要插電使用前要先靜置四個小時(有時運送時可能會倒放，引起壓縮機失油潤滑度差，或是油跑到管路導致散熱差等問題，如果太早打開會使冰箱的整體壽命變短)，裝置好的富及第冷凍櫃真的是越看越喜歡呢~ XD。
-![](https://pic.pimg.tw/acikacik/1624695074-2506356611-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1624695074-2506356611-g.jpg)
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」冷凍櫃要距離周邊留有10cm的縫隙，讓熱氣可以從周遭輕易地散出，附近也盡量不要潮濕有水氣的地方，怕會影響冷凍櫃的絕緣性能。
-![](https://pic.pimg.tw/acikacik/1624695074-3598910903-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695080-1951160853-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695074-3598910903-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695080-1951160853-g_l.jpg)
 **冷凍櫃包裝配件**
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」內含產品說明書及保固卡，兩隻熊特別詢問了保固的部分，當收到冷凍櫃之後只要上網登錄就可以享有全機一年保固，以及壓縮機三年保固。
-![](https://pic.pimg.tw/acikacik/1624695074-1769335835-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695074-1769335835-g.jpg)
 # <詳細的過程> 可以參考" FRIGIDAIRE 美國富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L 搬運與使用說明" 影片
 **美型窄身設計不佔空間**
 因為疫情的關係家人越來越重視冷凍空間，良好的冷凍櫃收納可以保持冷凍庫空間的可用度，最重要的就是保持料理時愉快的心情，住在桃園都會區買大型家電會考慮到空間放不放得下，商用上掀式的冷凍庫高度到腰部很佔空間相當的耗電，寬度也是冷凍櫃的兩倍大，下面的食物不容易動到，翻找食物容易變成冷凍堆放的小山。
 富及第無霜冷凍櫃直立式的設計 高185.5 x寬59.5 x 深64.5 cm，因為寬度小於60cm高挑窄身，但是容量有260L 這麼大 ，利用七層透明抽屜來收納，可以裝的比想像的更多，只要輕鬆拉取抽屜就可以拿取食材，避免舊式的冷凍櫃彎腰費力翻找，讓食材分門別類各自就定位。 
-![](https://pic.pimg.tw/acikacik/1624695079-1932292776-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695079-1932292776-g_l.jpg)
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 」具有白色無印良品的風格，很喜歡這種簡約俐落，與家中的「美國富及第Frigidaire 307L 小廚房冰箱」銀色外型速配好搭，小小的廚房空間走道相當窄，還好富及第冷凍櫃是窄身的設計，也不影響走道空間，底部後側有輪子方便移動。
-![](https://pic.pimg.tw/acikacik/1624695080-1571459155-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870181/blog/acikacik/1624695080-1571459155-g_l.jpg)
 **開箱先清潔**
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」裡層許多細節都貼有的無痕膠帶保護，防止在運送過程可能產生的碰撞以造成損傷，門與抽屜的中間有保麗龍與瓦楞紙防撞保護，足以降低運送過程中產生的碰撞，內部的玻璃夾層也都有瓦楞紙包邊保護，將抽屜取出即可簡單的撕除~
-![](https://pic.pimg.tw/acikacik/1624695075-3887164601-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695075-3887164601-g_l.jpg)
 兩隻大熊先將冷凍櫃的抽屜與雙層強化玻璃都先做個簡單的擦拭清潔，迫不及待要使用它了。
-![](https://pic.pimg.tw/acikacik/1624695076-599076709-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695076-599076709-g_l.jpg)
 **有富及第冷凍櫃就天下無霜了**
 兩隻大熊之前冰箱的冷凍櫃總是塞的滿滿的，容量不足不敢添購太多食材，冷凍的包裝上都會結了厚厚的一層霜，因為結霜食物還會凍在一起，當霜慢慢佔據冷凍庫還要花時間清理結霜，富及第無霜冷凍櫃 採用獨創的感應式低溫化霜技術就沒有結霜的困擾了，由於多達20道出風口循環，每一層都有冷風的出風口同時送出冰涼的冷鋒循環，冷凍庫每次門一關上都可以快速降溫，溫度可以控制在-16~-24度以下，內部凍結的很均勻就能達到低溫化霜，所以更能保持食物無菌新鮮的環境，就算現在夏天外面熱到融化冷凍櫃裡還是-24度C的極地溫度，只要充分冰凍起來，食物可以保持在無菌的狀態讓細菌無法繁衍(原來就不新鮮的食物就沒辦法了)。
-![](https://pic.pimg.tw/acikacik/1624695078-557328237-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695078-557328237-g_l.jpg)
 **輕鬆操作控溫面板**
 「FRIGIDAIRE 富及第 冷凍櫃 」門中央有個冷藏溫控面板，微電腦精準智慧控溫面板只要按壓"燈泡"按鈕，就可以輕鬆切換冷凍溫度，不開門就可以智能控溫，調節溫度從-16度C~-24度C，如果一次放進很多食材必須快速結凍，可以按下"急凍模式"讓食材迅速降溫，接下來24小時會快速的達到-16到-24度C， 完整達到保鮮的狀態，急速冷凍模式也可以讓食物不會因為緩慢的降溫而壞掉，保留最新鮮的那一瞬間，把最好吃的時候凍起來。
-![](https://pic.pimg.tw/acikacik/1624695075-2814989798-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695072-2434929056-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695075-2814989798-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870175/blog/acikacik/1624695072-2434929056-g.jpg)
 **不費力的把手**
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」門關起來會有微微"咻"的一聲，好像把冷凍櫃吸真空了呈現全密閉的狀態，吸真空比較難拉開，冷凍櫃的把手克服了難來開的問題，運用江湖一點訣~ 瞬間把真空解開，大熊運用平時開車門一半力量都不到，就輕鬆打開冷凍櫃的門，如果左手端湯單用右手也是可以輕鬆打開冷凍櫃的門，這樣小朋友要拿冰淇淋也變得很容易(冰淇淋放最最最上層!!! 切記)。
-![](https://pic.pimg.tw/acikacik/1624695075-2897353092-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695076-970599467-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870182/blog/acikacik/1624695075-2897353092-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624695076-970599467-g_l.jpg)
 **冷凍櫃門忘記關怎麼辦?**
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」採用微電腦溫控感應器，如果六個小時冷凍櫃門都沒關好溫度超過-8度C，冷凍櫃裡的食物就危險了，微電腦溫控感應器會大聲的提醒你，門上的溫度面板會不停地閃爍，還會發出大聲的高溫警報來提醒你。
-![](https://pic.pimg.tw/acikacik/1624695068-1235400174-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870184/blog/acikacik/1624695068-1235400174-g_l.jpg)
 **開門還在左右為難?**
 左撇子或是習慣右手開門，這時必須更換開門的方向，富及第也貼心的幫我們想好了，富及第出廠時就可以"備註"選擇 (左手把／右開門)．或是"備註" 為(右手把／左開門)，如果沒有備註就是採標準出貨 (左把手／右開門)，兩隻大熊習慣用右手開門就沒有備註了。
-![](https://pic.pimg.tw/acikacik/1624695079-2164154182-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695079-873505608-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624695079-2164154182-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870184/blog/acikacik/1624695079-873505608-g_l.jpg)
 **冷凍保鮮分層分類**
 「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 FPFU10F3RSN 260L」的七層分層透明抽屜隔層設計，冷凍櫃不只是可以用在抽屜收納，有沒有注意到抽屜的下面是雙層強化玻璃，把抽屜拿出來空間感更寬敞了，這時可以放大一點的蛋糕連保麗龍盒都放得進去。
 玻璃層架跟收納籃都是活動的，可按照需要存放的食物做調整，抽屜的好處還有就是可以整個拿出來，整理冰箱時長時間打開冷凍櫃讓冷氣流出來也不是辦法，抽屜設計足夠寬的提把，只要把抽屜取出轉身把冷凍櫃門關起來，就可以放心的整理食材，整理好再把冷凍櫃打開放進去相當的順手方便，如果不小心弄到湯汁，分層就只要個別取出清洗不用打開冷凍櫃門清洗更有效率。
-![](https://pic.pimg.tw/acikacik/1624695066-3355941497-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624699644-3190440698-g_l.jpg)  
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624695066-3355941497-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624699644-3190440698-g_l.jpg)  
 **門上置物架**
 門上有兩個上下置物架，對於體積小的食材進行收納，像是媽媽的化妝品如果要冷凍長期保存也可以使用這個空間，如果弄髒了也是可以拆下來清洗的，一些泡過的黃豆會存放在這裡，等兩隻大熊想喝豆漿的時候就可以拿來打成豆漿，富及第冷凍櫃是省時省力的好幫手。
-![](https://pic.pimg.tw/acikacik/1624695061-618110596-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624695061-618110596-g_l.jpg)
 **抽屜好收納 掀蓋好拿取**
 最上層有個小空間採用掀蓋式的隔層設計，由於高度很順手也是最容易拿取的小空間，會把最需要這幾天料理的食材放在這個位置，由於富及第冷凍櫃是有效率的分門別類，有抽屜冷氣不容易跑出來，更能滿足兩隻大熊各種冷凍存放的需求。
-![](https://pic.pimg.tw/acikacik/1624695066-4085978371-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870184/blog/acikacik/1624695066-4085978371-g_l.jpg)
 除了第二層跟第七層的空間比較小一點之外，第三個與第六個抽屜是比較中等深的抽屜16*35*40cm (適合放青菜蔬果類的冷凍食材)，中間第四個與第五層的抽屜深度比較深一點，抽屜內側有25*35*40cm (適合放體積大一點豬肉雞肉等肉類)，取出抽屜後如果直接使用雙層強化玻璃，整層空間可以增大到 38*40*44cm，但是除非很會收納不然不建議把抽屜取出使用。
-![](https://pic.pimg.tw/acikacik/1624695066-677777735-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870183/blog/acikacik/1624695066-677777735-g_l.jpg)
 抽屜拉出側邊會有一個卡榫，讓抽屜穩穩地卡住不會滑出，如果想把食材一次拿出來，側面兩處有設計凹槽握把，這時抽屜就變成置物箱的功能，可以移動到桌面進行整理。
-![](https://pic.pimg.tw/acikacik/1624695178-2389625258-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695178-2389625258-g_l.jpg)
 現在想吃什麼?? 就開什麼抽屜(海鮮抽屜 肉類抽屜 蔬菜抽屜 甜品抽屜 藥材抽屜 水餃pizza麵包抽屜)分門別類，透明抽屜從外觀就可以看得很清楚，透明抽屜彷彿把COSTCO超市的冷凍櫃搬回家，採買時也可以想像一下家裡還有哪些空間可以擺放。
-![](https://pic.pimg.tw/acikacik/1624695077-3525530387-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695078-1703786164-g.jpg)
-![](https://pic.pimg.tw/acikacik/1624695079-1224463858-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870186/blog/acikacik/1624695077-3525530387-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695078-1703786164-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695079-1224463858-g_l.jpg)
 **夢寐以求的旋轉式製冰盒**
 別人家的冰箱有旋轉製冰盒都會讓人羨慕不已，兩隻大熊使用一般的製冰盒有兩個缺點，一是扭轉製冰盒就會有冰塊從手邊逃走彈出去，再者製冰盒跟食物放在一起也容易竄味(有菜味)。
 富及第冷凍櫃這種冰塊製冰盒，只要一轉就有大冰塊掉下來，兩三次儲冰盒就會有滿滿的冰塊，-24度C的冰塊溶化的還比較慢(適合放酒中享受冰涼的暢飲)。
-![](https://pic.pimg.tw/acikacik/1624695075-820163691-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1624695079-4224436370-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695075-820163691-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870186/blog/acikacik/1624695079-4224436370-g.jpg)
 "「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 」使用方式與功能介紹" 可以參考以下影片~
 **中藥食材冷凍保存**
 像是枸杞跟紅棗等珍貴食材常溫或冷藏也不容易保存，之前大熊買了一包紅棗就潮濕發霉了，堅果類跟中藥材紅棗也可以放入。
 咖啡豆不是藥但是要保存風味就不能潮濕，在相對濕度低的冷凍櫃中可以保持更久的存放，大熊比較長時間存放的食材會選擇矽膠材質做的料理袋，將咖啡豆放入矽膠密封保鮮袋中，並存放在冷凍庫下方使咖啡豆不變質。
-![](https://pic.pimg.tw/acikacik/1624695180-2532431776-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695180-2532431776-g_l.jpg)
 **安靜幾乎無聲**
 因為廚房離房間比較近，所以晚上多一點聲音都會影響睡眠品質，富及第冷凍櫃相當的安靜，沒有舊式冰箱吵雜的馬達運轉聲。
-![](https://pic.pimg.tw/acikacik/1624695059-3071253624-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695059-3071253624-g_l.jpg)
 **恆溫製冷更省電**
 兩隻熊家裡的電器很多就會想了解耗電的問題，「FRIGIDAIRE 富及第 低溫無霜冷凍櫃 」冷凍櫃是採用環保冷媒 R134a，極致的省電效能 消耗電量只要：26 kWh / 月 ，算起來每天僅會消耗１度電，EF值：16 比起 它牌的冷凍櫃 效率還多出50%。
 門內氣室隔絕了冷熱空氣對流，讓冷凍櫃的溫度更穩定耗電量更低，高效節能技術在日常製冷降溫的時候，會依據內部溫度來調整製冷能力，逐漸降低的製冷能力慢慢達到設定的溫度。
 比方剛放入食材的時候冷凍櫃內部因為外部熱空氣而上升，開啟內部製冷的能力，到達降低的溫度 定頻製冷讓壓縮機停止啟動，來讓冷凍櫃內部處於恆溫狀態，隨著溫度慢慢的降低就會停止壓縮機製冷的能力，這樣壓縮機運轉的次數也就越來越少，以達到定頻冷凍櫃非常省電的領先地位。
-![](https://pic.pimg.tw/acikacik/1627997720-2635660940-g.jpg)
-![](https://pic.pimg.tw/acikacik/1624695059-4113860082-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870186/blog/acikacik/1627997720-2635660940-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870185/blog/acikacik/1624695059-4113860082-g_l.jpg)
 **富及第讓生活更便利**
 以前去COSTCO都會擔心買太多怎麼辦? 現在有了這台 富及第低溫無霜冷凍櫃 不只是多了很多空間的"扣答"，不用再糾結在買多買少的問題，早晨喝一杯冰咖啡也不用擔心冰塊不夠，隨時都可以收成低溫冷凍的耐用冰塊，更是告別了一包一包看不出來內容物而且擠成一堆的日子，這款超實用家電真的讓生活帶來了便利，兩隻大熊真心推薦給大家，自從有了 富及第低溫無霜冷凍櫃 生活變得優雅了起來。
-![](https://pic.pimg.tw/acikacik/1624695077-3287786766-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870188/blog/acikacik/1624695077-3287786766-g_l.jpg)
 我該買哪一種適合自己的冷凍櫃 >>家用冷凍櫃選購指南  
 FRIGIDAIRE 富及第  
 官網購買網址：https://www.relonintl.com.tw/products/fpfu10f4rwn

@@ -1,22 +1,22 @@
 ---
+import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/BlogPost.astro';
+
+const entry = await getEntry('about', 'about');
+const { Content } = entry ? await render(entry) : { Content: null };
+const title = entry?.data.title ?? '關於兩隻熊的旅遊記事';
+const description = entry?.data.description ?? '探索未來預言家的洞見';
+const youtubeUrl = entry?.data.youtubeUrl;
 ---
 
-<Layout
-	title="關於兩隻熊的旅遊記事"
-	description="探索未來預言家的洞見"
-	pubDate={new Date('2026-05-22')}
->
-	<p>
-		歡迎來到「兩隻熊的旅遊記事」。
-	</p>
-	<p>
-		這裡收錄來自世界各地預言家、靈媒、遙視員與未來分析師的預言與洞見，包括：XRP 加密貨幣走勢、台海局勢、第三次世界大戰預警，以及人類文明的未來走向。
-	</p>
-	<p>
-		我們的目標是讓你在資訊爆炸的時代，快速掌握重要的預言與趨勢分析，提早做好準備。
-	</p>
-	<p>
-		所有文章同步更新於我們的 YouTube 頻道，歡迎訂閱關注。
-	</p>
+<Layout title={title} description={description} pubDate={new Date('2026-05-22')}>
+	{Content && <Content />}
+	{youtubeUrl && (
+		<div style="text-align:center; margin: 2em 0;">
+			<a href={youtubeUrl} target="_blank" rel="noopener"
+			   style="display:inline-block;background:#ff0000;color:white;padding:0.7em 1.5em;border-radius:6px;text-decoration:none;font-weight:700;">
+				▶ 訂閱 YouTube 頻道
+			</a>
+		</div>
+	)}
 </Layout>

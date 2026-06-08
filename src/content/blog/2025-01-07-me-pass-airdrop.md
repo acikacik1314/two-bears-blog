@@ -9,7 +9,7 @@ category: '其他'
 
 https://acikacik.pixnet.net/blog/post/71410681 2025-01-07 monthly 0.8
 ME Pass~正在空投中，使用者註冊後創建錢包，通過身份認證即可獲得1枚永久質押的MEC幣，收益可提取。每月連續簽到25天送0.1枚MEC，推薦5位使用者升級1星可獲得團隊永久分紅，MEC現價2.7美金（USDT）/枚。
-![](https://pic.pimg.tw/acikacik/1736242913-3941513266-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872921/blog/acikacik/1736242913-3941513266-g_l.jpg)
 空投資訊
 目前，ME Pass 正在空投中。使用者只要註冊後創建錢包，並通過身份認證，就能獲得1枚永久質押的MEC幣，產出的收益可以提取。此外，使用者每月連續簽到25天還能額外獲得0.1枚MEC。而且，推薦5位使用者並通過認證後，升級1星可獲得團隊永久分紅。
 ### 項目資料
@@ -20,7 +20,7 @@ ME Pass~正在空投中，使用者註冊後創建錢包，通過身份認證即
   3. 推薦1位通過認證的好友送0.1枚MEC。
   4. 星級制度：推薦5名通過認證的使用者升級1星；推薦5名1星使用者升級2星；推薦5名2星使用者升級3星。這個制度基本上等同於團隊內無限代收益。
 ### 
-![](https://pic.pimg.tw/acikacik/1736242913-3677602711-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872921/blog/acikacik/1736242913-3677602711-g_l.jpg)
 ### 
 ### MEC收益明細
   * 無條件基本收入 (UBI)：通過您的 ME ID 獲取1個質押MEC，第一年可獲得最高25%的年化收益率 (APY)。
@@ -29,8 +29,8 @@ ME Pass~正在空投中，使用者註冊後創建錢包，通過身份認證即
   * 質押獎勵：在ME Pass 上質押MEC，最高可獲得50%的年化收益率 (APY)，為期365天的固定質押。
   * 鏈上社群獎勵：加入任意節點社群，賺取0.01枚MEC。
   * 推薦獎勵：邀請新使用者並完成ME ID驗證後，您將獲得0.1枚MEC。
-![](https://pic.pimg.tw/acikacik/1736242913-3239063285-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1736242913-2979318573-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872924/blog/acikacik/1736242913-3239063285-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872924/blog/acikacik/1736242913-2979318573-g_l.jpg)
 ### 操作介紹
   1. 通過下方連結進行註冊，下載APP（右上角可切換語言）註冊連結 邀請碼：cewlxrvn 或識別下方二維碼進行註冊、下載
   2. 安裝APP後，打開並登錄，先點擊右上角切換熟悉的語言後操作，按照提示創建錢包。請一定要保存好錢包助記詞（建議手抄，不要截圖）。
@@ -38,5 +38,5 @@ ME Pass~正在空投中，使用者註冊後創建錢包，通過身份認證即
   4. 認證通過後，點擊【每日簽到】進行簽到，每月連續簽到25天送0.1枚MEC幣。在質押板塊，可進行質押並領取質押收益。建議質押收益等積累多了再領取，有Gas費用。
   5. 關於交易：現階段是社區C2C交易，也就是交易前需要先加入社群，加入社群後進入交易界面，現價是2.7美金/枚。
   6. 更多功能還在探索中，既然可以交易變現，那就先拿幣吧！
-![](https://pic.pimg.tw/acikacik/1736242915-2880347899-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1736242915-1165151183-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872923/blog/acikacik/1736242915-2880347899-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872923/blog/acikacik/1736242915-1165151183-g_l.jpg)

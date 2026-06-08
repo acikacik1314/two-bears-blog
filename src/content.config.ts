@@ -1,6 +1,5 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { z } from 'astro/zod';
 
 const emptyToUndefined = z.string().optional().transform(v => v === '' ? undefined : v);
 
@@ -28,4 +27,13 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const about = defineCollection({
+	loader: glob({ base: './src/content/singletons', pattern: 'about.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string().optional(),
+		youtubeUrl: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, about };

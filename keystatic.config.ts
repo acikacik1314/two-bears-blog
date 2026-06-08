@@ -1,4 +1,4 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, fields, singleton } from '@keystatic/core';
 
 export default config({
   storage: import.meta.env.PROD
@@ -13,6 +13,32 @@ export default config({
 
   ui: {
     brand: { name: '兩隻熊後台' },
+  },
+
+  singletons: {
+    about: singleton({
+      label: '關於頁面',
+      path: 'src/content/singletons/about',
+      format: { contentField: 'body' },
+      schema: {
+        title: fields.text({ label: '頁面標題' }),
+        description: fields.text({ label: 'SEO 描述', multiline: true }),
+        youtubeUrl: fields.text({ label: 'YouTube 頻道連結（選填）' }),
+        body: fields.markdoc({ label: '頁面內容', extension: 'md' }),
+      },
+    }),
+
+    settings: singleton({
+      label: '網站設定',
+      path: 'src/content/singletons/settings',
+      format: { data: 'json' },
+      schema: {
+        siteTitle: fields.text({ label: '網站名稱' }),
+        siteDescription: fields.text({ label: '網站描述', multiline: true }),
+        youtubeChannel: fields.text({ label: 'YouTube 頻道網址（選填）' }),
+        footerText: fields.text({ label: 'Footer 文字' }),
+      },
+    }),
   },
 
   collections: {

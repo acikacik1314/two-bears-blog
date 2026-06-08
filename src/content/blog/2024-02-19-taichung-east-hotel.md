@@ -7,118 +7,118 @@ heroImage: '/images/blog/2024-02-19-taichung-east-hotel.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071082001'
 ---
 
-![](https://pic.pimg.tw/acikacik/1708326830-2154630691-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871887/blog/acikacik/1708326830-2154630691-g_l.jpg)
 我曾經入住台北東旅，感受到賓至如歸的服務，所以對東旅集團的印象非常的有好感，後來陸陸續續還住了幾次依然非常的滿意，過年期間知道台中火車站附近新開業一家台中東旅也是東旅集團經營的，當然不會錯過啦！這次入住台中東旅三天兩夜，並且住宿兩種房型，床非常的好睡，還有許多貼心的體驗以及感受讓我一一道來。
-![](https://pic.pimg.tw/acikacik/1708325630-4086477833-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325631-1070182139-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325630-4086477833-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325631-1070182139-g_l.jpg)
 旅遊時我們想要舒服的房間，可以舒服隱密的待在一個空間中，讓時間慢慢地流逝，無拘無束的感受在異地放鬆的慵懶時光，這種全天候的滿足台中東旅做到了。
-![](https://pic.pimg.tw/acikacik/1708325631-933846511-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325631-933846511-g_l.jpg)
 以前我想在台灣慢生活就會去萬豪集團的五星級飯店，因為五星級飯店提供了白金會員行政酒廊，可以全天候享用早餐下午茶跟宵夜，但是隨隨便便都要花費上萬元才能享受的待遇，但是讓人感到意外的是，台中東旅花費少少的住宿金額竟然有一泊三食，由專門的廚師準備著早餐、下午茶、宵夜 菜色多樣還可以無限量的取用，真的有讓我眼睛一亮十分的驚喜。
-![](https://pic.pimg.tw/acikacik/1708325570-3086819544-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871891/blog/acikacik/1708325570-3086819544-g_l.jpg)
 搭乘台中火車站可以輕鬆拖著行李走到台中東旅，散步大約十分鐘即可到達，而且中途可以欣賞到柳川水岸景觀步道的美景，駐足欣賞一番。
-![](https://pic.pimg.tw/acikacik/1708325631-1779902341-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325631-1779902341-g_l.jpg)
 在接待大廳辦理入住時發現入住的旅客韓國、日本、東南亞各國都有，是一個很國際化的飯店，如果開車來台中東旅可以到附近的收費停車場「日曜天地停車場」距離大約七到十分鐘左右。五樓設有洗衣房-洗衣機、烘衣機(需投幣)。
-![](https://pic.pimg.tw/acikacik/1708325620-2118435236-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325621-826604116-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325620-2118435236-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871891/blog/acikacik/1708325621-826604116-g_l.jpg)
 我喜歡台中東旅的大廳風格，抬起頭還可以看到滿滿的書籍陳列，有接待的沙發可以讓旅客稍作休息，到了入住時間大廳的人潮可見住房率相當的高。
-![](https://pic.pimg.tw/acikacik/1708325459-2568975355-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325459-2568975355-g_l.jpg)
 櫃檯服務人員親切面帶微笑又很有禮貌讓人印象深刻，大廳旁還提供一個立體的飯店周邊景點地圖，發現第二市場還離蠻近的。
-![](https://pic.pimg.tw/acikacik/1708325630-1028266772-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325630-1028266772-g_l.jpg)
 拿到房卡上樓，蜿蜒的走廊就像是搭乘郵輪探索一樣，台中東旅使用燈光作為門牌的標示，走在長廊中映入眼簾的一個個燈光號碼彷彿是進入了異域空間，為旅客點亮了回房間的一盞燈。
-![](https://pic.pimg.tw/acikacik/1708325620-1569579053-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325571-1666090505-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325574-1407441628-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325619-1039345299-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871890/blog/acikacik/1708325620-1569579053-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325571-1666090505-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325574-1407441628-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325619-1039345299-g_l.jpg)
 第一天入住 豪華雙床房型 Superior Double
 雖然只有19平方米（大約四張雙人床的大小），感覺房間比網路上的照片更寬敞，踏進房間踩到的是木質地的地板，我很怕踩在地毯上，在美國有因為踩地毯長水泡的經驗，我很喜歡台中東旅房間的色調工業風很有設計感，牆壁是很立體真實質感的紅磚風格，讓我想起清邁的古城牆，運用裝置的藝術帶了一些文青元素，無形中讓人可以很放鬆的在房間裡，黑色鋼管當作鏡子與衣架的串連方式，既實用又美觀的設計，附上四個木質地的衣架外套等比較重的衣物可以放心地掛放。
-![](https://pic.pimg.tw/acikacik/1708325619-860484193-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325602-2912390487-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325605-783118654-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325610-3850250012-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325610-538701314-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325615-68461008-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325619-860484193-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325602-2912390487-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325605-783118654-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325610-3850250012-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325610-538701314-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325615-68461008-g_l.jpg)
 床頭也是木頭質感，而且是我最喜歡的木紋紋路，桌上有著懷舊時尚的綠色桌燈，還有一個磁吸式懸浮萬年曆，房間備有兩罐多喝水、茶包、咖啡包（多樓層設有飲水機），還有一個空冰箱方便自己買食物、飲料冷藏，室內拖鞋是一種薄款的材質易乾，整體給人乾淨舒服的感覺，房間的採光非常好，有一整面的窗戶窗簾拉開相當明亮，早上簾子拉起來也不會有刺眼的強光漏光進來，讓我可以睡的很安穩，電視可以看YouTube 就打開來看兩隻熊旅遊記事的影片（外出還幫自己賺流量），然後我第一天沒發現遙控器的音量鍵，我還以為不能調整音量，其實後來我摸到遙控器的旁邊原來有音量扭，趕快調大聲一點～舒服。
-![](https://pic.pimg.tw/acikacik/1708325595-3480190592-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325595-764607921-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325595-1538979643-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325596-939467203-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325606-84404785-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325606-3013023236-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325606-2226865113-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325601-3337740716-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325548-2925989173-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325575-2739607162-g_l.jpg?v=1708330313)
-![](https://pic.pimg.tw/acikacik/1708325495-2283091775-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871893/blog/acikacik/1708325595-3480190592-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871895/blog/acikacik/1708325595-764607921-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871896/blog/acikacik/1708325595-1538979643-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871895/blog/acikacik/1708325596-939467203-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871896/blog/acikacik/1708325606-84404785-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871896/blog/acikacik/1708325606-3013023236-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871895/blog/acikacik/1708325606-2226865113-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871895/blog/acikacik/1708325601-3337740716-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871896/blog/acikacik/1708325548-2925989173-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871896/blog/acikacik/1708325575-2739607162-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871895/blog/acikacik/1708325495-2283091775-g_l.jpg)
 浴室
 黑色毛玻璃浴室，這種設計在一些奢豪裝潢的小宅中有看過，可以把室內空間加大，這種半透明的透光性讓房間更有質感，地板是採用小小的蜂巢造型的磁磚拼貼而成，我想這麼多的細節要清潔應該下了不少功夫，浴室的圓型鏡子除了可以拿來照鏡子，也是很適合自拍的地方，下方的櫃子是懸浮的開放簡約設計很有質感，洗手台的出水量大洗手時很爽。
 房間還有一個寬敞浴缸的浴缸而且水夠熱，因為有雙淋浴的蓮蓬頭，所以就算情侶同時洗澡也不成問題，水壓出水量也是很大的。
-![](https://pic.pimg.tw/acikacik/1708325596-4082235054-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325587-99964302-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325587-3992999927-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325587-2832702141-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325588-1045711333-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325588-895384762-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325584-2509198323-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325596-4082235054-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325587-99964302-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325587-3992999927-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325587-2832702141-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325588-1045711333-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325588-895384762-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325584-2509198323-g_l.jpg)
 第二天我們入住行政客房 Executive Suite
 依然是質樸且具有現代感的空間，多了一個沙發，躺在床上或是坐在沙發都可以很舒服的看電視，如果是因為商務出行，這個環境應該可以稍做休息，辦公也有一個包覆性的工作椅，來旅遊的在這樣的空間跟朋友談天說地還可以隨時拿一些一樓的餐飲上來享用，真的是很素西～XD
-![](https://pic.pimg.tw/acikacik/1708325533-2890499416-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325533-1816989459-g_l.jpg)![](https://pic.pimg.tw/acikacik/1708325533-2951535229-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325529-849634607-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325532-342472633-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325524-2681834471-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325525-1867929982-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325522-1833130860-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325516-2725435028-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325517-4253070-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325518-4216808688-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325492-1012763341-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325533-2890499416-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325533-1816989459-g_l.jpg)![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871899/blog/acikacik/1708325533-2951535229-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871902/blog/acikacik/1708325529-849634607-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871903/blog/acikacik/1708325532-342472633-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871902/blog/acikacik/1708325524-2681834471-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871903/blog/acikacik/1708325525-1867929982-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871902/blog/acikacik/1708325522-1833130860-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871902/blog/acikacik/1708325516-2725435028-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871902/blog/acikacik/1708325517-4253070-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871903/blog/acikacik/1708325518-4216808688-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871903/blog/acikacik/1708325492-1012763341-g_l.jpg)
 台中東旅的床真的超級好睡，我偷偷的掀起來床單是德泰床墊，提供了我兩個晚上的兩夜好眠，枕頭也是有支撐力的，我可以為了這個床再度來住，說個題外話，這兩天在房間睡覺或是看電視都沒有聽到外面有動靜，但是打開門到走廊是可以聽到隔壁的人在大聲聊天的，可能是因為我們住的是最邊邊的房間，再加上隔音門也很厚實對於房間與房間的噪音有幫助，記得隔音門要稍微壓一下才是全關，不然門鎖會留一個小縫，房間也很貼心提供3M耳塞 對於聲音敏感的人可以帶耳塞，台中東旅房間的燈光在晚間也很充足，床頭的插座也對於有需要呼吸器的打呼族群很友善。
-![](https://pic.pimg.tw/acikacik/1708325523-1034134702-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325523-3163500167-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325523-3234227700-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871903/blog/acikacik/1708325523-1034134702-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325523-3163500167-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325523-3234227700-g_l.jpg)
 行政套房的浴室
 行政套房也是有一個寬敞的浴缸，我會在淋浴時將浴缸的熱水同時打開，這樣的熱水溫度跟冷水溫度剛剛好，浴室的沐浴備品是五星級飯店指定御用備品，一個洗髮跟沐浴二合一的法國品牌 Mimare 法國植萃精油沐浴露，味道很好聞，洗身體跟頭髮一瓶搞定。
-![](https://pic.pimg.tw/acikacik/1708325516-4197013377-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325509-1250048895-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325502-221907402-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325507-1637422323-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325507-2596399548-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325516-4197013377-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325509-1250048895-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325502-221907402-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325507-1637422323-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871906/blog/acikacik/1708325507-2596399548-g_l.jpg)
 浴室附有浴帽、牙刷、大小浴巾、漱口杯、國際牌吹風機等，乾濕分離一應俱全，馬桶很大像兩隻熊這種大屁股都坐不滿，真的是深得我心，馬桶不能丟衛生紙喔。
-![](https://pic.pimg.tw/acikacik/1708325515-85914501-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325498-2074437390-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325503-1888290365-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325575-751815984-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871906/blog/acikacik/1708325515-85914501-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325498-2074437390-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871905/blog/acikacik/1708325503-1888290365-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708325575-751815984-g_l.jpg)
 城中城cafe（一樓餐廳）
 台中東旅在入住時告知一個讓人驚呼的待遇，就是入住台中東旅就可以享用一泊三食的美食全包方案，這種方案在日本應該是要上萬元的溫泉餐廳才會有的高級待遇，現在只要少少的費用就可以省下很多出門在外用餐的費用，我們通常兩個人一餐要支出500元左右的餐費，三餐就省下了1500元的餐費，那就不是快免費入住了嗎？ 心裡默默地哈哈大笑了起來 ~XD
-![](https://pic.pimg.tw/acikacik/1708325566-1032145428-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325567-2939673805-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708325566-1032145428-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708325567-2939673805-g_l.jpg)
 台中東旅的餐食很有誠意，而且不會因爲免費就馬虎，在全天候的餐飲來說相當的物超所值，因為有了這些餐時對於入住的我超級加分的，我可以把它形容為一個「全天候的咖啡廳」因為是以咖啡店的理念設計所以座位相鄰的空間寬敞，燈光座椅也是夠舒適，點一杯咖啡拿一台手提電腦就變成星巴克等級的夢幻空間，還可以帶食物到這裡吃，服務人員還可以幫忙微波食物，每個用餐時的空閑時間就會馬上打掃乾淨，提供清潔舒適的餐廳環境會讓我賴著不走~XD
-![](https://pic.pimg.tw/acikacik/1708325626-757403557-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708325626-757403557-g_l.jpg)
 迎賓下午茶 用餐時間 15:00~17:00
 台中東旅的下午茶是很多樣化的自助吧，有兩種鬆餅、三明治、還有蛋沙拉法國麵包、肉燥滷蛋可以配飯、煎餃、好吃的蒜味毛豆、丸子湯、甜湯、兩種燒賣、鹽酥雞、地瓜球、薯餅等炸物、小熊吐司、咖啡機等都可以自取。
-![](https://pic.pimg.tw/acikacik/1708327908-805310858-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708327908-805310858-g_l.jpg)
 宵夜 用餐時段 20:00~22:00
 宵夜提供多款麵食意麵、雞絲麵、統一肉燥麵、王子麵、統一脆麵等五種麵體可選，還有白菜跟豆芽菜可以現場跟麵一起煮，也有滷肉跟飯、豬血糕、打結的魯豆腐條還有包子跟饅頭，挑過的蘋果、超甜的橘子，玻璃罐裡還有一些小餅乾，果汁飲品、還有例湯都準備好了，看了一輪想好要吃什麼了嗎？~XD
-![](https://pic.pimg.tw/acikacik/1708327908-2005233866-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708327908-2005233866-g_l.jpg)
 早餐 用餐時段 07:00~10:00
 早餐的部分不算豪華但是算健康的菜色，有麵包粒與黃瓜、玉米、生菜的沙拉吧、雞塊、地瓜等炸物、兩樣炒青菜、白煮蛋、滷肉可以拿來配飯、煎餃，清粥與六種傳統小菜、吐司、咖啡機、沙拉、三種麥穀片、炸物、熱菜、牛奶、豆漿、蒸籠裡有燒賣，還有很甜的橘子跟小番茄 菜色精緻簡單，乾淨也很有誠意。
-![](https://pic.pimg.tw/acikacik/1708327908-1903224712-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708327908-1903224712-g_l.jpg)
 退房 中午12:00
 12點退房對於旅客很棒，但是對於清潔人員就很匆忙，櫃檯的服務人員很樂意協助行李寄放，會親切的詢問是否需要幫忙叫計程車。
 總結
 台中東旅的價格便宜，能住到這麼舒適的房間 非常划算，附近生活機能好從早吃到晚絕對沒問題！公車很多，而且裝潢風格簡約顏色溫暖是我喜歡的，整個簡直是性價比的天花板，床好睡環境更是沒什麼好挑惕的，以後來台中台中東旅絕對是我住宿台中的第一首選飯店。
-![](https://pic.pimg.tw/acikacik/1708325493-1528586744-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871908/blog/acikacik/1708325493-1528586744-g_l.jpg)
 按摩
 千歲月足體工坊 x 東旅 超值住宿+按摩專案！
 東旅集團所屬飯店對於旅客的貼心就是除了住宿就連身體都有照顧到，入住限量加價299元 還可以享受 半身經絡按摩 30分鐘，每晚僅有一個人的優惠名額，這次兩隻熊當然也要來體驗一下，現場還有許多來自日本的旅客，裡面都坐滿了足部按摩的客人，整個裝潢風格充滿了禪意，而且空間相當的寬敞，每一個半身經絡按摩空間都有簾子拉起來相當的隱密，是個讓人可以放心的舒壓體感空間，整體來說是個精緻體貼的按摩的過程，本來熊蓋讚因為過年操勞腰部還有點痛，女按摩師相當的仔細的按壓，讓這幾天的疲勞、緊繃的肌肉都得到舒緩了。
-![](https://pic.pimg.tw/acikacik/1708325487-184083227-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325571-4151190695-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325487-3107406517-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325487-4274327208-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708327908-1857411139-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1708325470-2647525182-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871908/blog/acikacik/1708325487-184083227-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871907/blog/acikacik/1708325571-4151190695-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872912/blog/acikacik/1708325487-3107406517-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872912/blog/acikacik/1708325487-4274327208-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872912/blog/acikacik/1708327908-1857411139-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872912/blog/acikacik/1708325470-2647525182-g_l.jpg)
 台中東旅附近有很多好吃的，包含台中第二市場、中華路夜市、東協廣場異國料理、宮原眼科、還有一中街夜市，我們在一中街附近吃了一家平價美式漢堡店，有老外在裡面用英文對談，突然有出國的FU。
-![](https://pic.pimg.tw/acikacik/1708325535-461704223-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872912/blog/acikacik/1708325535-461704223-g_l.jpg)
 台中東旅 Hotel East Taichung
 電話：04-2221-6885
 地址：台中市中區臺灣大道一段201號

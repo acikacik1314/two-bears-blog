@@ -1,9 +1,10 @@
 ---
+import { FOOTER_TEXT } from '../consts';
 const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} 兩隻熊的旅遊記事｜未來人預言家
+	&copy; {today.getFullYear()} {FOOTER_TEXT}
 </footer>
 <style>
 	footer {

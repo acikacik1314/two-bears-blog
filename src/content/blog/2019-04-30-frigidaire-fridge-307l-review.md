@@ -7,7 +7,7 @@ heroImage: '/images/blog/2019-04-30-frigidaire-fridge-307l-review.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067958430'
 ---
 
-![](https://pic.pimg.tw/acikacik/1556630185-1692592911.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1556630185-1692592911.jpg)
 冰箱需要重獲新生
 一直以為冰箱就是因為不夠大所以才會不夠用，買了一台兩台甚至二樓還買了一台小冰箱，其實是太愛囤積東西但是都不整理，空間擁擠才會越來越可怕，每次打開冰箱都分不出來這袋是什麼，那袋過期了沒，永遠都嫌空間不夠，不如將冰箱收納提升，就算是小冰箱也可以有機會有大大冷藏的儲物功用。  
 原來好分類好收納的冰箱這麼重要，而且每次開冰箱都能有一種打開藏寶箱的心情，這種體驗真的是太美妙了。
@@ -15,133 +15,133 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067958430'
 自從搬回桃園之後，完全沒有斷捨離的AC，東西多到就連走路都成問題了，擺放家具跟家電冰箱後，居家空間就是一個取捨大作戰，最近剛好想把一台總是電線短路的大冰箱給送走，竟然迎來了一個夢寐以求的超完美窄身淺型不佔空間的科技冰箱，真的太讓人感動了。  
 所謂的斷捨離說起來簡單，其實有相當的難度，畢竟勤儉持家這幾個字，總是讓人充滿了這個不離那個不棄的藉口，為了便宜打折經常囤積過多的食物，就算是冷凍起來心理上也會產生一定的壓力，藉著新添購一台時尚的冰箱，給自己一個不能後退的理由，這次開始要好好徹底解決冷藏空間不夠用的問題了。  
 我們家裡有包含這台就有兩台冰箱，還有一台超大的冷凍櫃，要怎麼對待這個家裡的第二個冰箱? 除了心理異常開心，還有觸摸冰箱時淚流滿面的感動之外，那些平時引以為傲的採購欲也該好好控制一下了吧!!
-![](https://pic.pimg.tw/acikacik/1556627530-3086410052_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1556627530-3086410052_l.jpg)
 要用就用最好的、冰箱推薦
 既然要汰舊換新，當然要選擇一台符合自己的冰箱，2019年2月全新發售的「美國富及第Frigidaire 307L 小廚房冰箱」 這樣的冰箱在美國的普及率相當高，美國富及第 Frigidaire 冰箱在北美也占了約三成的市占率，可說是國民冰箱設備，不只是美國在加拿大也是市佔第一的大品牌，近年來日本、台灣對於家庭烹飪占比越來越多的現在，採購與儲藏需求也變多了，對於外宿的上班族，通常都是吃外食，偶而煮或是買一些冰品、零嘴、滷味、夜市小吃、宅配美食、網美飲品，這樣的窄身冰箱真的是很夠用、綽綽有餘了。
-![](https://pic.pimg.tw/acikacik/1556627528-2103798506_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853505/blog/acikacik/1556627528-2103798506_l.jpg)
 安裝
 師傅大哥在送貨出發前與AC 電話聯繫，確認是否方便在下午兩點半送「美國富及第Frigidaire 307L 小廚房冰箱」過來，就在兩點半非常準時的出現在門口，立馬開朗的將「美國富及第Frigidaire 307L 小廚房冰箱」小心的拉進屋內。
-![](https://pic.pimg.tw/acikacik/1556627515-3495558316_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853504/blog/acikacik/1556627515-3495558316_l.jpg)
 因為「美國富及第Frigidaire 307L 小廚房冰箱」比一樓的門高，師傅先將外盒割開、並且把四邊的保麗龍調取出，就可以拿出冰箱了，然後就可以輕鬆的將「美國富及第Frigidaire 307L 小廚房冰箱」移動到屋子的內側。
-![](https://pic.pimg.tw/acikacik/1556627515-3437098066_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853505/blog/acikacik/1556627515-3437098066_l.jpg)
 因為師傅來電確認時，有些誤會以為是在一樓安裝，所以師傅只來了一位，還好家裡的男丁很多，可以隨時充當厲害的搬運人員(師傅大哥說上面的出力比較輕、他負責下面抬的部分)，與師傅大哥一同協力往上抬，細心專業與噗龍共的合作也順利的將「美國富及第Frigidaire 307L 小廚房冰箱」搬到了定點，辛苦了師傅大哥~ XD
-![](https://pic.pimg.tw/acikacik/1556627516-3344977013_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853505/blog/acikacik/1556627516-3344977013_l.jpg)
 師傅大哥謹慎仔細的注意著每個會撞到的可能性，因為家裡是四十年的老宅了，師傅大哥也不怕狹窄的古早小樓梯、非常的陡跟窄，依然細膩用心的扛上樓，當放到指定的位置緊張的心也跟著放鬆了下來，真的是完成了一個不可能的任務呀。
-![](https://pic.pimg.tw/acikacik/1556627518-4143942370_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627518-4143942370_l.jpg)
 師傅大哥立即幫忙將冰箱就定位、並且蹲下來調節「美國富及第Frigidaire 307L 小廚房冰箱」的腳柱高低平衡，讓冰箱不容易晃動。  
-![](https://pic.pimg.tw/acikacik/1556627517-4030851116_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853508/blog/acikacik/1556627517-4030851116_l.jpg)
 「美國富及第Frigidaire 307L 小廚房冰箱」要距離周邊留有10cm的縫隙，讓熱氣可以從周遭輕易地散出，附近也盡量不要潮濕有水氣的地方，怕會影響冰箱的絕緣性能。
-![](https://pic.pimg.tw/acikacik/1556627523-1905749749_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627523-1905749749_l.jpg)
 師傅大哥特別說明「美國富及第Frigidaire 307L 小廚房冰箱」要靜置四個小時，等四個小時後才能插電使用，因為特別叮嚀，我們就堅持到四小時後才開機，不然真的很衝動想要馬上使用。 (有時運送時可能會倒放，引起壓縮機失油潤滑度差，或是油跑到管路導致散熱差等問題，如果太早打開會使冰箱的整體壽命變短)。
-![](https://pic.pimg.tw/acikacik/1556627523-4154784528_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627523-4154784528_l.jpg)
 「美國富及第Frigidaire 307L 小廚房冰箱」紙箱也有學問，如果七天內都正常使用，也沒有退換貨的需要，紙箱七天後就可以給做回收的阿伯回收掉，如果發現有問題紙箱內外的保麗龍等包材要完整不要破壞掉，才可以順利在七天內請送貨人員將冰箱進行退換作業。
-![](https://pic.pimg.tw/acikacik/1556627515-3847712231.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627515-3847712231.jpg)
 買「美國富及第Frigidaire 307L 小廚房冰箱」商品、可以享有免費舊機回收的服務，需要舊機回收需要先告知配送人員，我們只要自己把舊冰箱放在一樓，師傅大哥就會在回程時順便帶走，也省下請環保清潔大隊派車來回收的時間跟麻煩。
-![](https://pic.pimg.tw/acikacik/1556627515-1814635320.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627515-1814635320.jpg)
 使用手冊與製冰盒
 「美國富及第Frigidaire 307L 小廚房冰箱」的抽屜裏面躺著一本冰箱的使用手冊還有附上一個蛋架一個製冰盒。
-![](https://pic.pimg.tw/acikacik/1556627517-1638919989.jpg)
-![](https://pic.pimg.tw/acikacik/1556627524-13006847_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627517-1638919989.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853507/blog/acikacik/1556627524-13006847_l.jpg)
 美型與實用合而為一
 「美國富及第Frigidaire 307L 小廚房冰箱」上有著 Frigidaire 英文字 LOGO非常的有質感，這是AC 設定專屬於擺放美食飲品的冰箱，所以亮麗的外型現代摩登、簡約俐落、時尚有型讓AC 光是看冰箱的外型，就感受到一股幸福的暖意，這點不得不佩服富及第的設計團隊，因為AC 家中不管是空氣清淨機、冷凍櫃、洗碗機等等都是富及第的，而且每一款商品都是那麼的美形無可挑剔。
-![](https://pic.pimg.tw/acikacik/1556627520-544512458_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627527-2589008444_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853509/blog/acikacik/1556627520-544512458_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853508/blog/acikacik/1556627527-2589008444_l.jpg)
 冰箱的尺寸(高*寬*深)：1880 x 595 x 630 mm 立體式窄身不佔空間，因為普遍台灣人的身高落於150~185之間，所以冰箱的高度也設計的恰恰好，拿取的高度正好是伸手就可以取得，冷藏的空間是最常使用的，所以安排在上方也更容易拿取，冷凍需要彎腰或是蹲下來拿，就設計有抽屜的方式，也可以輕鬆拉開一目了然。
-![](https://pic.pimg.tw/acikacik/1556627518-2291569468_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627518-2291569468_l.jpg)
 外觀就像是一個超大的IPHONE手機開箱一樣
 因為二樓的廚房很小空間有限，「美國富及第Frigidaire 307L 小廚房冰箱」窄身時尚摩登不佔空間，窄身、淺型，表面運用灰色髮絲紋面板，不會像是鏡面烤漆容易留下指紋，手摸上去只有留下一陣子的熱蒸氣，稍待一會就散去，因為是窄身淺型的設計，所以就算放在平時AC 去衛浴走路的動線上也是剛剛好，完全不會影響小廚房的空間運用，讓熊蓋讚又想去Costco 產生大量採買的慾望~XD
 而且這冰箱很適合放一些甜點、飲料、水果、鮮奶等，把健康美味的食物囤進去，是一個多麼美好的事呀 ^__^
-![](https://pic.pimg.tw/acikacik/1556627524-1563111805_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853510/blog/acikacik/1556627524-1563111805_l.jpg)
 安心的保護
 「美國富及第Frigidaire 307L 小廚房冰箱」裡層的無痕膠帶保護運送過程可能會有的碰撞或是損傷，「美國富及第Frigidaire 307L 小廚房冰箱」的門與門中間有保麗龍防撞保護，可以降低運送過程的碰撞，內部的玻璃夾層的四個角落與「美國富及第Frigidaire 307L 小廚房冰箱」接縫處都有紙板保護可以輕鬆的撕除~
-![](https://pic.pimg.tw/acikacik/1556627545-43002158_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627545-355072479.jpg)
-![](https://pic.pimg.tw/acikacik/1556627545-610673954.jpg)
-![](https://pic.pimg.tw/acikacik/1556627545-1726042391.jpg)
-![](https://pic.pimg.tw/acikacik/1556627545-2477289303_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627545-43002158_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627545-355072479.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627545-610673954.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627545-1726042391.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853510/blog/acikacik/1556627545-2477289303_l.jpg)
 冷藏功能 / 冷藏225L
 「美國富及第Frigidaire 307L 小廚房冰箱」銀灰色門上正中央有個冷藏溫控面板，這個具有智慧的面板只要按壓"燈泡"按鈕，就可以輕鬆切換冷藏數字，數字各別代表不同的溫度(從2~8度C) 其中還有急速均勻降溫的選擇，只要選好後十五秒就開始新的模式，如果是第一次使用建議使用"速冷"的功能，不像是傳統冰箱需要內部旋轉溫控，「美國富及第Frigidaire 307L 小廚房冰箱」不用打開冰箱就可以調整冰箱的溫度。
-![](https://pic.pimg.tw/acikacik/1556627518-2837695579_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627526-369582823_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627515-3569776902.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853512/blog/acikacik/1556627518-2837695579_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853511/blog/acikacik/1556627526-369582823_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853511/blog/acikacik/1556627515-3569776902.jpg)
 各就各位心情很美麗
 「美國富及第Frigidaire 307L 小廚房冰箱」三層玻璃隔層高度都不一樣，夾層是用雙層強化玻璃，玻璃隔層還附有金屬飾條，讓整體感覺相當的高級精緻細膩，滿足AC 喜歡買各種大小飲料的需要，貼心的分層設計非常能放，依照規劃出的空間來擺放，醬料類、麵包餐食類，隨心所欲的放好放滿，每一層幾乎都有一個冷風的出風口，同時送出冷風循環，冰箱門一關上就可以快速的將冷藏空間循環降溫，維持冰箱內的均溫、除了放一些飲料，冷藏空間還可以拿來做不用烤箱烤的蛋糕(在最下方會分享蛋糕的作法)...XD
-![](https://pic.pimg.tw/acikacik/1556627536-2071450434_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627536-2071450434_l.jpg)
 冷藏室照明
 「美國富及第Frigidaire 307L 小廚房冰箱」冷藏室上方的英文ECO LED LIGHT 燈箱，既美觀又摩登時尚，兼具照亮冷藏空間的效果，真的照得很亮，食物飲料都變得很可口好吃。
-![](https://pic.pimg.tw/acikacik/1556631427-2891530396_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556631427-2891530396_l.jpg)
 <實際使用冰箱的照片>
 通常冰箱都要先讓他運轉三到四個小時，再放進去食物與飲料，AC 個性太心急了，插上電源線馬上就把買好的飲料水果迫不及待的放進去。
-![](https://pic.pimg.tw/acikacik/1556627536-37044450.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627536-37044450.jpg)
 可調式的收納置物架
 「美國富及第Frigidaire 307L 小廚房冰箱」側門上面的瓶罐置物空間，XL大罐的鮮奶也可以輕鬆放兩個，可以依照自己習慣使用的瓶罐擺放最順手的位置，清楚的陳列空間，門上的某個區塊可以專門放早餐的奶油與果醬，某區塊可以放吃生菜用的凱薩醬、美乃滋、起司片，讓AC 不會忘記冰箱裏面還有什麼沒吃的食物，避免常常因為忘記吃而壞掉。
-![](https://pic.pimg.tw/acikacik/1556627536-869558898_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627536-869558898_l.jpg)
 「美國富及第Frigidaire 307L 小廚房冰箱」側門置物架可以輕鬆地拆下清洗，如果不小心打翻醬料或是牛奶也可以隨手拿下洗滌，門與冰箱的交接處有冷藏室按壓式的觸碰開關，可以感應門是否正確閉合，也可以控制燈光在開啟時可以亮起，打亮整個冰箱內的食物，讓找東西吃喝變成一種美好的享受，會不會讓熊蓋讚吃的更多了...XD
 門開90度就可以輕鬆的拉出保鮮抽屜，就算是狹窄的走道或是相鄰牆面也是可以克服空間的限制。
-![](https://pic.pimg.tw/acikacik/1556627552-173995722_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627552-173995722_l.jpg)
 <實際使用冰箱的照片>
 食物各別有自己的空間擺放，也不會被其他保存期限不同的食物汙染了。
-![](https://pic.pimg.tw/acikacik/1556627552-718021760_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853517/blog/acikacik/1556627552-718021760_l.jpg)
 保鮮兩抽屜
 「美國富及第Frigidaire 307L 小廚房冰箱」冰箱中間的兩個抽屜，是用來保持食物的溫度與食材的新鮮度的，溫度控制對於保鮮與衛生很重要，這兩個保鮮蔬果抽屜可以輕鬆的取出，對於用久了要打點清洗也很方便，重點是可以放很多的水果，延長蔬果的鮮度，不用套袋冷藏保存又不會凍傷蔬果。
-![](https://pic.pimg.tw/acikacik/1556631962-1979431431_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853515/blog/acikacik/1556631962-1979431431_l.jpg)
 以前這種抽屜都會放一些雜七雜八的調味料、豆類、不然就是中藥材枸杞、紅棗，終於還它蔬菜水果的用途了，「美國富及第Frigidaire 307L 小廚房冰箱」兩個抽屜也可以把蔬菜與水果分開來放，不用堆在一起讓蔬果充分冷藏，隨時打開冰箱都可以嚐到新鮮與美味，AC 這次把青菜蘿蔔跟肉類與日常品常零嘴、蛋糕飲料的冰箱分開，讓冰箱空間更有質感，就跟一般收納櫃的衣物一樣，有了自己展示的空間了。
-![](https://pic.pimg.tw/acikacik/1556627558-1463368742_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853515/blog/acikacik/1556627558-1463368742_l.jpg)
 <實際使用冰箱的照片>
 全聯大賣場採購，據說採購時間越長越需要冷凍空間，那平時愛囤積採買大量食物的習慣真的要好好改一改了~ XD
-![](https://pic.pimg.tw/acikacik/1556627558-3973374380_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627558-3973374380_l.jpg)
 冷凍82L+隱藏式把手 (冷凍空間比一般加大了24%)
 第一次看到「美國富及第Frigidaire 307L 小廚房冰箱」的冷凍空間設計在下方還感覺到很新奇，習慣了在上方拿冷凍商品的AC ，原來反過來更加的方便好拿取，冷凍空間總共有三個抽屜，儲存空間超大。
-![](https://pic.pimg.tw/acikacik/1556627531-1129126471_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853514/blog/acikacik/1556627531-1129126471_l.jpg)
 「美國富及第Frigidaire 307L 小廚房冰箱」冷凍室的抽屜可以隔絕冷空氣不小心流失，就算把冷凍庫的門打開，也不會有冷空氣散開的感覺，每個抽屜都很能放，有三段式轉扭式的冷凍溫度調控，冬天的時候冷一點、夏天的時候調不那麼冷一點也可以省電，雪糕、冰棒、冰塊，食物擺放從抽屜的外面就可以一目了然，不用特別一一拉開，同樣是不會讓冷空氣因為大量的開啟而消散，可以節約用電。
-![](https://pic.pimg.tw/acikacik/1556627521-1092354226_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627523-2430955041_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627521-1092354226_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627523-2430955041_l.jpg)
 冷凍無霜設計不用為了定時除霜煩惱，雖然看起來冰箱沒有一般寬版的大，但是內容量可以放的東西真的很多。  
 天氣不好的時候，下雨天颱風天出不了門，也可以買一些加熱即食的微波食品，讓居家的好男人也可以表現一下一指做菜的神功，抽屜式設計不會因為塞了過多的食物，塞太多而掉出來，或是放太裡面不好拿取，冷凍庫終於有自己各就各位專用的收納空間了。
-![](https://pic.pimg.tw/acikacik/1556627532-278719931_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627532-278719931_l.jpg)
 <實際使用冰箱的照片>
 夏天當然是要吃雪糕啦~或是切好的冷凍水果，還有非常好吃的紅豆牛奶冰棒~~ 傳統的冰棒是炎熱消暑的神奇好物呀! 冬天自己煮火鍋，放一些火鍋料隨時拿出來燉煮一下，AC 家裡也可以變成知名的麻辣火鍋店了。
-![](https://pic.pimg.tw/acikacik/1556627533-1081893724.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627533-1081893724.jpg)
 冷凍商品越來越厲害了，AC 還記得上次去泰國買了冷凍食品微波還原，就跟外面賣的現做出來的一樣美味好吃呢。還可以自己做美味的健康少油少鹽的低碳餐，也可以用冷凍的方式將這些便當先做好，等要食用的時候再微波就可以了。
-![](https://pic.pimg.tw/acikacik/1556627531-3169659444_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853520/blog/acikacik/1556627531-3169659444_l.jpg)
 省電靜音
 用手感覺「美國富及第Frigidaire 307L 小廚房冰箱」的背後沒什麼熱空氣，聽不太到冰箱的聲音，不會有滋滋滋擾人的耗電聲，2017年耗電量每年324度，是能源效率省電2級，消耗電量：27 kWh / 月(每月耗電約 27度電 x 每度電 $3.02 = 81.54元/月) 不用一張百元紙鈔的金額就可以享受冰涼的保鮮食物，AC 心中的這一把尺，好好的評估跟衡量，節能省電省下來的費用，正是可以用來更換目前已經老舊秀抖的家用產品呀，何樂而不為呢?
-![](https://pic.pimg.tw/acikacik/1556627526-335179214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627526-335179214_l.jpg)
 智慧居家的神奇魔法師
 「美國富及第Frigidaire 307L 小廚房冰箱」不但有時尚的外型，還能提升居家空間的品味，透過霧面玻璃窗讓陽光照射入小廚房，才發現斷捨離後的廚房空間，原來這麼美麗，「美國富及第Frigidaire 307L 小廚房冰箱」也是外食族最聰明的選擇，省電好冰好儲物，小家庭媽媽們居家的好幫手，家裡有一台「美國富及第Frigidaire 307L 小廚房冰箱」，不只是犒賞自己、更是寵愛家人的生活百寶盒。
-![](https://pic.pimg.tw/acikacik/1556627528-1553858761_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627528-1553858761_l.jpg)
 保固服務
 冰箱壓縮機保固一年，冰箱維修全台10個售後服務，也可線上報修。
 富及第307L 冰箱開箱～填滿可樂乳酪水果 運送過程全記錄～
 回憶的百寶箱
 最近收集了很多食物類型的冰箱貼(有牛角麵包造型、甜甜圈、還有控肉飯、牛肉麵、水煎包造型..)，把冰箱當作留言板也是一種生活樂趣，貼上幾張家人的合照，旅遊的回憶讓這個冰箱也能載滿日常生活美好記憶的點點滴滴。  
 接下來會不會用冰箱貼佔領這台冰箱呢? 讓我們拭目以待~
-![](https://pic.pimg.tw/acikacik/1556627528-2103798506_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853505/blog/acikacik/1556627528-2103798506_l.jpg)
 母親節親手做蛋糕送給媽媽
 母親節自己做蛋糕，網友評定母親節最好的禮物、免預購，免烤箱，用冰箱就可以做！  
 如何用冰箱來做美味的重乳酪起司蛋糕?
 用料：消化餅乾 65g、奶油起司 195g、植物性鮮奶油 260g、奶油 100g、細砂糖 100g、吉利丁片 15g
-![](https://pic.pimg.tw/acikacik/1556627566-1678745907_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627566-1678745907_l.jpg)
 1）消化餅乾放在PVC 袋子裡碾碎，並且將吉利丁片放在有冰塊的冰水裡浸泡泡軟備用~
-![](https://pic.pimg.tw/acikacik/1556627569-2350724936_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627569-2350724936_l.jpg)
 2）奶油隔熱水加熱，就會慢慢的融化，隨後把消化餅乾碎倒入攪拌，等到餅乾碎與奶油攪拌均勻後，倒入模具中，用湯匙的背面鋪平壓實，放到冰箱冷藏備用~
-![](https://pic.pimg.tw/acikacik/1556627568-2302450993.jpg)
-![](https://pic.pimg.tw/acikacik/1556627568-1555473235_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853519/blog/acikacik/1556627568-2302450993.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853522/blog/acikacik/1556627568-1555473235_l.jpg)
 3）把奶油奶酪切丁、用碗隔水加熱，注意不要讓熱水跑進碗裡、不時的攪拌，等有點融化時分次倒入 50g 細砂糖，持續的攪拌到完全融化~
-![](https://pic.pimg.tw/acikacik/1556627568-367859168.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853522/blog/acikacik/1556627568-367859168.jpg)
 4）然後把已經泡軟的吉利丁片用手擠壓，將吉利丁片上的水份盡量的擠出，然後放入奶油起司一起攪拌，看到表面沒有顆粒狀就可以了~
-![](https://pic.pimg.tw/acikacik/1556627567-3333411539_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627567-2580943482.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853523/blog/acikacik/1556627567-3333411539_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853525/blog/acikacik/1556627567-2580943482.jpg)
 5）然後用一個不鏽鋼的盆子，把植物性鮮奶油放入盆中，用電動打蛋器稍微打一下，然後分次加入剩下的 50g 細砂糖，擠一些檸檬汁，用電動打蛋器打發至7 成發泡鮮奶油即可~
-![](https://pic.pimg.tw/acikacik/1556627567-4086065250_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853522/blog/acikacik/1556627567-4086065250_l.jpg)
 6）將奶油起司倒入打發的植物性鮮奶油中，翻攪到融合在一起即可~
-![](https://pic.pimg.tw/acikacik/1556627569-2375592718_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853521/blog/acikacik/1556627569-2375592718_l.jpg)
 7）把起司糊倒進有消化餅乾碎的模具，最後放到「美國富及第Frigidaire 307L 小廚房冰箱」冷藏至少4小時，就完成了母親節的重乳酪起司蛋糕了~ (是不是很簡單呢~ XD)
-![](https://pic.pimg.tw/acikacik/1556627568-2578525720.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853523/blog/acikacik/1556627568-2578525720.jpg)
 8）完成的母親節的重乳酪起司蛋糕，其實用不到多久的時間，但是心意百分百，自己做的竟然也可以跟外面賣的一樣好吃，下次要試試看減糖配方~ XD
-![](https://pic.pimg.tw/acikacik/1556627566-2806599247_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627566-4044237469_l.jpg)
-![](https://pic.pimg.tw/acikacik/1556627567-3124128527_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853522/blog/acikacik/1556627566-2806599247_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853523/blog/acikacik/1556627566-4044237469_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853521/blog/acikacik/1556627567-3124128527_l.jpg)
 富及第小廚房冰箱 相關的連結：
 富及第 FRT-3073MB 小廚房冰箱 質感金屬銀  <<點我
 家電教室 <<點我

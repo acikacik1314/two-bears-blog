@@ -7,283 +7,283 @@ heroImage: '/images/blog/2018-09-07-taipei-grand-hyatt-belair-brunch.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067223616'
 ---
 
-![](https://pic.pimg.tw/acikacik/1536327372-908824981_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327372-2758630498_l.jpg?v=1536327538)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327372-908824981_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327372-2758630498_l.jpg)
 **前言**
 「Fun Dining」餐廳高級餐飲的代名詞，「寶艾西餐廳 Bel Air-Bar & Gril」高雅浪漫歐式氛圍、安靜而寬敞的用餐空間，廚師們巧手將食材幻化為佳餚，用餐的環境更是快樂而有趣的，在高級餐廳裡美味料理與親切服務相互的呼應著，彷彿身處在一座花園，讓奢華的定義改變了，在花園裡享用垂涎欲滴的各式美食，彷彿來到愛麗絲夢遊仙境，有人問AC 現在什麼最潮? 現在Old-school 經典老派風格正夯、可以邀請朋友一起來吃個兩三個鐘頭，悠閒的度過難忘的週末時光，讓電影情節裡的經典時尚、俊男或美女們的美麗畫面穿越時空橫跨地域、譜成雋永的美好回憶。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327383-382004865_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327383-210627413_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327383-410200816_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327383-3662370211_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327383-1429095385_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327388-4064728124_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327388-1343664684_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327388-1708190700_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327388-1388663168_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327390-48645708_l.jpg?v=1536330024)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327383-382004865_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852791/blog/acikacik/1536327383-210627413_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327383-410200816_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327383-3662370211_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327383-1429095385_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327388-4064728124_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852790/blog/acikacik/1536327388-1343664684_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852794/blog/acikacik/1536327388-1708190700_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852794/blog/acikacik/1536327388-1388663168_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852793/blog/acikacik/1536327390-48645708_l.jpg)
 AC 前幾年拿過凱悅的鑽石會員後來降級變成冒險家會員，但是在國外遊走一圈、始終期待著拜訪這個華麗夢幻的台北君悅飯店，原因無他就是好酒沉甕底、總是想找個理由或是一個特殊的日子特別造訪"君悅酒店寶艾西餐廳Bel Air-Bar & Grill"，老天爺就因緣際會下安排了在AC 生日的兩天前、來享受這美妙的一刻、真是妙不可言不可言妙啊~~。
-![](https://pic.pimg.tw/acikacik/1536327392-3446631161_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327393-3044519957_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327397-635918096_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327404-2947616831_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327407-1290075313_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327407-2028448600_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327408-3455755742_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327409-2790284283_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327413-2999935368_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327418-3603467876_l.jpg?v=1536327539)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852794/blog/acikacik/1536327392-3446631161_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852794/blog/acikacik/1536327393-3044519957_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852793/blog/acikacik/1536327397-635918096_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852798/blog/acikacik/1536327404-2947616831_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852793/blog/acikacik/1536327407-1290075313_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852795/blog/acikacik/1536327407-2028448600_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852794/blog/acikacik/1536327408-3455755742_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852802/blog/acikacik/1536327409-2790284283_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852802/blog/acikacik/1536327413-2999935368_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852802/blog/acikacik/1536327418-3603467876_l.jpg)
 (搞笑糖果廣告)"點圖片"
-![](https://pic.pimg.tw/acikacik/1537106030-3730726767_n.png?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537106030-3730726767_n.png)
 (除臭襪廣告)"點圖片"
-![](https://pic.pimg.tw/acikacik/1537105883-3215282825.jpg?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537105883-3215282825.jpg)
 **緊鄰101世貿**
 從捷運101世貿站二號出口走過來「寶艾西餐廳 Bel Air-Bar & Gril」大約五分鐘的時間，吃飽飯還可以去101逛個街，君悅酒店的一樓彷彿歐洲的遊艇式大廳，一盞盞高雅耀眼的水晶吊燈呼應的是多層次的歐式古典噴泉，現場還有24小時守護的保全蠟像，光是在這層樓等候朋友一起享用大餐就笑得合不攏嘴了。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327395-3385997465_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327413-1624869307_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327414-3336858111_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327415-1138989306_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327417-3181150294_l.jpg?v=1536327539)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852801/blog/acikacik/1536327395-3385997465_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852801/blog/acikacik/1536327413-1624869307_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852801/blog/acikacik/1536327414-3336858111_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852801/blog/acikacik/1536327415-1138989306_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852801/blog/acikacik/1536327417-3181150294_l.jpg)
 **電梯向上**
 AC 與兩隻熊搭乘這美輪美奐的瀑布電梯到達二樓的「寶艾西餐廳 Bel Air-Bar & Gril」，想像著有多少的衣香鬢影，那富麗至極的紳士仕女們盛裝參加一場精心安排的絕美饗宴。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327393-4193267665_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327398-909318821_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327399-3097771822_l.jpg?v=1536327538)
-![](https://pic.pimg.tw/acikacik/1536327416-2749636581_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327423-2511120743_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327426-2298454408_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327422-4082041178_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327420-2114557853_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327420-3290945091_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327424-2267848430_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327420-2102732963_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327440-4181946243_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852803/blog/acikacik/1536327393-4193267665_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852804/blog/acikacik/1536327398-909318821_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852806/blog/acikacik/1536327399-3097771822_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327416-2749636581_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327423-2511120743_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852806/blog/acikacik/1536327426-2298454408_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852806/blog/acikacik/1536327422-4082041178_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327420-2114557853_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327420-3290945091_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327424-2267848430_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327420-2102732963_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852807/blog/acikacik/1536327440-4181946243_l.jpg)
 **歡迎光臨**
 「寶艾西餐廳 Bel Air-Bar & Gril」就像是歐洲貴族的古堡入口，諾大的拱門式雙開門正歡迎著賓客們、服務人員親切的帶領AC 入座，整個餐廳就像是一個葫蘆般、前面是接待區中間有一個長廊、後方一整個區域是用餐空間，彷彿進入了奢華尊貴的歐式秘密花園中，從隱密幽靜的接待區到光線怡人的用餐空間、有一種豁然開朗的感覺，整體搭配優雅的暖色系燈光，柔軟舒適的沙發與石板造型牆、讓人有置身於歐洲的感覺，接待區端景彷若歐洲的古堡氣韻，每個座位都有自己的景觀，因為有一定的桌距、彼此都能享有私人的用餐空間，隨處可見的歐洲復古小細節，潔白無暇的桌巾、置於冰桶裡的香檳、穿著筆挺的服務人員在餐廳裡來回穿梭，感覺忙碌但是優雅。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327437-1975321630_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327441-1469387438_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852810/blog/acikacik/1536327437-1975321630_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852810/blog/acikacik/1536327441-1469387438_l.jpg)
 **廊道**
 從電梯就可以看到「寶艾西餐廳 Bel Air-Bar & Gril」中央的長廊，明亮的採光就算AC 只是經過都感到很放鬆，長廊的兩側有立燈晚上也可以補充照明營造氣氛。
-![](https://pic.pimg.tw/acikacik/1536327425-2226600148_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327437-3009480304_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327438-610628000_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852810/blog/acikacik/1536327425-2226600148_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852811/blog/acikacik/1536327437-3009480304_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852810/blog/acikacik/1536327438-610628000_l.jpg)
 **浪漫花園噴水池**
 台北有六家飯店有知名的"求婚桌"，「寶艾西餐廳 Bel Air-Bar & Gril」就是其中之一，而且噴水池旁邊的這個位子更是一位難求，在這豐富的浪漫氛圍下，曾經一天裡就有三對情侶"求婚成功"，而且成功率幾乎是百分之百，到目前為止已經有近千對的新人在這裡說"我願意"，你說是不是很浪漫~ XD
-![](https://pic.pimg.tw/acikacik/1536327426-3322846064_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327427-197545415_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327430-2243430289_l.jpg?v=1536327539)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852811/blog/acikacik/1536327426-3322846064_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852811/blog/acikacik/1536327427-197545415_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852811/blog/acikacik/1536327430-2243430289_l.jpg)
 在整個中庭的正中央有個天窗、天窗下面就是噴泉、AC 就坐在這古典歐式大理石雕製的噴水池旁邊的位置，浪漫絕美的氛圍，極富有詩意的場域，順水推舟的讓情侶們來表達浪漫情意，AC 也忍不住拿起相機不斷的取景拍照，對於王子公主有個浪漫幻想的朋友、實在是太黯然~太銷魂了~
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327428-488532547_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327429-97111976_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327432-253035349_l.jpg?v=1536327539)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852810/blog/acikacik/1536327428-488532547_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852811/blog/acikacik/1536327429-97111976_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327432-253035349_l.jpg)
 坐在這裡AC 就像是古堡中用餐，面對著大面積的透明玻璃最佳觀景窗，將玻璃窗外的整片綠意還有午後和煦的陽光都收納了進來，星期日就是要這樣過呀~ 而且今天天氣真的很棒，吹著冷氣伴著陽光用餐心情真好，就像是坐在歐洲露天的噴水池旁邊喝一杯咖啡一樣的美，難怪有許多網美一看到噴水池，就顧不上點餐了，由於自然採光好怎麼拍都好看、馬上就拍照拍個不停、一定要打卡上傳完才回過神來好好享用美食。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327433-1769969149_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327433-3307582255_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327434-3835408729_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327434-994316489_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327435-1846883281_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327442-99639142_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327442-1141224533_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327433-1769969149_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327433-3307582255_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327434-3835408729_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327434-994316489_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327435-1846883281_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852816/blog/acikacik/1536327442-99639142_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327442-1141224533_l.jpg)
 求婚常常會訂這一桌，「寶艾西餐廳 Bel Air-Bar & Gril」會準備甜點、有求婚上的需求「寶艾西餐廳 Bel Air-Bar & Gril」都會盡量的配合，也有客人把場地包下來辦歸寧、邀請親朋好友來享用早午餐，或是在包廂可以辦文定，或是酒商包場辦個餐酒會邀請媒體來拍攝都很適合。
-![](https://pic.pimg.tw/acikacik/1536327439-3691935721_l.jpg?v=1536330026)
-![](https://pic.pimg.tw/acikacik/1536327442-1006071746_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327439-3691935721_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852815/blog/acikacik/1536327442-1006071746_l.jpg)
 **絕美用餐區**
 「寶艾西餐廳 Bel Air-Bar & Gril」潔白堅挺的桌巾、手感細緻的銀器，這裡沒有侷促的空間感或是喧嘩的談話聲，只有精緻高雅與輕聲交談，非常浪漫的貴婦級享受，整體挑高設計讓人一種遼闊的舒適感，清新雅致的餐桌椅總共有82個席位，如果人多一點或是想要安靜還有兩間歐式貴賓包廂可以預約，每張桌子上都放著一盆浪漫可愛的鮮花裝飾，優雅內斂的詮釋著動人心弦的浪漫氛圍，AC 想~ 在這樣的情境氣氛下、感覺對方也特別的好看吧~ XD
-![](https://pic.pimg.tw/acikacik/1536327430-1922183252_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327431-2548818941_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327432-3149509799_l.jpg?v=1536327539)
-![](https://pic.pimg.tw/acikacik/1536327513-702206413_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327430-1922183252_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327431-2548818941_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852821/blog/acikacik/1536327432-3149509799_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327513-702206413_l.jpg)
 **米其林推薦**
 「寶艾西餐廳 Bel Air-Bar & Gril」2018年三月榮獲台北米其林指南推薦，有個閃亮亮的餐廳列名其中，這是首屆《米其林指南臺北》必比登推介美食，君悅的寶艾西餐廳就榮獲了這次的米其林餐盤等級的推薦，能一親米其林等級餐廳的芳澤，AC 與兩隻熊都充滿了期待，由於一個星期只有週日有早午餐(11:00 - 14:00)，建議事先預訂保留位子，早午餐採用半自助"Semi-buffet"加套餐的形式供應，主餐、麵包、湯品、早餐蛋、飲品可以選搭氣泡酒、盡享生蠔吧、生鮮鮮蝦吧、生菜沙拉吧、甜點吧吃到飽等份量十足。
-![](https://pic.pimg.tw/acikacik/1536327455-3866114875_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327455-3866114875_l.jpg)
 "Sunday Brunch"周日早午餐採用時髦的歐陸式料理，融合當地文化薈萃的食材、選用當地時令新鮮上菜，鮮明的料理風格、搭配點綴著錯落的擺盤方式，不只是美味還能吃出食物的原味，很多米其林推薦的餐廳、都挖掘在地新興食材帶動飲食風潮，不管是炭烤肉品的火侯、或是獨家的自調醬汁都讓AC 為之驚艷，這次體驗到寶艾餐廳的歐陸式早午餐，吃得巧還能吃得飽，就連兩隻熊這個吃貨都讚不絕口呢~
-![](https://pic.pimg.tw/acikacik/1536327455-3828060880_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327455-3005700525_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327455-3828060880_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327455-3005700525_l.jpg)
 AC 本身是凱悅會員，所以對消費方式感到好奇，特別詢問有關住宿會員是否享有特價的問題，服務人員回覆:"君悅美饌會員卡享有兩人同行半價、三人八折、四人七五折"，凱悅住宿的會員也都能享有"九折"的折扣呢~
-![](https://pic.pimg.tw/acikacik/1536327455-3164169594_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852818/blog/acikacik/1536327455-3164169594_l.jpg)
 **早午餐 menu**
-![](https://pic.pimg.tw/acikacik/1536327493-3461755153_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327493-290206941_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327493-4187668784_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327496-1182849525_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327493-3461755153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852819/blog/acikacik/1536327493-290206941_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327493-4187668784_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327496-1182849525_l.jpg)
 **白酒與氣泡酒**
 兩隻熊在點餐時順便加點了伴餐的酒飲，酒精濃度不會很高的氣泡酒與白酒是佐餐絕佳的飲品，同時也是可以選擇非酒類的氣泡水飲用，選擇礦泉水與氣泡礦泉水是不用外加費用的，如果要增加澳洲氣泡酒及指定紅白酒無料暢飲需要外加600元的酒資，AC 喜歡那氣泡酒在舌尖上的愉悅感，吃肉品時則需要白酒的果香酸味搭配品嘗。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327473-3454006467_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327481-410700547_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327481-2041550133_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327481-1139106005_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327496-4218219492_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327473-3454006467_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852825/blog/acikacik/1536327481-410700547_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327481-2041550133_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852827/blog/acikacik/1536327481-1139106005_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327496-4218219492_l.jpg)
 **早晨烘焙麵包**
 「寶艾西餐廳 Bel Air-Bar & Gril」餐前麵包用網藍盛裝，有點蓬鬆的"橄欖油軟法"，適合抹上方形的奶油吃，"酸裸麥麵包"剛入口有點韌性、撕成小塊小塊那麵香還有碎核桃會愈嚼愈香、它的麥香味好濃，多層次的可頌麵包酥皮輕輕地咬下、不用沾奶油吃、直接單吃咀嚼就很香了、把司康從中間切開抹上蜂蜜、那蜂蜜香味是龍眼的香氣，抹上藍莓醬或是奶油都別有一番滋味，綿密口感讓兩隻熊讚不絕口。麵包都是剛烤好的，那香味四溢讓人欲罷不能的多點了一次，麵包是可以續點的。
-![](https://pic.pimg.tw/acikacik/1536327484-2521424692_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852825/blog/acikacik/1536327484-2521424692_l.jpg)
 奶油真的很好吃、清爽不會有膩口的感覺、一咬下去就化開了，藍莓果醬不會太酸有果肉的口感在裡面，吃下去不會有人工製作的膠質感，蜂蜜有龍眼的香氣、應該是龍眼蜜，AC 不只是拿來抹麵包，也用芭樂去沾龍眼蜜來吃，別有一番滋味，司康奶香濃郁卻不膩口，不會吃沒幾口就很膩，是一種很純樸的味道，可以跟任一種奶油或是果醬融合，如果習慣了吃用心做的麵包糕點之後、就會發現，這些廚師不會去用一些譁眾取寵的廉價奶香味，第一口吃下去會覺得好香好濃但很快就膩了，但是這個至少可以吃個兩三顆，「寶艾西餐廳 Bel Air-Bar & Gril」的麵包樸實而讓人回味無窮，四種麵包都各具特色都很好吃。
-![](https://pic.pimg.tw/acikacik/1536327482-4024726034_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852824/blog/acikacik/1536327482-4024726034_l.jpg)
 **生蠔吧**
 每年的九月到十二月這四個月的生蠔最豐腴鮮美，「寶艾西餐廳 Bel Air-Bar & Gril」特別挑選法國空運品質最高的 Fine De Claire 芬蒂克勞生蠔大量供應，對喜愛吃生蠔的老饕有十足的吸引力，雖然大量供應也準備了非常多的分量，季節性的生蠔，肉質飽滿清甜、肉質很新鮮沒有腥味還帶著些許脆脆的口感，也是一補上就被夾去一半的數量，為了肥美鮮甜的生蠔這個亮點、老饕們慕名而來、就算是一餐要價不斐，AC 看現場的座位也坐滿八成以上，  
 廚師負責現剖大量的生蠔包含芬蒂克雷生蠔、新鮮現剖季節生蠔、讓賓客隨時可以取用，生蠔如果有比較少了，廚師會立馬現剖隨時補充，看左鄰右舍都拿了不少顆生蠔來吃，哪新鮮誘人肥美的生蠔在外面買一顆少說也要兩百多元，拿生蠔的時候可以擠上一旁準備好的檸檬擠汁提味，或是配上番茄辣味沾醬 "Catalina Dressing" 番茄醬當基底配上洋蔥、芥末、醋與辣椒調成的、少許沾醬就能微辣過癮，或是沾點千蔥覆盆莓醋，搭配起來更是滋味豐富。飲品方面~ 吃生蠔的時候也是適合喝白酒來搭配食用的。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327446-108095728_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327446-872955468_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327443-4072614204_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327445-2636411597_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327445-2859755148_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327449-1593432369_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327449-3711434950_l.jpg?v=1536327540)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852825/blog/acikacik/1536327446-108095728_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852830/blog/acikacik/1536327446-872955468_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852831/blog/acikacik/1536327443-4072614204_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852830/blog/acikacik/1536327445-2636411597_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852830/blog/acikacik/1536327445-2859755148_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852829/blog/acikacik/1536327449-1593432369_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852829/blog/acikacik/1536327449-3711434950_l.jpg)
 **自助海鮮吧**
 「寶艾西餐廳 Bel Air-Bar & Gril」的自助海鮮吧有許多生鮮好料，包含大蛤蠣、宜蘭九孔鮑、生醃干貝、鮮蝦、炙煎半熟鮪魚，干貝淋上AC 喜歡的橄欖油味道滿甜的、鮪魚表面有炙燒過魚肉沒有酸味很新鮮，蛤蠣很少吃冷的、感覺像是在吃生食、蛤蠣肉還有一些蝦子的味道（可能是一起烹調的關係），蛤蠣的新鮮度也蠻好的有香味，熟蝦非常的新鮮肉質甜美，不管是直接品嚐或是搭配雞尾酒醬都能滿足老饕們的胃口，搭配雷穆勒醬(沾醬本身有點魚露的氣味)、番茄辣味沾醬、卡它麗娜醬汁、檸檬油醋，生鮮料理搭配氣味淡雅的香濱也相當契合呢。 
-![](https://pic.pimg.tw/acikacik/1536327459-2496406805_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327459-886675515_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327459-368092011_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327458-2080067198_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327459-1253530676_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327461-536319593_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327481-2157328466_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327490-928802127_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852829/blog/acikacik/1536327459-2496406805_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852829/blog/acikacik/1536327459-886675515_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852829/blog/acikacik/1536327459-368092011_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852831/blog/acikacik/1536327458-2080067198_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327459-1253530676_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852834/blog/acikacik/1536327461-536319593_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327481-2157328466_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327490-928802127_l.jpg)
 **自助沙拉區**
 「寶艾西餐廳 Bel Air-Bar & Gril」使用台灣嚴選有機綜合水耕生菜沙拉，兩隻熊在吃沙拉之前、先喝一口氣泡水漱一下口，把口裡原來吃過的味道抹去，生菜沙拉大部分是葉菜類、有龍鬚菜、小番茄、玉米筍跟四季豆還有乾果仁、核桃、水果乾，然後還有刨過絲的紅蘿菠絲、淋上「寶艾西餐廳 Bel Air-Bar & Gril」自製特別的檸檬油醋、味道好檸檬好像在吃檸檬汁，有些人怕酸會覺得太酸，怕吃檸檬的人要酌量、另外放個盤子用沾的，還有另一種醬還沒嘗試過，先吃這種偏酸的沾醬，其實AC 滿喜歡吃酸的，這款沾醬有一種清香的氣味很對我的味，不會像凱薩醬那麼重口味。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327457-3054440686_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327456-4132125558_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327485-876192254_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327487-2985575384_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327490-3761409208_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327492-1069830049_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327457-3054440686_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852839/blog/acikacik/1536327456-4132125558_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327485-876192254_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852835/blog/acikacik/1536327487-2985575384_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852834/blog/acikacik/1536327490-3761409208_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852834/blog/acikacik/1536327492-1069830049_l.jpg)
 **水果自助百匯**
 有四種新鮮的水果西瓜、鳳梨、芭樂、葡萄，AC 最喜歡吃西瓜，西瓜上面有淋上一些檸檬增添香氣，西瓜切的大口了一點，可以切一半再入口，水果都是挑選在地台灣好吃的水果，鳳梨也是又甜又好吃。
-![](https://pic.pimg.tw/acikacik/1536327463-2670230446_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327461-664498294_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327462-198268567_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327463-2441595891_l.jpg?v=1536327540)
-![](https://pic.pimg.tw/acikacik/1536327464-4144801116_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327465-2525388005_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327496-898278957_l.jpg?v=1536330029)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852841/blog/acikacik/1536327463-2670230446_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852841/blog/acikacik/1536327461-664498294_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852842/blog/acikacik/1536327462-198268567_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852842/blog/acikacik/1536327463-2441595891_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852843/blog/acikacik/1536327464-4144801116_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852842/blog/acikacik/1536327465-2525388005_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852842/blog/acikacik/1536327496-898278957_l.jpg)
 **功夫濃厚湯品**
 淡味番茄奶油濃湯辣味雞絞肉
 湯品有滿滿的番茄滋味，應該是小顆的歐洲番茄燉煮，感覺濃縮的番茄材料一點都不節省，熬成一鍋好湯到底要用多少好番茄才能有這樣的味道，番茄的酸味不會太酸、鮮甜讓人一口接一口停不下來。  
 自然呈現番茄的原汁原味，口感綿密、黑胡椒粒可以選擇灑或不灑，兩隻熊是覺得不撒胡椒顆粒比較好喝，上面還撒上巴西利粉（俗稱的洋香菜）來提增湯品的香氣，搭配雞的碎肉讓口感更好增加飽嘴感，番茄對身體很好。
-![](https://pic.pimg.tw/acikacik/1536327485-3920427264_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327485-4187310554_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852841/blog/acikacik/1536327485-3920427264_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852842/blog/acikacik/1536327485-4187310554_l.jpg)
 **主菜四道(任選一道)**
 炭烤美國頂級牛排、紅酒醬汁 2,980元
 「寶艾西餐廳 Bel Air-Bar & Gril」主餐都是精緻的歐陸料理，一道一道上有充裕的時間可以好好享用餐點，主餐上來之前還會特別詢問，主餐可以上了嗎? 當AC 答應之後大約十幾分鐘後主餐就上來了，應該是馬上現做出來的。  
 上菜時大型的圓盤還有一點溫熱、擺盤講究精緻、牛排短期乾式熟成碳烤、再與相佐的蔬菜在盤中取得完美的平衡、光看擺盤就覺得很可口，感受到主廚設計的用心，精湛的廚藝滿足饕客的視覺與味覺的感官體驗，美國頂級牛排以傳統的料理手法、經過碳烤表皮會有一種碳香味，保留了肉質的鮮甜、突顯好食材的本質、熟度剛剛好的"五分熟"表皮煎香內部軟嫩。
-![](https://pic.pimg.tw/acikacik/1536327499-4229804806_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327501-2304905191_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852841/blog/acikacik/1536327499-4229804806_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852845/blog/acikacik/1536327501-2304905191_l.jpg)
 碳烤美國牛排肉聞起來有奶香味、一口咬下滿嘴豐富的肉汁，口感比較紮實嚼起來略帶韌性、又不會像瘦肉柴柴的愛吃肉纖維口感的人、會很喜歡這種咬起來滿滿肉汁而非油花的滋味。搭配玉米筍、甜椒、櫛瓜、馬鈴薯泥並淋上很清爽的紅酒醬汁，一旁的服務人員還會詢問是否需要現磨的胡椒粉，兩隻熊要求現磨在盤子的邊緣，用沾著的方式享用。
 ![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)訂房折扣750元![](https://s.pixfs.net/f.pixnet.net/images/emotions/032.gif)
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1536327501-2458467349_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hom 最優惠房價tels.co
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780851833/blog/acikacik/1563606119-4102774363.jpg) <<點我看房價>>
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327501-2458467349_l.jpg)
 香煎挪威鮭魚、白酒醬汁 2,680元
 「寶艾西餐廳 Bel Air-Bar & Gril」  
 挪威養殖鮭魚處有寒暖流交會，培育出的鮭魚肉質鮮美、油香四溢，AC 光是看到魚肉上泛的油光就流口水了，先從尾端切下的肉質應該比較脆，魚肉好嫩油質很豐富，這鮭魚部位應該是比較靠近肚子，肥滋滋油膩膩的魚油真是棒，肉也很嫩、刀切下去的觸感就知道，兩隻熊很久沒吃到這麼好吃的鮭魚了。一小塊肉整個嘴巴就被鮭魚那種特殊的香氣所包覆住，然後表皮煎的微脆微脆，肉質還能保有揪西的水份，很容易就撥開它，其實用不到刀叉、輕輕一撥就開了、裡面也是五分熟、更可以保持肉的鮮嫩，像兩隻熊是不太愛吃生食的，吃五分熟鮭魚也是可以的、這也很適合加胡椒沾著吃，你看那油脂~ AC 再度流口水了~ XD
-![](https://pic.pimg.tw/acikacik/1536327497-3165761314_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327497-3783373715_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327497-3165761314_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327497-3783373715_l.jpg)
 佐炭烤玉米筍、洋芋泥還有搭配白酒醬汁更是好吃，白酒醬汁剛剛舔了一下口感溫潤濃郁但是不膩口，整個口腔都佈滿醬汁的味道、很適合配這種魚肉。兩隻熊覺得這醬汁調的很厲害、會跟魚肉產生化學變化的白酒醬。
-![](https://pic.pimg.tw/acikacik/1536327497-2915980430_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852845/blog/acikacik/1536327497-2915980430_l.jpg)
 碳烤美國頂級羔羊排、百里香醬汁 2,380元
 「寶艾西餐廳 Bel Air-Bar & Gril」碳烤美國頂級羔羊排是AC 非常期待的主菜，大圓盤丁骨羔羊排倒V 字形擺放、擺盤好看又美味，通常吃這種羊排、兩隻熊是不需要刀叉的，直接豪邁的拿起來啃咬，就算在這麼高級的餐廳也忍不住用手拿。廚師應該在美國頂級羔羊排上面直接撒上了海鹽，味道吃起來鹹香鹹香、肉味比較濃郁，看起來雖然有血水但是味道不羶，兩隻熊選擇五分熟度、所以吃起來比較有血性豪邁感，雖然擺盤很精緻，但是咬上一口就像是在大草原上騎馬奔馳的野性感。細膩的料理手法鎖住鮮甜肉汁鑲崁了肉質的鹹度，強調食材原汁原味的極上滋味，視覺、味覺都能完美呈現，就像是創作出一道道的美食畫作，用獨門的調味將歐陸料理揮灑得淋漓盡致，聞起來的美味還有吃的過癮都能搭配得很完美。
-![](https://pic.pimg.tw/acikacik/1536327501-967405264_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327502-3906639403_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327503-1431949953_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852845/blog/acikacik/1536327501-967405264_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327502-3906639403_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327503-1431949953_l.jpg)
 **早餐蛋(任選一道)**
 浸煮水波蛋
 這半熟水波蛋看到就有一股衝動像要用刀劃開它、讓蛋液流淌出來，先舔一口蛋液、就是純粹的蛋黃香，喜歡吃蛋的應該會瘋掉，在配上炒菇看起來好好吃喔~ 也沒有兩隻熊討厭的那種菇臭味，所以更喜歡吃這樣的炒菇蛋料理的搭配，這是AC 吃過最濃厚的蛋料理，怎麼可以這麼好吃呀~ 就算是一口一口滿足地吃完、蛋的香氣還是殘留在口中，真不想吃別的東西去替代他，隨後又忍不住吃了一口西瓜~ ="=
-![](https://pic.pimg.tw/acikacik/1536327505-43409327_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327506-2825418626_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327508-2496188227_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852846/blog/acikacik/1536327505-43409327_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852847/blog/acikacik/1536327506-2825418626_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327508-2496188227_l.jpg)
 奶油醬鹹豬肉炒蛋
 用很黃 (?) 的雞蛋蛋黃與奶油炒出來的炒蛋、軟嫩入口有蛋香氣、有四季豆還搭配了自製香料鹹豬肉，鹹豬肉是料理師傅親手炒的，味道豐富有層次感，五星級師傅親自料理的歐姆蛋、就跟早上飯店 Buffet 吃到飽的歐姆蛋很不一樣、特別嫩特別好吃，那滑嫩滑嫩的口感、蛋味香濃吃起來就很爽，鹹豬肉因為是自己醃漬的、比較偏向健康取向，所以醃肉的味道不會太鹹，與歐姆蛋搭配吃起來就是那種醍醐味、微微的鹹鹹香香、那種香氣就好像培根蛋一樣，口感跟味道又比培根蛋更好，它的肉香可以跟蛋香混合在一起但是又不搶對方的味道。
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1536327504-1219573445_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327505-2462266840_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852849/blog/acikacik/1536327504-1219573445_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852849/blog/acikacik/1536327505-2462266840_l.jpg)
 **手工甜點**
 「寶艾西餐廳 Bel Air-Bar & Gril」甜點是由君悅酒店"烘培坊"的甜點廚師親自特別上來擺設，法籍甜點主廚博豊安(Julien Perrinet)坐鎮，設計的甜點除了美味好吃還有很多巧思在裡面，法籍甜點主廚博豊安（Julien Perrinet）去年推出超擬真的工具箱，今年推出推出「藝術老爹」調色盤和水彩畫筆蛋糕讓人驚艷，獨創甜點有迷你紅絲絨杯子蛋糕、覆盆莓巧克力蛋糕、綜合馬卡龍、新鮮季節水果塔、提拉米蘇、伯爵茶馬德蕾蛋糕、輕乳酪蛋糕、草莓棒棒糖、每一份甜點都不算大、大約是一口吃的分量，讓AC 跟兩隻熊可以多品嘗幾種甜點。
-![](https://pic.pimg.tw/acikacik/1536327467-1633082245_l.jpg?v=1536327541)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852849/blog/acikacik/1536327467-1633082245_l.jpg)
 棒棒糖最吸引人、外觀很好看，吃起來也很特別、其實是很多層外面再補一層草莓醬、內餡是白巧克力 就像健達出奇蛋一樣的特別。喜歡吃草莓的人應該也會愛不釋手，會不會有人是為了吃甜點吃到飽而來呢？感覺也很值得呢~ 
-![](https://pic.pimg.tw/acikacik/1536327467-3430337280_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327470-735533603_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327509-3842848862_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327510-3156569461_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327467-3430337280_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852849/blog/acikacik/1536327470-735533603_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327509-3842848862_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327510-3156569461_l.jpg)
 馬卡龍三種口味是用台灣在地水果做成的，沒有一般的那麼甜。湯匙輕輕的一碰就碎了，難怪會說像是少女的酥胸，黃色的是芒果、綠色是芭樂，可以在嘴裡尋找每一種水果的味道。巧克力不會很甜，伯爵紅茶口味的蛋糕、茶香優雅不甜膩、一口咬下就是伯爵紅茶的香氣，怕吃太甜的可以吃這道甜點，提拉米蘇濃郁口感滑順，甜點選擇實在是太多了、吃到後來已經很飽了，恕無法一一介紹~ = =;
-![](https://pic.pimg.tw/acikacik/1536327467-2934939136_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327470-2161958110_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327470-1338324270_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327471-3132630705_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327473-2879253607_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327473-1571740382_l.jpg?v=1536327541)
-![](https://pic.pimg.tw/acikacik/1536327508-2203924659_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327509-3848229486_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327467-2934939136_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852850/blog/acikacik/1536327470-2161958110_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327470-1338324270_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327471-3132630705_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327473-2879253607_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327473-1571740382_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327508-2203924659_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852854/blog/acikacik/1536327509-3848229486_l.jpg)
 **餐後飲品**
 吃蛋糕最適合搭配茶或是咖啡來解膩，AC 點了一杯的卡布奇諾、兩隻熊點了一杯無糖英式早餐茶，英式早餐茶用銀製茶器盛裝，拿起來還有一點重量，感覺喝的不是咖啡、茶而是一種氣氛氛圍，在這度過周日的午後時光，真是一種愉悅舒服的享受呀~ AC 就在這裡慵懶的不想離開~ 
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1536327511-2038901514_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327512-2402965209_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327512-715270471_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327513-606442393_l.jpg?v=1536327542)
-![](https://pic.pimg.tw/acikacik/1536327513-2746314874_l.jpg?v=1536327542)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852854/blog/acikacik/1536327511-2038901514_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327512-2402965209_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852854/blog/acikacik/1536327512-715270471_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852853/blog/acikacik/1536327513-606442393_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852856/blog/acikacik/1536327513-2746314874_l.jpg)
 **優秀的服務人員**
 AC 提出了幾次請求，都是手剛舉起來就從容地上前協助，並且面帶微笑~ 「寶艾西餐廳 Bel Air-Bar & Gril」服務人員的笑容是最美的印象。氣泡香檳幾次都是杯子還有半杯就馬上盛滿，可以一杯接一杯的不知不覺就有點喝多了呢~ 還好AC 搭捷運來可以肆意盡情暢飲~ 潔白的厚質桌布很容易看出來麵包屑，「寶艾西餐廳 Bel Air-Bar & Gril」服務人員在上主餐前會用不鏽鋼的掃器將桌面輕刮乾淨，慎重的詢問上主餐的時間點，非常重視每一個環節。
-![](https://pic.pimg.tw/acikacik/1536330018-1460724409_l.jpg?v=1536330029)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852856/blog/acikacik/1536330018-1460724409_l.jpg)
 **與主廚有約**
 這次有幸能與年輕的「寶艾西餐廳 Bel Air-Bar & Gril」羅偉洲主廚William Lo(威廉主廚)見面，年輕的威廉主廚有著嶄新的思維、加入君悅酒店這個大家庭已經八年了，當初會想做早午餐的原因、是因為「寶艾西餐廳 Bel Air-Bar & Gril」這個場地很有氣氛、到了假日有點像是異國風的感覺，現在新開的餐廳比較少會設計這樣歐式造景，把這麼多的空間保留給客人，像是水池或是陽光可以灑下來的地方（就像是AC 到歐洲的時候斜灑下來的陽光相當的迷人），原本這裡設計的就很漂亮、就順勢的推出了早午餐給顧客們享用，現在求新求變可以讓新的顧客有機會能認識這個有歷史的用餐環境，以服務為導向、希望有更多舊雨新知的主顧客來體驗這裡的美好，把原來賣的不錯的早午餐，這次再改版又更升級了，增加了大量供應的生蠔與各式自助吧吃到飽，更能拉近喜歡吃海鮮的朋友、有更多的享受的東西，市面上自助餐很多，食材選擇會挑有機的或是比較新鮮的，水耕蔬菜也是一些有長期配合優良廠商的供應，才能保證顧客吃到的都是有經過認證的，採購把關的很嚴格，生蠔都需要證書才能夠進來，農產品都會定期去查他們工廠或是檢驗報告，至少在食材方面幫顧客把關。
 巧妙的將台灣的飲食文化與傳統精神放進歐陸料理中，更貼近台灣人喜歡的風味與菜餚的味覺體驗，為了更上一層樓，在 Soliveres主廚來台獻藝前，威廉主廚飛到巴黎米其林二星餐廳的廚房與Soliveres主廚一同工作了一個月的時間，對於法式料理也能融會貫通，羅偉洲主廚的名言:『今日創新，將成為明日經典』。
-![](https://pic.pimg.tw/acikacik/1536330018-2705781532_l.jpg?v=1536330029)
-![](https://pic.pimg.tw/acikacik/1536330018-3379263745_l.jpg?v=1536330029)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852857/blog/acikacik/1536330018-2705781532_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852857/blog/acikacik/1536330018-3379263745_l.jpg)
 星期日好好的休假日、就是要睡到日頭曬屁股、不用刻意的早起吃早餐，「寶艾西餐廳 Bel Air-Bar & Gril」Sundy Brunch 周日早午餐的用餐時間從上午的十一點、大約吃到了下午兩點，用餐的時間剛剛好慵懶的從家裡出發過來，假裝是個法國人一樣的一道一道慢慢的吃，盡情享受這種優雅緩慢的品嘗美食的感覺，然後AC 與兩隻熊都吃得很飽、很滿足，希望不久的將來有機會一定要再度造訪。
 餐廳名稱：台北君悅酒店 「寶艾西餐廳 Bel Air-Bar & Gril」  
 地址：台北市信義區松壽路2號2樓  

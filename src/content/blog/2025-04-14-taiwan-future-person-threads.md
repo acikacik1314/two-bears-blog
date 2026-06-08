@@ -7,7 +7,7 @@ heroImage: '/images/blog/2025-04-14-taiwan-future-person-threads.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071495977'
 ---
 
-![](https://pimg.1px.tw/acikacik/1744604824-2976338439-g.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872923/blog/acikacik/1744604824-2976338439-g.png)
 你…相信時間旅行嗎？  
 你有沒有想過，來自未來的人，會用什麼方式，出現在我們眼前？
 在台灣，2025 年。  

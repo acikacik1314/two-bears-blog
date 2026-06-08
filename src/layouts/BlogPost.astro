@@ -7,10 +7,22 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import RumbleEmbed from '../components/RumbleEmbed.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
+import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
+import NewsletterSubscribe from '../components/NewsletterSubscribe.astro';
+import AffiliateLinks from '../components/AffiliateLinks.astro';
+import PredictionCheck from '../components/PredictionCheck.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, tags, youtubePost, rumbleId, youtubeId } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions } = Astro.props;
+// Derive category for display (re-derive since we only have data fields here)
+const derivedCategory = category ?? (() => {
+	if (rumbleId || youtubeId) return '影片';
+	const prophecyKw = ['預言','比格斯','末日','台海','三戰','諾查丹瑪斯'];
+	if (tags?.some((t: string) => prophecyKw.some(k => t.includes(k)))) return '預言';
+	return null;
+})();
+const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d') : null;
 ---
 
 <html lang="zh-TW">
@@ -88,6 +100,25 @@ const { title, description, pubDate, updatedDate, heroImage, tags, youtubePost, 
 				background: #cc0000;
 				color: white;
 			}
+			.rumble-watch-link {
+				display: block;
+				text-align: center;
+				margin: 1em 0 2em;
+			}
+			.rumble-watch-btn {
+				display: inline-block;
+				background: #85c742;
+				color: white;
+				padding: 0.7em 1.5em;
+				border-radius: 6px;
+				text-decoration: none;
+				font-weight: 700;
+				font-size: 1em;
+			}
+			.rumble-watch-btn:hover {
+				background: #6aad27;
+				color: white;
+			}
 		</style>
 	</head>
 
@@ -111,6 +142,14 @@ const { title, description, pubDate, updatedDate, heroImage, tags, youtubePost, 
 							}
 						</div>
 						<h1>{title}</h1>
+						{derivedCategory && catColor && (
+							<div style="margin-bottom: 0.5em;">
+								<a href={`/category/${derivedCategory}`}
+								   style={`display:inline-block;background:${catColor};color:white;padding:0.2em 0.8em;border-radius:12px;font-size:0.8em;font-weight:700;text-decoration:none;`}>
+									{derivedCategory}
+								</a>
+							</div>
+						)}
 						{tags && tags.length > 0 && (
 							<div class="tags">
 								{tags.map((tag) => <span class="tag">#{tag}</span>)}
@@ -119,8 +158,22 @@ const { title, description, pubDate, updatedDate, heroImage, tags, youtubePost, 
 						<hr />
 					</div>
 					{rumbleId && <RumbleEmbed videoId={rumbleId} title={title} />}
+					{rumblePage && (
+						<div class="rumble-watch-link">
+							<a href={rumblePage} target="_blank" rel="noopener" class="rumble-watch-btn">
+								▶ 在 Rumble 觀看影片
+							</a>
+						</div>
+					)}
 					{youtubeId && <YouTubeEmbed videoId={youtubeId} title={title} />}
 					<slot />
+					{predictions && (
+						<PredictionCheck
+							hits={predictions.hits}
+							misses={predictions.misses}
+							pending={predictions.pending}
+						/>
+					)}
 					{youtubePost && (
 						<div class="youtube-link">
 							<a href={youtubePost} target="_blank" rel="noopener" class="youtube-btn">
@@ -128,6 +181,8 @@ const { title, description, pubDate, updatedDate, heroImage, tags, youtubePost, 
 							</a>
 						</div>
 					)}
+					<AffiliateLinks />
+					<NewsletterSubscribe />
 				</div>
 			</article>
 		</main>

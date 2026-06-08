@@ -7,507 +7,507 @@ heroImage: '/images/blog/2017-09-14-danang-hyatt-regency-spa.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5066005499'
 ---
 
-![](https://pic.pimg.tw/acikacik/1505358957-2772234096_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358956-551051933_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831705/blog/acikacik/1505358957-2772234096_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831706/blog/acikacik/1505358956-551051933_l.jpg)
 什麼是度假村? 包羅萬象的玩樂設施與美輪美奐的設計空間吸引旅人來消費、提供住宿、食品、飲料等等、預約即可免費參加充實悠閒的各式活動、比方划船或是瑜珈等會按照度假村的時間表，度假村通常是旅遊者為了長時間待在一個地方而設計的住宅群。在它的全價中，房間的價錢除了包含住宿費、公設、打各種球類、健身房還有一些想像的到跟想像不到的娛樂設施，度假村除了可以度假還可以滿足會議市場需要，一些大型企業也會在度假村裡開會，通常度假村會靠海或是在美麗的山景溫泉附近，坐落在優美的自然景觀幾乎不用離開度假村就能滿足至少一周的美好時光。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359527-4021760402_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359527-3160575838_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359531-3440521893_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359533-2526854878_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359534-2006013177_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359538-2590507883_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359540-1853727214_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359543-1973348292_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359547-1011984967_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359548-1301870614_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359550-3907613341_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359553-905089466_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359555-973817415_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359562-4010558722_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359563-2232920823_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359563-2892189668_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359563-3582221540_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359563-2206499269_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359569-176459632_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359571-3337677579_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359574-3161337486_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359574-3936392231_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359575-1696681590_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359577-2597536886_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359577-3947046083_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359578-4047070582_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359582-3524830985_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359582-3071221232_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359590-751665817_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359591-1083039292_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359595-2494948882_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359596-279767586_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359598-3756200830_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359599-1623697197_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359605-1975851180_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831707/blog/acikacik/1505359527-4021760402_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831708/blog/acikacik/1505359527-3160575838_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831707/blog/acikacik/1505359531-3440521893_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831707/blog/acikacik/1505359533-2526854878_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831707/blog/acikacik/1505359534-2006013177_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831708/blog/acikacik/1505359538-2590507883_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831711/blog/acikacik/1505359540-1853727214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831708/blog/acikacik/1505359543-1973348292_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831708/blog/acikacik/1505359547-1011984967_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831707/blog/acikacik/1505359548-1301870614_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831714/blog/acikacik/1505359550-3907613341_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831713/blog/acikacik/1505359553-905089466_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831713/blog/acikacik/1505359555-973817415_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831715/blog/acikacik/1505359562-4010558722_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831713/blog/acikacik/1505359563-2232920823_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831715/blog/acikacik/1505359563-2892189668_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831714/blog/acikacik/1505359563-3582221540_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831715/blog/acikacik/1505359563-2206499269_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831713/blog/acikacik/1505359569-176459632_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831713/blog/acikacik/1505359571-3337677579_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831717/blog/acikacik/1505359574-3161337486_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831717/blog/acikacik/1505359574-3936392231_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831717/blog/acikacik/1505359575-1696681590_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831719/blog/acikacik/1505359577-2597536886_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831717/blog/acikacik/1505359577-3947046083_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831718/blog/acikacik/1505359578-4047070582_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831718/blog/acikacik/1505359582-3524830985_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831717/blog/acikacik/1505359582-3071221232_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831719/blog/acikacik/1505359590-751665817_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831718/blog/acikacik/1505359591-1083039292_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505359595-2494948882_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505359596-279767586_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505359598-3756200830_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831723/blog/acikacik/1505359599-1623697197_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831722/blog/acikacik/1505359605-1975851180_l.jpg)
 (搞笑糖果廣告)"點圖片"
-![](https://pic.pimg.tw/acikacik/1537106030-3730726767_n.png?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537106030-3730726767_n.png)
 (除臭襪廣告)"點圖片"
-![](https://pic.pimg.tw/acikacik/1537105883-3215282825.jpg?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537105883-3215282825.jpg)
 **有點怕**
 第一次去越南感覺怕怕的，因為越南是共產黨國家、會不會像北韓一樣門禁森嚴?  
 從台灣搭飛機到越南峴港、只需要兩個半小時的路程，相當於看完兩本"鏡周刊"的時間，由於捷星航空推出特價優惠，這次用相當便宜的價錢體驗一次越南初體驗、讓AC 新奇又開心，既然來到人生地不熟的越南峴港，自然要安排幾家風格各異的飯店來體驗一下，這次六天五夜的行程，AC 住了海邊的180度海景角間房，還有像是豪宅樣品屋的凱悅奢華套房，更有回到二十世紀中法合併、雍容氣派的洲際飯店，並且最後一天住宿商務型市區豪景飯店，各有見長、越南峴港對於第一次光臨的AC 來說、簡直像是個超大型的度假樂園，交通便宜、餐食美味、人民親切、人品素質非常高，AC 第一天在海邊飯店的泳池玩到夕陽西下，回到房間正準備好好休息一下，飯店的服務人員就來按門鈴，問我這台相機是不是忘記在泳池旁了，這時才恍然大悟，原來水上相機拍好放在泳池旁邊忘記帶回來了，工作人員竟然還能準確的將失落的相機送回我的房間裡，越南峴港是個讓人放心的好好放鬆的地方。<<點我看房價>>
 >>訂房現折750元<<
 <以下三張照片來自峴港凱悅官網>
-![](https://pic.pimg.tw/acikacik/1505358954-1660333908_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358954-4180981200_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358954-23363477_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505358954-1660333908_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505358954-4180981200_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831722/blog/acikacik/1505358954-23363477_l.jpg)
 **交通便利**
 越南峴港的計程車跳表相當的便宜，距離不遠的話通常價錢都在一百元台幣上下，不過通常一萬以下的零錢也都不太找零的，就算是對方要找其實也就換算台幣幾塊錢、也都會用給小費的方式來處理，越南峴港的飯店都是沿著海岸線蓋的，海岸線有三十多公里、沿海有許多高級resort渡假村、以及持續新建的度假飯店、搭計程車的窗外都會有美麗的海景可以看，飯店與飯店之間的距離、大約也就十分鐘或是二十分鐘的車程就可以到達，對於換飯店這件事、通通交給計程車就沒問題了，感覺非常的簡單方便。<<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505358995-3991148606_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358996-2679042339_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831721/blog/acikacik/1505358995-3991148606_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831722/blog/acikacik/1505358996-2679042339_l.jpg)
 **禮尚往來**
 終於到達 「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」，AC 午後到達凱悅大廳、接待人員馬上就將AC 的行李拿下車，並且指引AC 到櫃台辦理入住手續，大廳是採取開放式的、櫃台前面還排著一些即將辦理入住的旅客，可以感受到凱悅峴港的住客數還蠻大的，這時日正當中但是等待的過程並沒有很炎熱，仔細看一下原來在等候區的兩邊有三台直立式冷氣，在開放式的空間中提供旅人瞬間的清涼感，輪到AC 辦理入住手續，櫃檯人員說明房間被升等到 Club 嘉賓軒房型，雖然表面很冷靜、其實AC 內心非常的雀躍的(渡假村裡的嘉賓軒不知道是甚麼樣子~)、櫃台人員帶領AC 到 Regency Club 嘉賓軒辦理入住手續，通過一個兩側高聳的芒草叢到達俱樂部櫃檯區，室內空間涼爽舒適，客房經理還特別來跟AC 打個招呼，並且致上歡迎之意，這次入住正好是AC 的生日，為了慶祝這個日子安排升等到了嘉賓軒行政套房的房型(呦呼~)，從禮賓人員雀躍的表情、感覺應該是一個很不錯的房間，老實說在還沒進房間之前，都還只是小小的雀躍著，在等待入住前禮賓人員端上一杯冰涼的冷飲，喝上一口就讓人透心涼，趁著入住前環顧了一下禮賓軒、氣氛高雅舒適、感覺蠻好的、這次出國前AC 還有點感冒、但是說也奇怪，到了異地曬曬太陽出出汗，整個身體就少了幾分疲憊感。
-![](https://pic.pimg.tw/acikacik/1505358974-1319310037_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358973-3176255821_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358975-2322494425_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358975-2459570083_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358973-3150458219_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358977-4278301214_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358986-440594911_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358985-3910424807_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358985-2638853258_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358988-1592454927_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358988-3564481011_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358993-2849708834_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358993-3789004304_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505358993-592163637_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831724/blog/acikacik/1505358974-1319310037_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831725/blog/acikacik/1505358973-3176255821_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831724/blog/acikacik/1505358975-2322494425_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831731/blog/acikacik/1505358975-2459570083_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831725/blog/acikacik/1505358973-3150458219_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831724/blog/acikacik/1505358977-4278301214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831733/blog/acikacik/1505358986-440594911_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831726/blog/acikacik/1505358985-3910424807_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831731/blog/acikacik/1505358985-2638853258_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831724/blog/acikacik/1505358988-1592454927_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831737/blog/acikacik/1505358988-3564481011_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831735/blog/acikacik/1505358993-2849708834_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831736/blog/acikacik/1505358993-3789004304_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831736/blog/acikacik/1505358993-592163637_l.jpg)
 **待客之道**
 凱悅酒店集團在世界各地45個國家和地區，以高品質設施和真摯殷勤的待客之道享譽國際、員工熱誠親切讓旅人有賓至如歸的美妙感受著稱，2011年開業的「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」除了承襲了美好的傳統、也是凱悅在亞太地區成立的第一家度假酒店，美麗的私人沙灘讓 AC 到最後一刻都流連忘返，飯店總共有200間客房、174間公寓、27棟3居室的獨棟別墅組成，總面積有20公頃這麼多，所以AC 只有在其中極小的範圍內移動、比方餐廳到房間之間來回移動(養豬計畫)，AC 這次入住的最靠近海的 F 座套房、擁有24 小時管家服務、由於[嘉賓軒行政套房]是用兩間房間打通的，所以有兩個門可以出入，AC 在房門口竟然目不轉睛地發起呆來，從房廊處看出去竟然是這麼美麗的海景，那海就像是畫出來的一樣，打開套房的房門迎面就是涼爽的空調冷氣，在房間電源感應器上永遠插著空白的感應卡，不用擔心外出拿起卡片就失去冷氣的困擾，看似樸質的裝飾有一種日式典雅的氣氛，就像是AC 以前住在台中七期重劃區，有些有錢人出門都穿白色寬大的長袖棉衫以及卡及色的長褲，看起來都相當的輕便舒適，但是仔細一看也都是出自GUCCI、PRADA等知名設計師之手，不濃艷，不華麗一樣昂貴、但是卻能帶來愉悅享受、品味讓空間感更高級、也更有格調、一種生活化的浪漫。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359301-2822690312_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359302-675135638_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359305-1818820860_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359306-1683150041_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359020-1806802332_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359251-3383421030_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359255-3636605611_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359263-2165159438_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359528-2796234569_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831735/blog/acikacik/1505359301-2822690312_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831736/blog/acikacik/1505359302-675135638_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831737/blog/acikacik/1505359305-1818820860_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831735/blog/acikacik/1505359306-1683150041_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831735/blog/acikacik/1505359020-1806802332_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831736/blog/acikacik/1505359251-3383421030_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831741/blog/acikacik/1505359255-3636605611_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831739/blog/acikacik/1505359263-2165159438_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831739/blog/acikacik/1505359528-2796234569_l.jpg)
 嘉賓軒行政套房的面積大約38坪左右，整體運用大地色系墨綠色、與米黃色、深淺咖啡色彩為基調、以現代的裝潢方式將越南的一些設計元素融入房間的陳設，搭配一些看起來像是金屬其實是陶瓷燒製成的藝術品、處處有巧思每一個擺飾都感覺大有來頭，運用天然木材做成與肌膚貼近的家具家飾，包含沙發的竹編小凳子、還有餐廳的骨董座椅都是令人玩味的風格雅做，細膩編織的燈罩有的彎曲有型、有的如燈籠般在床頭旁邊作裝飾，在寬敞舒適的空間中，各自扮演著稱職微妙的角色。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359103-1574472646_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359085-1911782357_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359096-1465816419_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359102-1938954257_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359103-3534688810_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359104-3640546810_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359104-2802963901_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359105-52073411_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359110-2966649213_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359113-2322228454_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359115-3150980901_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359116-1126473420_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359117-288942240_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359162-11677904_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359163-3295656804_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359167-4208830040_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359169-2463340441_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359174-1244815752_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359175-3287768570_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359176-2149908838_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359183-2348804517_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359183-621251936_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831739/blog/acikacik/1505359103-1574472646_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831741/blog/acikacik/1505359085-1911782357_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831740/blog/acikacik/1505359096-1465816419_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831740/blog/acikacik/1505359102-1938954257_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831739/blog/acikacik/1505359103-3534688810_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831739/blog/acikacik/1505359104-3640546810_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831741/blog/acikacik/1505359104-2802963901_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831744/blog/acikacik/1505359105-52073411_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831743/blog/acikacik/1505359110-2966649213_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831744/blog/acikacik/1505359113-2322228454_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831743/blog/acikacik/1505359115-3150980901_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831748/blog/acikacik/1505359116-1126473420_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831743/blog/acikacik/1505359117-288942240_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831743/blog/acikacik/1505359162-11677904_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831743/blog/acikacik/1505359163-3295656804_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831744/blog/acikacik/1505359167-4208830040_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831744/blog/acikacik/1505359169-2463340441_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831754/blog/acikacik/1505359174-1244815752_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831749/blog/acikacik/1505359175-3287768570_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831757/blog/acikacik/1505359176-2149908838_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831749/blog/acikacik/1505359183-2348804517_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831750/blog/acikacik/1505359183-621251936_l.jpg)
 **沙發區**
 房間大致劃分為三個區域、首先入口處是沙發區，有書桌與電話可以作個簡單的商務辦公，也可以在此寫作(好像還沒有用到)，桌上附贈的迎賓水果與手寫的歡迎卡片讓人相當的窩心，AC 這次入住了兩天，兩天都有補充迎賓水果，「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」對於賓客相當的大方，沙發可以或臥或坐，AC 早上太早起來、有點失眠索性就拿個毛巾當毯子，窩在小沙發上面玩手機，這個小沙發其實不是固定在地上的，他有點像是陀螺一樣可以跟著身體的移動左右地扭動，算是AC 第一次做到符合人體工學的沙發椅。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359065-659927586_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359072-794387831_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359088-2082686513_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359124-395134501_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359167-4208830040_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359168-1299854683_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359183-4012780903_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359191-4100462599_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359151-2762391114_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359152-2225312418_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359157-2130904345_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359161-566030040_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831750/blog/acikacik/1505359065-659927586_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831751/blog/acikacik/1505359072-794387831_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831749/blog/acikacik/1505359088-2082686513_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831751/blog/acikacik/1505359124-395134501_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831744/blog/acikacik/1505359167-4208830040_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831750/blog/acikacik/1505359168-1299854683_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831760/blog/acikacik/1505359183-4012780903_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831759/blog/acikacik/1505359191-4100462599_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831759/blog/acikacik/1505359151-2762391114_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831760/blog/acikacik/1505359152-2225312418_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831766/blog/acikacik/1505359157-2130904345_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831761/blog/acikacik/1505359161-566030040_l.jpg)
 **餐廳區**
 餐廳吧檯與更衣室區，房間有三台電視機、沙發區的平面電視背面也有一台面向用餐區的大電視，臥室也有電視，搭配立體聲音響，走到哪裡都可以享受影音效果，房間有提供免費快速的無線上網服務，說實在的這次出門買了7G的網卡，幾乎都沒有什麼用到，因為光是在酒店裡面，就有非常方便快速的網路，傳傳照片影片之外，就連直播都不卡真的很厲害，房間三個區塊都有吊扇，吊扇可以快速讓房間降溫，如果覺得白天室內的溫度不夠低，只要開個吊扇就很涼了，有一天的晚上AC 還覺得冷，隔天晚上睡覺就把吊扇關了，客廳的一側是餐廳空間，除了復古味十足的古老中式桌椅，AC 長時間的坐在類似板凳的椅子上面，看著窗外的景色真的美不勝收。<<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505359022-2561608245_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359022-283301713_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359025-3716716774_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359026-3702941072_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359030-592751120_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359032-3785612000_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359035-33497474_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359052-2509697207_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359147-3168530654_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359153-3036620516_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359186-1197609902_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359191-3524442239_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359195-1550146206_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359197-2823099935_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359199-3073069913_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359202-1807816538_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359149-2515128794_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831761/blog/acikacik/1505359022-2561608245_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831759/blog/acikacik/1505359022-283301713_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831761/blog/acikacik/1505359025-3716716774_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831760/blog/acikacik/1505359026-3702941072_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831770/blog/acikacik/1505359030-592751120_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831769/blog/acikacik/1505359032-3785612000_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831768/blog/acikacik/1505359035-33497474_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831768/blog/acikacik/1505359052-2509697207_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831769/blog/acikacik/1505359147-3168530654_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831770/blog/acikacik/1505359153-3036620516_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831770/blog/acikacik/1505359186-1197609902_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831769/blog/acikacik/1505359191-3524442239_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831769/blog/acikacik/1505359195-1550146206_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831769/blog/acikacik/1505359197-2823099935_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359199-3073069913_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831773/blog/acikacik/1505359202-1807816538_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359149-2515128794_l.jpg)
 餐桌的對面是一個開放式的大理石料理中島區，水龍頭一開水花飛散、水量相當的大，可以洗滌現切水果或是蛋糕小點心，來個美好的午茶時光，在吧台區的左手邊有個櫥櫃，原來是隱藏著冰箱的MINI BAR，從外觀看不出來是櫥櫃，打開來別有洞天、迷你酒吧、膠囊咖啡機還有三顆咖啡球、一組中國風的茶壺、兩瓶礦泉水、晚上還會補上兩瓶礦泉水不用擔心水不夠喝，其他都是自行加價享用的。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359022-1508804601_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359029-741483200_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359035-415803442_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359036-3513959965_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359042-4196388262_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359041-3156381600_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359046-2494334080_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359065-4175896356_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359079-70676521_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359202-107870049_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359056-2781544218_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359022-1508804601_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359029-741483200_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359035-415803442_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359036-3513959965_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359042-4196388262_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359041-3156381600_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831772/blog/acikacik/1505359046-2494334080_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831776/blog/acikacik/1505359065-4175896356_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831775/blog/acikacik/1505359079-70676521_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831778/blog/acikacik/1505359202-107870049_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831776/blog/acikacik/1505359056-2781544218_l.jpg)
 在吧檯區的轉角有個不小的步入式更衣儲藏室，可以將一周用量的衣物擺放進去都綽綽有餘，在開放式衣櫃裡擺放了兩件薄款的浴袍、超大的置物空間就算是躺一個人在裡面，可能都沒人會發現，還有大型的電子保險箱(有點深度)、在夾縫中有熨斗、熨衣板還有三把雨傘，盡可能買足所有旅人的需要，就算是長時間居住、可以輕鬆的放置幾個大型的行李箱，下方還可以平放和服或是大型西裝的空間。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359047-716247144_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359049-2531114440_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359208-3398250803_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359210-2351513432_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359211-2809523218_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359211-1480313080_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359214-1236211803_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359220-3740403417_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359223-781483_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359223-276089624_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359223-174825091_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359224-3433306317_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359228-2310956498_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359229-2850809260_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831775/blog/acikacik/1505359047-716247144_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831776/blog/acikacik/1505359049-2531114440_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831776/blog/acikacik/1505359208-3398250803_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831775/blog/acikacik/1505359210-2351513432_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831775/blog/acikacik/1505359211-2809523218_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831776/blog/acikacik/1505359211-1480313080_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831780/blog/acikacik/1505359214-1236211803_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831780/blog/acikacik/1505359220-3740403417_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831783/blog/acikacik/1505359223-781483_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831781/blog/acikacik/1505359223-276089624_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831781/blog/acikacik/1505359223-174825091_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831781/blog/acikacik/1505359224-3433306317_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831780/blog/acikacik/1505359228-2310956498_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831780/blog/acikacik/1505359229-2850809260_l.jpg)
 **臥室區**
 臥室與浴室區，這個套房是可以住到三個人的，我猜第三個人應該是睡沙發、或是貴妃椅，這兩個地方其實都很容易躺著躺著就睡著，床型與整體空間都採用簡約的設計，寢具、枕頭、被子睡起來都相當有質感、有點偏硬的觸感整晚都能舒適入眠的床鋪、床頭的兩側有萬用電源插座、以滿足旅人充電的需要、在床上就可以俯瞰壯觀的海景，晚上趁著入睡將手機開縮時攝影，一邊將日出景色收藏起來、一邊被晨間的太陽喚醒，太陽讓AC 的褪黑激素完全消失了(失眠)~ ="=，每天房務人員會來房間兩次、一次是例行打掃、另一次是開床服務，除了整理打掃也會順便補充備品，第二天因為吃完早餐有點睏、兩隻熊就睡著了還麻煩房務人員晚兩個小時再來，他們也是面帶笑容的答應了。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359022-393033525_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359186-1197609902_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359203-3841286839_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359234-4060900200_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359243-4183845221_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359249-1022759662_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359249-2276912488_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359251-3996460288_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359253-1707012538_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359256-361736605_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359256-1894271646_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359259-4144242820_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359259-1936264777_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359259-661576449_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359262-457057972_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359262-2009351786_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359265-1690629192_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359272-2620903214_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359275-1210293110_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359276-2636792508_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359293-2500820856_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359298-983919665_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359298-3957448885_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831780/blog/acikacik/1505359022-393033525_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831770/blog/acikacik/1505359186-1197609902_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831781/blog/acikacik/1505359203-3841286839_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831785/blog/acikacik/1505359234-4060900200_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831786/blog/acikacik/1505359243-4183845221_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831786/blog/acikacik/1505359249-1022759662_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831785/blog/acikacik/1505359249-2276912488_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831787/blog/acikacik/1505359251-3996460288_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831799/blog/acikacik/1505359253-1707012538_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831787/blog/acikacik/1505359256-361736605_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831793/blog/acikacik/1505359256-1894271646_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831787/blog/acikacik/1505359259-4144242820_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831786/blog/acikacik/1505359259-1936264777_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359259-661576449_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831803/blog/acikacik/1505359262-457057972_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359262-2009351786_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359265-1690629192_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359272-2620903214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831802/blog/acikacik/1505359275-1210293110_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359276-2636792508_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359293-2500820856_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359298-983919665_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831802/blog/acikacik/1505359298-3957448885_l.jpg)
 **沐浴在美景中**
 床的後面就是衛浴空間，用透明的玻璃隔間，使用雨林式大水量淋浴、浴洗時也可以看到窗外美麗的海景，讓AC 不管做什麼都好放鬆、好舒服，浴室的空間很大、感覺像是高級桑拿的大理石浴室、又像在古代希臘宮廷裡面洗澡，連洗手檯都是黃玉的質感(該不會是真的)、附上吹風機以及浴洗備品、還有一個成年人身高一樣大的超大毛巾、用來擦身體速乾、或是早上有點冷拿來當小毯子蓋都可以了。<<點我看房價>>
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359320-1067082533_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359325-3697415262_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359328-5958375_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359335-1430804599_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359335-1773527183_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359336-1908650234_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359336-2192370008_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359341-1417562325_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359347-1864111467_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359350-2545455101_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359353-3698078976_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359360-2815829839_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359368-2863769423_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359369-120934265_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359374-1306426911_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359376-1557296367_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359381-3044786671_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359382-2383119857_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359384-2003681594_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359389-1941631261_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359392-1302707063_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359393-4242229120_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359395-3970773480_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359395-4251995901_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831806/blog/acikacik/1505359320-1067082533_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831804/blog/acikacik/1505359325-3697415262_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831805/blog/acikacik/1505359328-5958375_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831806/blog/acikacik/1505359335-1430804599_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831806/blog/acikacik/1505359335-1773527183_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831804/blog/acikacik/1505359336-1908650234_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831804/blog/acikacik/1505359336-2192370008_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831806/blog/acikacik/1505359341-1417562325_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831804/blog/acikacik/1505359347-1864111467_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831804/blog/acikacik/1505359350-2545455101_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831808/blog/acikacik/1505359353-3698078976_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831808/blog/acikacik/1505359360-2815829839_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831808/blog/acikacik/1505359368-2863769423_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831809/blog/acikacik/1505359369-120934265_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831809/blog/acikacik/1505359374-1306426911_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831808/blog/acikacik/1505359376-1557296367_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831810/blog/acikacik/1505359381-3044786671_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831809/blog/acikacik/1505359382-2383119857_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831809/blog/acikacik/1505359384-2003681594_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831808/blog/acikacik/1505359389-1941631261_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831811/blog/acikacik/1505359392-1302707063_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831814/blog/acikacik/1505359393-4242229120_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831812/blog/acikacik/1505359395-3970773480_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831811/blog/acikacik/1505359395-4251995901_l.jpg)
 浴缸真的非常的大、可以坐進去兩個高大的成年人，橢圓形的浴缸質感也很好，一旁還有音控的按鈕，可以撥放樂音的音量，雖然要把水注滿需要一段時間，當水漫過肚臍的時候，AC 已經滿足到在浴缸裡面浮起來了，這根本是個小泳池吧~ XD <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505359321-3863149668_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359337-3974116928_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359353-3783503710_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359355-1713808981_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359361-1191394097_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359367-2769214125_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359386-708817257_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359388-1910908834_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359399-303750480_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359402-15556262_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831813/blog/acikacik/1505359321-3863149668_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831811/blog/acikacik/1505359337-3974116928_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831813/blog/acikacik/1505359353-3783503710_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831812/blog/acikacik/1505359355-1713808981_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831811/blog/acikacik/1505359361-1191394097_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831811/blog/acikacik/1505359367-2769214125_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831815/blog/acikacik/1505359386-708817257_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831816/blog/acikacik/1505359388-1910908834_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831815/blog/acikacik/1505359399-303750480_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831816/blog/acikacik/1505359402-15556262_l.jpg)
 「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」浴室的備品用的滿好的、其中AC 最喜歡的是手工皂、幾乎處處都能看到這個帶點奶味的手工皂、可以洗澡、可以洗手一皂多用，沐浴用品是 PHARMACOPIA、PHARMACOPIA 所有原料都來自有機農場"made with organic Aloe Vera" 、庫拉索蘆薈，使用月桂醇、椰油、油橄欖果油、月桂、燕麥氨基酸鈉、葡萄籽油、石榴果提取物、庫拉索蘆薈，溫和含有維他命E，讓皮膚保水，瓶身有種高雅的質感，味道很香。  
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359328-2682275281_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359379-2427705879_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359405-3529002237_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359407-3422529500_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831819/blog/acikacik/1505359328-2682275281_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831815/blog/acikacik/1505359379-2427705879_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831817/blog/acikacik/1505359405-3529002237_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831815/blog/acikacik/1505359407-3422529500_l.jpg)
 **懶骨頭陽台**
 房間裏外有點溫差，不過戶外不是那種濕濕黏黏的熱，反而有點微風的海風吹拂，客廳區延伸到餐廳有個大陽台，備有一組戶外用的餐桌椅，可以打電話叫外送餐點到房間裡享用，還有一個類似床鋪一般大的罩式圓形藤椅床墊，可以兩個人窩在裡面喝著香檳吹著海風，在傍晚黑暗來臨前，飽覽美麗的東海Cham Islands海灣景緻，房間前面是個小陽台有個沙灘躺椅，如果有朋友來拜訪，有很多可以看海的地方，海岸線上從清晨到日暮隨時都有人在海裡浮沉，或是三三兩兩的結伴走來走去，所以隨時都能感受到歡樂的氣氛，度假村很適合熱戀中或是想要二度熱戀的情人來浪漫一下，或是跟父母小孩一起享受天倫之樂，真是個處處充滿歡笑的地方。 <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505359125-1594231364_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359130-1828810086_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359133-2109680780_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359137-2985663412_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359137-2193542638_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359175-3287768570_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359317-4225212289_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359318-40785828_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831816/blog/acikacik/1505359125-1594231364_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831816/blog/acikacik/1505359130-1828810086_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831821/blog/acikacik/1505359133-2109680780_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831822/blog/acikacik/1505359137-2985663412_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831822/blog/acikacik/1505359137-2193542638_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831749/blog/acikacik/1505359175-3287768570_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831821/blog/acikacik/1505359317-4225212289_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831822/blog/acikacik/1505359318-40785828_l.jpg)
 飯店有特別標明不能在戶外曬衣服，可能是不希望破壞建築的美感，不過還是可以看到有些人把泳衣曬在陽台上，如果是很濕的泳衣有個方法可以快點乾，就是將泳衣用浴巾包起來，將水吸乾、晚上放下去白天應該就會乾了。
-![](https://pic.pimg.tw/acikacik/1505359243-3438359062_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359244-1902059140_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359267-206594342_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359272-2620903214_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359280-1514578445_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359321-3004317548_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831821/blog/acikacik/1505359243-3438359062_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831822/blog/acikacik/1505359244-1902059140_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831821/blog/acikacik/1505359267-206594342_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831801/blog/acikacik/1505359272-2620903214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831827/blog/acikacik/1505359280-1514578445_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831821/blog/acikacik/1505359321-3004317548_l.jpg)
 **不可思議的美景**
 愜意的海水嘩嘩的拍打、如春風輕拔琴弦，如暮花飄落柔波，海浪就像是一次次地擁抱著AC ，沙灘淺淺的、感覺已經走了很多步、似乎海還沒有掩蓋到腰際、在泡沫裡就像是水上樂園裡玩人造巨浪般的感覺，不過這裡的浪小的多，海水也很乾淨，沙子是微黃色的一望無際的海灣、有著像麵粉一般的沙子，看著那水天相接的一片藍色，真是讓人心曠神怡呀，海景搭配雲朵就像抽象畫一樣、「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」的海灘有650公尺的私人沙灘，在這個如詩如畫的地方也是個很好拍照的地方，峴港的海岸線也是全世界六大沙灘之一，綿延的幼細淡黃白紗在陽光的照射下、彷彿置身在天堂一般讓AC 呆站在海邊好一陣子，很想多待幾天、這超凡脫俗的寧靜之海又沒有過度的開發，保持了乾淨與安靜，雖然現在是旺季但是「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」有足夠大的空間，可以讓每個旅人保持足夠悠閒的度假空間，保持超脫迷人的沉靜質感。
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359614-3585999428_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359616-4081145345_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359615-3417327958_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359617-79182412_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359620-3887333670_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359620-3001060351_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359623-2934093768_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359623-3766031709_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359624-3259876214_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359626-910762244_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359626-2825577418_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359630-939187782_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359631-2697017721_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359632-2336606832_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359633-1093302865_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359637-2904919601_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359637-2261481337_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359639-153715252_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359643-3079221796_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359644-1475396161_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359645-3987410640_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359647-3824129359_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359653-4159795794_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359656-2705884915_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359657-67727342_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359661-954772210_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359661-3219568112_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359667-1003521002_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359668-1276150579_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359672-842424915_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359677-1880489765_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359683-1426238612_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831829/blog/acikacik/1505359614-3585999428_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831830/blog/acikacik/1505359616-4081145345_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831831/blog/acikacik/1505359615-3417327958_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831831/blog/acikacik/1505359617-79182412_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831830/blog/acikacik/1505359620-3887333670_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831831/blog/acikacik/1505359620-3001060351_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831830/blog/acikacik/1505359623-2934093768_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831833/blog/acikacik/1505359623-3766031709_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831830/blog/acikacik/1505359624-3259876214_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831830/blog/acikacik/1505359626-910762244_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831835/blog/acikacik/1505359626-2825577418_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831835/blog/acikacik/1505359630-939187782_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831835/blog/acikacik/1505359631-2697017721_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831836/blog/acikacik/1505359632-2336606832_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831835/blog/acikacik/1505359633-1093302865_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831838/blog/acikacik/1505359637-2904919601_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831836/blog/acikacik/1505359637-2261481337_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831835/blog/acikacik/1505359639-153715252_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831841/blog/acikacik/1505359643-3079221796_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831837/blog/acikacik/1505359644-1475396161_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831843/blog/acikacik/1505359645-3987410640_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831844/blog/acikacik/1505359647-3824129359_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831846/blog/acikacik/1505359653-4159795794_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831844/blog/acikacik/1505359656-2705884915_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831844/blog/acikacik/1505359657-67727342_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831842/blog/acikacik/1505359661-954772210_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831844/blog/acikacik/1505359661-3219568112_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831843/blog/acikacik/1505359667-1003521002_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831845/blog/acikacik/1505359668-1276150579_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831850/blog/acikacik/1505359672-842424915_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831853/blog/acikacik/1505359677-1880489765_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831852/blog/acikacik/1505359683-1426238612_l.jpg)
 **池畔的百態**
 AC 常常把度假跟渡假搞混，其實度假比較是像把時間的度過了、而渡假包含了遊覽與體驗的意思，度假村最棒的就是有很多泳池可以玩水，通常不會有多長的泳池來長泳，不過在泳池的附近可以看到許多住客自己帶來的水中玩具，包含飄飄河用的造型泳圈，最引人注意的是大型白天鵝泳圈可以當作小船漂在水面上，還有可以載小朋友的小車車氣球，大人可以輕輕的扶著泳圈在水中行走，「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」的室外泳池就有五個，AC 光是用三天兩夜根本不夠玩，這個度假村至少要四天三夜才能每個地方都走遍玩遍，不然就是多來幾次，泳池旁運用滿滿的熱帶植物妝點，在椰子樹與雞蛋花的造景中穿梭，主泳池綿延串聯兩個深淺不一的泳池，中間有個像是飄飄河的小徑、穿過幾個造型拱橋後就可以游到另一個泳池了，還有貼心的溜滑梯可以給旅人體驗，AC 厚著臉皮爬上了溜滑梯，上面並沒有人管理，AC 縱身溜下來，溜滑梯的長度其實比想像的時間還要長，就算是衝到水中還沒心理準備，所以稍微嗆到了，如果再年輕個幾十年應該是會玩個十多次都不嫌累的吧~ XD
 <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505359806-2310453960_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359806-233433582_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359805-485514188_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359811-459667945_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359814-962498591_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359814-719435101_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359815-2378534605_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359820-2313541614_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359820-195028407_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359822-4121819600_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359829-3240256760_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359831-4271682453_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359838-2786851662_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359840-1152128704_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359842-2947229127_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359844-927102470_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359848-1660236833_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359853-2978758588_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359852-1583230633_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359852-3872203844_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359852-2459538260_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359860-4081241440_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359863-1506501897_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359872-2010497316_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359875-1801306348_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359875-933721094_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359889-1491458231_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359890-438779001_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359890-309627468_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359908-4248820941_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359908-2297530382_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359909-636418893_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359910-3314342150_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359913-4046636750_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359923-3532570700_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359929-2875658039_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359932-3204242153_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359931-3649347227_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359934-2566312075_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359940-751067206_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359941-3552247396_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359943-163539962_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359947-581072321_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359947-4017751869_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359955-322641942_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359958-426627439_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359955-4095575486_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359958-2478288132_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359965-3990840506_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359967-1989225890_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359970-1214460692_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831854/blog/acikacik/1505359806-2310453960_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831853/blog/acikacik/1505359806-233433582_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831854/blog/acikacik/1505359805-485514188_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831854/blog/acikacik/1505359811-459667945_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831854/blog/acikacik/1505359814-962498591_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831855/blog/acikacik/1505359814-719435101_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831852/blog/acikacik/1505359815-2378534605_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831854/blog/acikacik/1505359820-2313541614_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359820-195028407_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831858/blog/acikacik/1505359822-4121819600_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359829-3240256760_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831858/blog/acikacik/1505359831-4271682453_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831857/blog/acikacik/1505359838-2786851662_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359840-1152128704_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359842-2947229127_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831857/blog/acikacik/1505359844-927102470_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359848-1660236833_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831859/blog/acikacik/1505359853-2978758588_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831865/blog/acikacik/1505359852-1583230633_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831864/blog/acikacik/1505359852-3872203844_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831865/blog/acikacik/1505359852-2459538260_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831865/blog/acikacik/1505359860-4081241440_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831864/blog/acikacik/1505359863-1506501897_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831865/blog/acikacik/1505359872-2010497316_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831869/blog/acikacik/1505359875-1801306348_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831864/blog/acikacik/1505359875-933721094_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831864/blog/acikacik/1505359889-1491458231_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831879/blog/acikacik/1505359890-438779001_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831884/blog/acikacik/1505359890-309627468_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831884/blog/acikacik/1505359908-4248820941_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831882/blog/acikacik/1505359908-2297530382_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831891/blog/acikacik/1505359909-636418893_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831882/blog/acikacik/1505359910-3314342150_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831890/blog/acikacik/1505359913-4046636750_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831883/blog/acikacik/1505359923-3532570700_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831896/blog/acikacik/1505359929-2875658039_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831884/blog/acikacik/1505359932-3204242153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831885/blog/acikacik/1505359931-3649347227_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831900/blog/acikacik/1505359934-2566312075_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831899/blog/acikacik/1505359940-751067206_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831901/blog/acikacik/1505359941-3552247396_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831901/blog/acikacik/1505359943-163539962_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831903/blog/acikacik/1505359947-581072321_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831899/blog/acikacik/1505359947-4017751869_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831902/blog/acikacik/1505359955-322641942_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831906/blog/acikacik/1505359958-426627439_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831903/blog/acikacik/1505359955-4095575486_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831901/blog/acikacik/1505359958-2478288132_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831908/blog/acikacik/1505359965-3990840506_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831910/blog/acikacik/1505359967-1989225890_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831926/blog/acikacik/1505359970-1214460692_l.jpg)
 **滿足各種旅行的需要**
 除了主泳池、行政樓層還有專屬的嘉賓軒私人泳池(竟然是AC 回家寫稿、才發現有這個泳池 ="= 遺珠)，還有SPA健身房專屬的競技泳池，還有一個區域主要是韓國人以及家庭客居住、旁邊還有小朋友的托兒所，這個區域是有電梯式的公寓型區域，有沙灘排球還有攀岩設備、為度假長期住客提供一系列的戶外活動，這裡也有一個闔家同歡的大泳池，韓國人真的很多、AC 發現整個峴港幾乎都被韓國人包下來了一樣，處處都能看到韓國廣告、韓國便利商店、還有韓國人歐巴、歐巴的呼喊聲。
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359981-979503445_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359981-1040750768_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359987-3486754271_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359988-3095845806_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359991-3477015157_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359994-3007137081_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359994-3017109732_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359997-2513202565_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359997-286153107_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360000-1717344725_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360002-472364335_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360006-711854500_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831908/blog/acikacik/1505359981-979503445_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831909/blog/acikacik/1505359981-1040750768_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831909/blog/acikacik/1505359987-3486754271_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831910/blog/acikacik/1505359988-3095845806_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831912/blog/acikacik/1505359991-3477015157_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831911/blog/acikacik/1505359994-3007137081_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831909/blog/acikacik/1505359994-3017109732_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831928/blog/acikacik/1505359997-2513202565_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831932/blog/acikacik/1505359997-286153107_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831932/blog/acikacik/1505360000-1717344725_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831931/blog/acikacik/1505360002-472364335_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831937/blog/acikacik/1505360006-711854500_l.jpg)
 度假村有健身房，可以跑步和重量訓練，還有冷水池，熱水浴缸，蒸汽浴室和桑拿浴室。度假村還各種娛樂活動，包括戶外瑜伽館，慢跑路線。<<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505358953-1243248543_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831931/blog/acikacik/1505358953-1243248543_l.jpg)
 **食在好吃(嘉賓軒)**
 「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」  
 採取 24 小時禮賓服務，從一大早的早餐到晚上雞尾酒時段都有美味的食物無限量的供應，美麗的禮賓人員穿著奧黛，將長頭髮盤上髮髻，婀娜多姿的身影、在此要特別感謝 Natalie le(李美玉)體貼的照顧，還用簡單的中文與我們閒談、招呼著AC 兩隻熊用餐，因為AC 是凱悅集團的探索者 (Explorist) 會員每年另外可獲得 4 張「嘉賓軒」行政樓層使用權兌換卷，入住的時候可以進入嘉賓軒享用歐陸式早餐和晚間開胃小點，光是這個會員福利就可以省下一筆不小的用餐開銷。
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359408-1650174183_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359410-2274530709_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359417-1004433158_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359428-638820227_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359440-1457319536_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359459-2734220264_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359487-4126857872_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359488-1877359014_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359490-396675686_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359499-2935114267_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359524-806793700_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831931/blog/acikacik/1505359408-1650174183_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831932/blog/acikacik/1505359410-2274530709_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831931/blog/acikacik/1505359417-1004433158_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831930/blog/acikacik/1505359428-638820227_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359440-1457319536_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359459-2734220264_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831949/blog/acikacik/1505359487-4126857872_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831941/blog/acikacik/1505359488-1877359014_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359490-396675686_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359499-2935114267_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359524-806793700_l.jpg)
 每天的雞尾酒時段都是AC 非常期待的時間，其實五點半就開始了美食，總是拖拖拉拉的等到六點半才下樓用餐，兩天的菜色都有做調整更換、不但美味好吃還能品嘗到不太一樣的當地特色料理，不時會有禮賓人員拿出一次性的主廚餐點，第一天是美味的香酥炸雞、第二天是醬燒豬肋排，然後在自助半自助的挑選自己喜歡吃的餐點，AC 最喜歡的是吃肉，還有體驗一下當地越南的特色傳統料理，用粽子葉做成的一些小食糕點，還有軟趴趴的越南春捲，搭配當地特有的辣椒醬、口感跟口味都很豐富，吃完整個胃口大開，越南的甜辣醬吃過令人驚艷，在BIG C 購物商場還差點買回來，後來兩隻熊提醒我桃園後街不是很多賣越南食品的雜貨店，想吃去那裏買就好，說的也是~ XD
-![](https://pic.pimg.tw/acikacik/1505359411-194602270_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359413-3737712342_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359419-4137668842_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359421-2005205879_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359421-1590894983_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359429-2173426937_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359431-1845533035_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359433-814035478_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359434-1287271153_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359436-4066651565_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359440-297273945_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359446-4088126895_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359460-2104916495_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359461-3810487438_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359462-1980990734_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359462-1700099405_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359468-3102003901_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359472-1103724454_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359473-2105216390_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359475-2092710729_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359475-489772899_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359481-852292248_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359482-159895734_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359483-1258398457_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359509-97592372_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359514-2510625771_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359521-2366409736_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831940/blog/acikacik/1505359411-194602270_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831941/blog/acikacik/1505359413-3737712342_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831941/blog/acikacik/1505359419-4137668842_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831953/blog/acikacik/1505359421-2005205879_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831951/blog/acikacik/1505359421-1590894983_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831951/blog/acikacik/1505359429-2173426937_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831953/blog/acikacik/1505359431-1845533035_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831952/blog/acikacik/1505359433-814035478_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831953/blog/acikacik/1505359434-1287271153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831958/blog/acikacik/1505359436-4066651565_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831953/blog/acikacik/1505359440-297273945_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831955/blog/acikacik/1505359446-4088126895_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831951/blog/acikacik/1505359460-2104916495_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831961/blog/acikacik/1505359461-3810487438_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831979/blog/acikacik/1505359462-1980990734_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831959/blog/acikacik/1505359462-1700099405_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831960/blog/acikacik/1505359468-3102003901_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831975/blog/acikacik/1505359472-1103724454_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831962/blog/acikacik/1505359473-2105216390_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831963/blog/acikacik/1505359475-2092710729_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831963/blog/acikacik/1505359475-489772899_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831961/blog/acikacik/1505359481-852292248_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831963/blog/acikacik/1505359482-159895734_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831982/blog/acikacik/1505359483-1258398457_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831983/blog/acikacik/1505359509-97592372_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831981/blog/acikacik/1505359514-2510625771_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831982/blog/acikacik/1505359521-2366409736_l.jpg)
 俱樂部在晚上5:30 ~ 7:30可以享用免費的酒精飲料，AC 點了兩杯法國香檳，搭配美味的食物特別好喝，心情非常放鬆地享受美食，在這裡的每一分鐘都覺得愉快的時間過得太快，小卷料理很新鮮蠻好吃的，快拿光的菜色也會一直補，每個人都是吃到心滿意足才離開，離開的時候還順手把沒有喝完的氣泡水帶走，回到房間裡享用，通常度假村式的連鎖酒店是沒有包含餐飲的、有的訂房會包含早餐，但是通常午餐晚餐需要自理，加入忠誠的會員有佐餐的酒品還有豐盛的菜餚、還有什麼更令人滿足的呢。 <<點我看房價>>
-![](https://pic.pimg.tw/acikacik/1505359419-1564932317_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359422-1005606535_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359426-4211723426_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359426-3181374999_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359448-305136449_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359475-187734179_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359493-769491457_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359499-635648579_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359520-432880417_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359519-3097815057_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359523-1103624233_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831984/blog/acikacik/1505359419-1564932317_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831982/blog/acikacik/1505359422-1005606535_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831985/blog/acikacik/1505359426-4211723426_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831982/blog/acikacik/1505359426-3181374999_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831986/blog/acikacik/1505359448-305136449_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831983/blog/acikacik/1505359475-187734179_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831990/blog/acikacik/1505359493-769491457_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831988/blog/acikacik/1505359499-635648579_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831994/blog/acikacik/1505359520-432880417_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831989/blog/acikacik/1505359519-3097815057_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831990/blog/acikacik/1505359523-1103624233_l.jpg)
 當然還是有很多值得體驗的好吃餐廳，如果覺得想換換口味，「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」也有餐廳及酒吧可以選擇，"Green House"是越南菜跟西餐餐廳，"Pool House"餐廳開放式的餐廳空間戶外還有紅燈籠裝飾，可以點一些國際美食享用，"Beach House"是越南菜餐廳還有西式燒烤可以享用，"Baguette 烘焙坊" 可以買麵包、一些熟食在內用或是外帶回房間享用。
 >>訂房現折750元<<
 <下面這一張晚間的餐廳照片是官網照片>
-![](https://pic.pimg.tw/acikacik/1505358953-1549706419_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359828-2024914184_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359864-2189286440_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359865-3925416162_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359892-491072391_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831989/blog/acikacik/1505358953-1549706419_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831994/blog/acikacik/1505359828-2024914184_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831989/blog/acikacik/1505359864-2189286440_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831989/blog/acikacik/1505359865-3925416162_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831998/blog/acikacik/1505359892-491072391_l.jpg)
 **撞球檯與體育賽事**
 "Terrasse"在大廳接待處的後方，提供客人玩撞球或觀看體育賽事、電影或新聞節目、紙牌遊戲的地方、也有餐食服務。
-![](https://pic.pimg.tw/acikacik/1505359607-1893300742_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359608-3996492977_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359614-613843811_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832000/blog/acikacik/1505359607-1893300742_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832001/blog/acikacik/1505359608-3996492977_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832001/blog/acikacik/1505359614-613843811_l.jpg)
 **早起吃早餐**
 AC 特別早起吃早餐，「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」嘉賓軒的早餐也是相當的豐富，除了一些燕麥穀物、麵包類的選擇真的相當的多，甜的鹹的肉桂的都有，還有看起來像是台灣的雙胞胎甜甜圈的甜麵包，寫到這裡我就餓了，早餐有四種蛋類的選擇、越南的煎蛋淋上醬油真的好吃，不但是有蛋香、那醬油香醇夠味，還有兩隻熊自己用百香果加蜂蜜特調的氣泡飲料，畫龍點睛的是蜂蜜的口感是顆粒狀的，紮紮實實的純蜂蜜讓AC 喝個不停，水果也有很多選擇、最喜歡的是哈密瓜、蠻甜的，在國外吃水果就開始想念台灣的水果，真是香又甜呀~ >_< ，生菜沙拉的食材處裡的都很乾淨大塊，平時經常吃外食拉肚子的兩隻熊、都能保持腸胃道的舒服，還有類似燒餅油條、腸粉之類的菜色，每個人必點的就是越南河粉、有十二種料可以加進去，那湯頭之清甜、到現在還念念不忘，還有三種現打的果汁、所以柳橙汁還蠻酸的，不過純天然，肉腸也是健康水煮的，薯塊跟煎培根、水煮蛋、炒青菜，滿足各種口味的喜好，冰箱裏面還有一些煙燻鮭魚跟火腿，AC 盡量不吃生食，所以無福體驗，炒飯、還有燉肉搭配鹹蛋稀飯肉燥，這樣輕輕鬆鬆就可以飽到下午了，牛奶跟豆漿都很香濃耶，AC 個人偏好濃的口感，優格、韓國牌養樂多、還有汽水類，琳瑯滿目的選擇、吃飽了坐一下又開動，真的是養豬計畫呀~ XD
-![](https://pic.pimg.tw/acikacik/1505359684-3954216672_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359684-3078199673_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359685-289300040_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359686-3271103388_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359699-3451511917_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359699-3210714140_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359700-2165605803_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359700-1294564419_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359711-1725550591_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359709-3330430153_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359712-2114805376_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359714-973026932_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359713-4262209688_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359720-4149925674_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359718-1726749616_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359723-90283429_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359725-1650025964_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359726-3558723209_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359733-3595006138_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359737-2175816112_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359737-2932910377_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359737-2799773673_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359740-650628930_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359748-3895315668_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359750-914383321_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359751-3306665783_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359752-685206588_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359751-2195557257_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359752-3109123481_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359757-1648212474_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359759-10878583_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359770-4253330938_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359770-3512199626_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359773-1146976270_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359776-2226433947_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359778-3957794680_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359780-3340417751_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359783-1409229986_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359788-1997869249_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359789-1956711918_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359789-943978042_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359795-1977139141_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359802-3718407660_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832002/blog/acikacik/1505359684-3954216672_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832002/blog/acikacik/1505359684-3078199673_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832002/blog/acikacik/1505359685-289300040_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832002/blog/acikacik/1505359686-3271103388_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832003/blog/acikacik/1505359699-3451511917_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832001/blog/acikacik/1505359699-3210714140_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832012/blog/acikacik/1505359700-2165605803_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832022/blog/acikacik/1505359700-1294564419_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832021/blog/acikacik/1505359711-1725550591_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832015/blog/acikacik/1505359709-3330430153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832017/blog/acikacik/1505359712-2114805376_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832026/blog/acikacik/1505359714-973026932_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832016/blog/acikacik/1505359713-4262209688_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832017/blog/acikacik/1505359720-4149925674_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832017/blog/acikacik/1505359718-1726749616_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832018/blog/acikacik/1505359723-90283429_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832016/blog/acikacik/1505359725-1650025964_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832029/blog/acikacik/1505359726-3558723209_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832027/blog/acikacik/1505359733-3595006138_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832028/blog/acikacik/1505359737-2175816112_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832029/blog/acikacik/1505359737-2932910377_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832034/blog/acikacik/1505359737-2799773673_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832029/blog/acikacik/1505359740-650628930_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832032/blog/acikacik/1505359748-3895315668_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832031/blog/acikacik/1505359750-914383321_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832040/blog/acikacik/1505359751-3306665783_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832028/blog/acikacik/1505359752-685206588_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832043/blog/acikacik/1505359751-2195557257_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832043/blog/acikacik/1505359752-3109123481_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832044/blog/acikacik/1505359757-1648212474_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832045/blog/acikacik/1505359759-10878583_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832045/blog/acikacik/1505359770-4253330938_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832045/blog/acikacik/1505359770-3512199626_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832046/blog/acikacik/1505359773-1146976270_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832053/blog/acikacik/1505359776-2226433947_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832044/blog/acikacik/1505359778-3957794680_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832045/blog/acikacik/1505359780-3340417751_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832057/blog/acikacik/1505359783-1409229986_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832058/blog/acikacik/1505359788-1997869249_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832059/blog/acikacik/1505359789-1956711918_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832056/blog/acikacik/1505359789-943978042_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832057/blog/acikacik/1505359795-1977139141_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832058/blog/acikacik/1505359802-3718407660_l.jpg)
 **SPA**
 「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」還有一個"世界級的 VIE 水療中心"，VIE Spa 有全身按摩和美容護理，如果玩個兩天有點累、好好的休息保養一下，又可以玩個痛快了。<<點我看房價>>
 >>訂房現折750元<<
 <以下這張照片是官網照片>
-![](https://pic.pimg.tw/acikacik/1505358953-3724695950_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832057/blog/acikacik/1505358953-3724695950_l.jpg)
 **值得推薦**
 「峴港凱悅Spa度假酒店 Hyatt Regency Danang Resort and Spa」是運用越南的元素、添加當代設計的潤飾，運用原木的氣息，還有精細工匠製作的陶瓷藝品及茶具、表現出有東方之珠氣息的度假村，在亞洲可以不用花費太多錢就可以住到五星級的度假村，在第三方網站上面也會不定時的有特價，如果是像AC 一樣加入凱悅集團會員，用點數換飯店，更是便宜到爆炸，CP 值瞬間破表了，每天在萬里無雲的天空下吹拂著海風，泡在泳池裡陰影下涼涼的躲太陽，或是坐在沙灘上被海輕撫沖刷，那迷幻美麗的度假時光，就算是回到台灣還是非常的回味，在峴港凱悅既安靜又私密，禮賓人員的親和力與善良讓AC 印象深刻，每次AC 需要幫助，或是有任何需要都能貼心的問候並且友善的提供幫助，這次是個心滿意足物超所值的體驗。
-![](https://pic.pimg.tw/acikacik/1505359281-2547464941_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359283-3978357708_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359288-218299773_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359291-3500343961_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359291-2304016331_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359291-1719313566_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359291-2875438873_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359306-713410145_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359310-20201153_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359311-556376525_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505359313-2375369295_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360007-2565288111_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360007-2065526051_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360008-2485077524_l.jpg)
-![](https://pic.pimg.tw/acikacik/1505360010-2256177807_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832056/blog/acikacik/1505359281-2547464941_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832057/blog/acikacik/1505359283-3978357708_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832057/blog/acikacik/1505359288-218299773_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832065/blog/acikacik/1505359291-3500343961_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832070/blog/acikacik/1505359291-2304016331_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832061/blog/acikacik/1505359291-1719313566_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832061/blog/acikacik/1505359291-2875438873_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832066/blog/acikacik/1505359306-713410145_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832062/blog/acikacik/1505359310-20201153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832062/blog/acikacik/1505359311-556376525_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832062/blog/acikacik/1505359313-2375369295_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832060/blog/acikacik/1505360007-2565288111_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832062/blog/acikacik/1505360007-2065526051_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832074/blog/acikacik/1505360008-2485077524_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832074/blog/acikacik/1505360010-2256177807_l.jpg)
 禮賓人員一直推薦去會安，從酒店到會安大約20分鐘的車程，可惜這次停留的時間太短，還有太多沒來得及體驗的行程，也變成下次再到峴港最好的理由，如何能讓旅程變得難忘? 選擇一個完美的渡假勝地享受峴港凱悅度假村可能是個不錯的選擇~ XD (現在就等不及想再回去了)
 >>訂房現折750元<<
-![](https://pic.pimg.tw/acikacik/1505359761-1624761007_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780832074/blog/acikacik/1505359761-1624761007_l.jpg)
 <<點我看房價>>
 Hyatt Regency Danang Resort and Spa 峴港凱悅Spa度假酒店
 地址： Truong Sa Street, Hoa Hai Ward, Ngu Hanh Son District, Da Nang, 
@@ -516,14 +516,14 @@ Hyatt Regency Danang Resort and Spa 峴港凱悅Spa度假酒店
 「**booking.com 訂房折扣連結、互惠好康道相報!** 」
 相信已經有朋友知道這個回饋，但是 US$25 美金是目前最高的回饋金額，Booking.com 專屬連結、訂房賺取 US$25 回存入信用卡(每人只可用一次*、最多可十位)  
 (因為真的有拿到25美金退款了，所以再來宣傳一下）
-![](https://pic.pimg.tw/acikacik/1509872042-1993969451_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831704/blog/acikacik/1509872042-1993969451_l.jpg)
 收到一個高額的優惠信件，只要親友透過我的專屬連結訂房，總金額超過50美金(相當於一千二台幣)，就可以有 US$25 回饋存入你的信用卡，當然我自己也會收到回饋25美金。  
 .
-![](https://pic.pimg.tw/acikacik/1509872042-4260517212_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831705/blog/acikacik/1509872042-4260517212_l.jpg)
 最近剛好要去旅遊訂房的話，無論去哪個國家都可以利用這個機會省錢吧，每位獲邀朋友只能透過我的連結訂房一  
 次，並領取一次獎金。獲邀朋友一旦領取獎金，即無法再透過其他人寄出的連結獲得獎金，不要分好幾次去訂，可  
 不會有更多優惠喔！
-![](https://pic.pimg.tw/acikacik/1509872042-1019444954_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831705/blog/acikacik/1509872042-1019444954_l.jpg)
 .  
 完成住宿後才會收到獎金，當你辦理退房後，會收到來自Booking.com 的電子郵件，告知領取獎金方式。你必須要有 Booking.com 帳號或立即註冊一個，才能領取獎金。  
 .  
@@ -538,12 +538,12 @@ Booking.com還有訂房五次，可以升等為Genuine等級會員，有專屬�
 訂房優惠連結：  
 https://www.booking.com/s/35_6/hsiens450  
 .
-![](https://pic.pimg.tw/acikacik/1509872042-23948229_l.jpg)
-![](https://pic.pimg.tw/acikacik/1509872042-4042261932_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831706/blog/acikacik/1509872042-23948229_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780831705/blog/acikacik/1509872042-4042261932_l.jpg)
 ★有連結的可以回覆，大家互相省錢★
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-3021104577.jpg)booking 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hotels.com 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
-![](https://pic.pimg.tw/acikacik/1506856416-3231197718.gif)TripAdvisor 比價網
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830193/blog/acikacik/1506856416-3021104577.jpg)booking 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hotels.com 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia**** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-3231197718.gif)TripAdvisor 比價網

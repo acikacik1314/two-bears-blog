@@ -7,62 +7,62 @@ heroImage: '/images/blog/2022-03-26-osner-uv-toothbrush-holder.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5070016850'
 ---
 
-![](https://pic.pimg.tw/acikacik/1648288075-2113041121-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648288075-2113041121-g.jpg)
 最近兩隻熊刷牙太用力偶而會流血，清洗牙刷後總是會擔心是不是沒有洗乾淨，隔天拿起來用還是會仔細看牙刷的細部，但是讓人擔心的細菌不是肉眼可以清楚看見的該怎麼辦呢?
 新聞報導牙刷如果長時間使用所滋生的細菌竟然比馬桶還有多，只要不到三週左右牙刷上就孳生了數千萬的細菌，所以刷牙比親馬桶還髒(="=)ㄟ怎麼會這樣?? 所以買牙刷也變成逛街購物花錢的好藉口，扔掉長時間使用的牙刷彷彿扔掉那些看不見的煩惱一般，但是對於那些日本帶回來，用了很喜歡又很難買到的牙刷心中難免有些不捨，真的要丟還是繼續使用是個抉擇的時機，現在有了【Osner韓國歐紳 Teeclean Family C10智能紫外線消毒牙刷置物架】 終於可以不用取捨了。
-![](https://pic.pimg.tw/acikacik/1648287632-2506514099-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287632-961663119-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648287632-2506514099-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648287632-961663119-g.jpg)
 養成良好的衛生習慣就是要善用科技，運用來自韓國的品牌 OSNER 牙刷消毒置物架，OSNER是 兩隻大熊非常喜歡的韓國小家電品牌，已經連續三年榮獲 Brand Awards 品牌大獎的肯定，Osner 紫外線牙刷消毒器 讓那些肉眼看不見的細菌可以瞬間剷除，比方刮過鬍子再刮身體上的細毛 如果只是水沖一沖是不是也跟我一樣很不放心，殺菌過後心理上就好多了，可以放心的再度使用不會擔心身上過敏起疹子，對於這種潮濕又悶熱的夏季氣候即將來到，日常性的例常消毒殺菌 OSNER 牙刷消毒置物架 讓凌亂的洗手台空間變的乾淨好整理，不再擔心瓶瓶罐罐隨處放掉的到處都是的煩惱，是不是一舉多得的好東西?
-![](https://pic.pimg.tw/acikacik/1648287632-2619266322-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648287632-2619266322-g.jpg)
 **外型真好看**
 白色外型採用ABS材質好看又好清潔，摩登的外型不管任何浴室都可以增添浴室的質感，魔法般的生活智慧王不只是讓生活多一點科技感，更帶來無臭味健康的新生活，兩隻大熊迫不及待的開箱 Osner Teeclean Family C10智能紫外線消毒牙刷置物架，裡面的部件很簡單包含智慧消毒置物架、還有type-C 充電線，並且附帶一組免打孔無痕貼片。
-![](https://pic.pimg.tw/acikacik/1648287634-205260799-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287632-3509033655-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287636-1414415709-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648287634-205260799-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871197/blog/acikacik/1648287632-3509033655-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871197/blog/acikacik/1648287636-1414415709-g.jpg)
 **USB充電大容量電池**
 OSNER 牙刷置物架有內附一顆2200mAH大容量電池，韓國歐紳OSNER_智能牙刷消毒器採用最新5Pin充接線，旁邊是個充電孔，插上5Pin充電線就可以進行充電，Osner 牙刷置物架只要充電六個小時就可以自己工作很長一段時間完全不用充電，對於處女座的泰迪可以免除很大一個煩惱，不用顧慮經常充電為了小事情焦慮，以Osner 牙刷置物架的自動模式使用，35天也就是大概一個多月都會自動殺菌，充一次用一個月都可以完全不用管他，這好東西很實用又有設計感真的是懶人聖品。
-![](https://pic.pimg.tw/acikacik/1648287635-4021535318-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871196/blog/acikacik/1648287635-4021535318-g_l.jpg)
 **這樣就安裝好了**
 現在產品設計越來越厲害了，牆壁不用鑽就可以安裝 OSNER 牙刷消毒置物架了，要安裝的牆面要保持乾燥，而且無痕背膠貼安裝非常簡單，只要撕開無痕被貼的塑膠膜，將無痕背貼大概衡量一下左右高度都差不多就給他黏上去(勇敢的黏上去)，不管是磁磚或是鏡子等牆壁，置物架背面的掛勾只要對準無痕背貼的卡榫處，壓下去卡好就算是固定安裝成功了，不用一分鐘就可以安裝完成是不是很簡單呢? XD
-![](https://pic.pimg.tw/acikacik/1648287632-1437126091-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287637-1178440855-g.jpg)
-![](https://pic.pimg.tw/acikacik/1648287637-2156345198-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871200/blog/acikacik/1648287632-1437126091-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871200/blog/acikacik/1648287637-1178440855-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871200/blog/acikacik/1648287637-2156345198-g_l.jpg)
 **可以手動也可以自動**
 Teeclean Family C10智能紫外線消毒牙刷置物架可以擺著，讓他8小時進行3分鐘"自動"殺菌一次，也可以開啟手動殺菌模式 只要在黑色螢幕的右邊圈圈處電源鍵，用手指按一下就開起了手動殺菌模式，輕觸電源鍵就可以開啟"手動"三分鐘的殺菌一次。
-![](https://pic.pimg.tw/acikacik/1648287640-4229729959-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871199/blog/acikacik/1648287640-4229729959-g_l.jpg)
 **自動排程殺菌不費力**
 LED顯示螢幕會顯示殺菌時間計時器，由於採用24小時自動循環的殺菌模式，無腦消毒殺菌不費力，隨時了解殺菌狀況。
-![](https://pic.pimg.tw/acikacik/1648287639-2897957580-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871200/blog/acikacik/1648287639-2897957580-g_l.jpg)
 **牙刷為何也需要雙重UV殺菌**
 UV-A 燈管的壽命約400個小時，而 Osner 牙刷消毒置物架 使用的 UV-C LED 壽命可以達到1萬個小時，代表使用 UVC 比起 UV 燈管幾乎可以說是半永久使用，不用擔心需要經常更換耗材，沒有一般UV殺菌有水銀的顧慮，牙刷殺菌置物架快速的將牙刷殺菌，自動循環殺菌模式每八小時自動殺菌五分鐘，全天候都可以免除牙刷孳生細菌的困擾，兩隻大熊這兩個月用下來，牙刷殺菌置物架已經變成一個讓人安全又放心的生活必需品，對付那些隱藏在牙刷內部頑抗的細菌就是快速又乾淨。
-![](https://pic.pimg.tw/acikacik/1648287637-1654349214-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871199/blog/acikacik/1648287637-1654349214-g_l.jpg)
 **搭載 20Wm 高亮度晶片**
 20Wm 晶片 殺菌比起一般的 晶片 殺菌力更高讓亮度更強，紫外線殺菌有效殺菌達99.9%，殺菌效果更是沒話說。
-![](https://pic.pimg.tw/acikacik/1648287639-4035644426-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871199/blog/acikacik/1648287639-4035644426-g_l.jpg)
 **大空間多功能置物架**
 竟然有三個杯子反過來磁吸擺放，這樣反過來可以徹底將杯中的水瀝乾風乾，由於置物架的空間很大，可以放很多的牙刷，因為分門別類讓牙刷各就各位，比較起之前一個杯子裡面放三四條牙刷，再也不會因為凌亂翻找刷搞得掉東掉西亂七八糟的，整齊擺放之後那些看不見的黴菌跟細菌也都無所遁形了。
-![](https://pic.pimg.tw/acikacik/1648287635-300261862-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871199/blog/acikacik/1648287635-300261862-g_l.jpg)
 **足夠的收納空間**
 OSNER 可以收納四個牙刷/電動牙刷(最大刷頭4cm)，一個刮鬍刀或是舌頭清潔器，原來牙刷牙膏也可以收納的這麼美，不用經常更換牙刷以後花的錢變少了，愛用的牙刷可以用到天花地老變成爆炸再丟掉，不喜歡或是用不到的也可以因為放不下有勇氣斷捨離了，以後買牙膏可以輕易的回想家裏的牙膏剩下多少，決定是不是要入手下一條牙膏。
-![](https://pic.pimg.tw/acikacik/1648287638-2015525380-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287638-4240191752-g.jpg)
-![](https://pic.pimg.tw/acikacik/1648287638-1695721418-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871199/blog/acikacik/1648287638-2015525380-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871200/blog/acikacik/1648287638-4240191752-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287638-1695721418-g.jpg)
 **放五公斤也不嫌重**
 置物架可以放的重量比想像的更多，竟然可以放高達五公斤的牙膏牙刷漱口水手機之類的物品，因為浴室是比較潮濕的地方，加上淋浴不小心潑到水，或是牙膏用品瓶身的水珠會積在置物架上，有個貼心的設計是集水盤上設計了排水孔洞，水漬不會長期的囤積在凹槽中，避免了孳生黴菌的可能。
-![](https://pic.pimg.tw/acikacik/1648287634-1679367011-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287641-948031995-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287636-323709219-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287634-1679367011-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287641-948031995-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287636-323709219-g_l.jpg)
 **磁吸水杯**
 好看的小設計有很大的幫助，水杯總是容易留下水垢，因為長時間積水乾掉又積水，OSNER 設計了反過來杯口向下的方式，用磁吸倒掛的瀝乾水杯中的水珠，永遠都能拿到乾爽潔淨的水杯，讓刷牙也能擁有好心情。
-![](https://pic.pimg.tw/acikacik/1648287634-791116694-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287637-340821448-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287634-791116694-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287637-340821448-g.jpg)
 **手機也有他的家**
 現在的手機都有基本的防水功能，如果浴室裡面淋浴也會想聽歌看MV 也不是說不可能，看看影片追劇就有點誇張了，不過 OSNER 都幫我們設想到了，只要在牙刷消毒置物架上方設計了手機置物格，就可以平放手機讓擴音器隨著置物格產生共鳴，也可以隨手橫向收納 剛剛好的放進去，不會老是找不到手機，給手機一個托放立放隨意放的家。
-![](https://pic.pimg.tw/acikacik/1648287638-1695721418-g.jpg)
-![](https://pic.pimg.tw/acikacik/1648287640-1141514910-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287638-1695721418-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287640-1141514910-g_l.jpg)
 兩隻大熊 使用了 Osner韓國歐紳 Teeclean Family C10智能紫外線消毒牙刷置物架兩個月的時間，這段時間消毒置物架都很穩妥的掛在牆面上，完全沒有活動或是脫落的跡象，無痕貼片安裝拆除都很容易租屋族也不用打洞安裝，每次使用起來也相當的順手，工欲善其事必先利其器有個好用的牙刷殺菌置物架刷牙也變成自我療癒的過程了，每一樣東西各就各位的整齊排列治癒了泰迪早起的起床氣，外型吸引人之外更享有三年保固，就算是普通的家用衛浴也可以享受科技帶來的便利，真的是像兩隻熊這樣的懶人口腔照護必備的神器呀!!
-![](https://pic.pimg.tw/acikacik/1648287632-3300503944-g.jpg)
-![](https://pic.pimg.tw/acikacik/1648287638-2921661537-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1648287636-3771963069-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871203/blog/acikacik/1648287632-3300503944-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287638-2921661537-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871202/blog/acikacik/1648287636-3771963069-g_l.jpg)
 OSNER牙刷消毒器
 https://reurl.cc/2DRM2O

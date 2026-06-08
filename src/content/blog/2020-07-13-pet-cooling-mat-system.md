@@ -7,109 +7,109 @@ heroImage: '/images/blog/2020-07-13-pet-cooling-mat-system.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069130036'
 ---
 
-![](https://pic.pimg.tw/acikacik/1594626731-1741183015-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862891/blog/acikacik/1594626731-1741183015-g.jpg)
 我們家的堡堡 鬆獅犬有四層毛皮，擔心夏天到了堡堡體內無法散熱就會有熱中暑的可能，所以夏天到了一定要開冷氣，我記得多年前到桃園的一家繁殖場，裡面養了許多的鬆獅犬，夏天每隻鬆獅前面都抱了一個大冰塊，可以做很多碗剉冰的那種超大冰塊，原來是要用來降溫的，除了讓鬆獅犬舔之外，還可以幫助散熱，這個原理也用在另一台機器，就是常常會在大小食品展或是寵物展出現的水冷扇，也是可以把冰水或是冰塊放進去，讓吹出來的風可以降低室溫，但是這兩種方法雖然好用卻不免增加空氣濕度，無法長期使用一舉數得。
-![](https://pic.pimg.tw/acikacik/1594628652-1063123219-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594628652-3730962395-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628652-1063123219-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628652-3730962395-g_l.jpg)
 夏天散熱尤其是寵物散熱的設備真的是推陳出新，有的靠金屬板散熱有的像是兩隻熊 直接把頂樓放一個大水池把堡堡放進水裡游泳散熱，夏天玩水是很好玩但是要吹乾堡堡的毛就又要一兩個小時的時間，難道尋求一個涼爽的方法真的有這麼難嗎?
-![](https://pic.pimg.tw/acikacik/1594628652-2066785054-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594628652-1293567130-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594628652-2626557885-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862891/blog/acikacik/1594628652-2066785054-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628652-1293567130-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628652-2626557885-g_l.jpg)
 最近發現一個好東西，就是康森涼感機「京都西川涼感機＋涼墊」，這個降低體感溫度畫世紀的發明，真的是值得好好來介紹一下，這個產品是由日本原裝進口的，以水循環技術搭配冰罐一起使用，由冰罐導冷使機器產出涼涼的水再流至涼墊內循環，涼墊就能保持均勻的涼感，而這樣可以幫助堡堡降低體感溫度不再酷熱難耐流口水了嗎?
-![](https://pic.pimg.tw/acikacik/1594628616-1439985951-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594628654-1817873261-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628616-1439985951-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594628654-1817873261-g_l.jpg)
 **涼爽抗暑的好東西**
 COMESAN康森涼感機有多種涼墊款式，比方單雙人床墊或是沙發墊、還有這次堡堡體驗的寵物墊，大家可以依尺寸挑選合適的涼墊使用，想擺床上、地上、沙發上都可以，涼爽新的選擇。
 **無聲的均勻涼感**
 使用起來不會發出任何噪音，睡覺時也不會受到影響，看到水線從機器流入墊子，到充滿整個墊子真的是很療癒的畫面，運用水帶走熱的原理讓整個墊子都有均勻的涼感，讓涼墊上的水線透過水循環帶走熱能，保持整個涼墊降溫舒適涼爽的溫度，讓堡堡可以躺在上面散溫，運用流動的水就可以達到降溫的目的，真的是很聰明的發明呀~ XD
-![](https://pic.pimg.tw/acikacik/1594626730-4158272940-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780862892/blog/acikacik/1594626730-4158272940-g_l.jpg)
 **加大專用床包套**
 這組床包套是用非常舒適的純棉麻質感布料，將單人加大涼墊整個包覆住，不只是涼墊有專用床包就連傳輸水管也有量身訂做的水管包，躺在上面很透氣，用起來更多一層舒適性。
-![](https://pic.pimg.tw/acikacik/1594626694-4086417083-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594626718-530892104-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594626722-5183587-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626694-4086417083-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626718-530892104-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626722-5183587-g_l.jpg)
 **清洗低汙染**
 因為寵物使用前後通常也會在地上或是尿盆上走動，玩耍之餘堡堡不小心占地盤閃尿都是有可能發生的，所以寵物涼墊過一段時間也需要清洗，整個寵物墊為PVC材質所以防水，比方在床上吃洋芋片掉滿床、或是飲料打翻弄髒也都可以用水清洗的不會滲漏，只要使用浸濕的抹布還有中性洗潔劑來回擦拭就可以簡單的完成清潔了，如果大片面積清洗也可以拿到水槽直接用水沖洗，清洗過後用乾布輕輕一擦就乾，不容易沾黏毛小孩的掉毛而且容易清潔，真的是很方便耶~ XD
-![](https://pic.pimg.tw/acikacik/1594626697-3346310944-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626707-1840164281-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626697-3346310944-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626707-1840164281-g_l.jpg)
 **堡堡很愛菲力也想要**
 目前兩隻熊家裡養了兩隻毛小孩，一隻鬆獅犬 堡堡 一隻貓 菲力，菲力跟堡堡的關係就像是加菲貓跟歐迪的關係那樣，菲力總是跑給堡堡追，但是堡堡也會不讓菲力爭寵引起主人的注意，要是最被關心的那一個，所以這次體驗雖然只有堡堡來享受，菲力也會走來走去的巡一下，還會用爪子來確定一下這是什麼東西，好奇感十足。
-![](https://pic.pimg.tw/acikacik/1594626712-685127994-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626732-2498504549-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626739-3459091893-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863892/blog/acikacik/1594626712-685127994-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626732-2498504549-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863893/blog/acikacik/1594626739-3459091893-g_l.jpg)
 **安心放心**
 養過毛小孩的朋友都會注意寵物用品是否會被毛孩誤食，尤其是填充玩具或是海綿椅墊，「康森涼感機+涼墊」裡面沒有多餘的化學填充物，寵物墊內部也沒有電線，就算毛小孩激動啃咬也不會吃下對身體有害的有毒物質，涼爽兼顧安全讓飼主好放心。
-![](https://pic.pimg.tw/acikacik/1594626719-745538178-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863892/blog/acikacik/1594626719-745538178-g_l.jpg)
 **水循環床墊的好處**
 其實人體的體感溫度也不能太冷，水循環的好處是就算是保冷也只是把身體部分的熱能帶走，均勻沁涼局部不悶熱不會因為冷管水流太冷而影響睡眠，我們都有越睡越冷而被冷醒的經驗，所以剛開始入睡的時候是最怕熱的翻來翻去就只是為了把背部散熱，但是凌晨又是最怕冷的時間，所以運用「康森涼感機+涼墊」保持兩到四個小時的冷水循環，然後漸漸的運用常溫涼水循環加上家裡的電風扇就可以保持床墊涼爽一覺到天亮的。
-![](https://pic.pimg.tw/acikacik/1594626725-492817480-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863892/blog/acikacik/1594626725-492817480-g_l.jpg)
 **安安穩穩的午後時光**
 中午最近可以熱到40度，潑水可能都能出現水蒸氣的午後，堡堡雖然第一次躺這個寵物墊，但是似乎是駕輕就熟，瞬間就能露出賣萌的表情，怎麼會這樣有一種冰冰涼涼的感覺，舒服地讓堡堡產生一種睏意~~~ ^^
-![](https://pic.pimg.tw/acikacik/1594626727-1180917672-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594626727-1044851459-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863896/blog/acikacik/1594626727-1180917672-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626727-1044851459-g.jpg)
 **大家一起睡**
 單人加大床墊可以主人跟毛小孩一起使用，因為生活空間平時就是窩在一起互相陪伴，可以考慮這種單人加大的床墊設計，就算是床上來回滾動玩耍，就算是炎熱的夏天，堡堡也不會流很多口水，把堡堡抱著睡至少不會馬上逃走可以抱久一點。
-![](https://pic.pimg.tw/acikacik/1594626722-4150925712-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626720-313463486-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594626720-2797990699-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626722-4150925712-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863896/blog/acikacik/1594626720-313463486-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626720-2797990699-g_l.jpg)
 **冷氣輔助品**
 熊蓋讚晚上睡覺開冷氣大約25度，睡覺還要搭配大台的電風扇才會覺得有風涼快的感覺，平時夏天都會用竹蓆，但是竹蓆睡久了會裂開容易被竹蓆刺到，天氣潮濕還會滋生黴菌，有了這台「康森涼感機單人加大涼墊」睡覺一覺到天亮再也不會半夜悶汗被熱醒。
-![](https://pic.pimg.tw/acikacik/1594626723-1640575188-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626723-1640575188-g_l.jpg)
 **沙發上或是床上打手遊都可以**
 坐在床上玩手機追劇屁屁也充滿涼感，坐臥都變成一種享受，原來夏日涼爽觸手可及，幸福來的這麼容易。
-![](https://pic.pimg.tw/acikacik/1594626731-2767733084-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626731-2767733084-g_l.jpg)
 **超省電**
 「康森涼感機+涼墊」每小時電的消耗功率只有６W，一天使用6小時的話，一天用電費才0.15元，一個月下來也才5元(一個銅板價)，節能省電比兩隻熊平常用的手機還不耗電，也不會有電磁波的疑慮呦~ XD
-![](https://pic.pimg.tw/acikacik/1594626682-3861093568-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863895/blog/acikacik/1594626682-3861093568-g_l.jpg)
 (圖片為官方網站擷取畫面)
 ** 接下來看看怎麼操作與使用這台神奇的抗暑法寶吧~ XD
-![](https://pic.pimg.tw/acikacik/1594626706-2618588503-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863896/blog/acikacik/1594626706-2618588503-g_l.jpg)
 **開箱 康森涼感機 CWM3010 寵物墊 與單人加大涼墊（90*180cm）**
 康森涼感機(乳白色)、單人加大床墊x1（尺寸180x90cm）、寵物墊(80x42cm)、小結冰罐600mlx2、副水箱、電源線、現在購買還有附贈單人加大專用床包套(尺寸100x200cm)同材質安全線套、裡面備有中文說明書並附有日文說明書。
-![](https://pic.pimg.tw/acikacik/1594626683-122744139-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626682-3651944964-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626683-3496218396-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626687-2710586196-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626688-624393904-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626689-3190682904-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626713-3697869712-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863896/blog/acikacik/1594626683-122744139-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863897/blog/acikacik/1594626682-3651944964-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626683-3496218396-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626687-2710586196-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863899/blog/acikacik/1594626688-624393904-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863899/blog/acikacik/1594626689-3190682904-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626713-3697869712-g.jpg)
 **副水箱**
 方形副水箱裝入1/3的水，副水箱是用來調節水量，然後再將副水箱的插孔卡到主機背面的凹槽，也可以省略裝1/3水的步驟，直接裝入背面即可。
-![](https://pic.pimg.tw/acikacik/1594626710-1540007001-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626713-984403841-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626710-1540007001-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626713-984403841-g.jpg)
 **把機身充飽水**
 主機上面有個給水口，把給水口蓋打開，用水壺加入1450ml的水就可以把蓋子關上，這裡面的水就是涼墊內的管線循環使用的水，加一次就可以用好久。
-![](https://pic.pimg.tw/acikacik/1594626691-3716244211-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626699-424374863-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626713-260021184-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863899/blog/acikacik/1594626691-3716244211-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863898/blog/acikacik/1594626699-424374863-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626713-260021184-g.jpg)
 **結冰罐灌水冷凍**
 結冰罐灌入水放入冷凍庫冷凍，兩隻熊希望能夠冷得更持久所以放到-21度c的冷凍庫冷凍(想像裡面應該可以凍得更久~ XD)，隔天冷凍完成的結冰灌就可以放入保冰槽，大約可以使用兩個多小時，兩個結冰罐都交替使用持續涼感，大約可以使用四個小時。
-![](https://pic.pimg.tw/acikacik/1594626698-2947642921-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1594626702-1757997974-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626698-2947642921-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626702-1757997974-g_l.jpg)
 **保冰槽也要加水**
 將保冰槽的圓蓋子轉開，加入100ml的濾過水即可，如果冰箱有冰過的水，加入冰水效果更好，這樣結冰罐會比較慢溶解，使用的時間可以更長。
-![](https://pic.pimg.tw/acikacik/1594626690-1099535991-g.jpg)
-![](https://pic.pimg.tw/acikacik/1594626714-1201394274-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626690-1099535991-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626714-1201394274-g_l.jpg)
 以往買過普通的涼墊但是因為水沒流動散熱，結果就是越睡越熱，但是「康森涼感機+涼墊」流動的水線可以讓涼水動態流動，讓涼墊長時間持續依然感到涼爽，如果希望涼爽時間可以更久一點，還可以用1500毫升的寶特瓶冷凍結冰充當結冰罐+保冷袋一起使用，這樣堡堡的涼爽時間一罐就可以涼爽6~7個小時，就算是戶外已經是逼近40度的高溫，室內使用康森涼感機體感溫度還是可以感覺到涼感消暑~ 粉蘇湖。
-![](https://pic.pimg.tw/acikacik/1594626714-1499923280-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626714-1499923280-g_l.jpg)
 (堡堡守護著主人中...........)
 **接上水導管**
 把白色水導管接頭插入「康森涼感機」，然後聽到喀一聲就代表已經插進去鎖定住了，拔掉接頭則是只要按下中間白色按鈕即可拔除。
-![](https://pic.pimg.tw/acikacik/1595231570-2824245511-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1595231570-2824245511-g.jpg)
 管線是一進一出，入水跟出水在一起的不用分別插入，注意管線不要有重物壓到，或是因為過度彎折影響冰水進出，水墊與水管接合處也很密合。
-![](https://pic.pimg.tw/acikacik/1594626682-824680309-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626682-824680309-g_l.jpg)
 (示意圖是官網擷取圖片)
-![](https://pic.pimg.tw/acikacik/1594626700-2403582363-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626700-2403582363-g_l.jpg)
 **插上電就可以使用了**
 「康森涼感機」的電源線插到主機並且插上電源插座(開關需按到－的位置)就可以開始使用了喔~ 是不是很方便。
-![](https://pic.pimg.tw/acikacik/1594626716-3899981539-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863901/blog/acikacik/1594626716-3899981539-g.jpg)
 (**手不要濕濕的插插座，以免觸電)
 **即可啟動**
 先開電源線上的開關，再按下主機上的電源鍵，之後主機上的藍色燈泡就會亮起代表已經開始運作，使用涼墊之前的１５分鐘先啟動「康森涼感機+涼墊」，讓冰涼的水把整個涼墊都走過一遍，使用的時候堡堡就會馬上感覺到冰涼很舒湖的感覺~ XD
-![](https://pic.pimg.tw/acikacik/1594626717-727754101-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863905/blog/acikacik/1594626717-727754101-g_l.jpg)
 **用最少的錢獲取最好的睡眠品質**
 自從養了毛小孩之後，開冷氣不只為了自己更是為了毛小孩可以生活無慮酷夏，平時冷氣都會開到22~23度，體感溫度要覺得冷 堡堡才不會哈哈哈~ 但是晚上睡覺時總會覺得太冷睡不好，現在有了「康森涼感機」就算冷氣只開了27度(每個人的體感溫度不同)，堡堡有了康森涼墊持續涼感可以保持散熱，晚上也不會因為冷氣開太冷而被冷醒，電費還可以省很大，在這種越來越熱的夏天，節能省電可以省錢還可以照顧好毛小孩，買一台可以用很久一舉數得，「康森涼感機」真的是小資族尤其是有養寵物的好選擇。
-![](https://pic.pimg.tw/acikacik/1594626732-3604469627-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780863903/blog/acikacik/1594626732-3604469627-g_l.jpg)
 好康訊息分享:
 現在買COMESAN康森，享指定品項8折優惠，再送單人加大專用床包(價值$1200)，主機有一年保固配件享三個月喔~ ^^
 折扣碼：CSCW06  

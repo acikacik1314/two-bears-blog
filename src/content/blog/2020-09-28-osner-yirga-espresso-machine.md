@@ -7,146 +7,146 @@ heroImage: '/images/blog/2020-09-28-osner-yirga-espresso-machine.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069320026'
 ---
 
-![](https://pic.pimg.tw/acikacik/1601293841-3240398119-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865520/blog/acikacik/1601293841-3240398119-g.jpg)
 非常喜歡咖啡館的氣氛跟味道，濃郁的咖啡香氣總是讓兩隻大熊願意多花一點錢享受悠閒的咖啡時光，常常想如果自己家裡也有一台專業咖啡機事多麼蝦趴的一件事情~ XD 但是稀缺的是金錢跟時間，哪有幾萬塊的預算跟美國時間可以來享受，而且家裡的空間也太小了不允許有大型的機器可以隨意擺放，所以這個想法就被放在那裏沒有實現的那一天~ = =
-![](https://pic.pimg.tw/acikacik/1601293998-3151183985-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865521/blog/acikacik/1601293998-3151183985-g_l.jpg)
 喝杯咖啡雖然是一件很簡單的事情，但是有一陣子也頗困擾AC 的，因為方便的因素會在街上便利的店面買美式咖啡，喝了一陣子發現自己莫名的產生心悸與胃不舒服的狀況，翻看新聞報導如果使用了劣質或是已經產生黴菌的咖啡豆可能會引起這些不舒服的感覺，當然就算只有1%的可能是來自於這個因素，所幸就買了一台膠囊咖啡機來便利的沖泡咖啡，也改善了身體不適的狀況(純粹我個人體質也不一定)，自己沖泡咖啡享受不用花錢多，但是對於手沖咖啡還是充滿了嚮往，是不是該買一台義式咖啡機了呢?
-![](https://pic.pimg.tw/acikacik/1601293841-2192434406-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865521/blog/acikacik/1601293841-2192434406-g_l.jpg)
 入手一台半自動的義式咖啡機是一個實惠的選擇，可以自己挑選想喝咖啡豆也可以在咖啡豆最新鮮的時候磨成咖啡粉現磨現泡，「Osner YIRGA CLASSIC 經典半自動義式咖啡機」滿足了兩隻大熊對咖啡的渴望，在這個秋天的季節裡微涼的空氣中在窗口喝一杯美味的咖啡的渴望，搭配簡單的糕點就是家庭式星巴克的感覺~ 我家也有「喀喀喀」的手動磨豆機，自己填咖啡粉的專業把手的義式咖啡機器，是不是已經可以開店了~ 歡迎來到兩隻大熊的家庭式咖啡店~ XD
-![](https://pic.pimg.tw/acikacik/1601293842-3894081518-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865520/blog/acikacik/1601293842-3894081518-g_l.jpg)
 Osner 是個來自韓國的家電品牌，連續三年榮獲韓國"優秀品牌大獎"，自然生活風格設計的智能家電品牌，針對日常需求空間運用設計出緊湊纖薄的產品來滿足消費者需要。 
-![](https://pic.pimg.tw/acikacik/1601293840-1617126915-g.jpg)
-![](https://pic.pimg.tw/acikacik/1601293840-3562704870-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865520/blog/acikacik/1601293840-1617126915-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865521/blog/acikacik/1601293840-3562704870-g_l.jpg)
 Osner 以合理的價格，簡單而實用的設計，「Osner YIRGA CLASSIC 經典半自動義式咖啡機」通過德國DAKKS認證、歐盟REACH認證、歐盟RIHS認證三項嚴格認證，讓生活變的更便捷、更智能，也不會因為時代潮流而流於一般的傭品，簡約設計結合了奢侈、美麗、古典，成為一種永不厭倦的品牌形象。
-![](https://pic.pimg.tw/acikacik/1601293840-2078893766-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865520/blog/acikacik/1601293840-2078893766-g.jpg)
 **咖啡機的大小剛好**
 從「Osner YIRGA CLASSIC 經典半自動義式咖啡機」外型看來相當的具有時尚感，喜歡咖啡廳的雅緻低調的朋友應該跟兩隻大熊一樣喜歡這種銀黑色的經典款式，因為這款義式膠囊兩用咖啡機同時可以用在膠囊跟義式沖泡方式，而且又不會佔用太多空間，家裡空間不大也很適合，買回家不會不知所措煩惱要放置在哪裡，「Osner YIRGA CLASSIC 經典半自動義式咖啡機」造型小巧可愛大約是台大同電鍋的大小，雖然麻雀雖小但是功能依然很厲害應有盡有，重量也算輕如果是家庭主婦也可以輕鬆的安裝或是搬動。
-![](https://pic.pimg.tw/acikacik/1601293842-21109075-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865520/blog/acikacik/1601293842-21109075-g_l.jpg)
 **配件**
 開箱後陳列在桌子上有原廠咖啡機，原廠義式沖煮手柄、膠囊咖啡沖煮手柄(需另外購入)、單雙份濾杯各一、POD濾杯、填壓柄咖啡匙、一台原廠磨豆機(需另外購入)等配件。
-![](https://pic.pimg.tw/acikacik/1601293842-3833484853-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293842-1470154944-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865521/blog/acikacik/1601293842-3833484853-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293842-1470154944-g_l.jpg)
 **使用前閱讀說明書**
 兩隻大熊很懶得閱讀說明書，其實使用前閱讀說明書是必要的，可以減少很多摸索的時間，往往是看過說明書才知道"原來是這樣啊~" "早知道就看看說明書"之類心中的OS。 ="=
-![](https://pic.pimg.tw/acikacik/1601293842-1361696635-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293842-1361696635-g_l.jpg)
 ***20bar水泵蒸氣壓力幫浦高壓萃取**
 兩隻大熊平時想要一杯萃取更多咖啡油脂的通常都是要跑一趟咖啡廳，因為一般的手沖咖啡或是膠囊咖啡機萃取出來的咖啡油脂總是有點欠缺的，一般會以大氣壓力(bar)來代表萃取時的蒸氣壓力，一般的咖啡機約15bar左右，「Osner YIRGA CLASSIC 經典半自動義式咖啡機」使用義大利 ULKA 電機，以20bar 的強力高壓沖泡咖啡，高壓萃取讓人驚訝的可以萃取"兩倍"咖啡油脂豐富的濃縮咖啡，穩定的萃取更均勻的咖啡風味就是AC 想要的，而且喝起來香味更持久濃厚，在92度的恆溫下看到那滿滿厚厚的咖啡油脂與聞到的咖啡香氣，獲得濃郁的油脂香氣而且沒有花如專業機種更多的費用，這就是兩隻大熊追求的沖煮樂趣呀~ XD
-![](https://pic.pimg.tw/acikacik/1601293840-1436350599-g.jpg)
-![](https://pic.pimg.tw/acikacik/1601293840-2334086413-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293840-3112399582-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293840-1436350599-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293840-2334086413-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293840-3112399582-g_l.jpg)
 **大容量的水箱**
 「Osner YIRGA CLASSIC 經典半自動義式咖啡機」安裝了1.6升大容量水箱，每次可以不間斷的沖泡四到五杯左右的咖啡，而且後方的超大水箱可以輕易的裝卸，如果要拆下來清洗也很方便，蓄水量大還有一個好處就是日常清洗出水口與器具都不用擔心水不夠。
-![](https://pic.pimg.tw/acikacik/1601293900-2241002675-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293899-1265945132-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293900-2241002675-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293899-1265945132-g_l.jpg)
 **暖杯功能**
 機器頂部有一個暖杯器，"電源"按開時，就會自動預熱，原本室溫27度左右加熱過後約30度左右，天氣冷一點的冬季把杯子放在上面慢慢變熱，就算冬天也不會有冰涼的杯子放在嘴唇上，這點真的很棒在煮咖啡之前先把杯子加熱，咖啡滴入溫暖的杯子裡可以長時間的享受咖啡原始的味道與香氣。
-![](https://pic.pimg.tw/acikacik/1601293964-4020478117-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293964-2259975123-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293964-2431392371-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293964-4020478117-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865523/blog/acikacik/1601293964-2259975123-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865524/blog/acikacik/1601293964-2431392371-g_l.jpg)
 **瀝水盤**
 瀝水盤是可拆式的，日常出水總是多少會弄濕，幾天下來順手拆下來清洗相當便利。
-![](https://pic.pimg.tw/acikacik/1601294056-3730163951-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601294056-3730163951-g.jpg)
 **杯子太高怎麼辦?**
 因為咖啡機的杯子高度大小不一，如果遇到比較大的杯子該怎麼辦? OSNER 也幫我們想好了，只要把下方的瀝水槽移開就可以放入更高的馬克杯，這也是在有限的空間下最好的配置方式。
-![](https://pic.pimg.tw/acikacik/1601294056-3304067656-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601294056-3304067656-g_l.jpg)
 **OSNER經典手搖磨豆機(需要另外購買)**
 自選擇咖啡豆來製作咖啡可以掌握自己想要的香氣與濃淡度，而且從購買咖啡豆就開始把關，當然研磨也可以靠自動機器來磨豆，雖然兩隻大熊也有自動磨豆機，AC 還是偏好自己手動磨豆的過程，悠閒的磨著從COSTCO 買回來的星巴克咖啡豆，使用 OSNER 經典手搖磨豆機不費力的一邊看電視一邊研磨咖啡豆，陶瓷磨蕊來回輾壓的香氣與手感，依照刻度有一杯三杯六杯的出粉份量，兩隻大熊每天都需要六杯的上癮者 = =;真的讓身心靈都充滿了愉悅感，尤其是平時磨豆到一半出去收個包裹回來，整個屋子都充滿了咖啡豆豆香，彷彿進了一家咖啡廳一般根本都不需要點香氛就有療癒的感覺。
-![](https://pic.pimg.tw/acikacik/1601294065-3397713072-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294065-1151127843-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294065-777433226-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865526/blog/acikacik/1601294065-3397713072-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865526/blog/acikacik/1601294065-1151127843-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865526/blog/acikacik/1601294065-777433226-g.jpg)
 ***如何調整咖啡豆粉的粗細?**
 自己研磨咖啡豆AC 剛開始不太會使用，拿起磨豆機就猛搖，出來的顆粒偏粗還喜孜孜的拿來泡咖啡，結果用了四份濃縮咖啡的量還是感覺咖啡有點淡，經由高人指點才發現原來磨豆機是可以手動調整研磨咖啡粉的粗細的，往右邊順時鐘轉研磨的咖啡粉越細，往左邊逆時鐘就顆粒越粗，手動的將咖啡粉磨碎不會產生熱量，保持了豆子本身獨特的風味。
-![](https://pic.pimg.tw/acikacik/1601297580-1923220494-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601297581-1141650593-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865526/blog/acikacik/1601297580-1923220494-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601297581-1141650593-g_l.jpg)
 **一體式中軸定位磨豆的流程**
 填裝豆子先要把上方的金屬紐旋開，接下來中軸上的六角長搖柄卡榫就可以移去，最後把柔軟的防飛濺矽膠墊取出，將咖啡豆裝滿後再依序裝回去，然後調整粉末粗細度，就進入了AC 最愛的流暢穩定輕鬆省力的磨豆流程了~ XD
-![](https://pic.pimg.tw/acikacik/1601294065-1749163896-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294065-1116188352-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294065-3402372133-g.jpg)
-![](https://pic.pimg.tw/acikacik/1601294066-255094937-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601294065-1749163896-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601294065-1116188352-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865527/blog/acikacik/1601294065-3402372133-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601294066-255094937-g_l.jpg)
 * **開機加熱**
 「Osner YIRGA CLASSIC 經典半自動義式咖啡機」採用物理性的按鈕，雖然有些咖啡機會使用觸摸式的螢幕按鈕，咖啡機兩隻熊還是比較喜歡懷舊的物理按鈕，整個機器上面只有三個按鈕，最上面是電源、中間的是咖啡提取、最下方是蒸汽按鈕，可以很直觀的進行操作，只要插上電源線並且按一下"電源"按鈕，"電源"就會有一圈藍色開始閃爍，當"電源"的燈光維持藍色固定不閃爍就是已經加熱完成了，加熱的時間大約一分鐘左右，接下來會維持這個溫度一段時間，咖啡幾乎可以在兩分鐘內提取以及飲用，如果沒有操作30分鐘將會自動斷電，不會因為忘了關機而浪費電或是讓人擔心有甚麼危險。
-![](https://pic.pimg.tw/acikacik/1601293843-1180609196-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293843-1180609196-g_l.jpg)
 **第一次清洗**
 機器第一次使用是需要清洗內部的管線，先將水箱清洗過然後水位蓄水到最高水位，然後放上一個杯子在機器的出水口下接水，打開電源按鈕，等電源紅燈不閃爍按下第二個按鈕(抽取按鈕)，主機會開始吸水箱的水並排水，水箱的水流出將近一半後大致就把機器裡面的管線清洗一遍了，然後用抹布擦拭主機周圍、滴水盤、出汽口。
-![](https://pic.pimg.tw/acikacik/1601293887-3811671021-g.jpg)
-![](https://pic.pimg.tw/acikacik/1601293887-684582896-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293887-3811671021-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865529/blog/acikacik/1601293887-684582896-g_l.jpg)
 **義式漏斗手柄**
 義式漏斗手柄貼心的附上單份 Espresso 不銹鋼過濾杯及雙份 Espresso 不銹鋼過濾杯，AC習慣用容量比較大的雙份過濾杯，之後幾乎就沒有換過了(大人有大量~XD)。
-![](https://pic.pimg.tw/acikacik/1601293938-4027603574-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293947-90540899-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293947-350874993-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293938-4027603574-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293947-90540899-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293947-350874993-g_l.jpg)
 **沖煮義式咖啡**
 如果想沖泡義式咖啡只需要三個提取咖啡步驟，第一個按鈕是"電源"按鈕預熱，當藍燈不再閃爍時代表預熱完成。
-![](https://pic.pimg.tw/acikacik/1601294026-2482161386-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601294026-2482161386-g_l.jpg)
 第二個步驟只要將磨好的咖啡粉用量匙加入過濾杯裡面，然後用量勺的另一面將咖啡粉用大約20KG的重量填平壓緊(也可以將壓柄旋轉會壓的更緊一點)，只要沒有超過過濾杯的八成滿即可，然後將裝填完畢的義式手柄置入「Osner YIRGA CLASSIC 經典半自動義式咖啡機」指定的沖煮頭手柄從左旋轉至中，對準下方標記"插入"的方向轉正鎖定(所謂熟能生巧，多做幾次就會很順手，過陣子AC 就像在咖啡廳裡的咖啡師傅一樣俐落幹練~ XD)。
-![](https://pic.pimg.tw/acikacik/1601293930-2617866410-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293930-2551776348-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293930-3030569128-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293930-2617866410-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865530/blog/acikacik/1601293930-2551776348-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293930-3030569128-g_l.jpg)
 第三個步驟就是按下第二個"抽取"按鈕，然後需要等一會沖煮的時間，濾網下方的兩個出水口就開始流出濃濃的深色咖啡，咖啡香氣與油脂開始飄散在室內空氣中，怎麼可以這麼讓人容易著迷上癮的味道呀~ XD 然後就觀看咖啡的濃淡度(這就自由心證了)，依照自己的喜好按鈕以停止咖啡萃取。(沒有主動停止，咖啡萃取時間預設一分鐘隨即停止)，不要立刻把咖啡杯拿取開來，AC 通常會等一下等咖啡大致都滴漏完才會拿取咖啡杯。
-![](https://pic.pimg.tw/acikacik/1601293914-905492515-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293914-1903466743-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293914-905492515-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293914-1903466743-g_l.jpg)
 **拋棄沖煮過的咖啡渣**
 倒咖啡渣時手柄也有特殊防過濾杯掉落的設計，只要把它翻起來就可以輕易的把咖啡渣倒出來，不用擔心不銹鋼太燙可以馬上再製作第二杯咖啡。
-![](https://pic.pimg.tw/acikacik/1601294026-2028345213-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865534/blog/acikacik/1601294026-2028345213-g_l.jpg)
 **沖泡一杯美式黑咖啡**
 兩隻大熊平時都是趁著星巴克買一送一買四杯黑咖啡，喝不完還放冷凍庫儲存起來，但是也不是天天都有優惠可以搶，現在自家就是兩隻大熊星巴克，平時的美式黑咖啡都是一份的濃縮咖啡加水，兩隻熊喜歡萃取出比較多的咖啡水代替外加水來稀釋濃咖啡，有的人會說這樣可能會多了澀味，其實也沒有味覺這麼好所以隨意即可。
-![](https://pic.pimg.tw/acikacik/1601293983-2963983212-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293983-4199206710-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293998-2300430380-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865534/blog/acikacik/1601293983-2963983212-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293983-4199206710-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293998-2300430380-g_l.jpg)
 黑咖啡散發著特殊的氣味，經由深烘培過後的芬芳而豐富的滋味，濃郁又帶點微苦是每天一定要喝的絕妙滋味，只要簡單的三步驟兩分鐘就能迎接一杯充滿香氣的咖啡，自己在家裡扮演著咖啡師的角色，說真的味道真的很好不輸星巴克呢(厲害了吧!)(又不是你的功勞 ="=)。
-![](https://pic.pimg.tw/acikacik/1601293998-988921192-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601293998-3877505363-g.jpg)
-![](https://pic.pimg.tw/acikacik/1601293998-1000822200-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293998-988921192-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865532/blog/acikacik/1601293998-3877505363-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865533/blog/acikacik/1601293998-1000822200-g_l.jpg)
 **同時滿足兩個人的需求**
 兩隻大熊最愛的美式黑咖啡，但是兩個人同時想喝咖啡，是否可以同時享用沖煮出醇厚油脂的黑咖啡呢? 只要用兩份 Espresso 不銹鋼過濾杯，因為有兩個滴漏的出水孔，所以可以同時提取兩杯濃縮咖啡，提取效果很好真的好香，因為20bar 強力提取保有豐厚的油脂，油脂持續的時間很長，萃取出來的咖啡精華，乳化的咖啡油脂(Crema)濃厚，由於義式咖啡萃取的咖啡只有八成的咖啡因，比起美式的咖啡含量少很多(咖啡因含量由大至小是→→滴濾式咖啡機 > 虹吸式咖啡機 > 摩卡壺 > 義式咖啡機)，義式咖啡機咖啡因含量是各種萃取方式萃取時間最少的，所以咖啡因含量也是最低的。
-![](https://pic.pimg.tw/acikacik/1601294081-1430763356-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294081-3696433249-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294081-1430763356-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865535/blog/acikacik/1601294081-3696433249-g_l.jpg)
 **牛奶蒸汽功能**
 如果想打泡牛奶，可以先按第三個"蒸氣"按紐預熱，主機就會開始提高蒸氣壓力，"蒸氣"按鈕停止閃藍燈，就代表預熱完成。
-![](https://pic.pimg.tw/acikacik/1601294115-2721420606-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294115-2721420606-g_l.jpg)
 把向左邊的蒸氣噴嘴移動到右邊，準備一個寬而深的杯子注入冰冷的全脂牛奶較容易打發，將杯子傾斜約45度，這個角度比較好打泡牛奶，多做幾次就會抓到感覺，然後把蒸氣噴嘴置入牛奶中(不要在牛奶的上方以免牛奶吹起來飛濺)。
-![](https://pic.pimg.tw/acikacik/1601294115-4207744362-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294115-1630322073-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294115-4207744362-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294115-1630322073-g_l.jpg)
 隨即轉動右邊的"刻度盤"輕鬆調節蒸汽壓力，運用蒸汽來加熱牛奶，牛奶加熱會分成兩層，一個是"蒸汽牛奶層"還有"奶泡層"，通常蒸汽噴嘴如果放深一點，把熱蒸汽打入牛奶中短時間內就會把牛奶溫度升至66度，這時牛奶就會增加至原來的1/3左右的"蒸汽牛奶"，如果在牛奶上方比較淺的地方打入蒸汽，可以再牛奶表面打出原來體積的兩倍，製造出均勻的氣泡非常綿密超級細緻的奶泡，蒸汽奶泡時發出"漆~噗滋噗滋"療癒的聲音，搭配打出來超完美的奶泡真的很有成就感。
-![](https://pic.pimg.tw/acikacik/1601294115-2359038357-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865535/blog/acikacik/1601294115-2359038357-g_l.jpg)
 這時候如果想喝杯"奶茶"就加紅茶進奶泡中，"抹茶牛奶"加抹茶，泡一杯"熱可可牛奶"給寶貝喝，咖啡機不只是滿足自己更是全家的暖身暖心好幫手呀~ XD
-![](https://pic.pimg.tw/acikacik/1601294098-2298244776-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294098-2298244776-g_l.jpg)
 **蒸氣插件清潔**
 使用過後的牛奶蒸汽插件如何清潔呢? 噴嘴有一個橡膠墊和一個圍繞噴嘴的不銹鋼蒸汽罩，取下不銹鋼蒸汽罩拿去用水沖洗一下，裸露的橡膠墊就拿濕布擦拭把牛奶氣味擦乾淨即可。 
-![](https://pic.pimg.tw/acikacik/1601294123-948922506-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601294123-948922506-g.jpg)
 **一杯冰美式咖啡(Ice Americano)**
 每天心裏都有很多處理不完的事情，真的很想來點無事一身輕的感覺，這時候很需要來一杯濃郁冰美式咖啡提提神，AC 在杯子裡放了大塊的冰塊，這次AC 用兩次"兩杯過濾杯"的咖啡粉份量，這種不用花太多時間製作的咖啡類型是AC 的最愛，當咖啡流出來的這一刻是最愉快的，帶有咖啡香味的咖啡滴落的流感有一種療癒的感覺，咖啡衝擊冰塊激發出濃厚的香氣，就算冰塊融化很快口感還是相當的濃郁，不加水加冰塊就可以得到豐富的味覺享受，真的是不得了的人間樂趣呀~ XD
-![](https://pic.pimg.tw/acikacik/1601297580-536443703-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601297580-2154769594-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601297580-866920350-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865535/blog/acikacik/1601297580-536443703-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865536/blog/acikacik/1601297580-2154769594-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601297580-866920350-g_l.jpg)
 **特調大杯拿鐵**
 還記得上次在聖托里尼喝的那杯拿鐵到現在還很懷念，不只是風景明媚還有那牛奶與濃縮咖啡交織出的香醇真的是無敵呀~ 拿鐵要泡得好有個大致的比例，在義大利 拿鐵（Latte）就是牛奶，所以牛奶比例很多，一杯拿鐵裡1/6濃縮咖啡、4/6蒸氣牛奶、1/6奶泡，首先用咖啡機提取兩杯義式濃縮咖啡，把200毫升的牛奶奶泡打發然後把將黑咖啡萃取入杯子中就可以了，綿密的奶泡，貪戀咖啡香醇的油脂滑順入喉，咖啡與牛奶的完美比例也是我最愛的拿鐵口味，來杯濃密奶泡的熱拿鐵滴滴香醇，再度陷入悠閒的異國時光中不可自拔~ 
-![](https://pic.pimg.tw/acikacik/1601294438-1479837877-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294438-1316282999-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865538/blog/acikacik/1601294438-1479837877-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294438-1316282999-g_l.jpg)
 **火山等級的卡布奇諾**
 AC 這次想做個小實驗享受一點情調與浪漫，想運用奶泡做個卡布奇諾(Cappuccino)火山，完全屬於自己的風格的咖啡，先把牛奶用熱蒸氣提取奶泡然後灌注義式濃縮咖啡，卡布奇諾跟拿鐵不同的地方式牛奶的使用量，你看這樣打出來奶泡的量。
-![](https://pic.pimg.tw/acikacik/1601294142-3556821493-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294142-3556821493-g_l.jpg)
 一杯卡布奇諾有1/3濃縮咖啡、1/3蒸氣牛奶、1/3奶泡，所以咖啡的含量更高口味更濃郁，因為愛喝深烘培的兩隻熊更喜歡卡布奇諾的溫潤口感，牛奶與咖啡油脂還有奶泡之間有明顯的區分，而且輕微晃動並不會混和在一起，三層分層真的很處女座(完美)，超愛的滑順風味層次口感，聞起來也是醇厚的咖啡香味，突然覺得是不是真的可以開一家咖啡店呢 ^^
-![](https://pic.pimg.tw/acikacik/1601294142-2077852028-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294142-2077852028-g_l.jpg)
 **閒情時想泡杯茗閒茶**
 「Osner YIRGA CLASSIC 經典半自動義式咖啡機」POD濾網除了可以沖泡曾經流行的圓形的咖啡粉包之外，也可以拿來高壓萃取茶葉來泡茶，前一陣子大家不是在瘋泡茶機嗎? 其實高溫萃取茶葉可以更快速的釋放茶多酚，而且泡出來的茶還很好喝呢~ XD 運用兩杯的過濾杯直接泡茶葉也不用濾茶葉，平時泡茶需要三五分鐘慢慢在熱水中展開釋放萃出茶湯，用「Osner Yega Classic 經典半自動義式咖啡機」不用半分鐘就可以喝到新鮮萃取的紅茶、高山茶，顏色跟味道都很棒，濃度也可以依照自己的喜好沖泡份量多寡，比起平時AC 自己冷泡茶可以喝的量竟然多了將近一倍之多，而且味道都沒有明顯變淡，喝起來還有一股奶香，原來是萃取出茶葉中冷泡時無法泡出來的奶香氣，咖啡機變身泡茶機一機多用真的很神~ XD
-![](https://pic.pimg.tw/acikacik/1601294154-2415039933-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294154-2415039933-g.jpg)
 **膠囊咖啡球漏斗手柄(需要額外加購)**
 趕時間來杯膠囊咖啡吧! 有時候上班真的沒時間慢慢地磨咖啡豆，換一種方式使用咖啡膠囊也可以享受咖啡帶來的心靈滋潤，「Osner YIRGA CLASSIC 經典半自動義式咖啡機」兼容家用膠囊濾杯，而且步驟跟義式咖啡完全一樣，填充咖啡球的方式很簡單，膠囊咖啡球漏斗手柄由三個部分組成，膠囊手柄、過濾籃和濾帽，任意選擇一個咖啡膠囊放入膠囊專用的過濾籃中，內部有三個金屬鋒利的小刀壓緊之後即可，然後濾器蓋的內側有凹凸可以壓制鋁箔處方便咖啡沖泡，接下來把濾冒與濾籃鎖緊放入漏斗把柄內，並鎖上咖啡機即可開始釋放萃取咖啡球的步驟~ 
-![](https://pic.pimg.tw/acikacik/1601294098-3780237073-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294098-1892137505-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294098-1164340018-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294098-2515931962-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1601294098-88792734-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294098-3780237073-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865538/blog/acikacik/1601294098-1892137505-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865539/blog/acikacik/1601294098-1164340018-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865540/blog/acikacik/1601294098-2515931962-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865543/blog/acikacik/1601294098-88792734-g_l.jpg)
 萃取濃縮咖啡比AC 想像的更豐厚，也比平時用膠囊咖啡機萃取的油脂還要多，同時節省了買一台膠囊咖啡機的錢，膠囊咖啡球漏斗手柄可以兼容各種膠囊(Nespresso原裝膠囊、Ily Nespresso原裝兼容膠囊、星巴克Nespresso原裝兼容膠囊等)膠囊底部只要是圓形的，不管是哪個品牌的 Nespresso 都可以兼容，輕鬆享受喝咖啡的樂趣。
-![](https://pic.pimg.tw/acikacik/1601293841-233209767-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865542/blog/acikacik/1601293841-233209767-g_l.jpg)
 **咖啡機清潔過程**
 咖啡機每次用完AC 都會清潔一次，日常清潔先把過濾器取下將咖啡粉清除，然後插回主機上按第二個按鈕釋放清水來清洗過濾器，等待瀝乾水之後，取下過濾器並用抹布稍微擦拭出水口，並用乾淨的抹布或是衛生紙擦拭過濾器然後收納起來，滴水盤也會每幾天倒除，擦拭咖啡液體會接觸到的表面，咖啡油脂長時間累積也比較不好清理，擦拭滴水盤後即可完成整理工作。
-![](https://pic.pimg.tw/acikacik/1601293843-4246549557-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865542/blog/acikacik/1601293843-4246549557-g_l.jpg)
 **兩隻大熊網美咖啡廳**
 因為這次「Osner YIRGA CLASSIC 經典半自動義式咖啡機」每天都迫不及待萃取好幾杯咖啡，喝太多液體也跑了好幾次的廁所，喝咖啡其實是很舒服的一種體驗，運用20bar 高壓萃取出來的綿密咖啡油脂，搭配早餐的總匯三明治或是一盤甜滋滋的點心蛋糕相得益彰，晨間的兩隻大熊家庭咖啡館營業時雖然只有兩個客人，但是還是很高興可以晉升成為愛喝咖啡的咖啡人的行列，每天最奢侈的就是用15分鐘來製作咖啡，有了這台咖啡機兩隻大熊也可以在家庭聚會時驕傲的把咖啡機搬出來與朋友共享這份開心與喜悅，它不僅可沖泡espresso，更是泡茶、拿鐵、美式咖啡、義式膠囊咖啡、熱牛奶製作的好幫手，全機享有三年保固，接下來的每一天都要假掰的當個職業的品咖啡冠軍，歡迎來到兩隻大熊咖啡館，親手為你製作專屬你的美味咖啡。
-![](https://pic.pimg.tw/acikacik/1601294115-1924420471-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865542/blog/acikacik/1601294115-1924420471-g_l.jpg)
 展悅國際
 官方 FACEBOOK
 官方 Instagram

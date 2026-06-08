@@ -7,7 +7,7 @@ heroImage: '/images/blog/2020-08-30-cold-eye-ai88-future-person.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5070183020'
 ---
 
-![](https://pic.pimg.tw/acikacik/1662826608-919392129-g_n.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780864589/blog/acikacik/1662826608-919392129-g_n.jpg)
 來自: 冷眼AI 88 2020-08-30 17:23:41
 來自2088，尋找從2071年回到1999年的有機AI生化人。  
 密碼：口(無點)倒L(無點)𠃌(無點)𠃌(無點)倒L(無點)X(無點)X(上點)L(無點)廠(加點)

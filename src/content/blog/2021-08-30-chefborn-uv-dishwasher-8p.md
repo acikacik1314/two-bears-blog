@@ -7,149 +7,149 @@ heroImage: '/images/blog/2021-08-30-chefborn-uv-dishwasher-8p.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069775910'
 ---
 
-![](https://pic.pimg.tw/acikacik/1630314989-2338628097-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870188/blog/acikacik/1630314989-2338628097-g.jpg)
 兩隻大熊以前都吃外食現在都在家裡煮，在家工作摸東摸西反而時間變得很不夠用，必須要依賴掃地機器人或是萬能鍋之類的神奇好物來縮短做家務的時間，比方為了洗碗添購手套 圍裙 清潔劑，或是安裝避免污水飛濺可拉出的水龍頭，不管準備多少的配備 "我都 不喜歡 洗碗"，每次說好每餐誰煮飯誰洗碗都是一種難熬的選擇，尤其冬天冷水洗碗怎麼洗都洗不乾淨，那種油膩感用再多的洗碗精都無法被原諒的，似乎這種不方便就被長久的忽視了，家庭煮夫煮婦的洗碗沮喪會不會被重視呢? 從對洗碗機期望不高到現在熱愛使用洗碗機的我，從懷疑到洗出心得的現在，家中也已經有了使用三年的洗碗機，該是讓廚房洗碗機升級的時刻到了，WASHFALL 8 已經使用超過兩周的心得，除了洗的相當乾淨，使用上超乎想像的便利。
-![](https://pic.pimg.tw/acikacik/1630314991-696632773-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870188/blog/acikacik/1630314991-696632773-g_l.jpg)
 大熊覺得最棒的發明就是洗碗機，以前總是覺得洗碗機是有錢人的指標，感覺是裝飾性大於實用性的一種商品，真的使用過洗碗機才發現這是跟冰箱一樣不可或缺的家庭必備家電，有了洗碗機之後的人生真的是會節省出許多自己的時間，廚房生活舒適愉快一切都順利多了，也可以維繫家人之間的感情減少爭執的發生。
-![](https://pic.pimg.tw/acikacik/1630314987-1017096715-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314988-920275052-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314987-1017096715-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314988-920275052-g_l.jpg)
 平時兩隻大熊餐具用完就會擺滿整個洗水槽，天氣熱碗筷沒有馬上洗很快就會長出一些小飛蟲，油膩的碗盤在冬天更是折磨人的小東西，冷水洗碗也是一件辛苦的事，長時間彎腰洗碗也會讓腰酸痛，飯後沒有好好休息消化就去洗碗身心都不愉快，經過一次又一次的清洗還是擺脫不掉油膩的感覺，心想怎麼不研發出更強清潔力的洗潔劑呢? 其實後來發現根本不是清潔的問題，是溫度的問題呀~ ="= 關鍵是洗多了，手還容易裂傷難受，萬一得到富貴手就麻煩了，很後悔沒有早點買洗碗機，也很感謝洗碗機帶給我這幾年的便利，當然科技日新月異洗碗機的功能更豐富了。
-![](https://pic.pimg.tw/acikacik/1630314988-197744388-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314988-197744388-g_l.jpg)
 **2021最受韓國家庭優良評價推薦**
 韓國天廚 Chefborn 已經連續兩年獲得“顧客滿意度優秀品牌大獎”，在韓國家電品牌中定位為高級廚房電器品牌，在台灣 Chefborn這個品牌還不是耳熟能詳，由於兩隻大熊使用過 Chefborn 的烘碗機與義式咖啡機，真實感受到 Chefborn 用料實在，在家電的外型相當有質感，長時間使用都能穩定耐用，而且價格跟價值都物有所值，是一個值得信賴的品牌，所有 Chefbone 產品都很喜歡 ^^。  
 這次兩隻大熊開箱體驗的 WASHFALL 8 BLACK LABEL 不但功能比較一般8人份洗碗機更多，彷彿讓廚房變美了提升居家的生活美學。
-![](https://pic.pimg.tw/acikacik/1630314984-619508083-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314990-2389223161-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870188/blog/acikacik/1630314984-619508083-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314990-2389223161-g_l.jpg)
 **期待的開箱**
 洗碗機在訂購後在兩天內到達，從快遞手上抱著包裹沉甸甸的，它有著很大的紙箱，尺寸比我想像的還大，打開非常厚實的紙箱，黑色的外型優雅而美麗，兩隻大熊非常喜歡黑色烤漆的外型真的很有質感，其實家裡的廚房是很老舊的樣式，但是裝置了摩登烤漆的優雅外型的亮面黑色洗碗機增添了廚房的美感，輕觸按鈕採用LED面板操作的形式，簡約的外型與內飾相得益彰。
-![](https://pic.pimg.tw/acikacik/1630314986-3099042916-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314986-3099042916-g_l.jpg)
 **影音版本的 [開箱] 韓國天廚 八人份免安裝獨立式紫外線洗碗機 YOUTUBE 影片 (請點選收看)**
 八人份的 "WASHFALL 8 BLACK LABEL 洗碗機" 尺寸相當大，寬55cm 深50cm 高45cm 深度也滿深的，黑色搭配銀色金屬邊框的設計摩登又簡約充滿科技感。
-![](https://pic.pimg.tw/acikacik/1630314989-192530092-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314990-3683807460-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870189/blog/acikacik/1630314989-192530092-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314990-3683807460-g_l.jpg)
 機身內部有所有組件跟著"WASHFALL 8 BLACK LABEL 洗碗機"一起發貨。緩衝泡棉保護的非常細緻，防止在運送的過程中造成損壞。就算是晃動等小小影響機器交付的可能都用束口帶紮。
-![](https://pic.pimg.tw/acikacik/1630314988-1485153697-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314988-1485153697-g_l.jpg)
 機身中的組件有 : 折疊式水桶、1.3米長的電源線、1.9米長的排水管、2米長的供水管、1.22米長的吸水管、T型閥門與小配件等，管線都特別加長方便使用者自由擺放洗碗機。
-![](https://pic.pimg.tw/acikacik/1630314989-3518727537-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314989-3518727537-g_l.jpg)
 **安裝好還是不安裝好?**
 桌上型免安裝洗碗機的問世算是一件民生大事，方便擺放沒有區域限制，只要放在洗水槽附近或是兩個水桶就可以搞定，租屋族搬家也方便，但是市面上免安裝的缺點就是容量都偏小，只有四人左右的使用量，鍋子放不進去必須手洗，也不會占用洗手台的供水管，傳統市面上的免安裝注水需要手動注水，DIY注水一瓢一瓢的舀進去，手會很酸。
-![](https://pic.pimg.tw/acikacik/1630314986-2835156832-g_l.jpg?v=1630314986)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314986-2835156832-g_l.jpg)
 而需要安裝的洗碗機呢~ 內嵌式/桌上型獨立式 這兩種比較常見，租屋族應該比較少用安裝款的，畢竟要鑽水槽還要房東同意才行，而且拆裝都需要專業師傅搬家成本也比較大，可安裝洗碗機的容量都比較大至少五六人份，對於小家庭一整天的使用份量是綽綽有餘的，內嵌式還需要預留空間在廚房組合櫃裡面，下櫃內嵌式還要蹲下來或是彎腰使用，其實不是很符合人體工學，(如果是我應該會拿個小椅子座下來放碗盤)。
-![](https://pic.pimg.tw/acikacik/1630314991-3057043245-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870191/blog/acikacik/1630314991-3057043245-g_l.jpg)
 由於兩隻大熊的家裡本身就有一台洗碗機，礙於空間的因素櫥櫃也沒有空間可以安裝，考量電源插頭位置、注水管的動線、出水位位置的空間靈活性，選擇了免安裝與可安裝二合一的版本，"WASHFALL 8 BLACK LABEL 洗碗機"免安裝也有6~8人大容量版本，這台洗碗機吸取兩者的優點合而為一，並且還增加了強力殺菌的功能，小家庭租屋時可以免安裝，當有自己房子可以安裝時，只要在水槽附近也可以輕易的 DIY 自行按照影片說明安裝，一機兩用而且功能一點都不輸給安裝版本(有過之而無不及)，而且免安裝時也很容易使用，只要放一個水盆用自動吸水的方式就可以滿足日常使用需求，至於怎麼操作下面有詳細的說明。
-![](https://pic.pimg.tw/acikacik/1630314989-1178901713-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314989-1178901713-g_l.jpg)
 **兩隻大熊選擇使用免安裝的方案**
 免安裝無須打孔，只要把將洗碗機放在水槽上，供水管與排水管插入洗碗機背面馬上就可以使用，沒有複雜的安裝程序，並且很容易移動，這種抽吸方式供水"不用安裝也很容易安裝"(繞口令嗎?)，比較"人工多次注水"的免安裝型，這種"抽吸式"的洗碗機方便多了，"WASHFALL 8 BLACK LABEL 洗碗機"使用方法與固定式洗碗機相同。
-![](https://pic.pimg.tw/acikacik/1630314993-1522454565-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870193/blog/acikacik/1630314993-1522454565-g_l.jpg)
 由於這次兩隻大熊選擇免安裝的方案，所以不是所有組件都用得上，從左到右看有三個孔，分別是吸水進水管，安裝版的進水管接頭，再來是出水管接頭。先把吸水管接頭的上蓋鬆開，然後鎖定在安裝版的進水管接頭(順便封上這個入水口，因為免安裝用不到)。插上吸水管並打開摺疊式水桶，然後再把出水口用固定環束上，並且接上出水口就完成"免安裝"的安裝了，不需要任何額外的機器幫忙，純粹手工就可以完成。
-![](https://pic.pimg.tw/acikacik/1630314993-2610288416-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870191/blog/acikacik/1630314993-2610288416-g.jpg)
 進水管的一側安裝了過濾器，讓異物(比方小蟲子)不會被吸進去，只需將吸水管固定在水中就能自動吸水，經由折疊吸水籃自動吸水進洗碗機內。折疊吸水籃是用矽膠材質製作的，所以折疊收納相當的容易，吸水的水量最多可吸入 10.6L 的水量。
-![](https://pic.pimg.tw/acikacik/1630314992-876560098-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314993-3023351254-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870191/blog/acikacik/1630314992-876560098-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870192/blog/acikacik/1630314993-3023351254-g_l.jpg)
 出水管的固定方法採用手指壓住的方式，將管子夾住插入固定。需要用手指施加力量，建議由手指力氣大的家人來進行操作。
-![](https://pic.pimg.tw/acikacik/1630314992-2667034771-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314992-2667034771-g.jpg)
 出水管的長度有兩米長可以滿足大部分家庭洗碗機擺放的位置，如果太長可以剪下來使用。
-![](https://pic.pimg.tw/acikacik/1630314991-3070562950-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314991-3070562950-g.jpg)
 除了免安裝設置方式之外.也可以用供水管直接接自來水管來使用。
 **安裝影片請參考:Osner x ChefBorn 韓國質感家電YOUTUBE查看。**
 **洗碗機很好用 問題是耗水??**
 平時大熊洗碗都是讓水自己流，因為手上有洗潔劑還有手套操作水龍頭又要拿碗很不方便，雖然很浪費水但是比起開開關關更方便，但是真的很浪費水~
-![](https://pic.pimg.tw/acikacik/1630314986-1989977138-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870195/blog/acikacik/1630314986-1989977138-g.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 "WASHFALL 8 BLACK LABEL 洗碗機" 相當的節能省水，一般手洗20分鐘 大約120L水量，"WASHFALL 8 BLACK LABEL 洗碗機"只需要1/12 約莫10L 的水量，這還是選擇強力清洗最耗用水的模式，洗碗機跟手洗相比，耗水量減少了將近 10倍這麼多。
 **出廠測試品質有保證**
 打開洗碗機內部與過濾網都是不銹鋼材質，每次洗碗還順便清洗乾淨內部，材料抗腐蝕可以長期的放心使用，第一此開箱時機內有些許殘餘的有水珠，每一台洗碗機出廠前都會做性能測試的檢驗 QC PASSED，測試過程會有一些殘留的水為正常現象。
-![](https://pic.pimg.tw/acikacik/1630314988-703374218-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314988-703374218-g_l.jpg)
 **超強洗滌能力是關鍵!**
 "WASHFALL 8 BLACK LABEL 洗碗機" 配備了一個高達44CM 比一般加長兩倍的超長的噴臂，上面有23個噴嘴噴出強力水柱，下噴9個出水孔噴嘴，上噴14個出水孔噴嘴噴出超強的洗滌水，就可以將洗碗機的各個角落都沖洗到。
-![](https://pic.pimg.tw/acikacik/1630315000-3861944539-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314984-1464108840-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870195/blog/acikacik/1630315000-3861944539-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314984-1464108840-g_l.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 運用瞬時加熱到高溫75度熱水洗滌碗盤表面的油汙與浸泡，然後釋放洗碗粉與碗盤的油和污漬進行化學反應，運用高壓水流全面對碗盤表面進行360°旋轉沖刷清洗，水柱從轉軸噴嘴高壓噴射出來讓油汙溶解在熱水中，75度高溫20分鐘以上沖洗同時清潔又能除菌，經韓國公共機關所 KCL 認證可以殺死99.9%的大腸桿菌與金黃色葡萄球菌等各種細菌，每次洗完都可以摸到古溜古溜乾淨的光滑觸感。
 **免安裝卻可容納6-8人份量的大容量洗碗機**
 機器洗絕對比手洗乾淨很多，就像是洗衣機可以把衣服洗乾淨，讓人們告別手洗衣服的時代，因為免安裝洗碗機空間的活用性高，未來洗碗機也將普及到租屋的小家庭中。
-![](https://pic.pimg.tw/acikacik/1630314996-145826-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630315000-1312494672-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314996-145826-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630315000-1312494672-g_l.jpg)
 由於"WASHFALL 8 BLACK LABEL 洗碗機"超大內部空間可洗6-8人份量的餐具，比方很多彎彎曲曲的咖啡壺和金屬托盤、深淺盤子、帶把手的大湯碗、不鏽鋼筷子、大湯勺子，只要採用疊羅漢的方式堆疊碗盤，運用45度角讓水柱可以強力噴灑，就可以有效的清潔每個碗盤，記得把碗面朝下，因為碗面朝上會讓水積在碗中，水柱由下而上讓每個碗盤都可以被水柱沖到，刀叉專用容器讓筷子湯匙等小餐具不會被強流沖到傾倒，八人份的洗碗機足夠大到把一般家庭一整天所使用的碗盤都放進去，就連平底鍋都可以，一天三餐家裡四個大人的餐盤數量空間綽綽有餘，吃完飯就放在水槽中，等晚上睡前把所有碗筷用水沖一下就放進洗碗機，等隔天洗好烘乾就可以收納起來，一天只要洗一次就可以把一整天的用量洗乾淨，因為一天只洗一次所以節省了水電的使用，據統計洗碗機一天用一次一個月的電費也只要15~20元左右。
-![](https://pic.pimg.tw/acikacik/1630315001-3505894252-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630315001-3505894252-g.jpg)
 **先把菜渣沖掉**
 兩隻大熊不喜歡清理過濾槽，所以通常會先將碗盤上面的米粒或是菜渣先簡單用菜瓜布刷一遍用水沖掉，這種把碗盤上固體顆粒感的菜渣用水沖掉叫做"預洗"，先"預洗"一下然後再將碗盤放入洗碗機，這樣碗盤的殘渣就不會留在過濾器，也可以減少變硬的殘渣粘黏在碗盤表面形成部分難以清除的乾漬，雖然洗碗粉很厲害可以溶解蛋白質，但是多一個小動作可以讓洗碗機清洗起來更乾淨。
-![](https://pic.pimg.tw/acikacik/1630314994-3532116290-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870196/blog/acikacik/1630314994-3532116290-g_l.jpg)
 **洗碗粉與亮碟劑置入**
 "WASHFALL 8 BLACK LABEL 洗碗機"有三種食用級別的耗材：主要是"洗碗粉"每次必加，如果希望加速乾燥可以添加"亮碟劑"，如果住在中南部的朋友，用自來水清洗可能需要添加"軟化鹽"，"洗碗粉"與"亮碟劑"都有自己專用的投入口。
-![](https://pic.pimg.tw/acikacik/1630314994-134530738-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314994-134530738-g_l.jpg)
 洗碗機跟一般清洗碗筷不同，太多的泡沫可能會堵塞排水口造成機器損壞，洗碗機專用"洗碗粉"因為起泡量較少排出的汙水幾乎沒有泡沫，可以順利排入排水管，所以購買時請選擇洗碗機專用"洗碗粉"或是塊狀的"洗碗皂塊"。
-![](https://pic.pimg.tw/acikacik/1630314993-4137024526-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314993-4137024526-g.jpg)
 而"亮碟劑"就是陰離子介面活性劑，加速水滴從餐具表面滑落讓玻璃杯亮晶晶的就像是擦拭過，有的汽車玻璃會噴灑的撥水劑就是這個成分，使用"亮碟劑"可以加速烘乾的效果，摸起來真的有一種完美光滑的觸感，亮碟劑初次需要投放130ML以上,若量少於30ML會顯示亮碟劑不足。
-![](https://pic.pimg.tw/acikacik/1630314994-936632585-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314994-936632585-g.jpg)
 "軟化鹽"不是一般的鹽，"軟化鹽顧名思義就是把水質軟化，部分地區水質含蓋鈣質沉澱，會堵塞洗碗機的管路所以需要使用，"亮碟劑"和"軟化鹽"都是等機器亮燈再加就可以。
-![](https://pic.pimg.tw/acikacik/1630315000-711224296-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630315000-711224296-g.jpg)
 **面板操作輕易上手**
 兩隻大熊在接水到桶子裡的同時，會將餐具45度面朝下擺放在洗碗機的輪軸托盤上，水滿之後將"洗碗粉"置入投入口，開啟電源按鈕就可以開始操作洗碗機了。
-![](https://pic.pimg.tw/acikacik/1630314990-1151906021-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314993-1249653751-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314994-2428907547-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314994-516882136-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870198/blog/acikacik/1630314990-1151906021-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870198/blog/acikacik/1630314993-1249653751-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314994-2428907547-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314994-516882136-g_l.jpg)
 "WASHFALL 8 BLACK LABEL 洗碗機"具有科技感的觸控按鈕，操作原理非常直覺好用，只要用手指頭輕輕觸摸洗碗機就開始運作，將電源打開就會出現一排的洗滌標記，點選"功能"按住"開始"按鈕，設置就自動完成而洗碗機就開始清洗了，同時在面板上可以查看目前清洗的"進度"、"剩下多少時間"等。
-![](https://pic.pimg.tw/acikacik/1630314995-1984384768-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314996-1994154401-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314995-1984384768-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870199/blog/acikacik/1630314996-1994154401-g_l.jpg)
 **洗滌模式就是那麼簡單**
 以前會以為洗碗機跟洗衣機一樣是裝滿水在裡面旋轉，認為是浪費水浪費電的一種東西，但是事實上洗碗機竟然是省水跟省電的好東西，重點是還省時間讓我多了很多時間做別的事情，在第一次使用洗碗機的時候，很驚訝竟然可以洗這麼乾淨，一點油的感覺都沒有，表面是滑滑的非常的賞心悅目。
-![](https://pic.pimg.tw/acikacik/1630314996-349358543-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870202/blog/acikacik/1630314996-349358543-g_l.jpg)
 "WASHFALL 8 BLACK LABEL 洗碗機"參考消費者的習慣，選擇最常用的五種洗滌模式，每一種模式基本上都會先浸泡，用75度熱水讓殘渣與飯粒醬料溶解，並經由多次的預洗、主洗、漂洗並把汙水排除，最後用高溫烘乾與進入24小時換氣的步驟。
-![](https://pic.pimg.tw/acikacik/1630314999-546049770-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870202/blog/acikacik/1630314999-546049770-g_l.jpg)
 **強力洗(洗滌 120 分鐘)
 如果碗盤髒汙油膩的很嚴重，餐具表面的菜渣較多可以採用強力殺菌的清洗選項，兩隻大熊把使用多年沒洗過的電磁爐的油煙濾網拆下來洗，這真的很難洗平時採用手洗根本是洗不乾淨很難洗掉日積月累的油漬，還有含有許多茶垢泡茶的茶壺有許多彎彎曲曲細節洗不到，人工洗這些要慢慢的搓，使用大量的清潔劑跟手套想起來就費時費力，而這些很難洗的東西，只要放入洗碗機使用強力洗模式就能清潔溜溜~~~ XD。
-![](https://pic.pimg.tw/acikacik/1630315000-2595073441-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630315000-2595073441-g_l.jpg)
 **亮晶洗(洗滌 90 分鐘)
 沒有那麼髒的玻璃餐具或是表面沒有那麼複雜的結構的碗盤，較為光滑的瓷器或是杯盤，家中的紅酒杯玻璃瓶罐，要用來消毒的耐熱奶瓶，打果汁之後的果汁機，切碎蔥薑蒜之後的切碎機刀片，這些有點味道但是又不算難沖洗的廚房餐具器具都可以採用"晶亮洗"，就像是它的名稱一樣洗完真的就能晶晶亮亮的呢~ 玻璃杯恢復到乾淨發亮的狀態布淩布淩的。
-![](https://pic.pimg.tw/acikacik/1630314999-4276225762-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630314999-4276225762-g_l.jpg)
 **標準洗(洗滌 60 分鐘)(洗碗機的默認選項)
 最常使用的就是日常較為一般髒的餐具，吃完飯的鍋碗瓢盆就是放進去一個小時搞定的清洗方式，這個方式用的水量也是剛剛好不多也不少大約 2.8 升的水，測試使用吸水時間大約3分10秒左右，一個小時就能把日常使用的油膩碗盤洗淨打亮。
-![](https://pic.pimg.tw/acikacik/1630314999-3975885603-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630314999-3975885603-g_l.jpg)
 **快速洗(洗滌 35 分鐘)
 有些餐具擺在櫃子裡有些灰塵，或是裝過備料備菜的碗盤，這種沒那麼油膩只想稍微清洗一下的餐具，可使用"快速洗"洗淨時間較短馬上洗馬上用的概念，碗盤不夠用的時候半個小時快洗就有一倍的餐具可以使用。
-![](https://pic.pimg.tw/acikacik/1630314999-1074245540-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630314999-1074245540-g_l.jpg)
 **水果洗(洗滌 15 分鐘)
 網路上面有很多教人清洗水果的方式，但是都要花時間或是添加一些小蘇打什麼的，其實強力的清水沖洗就可以把水果表面的農藥洗乾淨，"WASHFALL 8 BLACK LABEL 洗碗機"這是一台可以洗蔬菜水果的洗碗機，就算是清洗芒果 火龍果 酪梨也能閃閃發光，像是一般泡檸檬水是連檸檬皮也一起泡，這時用洗碗機清洗就簡單得多了，對比前後照片很容易感覺到差異~ 這就是機洗的效果好用而且讓人很放心。
-![](https://pic.pimg.tw/acikacik/1630314999-2485021419-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630314999-2485021419-g_l.jpg)
 "水果洗"還可以用來清洗不耐高溫的餐具，比方木頭勺子 木頭沾板 木碗 或是 耐熱的PP材料之外的塑膠餐具，只要是不耐熱的餐具都可以使用這個模式清洗，35度的熱水強力沖洗足夠讓餐具乾乾淨淨，你看下面的水果本來乾巴巴的，經過35度沖洗15分鐘之後竟然活起來了。
-![](https://pic.pimg.tw/acikacik/1630315001-2255338991-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630315001-1452662780-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630315001-2255338991-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870202/blog/acikacik/1630315001-1452662780-g_l.jpg)
 **還有預約功能**
 如果房間比較小不想在睡覺的時候使用洗碗機，或是想利用電費比較便宜的時間區間洗碗，"WASHFALL 8 BLACK LABEL 洗碗機"都貼心的幫我們想到了，"預約功能"讓洗碗機沒有"時間""空間"的限制，可以按照需要自行設定"洗滌的時間"，要幾個小時後清洗都可以，操作方式(開機>>選擇洗滌模式>>預約模式選擇>>設定運作時間(H:00表示無約) H:00 >> H:01 >> H:02 ...... >>按"開始/暫停"按鈕開始洗滌).洗碗機會時間倒數然後啟動清洗。
-![](https://pic.pimg.tw/acikacik/1630314996-429799515-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870201/blog/acikacik/1630314996-429799515-g_l.jpg)
 **低噪音運行**
 洗碗機在運作時會有流水聲或是自動開門後熱風吹拂的呼呼聲，這些都在50-55DB分貝中低噪音的運作，基本上音量接近於日常的生活噪音，如果對聲音敏感可以選擇不自動開門的模式，密閉的洗碗機運作還是可以舒適輕鬆的降低音量低噪音運行。
-![](https://pic.pimg.tw/acikacik/1630315001-2345780046-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630315001-2345780046-g_l.jpg)
 **無毒無味的材料**
 有些洗碗機內部密合處會採用瀝青製作，瀝青價格便宜高溫下容易融化，並且釋放有毒氣體，通常兩三年後就會影響密合功能。
-![](https://pic.pimg.tw/acikacik/1630314986-3951863449-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630314986-3951863449-g.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 而"WASHFALL 8 BLACK LABEL 洗碗機"採用的是丁基橡膠，雖然比瀝青材料貴，但是耐高溫、耐振動、耐久性強、無毒無味高溫下也能維持超強的粘性，可以放心地長時間使用。
 **三重過濾器**
 "WASHFALL 8 BLACK LABEL 洗碗機"底部有個"三重過濾器"用來過濾食物殘渣，食物殘渣會被留在網上，每次清洗過後只要輕輕的轉開，並且打開水龍頭把網上的殘渣被水帶走即可。
-![](https://pic.pimg.tw/acikacik/1630315001-3234308504-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630315001-3234308504-g_l.jpg)
 **自動開門高溫烘乾 或是 熱風乾燥紫外線99.9%殺菌**
 兩隻大熊通常是晚上洗碗，睡前大約一點洗碗，經過兩個小時強力清洗，通常等不到三點洗完碗手動開門的時間，所以舊式的洗碗機早上打開的時候總是溼答答帶著水珠，現在有了"WASHFALL 8 BLACK LABEL 洗碗機"自動打開門的功能，早上醒來等著我們的洗碗機的碗盤們，都精神飽滿亮晶晶的等著被使用~ XD。
-![](https://pic.pimg.tw/acikacik/1630318705-2513952035-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630318705-2513952035-g_l.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 "WASHFALL 8 BLACK LABEL 洗碗機"的"自動開門"是預設模式，這是近期洗碗機最有感的升級方案，清洗完畢後洗碗機的門就會在第一時間自動開門讓熱風自動開始乾燥，會將洗碗機中循環的水蒸氣蒸發出來，外面的冷空氣也可以進入乾燥效果更好，讓碗盤徹底乾燥後進入"24小時換氣功能"保持內部的乾燥與近無菌狀態，取出的碗盤表面很光滑乾燥並且閃閃發光，完全不用設定鬧鐘，等到洗滌完成跑去開門，只要悠閒的把碗盤放進去洗碗機清洗隔天就有乾乾的碗盤等著我們使用。
-![](https://pic.pimg.tw/acikacik/1630314985-3926322077-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314984-2726621066-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870205/blog/acikacik/1630314985-3926322077-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870205/blog/acikacik/1630314984-2726621066-g.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 "WASHFALL 8 BLACK LABEL 洗碗機"選擇不開門洗完後潮濕的洗碗機內壁會有一些水珠，碗盤積水沒有烘乾也容易滋生細菌，洗完不開門也會開始利用75~80度的熱風循環乾燥，並且開啟獨家紫外線UV殺菌的模式，在密閉的洗碗機中運用熱風與紫外線UV燈管雙重殺菌的方式讓碗盤乾燥，完全不會殘留水分，接下來也是進入"24小時換氣功能"。
-![](https://pic.pimg.tw/acikacik/1630314984-2801471089-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630314984-2801471089-g.jpg)
 圖片來自 CHEFBORN韓國天廚 官方網站
 這兩種模式都是完全不用等洗完後開門，就算睡一覺醒來或是出門上班都不影響碗盤乾燥，而且隨時拿取都是乾燥沒有細菌黴菌孳生的碗盤。
 **24小時循環換氣功能就是能保持乾爽**
 從熱風乾燥停止開始每四個小時"WASHFALL 8 BLACK LABEL 洗碗機"就會進行15分鐘的內部換氣功能，利用冷風循環換氣，讓洗碗機裡面保持乾燥避免發霉產生異味(如果想要停止換氣可以把電源關閉後把插頭拔掉即可)。
-![](https://pic.pimg.tw/acikacik/1630314997-797177536-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314997-3268660961-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1630314998-2022108672-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870205/blog/acikacik/1630314997-797177536-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870205/blog/acikacik/1630314997-3268660961-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870204/blog/acikacik/1630314998-2022108672-g_l.jpg)
 **洗碗機對我的生活有翻天覆地的改變**
 有了洗碗機就不怕做菜要用掉很多碗盤，廚房擺脫囤積很多為洗碗盤的小飛蟲，還有油油膩膩那股難聞的氣味，洗碗機也節省了兩隻大熊許多的時間，洗碗機沖洗加上擺放只要五到十分鐘左右，然後就按一按面版上面的選項開始自動清洗，拿出像是新的一樣閃亮的碗盤完全已經變成日常生活的一個愉快的小動作，不再有心理壓力也不需要全副武裝來面對了，"WASHFALL 8 BLACK LABEL 洗碗機"目前價格約 23,800元左右，以使用兩年來推算每天33元左右。如果一個月洗碗粉是150元加上每天不到一度電與水，你可以把它想像成每天付給一個人38元來洗碗，大熊認為洗碗機現在是必備品，讓我們有更多的時間陪陪家人提升生活品質。 
-![](https://pic.pimg.tw/acikacik/1630314989-2565777042-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780870207/blog/acikacik/1630314989-2565777042-g_l.jpg)
 ### [Chefborn 韓國天廚] washfall8 洗碗機線上購買
 https://reurl.cc/bX14Xl​​​​​​​
 官方網站 K.K BABY'S 【Chefborn 韓國天廚】8人份免安裝獨立式紫外線洗碗機(washfall8) 線上購買

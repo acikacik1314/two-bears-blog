@@ -66,19 +66,19 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829309/blog/acikacik/1496128173-1266241366_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128174-3426831162_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829901/blog/acikacik/1496128174-3426831162_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128177-146794324_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829903/blog/acikacik/1496128177-146794324_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128178-2576676059_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829902/blog/acikacik/1496128178-2576676059_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128186-2232498348_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829901/blog/acikacik/1496128186-2232498348_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128187-2435272893_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829902/blog/acikacik/1496128187-2435272893_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128187-681524744_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829903/blog/acikacik/1496128187-681524744_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128189-3644512003_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829902/blog/acikacik/1496128189-3644512003_l.jpg)
 
  
 
@@ -87,31 +87,31 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128189-1330406381_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829909/blog/acikacik/1496128189-1330406381_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128190-2640833065_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829903/blog/acikacik/1496128190-2640833065_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128197-2192668567_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829906/blog/acikacik/1496128197-2192668567_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128199-1867981850_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1496128199-1867981850_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128199-3378604048_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1496128199-3378604048_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128199-1888607896_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829911/blog/acikacik/1496128199-1888607896_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128202-636305033_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829914/blog/acikacik/1496128202-636305033_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128202-1356781097_l.jpg?v=1496129365)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829913/blog/acikacik/1496128202-1356781097_l.jpg)
 
  
 
 (搞笑糖果廣告)"點圖片"
 
-![](https://pic.pimg.tw/acikacik/1537106030-3730726767_n.png?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537106030-3730726767_n.png)
 
 (除臭襪廣告)"點圖片"
 
-![](https://pic.pimg.tw/acikacik/1537105883-3215282825.jpg?v=1537106103)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829912/blog/acikacik/1537105883-3215282825.jpg)
 
  
 
@@ -127,15 +127,15 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128209-2251327508_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829911/blog/acikacik/1496128209-2251327508_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128212-2583933244_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829913/blog/acikacik/1496128212-2583933244_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128215-3700367475_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829915/blog/acikacik/1496128215-3700367475_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128217-824152370_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829919/blog/acikacik/1496128217-824152370_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128219-2961126303_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829919/blog/acikacik/1496128219-2961126303_l.jpg)
 
  
 
@@ -147,19 +147,19 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128231-2237284088_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829919/blog/acikacik/1496128231-2237284088_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128248-4269023160_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829918/blog/acikacik/1496128248-4269023160_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128251-1632466462_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829920/blog/acikacik/1496128251-1632466462_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128232-1134248338_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829918/blog/acikacik/1496128232-1134248338_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128232-1510100095_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829917/blog/acikacik/1496128232-1510100095_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128315-2705848747_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829918/blog/acikacik/1496128315-2705848747_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128251-1302313879_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829918/blog/acikacik/1496128251-1302313879_l.jpg)
 
  
 
@@ -168,21 +168,21 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128234-2429559130_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829919/blog/acikacik/1496128234-2429559130_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128239-811116041_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829924/blog/acikacik/1496128239-811116041_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128243-1041728421_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829923/blog/acikacik/1496128243-1041728421_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128245-123478971_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829923/blog/acikacik/1496128245-123478971_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128256-3743439044_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829921/blog/acikacik/1496128256-3743439044_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128257-2346304062_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829924/blog/acikacik/1496128257-2346304062_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128260-995814134_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829921/blog/acikacik/1496128260-995814134_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128260-3076664245_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829923/blog/acikacik/1496128260-3076664245_l.jpg)
 
  
 
@@ -196,63 +196,63 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128251-2934063089_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829923/blog/acikacik/1496128251-2934063089_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128274-1154859292_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829923/blog/acikacik/1496128274-1154859292_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128284-2450319384_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829924/blog/acikacik/1496128284-2450319384_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128288-235669903_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829930/blog/acikacik/1496128288-235669903_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128288-2893174270_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829929/blog/acikacik/1496128288-2893174270_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128289-3122098174_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829928/blog/acikacik/1496128289-3122098174_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128291-1683358574_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829933/blog/acikacik/1496128291-1683358574_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128291-661785857_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829929/blog/acikacik/1496128291-661785857_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128291-2674243908_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829928/blog/acikacik/1496128291-2674243908_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128296-3225545962_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829929/blog/acikacik/1496128296-3225545962_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128297-201502901_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829929/blog/acikacik/1496128297-201502901_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128296-2569529878_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829929/blog/acikacik/1496128296-2569529878_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128299-1850009144_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829938/blog/acikacik/1496128299-1850009144_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128299-4113985438_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829941/blog/acikacik/1496128299-4113985438_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128303-1123017303_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829941/blog/acikacik/1496128303-1123017303_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128306-3366796427_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829942/blog/acikacik/1496128306-3366796427_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128301-1289065754.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829941/blog/acikacik/1496128301-1289065754.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128225-446863748_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829941/blog/acikacik/1496128225-446863748_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128226-1601901035_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829941/blog/acikacik/1496128226-1601901035_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128227-2137984848_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829942/blog/acikacik/1496128227-2137984848_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128231-2619342921_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829942/blog/acikacik/1496128231-2619342921_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128261-2337659348_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829940/blog/acikacik/1496128261-2337659348_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128260-2831646670_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829944/blog/acikacik/1496128260-2831646670_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128268-2838509676_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829949/blog/acikacik/1496128268-2838509676_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128272-1893469098_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829946/blog/acikacik/1496128272-1893469098_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128272-424677983_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829954/blog/acikacik/1496128272-424677983_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128282-3516287968_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829946/blog/acikacik/1496128282-3516287968_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128289-3122098174_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829928/blog/acikacik/1496128289-3122098174_l.jpg)
 
  
 
@@ -265,16 +265,16 @@ AC 入住的時候剛好是雨季、普吉島的雨季有時一整天都是晴�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128281-1056054806_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829948/blog/acikacik/1496128281-1056054806_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128281-861253359_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829947/blog/acikacik/1496128281-861253359_l.jpg)
 
   
 值得一提的是、經常接送我們的 MJ 總是笑容滿面的，每天來回接送都給予非常溫暖的笑容、爽朗的聲音為人十分友善。
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128572-1215861853_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829947/blog/acikacik/1496128572-1215861853_l.jpg)
 
  
 
@@ -289,27 +289,27 @@ AC 入住的時候剛好是雨季、普吉島的雨季有時一整天都是晴�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128306-2824208700_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829946/blog/acikacik/1496128306-2824208700_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128308-2124680451_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829950/blog/acikacik/1496128308-2124680451_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128308-2674299174_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829948/blog/acikacik/1496128308-2674299174_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128314-3578069205_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829957/blog/acikacik/1496128314-3578069205_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128315-3707542953_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829957/blog/acikacik/1496128315-3707542953_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128316-3007570769_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829958/blog/acikacik/1496128316-3007570769_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128317-513287489_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829958/blog/acikacik/1496128317-513287489_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128322-1202706430_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829959/blog/acikacik/1496128322-1202706430_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128323-1979633383_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829960/blog/acikacik/1496128323-1979633383_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128325-3998888388_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829956/blog/acikacik/1496128325-3998888388_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128316-315863746_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829957/blog/acikacik/1496128316-315863746_l.jpg)
 
  
 
@@ -322,11 +322,11 @@ AC 入住的時候剛好是雨季、普吉島的雨季有時一整天都是晴�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128306-813619476_l.jpg?v=1496129367)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829958/blog/acikacik/1496128306-813619476_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128310-1940983670_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829958/blog/acikacik/1496128310-1940983670_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128324-366195812_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829963/blog/acikacik/1496128324-366195812_l.jpg)
 
  
 
@@ -335,7 +335,7 @@ AC 入住的時候剛好是雨季、普吉島的雨季有時一整天都是晴�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128248-1992553666_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829963/blog/acikacik/1496128248-1992553666_l.jpg)
 
  
 
@@ -348,31 +348,31 @@ AC 入住的Villa房型有包含庭院還有私人小泳池、與其說是泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128326-1066220508_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829965/blog/acikacik/1496128326-1066220508_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128329-2080231134_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829964/blog/acikacik/1496128329-2080231134_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128332-1958121217_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829964/blog/acikacik/1496128332-1958121217_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128344-2547715856_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829969/blog/acikacik/1496128344-2547715856_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128344-1098935143_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829965/blog/acikacik/1496128344-1098935143_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128344-312430033_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829963/blog/acikacik/1496128344-312430033_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128347-4219612353_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829963/blog/acikacik/1496128347-4219612353_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128351-1171648403_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829965/blog/acikacik/1496128351-1171648403_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128352-3449960094_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829972/blog/acikacik/1496128352-3449960094_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128352-3027622132_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829973/blog/acikacik/1496128352-3027622132_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128221-1834878541_l.jpg?v=1496129366)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829977/blog/acikacik/1496128221-1834878541_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128339-3098255024_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829971/blog/acikacik/1496128339-3098255024_l.jpg)
 
  
 
@@ -391,29 +391,29 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128357-3870708726_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829974/blog/acikacik/1496128357-3870708726_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128361-3106369849_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829977/blog/acikacik/1496128361-3106369849_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128362-2310009377_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829974/blog/acikacik/1496128362-2310009377_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128364-1220816932_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829974/blog/acikacik/1496128364-1220816932_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128371-1208296908_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829974/blog/acikacik/1496128371-1208296908_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128376-1146429072_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829980/blog/acikacik/1496128376-1146429072_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128378-283012598_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128378-283012598_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128379-1187542027_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829983/blog/acikacik/1496128379-1187542027_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128382-4183062367_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829981/blog/acikacik/1496128382-4183062367_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128386-1454757952_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128386-1454757952_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128418-1456934117_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128418-1456934117_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128388-3356304603_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128388-3356304603_l.jpg)
 
  
 
@@ -426,17 +426,17 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128365-2040029854_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829986/blog/acikacik/1496128365-2040029854_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128367-3063858583_l.jpg?v=1496129368)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829985/blog/acikacik/1496128367-3063858583_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128369-3367336025_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128369-3367336025_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128385-3803666333_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829984/blog/acikacik/1496128385-3803666333_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128412-3343829217_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829990/blog/acikacik/1496128412-3343829217_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128416-3796498368_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829988/blog/acikacik/1496128416-3796498368_l.jpg)
 
  
 
@@ -447,11 +447,11 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128389-1574184659_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829989/blog/acikacik/1496128389-1574184659_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128392-2641023847_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829997/blog/acikacik/1496128392-2641023847_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128394-726893739_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829989/blog/acikacik/1496128394-726893739_l.jpg)
 
  
 
@@ -466,41 +466,41 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128414-857787626_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829987/blog/acikacik/1496128414-857787626_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128416-168405414_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829989/blog/acikacik/1496128416-168405414_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128397-1334717549_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829989/blog/acikacik/1496128397-1334717549_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128398-3690076395_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829988/blog/acikacik/1496128398-3690076395_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128399-2975990865_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829990/blog/acikacik/1496128399-2975990865_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128400-407490648_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829999/blog/acikacik/1496128400-407490648_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128400-1072024886_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830002/blog/acikacik/1496128400-1072024886_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128407-4215663104_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830017/blog/acikacik/1496128407-4215663104_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128409-3555049318_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830000/blog/acikacik/1496128409-3555049318_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128420-307131020_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830001/blog/acikacik/1496128420-307131020_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128421-193803161_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830004/blog/acikacik/1496128421-193803161_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128424-2926631005_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830000/blog/acikacik/1496128424-2926631005_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128425-1277741700_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830001/blog/acikacik/1496128425-1277741700_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128429-3030959793_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830001/blog/acikacik/1496128429-3030959793_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128430-1125155500_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829999/blog/acikacik/1496128430-1125155500_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128431-352631435_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830021/blog/acikacik/1496128431-352631435_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128433-2971846942_l.jpg?v=1496129369)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830026/blog/acikacik/1496128433-2971846942_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128435-3767895688_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830020/blog/acikacik/1496128435-3767895688_l.jpg)
 
  
 
@@ -517,33 +517,33 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128435-3790945598_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830025/blog/acikacik/1496128435-3790945598_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128450-2019593664_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830021/blog/acikacik/1496128450-2019593664_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128437-315083757_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830020/blog/acikacik/1496128437-315083757_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128439-1524358363_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830025/blog/acikacik/1496128439-1524358363_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128443-1389280436_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830021/blog/acikacik/1496128443-1389280436_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128444-1913420107_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830022/blog/acikacik/1496128444-1913420107_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128446-2303155172_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830022/blog/acikacik/1496128446-2303155172_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128446-3826854719_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830029/blog/acikacik/1496128446-3826854719_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128448-1902823653_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830030/blog/acikacik/1496128448-1902823653_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128448-2132079636_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830032/blog/acikacik/1496128448-2132079636_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128452-2847855400_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830031/blog/acikacik/1496128452-2847855400_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128461-444978566_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830034/blog/acikacik/1496128461-444978566_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128461-3901339919_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830031/blog/acikacik/1496128461-3901339919_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128461-3489312720_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830030/blog/acikacik/1496128461-3489312720_l.jpg)
 
  
 
@@ -560,91 +560,91 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128562-4093847210_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830031/blog/acikacik/1496128562-4093847210_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128483-176460331_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830033/blog/acikacik/1496128483-176460331_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128482-485989037_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830031/blog/acikacik/1496128482-485989037_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128482-3746474165_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830036/blog/acikacik/1496128482-3746474165_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128483-1614228057_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830040/blog/acikacik/1496128483-1614228057_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128483-2155358822_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830038/blog/acikacik/1496128483-2155358822_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128485-3847787960_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830037/blog/acikacik/1496128485-3847787960_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128491-3506550900_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830036/blog/acikacik/1496128491-3506550900_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128497-3404599045_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830037/blog/acikacik/1496128497-3404599045_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128496-3493509726_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830038/blog/acikacik/1496128496-3493509726_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128498-2388934745_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830037/blog/acikacik/1496128498-2388934745_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128498-735224750_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830036/blog/acikacik/1496128498-735224750_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128499-3776781636_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830039/blog/acikacik/1496128499-3776781636_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128500-2312182005_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830042/blog/acikacik/1496128500-2312182005_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128509-162062886_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128509-162062886_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128513-1574459150_l.jpg?v=1496129370)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128513-1574459150_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128514-559729857_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128514-559729857_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128515-307514244_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830043/blog/acikacik/1496128515-307514244_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128514-2899397230_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830045/blog/acikacik/1496128514-2899397230_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128515-939886077_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128515-939886077_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128517-122264596_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128517-122264596_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128519-22067358_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830049/blog/acikacik/1496128519-22067358_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128526-3406273343_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830044/blog/acikacik/1496128526-3406273343_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128527-2703138627_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830053/blog/acikacik/1496128527-2703138627_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128528-638058902_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830053/blog/acikacik/1496128528-638058902_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128528-3581158914_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830063/blog/acikacik/1496128528-3581158914_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128529-2424558007_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830053/blog/acikacik/1496128529-2424558007_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128530-2324828477_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830053/blog/acikacik/1496128530-2324828477_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128532-3953495407_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830054/blog/acikacik/1496128532-3953495407_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128534-1542899519_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830061/blog/acikacik/1496128534-1542899519_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128539-1814886805_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830058/blog/acikacik/1496128539-1814886805_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128539-1151931791_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830054/blog/acikacik/1496128539-1151931791_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128543-3337970252_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830054/blog/acikacik/1496128543-3337970252_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128543-1449924987_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830065/blog/acikacik/1496128543-1449924987_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128546-339056515_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830072/blog/acikacik/1496128546-339056515_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128547-2076134219_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830092/blog/acikacik/1496128547-2076134219_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128554-522660748_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830080/blog/acikacik/1496128554-522660748_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128554-4017949207_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830067/blog/acikacik/1496128554-4017949207_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128558-1350807066_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830067/blog/acikacik/1496128558-1350807066_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128559-3426430132_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830068/blog/acikacik/1496128559-3426430132_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128569-2773592791_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830068/blog/acikacik/1496128569-2773592791_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128569-3526088842_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830079/blog/acikacik/1496128569-3526088842_l.jpg)
 
  
 
@@ -662,11 +662,11 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128572-954455158_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830067/blog/acikacik/1496128572-954455158_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128573-1129721586_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830095/blog/acikacik/1496128573-1129721586_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128573-2938282432_l.jpg?v=1496129371)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830108/blog/acikacik/1496128573-2938282432_l.jpg)
 
  
 
@@ -685,11 +685,11 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496132935-4214382815_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830094/blog/acikacik/1496132935-4214382815_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496132936-2942193357_l.jpg?v=1496132942)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830096/blog/acikacik/1496132936-2942193357_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496132935-1264306645_l.jpg?v=1496132940)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830095/blog/acikacik/1496132935-1264306645_l.jpg)
 
  
 
@@ -701,11 +701,11 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128606-1815060138_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830097/blog/acikacik/1496128606-1815060138_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128609-407440358_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830097/blog/acikacik/1496128609-407440358_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128612-644570727_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830097/blog/acikacik/1496128612-644570727_l.jpg)
 
  
 
@@ -720,35 +720,35 @@ Main Pool 泳池
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128601-1154481755_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830096/blog/acikacik/1496128601-1154481755_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128600-2633598936_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830096/blog/acikacik/1496128600-2633598936_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128603-614989017_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830112/blog/acikacik/1496128603-614989017_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128623-2410654765_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830112/blog/acikacik/1496128623-2410654765_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128611-1240455830_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830113/blog/acikacik/1496128611-1240455830_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128616-1299857318_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830112/blog/acikacik/1496128616-1299857318_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128618-2802927053_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830114/blog/acikacik/1496128618-2802927053_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128617-2345693122_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830118/blog/acikacik/1496128617-2345693122_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128619-950145554_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830114/blog/acikacik/1496128619-950145554_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128630-8845573_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830112/blog/acikacik/1496128630-8845573_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128621-618912247_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830115/blog/acikacik/1496128621-618912247_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128620-3661158890_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830112/blog/acikacik/1496128620-3661158890_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128626-4115728393_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830121/blog/acikacik/1496128626-4115728393_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128631-1506573904_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830132/blog/acikacik/1496128631-1506573904_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128630-343964465_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830121/blog/acikacik/1496128630-343964465_l.jpg)
 
  
 
@@ -765,19 +765,19 @@ AC 在準備離開的時候才發現、大廳的右手邊有一個空間是類�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128643-940408849_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830121/blog/acikacik/1496128643-940408849_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128632-1840733430_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830121/blog/acikacik/1496128632-1840733430_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128632-2940026025_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830123/blog/acikacik/1496128632-2940026025_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128636-938778003_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830120/blog/acikacik/1496128636-938778003_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128636-1844050209_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830121/blog/acikacik/1496128636-1844050209_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128643-4039613937_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830122/blog/acikacik/1496128643-4039613937_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128643-102878176_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830122/blog/acikacik/1496128643-102878176_l.jpg)
 
  
 
@@ -790,31 +790,31 @@ AC 在準備離開的時候才發現、大廳的右手邊有一個空間是類�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128645-3000014336_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830135/blog/acikacik/1496128645-3000014336_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128646-465933545_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830135/blog/acikacik/1496128646-465933545_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128654-438100947_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830139/blog/acikacik/1496128654-438100947_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128653-3526600860_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830134/blog/acikacik/1496128653-3526600860_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128654-2381549920_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830136/blog/acikacik/1496128654-2381549920_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128656-1644291580_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830136/blog/acikacik/1496128656-1644291580_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128664-1938286994_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830137/blog/acikacik/1496128664-1938286994_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128664-2624536220_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830149/blog/acikacik/1496128664-2624536220_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128664-2062183345_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830136/blog/acikacik/1496128664-2062183345_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128670-3369544149_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830137/blog/acikacik/1496128670-3369544149_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128669-765577149_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830151/blog/acikacik/1496128669-765577149_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128669-2065247323_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830154/blog/acikacik/1496128669-2065247323_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128644-554324438_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830156/blog/acikacik/1496128644-554324438_l.jpg)
 
  
 
@@ -828,9 +828,9 @@ AC 在準備離開的時候才發現、大廳的右手邊有一個空間是類�
 
 >>訂房現折750元<<
 
-![](https://pic.pimg.tw/acikacik/1496128593-713801772_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830153/blog/acikacik/1496128593-713801772_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128682-3158677599_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830164/blog/acikacik/1496128682-3158677599_l.jpg)
 
  
 
@@ -840,17 +840,17 @@ AC 在準備離開的時候才發現、大廳的右手邊有一個空間是類�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128589-871843657_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830154/blog/acikacik/1496128589-871843657_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128586-3887844011_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830154/blog/acikacik/1496128586-3887844011_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128589-993187567_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830152/blog/acikacik/1496128589-993187567_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128588-1905984547_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830153/blog/acikacik/1496128588-1905984547_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128591-2184067215_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830153/blog/acikacik/1496128591-2184067215_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128595-2072838113_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128595-2072838113_l.jpg)
 
  
 
@@ -865,103 +865,103 @@ RENAISSANCE HOTELS GLOBAL DAY OF DISCOVERY一年一度的、一天體驗荒島�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128729-2512777838_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830172/blog/acikacik/1496128729-2512777838_l.jpg)
 
  
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128684-2612790573_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830167/blog/acikacik/1496128684-2612790573_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128687-2952475343_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128687-2952475343_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128692-1520840672_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128692-1520840672_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128695-3319967226_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128695-3319967226_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128730-74209236_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830174/blog/acikacik/1496128730-74209236_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128731-4251919447_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830170/blog/acikacik/1496128731-4251919447_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128747-2141058175_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128747-2141058175_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128748-2182490645_l.jpg)
-
- 
-
-![](https://pic.pimg.tw/acikacik/1496128752-1271883473_l.jpg)
-
-![](https://pic.pimg.tw/acikacik/1496128758-3579167366_l.jpg)
-
-![](https://pic.pimg.tw/acikacik/1496128760-3462922299_l.jpg)
-
-![](https://pic.pimg.tw/acikacik/1496128695-979098108_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830168/blog/acikacik/1496128748-2182490645_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128697-1911949509_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830177/blog/acikacik/1496128752-1271883473_l.jpg)
+
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830177/blog/acikacik/1496128758-3579167366_l.jpg)
+
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830177/blog/acikacik/1496128760-3462922299_l.jpg)
+
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830178/blog/acikacik/1496128695-979098108_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128702-2056155782_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830178/blog/acikacik/1496128697-1911949509_l.jpg)
+
+ 
+
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830180/blog/acikacik/1496128702-2056155782_l.jpg)
 
  
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128705-3765003789_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830184/blog/acikacik/1496128705-3765003789_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128708-2180100789_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830178/blog/acikacik/1496128708-2180100789_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128710-3148865867_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830176/blog/acikacik/1496128710-3148865867_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128735-3189896228_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830178/blog/acikacik/1496128735-3189896228_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128738-2179620521_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830186/blog/acikacik/1496128738-2179620521_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128761-1459900621_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830186/blog/acikacik/1496128761-1459900621_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128762-1707100548_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830187/blog/acikacik/1496128762-1707100548_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128712-3356497884_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830187/blog/acikacik/1496128712-3356497884_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128764-813455153_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830187/blog/acikacik/1496128764-813455153_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128717-2751054037_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830187/blog/acikacik/1496128717-2751054037_l.jpg)
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128717-808943938_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830187/blog/acikacik/1496128717-808943938_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128717-2528101861_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830188/blog/acikacik/1496128717-2528101861_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128719-958366803_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830190/blog/acikacik/1496128719-958366803_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128720-495122414_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830188/blog/acikacik/1496128720-495122414_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128745-1838970088_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830193/blog/acikacik/1496128745-1838970088_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128743-1625448387_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830201/blog/acikacik/1496128743-1625448387_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128746-2512976890_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830197/blog/acikacik/1496128746-2512976890_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128747-139089466_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1496128747-139089466_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128745-3130105067_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830194/blog/acikacik/1496128745-3130105067_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128763-3002576324_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830194/blog/acikacik/1496128763-3002576324_l.jpg)
 
-![](https://pic.pimg.tw/acikacik/1496128765-3730823023_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830193/blog/acikacik/1496128765-3730823023_l.jpg)
 
  
 
@@ -975,7 +975,7 @@ RENAISSANCE HOTELS GLOBAL DAY OF DISCOVERY一年一度的、一天體驗荒島�
 
  
 
-![](https://pic.pimg.tw/acikacik/1496128199-2901102261_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830194/blog/acikacik/1496128199-2901102261_l.jpg)
 
  
 
@@ -1003,14 +1003,14 @@ AC 非常推薦普吉島萬麗酒店當作假期中的一個選擇、可以安�
 
 >>訂房現折750元<<
 
-![](https://pic.pimg.tw/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830192/blog/acikacik/1506856416-2053616088.jpg)agoda 最優惠房價
 
-![](https://pic.pimg.tw/acikacik/1506856416-3021104577.jpg)booking 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830193/blog/acikacik/1506856416-3021104577.jpg)booking 最優惠房價
 
-![](https://pic.pimg.tw/acikacik/1506856416-266870209.gif)hotels.com 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-266870209.gif)hotels.com 最優惠房價
 
-![](https://pic.pimg.tw/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-981493600.jpg)ctrip 最優惠房價
 
-![](https://pic.pimg.tw/acikacik/1506856416-2559182490.jpg)Expedia** ** 最優惠房價
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-2559182490.jpg)Expedia** ** 最優惠房價
 
-![](https://pic.pimg.tw/acikacik/1506856416-3231197718.gif)TripAdvisor 比價網
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780830204/blog/acikacik/1506856416-3231197718.gif)TripAdvisor 比價網

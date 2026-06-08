@@ -1,0 +1,118 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div class={`newsletter-box${compact ? ' compact' : ''}`}>
+  <div class="newsletter-inner">
+    {!compact && <div class="newsletter-icon">🐻</div>}
+    <h3 class="newsletter-title">訂閱兩隻熊的電子報</h3>
+    <p class="newsletter-desc">收到最新預言分析、旅遊記事與影片更新，免費直送信箱。</p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/twobears"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/twobears', 'popupwindow')"
+      class="newsletter-form"
+    >
+      <div class="form-row">
+        <input
+          type="email"
+          name="email"
+          id="bd-email"
+          placeholder="your@email.com"
+          required
+          class="email-input"
+        />
+        <button type="submit" class="subscribe-btn">訂閱</button>
+      </div>
+      <p class="privacy-note">免費訂閱，隨時可取消。不會有垃圾郵件。</p>
+    </form>
+  </div>
+</div>
+
+<style>
+  .newsletter-box {
+    background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+    border: 1px solid rgba(35, 55, 255, 0.15);
+    border-radius: 16px;
+    margin: 3em 0 1em;
+    padding: 2em;
+    text-align: center;
+  }
+  .newsletter-box.compact {
+    padding: 1.5em;
+    margin: 1.5em 0;
+    border-radius: 10px;
+  }
+  .newsletter-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .newsletter-icon {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+  }
+  .newsletter-title {
+    margin: 0 0 0.4em 0;
+    font-size: 1.3em;
+    color: rgb(var(--black));
+  }
+  .compact .newsletter-title {
+    font-size: 1.1em;
+  }
+  .newsletter-desc {
+    color: rgb(var(--gray));
+    font-size: 0.9em;
+    margin: 0 0 1.2em 0;
+    line-height: 1.5;
+  }
+  .form-row {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+  }
+  .email-input {
+    flex: 1;
+    padding: 0.65em 1em;
+    border: 1.5px solid rgb(var(--gray-light));
+    border-radius: 8px;
+    font-size: 0.95em;
+    outline: none;
+    transition: border-color 0.2s;
+    max-width: 260px;
+  }
+  .email-input:focus {
+    border-color: var(--accent);
+  }
+  .subscribe-btn {
+    padding: 0.65em 1.4em;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .subscribe-btn:hover {
+    background: var(--accent-dark);
+  }
+  .privacy-note {
+    margin: 0.8em 0 0;
+    font-size: 0.78em;
+    color: rgb(var(--gray));
+  }
+  @media (max-width: 480px) {
+    .form-row {
+      flex-direction: column;
+    }
+    .email-input {
+      max-width: 100%;
+    }
+  }
+</style>

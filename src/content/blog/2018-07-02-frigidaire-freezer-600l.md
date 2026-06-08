@@ -7,115 +7,115 @@ heroImage: '/images/blog/2018-07-02-frigidaire-freezer-600l.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5066953901'
 ---
 
-![](https://pic.pimg.tw/acikacik/1530502052-248871725_l.jpg?v=1530502054)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852502/blog/acikacik/1530502052-248871725_l.jpg)
 **圓夢開箱文**
 AC 每次出國旅遊回家最怕打開冰箱，因為肉類保存不易，如果冷凍庫的溫度不夠低，時間越久越容易有怪味道，葉菜類或是根莖類的蔬果更是不能存放一周以上的時間，所以AC 與兩隻熊每個星期都會跑超市菜市場來來回回三到五次之多，常常在心中許願、如果有一台可以存放大量 Costco買回來的食物，家中煮飯料理的萬用冷凍櫃、那該有多好呢?
-![](https://pic.pimg.tw/acikacik/1530502051-2661120732_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852500/blog/acikacik/1530502051-2661120732_l.jpg)
 「冷凍櫃推薦」  
 **不只是美國人、現在台灣人也很需要**
 由於AC 的喜歡喝冰冷的飲料，因緣際會之下使用到 美國富及第 Frigidaire 小冰箱，小冰箱的好處就是體積不大方便收納，本來想說小冰箱對於冷度應該不需要過於要求，不過 美國富及第 Frigidaire 小冰箱的冷凍庫是跟一般冰箱沒有差異性的，保冰的效果一流，讓AC 對這個品牌的商品有了十足的好感，美國製的冰箱省電跟耐用性也是可受公評的，這次有機會接觸到 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」，話說朋友 Roger 猛一看還以為是商業用的冰櫃呢，其實是貨真價實的家庭用冷凍櫃，美國人經常需要開車到很遠的 COSTCO 之類的大型購物商場，購買一整個星期所使用的食材，這樣的冰箱在美國的普及率相當高，美國富及第 Frigidaire 冷凍櫃 在美國也占了約三成的市占率，可說是國民冷凍冰箱設備，不只是美國在加拿大也是市佔第一的大品牌，近年來日本、台灣對於家庭烹飪占比越來越多的現在，採購與儲藏需求也變多了，一般的冰箱也許已經不能滿足AC 了，冷凍儲存的新食代也許即將要來了，你說呢~ ^ ^
-![](https://pic.pimg.tw/acikacik/1530502183-791783539_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852501/blog/acikacik/1530502183-791783539_l.jpg)
 **精緻體貼的運送方式**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」從安排貨單、電話聯繫運送時間，然後到運送至 AC 家裡大約五天左右，可說是讓人非常的期待呀~
-![](https://pic.pimg.tw/acikacik/1530502053-2748050646_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852500/blog/acikacik/1530502053-2748050646_l.jpg)
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」比AC 跟兩隻熊都還要高大，高度約195公分、寬度有83.5公分、深度也很深有73.5公分深，如果家裡的門不夠大，還真的會擔心進不了家門呢~
-![](https://pic.pimg.tw/acikacik/1530502052-2332221121_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852500/blog/acikacik/1530502052-2332221121_l.jpg)
 運送時四面都有紙箱跟厚厚的保麗龍保護，貨運大哥十分小心的搬，仔細的喬角度、這麼重的冰箱也能不磕不碰的順利到達廚房空間~
-![](https://pic.pimg.tw/acikacik/1530502050-1419895388_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852501/blog/acikacik/1530502050-1419895388_l.jpg)
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」有提供免費的基本安裝，冷凍櫃的基本安裝非常的簡單，放置好位置之後將流線型好握的門把鎖上就大功告成了，超級簡單的~
-![](https://pic.pimg.tw/acikacik/1530502199-421906065_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852500/blog/acikacik/1530502199-421906065_l.jpg)
 運送大哥簡單的說明注意的事項，因為搬運過程會影響到壓縮機失油或是影響散熱的穩定性，所以要靜置兩個小時才能插電開機使用，AC 對於這兩個小時等待的時間覺得很漫長，很想馬上打開感受身處極地的清涼感~
-![](https://pic.pimg.tw/acikacik/1530502052-3334497703_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852505/blog/acikacik/1530502052-3334497703_l.jpg)
 貨運大哥說這種冷凍櫃真的比他家的好用，因為通常一般傳統凹字臥式冷凍櫃要彎腰拿置放深處的食物，而且最下面都結冰了，也很少可以撈出來，除非把上面的食物拿光，才可以看到下面的食材，大哥說這麼大台可以裝很多東西，他也想買一台~ XD
-![](https://pic.pimg.tw/acikacik/1530502048-3547471426_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852505/blog/acikacik/1530502048-3547471426_l.jpg)
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」跟牆壁要保持10公分左右的縫隙來散熱，讓熱空氣有地方出來~
 盡量不要跟其他的電器共用插座~
 除了偏遠地區，基本上台灣本島都提供到府安裝、大樓五樓都可以請貨運大哥辛苦一下、上樓不加費用，安裝好商品也有保固服務，有疑問或是保修都可以撥打客服專線，紙箱需要保留七天的時間，如果沒什麼問題就可以做資源回收了~
-![](https://pic.pimg.tw/acikacik/1530502048-4060983439_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852504/blog/acikacik/1530502048-4060983439_l.jpg)
 **等待與失誤**
 其實「美國富及第 Frigidaire 600L立式無霜冷凍櫃」要等六個小時的時間才會到達理想適冷的冷凍溫度，這時候才把需要冷凍的食材陸續地放進去，但是AC 迫不及待只開了兩個小時、就一股腦地放進去，所以是不是很正確的使用呢? 這不是AC 追求的，但是使用起來的爽度、卻是滿分十分的喔~
-![](https://pic.pimg.tw/acikacik/1530502194-2897543099_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852504/blog/acikacik/1530502194-2897543099_l.jpg)
 **無時無刻都可以有個COSTCO在家裡**
 兩個小時之間AC 與兩隻熊已經迫不及待的去 COTCO 大量的採購了，決定把這個大冰庫填滿，雖然後來知道這對我們是個不可能的任務，因為金字塔不是一天造成的，把「美國富及第 Frigidaire 600L立式無霜冷凍櫃」填滿也不是一朝一夕可以完成的，兩個小時很快就過去了，將內部的泡棉跟膠條迅速的拆除，嶄新的冰箱內部就展現在AC 的眼前，將食物任意的放進去真的是很有療癒感的事情~
-![](https://pic.pimg.tw/acikacik/1530502053-1723706778_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502199-992878705_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852504/blog/acikacik/1530502053-1723706778_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852504/blog/acikacik/1530502199-992878705_l.jpg)
 **好看很重要**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」、寬版立式潔白的冰箱外觀、冷凍面板還有冷調的淡藍色燈光、這樣的造型設計剛好就是AC 的菜，有一種超現代的科技感，非常容易操作好用、只要一插電就可以運作，觸控面板上面有個-減號與+加號、同時按下去三秒、溫度可以從華氏"F"改成攝氏"C"，純白的燈光將冷凍庫的內層打亮，因為是無霜的風冷系統，所以冰箱再關開之間，會飄散出大量的冷凍霧氣，就像是舞台上的乾冰效果一樣，在這種盛夏多颱風的炎熱氣候裡，真的有種想一直打開的衝動呀~
-![](https://pic.pimg.tw/acikacik/1530502180-1910461881_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852505/blog/acikacik/1530502180-1910461881_l.jpg)
 **善於提醒**
 冷凍櫃還有個保護裝置、如果開門的時間太長了，會發出好聽的警示音，如果內部溫度太高、也會發出好聽的警示音，AC 會因為音樂太好聽就忘了關門 = =；(大誤) 
-![](https://pic.pimg.tw/acikacik/1530502169-837333616_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852505/blog/acikacik/1530502169-837333616_l.jpg)
 **溫度可以調**
 溫度從1級~7級用手指觸控面板設定 (從負14℃ 到 負21℃)AC 比較喜歡負21度℃，冷凍效果最佳。
-![](https://pic.pimg.tw/acikacik/1530502182-256914316_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852504/blog/acikacik/1530502182-256914316_l.jpg)
 **讓人安心放心**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」具有休眠模式，比方AC 外出旅遊一個星期，又擔心冷凍櫃會不會浪費電，就跟變頻冷氣一樣、冷凍櫃有自己的休眠模式，他就睡著了~  
-![](https://pic.pimg.tw/acikacik/1530502185-119375652_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852505/blog/acikacik/1530502185-119375652_l.jpg)
 **零下21度C 有什麼好處?**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」操作方式非常的簡單，冷凍櫃的厚度滿厚的，溫度可以降到零下21度C，歌手"楊林"唱過"降到零下幾度C?"、答案是21度C <<<以上是冷笑話>>>。  
 如果漁貨或是肉類帶有寄生蟲，存放在零下21度C下七天之後，寄生蟲就無法存活，在零下21度C 細菌也會漸漸的停止繁殖，所以低溫冷凍是最好的保鮮方式，可以鎖住營養成分，所以有的冷凍食品可以不用防腐劑在冷凍庫裡保存12個月不變質。  
 以零下21度C 低溫貯藏的蔬菜水果，不像一般冷凍需要長時間結凍，容易破壞蔬菜的結構，脫水產生了大量不規則的"冰晶"，零下21度C急速冷凍可以保留蔬菜原有風味與營養成分。
-![](https://pic.pimg.tw/acikacik/1530502063-2164112114_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502063-2164112114_l.jpg)
 **一按即凍**
 急速冷凍的功能就是迅速將食材冷凍，急速冷凍可以在約半小時內將食材溫度順降到零下，如果放進導熱很快的不鏽鋼容器更可以幫助食材快速降溫，將食材的美味鮮度鎖住，如果不是塊狀的或是液態的菜餚，可以先平放冷凍之後變成平面的然後再直立起來，就可以站得住了，可以放進冷凍櫃門上的置物盒中(省電~ 急速冷凍還是不要超過四個小時為佳、四小時後記得手動按面板取消"急速冷凍")。
-![](https://pic.pimg.tw/acikacik/1530502178-3819511396_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502178-3819511396_l.jpg)
 **開冷凍庫的門要快狠準**
 由於「美國富及第 Frigidaire 600L立式無霜冷凍櫃」的內部與外面有氣壓的不同、產生真空的效應，所以打開冰箱需要花點力氣，就像有一種吸力一樣，一次拿足夠量的食材，話說冷凍庫冷凍效果非常好、可以很快就會冷回來~ 還是會建議家常料理分裝之後、放進去兩週左右吃完為佳，因為長期冷凍門開開關關、難保食材不會稍微融化又結冰、產生凍傷的可能。
-![](https://pic.pimg.tw/acikacik/1530502198-45590925_l.jpg?v=1530503781)
-![](https://pic.pimg.tw/acikacik/1530502168-3421478262_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852507/blog/acikacik/1530502198-45590925_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502168-3421478262_l.jpg)
 **天下無霜**
 在AC 的印象裏面，冷凍櫃裡面的四周通常都是積了厚厚的一層霜，「美國富及第 Frigidaire 600L立式無霜冷凍櫃」風冷的設計冰箱不會結霜，感應式智能精準控溫並且運用低溫化霜技術融化結霜，所以維護跟清潔都變得容易很多。
-![](https://pic.pimg.tw/acikacik/1530502168-1192724444_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852507/blog/acikacik/1530502168-1192724444_l.jpg)
 **每天吃一樣的不煩嗎**
 有了「美國富及第 Frigidaire 600L立式無霜冷凍櫃」還可以省錢，由於平常煮菜，因為怕食物放久了會壞，就會把單一種類的食材盡量在兩三天內煮掉，每天都會吃同樣類似的東西，而且吃不完還會倒掉、很浪費食物，有了冷凍櫃之後、每一種食材都可以少量分裝，一次取用一小包，料理的口味變多了，食物的份量可以取用的剛剛好，三菜一湯或是四菜一湯都不是問題了，讓準備食材以及料理都變得更輕鬆，媽媽為家人準備便當也可以菜色豐富，不用每天從早煮到晚，幫錢包精打細算。
-![](https://pic.pimg.tw/acikacik/1530502059-687490541_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502059-4168530871_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502059-1249496009_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502059-2297127025_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502060-2754803845_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502072-3719514341_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502071-224380572_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502059-687490541_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852507/blog/acikacik/1530502059-4168530871_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502059-1249496009_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852508/blog/acikacik/1530502059-2297127025_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852507/blog/acikacik/1530502060-2754803845_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530502072-3719514341_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530502071-224380572_l.jpg)
 **玻璃小心"餃"滑**
 玻璃層架的玻璃其實有點滑，如果是容易滑動的結冰物品，就可以放在抽屜裏面，以前AC 的小冰庫都會塞的滿滿的，但是又很想多買一些來囤，結果就變成了沒有一絲絲的空間或是縫隙，其實對冷藏效果也會打折扣，尤其擋到冷凍出風口、怎麼冷得起來呢~
-![](https://pic.pimg.tw/acikacik/1530502191-3636854868_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852510/blog/acikacik/1530502191-3636854868_l.jpg)
 **大量採購真的很需要一台冷凍櫃**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」可以存放各種的肉類、新鮮的海產、平時自己製作的小菜、或是在事先就已經洗乾淨分裝處理好的蔬菜、或是從大賣場買回來的冷凍蔬菜、肉類、台東青草茶、冰淇淋、麥克雞塊、愛吃火鍋的AC 可以儲藏許多義美的火鍋料、網購的冷凍水餃餛飩、團購來的包子蔥抓餅(以前AC 網購姜媽媽的包子、一次都不敢買太多，但是運費不便宜呀~)、或是母乳、寶寶副食品，就連剛出爐的麵包都可以分裝冷凍，米飯也可以作成飯糰想吃的時候拿出來微波、或是加熱一下就可以馬上食用。
 **中秋烤肉該怎麼保鮮**
 又到了中秋節要大量烤肉的時節，與家人團聚一起同歡，如果沒有事先準備好需要燒烤的肉品，當天跑好事多、量販店非常的趕時間，有一台「美國富及第 Frigidaire 600L立式無霜冷凍櫃」可以提早購買中秋烤肉的肉類與生猛海鮮、從此AC 就不會擔心沒有採買的時間，還好冷凍櫃夠大讓人好放心。
-![](https://pic.pimg.tw/acikacik/1530503730-573417911_l.jpg?v=1530503781)
-![](https://pic.pimg.tw/acikacik/1530503742-3945713447_l.jpg?v=1530503781)
-![](https://pic.pimg.tw/acikacik/1530503750-1148858385_l.jpg?v=1530503781)
-![](https://pic.pimg.tw/acikacik/1530502151-833263097_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502158-425480917_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502168-108779309_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530503730-573417911_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530503742-3945713447_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530503750-1148858385_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852510/blog/acikacik/1530502151-833263097_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852510/blog/acikacik/1530502158-425480917_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852511/blog/acikacik/1530502168-108779309_l.jpg)
 **冷凍熊青**
 蔬菜可以選擇根莖類的、切好分裝急速冷凍，紅蘿菠跟豆芽菜還有高麗菜都可以直接洗好切好瀝乾直接放入冷凍，白蘿菠切塊後要經過滾水裡汆燙過再用紙巾擦乾冷凍，保存蔬菜的品質並抑制酵素的作用、不易腐敗，葉菜類可以事前煮好，料理過的蔬菜只有損失一點點的養分，用冷凍的方式、卻是一個不錯的方法，還可以用小盒子分裝，只要拿出來解凍就可以食用，一週間的冷凍選擇，可以依照個人的料理喜好做嘗試，通常先煮好再放入冷凍庫是一個最不費力氣的方法，因為只需要加熱就可以飽餐一頓，累個一下午卻可以悠哉一星期，算是很划算的省時省事小撇布~
-![](https://pic.pimg.tw/acikacik/1530502048-1750090273_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502048-3411724273_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502048-3262414402_l.jpg?v=1530503780)
-![](https://pic.pimg.tw/acikacik/1530502050-3048914908_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852510/blog/acikacik/1530502048-1750090273_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502048-3411724273_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852514/blog/acikacik/1530502048-3262414402_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502050-3048914908_l.jpg)
 **一週間食材備料**
 兩隻熊有了「美國富及第 Frigidaire 600L立式無霜冷凍櫃」之後，可以一次採買一週間的食物，用冷藏用的opp袋，將切好的蔬菜瀝乾置入袋中，再將空氣壓出來，就可以直立的整齊擺放進冷凍櫃中，就算出門ㄧ兩週也不怕食物會腐壞，減少AC每天煮菜備料的時間。
-![](https://pic.pimg.tw/acikacik/1530502055-3757716536_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502055-3757716536_l.jpg)
 **冷凍的芒果作芒果冰沙~**
 其實冷凍蔬果比較一般新鮮的蔬果營養流失的更少，最近跟朋友"派派"買了一箱芒果，就算是放在冰箱的冷藏抽屜裏面，過了兩週後還是慢慢出現了黑色的斑點，斑點越來越大，已經到了吃不完也送不了的狀況，AC 想到可以用急速冷凍的方式，將芒果凍齡~ 負21度C 急速冷凍過的芒果，不但香甜好吃保留了最新鮮的口感，而且可以在冰箱裏面從夏天陪AC 到冬天，冬天還是可以吃到香甜好吃的芒果冰沙，在現在快要過熟的時候冷凍起來，他就凍齡了~ 也把這些蔬果最豐富的營養保存下來，新鮮蔬果經過時間慢慢地流失養分，有時候冷凍蔬果比新鮮蔬果更有營養呢~
-![](https://pic.pimg.tw/acikacik/1530502048-3537398668_l.jpg?v=1530503779)
-![](https://pic.pimg.tw/acikacik/1530502055-752873296.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852512/blog/acikacik/1530502048-3537398668_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502055-752873296.jpg)
 **果汁也可以變成冰棒歐**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」還可以冰很多的冰塊，平常AC 把水倒入製冰盒、大約要一整天24小時之後才有冰塊可以取用，但是昨天AC 把製冰盒放進去半天不到就發現冰塊硬梆梆的還冒著煙(負21度C 什麼都冒著煙、就連豬肉片都很夢幻的冒著煙~ XD)，兩隻熊想到可以把杯子倒入半杯的水、然後放進冰箱冰，就不用作冰塊啦~ 因為杯子本身就是冰塊了~ \ ^__________^ /
-![](https://pic.pimg.tw/acikacik/1530502200-3009739074_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502200-3009739074_l.jpg)
 **對抗發霉的利器**
 桃園龜山的濕度相當高，有一些乾果類比方紅棗、或是枸杞都很容易發霉，用冷凍的方式存放可以讓食用的週期拉長，一些保存時效比較短的東西，也可以幫它們延壽了~
-![](https://pic.pimg.tw/acikacik/1530502057-2222129157_l.jpg?v=1530503780)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502057-2222129157_l.jpg)
 **廚房不再是戰場，鍋碗瓢盆輕鬆收拾 so easy**
 有了「美國富及第 Frigidaire 600L立式無霜冷凍櫃」採買囤新鮮肉類與蔬菜都不再是難事了，但是料理完該怎麼清潔碗盤呢? 真的是傷腦筋~ 不管是中秋烤肉或是朋友聚餐的碗盤最後忙了一整天還要處理善後讓人很煩躁，堆積如山的待洗碗盤看了AC 就 頭很大，尤其是大熱天還要戴手套穿圍裙，還怕髒水潑上身，汗流浹背的處理這場大戰後的受災場景，如何快速又乾淨的清洗這些油膩膩的碗盤呢? 如果能有一台「美國富及第 Frigidaire 8 人份 Self-Clean 70度高溫 洗碗機」應該問題就能迎刃而解了，把所有碗碟集中放入大空間的洗碗機，運用十二道超強力水柱清洗，只要花平時手洗碗筷一半左右的水量，就可以清洗乾淨，不只省水更省下許多洗碗筷的寶貴時間，省下來的力氣與時間可好好地陪伴家人與親朋好友話話家常，其實AC 是有點懶~ 美國富及第 Frigidaire 真的是懶人的好朋友阿~ XD
 **未來要好好收納**
 冷凍櫃的收納也是一門很大的學問，雖然「美國富及第 Frigidaire 600L立式無霜冷凍櫃」空間很大，冷凍櫃的玻璃層板有的較寬有的較窄，冷凍門上的層門背固定收納架也是有深淺的分別，兩隻熊規劃門上收納架可以放重量輕一些的冰棒或是小袋裝的輕量醬料或是乾果，抽屜裡放大包裝的雞塊或是冷凍蔬菜，肉類可以置放在倒數第二層可調式置物網架，將肉品、魚類與蔬菜分開擺放，並且將食材用盒子盛裝疊放，如果食物越來越多的時候，可以在外盒或是袋子上面寫上菜名與日期，以後可以依照"先進先出"的方式擺放，較不容易有過期了一堆，忘了吃的問題。
-![](https://pic.pimg.tw/acikacik/1530502200-496255128_l.jpg?v=1530503781)
-![](https://pic.pimg.tw/acikacik/1530502200-2179121978_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852513/blog/acikacik/1530502200-496255128_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852514/blog/acikacik/1530502200-2179121978_l.jpg)
 **電費會不會很貴**
 「美國富及第 Frigidaire 600L立式無霜冷凍櫃」是一台非常省電的機種，節電能力一流，開機一整天也只用掉１.７度電，就相當於兩台空氣循環扇的電量。
-![](https://pic.pimg.tw/acikacik/1530502192-1459752415_l.jpg?v=1530503781)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852517/blog/acikacik/1530502192-1459752415_l.jpg)
 冷凍冰櫃要怎麼選呢? 美加市佔第一品牌的選購指南教你怎麼選~
 https://www.relonintl.com.tw/pages/about-freezer
 美國富及第 Frigidaire 官網  

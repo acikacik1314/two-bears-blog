@@ -7,222 +7,222 @@ heroImage: '/images/blog/2020-03-23-sansui-karaoke-ktv-sktv-t888.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068803271'
 ---
 
-![](https://pic.pimg.tw/acikacik/1584946720-1840845591.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859761/blog/acikacik/1584946720-1840845591.jpg)
 SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理念創立，在全盛時期與先鋒、特麗音並稱「音響御三家」，其深厚的研發實力，屢屢成為業界第一並率先推出各類影音產品，這次「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」 也將改變大家的歡唱習慣，不管走到哪裡都可以盡情的歡唱。
-![](https://pic.pimg.tw/acikacik/1584951536-752963700_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584951536-752963700_l.jpg)
 兩天前確定訂單一早就收到商品非常有效率，山水行動KTV整體箱子拿起來其實不重，似乎跟一般沉甸甸的音響組合有極大的不同，以前到朋友家都很羨慕朋友家裡的豪華多聲道擴大器揚聲器KTV，光是一個金屬板金的擴大機就好幾公斤重了吧，再加上五六個大型的喇叭，還有選歌器撥放器好幾個遙控器，還有長長的喇叭線，哪種高級感讓我都不好意思去動，深怕自己撥錯一個按鈕就搞壞那幾十萬的設備，其實也真的是看不懂如何操作。
 momo購物 山水行動KTV 
 話說這幾年歡唱風格改變，坐在電腦前面用個耳麥就可以唱歌，還有網紅買了超級厲害的專業級的麥克風，用電腦程式模擬ㄟ扣，唱起歌來也是非常迷人與帥氣，還進化成人手一支的隨身麥克風結合歡唱揚聲器功能，雖然也很棒總是覺得少了點什麼，對~ 就是互動功能，就是可以把親朋好友凝聚起來的哪種感覺，所以迷你小型的歡唱器材還是不能取代KTV 帶給兩隻熊那種大夥一起唱歌的快樂，因緣際會讓兩隻熊接觸到「SANSUI山水15吋觸控螢幕桿式行動KTV型號SKTV-T888」真的是驚喜的一大發現。
-![](https://pic.pimg.tw/acikacik/1584949332-1738719287_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859761/blog/acikacik/1584949332-1738719287_l.jpg)
 **新奇開箱**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」做工精美各種調控都深具實力技術精湛，所以兩隻熊抱著非常期待的心情開箱，牛皮紙箱外盒包裝精美，打開雖然保麗龍有些微的壓到但是不影響開箱的喜悅，這外觀也太讚了吧~ XD
-![](https://pic.pimg.tw/acikacik/1584946589-2793658217_l.jpg)![](https://pic.pimg.tw/acikacik/1584946602-1928557267_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584946589-2793658217_l.jpg)![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584946602-1928557267_l.jpg)
 拆開「SANSUI山水15吋觸控螢幕桿式行動KTV」塑膠封套，款式相當的新穎，產品型號：SKTV-T888，機身尺寸 <長38x寬20x高60cm> 可以輕易地放入後車廂，或是車子的前座，大小剛好可以放在任何角落或是舞台中央，將箱子裡的備品展開有行動KTV主機一台 可伸縮高腳架一個 遙控器一只 白色無線麥克風兩個 還附上兩個防塵套 說明書一份，AC 非常興奮的開始摸索了起來。
-![](https://pic.pimg.tw/acikacik/1584946593-2613147382_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946602-1967047926_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946603-1596336347_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946602-2572125752_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584946593-2613147382_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584946602-1967047926_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859762/blog/acikacik/1584946603-1596336347_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946602-2572125752_l.jpg)
 **賞心悅目的外觀設計**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」的做工精緻，豪門黑色大方新穎漂亮，打開外箱瞬間被吸引，外觀精緻優雅也很好看，非常喜歡完全超出期望，很有份量感，其實輕便好攜帶。
-![](https://pic.pimg.tw/acikacik/1584946599-130180691_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946601-885500664_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946599-130180691_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946601-885500664_l.jpg)
 **多種功能控制**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」擁有一個專業調音面板，不但可以開啟伴唱功能，還可以依照自己的聲線調高低音，只要輕觸無段式音量旋鈕，這個動作要小力一點，以免被自己的聲音嚇一跳。
-![](https://pic.pimg.tw/acikacik/1584946598-453929869_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946599-219750774_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946598-453929869_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946599-219750774_l.jpg)
 除了開關的按鈕、麥克風音量大小，還有許多功能選項，一鍵伴唱上下選曲、左右控制，也可以調整高低音、混音、音量大小、數字選歌，操作按鍵也簡單，反應靈敏很容易上手。
 momo購物 山水行動KTV 
-![](https://pic.pimg.tw/acikacik/1584946585-870981997.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946585-870981997.jpg)
 **外接設備**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」外接USB或是SD卡插上馬上播放，不用再下載任何軟體，AC 準備了一些伴唱音樂在USB中，插上隨即連續撥放不會延遲，只要事先把要唱的歌存在USB裡面就可以連續唱下去，也不用找歌點歌對於不想費力點歌的AC，這個方法真的很無腦但是很好用。
-![](https://pic.pimg.tw/acikacik/1584950248-3216010037_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859766/blog/acikacik/1584950248-3216010037_l.jpg)
 **外接樂器功能更強大**
 備有音頻線可以透過接頭連接樂器彈奏，更具有音樂性跟創作性，對於喜歡公眾表演的人，是個非常棒的功能，AC 不會彈樂器就略過~ XD
-![](https://pic.pimg.tw/acikacik/1584946607-221371522_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946607-221371522_l.jpg)
 **遙控器**
 如果不想起身調控「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」上方的按鍵旋鈕，有功能齊全的遙控器可以完美匹配機身上方按鈕選項，不只是操作方便遙控很靈敏，產品還有一年保固，讓人使用起來好放心。
-![](https://pic.pimg.tw/acikacik/1584946587-1636797524_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946587-1636797524_l.jpg)
 **麥克風直接連上**
 兩隻小白麥克風質感很好，沒有麥克風線的束縛，白色外型很跳與機身黑色剛好成對比，有兩支麥克風不怕搶著唱，麥克風很輕簡單順手，轉開麥克風塑料的外殼把電池裝進去之後，完全不用設定就馬上連接到「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」，就跟到錢櫃KTV 的無線麥克風一樣，而且也備有防口水噴沫的紅色黑色保護套，麥克風的中央有個電池電量顯示功能，不用擔心唱到一半就沒電了。
-![](https://pic.pimg.tw/acikacik/1584946588-2275501397_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946603-2561984641_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859765/blog/acikacik/1584946588-2275501397_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859767/blog/acikacik/1584946603-2561984641_l.jpg)
 **收音更好抗雜音**
 電腦控制讓麥克風的收音品質更好，訊號穩定沒有雜音，AC 只是清唱歌曲都可以聽到自己聲音裡如樂器般的共鳴感，讓唱歌時的音質表現更清楚，歌喉彷彿開了超清晰模式一樣，就算有點距離收音還是很穩定。
 momo購物 山水行動KTV 
-![](https://pic.pimg.tw/acikacik/1584946590-4178928274_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946590-4178928274_l.jpg)
 **15吋觸控大螢幕(解析度1280P)**
 AC 記得去KTV第一次使用到觸控的螢幕點歌，第一時間心中充滿新奇與智慧高科技的感受，竟然可以用手滑一滑就能選取自己想唱的歌曲，「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」畫質高解析度清晰，不只是單純可以觀看影片，只要動動手指頭就可以觸控螢幕，更能點選與輸入中英文，變成一台可以具有溝通功能的雙向設備，音響不再只是撥放音樂還可以點歌滑動歌單，把操作變得跟KTV一樣簡單了。
-![](https://pic.pimg.tw/acikacik/1584946593-973925290_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946594-2190319446_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946591-2679710561_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946591-1459726801_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946593-973925290_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946594-2190319446_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859767/blog/acikacik/1584946591-2679710561_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946591-1459726801_l.jpg)
 **面板選單操作**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」可以說選單功能非常強勁，自娛娛人的娛樂工具，裡面有內建的YOUTUBE 可以撥放音樂影片、也有付費的電影APP、下載好的兩款唱歌APP、錄音APP、自己也可以下再一些常用的APP，比方LINE 或是FB 整個面板就像是一台小電腦一般，多人同步點歌，滿足兩隻熊的各種影音需求。
-![](https://pic.pimg.tw/acikacik/1584946713-2987526697_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946712-2709439046_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859769/blog/acikacik/1584946713-2987526697_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859767/blog/acikacik/1584946712-2709439046_l.jpg)
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」螢幕很大，很適合老年人操作，色彩逼真。
-![](https://pic.pimg.tw/acikacik/1584946603-645636217_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946603-645636217_l.jpg)
 **音量非常大**
 兩隻熊試了一下音響效果，音質效果很不錯！音箱給了我不小的驚喜，有這麼好的低音效果也已經非常不錯了，立體環繞聲音宏亮音響震撼，轉開很小就很大聲，其實在家裡使用「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」音量可以不用開太大，因為瞬間最大的瓦數有3600W，AC 只是稍微轉開音量一點點整個房間就感覺到很震撼了，兩隻熊在四樓唱歌大概一樓外面都可以聽得很清楚，所以大功率的擴音效果超乎想像。
-![](https://pic.pimg.tw/acikacik/1584946591-1179293803_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859768/blog/acikacik/1584946591-1179293803_l.jpg)
 室外空間也是很足夠使用的，像是學校的操場開個擴音，8吋30W大功率喇叭不用費心吶喊也可以迴盪整個校園，戶外活動的加油打氣，家長自備擴音器材打氣聲不絕於耳，親子關係更上一層樓，讓孩子在學校走路有風。
-![](https://pic.pimg.tw/acikacik/1584946604-2753500844_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946604-2753500844_l.jpg)
 **WIFI 隨時連網路**
 不管去哪裡都可以使用WIFI連上網路，兩隻熊出門只要把手機打開WIFI分享，隨即就能將「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」連上WIFI網路，不會有一般KTV都必須要在固定地方才能唱歌使用的困擾，WIFI等於把空間與時間的大門打開，就像是寵物不用牽繩，自由自在無憂無慮地奔跑一般。
-![](https://pic.pimg.tw/acikacik/1584946594-1010368405_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946598-782555896_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946594-1010368405_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946598-782555896_l.jpg)
 **藍牙**
 無線串連藍牙功能，不會有影音卡卡或者延遲的情況，手機跟藍牙連上也不容易斷，來給它試聽了一下，嗯~音質無雜音很流暢沒有太大的失真，低音沉穩，高音有勁，音量放大也沒有雜音，如果選比較動感節奏的歌聽起來超嗨的~ XD
-![](https://pic.pimg.tw/acikacik/1584946589-3796395595_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859770/blog/acikacik/1584946589-3796395595_l.jpg)
 **電力續航可以多久?**
 就像是手機一樣「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」內建大容量4000mAh鋰電池，電池可以外接電源充電，大約花三個小時就可以把電池充飽了，耗電量也跟手機一樣如果只是看看影片聲音不大大概可以用到六個小時，待機時間長不太耗電，如果火力全開用到四個小時綽綽有餘，如果這樣都不足夠還可以帶個可外接12V電池來充電，續航力怎麼看都跟手機一樣方便夠用。
-![](https://pic.pimg.tw/acikacik/1584946589-70734195.jpg)
-![](https://pic.pimg.tw/acikacik/1584946587-2229554417_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859770/blog/acikacik/1584946589-70734195.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859772/blog/acikacik/1584946587-2229554417_l.jpg)
 **像個行李箱**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」就像是行李箱一樣可以拉著隨處移動，拉桿設計成年人都可以輕易的操作，體型輕巧拉著去哪裡都很方便，旅遊的時候爸爸搬重物媽媽也可幫忙拉「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」，便攜性讓全家勞務互相分擔，減少勞累與爭執的可能。
-![](https://pic.pimg.tw/acikacik/1584946588-4125998389.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859770/blog/acikacik/1584946588-4125998389.jpg)
 兩節加長的伸縮拉桿，移動拉桿隨處唱、行動影音帶著走，拉動的時候不用低下腰來拉可以抬頭挺身的拉動，拉去戶外使用超級方便。室內更是方便，不論是放在哪裡使用都非常好。
-![](https://pic.pimg.tw/acikacik/1584946590-1379662600_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946590-2989085763_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946590-1379662600_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946590-2989085763_l.jpg)
 **獨家專用立架、用來追劇也可以**
 拿手機拿平板APP追劇已經是宅在家裡的常態，但是長久低頭或是手抬太高難免會有點不舒服，「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」有腳架可以提高高度，不管是坐在餐椅沙發或是坐在床上都可以隨著劇情喜怒哀樂，還可以空出手來擦眼淚吃洋芋片，如果住在小套房也不用擔心房間放不下電視櫃，近距離觀看聲光效果的「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」老人家還可以看一些歌仔戲，讓生活增添許多樂趣超過癮。
-![](https://pic.pimg.tw/acikacik/1584946590-3559391198.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859771/blog/acikacik/1584946590-3559391198.jpg)
 **安卓系統**
 「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」內建的YOUTUBE APP，AC 喜歡用YOUTUBE 聽廣播電台的直播當背景音樂，還可以自己下載喜歡的APP ，比方大家最愛用的LINE都可以下載，就像多了一台平板電腦一樣，也有內建 Netflix 可以看線上影音電影。 
-![](https://pic.pimg.tw/acikacik/1584951424-1457506120_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584951424-4066195245_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946586-2536411073_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859773/blog/acikacik/1584951424-1457506120_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859775/blog/acikacik/1584951424-4066195245_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859773/blog/acikacik/1584946586-2536411073_l.jpg)
 **安裝APP即可歡唱**
 練唱APP其實已經內建安裝在「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」，拿手機上微信對著螢幕掃描QRcode就可以成功註冊登入點歌，APP裡面有豐富歌可選擇，如果有習慣使用K歌軟體也可以下載來使用，AC 喜歡用內建的兩款APP 點歌，而且幾乎很多都是免費選歌，還可以內建歌單練唱毫不費力，建議最好先把想唱的歌曲下載，這樣唱歌點唱免等待不中斷，而且可以同時多人點歌，這種動動手指頭就可以在家娛樂，只要平常會玩平板幾乎就可以點歌操作，老老少少都推薦愛用這兩款APP，想到就打開來唱歌自娛自樂。
 (目前SKTV-T888更新天籟K歌APP版本，不再支援手機點歌功能了。)
-![](https://pic.pimg.tw/acikacik/1584946590-608246923_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946715-1282745656_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946716-507547554_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946716-274026278_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946716-4023480822_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946716-1804936127_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946715-4229819094_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946715-3804246985_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859773/blog/acikacik/1584946590-608246923_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859774/blog/acikacik/1584946715-1282745656_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859774/blog/acikacik/1584946716-507547554_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859773/blog/acikacik/1584946716-274026278_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859774/blog/acikacik/1584946716-4023480822_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859774/blog/acikacik/1584946716-1804936127_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859774/blog/acikacik/1584946715-4229819094_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859777/blog/acikacik/1584946715-3804246985_l.jpg)
 momo購物 山水行動KTV 
 全民K歌
-![](https://pic.pimg.tw/acikacik/1584946717-352074961_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946717-3307526907_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946717-1131839925_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946717-352074961_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946717-3307526907_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946717-1131839925_l.jpg)
 **不用去個人包廂式KTV**
 有些百貨公司或商場有兩人包廂式的KTV，這種KTV 具有投幣點歌簡單易用的功能，很多學生想要練唱或是跟情人一起歡唱，就跟MTV 一樣不用去電影院也可以享受影音效果，現在只要一台手機的價錢，就可以買一台更能更豐富還可以隨身攜帶的「SANSUI山水15吋觸控螢幕桿式行動KTV 型號SKTV-T888」，要烤肉郊遊露營或是借給朋友都很有面子。
-![](https://pic.pimg.tw/acikacik/1584946621-901572068_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946621-2154612393_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859777/blog/acikacik/1584946621-901572068_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946621-2154612393_l.jpg)
 **不是3C達人都可以操作**
 有時候買一些電器回家都會很失望，跟想像差距很大，實用性的效果也有限，比方有的平板觸控效果不佳，靈敏度很差要按很多次才會有反應，後來這些電器都變成了家裡雜物堆裡的一員，為什麼像是IPHONE 或是 SONY 這種好品牌的商品會受歡迎，畢竟耐用度與上手的舒適易玩性高，這台「SANSUI山水15吋觸控螢幕桿式行動KTV」 它的整體使用的順暢感，反應靈敏操作簡單，就算不是3C 達人都可以容易上手。
-![](https://pic.pimg.tw/acikacik/1584946608-3546541728_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946608-929870403_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859777/blog/acikacik/1584946608-3546541728_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859777/blog/acikacik/1584946608-929870403_l.jpg)
 **唱歌防疫**
 不出門在家也很無聊，最近天天玩手機看電視很快就膩了，聽說唱歌是最好的體內運動，全家人一起唱歌當作健身活動活動！宅在家裡唱歌也是一種防疫，平時就很喜歡唱歌的兩隻熊，有時候會特別為了歡唱三個人訂了錢櫃包廂順便吃到飽，有得唱又有好吃的感覺十分的滿足，但是防疫期間盡量少出入公共場所與人接觸，「SANSUI山水15吋觸控螢幕桿式行動KTV」就是最好打發時間的選擇，不但不用離開家裡，而且只要把想唱的歌直接透過YOUTUBE 搜尋"伴唱"功能就可以輕鬆歡唱，YOUTUBE 真的是最好的伴唱點歌機，要甚麼歌一搜尋都有，而且還可以搜尋 男生版本還是女生版本，比方"小幸運"也有男生的版本，國台語點歌清單蝦密嚨巫~
-![](https://pic.pimg.tw/acikacik/1584946607-2855220564_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946608-1832277243_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946607-2855220564_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859776/blog/acikacik/1584946608-1832277243_l.jpg)
 **看電視直播節目追劇**
 意外驚喜不但可以K歌，還可以接收有線電視，觀看直播節目還可網上購物追劇。
-![](https://pic.pimg.tw/acikacik/1584946720-3012990855_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946718-1217947355_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946717-4140675293_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946718-1087567817_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859780/blog/acikacik/1584946720-3012990855_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946718-1217947355_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946717-4140675293_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859778/blog/acikacik/1584946718-1087567817_l.jpg)
 **為了比賽練唱**
 許多喜歡唱歌的朋友都參加過歌唱比賽，但是在家裡練唱總是有設備不足或是音效不佳的問題，能及時聽到自己混音出來的聲音是多麼重要的事情，「SANSUI山水15吋觸控螢幕桿式行動KTV」對於需要經常反覆練習歌曲的朋友可以精準的掌握聲音與配樂的完美搭配效果。
-![](https://pic.pimg.tw/acikacik/1584946604-4085620003_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946604-4085620003_l.jpg)
 **當我的教練**
 網路上有很多影片可以教學，自己在家裡鍛煉身體，陪你做引體向上。
-![](https://pic.pimg.tw/acikacik/1584946710-447432520_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946710-4190864325_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946710-447432520_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946710-4190864325_l.jpg)
 **街頭藝人表演**
 在桃園火車站前面總是有一個座著輪椅的阿伯，用一台擴音器唱著懷念老歌"昨日君再來""思想起"~，而且在輪椅的背後寫到"街頭一人"看了不禁莞爾，如果阿伯也有一台行動KTV應該會更吸引人氣，街頭藝人最麻煩的就是自備發電器，還有音箱擴大機麥克風，現在「SANSUI山水15吋觸控螢幕桿式行動KTV」ALL IN ONE 方便多了，要跳個街舞或是與粉絲合唱"愛如潮水"都不再是麻煩事。
-![](https://pic.pimg.tw/acikacik/1584946620-1627239053_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946620-816284846_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946706-237539511_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946707-90378974_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946710-3206417857_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859778/blog/acikacik/1584946620-1627239053_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946620-816284846_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859779/blog/acikacik/1584946706-237539511_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946707-90378974_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946710-3206417857_l.jpg)
 **室內有氧瑜珈健身**
 每個有氧教練都需要一個有氧教室，有了「SANSUI山水15吋觸控螢幕桿式行動KTV」哪裡都是有氧教室，ONE 謀 TWO 謀雙手擺一擺腰部轉圈圈，好好的活動筋骨擺脫身體痠痛硬梆梆~ XD  
 包括自己在家裡做瑜珈，彷彿有瑜珈老師陪你一起練瑜珈，或是伏地挺身舉重健身，都可以跟著螢幕老師動ㄘ動ㄘ~ XD
-![](https://pic.pimg.tw/acikacik/1584946614-1750075588_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946616-1938045912_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946710-1343990859_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946614-1750075588_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859783/blog/acikacik/1584946616-1938045912_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859781/blog/acikacik/1584946710-1343990859_l.jpg)
 **土風舞**
 自己下載好土風舞的歌，或是在YOUTUBE上面搜尋也有很多，跟著螢幕學跳舞婆婆媽媽們也會愛不釋手。
-![](https://pic.pimg.tw/acikacik/1584946615-1192063502_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946615-1192063502_l.jpg)
 **傳直銷說明會**
 對於靠口才靠表達的傳銷公司說明會往往需要一個設備完善的空間，其實有一些家庭式的傳銷商，可以利用小空間小車庫就可以辦個小型的說明會，只要一個白板一個「SANSUI山水15吋觸控螢幕桿式行動KTV」 就可以展開公司簡介與產品說明，小小投資大大收益金素西~
-![](https://pic.pimg.tw/acikacik/1584946618-2743000665_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946618-2743000665_l.jpg)
 **雲端會議簡報**
 透過Wi-Fi無線網路，會議中可以抓取GOOGLE雲端儲存的資料，咖啡廳也可以做簡報，開會變成一件很容易的事情。  
-![](https://pic.pimg.tw/acikacik/1584946707-922195515_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946706-3466202588_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946707-922195515_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859781/blog/acikacik/1584946706-3466202588_l.jpg)
 **捷運熱舞社**
 熱舞社練舞看著一邊學一邊跳，真心推薦效果棒極了。
 momo購物 山水行動KTV 
-![](https://pic.pimg.tw/acikacik/1584946615-1070366869_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946616-2321707026_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859782/blog/acikacik/1584946615-1070366869_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859784/blog/acikacik/1584946616-2321707026_l.jpg)
 **請投我一票**
 拜票總是覺得聲音不夠大聲，要坐在卡車上才能開擴音器，有了這台「SANSUI山水15吋觸控螢幕桿式行動KTV」 彷彿是身邊多了很多小幫手，(包含在捷運口的宣傳活動)不只是說話大聲，還可以有出場音樂氣勢不凡呀~
-![](https://pic.pimg.tw/acikacik/1584946611-3675596172_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946612-1312401273_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946612-1221776870_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859784/blog/acikacik/1584946611-3675596172_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859784/blog/acikacik/1584946612-1312401273_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859785/blog/acikacik/1584946612-1221776870_l.jpg)
 **大型集會活動**
 戶外需要嘹亮的擴音器材，使用「SANSUI山水15吋觸控螢幕桿式行動KTV」悠揚的樂曲讓現場的觀眾內心激昂沸騰嗨翻天，史上最會炒熱氣氛的神器，在公園裡變成目光聚集的焦點，也可以清楚聽到主持人妙語如珠，聲音很大非常有穿透力不管是大人小孩參與者都會感到很歡喜，房間裡聲音千萬別開太大。
-![](https://pic.pimg.tw/acikacik/1584946614-1486983302_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859786/blog/acikacik/1584946614-1486983302_l.jpg)
 **自家也是咖啡廳 & 禪意茶會**
 找個沙發窗台放個爵士音樂假裝當咖啡廳也可以，或是在戶外辦個小型的茶會，以茶會友聽聽音樂享受樂活美好的悠閒時光，就像是一台發燒音響，效果非常好終於可以不用老是靠手機播放音樂了。
-![](https://pic.pimg.tw/acikacik/1584946617-457432232_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946710-1937408024_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859786/blog/acikacik/1584946617-457432232_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859785/blog/acikacik/1584946710-1937408024_l.jpg)
 **遊戲**
 不只是可以聽音樂，看電視劇電影，還可以打東東，把平板電腦音效即於一身的萬用法寶呢~ XD
-![](https://pic.pimg.tw/acikacik/1584946610-1020629572_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859784/blog/acikacik/1584946610-1020629572_l.jpg)
 **戶外活動**
 用手機當行動WIFI 或是用隨身碟直接錄下跳舞的影片帶出門就綽綽有餘，不想打開手機的WiFi用藍芽也可以  
 戶外也聽的非常清晰！立體感十足，音效播放出來感覺很嗨超級拉風的。
-![](https://pic.pimg.tw/acikacik/1584946610-3963706338_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859786/blog/acikacik/1584946610-3963706338_l.jpg)
 **Party派對聚會 **
 不管是任何戶外的聚會活動，露營啦~烤肉啦~ 或是找個沒有KTV的摩鐵HOTEL，爽朗的開個唱歌遊樂的聚會，相當於帶了活動電視機，足夠豐富你我的生活樂趣。
-![](https://pic.pimg.tw/acikacik/1584946610-2981377431_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946711-2099295739_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780859785/blog/acikacik/1584946610-2981377431_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946711-2099295739_l.jpg)
 **放送喜事來**
 婚禮主持工作看似簡單，其實需要非常專業跟隨機應變的能力，可以放婚禮歌曲、大聲恭賀新郎新娘的祝福佳句、卡拉OK、擴音等一應俱全！而且體積小巧對於趕場放汽車後備箱帶到哪裡都馬上進入狀況。
-![](https://pic.pimg.tw/acikacik/1584946614-1747262521_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946614-963963600_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860842/blog/acikacik/1584946614-1747262521_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860842/blog/acikacik/1584946614-963963600_l.jpg)
 **學習各種武功**
 可以學打太極拳、甩手功、要活就是要動。
-![](https://pic.pimg.tw/acikacik/1584946706-1578738634_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946706-1578738634_l.jpg)
 **展場銷售 & 叫賣哥 **
 在人多嘴雜的展場要脫穎而出是很不簡單的事情，除了擴音設備要開大聲，還可以增添背景音樂，叫賣哥更是隨時要有吸睛的戰鬥力，聲光效果創造最佳的買氣。
-![](https://pic.pimg.tw/acikacik/1584946613-2922490941_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860842/blog/acikacik/1584946613-2922490941_l.jpg)
 **歐巴桑歐基桑的卡拉OK系統**
 只要拉著「SANSUI山水15吋觸控螢幕桿式行動KTV」在公園裡變成目光聚集的焦點，一邊下棋一邊聽廣播看新聞滋潤滋潤小日子也很有滋味。
-![](https://pic.pimg.tw/acikacik/1584946719-3933030370_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946719-3933030370_l.jpg)
 **開店必備**
 老闆可以放在門口來吸引客人上門，店面的簡介就像是屈臣氏一樣可以循環播放，餐廳吃咖哩飯也可以增添氣氛。
-![](https://pic.pimg.tw/acikacik/1584946612-2214131776_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946612-2214131776_l.jpg)
 **孩子不哭不鬧**
 小朋友看卡通聽兒歌英文教學，而且不用當低頭族，一機多用太神奇了。
 momo購物 山水行動KTV 
-![](https://pic.pimg.tw/acikacik/1584946610-3475404884_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946610-3705614384_l.jpg)
-![](https://pic.pimg.tw/acikacik/1584946706-3962232343_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946610-3475404884_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946610-3705614384_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860841/blog/acikacik/1584946706-3962232343_l.jpg)
 **全民k歌**
 哪有一種音響有螢幕還可以隨意選歌，有拉桿可以到處出去玩耍盡情歡唱紓壓，唱個兩個小時也不無聊超過癮，相信很快就可以成為全民K歌的國民運動了。
-![](https://pic.pimg.tw/acikacik/1584946618-1238211240_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1584946618-1238211240_l.jpg)
 **手拿式歡唱麥克風行動KTV比較**
 剛開始對這個「SANSUI山水15吋觸控螢幕桿式行動KTV」很陌生，經過幾天使用越來越感覺他的好用，就像是從陌生到熟悉，漸漸地接納了這個新穎的設備，「SANSUI山水15吋觸控螢幕桿式行動KTV」顛覆AC 對於一般老百姓業餘KTV的看法，這個真的很專業。
-![](https://pic.pimg.tw/acikacik/1584946597-2229136772_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860844/blog/acikacik/1584946597-2229136772_l.jpg)
 之前"開拔"送了一個單人使用的KTV麥克風，那時就很厲害，麥克風自己就可以出音樂也有回音，雖然小小一隻音效不算太好但是也能滿足AC 小小的虛榮心。
-![](https://pic.pimg.tw/acikacik/1584953958-4273522740_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860844/blog/acikacik/1584953958-4273522740_l.jpg)
 「SANSUI山水15吋觸控螢幕桿式行動KTV」跟單人麥克風當然是差別很大，感覺就是超強進化的SUPER 版，從業餘的歌唱娛樂到達專業可以出去賺錢的生財工具的等級，把KTV點歌機搬回家，高音質娛樂神器。
-![](https://pic.pimg.tw/acikacik/1584946606-1499673326_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860844/blog/acikacik/1584946606-1499673326_l.jpg)
 科技始終來自於人性「SANSUI山水15吋觸控螢幕桿式行動KTV」一機多用很多功能可以玩，不會侷限一人，具有高度互動的感受，有螢幕的音響萬般武功集於一體的感覺，功能強大用了就愛不釋手，有拉桿有輪子的設計攜帶方便，如果以一台音響來看是我買過最好的音響，這麼好用方便，麥克風拿起來唱歌就會不想放手了。
 momo購物 山水行動KTV 
-![](https://pic.pimg.tw/acikacik/1584946608-2590036029_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1584946608-2590036029_l.jpg)
 「SANSUI山水15吋觸控螢幕桿式行動KTV」用料材質都很精細，就如同他的名字一樣品質優越不動如山，可以當KTV、可以聽音樂音響、又可以當平板多種器材融為一體，從小到大適合所有族群，現在幾乎天天在家裡放歌，不是放收音機聽廣播就是放自己手機的歌曲，兩隻熊跟ROGER都很喜歡。
-![](https://pic.pimg.tw/acikacik/1584946721-544862619_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1584946721-544862619_l.jpg)
 AC 不管到哪裡都需要音樂，對創作發想的靈感有所幫助，不管是工作創作寫部落格....隨時隨地都需要一個音質好又能讓身心靈沉澱的音響來滿足我，工作之餘的娛樂也不再是花費千元出入KTV的熱鬧場景，而是三五好友一起外出烤肉旅遊或是大自然隨意地走走，讓「SANSUI山水15吋觸控螢幕桿式行動KTV」變身生活中不可或缺的一種隨身生活品質助理，從來沒有想過一個智慧型的設計會改變我的生活，在還沒有開箱使用之前，只是為了新奇好玩的因素入手或是只為了滿足自己愛唱歌的美夢，人生不是什麼都能買下來入手，在這個動盪的時代夢想還是絕對值得追尋擁有。
-![](https://pic.pimg.tw/acikacik/1584946598-3731279804_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1584946598-3731279804_l.jpg)
 官網：http://www.sansui-taiwan.com/  
 FB粉絲團：https://www.facebook.com/sansui.tw/  
 MOMO好評熱銷：https://pinkrose.info/2h41e

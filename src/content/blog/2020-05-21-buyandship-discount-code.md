@@ -21,15 +21,15 @@ category: '其他'
 使用「折扣碼」，必須在註冊時輸入推薦碼，使用「折扣碼」註冊時，會在推薦朋友碼/推薦碼，請輸入10位數字的「推薦碼」，獲得額外120 獎賞積分。
 **如何申請新會員?**
 首頁點選註冊
-![](https://pic.pimg.tw/acikacik/1590071858-1944327846_l.jpg?v=1590071858)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780861793/blog/acikacik/1590071858-1944327846_l.jpg)
 註冊部分填寫完畢>>到信箱收信
-![](https://pic.pimg.tw/acikacik/1590071858-688368027_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780861794/blog/acikacik/1590071858-688368027_l.jpg)
 ##### 透過積分獎賞功能，你可以用積分來折抵你的運費支出 (每一積分相對新台幣一元）：
 註冊成為新用戶，將可自動獲得 60 積分
 在信件中點選認證連結>>回到 Buyandship 官網
-![](https://pic.pimg.tw/acikacik/1590071858-2465549226_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780861794/blog/acikacik/1590071858-2465549226_l.jpg)
 完成個人基本資料>> 記得填寫推薦折扣碼
-![](https://pic.pimg.tw/acikacik/1590071857-1251835064_l.jpg?v=1590071858)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780861794/blog/acikacik/1590071857-1251835064_l.jpg)
 大功告成<<第一次購買商品轉運成功十四天內>>領取120元
 新會員總共可獲得60+120=180會員獎賞積分
 # 爆買年中折扣季，滿$600運費立享$50回饋！

@@ -7,160 +7,160 @@ heroImage: '/images/blog/2020-04-09-sansui-55inch-4k-tv-slhd5510.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068851347'
 ---
 
-![](https://pic.pimg.tw/acikacik/1586414513-2216720882_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1586414513-2216720882_l.jpg)
 ​
 每天最開心的就是打開電視機的時候，不管是看電影、電視劇、新聞節目，不可諱言視覺效果真的很重要，以前看SONY 方形的傳統電視就覺得很厲害，二十年前的畫質也沒有在追求多細膩，只要顏色飽和實用耐久就能滿足，但是科技日新月異的今天，一般的手機都可以4K高畫質了，當然電視機也會越變越大台。
-![](https://pic.pimg.tw/acikacik/1586414501-342435351_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860844/blog/acikacik/1586414501-342435351_l.jpg)
 傳說中的55吋現在已經成為市場的主流產品，選一台自己喜歡又能用很久的電視就變成買電視的重點訴求，現在如果考慮想要買電視的話，房間客廳如果不會太小，兩隻熊是覺得可以直接買55吋以上的電視機，當然價錢也要公道划算CP值高啦~~ XD (會不會要求有點多)
-![](https://pic.pimg.tw/acikacik/1586414501-1742192303_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860845/blog/acikacik/1586414501-1742192303_l.jpg)
 SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理念創立，在全盛時期與先鋒、特麗音並稱「音響御三家」，其深厚的研發實力，屢屢成為業界第一並率先推出各類影音產品，這次兩隻熊體驗「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」開箱，第一次感受到什麼是智慧電視的厲害之處 。
-![](https://pic.pimg.tw/acikacik/1586414501-2192436668_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414501-2192436668_l.jpg)
 **開箱**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」整個電視外盒包裝相當紮實，內襯還有保麗龍將四面徹底固定，大型電視取出來，液晶螢幕本體、兩個V 字型的底座、說明書、保固卡、底座螺絲一包、遙控器+電池，超薄的機身非常輕盈只有11.2公斤 比想像的更容易操作安裝。
-![](https://pic.pimg.tw/acikacik/1586414529-3489317368_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414529-3489317368_l.png)
 **簡約的回力鏢型腳座**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」腳座的極簡設計讓電視放在哪裡都不占空間，雖然只有兩個 V 字型的底座，因為底座下方有一組橡膠止滑墊，可以安穩的固定住超薄的電視面板，兩邊有"R"、"L"的標示並有"卡榫"預防因為興奮而左右顛倒裝錯方向，只要各鎖上兩個螺絲就可以巧妙的固定住。
-![](https://pic.pimg.tw/acikacik/1586414529-3864928796_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414529-3864928796_l.png)
 **遙控器與電池**
 現在電視遙控器都會貼心的附上電池，以前AC 買的電器往往電池都需要再跑一次便利商店購買，就像是很興奮開箱的心情被潑了一桶冷水，無法馬上使用被中斷的感覺真的很不蘇胡~ ="=  
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」遙控器除了可以選擇頻道音量大小，還有當作"鼠標"的功能按下就可以看到電視中間出現了一個"箭頭游標"，上下左右操控"鼠標"雖然緩慢但是可以精確的選擇螢幕上的鍵盤選項，遙控器上還有一些特別選項比方"截屏"把電腦才有的功能也囊括在內了。
-![](https://pic.pimg.tw/acikacik/1586414530-629244274_l.png)
-![](https://pic.pimg.tw/acikacik/1586414521-948408058_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414530-629244274_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414521-948408058_l.png)
 **保固書與說明書**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」保固書與說明書是標準的基礎配備，山水電器對於自己所生產的螢幕有自信，所以「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」免費到府收送維修，提供了高達三年的「全機保固」。
-![](https://pic.pimg.tw/acikacik/1586414500-3906469343_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414500-1586298875_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414501-3121507982_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414500-3906469343_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414500-1586298875_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414501-3121507982_l.jpg)
 **無腦操作好容易**
 把「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」電視腳架裝妥之後，隨即把電源按開，第一時間非常期待出現那個山水品牌高質感的畫面，然後只要按著步驟簡單的設定WIFI 功能基本上就已經完成電視的設定了，只要把WIFI設定好未來電視打開直接自己就可以連接WIFI，直接開機就可以直接使用簡單方便，至於細部的畫面動態表現設定，或是音效音色的調控再找時間慢慢的感受跟把玩即可，買新電視最有趣的就是探索其中的各種功能，就像是尋寶一樣每發現一個奇妙的功能就會不由自主地發出一聲讚嘆~ 感恩師傅 讚嘆師傅~~ XD
-![](https://pic.pimg.tw/acikacik/1586414502-1578915814_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414502-2092577151_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414502-2285133594_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414502-1578915814_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860847/blog/acikacik/1586414502-2092577151_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414502-2285133594_l.jpg)
 簡單的設定WIFI 功能
-![](https://pic.pimg.tw/acikacik/1586414521-2227569636_l.png)
-![](https://pic.pimg.tw/acikacik/1586414521-1131550939_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414521-2227569636_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414521-1131550939_l.png)
 **視角**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」視角可以到 176 度幾乎180度，幾乎整個螢幕都是可視範圍，大角度觀看色彩都不會變形，除了從後面看不到之外，應該側面也看得很清楚。
-![](https://pic.pimg.tw/acikacik/1586414521-1924375679_l.png)
-![](https://pic.pimg.tw/acikacik/1586414506-2275242893_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414506-352382077_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414506-3408978325_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414521-1924375679_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414506-2275242893_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860849/blog/acikacik/1586414506-352382077_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414506-3408978325_l.jpg)
 **超細窄邊框**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」整體尺寸是 1240*774*268mm(含底座)，長寬比16:9，內存空間記憶體容量 1G/8G，窄邊框讓視覺往外延伸，不再受限再原有邊框，直接可以立在桌面上不用裝壁掛，也不用安裝服務省下安裝的費用，極簡的窄邊框讓整個電視變得時尚又美觀，超薄機身細細窄窄的邊框跟傳統寬邊框電視比較，靜態影像彷彿從一幅畫作變成一張放大的照片效果，如果看動物大遷徙，就像動物就快衝出邊框來到眼前一樣，身歷其境的感覺倍增。
-![](https://pic.pimg.tw/acikacik/1586414506-4161248501_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414507-687707723_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860849/blog/acikacik/1586414506-4161248501_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414507-687707723_l.jpg)
 **善用 HDMI數位端子 **
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」下方有兩組 HDMI ，好處就是可以同時接上 數位機上盒 第四台電視盒 還可以把電視遊樂器或是藍光 DVD撥放器都接上去，只要用遙控器切換就可以享受不同的設備帶給兩隻熊的聲光體驗。
-![](https://pic.pimg.tw/acikacik/1586414508-2175352574_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414508-2175352574_l.jpg)
 **超齊全連接埠**
 帶大家看一下電視的細節「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」可以輸入多種訊號源，第三組的 HDMI，一組色差端子與 AV 端子，一組 15 Pin 的 D-Sub VGA 端子，平時使用的電腦插上端子就可以跟電視連接，變成超大台的電腦顯示器，光是用想像的就讓人很興奮躍躍欲試，而 RJ-45 網路連接埠LAN 接孔是個新奇的東西，RJ-45 網路連接埠如果插入光纖網路線之後，電視就可以直接光纖上網，竟然電視還可以變成一台網路分享器了~ 真是好厲害的功能，算是家電三C全制霸了。
-![](https://pic.pimg.tw/acikacik/1586414509-377026386_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414509-377026386_l.jpg)
 **快速"信號源"選項**
 DVD撥放器或是電腦都可以透過背面的連接埠來連上電視，但是要怎麼可以告訴電視你的訊號來源是"色差"、"電腦"還是"HDMI" 呢，就是透過"訊號源"介面的選項來選擇你要的是那一種連接埠，比方AC 要用HDMI1 就在"訊號源"頁面上面選擇"HDMI1 即可。
-![](https://pic.pimg.tw/acikacik/1586414509-1559266634_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414509-1559266634_l.jpg)
 **音頻輸出接口**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」側身有多元的音頻接口，其中「COAX OUT」的標示，即是3.5mm 的同軸輸出，同「LINE OUT」共用端子同軸接口、電視機音頻輸出接口可以接音響， coax out接口可以支持5.1環繞劇院組，一旁還有專屬於耳機的輸出孔做為耳機輸出 Earphone out，AC 所能想像的到的功能幾乎都能滿足了，超級齊全的周邊設備連接埠，可以把家裡所有影音相關的設備都接上，電視本身就像是一台無敵鐵金剛的座艙，當要戰鬥時可以連接上身體手腳變身成一台無敵鐵金剛的厲害角色呀~ XD
-![](https://pic.pimg.tw/acikacik/1586414509-377026386_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414509-377026386_l.jpg)
 **背後的應急按鈕**
 如果遙控器臨時被藏起來，怎麼找都找不到，或是臨時沒電了無法開關機、轉台、信號源選擇、音量大小控制，電視背後有一排實體操控的按鈕可以取代遙控器的功能，這是一種應急的設備，我相信平時是很少人會想用電視上的按鈕來轉台吧~ XD
-![](https://pic.pimg.tw/acikacik/1586414509-675814557_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860852/blog/acikacik/1586414509-675814557_l.jpg)
 **內建應用程式**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」內建 Android 作業系統，遙控器按下"主頁"就出現了各種操作選項，"主頁"有「多媒體信號源」「瀏覽器」「下載」「我的應用」「常用應用」等五大類別，其中「我的應用」與「常用應用」選單是比較常用的，「我的應用」裡面就是我已經下載的"APP 應用"會放在這裡，TV Store、下載、文件瀏覽器、多屏互動都在這裡，如果經常使用的APP 只要按下"添加應用"這個按鈕然後點選"指定APP"(比方 KKBOX) 就可以放在快捷路徑「常用應用」中了。
-![](https://pic.pimg.tw/acikacik/1586414503-1098647004_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414513-641828643_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860852/blog/acikacik/1586414503-1098647004_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414513-641828643_l.jpg)
 除了內建的 APP ，還可以在 TV Store"專題選項"的選單中挑選各種不同系列的APP，比方想玩一些遊戲，或是想陪孩子英語學習、看童書的 APP 運動、音樂以至於食譜的 APP 都可以選擇"下載"選項，就可以挑選一些 Netflix、Spotify、KKBOX、WPS Office、線上廣播通用的 APP 來使用，可以用遙控器 選擇YOUTUBE 而且沒有廣告，各種影音APP 間順暢切換。
-![](https://pic.pimg.tw/acikacik/1586414516-1972774137_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414525-2154629910_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414516-1972774137_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860853/blog/acikacik/1586414525-2154629910_l.png)
 如果覺得裡面的APP 選項不足夠使用，由於山水電視是採用 Android 作業系統，所以可以自行用電腦下載 APK 安裝檔，存在隨身碟透過 USB 裝置插入電視來擴充第三方的應用 APP，就可以增加電視中的 APP應用選項，比方FB 或是IG 、LINE都可以在電視上用了，這台智慧電視可以滿足大部分生活娛樂的需要。
-![](https://pic.pimg.tw/acikacik/1586414525-908076115_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860852/blog/acikacik/1586414525-908076115_l.png)
 **內建瀏覽器功能**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」還可以透過GOOGLE 瀏覽器功能，主動搜尋瀏覽各種購物網頁或是追劇的網頁，比方想追的韓劇只要在"串流影音"上搜尋出來~ 隨時可以點選觀看，完全是把電腦功能直接在電視上面便捷完整的實現了呢~ 但是遙控器的"鼠標"實在是比"烏龜"的速度還慢怎麼辦呢? 沒關係 機身後面的 USB Port 插槽可以插入真實的鍵盤跟滑鼠，這時候~ "登楞"~ 電視就變成電腦了呢~ XD
-![](https://pic.pimg.tw/acikacik/1586414528-991754039_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860852/blog/acikacik/1586414528-991754039_l.png)
 但是電視實在距離不能太近怎麼辦，這個時候還有一個最好的方式就是搭配「多屏互動」功能，用手機來當鍵盤才會更加的快速，如何操作?? 請看下一個介紹~~
-![](https://pic.pimg.tw/acikacik/1586414503-4073372455_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860852/blog/acikacik/1586414503-4073372455_l.jpg)
 **多屏互動好新鮮**
 有沒有想過手機也可以變成遙控器，「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」「多屏互動」功能把手機變成可以遙控電視的利害工具了，透過「多屏互動」APP 滑動手機螢幕上面的左右選項，還可以當作鍵盤來使用，把遙控器操作緩慢的缺點彌補了，不但方便好玩更有科技感，除了上下左右還可以調整音量，不管是使用 Android 還是 iOS 只要在智慧手機上下載「多屏互動」APP 然後連上跟電視同一個 WIFI ，手機就可以無線操控電腦了，那以後遙控器不小心暫時找不到，手機也可以接管電視充當遙控器了。
-![](https://pic.pimg.tw/acikacik/1586414513-2008698464_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860856/blog/acikacik/1586414513-2008698464_l.jpg)
 在「多屏互動」的下方還有按鍵、觸摸、鼠標、空鼠等四個選項，任選這四種輸入方式其中的一種來遙控電腦，AC 選擇"按鍵"的選項，就可以把文字直接用手機輸入到螢幕上，這樣真的比遙控器操控來的快多了，就不怕不斷一個字一個字拼注音考驗耐力的地獄。
-![](https://pic.pimg.tw/acikacik/1586414527-325672187_l.png)
-![](https://pic.pimg.tw/acikacik/1586414515-250312017_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860856/blog/acikacik/1586414527-325672187_l.png)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860855/blog/acikacik/1586414515-250312017_l.jpg)
 **隨時優化智慧電視**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」電視管家選項中可以把系統優惠，點選 Deep clean 馬上"一鍵優化"把電視裡的垃圾清的乾淨溜溜~ 還可以把APP 卸載、安裝包清理等，隨時可以監看檢測網路、連線速度，就像是自家的管家一樣，即時優化電視非常貼心實用的功能，有沒有這麼好用啊~~XD
-![](https://pic.pimg.tw/acikacik/1586414517-42222905_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414517-3405689466_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860855/blog/acikacik/1586414517-42222905_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860856/blog/acikacik/1586414517-3405689466_l.jpg)
 **多媒體播放工具**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」點選「多媒體工具」選單，資料夾裡面有視頻、音樂MP3、圖片等選項按照喜好進行撥放，還有兩個USB連接埠，可以插隨身碟或是移動式的外接硬碟 Micro SD 記憶卡 內的各式影音檔案快速讀取出來，看看過往自己錄製的影片好好回憶再三，如果音樂儲存在隨身碟裡就電視就可以當作音樂撥放器隨時隨意當背景音樂撥放了，如果是一般的店面也可以插上隨身碟將錄製好的影片重複撥放，就像是一個循環撥放器的功能，也不用另外再買一台電腦主機來撥放影片了。
-![](https://pic.pimg.tw/acikacik/1586414515-580073312_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414515-2472150386_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860855/blog/acikacik/1586414515-580073312_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860855/blog/acikacik/1586414515-2472150386_l.jpg)
 拍照過後總是想要放大在電腦裡回顧一番，興奮的回顧旅遊時的心情，玩GoPro 所拍攝的動態攝影回顧，或是檢視行車時紀錄器所拍的行車紀錄影片，現在可以把相機的 microSD 記憶卡直接插入電視的記憶卡槽，用55吋的大螢幕來看照片，彷彿身歷其境又回到拍照的那一瞬間，這功能就相當於一台電腦的撥放器的功能，方便的是"讀取工具"已經內建在電視裡面了。
-![](https://pic.pimg.tw/acikacik/1586414510-1719837968_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860856/blog/acikacik/1586414510-1719837968_l.jpg)
 **鏡像投射手機變大了**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」可以直接將手機鏡像投射到電視螢幕上，兩隻熊原本手機連接電視都要透過 Apple TV， 而且Apple TV 都要等很久才能鏡像投射手機上的內容到電視上，現在直接省下五千多元的Apple TV 的錢，iOS系統只要把iPhone 下拉選單「螢幕鏡像輸出」選擇裝置代碼即可，IPhone上的影片與照片都可以直接從電視上面看到，玩手遊的時候也可以放超大，鏡像追劇看大畫面就變成一種享受，就像一台超大尺寸的手機，可以同步手機上的電影，感受55吋用大的電視看影片體驗超震撼的影音視聽感受。
-![](https://pic.pimg.tw/acikacik/1587129128-50908523_l.jpg)
-![](https://pic.pimg.tw/acikacik/1587129004-272276686_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860855/blog/acikacik/1587129128-50908523_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860856/blog/acikacik/1587129004-272276686_l.jpg)
 只要電視與手機都連結上同一個網路，點選iPhone 上的 AirPlay 螢幕鏡像輸出功能，選擇 "EShare-8123"這個選項，就可以直接把手機裡的畫面投影到螢幕上，第一次使用這個功能的AC 當時嘴巴張得大大的，這也太神奇了吧~ 算我見識太少~ = =; XD
-![](https://pic.pimg.tw/acikacik/1587129003-640968701_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1587129003-640968701_l.jpg)
 然後就可以直接點選 YOUTUBE 選取自己喜好的影片，或是開始關燈追劇看電影，滿足一整天疲憊後能夠好好放鬆"短暫那幾個小時"的美好時光，值得一提的是這個鏡像功能無需點選進去YOUTUBE，只要把手機滑到那個影片停格住，鏡像投射功能就會自動撥放影片，也不用把手機轉成橫向來看，這種滿足一隻手就可以操作的貼心的設計，真的是深得我心呀~ 啾咪~ 
-![](https://pic.pimg.tw/acikacik/1587129003-2741874679_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1587129003-2741874679_l.jpg)
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」用手機鏡像也可以比較快速的搜尋YouTube 影音，只是比較耗手機的電力，如果不想用手機鏡像輸出，是可以直接用電視本身的YouTube 只是搜尋起來會像是"樹獺"一樣，一個字一個字慢慢找沒有手機鏡像來的快速而已。
 智慧電視搭配手機連線這個功能 Android 系統依樣可以使用，不管是智慧手機或是平板電腦都可以通用，如果放在公司會議室就可以連上筆電做公司簡報了，算是支援覆蓋率非常的全面，考慮到每一個使用者的需求。
-![](https://pic.pimg.tw/acikacik/1586414515-1982729633_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414515-1982729633_l.jpg)
 **第四台數位訊號**
 習慣用第四台的兩隻熊老早就換成了"機上盒"，數位電視 比方HD 新聞或是 HD HBO 都可以看高畫數位訊號頻道，這麼大的電視當然最主要就是要每天享受轉台的樂趣，台灣的電視台是AC 看過最多種電視頻道的，就算撥到兩百多台都還有而且越後面畫質越好，目前居家防疫大家偏向不太出門的狀況，有一台夠用畫質優的好電視，可以省下很多出門娛樂的開銷，何樂而不為?
-![](https://pic.pimg.tw/acikacik/1586414506-2285213116_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414506-2285213116_l.jpg)
 **最佳色彩顯示**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」有五種色彩顯示方式，色彩飽和舒適體驗，畫面的明暗對比跟顏色飽和度很高，色彩顯色更擬真了，畫面很有質感，視野的沉浸感非常的厲害了。
-![](https://pic.pimg.tw/acikacik/1586414506-451199637_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414506-451199637_l.jpg)
 **4K HDR 高動態對比**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」RGB 4K HDR 頂規畫質硬體規格超級迷人，電視3840*2160是真的4K電視，4K HDR 高動態範圍成像細節不會糊糊的，可以支援更鮮明的畫面，讓影響的層次對比更加飽和，在暗部的畫面中表現又更明顯，視覺感受相當的出色。 
-![](https://pic.pimg.tw/acikacik/1586414505-1735422343_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414505-4294378434_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414505-1735422343_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414505-4294378434_l.jpg)
 **超高畫質IPS LED螢幕**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」畫質感受多好呢? IPS色彩還原技術用來呈現出真實的色彩，加上動態色彩調色技術讓畫面還原擬真就好像真的一樣、用多種格式的4K節目源來測試「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」，不管是色彩或是對比度、清晰度都鮮明清晰呈現。
-![](https://pic.pimg.tw/acikacik/1586414506-2541952009_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414506-2541952009_l.jpg)
 **1080p 跟 4K HDR 看起來的差異**
 1080p有一種稍微暈開的美感，4K HDR 可以清清楚楚看到主角的毛細孔的狀態，老實說以前AC 有1080p就滿足了，但是看過真實的4K 之後胃口就被養大了，再也回不去了呀~~~~ XD
 我們就用畫面來說話吧~ 以下畫面是兩隻熊本人拍攝(請勿任意截圖轉載)
-![](https://pic.pimg.tw/acikacik/1586414510-3544620984_l.jpg)
-![](https://pic.pimg.tw/acikacik/1587125206-11075758_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1586414510-3544620984_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860858/blog/acikacik/1587125206-11075758_l.jpg)
 乍看之下兩邊似乎顏色都很飽和，但是仔細看毛的細節右邊明顯多出很多細部的細節，不會像左邊有過被抹過糊糊的感覺。
-![](https://pic.pimg.tw/acikacik/1586414511-1817842349_l.jpg)
-![](https://pic.pimg.tw/acikacik/1587125206-2683685052_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414511-1817842349_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1587125206-2683685052_l.jpg)
 左邊1080p 建築物的結構線條都不明顯，呈現平面的質感，幾乎看不清楚磚牆與磚牆的縫隙，其中建築物上的騎馬英雄有點類似塑膠玩具的粗糙感，右邊4K雕塑深淺紋路明顯。
-![](https://pic.pimg.tw/acikacik/1586414511-4002322868_l.jpg)
-![](https://pic.pimg.tw/acikacik/1587125206-42440560_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860861/blog/acikacik/1586414511-4002322868_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1587125206-42440560_l.jpg)
 顏色越飽和越看不出來差別，左邊1080p 的裙子摺痕處完全平坦，右邊4K 可以看出裙子使用的材料彷彿可以看到裙子多年使用過後的皺紋。
-![](https://pic.pimg.tw/acikacik/1586414511-3172386490_l.jpg)
-![](https://pic.pimg.tw/acikacik/1587125206-4077881993_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414511-3172386490_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1587125206-4077881993_l.jpg)
 淘氣的猴子們泡溫泉的畫面感覺很舒服，左邊毛色很統一，幾乎看不出來毛色的紋理與漸層感，右邊的猴子除了毛條條分明之外，毛色還出現了深咖啡與亮白色的絨毛，表情也更真實生動，4K真的相當的厲害呀，對於細部展現優越。
 **畫質提升技術**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」整體尺寸是解析度高達 3840 X 2160，對比也有1200:1，亮度300 cd/m2±10% ，3D 雜訊過濾技術以及動態智能降噪色彩校正技術，黑色畫面時是極度的黑，看不到以往LED邊緣的背光，支援 HDR 高動態範圍成像規格看久了也不會覺得累，比方AC 在影音平台上挑選HDR播放規格的影片時，可以表現得比一般4K電視動態更加清晰細節更多更細膩精緻的畫質，這樣的規格與價格讓兩隻熊相當滿意~ XD
-![](https://pic.pimg.tw/acikacik/1586414506-1075256891_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414506-1075256891_l.jpg)
 **豐富的立體聲音效**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」低調的給了兩組10W的立體聲喇叭，發出的聲音有3D立體環繞音響的音場震撼感，就算只是開的聲音不算大，但是喇叭宏亮的聲音打電動的時候真的是很過癮，因為單體就有10W 兩個喇叭加起來有20W，現場播放出來的效果，非常具有臨場感~
-![](https://pic.pimg.tw/acikacik/1586414509-2406012693_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414509-2406012693_l.jpg)
 在調控音量方面「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」會隨著變換電視頻道調整音量大小，讓聲音可以維持固定的音頻音量，讓聲音部會忽大忽小，以前看電視總會調到新聞頻道就會馬上被嚇一跳，因為主播情緒起伏很大說話都特別大聲，然後轉到日本新聞又特別小聲，現在有了自動調整音量的功能，就可以安安穩穩的看電視了。
-![](https://pic.pimg.tw/acikacik/1586414503-813527545_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414503-813527545_l.jpg)
 整體音效共振音量相當的大聲，在客廳看YOTUBE只要三成音量即可，音頻搭配視覺效果讓兩隻熊非常滿足。
-![](https://pic.pimg.tw/acikacik/1586414513-3573589847_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860860/blog/acikacik/1586414513-3573589847_l.jpg)
 **音效模式選擇**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」3D環繞立體聲提供了「標準、音樂、電影、用戶、運動」五種音像模式可以選，如果是追劇用電影模式音效有臨場感好紓壓，如果有球類比賽看運動模式可以隨著播報人員的情緒起伏而跟著內心澎湃不已，聆聽音樂更需要專屬的音樂模式讓樂器的音頻更加凸顯，最常用的應該是標準模式，一般看購物頻道或是播報新聞，聲音穩重而飽和可以聽很久耳朵不會累。
-![](https://pic.pimg.tw/acikacik/1586414514-3616684301_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860862/blog/acikacik/1586414514-3616684301_l.jpg)
 **愛上大螢幕遊戲**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」除了可以讓一家人一起在家玩遊戲機，「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」還可以接上電腦玩線上遊戲，支援4K HDR遊戲畫面看起來非常的棒，動態生動畫面細膩，遊戲中的音效表現也蠻有臨場感的，音頻舒服具有立體感，大畫面還可以更容易發現敵人躲在哪裡，第一次玩這麼大的畫面，玩起來真的很過癮，用這種大螢幕玩起來最舒服了，
-![](https://pic.pimg.tw/acikacik/1586414508-2267369109_l.jpg)
-![](https://pic.pimg.tw/acikacik/1586414517-554902295_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860862/blog/acikacik/1586414508-2267369109_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860863/blog/acikacik/1586414517-554902295_l.jpg)
 **不用一台IPhone 的價錢**
 「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」不用一台IPhone 的錢，可以買到智慧連網的電視還是55吋真的是價廉物美，不但是省荷包還可以支援蘋果IPHONE 跟 Android 兩大系統的畫面投放功能，而且還可以直接上網看一些電視的直播或是直接用撥放器來追劇，有了這台電視之後每個月還可以省下五百元第四台的收視費用，以後兩隻熊手上的iPhone、iPad平板、iMac電腦、MacBook 筆電都可以直接將畫面投放到電視上了，SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」價格經濟實惠竟然只要一兩萬就能享受 4K 高畫質的智慧網路電視，這麼划算的價錢如果是在四五年前，這樣一台55吋電視最便宜也要個五六萬吧，高CP值更滿足了多數大眾的需要，山水的市場定位真的值得兩隻熊給予五隻熊的高評價呀~ XD
-![](https://pic.pimg.tw/acikacik/1586414507-1987309149_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860862/blog/acikacik/1586414507-1987309149_l.jpg)
 **電視再進化**
 平時兩隻熊在家最常用的電視竟然是桌上型電腦的螢幕，家裡的舊螢幕幾吋已經忘記了與「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」55吋新電視比較起來真的是小巫見大巫。
-![](https://pic.pimg.tw/acikacik/1586414508-1655750435_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860862/blog/acikacik/1586414508-1655750435_l.jpg)
 天呀~ 用過55吋超大電視怎麼還能接受回到小螢幕的歲月呀~(想當初也覺得小的很夠用的說~ 對不起是我太貪心 "= = )
-![](https://pic.pimg.tw/acikacik/1586414516-2510397877_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860862/blog/acikacik/1586414516-2510397877_l.jpg)
 **防疫在家看電視**
 兩隻熊對於買電視沒有特殊的要求，只想買一台自己比較開心舒服的電視，庶民也買得起的 4K HDR 液晶電視，選來選去就是想找個性價比高的電視，這台「SANSUI 山水 55型4K HDR安卓智慧聯網液晶顯示器 SLHD-5510」不只是大畫面，已經可以做到跟手機一樣可以上網，下載APP 撥放音樂、追劇、影片、玩遊戲應有盡有，又很薄很輕盈(這是怎麼做到的)，把所有必要重點功能都收藏在薄薄的機身中，還可以跟手機相連接，並由手機當遙控器鍵盤來操控電視，這些在電影情節裡才會發生的事情，現今的世界已經全然成真了，物質生活越來越豐沛的今天，擁有一台這麼大的電視已經不是夢了，喜歡看電視的兩隻熊擁有一台55吋電視真的很過癮，我們真的要好好珍惜這些得來不易的便利生活，期許未來的世界科技會更精進，更要感謝這些珍貴的發明，讓人與人的連結更緊密。
-![](https://pic.pimg.tw/acikacik/1586414502-2285133594_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780860850/blog/acikacik/1586414502-2285133594_l.jpg)
 官網：http://www.sansui-taiwan.com/
 FB粉絲頁： https://www.facebook.com/sansui.tw
 MOMO購物網：https://pse.is/N8C62 (熱銷完售)

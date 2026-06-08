@@ -30,82 +30,82 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069579922'
 💬哪裡買？👉 https://sansui1994.1shop.tw/noxx2e
 信用卡享3期/6期分期0利率  
 #團購 #萬用鍋 #廚房家電 #防疫神器 #租屋族必備 #舒肥料理 #懶人料理 #電鍋料理 #山水萬用鍋團購中 
-![](https://pic.pimg.tw/acikacik/1618207436-2876372547-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867528/blog/acikacik/1618207436-2876372547-g.jpg)
 想像一下 未來的世界有一台沒有瓦斯爐的科技鍋，只要把材料丟一丟就有機器來幫你做菜，不用技術不用注意火侯大小，免看顧爐火不用為了煮菜罰站幾個小時，就算忘記自己有煮菜也沒關係，不用怕有安全的顧慮，一道道好吃又色香味俱全的料理開鍋就可以吃，是不是很美的夢想呢?其實已經被發明出來了，它的名稱叫做"萬用鍋"。
-![](https://pic.pimg.tw/acikacik/1618208422-1096670925-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867528/blog/acikacik/1618208422-1096670925-g_l.jpg)
 兩隻大熊的二樓雖然有廚房冰箱但是就是沒有瓦斯爐，因為當初設定這個區域不開火，所以洗碗機佔用了瓦斯爐的空間，雖然不開火但是每天還是會用山水氣炸烤箱做菜，光是氣炸烤箱就能滿足兩隻大熊三餐的需要，烤烤起司肉片土司做做早餐已經非常足夠了，但是內心對於熱炒與燉煮料理的渴望卻是與日俱增，甚麼時候才能吃到香氣十足的滷味與餐廳才吃的到的熱炒，那思思唸唸的美味餐點竟然有機會出現在我家，而且在臥室裡也可以煮，想想這怎麼可能呢? 真的是科技始終來自於人性呀! 就是一個字"懶" 外加一個字"省"。
-![](https://pic.pimg.tw/acikacik/1618207436-954937650-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867528/blog/acikacik/1618207436-954937650-g_l.jpg)
 以前想到做菜總是重重的關卡，包含顧爐火的時間長短，鍋子容易沾鍋炒菜之後清潔困難，還有炒菜的炒鍋要怎麼保養，炒鍋容器大小做菜做了老半天只做出一點點，做好菜之後放在桌上太久每次都吃到冷的菜，做個菜油煙滿天飛打開抽油煙機聲音就跟螺旋槳一樣，每次煮菜就像打仗一樣，反而備料洗洗切切是最輕鬆簡單的，難怪廚師身邊的助手都只能做洗菜切菜的工作，自從有了「SANSUI 山水智能萬用鍋 SRC-H58」，我們家的大廚拱手讓人了，萬用鍋非常稱職的把每一餐都料理好，而且真的有廚師級的好味道，童叟無欺真心不騙~ XD
-![](https://pic.pimg.tw/acikacik/1618207438-1395076591-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867532/blog/acikacik/1618207438-1395076591-g_l.jpg)
 SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理念創立，在全盛時期與先鋒、特麗音並稱「音響御三家」，其深厚的研發實力，屢屢成為業界第一並率先推出各類影音產品，熟知山水電器的人都知道，「SANSUI 山水12L 旋風溫控智能氣炸烤箱 SAF-553W」在氣炸鍋 烤箱 的業界算是大有名氣，現在又推出了很厲害的家電商品「SANSUI 山水智能萬用鍋 SRC-H58」，真的是再度打開了兩隻大熊的三觀，就算是沒有廚藝也可以模仿出大廚級廚師所做出色香味俱全的料理，而且味道真的很美味喔(自吹自擂中~="=) 竟然可以做出夢想中的厲害味道，歸功於這台萬用煮菜鍋~~ 怎麼那~~~~麼厲害!! (感激中) ~XD
-![](https://pic.pimg.tw/acikacik/1618208655-3395832614-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867530/blog/acikacik/1618208655-3395832614-g_l.jpg)
 **精美科技的外觀**
 兩層紮實的外箱保護的很周到，「SANSUI 山水智能萬用鍋 SRC-H58」黑色具有流線感的外型真的是很好看，相當具有科技感 讓AC 第一眼就愛上，除了萬用鍋機器本體外還有附贈的湯勺、飯匙、量杯、蒸籠、電源線，需要的配件一次購足相當的齊全，該有的說明書跟原廠保證書也都傳便便。
-![](https://pic.pimg.tw/acikacik/1618207448-2609691504-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207448-272401357-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207448-3951492791-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207449-3713595520-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207448-2609691504-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207448-272401357-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207448-3951492791-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867530/blog/acikacik/1618207449-3713595520-g_l.jpg)
 **隨身帶著走**
 「SANSUI 山水智能萬用鍋 SRC-H58」有個隱藏式提把，可以輕易的從廚房拿到臥室或是客廳享用，尺寸大小是 385*295*230 mm 而淨重 3.87公斤，重量也不重一般家庭主婦與長輩都可以隨意提起移動，就算收納起來也很方便。
-![](https://pic.pimg.tw/acikacik/1618207449-2720443043-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207451-56538029-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207449-2720443043-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207451-56538029-g_l.jpg)
 **做出很聰明的產品**
 山水的旋風烤箱應該大家都不陌生，主要喜歡山水的原因是因為他的高科技面板控制，操控介面容易上手面板簡易可以無腦使用，不會有過多的選擇項目讓人無所適從，(其實很多產品放了很多種功能，但是大部分的功能消費者都不太會去用，很可惜!!)，山水運用幾種重點功能讓你可以調整時間跟溫度，每個消費者都可以有自己習慣的設定，不用熟記也可以來達到客製化的運用。
-![](https://pic.pimg.tw/acikacik/1618207447-4200795379-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207450-1971330387-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207447-4200795379-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867530/blog/acikacik/1618207450-1971330387-g_l.jpg)
 **一機抵十機超方便**
 萬用鍋就是那種"一個鍋子"抵多個鍋子的智能鍋，怎麼說呢? 以前覺得自己沒有廚藝所以懶得煮飯，現在才發現原來是要"買對鍋子"就會有好廚藝，絕對想不到一個外型美觀的鍋子竟然有這麼多的用途，只要購足新鮮的食材就可以料理出一桌味道好又色香味俱全的好菜，講的比較誇張一點，有了這台萬用鍋掌握了關鍵技術"火侯"，所以(微波爐、燉鍋、電子鍋、電磁爐、電陶爐、炒鍋、舒肥機、優格機、發酵機、麵包機)都可以從廚房的重要位置退讓出空間來，或是二手轉賣掉，比方兩隻大熊就把一些蒸煮烤的鍋具收起來，可能暫時或永久跟他們說掰掰了(真的不是開玩笑的!!)。
-![](https://pic.pimg.tw/acikacik/1618207444-2564156952-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867535/blog/acikacik/1618207444-2564156952-g_l.jpg)
 **高科技精密的感溫器**
 上方與下方都有精密的感溫器，加上好的鍋具讓食材得到均勻的加熱，做完菜就自動進入保溫模式，不管什麼時候都可以吃到熱騰騰的菜，難怪利用溫控熟成的菜會如此味美。
-![](https://pic.pimg.tw/acikacik/1618214304-331646916-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207452-3619933038-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618214304-331646916-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618207452-3619933038-g_l.jpg)
 **真的完全不沾**
 內鍋是使用最近最多網紅喜愛的陶瓷釉不沾塗層內鍋，每次看網紅做菜都很好奇，為什麼白白的內鍋都不會沾黏，而且水輕輕一沖就乾淨，因為很好清潔幾乎徒手用少許清潔劑就可以清潔，不要使用鋼絲球之類的硬物清潔，避免將表面的塗層刮除，重點是這種不沾內鍋做出來的料理都看起來特別好吃!! 山水萬用鍋光是內鍋就好出眾呀~ XD
-![](https://pic.pimg.tw/acikacik/1618207449-3312950150-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867533/blog/acikacik/1618207449-3312950150-g_l.jpg)
 **容量大婆婆媽媽超滿足**
 「SANSUI 山水智能萬用鍋 SRC-H58」5L的大容量1.8mm高效導熱內鍋，內鍋很深所以拌炒料理不用擔心食物飛濺，因為特殊的陶瓷釉不容易吸附異味(山水萬用鍋的內鍋是專屬萬用鍋使用，不宜放在其他熱源上加熱或是燉煮)，就算是逢年過節大團圓的家族聚會也可以輕鬆應付，就算是10人份的料理也綽綽有餘。
-![](https://pic.pimg.tw/acikacik/1618207451-3005035112-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618207451-3005035112-g_l.jpg)
 **拿鍋子不怕燙**
 內鍋兩邊做了防燙握把，就算是滾燙的內鍋要取出的時候，只要捏住兩側的"防燙手把"就不用被燙到，輕鬆地取出完全不需要心理建設或是額外的防燙器具，兩隻大熊再也不用擔心燙到手拿去捏耳朵了。
-![](https://pic.pimg.tw/acikacik/1618207451-1901040182-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618207451-1901040182-g_l.jpg)
 **立式收納飯匙**
 一旁的一個小巧思就是準備了飯匙的收納架，雖然只是一個小的ㄇ字架，就可以充分的收納飯匙相當好用。
-![](https://pic.pimg.tw/acikacik/1618207452-3454726302-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207436-200432252-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618226853-2656784531-g_l.jpg?v=1618226855)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618207452-3454726302-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618207436-200432252-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618226853-2656784531-g_l.jpg)
 **輕輕點選無腦操作**
 智慧觸控面板，完全中文化的介面，只要按一下按鈕選項整個面板就會亮起來，選擇功能非常清晰一目了然，發揮AC 的一指神功一鍵操作兩三下就好了相當的簡單。
-![](https://pic.pimg.tw/acikacik/1618207450-1971330387-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618208422-548551998-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867530/blog/acikacik/1618207450-1971330387-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867534/blog/acikacik/1618208422-548551998-g_l.jpg)
 **至少十五種料理模式**
 面板上每一個選項都可以包含多種的料理模式，總共有15個模式選項，其實只要"傻瓜一點"直接選擇指定的選項就可以料理，通常無須調整溫度跟時間，但是有些比較講究會做料理的朋友，就可以自訂烹調的溫度跟時間，比方要控制溫度24~160度C 只要按"溫度"然後按「＋」、「-」來調整，或是按"時間"也是按「＋」、「-」來調整即可，所以可以化身數十種巧思的料理方式，比方燉、煮、煎、炒、蒸、烤、舒肥、優格、發酵、烘焙、自訂行程模式，可以想的到的料理可以說應有盡有的全能料理鍋，兩隻大熊這次體驗宛如發現新大陸一般，抑制內心的興奮感該從哪一種料理開始好呢?
-![](https://pic.pimg.tw/acikacik/1618207449-1091121712-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207437-1255782244-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207449-1091121712-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207437-1255782244-g.jpg)
 **零廚藝也可以**
 智能料理模式：舉凡平日的煮米飯、糙米基本的功能(煮飯外鍋不用放水)，還能低溫\高溫慢燉、日常加熱的蒸煮料理，打開鍋蓋進行熱炒收汁，最常用的100度C燉煮料理，日常想吃點鹹粥可選擇煮粥熬湯選項，還可以用來高溫爆炒煎烤，蓋鍋悶熟的鮮魚料理，65度C低溫的舒肥料理，一小時28度C的麵團發酵、之後160度C烘焙麵包出爐、還可以自己做優格或是自製發酵納豆、如果這些行程都不能滿足還可以自訂行程，可以做的料理真的是琳瑯滿目包羅萬象，打開網路分享的菜單才發現有好多都想做看看，以前沒能力沒廚藝沒勇氣，現在終於有萬用鍋來助陣可以放手試試看了，使用兩周之後兩隻大熊的使用心得是，真的不能沒有它，其他的料理鍋都被完全忽視直接打入冷宮了。
-![](https://pic.pimg.tw/acikacik/1618207447-4200795379-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618214304-2067547682-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867531/blog/acikacik/1618207447-4200795379-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867536/blog/acikacik/1618214304-2067547682-g_l.jpg)
 **打開蓋子鍋子也可以熱炒**
 家庭主婦煮夫們準備晚餐應該都跟AC 一樣手忙腳亂，尤其是兩道菜以上，又要顧火又要切菜還要罰站，更是沒空可以計時，有時候"臭灰搭"也是要硬著頭皮吃下去，萬用鍋的快速加熱功能，解決了時間不夠的料理時光，計算好熟成的時間幫我們倒數計時，有時候忘記加鹽加糖，就算中途加料開鍋也不影響料理計時的進行，讓人可以信賴的科技產品，怎麼可以這麼方便啦!!
-![](https://pic.pimg.tw/acikacik/1618207444-297722505-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207444-297722505-g_l.jpg)
 **同時做蒸/煮兩道菜**
 平常喜歡三菜一湯或是四菜一湯的朋友，山水萬用鍋可以利用煮湯的時候用來蒸蔬菜或是茶碗蒸，山水萬用鍋附上一個耐熱蒸籠深度大約4公分，對於蒸餃、燒賣等菜色，只要用煮菜的水蒸氣就可以蒸熟，完全利用鍋內剩餘的空間，可以蒸煮同時並行，還可以用蒸氣來加熱冰箱拿出來的剩菜，附食品級PP材質蒸籠，一鍋二菜快速開飯。
-![](https://pic.pimg.tw/acikacik/1618207448-1388901663-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207449-1662329680-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867536/blog/acikacik/1618207448-1388901663-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207449-1662329680-g_l.jpg)
 **輕鬆拆簡單洗/配件可機洗**
 萬用鍋的上方的可拆卸內蓋還有微壓閥，都是可以隨手拿起來沖洗的，因為整台機器無死角所以不會暗藏汙垢，內蓋拆卸只要把左右兩邊卡榫往內按壓就可以取下，或是輕輕的把上方的微壓閥拿起就可以進行沖洗，兩者也都可以用洗碗機清洗相當方便，潔淨黑色的機身耐高溫，用抹布或是餐巾紙擦拭即可保持清潔，萬用鍋後面有個透明的接水盒，如果料理的時候有多餘的水蒸氣會跑到這裡，只要不定時的將水倒掉沖一下就可以了，萬用鍋的提把也會卡在透明的接水盒上方，這有一個好處就是要提起手把很好找出隱藏手把在哪裡，各就各位不用摸索半天。
-![](https://pic.pimg.tw/acikacik/1618214395-1244222887-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207449-4149998152-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207450-1702676180-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207452-595607739-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207452-1117459919-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618214395-1244222887-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207449-4149998152-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207450-1702676180-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207452-595607739-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207452-1117459919-g_l.jpg)
 **人不在也可以料理**
 24小時預約行程，可以預約回家之前兩小時開始煮菜，這樣家人下班放學回家就可以吃到熱騰騰的現煮料理，提早把食材放進去完全不用擔心累了一天還要做菜的麻煩事。
-![](https://pic.pimg.tw/acikacik/1618214395-3308511774-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207450-2385108494-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207450-1049281375-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207450-3632807234-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618214395-3308511774-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207450-2385108494-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207450-1049281375-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867539/blog/acikacik/1618207450-3632807234-g_l.jpg)
 **有了這一台就像家中做菜有如廚神助陣**
 以科技導向的智能科技萬用鍋，把溫度跟時間控制得剛剛好，以下是兩隻大熊用智能萬用鍋試做的幾道料理。
 <<沒有廚藝小教室>>
@@ -124,22 +124,22 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 黑糖 適量
 首先選擇"爆炒煎烤"模式直接將椰奶下鍋，用中小火煮到濃稠狀。
 等椰奶炒到濃稠且感覺出油後，加入綠咖哩，並且把咖哩醬炒香。  
-![](https://pic.pimg.tw/acikacik/1618207439-683245385-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207439-683245385-g.jpg)
 接著將雞肉倒入鍋內且煎至微焦後，加入高湯並煮滾。
-![](https://pic.pimg.tw/acikacik/1618207440-2510063056-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207440-2510063056-g.jpg)
 高湯煮滾後，放入檸檬葉和茄子，並燉煮至雞肉熟透。
-![](https://pic.pimg.tw/acikacik/1618207440-3880756042-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207440-3880756042-g.jpg)
 最後加入魚露、糖調味後，放入辣椒段、九層塔並拌煮30~60秒就完成了！！
-![](https://pic.pimg.tw/acikacik/1618207440-2584041898-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207440-2584041898-g.jpg)
 完成會嗶嗶嗶~~提醒  
 ~料理完成之後直接進入保溫模式~
 鍋子可以放在餐桌上免去端來端去的困擾~ XD
-![](https://pic.pimg.tw/acikacik/1618207440-2453651608-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867540/blog/acikacik/1618207440-2453651608-g_l.jpg)
 食材的精華都熬到湯裡有夠"濃醇香"，原來泰式綠咖哩的重點在椰奶，才會濃醇香，就連湯最後都喝的乾乾淨淨，作這道料理有很大的成就感，萬用鍋讓料理變成一種興趣，就會開始想下一道菜要煮什麼好呢?
 <<如果想自己動手做做看可以看料理影片>>
 **中南部黑糖滷味
 這個料理用到兩種功能，一個是"爆炒煎烤"一個是"燉煮料理"
-![](https://pic.pimg.tw/acikacik/1618207440-4187044798-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867544/blog/acikacik/1618207440-4187044798-g_l.jpg)
 <<食材>>
 豆干 500 g  
 甜不辣 250 g  
@@ -161,15 +161,15 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 青蔥 2 枝  
 辣椒 5 枝(去籽)  
 薑片 15 片
-![](https://pic.pimg.tw/acikacik/1618207441-548331050-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618207441-548331050-g_l.jpg)
 首先選擇"爆炒煎烤"模式，在山水智能萬用鍋內鍋加一點油，將黑糖加入炒至融化。
-![](https://pic.pimg.tw/acikacik/1618207441-3921045745-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867544/blog/acikacik/1618207441-3921045745-g.jpg)
 將醬油、米酒加入。
 接著加入米血、海帶以外的所有食材。
 等滷汁煮開後，用"燉煮料理"模式煮"一小時"。
-![](https://pic.pimg.tw/acikacik/1618207441-437832655-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618207441-437832655-g.jpg)
 最後加入米血、海帶，接著再用"燉煮料理"模式煮"三十分鐘"後，靜置放涼就完成了。
-![](https://pic.pimg.tw/acikacik/1618207441-3839849957-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618207441-3839849957-g.jpg)
 完成會嗶嗶嗶~~提醒  
 ~料理完成之後直接進入保溫模式~
 (滷製的水量要略為蓋過所有食材，煮好的紅蘿蔔可以先取出，讓出空間給別的食材)  
@@ -195,15 +195,15 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 米酒2大匙  
 醬油2大匙  
 白胡椒鹽粉少許
-![](https://pic.pimg.tw/acikacik/1618229596-3717282851-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618229596-954256654-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618229596-3717282851-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618229596-954256654-g_l.jpg)
 做法  
 1\. 紅蘿蔔、白蘿蔔切塊，五花肉切塊備用。
 2\. 選取山水萬用鍋的"爆炒煎烤"模式，內鍋放入五花肉煎香出油，下薑片丶紅蘿蔔炒勻至香，再下黑糖、調味料炒香倒入內鍋中。
-![](https://pic.pimg.tw/acikacik/1618207437-3704935641-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867542/blog/acikacik/1618207437-3704935641-g.jpg)
 3\. 再放入白蘿蔔丶海帶結丶干貝丶還有四杯的水，選取萬用鍋"燉煮模式"重複兩次(或是選擇"燉煮模式"時間"八十分鐘")，最後放上香菜即可。
-![](https://pic.pimg.tw/acikacik/1618207438-1501226636-g.jpg)
-![](https://pic.pimg.tw/acikacik/1618207438-2946850597-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618207438-1501226636-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867543/blog/acikacik/1618207438-2946850597-g.jpg)
 完成會嗶嗶嗶~~提醒  
 ~料理完成之後直接進入保溫模式~
 **通常半分鐘左右鍋內的油就開始有吱吱的小聲音，代表材料可以下鍋爆炒了，蔥薑蒜下鍋熱炒兩分鐘，小排煎到兩面變色後盛起。**
@@ -211,8 +211,8 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 喝一口湯味道真的很香，小干貝其實是秘密武器，增加黑糖滷肉的鮮味，山水萬用鍋完全不用顧火，煮菜的時候還可以去看個電視喝個飲料。  
 只不過一個小時的時間就能燉的骨肉分離，這種細膩的燉肉料理，不管是當天吃不完還可以隔天加熱變成中午的便當。  
 小排的鮮美都煮到湯裡，所以湯汁很濃拿來配麵 剛剛好，隔天還煮了麵來配，就算加了麵 湯頭還是很濃郁，麵也可以吸附湯汁變得很沖繩~ XD
-![](https://pic.pimg.tw/acikacik/1618207438-408605262-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207438-1375940126-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207438-408605262-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867545/blog/acikacik/1618207438-1375940126-g_l.jpg)
 兩隻大熊盛起來超滿豐盛的兩大碗，整個吃飽到不要不要的，萬用鍋燉的很棒，滋味更加的香濃，湯頭變得好好喝歐。
 <<如果想自己動手做做看可以看料理影片>>
 **零失敗 不揉麵全麥麵包 & 不揉麵 貓咪造型吐司
@@ -231,10 +231,10 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 兩個小時以後會膨脹到兩倍大左右 。
 這麵團非常黏手，完全不用整形直接烘烤。
 選擇"烘烤模式" 烤好後 打開蓋 放涼一點將麵包翻面。
-![](https://pic.pimg.tw/acikacik/1618207436-4294105742-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207436-4294105742-g_l.jpg)
 再選擇一次"烘烤模式"完全不用調整溫度與時間，這次烤到兩面都熟， 
 烤完了完全涼了就可以切片了。
-![](https://pic.pimg.tw/acikacik/1618207436-729577556-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207436-729577556-g_l.jpg)
 **神奇的這樣就烤好麵包了，烤出來會有一點圓圓扁扁，吃起來鬆鬆綿密的口感，大家可以試試看~ XD**
 <<不揉麵 貓咪造型吐司>>
 這個料理用到兩種功能，一個是"麵糰發酵"一個是"烘培模式"兩次
@@ -246,41 +246,41 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 牛奶250ml  
 蛋2個  
 一個貓臉模具
-![](https://pic.pimg.tw/acikacik/1618207444-297722505-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207443-1049167444-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867537/blog/acikacik/1618207444-297722505-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207443-1049167444-g_l.jpg)
 不用揉麵只要折麵，只要有一台萬用鍋就可以做，可以用奶油，健康一點也可以用橄欖油，懶人版的吐司以後可以天天做來吃~ XD
 <<作法>>
 把四百克的高筋麵粉放入萬用鍋內鍋，加入四克的酵母，糖四十克，打兩個蛋，牛奶250克都用電子秤秤過，多一點少一點可以看得很清楚。
-![](https://pic.pimg.tw/acikacik/1618207444-1147448480-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207444-1147448480-g.jpg)
 拿一個軟的攪拌器具在鍋子裡攪拌，用一點力氣把麵糰攪拌倒有點黏性，然後把橄欖油或是奶油放入繼續攪拌，油的作用是讓麵糰不會流失水分，還可以保持麵糰的筋性，然後把萬用鍋蓋蓋上，選擇"發酵模式"時間兩個小時。
 第一次發酵完成後，會發現他膨脹的比原來大一點五倍或是兩倍大，代表麵筋已經發酵完成了。
 這時把手洗乾淨，然後把麵筋往順時鐘撥開，把內部的二氧化碳氣體排出，並且形成一個小團。
-![](https://pic.pimg.tw/acikacik/1618207445-2979004845-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867547/blog/acikacik/1618207445-2979004845-g.jpg)
 準備好橄欖油把桿麵棍跟不銹鋼托還有刀子都塗上油，這樣麵糰就不容易沾黏比較好操作。
 把這個團分成三等份，就可以開始折疊麵糰了。
-![](https://pic.pimg.tw/acikacik/1618207445-3120499719-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867547/blog/acikacik/1618207445-3120499719-g.jpg)
 每個麵糰都需要桿麵棍先縱向桿成長條狀，然後橫向桿成一個大正方形(沒辦法桿成長方形也沒關係，只要桿成比較大片)，然後左右往內折，然後再上下桿成更長(這時麵糰延展性很好已經出膜了，非常有韌性)，之後上下往內折形成一團，這樣的動作要做三次，最後第三次"上下"不往內折，用捲的由下往上捲，捲成一個蝸牛狀。
-![](https://pic.pimg.tw/acikacik/1618207444-4284616331-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207445-2374927581-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207444-4284616331-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867546/blog/acikacik/1618207445-2374927581-g.jpg)
 然後把三個麵團放入貓臉模型中，就可以開始第二次的發酵了(可以在模型的上面墊一個油紙防止麵糰黏到上蓋)，第二次選擇"發酵模式"時間一個小時。
 第二次發酵後開蓋，果然是膨脹的很高，把模型塞的滿滿的。
 這時把山水萬用鍋蓋子蓋上，選擇第一次的"烘烤模式"四十分鐘，慢慢的就可以聞到烤吐司的香氣，真的好香喔~~~想吃!!
-![](https://pic.pimg.tw/acikacik/1618207445-2358693476-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618207445-2358693476-g.jpg)
 時間到了打開鍋蓋，等涼一點將模具取出，這時可以看到模具的一面已經烤成金黃色了，將模具翻面蓋上山水萬用鍋鍋蓋，選擇第二次的"烘烤模式"繼續烘烤十五分鐘，這時吐司麵包就完成了。
-![](https://pic.pimg.tw/acikacik/1618207446-3701314298-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207446-2965256745-g.jpg)
-![](https://pic.pimg.tw/acikacik/1618207446-1896976653-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867549/blog/acikacik/1618207446-3701314298-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867549/blog/acikacik/1618207446-2965256745-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618207446-1896976653-g_l.jpg)
 真的很省力，也可以不用揉麵機器省下買麵包機的錢，自己在房間就可以烤吐司，吐司的水分很高，而且可以壓扁自己再回彈回來，豐富的麵筋讓家人小孩都可以一口接一口滿足的吃，沒有額外的添加劑，晚上吃不完可以拿保鮮袋密封好放入冰箱，隔天切片灑點水放入萬用鍋稍微加熱就可以吃熱熱的烤吐司，貓咪圖案也很可愛，這個配方推薦給大家。
-![](https://pic.pimg.tw/acikacik/1618207446-4008349276-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207446-1519544674-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207447-55315450-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618207446-4008349276-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867549/blog/acikacik/1618207446-1519544674-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618207447-55315450-g_l.jpg)
 ** 優格功能
 把牛奶與優格菌放入同一個耐熱容器攪拌一下，然後放入萬用鍋中，選擇"優格模式" 等八個小時後就有好吃的優格了~ 是不是很簡單!!
-![](https://pic.pimg.tw/acikacik/1618233265-828586839-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618233265-828586839-g_l.jpg)
 **鹽麴舒肥雞胸肉溫沙拉 & 松本茸蛤蠣湯
 這個料理用到兩種功能，一個是"舒肥料理"一個是"燉煮料理"
 "舒肥料理"這次用一個半小時，時間可以拉長到兩個小時，依照個人喜好的口感設定。
-![](https://pic.pimg.tw/acikacik/1618233263-3873170190-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867549/blog/acikacik/1618233263-3873170190-g_l.jpg)
 <<食材>>
 雞胸肉 3片  
 鹽麴 3 匙（可在雞肉表層均勻抹上薄薄一層的量）  
@@ -290,28 +290,28 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 耐熱密封袋一只
 把準備好的雞胸肉先淋上鹽麴用手搓揉至兩面都抹均，並將調味料(醬油丶白胡椒鹽丶義式香料)都撒上，依照個人喜好鹹調整。
 將醃漬雞胸肉與密封袋一起放入冰箱冷藏一晚，準備好明天就可以低溫舒肥了!!
-![](https://pic.pimg.tw/acikacik/1618233264-4177112518-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780867550/blog/acikacik/1618233264-4177112518-g_l.jpg)
 打開冰箱將昨天醃漬一晚的雞胸肉取出，在萬用鍋內鍋裝六分滿的水，並將裝有雞胸肉的密封袋置入，並用雙手按壓的方式將袋內的空氣擠出來，最後將夾鏈鎖上即可。
 並將萬用鍋關起來，選取"舒肥模式"選取一個半小時，這時就可以準備一些配菜跟湯的材料，來完成今天的這個舒肥套餐。
-![](https://pic.pimg.tw/acikacik/1618233263-820483131-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868225/blog/acikacik/1618233263-820483131-g.jpg)
 "舒肥模式"行程結束即可取出雞胸肉並切成喜歡的大小，兩隻大熊喜歡吃大口一點，所以厚切雞胸肉。
-![](https://pic.pimg.tw/acikacik/1618233264-2843961116-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618233263-2277591197-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868225/blog/acikacik/1618233264-2843961116-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868223/blog/acikacik/1618233263-2277591197-g.jpg)
 <<擺盤>>
 蘿蔓生菜： 適量  
 雞蛋沙拉一球  
 一顆小番茄(裝飾)
 並放入生菜上面擺盤，看起來是不是很好吃呢?
-![](https://pic.pimg.tw/acikacik/1618233263-3500338482-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868225/blog/acikacik/1618233263-3500338482-g_l.jpg)
 接下來是做 松本茸蛤蠣湯
 <<湯頭食材>>  
 松本茸： 6顆  
 白醬蛤蠣罐頭一只
 也很簡單就是先將松本茸切片，並且打開萬用鍋倒入白醬蛤蠣罐頭，加一點水會比較沒那麼濃稠，選擇"燉煮模式"大約十分鐘湯滾了就可以了，接下來只要把松本茸放入滾十分鐘就完成這道湯料理，真的是很方便，而且鍋子因為不沾鍋不會卡一些湯汁，以前光是洗濃湯鍋就很讓人頭痛，現在水沖一沖就大致上洗好，之後只要稍微清洗或是放入洗碗機就可以了，是不是很方便呢!! 
-![](https://pic.pimg.tw/acikacik/1618233263-3264924003-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618233264-3803468144-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868225/blog/acikacik/1618233263-3264924003-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868224/blog/acikacik/1618233264-3803468144-g_l.jpg)
 最後盛盤這就是今天晚上的一餐，簡簡單單一份外面賣的簡餐料理，但是家裡自己煮只要一半的價錢，而且分量大吃的超飽的，健康的食材滿足挺出來的大肚子，天天吃都不膩真的很棒。
-![](https://pic.pimg.tw/acikacik/1618233264-3010124164-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868223/blog/acikacik/1618233264-3010124164-g_l.jpg)
 <<同場加映~急速料理>>
 **COSTCO [急速料理]日式味噌叉燒拉麵
 這個料理用到兩種功能，一個是"自訂行程"
@@ -323,37 +323,37 @@ SANSUI山水電器於日本東京1944年12月創立~ 以不動如山的經營理
 豆芽青蔥玉米海帶芽  
 正宗日式風味味噌湯底 
 鍋裡加水選擇"自訂模式"用100度開蓋加熱，再將麵放入鍋中，繼續用"自訂模式"煮一分二十秒將麵煮熟，並將麵撈起過冷水保持麵的Q度(麵要好吃的關鍵)~
-![](https://pic.pimg.tw/acikacik/1618207442-3528845857-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868223/blog/acikacik/1618207442-3528845857-g.jpg)
 接下來把湯放入空的萬用鍋內鍋中，並且倒兩杯飲用水入湯，這時選擇的模式還是"自訂模式"蓋上鍋蓋選擇100度C 十五分鐘，湯滾就可以取出，將日式味噌叉燒與配料擺在麵條的上方，淋上香濃熱騰騰的日式拉麵湯就完成了!!
-![](https://pic.pimg.tw/acikacik/1618207442-1204868066-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868224/blog/acikacik/1618207442-1204868066-g.jpg)
 **試吃時間~~
 這個湯頭除了比外面賣的淡了一點，其他配料跟味道都是上乘之作，可以買值得推薦的好味道。
-![](https://pic.pimg.tw/acikacik/1618207442-1076349783-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207442-3902363711-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1618207442-856741885-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868223/blog/acikacik/1618207442-1076349783-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868226/blog/acikacik/1618207442-3902363711-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207442-856741885-g_l.jpg)
 **COSTCO [急速料理]韓式安東燉雞
 這個料理用到一種功能"爆炒煎烤"
 <<食材>>
 雞腿肉、馬鈴薯、洋蔥、年糕、安東醬、櫛瓜、南瓜 、冬粉、紅蘿蔔、蒜、青蔥、辣椒 
 <<烹調方式>>
 萬用鍋加油"用爆炒煎烤"模式將蒜、洋蔥爆香後加入雞肉炒香。
-![](https://pic.pimg.tw/acikacik/1618207442-3004326739-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207442-3004326739-g.jpg)
 將醬汁倒入並加入約５００毫升水燉煮。
 待蔬菜熟軟後加入冬粉、年糕煮熟後，加入櫛瓜、辣椒及蔥拌炒收汁入味即可。
-![](https://pic.pimg.tw/acikacik/1618207443-3860099174-g.jpg)
-![](https://pic.pimg.tw/acikacik/1618207443-140824330-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207443-3860099174-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207443-140824330-g.jpg)
 這種熱炒料裡是以前AC 最怕的，做菜前的備料算是最容易的，之後要煎炒開大火還是開小火，會不會炒焦還是溫度不均勻有的熟有的沒熟之類的，有了萬用鍋都不用擔心了，變成傻瓜模式只要放進去炒一炒，如果要入味或是肉熟一點，把蓋子蓋上再悶一下，就很直接簡單也不用怕瓦斯沒了，做菜中途完全不用罰站不用顧火，做菜後洗鍋子也不費吹灰之力，洗潔劑海綿推一推沖個水就完成，整個過程真的很輕鬆。
 以上的料理根本就是餐廳裡做出來的料理，而且味道也不輸餐廳(自"炊"自擂)超級划算的，這道急速料理很適合朋友聚餐或是家庭聚會吃，人家還以為兩隻大熊很會做菜，其實~~~~是山水萬用鍋的本事啦!! XD
 **多重防護讓人好安心**
 10道安全防護裝置，多重安全維護，使用更安心。
-![](https://pic.pimg.tw/acikacik/1618207447-2421002242-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207447-2421002242-g.jpg)
 **精密科技享保固**
 商品享全機保固一年。
 **特別提到**
 "低溫慢燉"85度C 的模式是我經常用來加熱熟食使用的，因為用85度C加熱不會過熱，它設定三個小時我通常都是半途就會打開來吃，任何時刻要關掉行程只要長按"取消"鍵就可以取消行程。
-![](https://pic.pimg.tw/acikacik/1618207450-2700068999-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618207450-2700068999-g_l.jpg)
 沒有萬用鍋我該怎麼辦？ 如果早一點使用就可以少吃幾年外食，省下多少出去吃大餐的錢，而且天天可以變換不同的菜色，只要把食材買好下廚就不再是難事，因為熊蓋讚吃外食很容易拉肚子，外面用的油用的材料是不是品質有把關我們也很難說，但是現在這的凡是講究速食的年代，自己在家裡煮反而成了最健康的選擇，少一些化工調味料假的油過多的鹽，換作原汁原味真材實料的天然蔬果新鮮肉類料理，用智慧萬用鍋把油煙鎖在鍋子裡，這幾餐都是不會煮菜的熊蓋讚煮的，菜色份量也都是憑感覺放的，只要材料準備好"差不多"的糖"差不多"的醬油，竟然味道是"真的好吃"，未來長時間的煲湯跟煎藥可能都少不了它，就像變魔術一般有了山水智慧萬用鍋，我們家的熊蓋讚也變成當家小廚師了。
-![](https://pic.pimg.tw/acikacik/1618233263-2180042639-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780868227/blog/acikacik/1618233263-2180042639-g_l.jpg)
 **現在買 山水 智能萬用鍋 還有"母親節限時加碼雙重送"的好康可以拿~**
 **第一重**
 加碼贈送1個陶瓷釉塗層不沾內鍋(黑色款)  

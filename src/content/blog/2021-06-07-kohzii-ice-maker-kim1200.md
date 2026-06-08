@@ -7,127 +7,127 @@ heroImage: '/images/blog/2021-06-07-kohzii-ice-maker-kim1200.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069666146'
 ---
 
-![](https://pic.pimg.tw/acikacik/1623069284-2907757846-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869207/blog/acikacik/1623069284-2907757846-g.jpg)
 這幾天溫度真的是折磨人，一會冷一會熱昨天還是涼爽的春天今天就是口渴的夏天，迎接夏天的恐慌也越越來越讓人擔心了，據說接下來氣候暖化可不是開玩笑的，每年都破紀錄的高溫究竟會變成多可怕的天氣心中充滿問號?? 尤其遇到防疫的小日子不能天天到便利商店買冰塊，我要怎麼活下去? 
-![](https://pic.pimg.tw/acikacik/1623070229-2184490983-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623070229-2184490983-g_l.jpg)
 雖然我不是調酒師也不是手搖杯的搖茶師，但是每天都要來幾杯加滿冰塊冷飲的大熊還是渴望能有一個製冰機，累積了多年的夢想終於有一天可以實現了，每天不斷製造可以塞爆冰桶源源不絕的冰塊，在今天終於 Dreams come true 了!! 今年的夏天可以好過一點了~~ XD XD XD
-![](https://pic.pimg.tw/acikacik/1623070090-1954097905-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623070090-1954097905-g_l.jpg)
 **自動製冰不佔空間的好夥伴**
 夏天冰箱除了準備各式冷飲、可口可樂、汽泡水、冰淇淋 還有 仙草茶、青草茶.....，當然不可少的就是冰塊了，所以之前都會用那種一格一格的製冰盒來製冰，由於冰箱裡保存了各種肉品與冷凍蔬菜，冰箱的冰塊大熊總覺得有一股怪味，而且製冰盒拿出來要扭開冰塊也會有冰塊彈跳出來，這種取出冰塊的過程往往充滿驚喜與挑戰，一疊製冰盒放進去冰箱冷凍庫還會佔了大量冷凍庫的空間，如果當天很想吃冰飲但是又忘記前一天製冰，又要再等上一天結冰，真的苦不堪言我好想喝冰飲呀~~~ 只好偷偷地跑便利商店去買兩包冰塊，便利商店的衛生冰塊少說也要20塊，不就是水做的怎麼也不能便宜一點，還記得小時候冰塊超級便宜只要十元的日子已經一去不復返了，現在疫情期間不要說要出門買冰塊了，要出門買菜都要消毒再消毒，如果想奢侈的吃點冰冰涼涼的食物，是不是得有一台製冰機，(小叮噹的配樂) 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」，再也不用外面買冰塊了，一種被拯救的愉悅浮上心頭，只能說炎炎夏日有你真好呀~ ^^
-![](https://pic.pimg.tw/acikacik/1623069266-4135967456-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069266-4135967456-g.jpg)
 **外面買的冰安心嗎?**
 有時候出門在外就是要冰涼冰涼，記得幾年前去泰國路邊商人旁的冷凍冰箱裡面除了賣冰塊還賣冰毛巾，那種透心涼的冰毛巾放在脖子上的時候，真的是超級消暑的啦!! 但是回頭看冰塊怎麼跟冰毛巾放在一起，我還買了一包冰塊配飲料喝，當天回到飯店竟然就拉肚子了，這種來路不明的冰塊真的衛生嗎? 總是令人感到存疑，如果可以自製冰塊就可以免煩惱，乾淨衛生自己拿捏，而且最重要的就是家裡的過濾水很便宜，安全衛生有保障喝的健康不用跑廁所~ ="=
-![](https://pic.pimg.tw/acikacik/1623069263-2669402408-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069263-2669402408-g_l.jpg)
 **全自動製冰出門露營野餐帶著走**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」體機輕巧外出攜帶方便，就算是擺放在廚房中也不佔空間，愛露營的人通常選擇秋冬春天出門，因為夏天太熱沒有冷氣，食物也不好保存，就算是有冰桶如果裡面的冰漸漸融化也影響晚間與隔日的食物新鮮度，現在有了「 KOHZII 康馳微電腦全自動製冰機 KIM1200」自己做冰塊除了戶外消暑降火氣(避免一言不合就發火)，裝滿保冰袋新鮮肉品也妥當，還可以製造源源不絕的冰塊，放進保冰袋中讓冰塊加持享受冰冰涼涼的冰冷飲，露營野餐冰桶裡的冰塊如果融化了也沒關係，把水倒出來添加不斷供應的自製冰塊不費吹灰之力就可以填滿它，而且自來水就可以做冰塊了喔~(自來水保冰不要拿來吃喔!!) 超級方便的啦!!
-![](https://pic.pimg.tw/acikacik/1623069265-75427912-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869210/blog/acikacik/1623069265-75427912-g.jpg)
 **不鏽鋼機身好看耐髒**
 這台「 KOHZII 康馳微電腦全自動製冰機 KIM1200」大小是222X313X320(mm)外觀比我想像的小很多，而且設計走實用簡約風格放在廚房客廳都很適合，不鏽鋼機身隔熱保冰存放時間長，而且重量只有7.2KG也不重，外出攜帶搬上汽車放機車腳踏墊大小剛好也較為方便，一般家用插座電源110V / 60Hz都可以使用隨插隨用，第一次使用要先暖機，插上電源之後暖機60分鐘再按下開關，製冰機不管放在哪裡都適合也好收納，隨機附上簡單的說明書還有妥善的用保麗龍來保護。
-![](https://pic.pimg.tw/acikacik/1623069264-174924044-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069267-1133966695-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069267-3227100044-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069269-1546273333-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069267-1620038091-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069264-174924044-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069267-1133966695-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069267-3227100044-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069269-1546273333-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869211/blog/acikacik/1623069267-1620038091-g_l.jpg)
 **食品級的塑料內殼  **
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」白色內殼不含雙酚A(BPA free)， 小朋友和長輩都可以安心的來使用。
-![](https://pic.pimg.tw/acikacik/1623069268-1650391894-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069268-1650391894-g_l.jpg)
 **供應一整天容量剛剛好**
 兩隻大熊試過整天每一口茶每一口水都加冰塊的話，因為製冰機的水箱容量2.0L，所以製造出來12公斤的冰塊量，這樣的數量是可以喝一整天的，而且免等待如果冰塊滿了還會自動停止製冰，裡面的冰塊如果等太久融化還會循環製冰，如果用量不是太猛的話，打開製冰機裡面永遠都有滿滿的冰塊，光是看到這個畫面就很讓人"寒"心了(更正:暖心了)。  
-![](https://pic.pimg.tw/acikacik/1623069270-884758552-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069270-884758552-g_l.jpg)
 **LED燈控制面板顯示直覺操作不費力**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」人性化的LED控制面板，免去複雜的控制選項，操作起來其實很簡單 不用花太多時間就可以學會，而且採取單鍵按壓開關很好操作。  
 極簡的按鍵分為(開關鍵，分別顯示製冰、冰滿、加水三種控制燈)，操作流程也很簡單可以省下很多學習的時間，按下面板上的開關鍵，接著按下鍵選擇，來選擇製作的冰塊的大小(登楞~)就可以聽到製冰機開始啟動的微小聲音(真的很激動)，接下來就開始期待冰塊製作好的樣子了。
-![](https://pic.pimg.tw/acikacik/1623069264-3385824917-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069264-1457640467-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069264-3385824917-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069264-1457640467-g_l.jpg)
 **透明視窗打開蓋上很輕巧不費力**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」省力的透明視窗可隨時檢視冰塊的儲存量，透明可視窗看見製冰過程一目了然，打開製冰盒，往機槽內加滿過濾後的飲用水不超過最高水位線(最高水位線MAX的止水線，加入的不能滿出這條線喔，滿出這條線冰塊就會在水裡喔)，接著按下開關靜待6~8分鐘就可以看到冰塊一顆顆的成型，看到冰塊掉落的當下身心靈都被療癒了。
-![](https://pic.pimg.tw/acikacik/1623069275-2025700784-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069269-2712998994-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869213/blog/acikacik/1623069275-2025700784-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869215/blog/acikacik/1623069269-2712998994-g_l.jpg)
 集冰籃裡的冰塊如果融化，融化的水也會直接滴進製冰機裡再利用製冰，製冰籃也可以清楚看見冰塊產生的過程，冰塊產生之後就會自動被推到集冰籃裡面，收成冰塊的成果可以看很久因為很療育~~~ XD
-![](https://pic.pimg.tw/acikacik/1623069280-3649427171-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069283-3807144102-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069280-3649427171-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069283-3807144102-g_l.jpg)
 **不用花時間等冰塊結凍**
 以往兩隻大熊夏天吃冰塊，都要用很多冰盤放到冷凍庫結凍非常的占空間，現在使用「 KOHZII 康馳微電腦全自動製冰機 KIM1200」完全不需等待太久就有足夠份量的冰塊，看看裡面的構造科技始終來自於人性，科技帶給我們許多的便利，當製冰完成掉下來的那一剎那，一顆顆製冰成功堆滿集冰籃真的有種說不出的感動。
-![](https://pic.pimg.tw/acikacik/1623069281-2829420490-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869213/blog/acikacik/1623069281-2829420490-g_l.jpg)
 **可選擇大冰塊、小冰塊**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」冰塊的造型是子彈中空型的圓冰塊，製冰機可以設定冰塊的大小(大冰/小冰)，每次整排的製冰模具可以結9顆冰塊。(小冰塊和大冰塊的SIZE比較)
-![](https://pic.pimg.tw/acikacik/1623069282-2738325796-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069282-2738325796-g_l.jpg)
 **製冰需要多少時間??**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」按"選擇建"可以選擇製作冰塊的大小，結冰時間約莫"小冰塊"六分鐘，"大冰塊"八分鐘，簡單快速製冰六到八分鐘出九顆冰塊，製冰循環的時間長短取決於冰塊的大小，所以想吃大一點的冰塊就要多等兩分鐘歐~ 也沒多久啦!! XD
-![](https://pic.pimg.tw/acikacik/1623069275-750793725-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069280-3550211481-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869216/blog/acikacik/1623069275-750793725-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623069280-3550211481-g_l.jpg)
 **滿冰通知可以喝啤酒了歐 **
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」當冰籃中的冰塊已滿時，黑點點是感應接頭就會開始感應，感應到冰塊滿了微電腦就會自動停止製冰，同時"滿冰"的燈就會亮起，這時候就可以把冰籃中裡的冰塊取出放到保溫冰桶，或是杯子裡直接使用，然後再重複按一下開關鍵，這時候機器就會繼續開始製冰了，有時候大熊把冰塊盛出來兩杓，機器馬上就開始製冰了真的微電腦有在做事呢~ XD
-![](https://pic.pimg.tw/acikacik/1623069283-1589557159-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069285-2052513830-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623069283-1589557159-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869216/blog/acikacik/1623069285-2052513830-g_l.jpg)
 未來疫情過後朋友聚會需要滿滿的冰塊，只要提早一小時開啟製冰機，儲備好滿滿的冰塊，喝冰啤酒時就無需擔心加入有冰箱味的冰塊，可以放心歡樂又消暑的看影片，一口接一口身心靈都得到放鬆了，吃吃喝喝沁涼暢快超快活。
 喝啤酒最怕就是沒冰塊，只要在餐前或是日常早晨打開製冰機，就會不間斷的製造冰塊，可以滿足日常所需的冰鎮啤酒用量，選擇大冰塊更可以快速補充添加並且不輕易完全融化，就算滿杯的冰塊也可以享受啤酒泡泡一口飲盡的快感~ XD (今天晚上就不醉不歸了，明明就在家裡還要假裝在BAR狂歡 ="=)(放個多年前在遊艇上喝冰啤酒的畫面<<回憶殺!!!)
-![](https://pic.pimg.tw/acikacik/1623070985-1145629257-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623070985-1145629257-g_l.jpg)
 **加水通知好貼心**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」當機器中水量不足時，感應式的微電腦自動感應需要加水時就會停止運作，這時候"加水"指示燈就會亮起，通常大熊會馬上用水壺倒入乾淨的飲用水，然後再按一下"開關鍵"，機器就又開始自動製冰了。
-![](https://pic.pimg.tw/acikacik/1623071200-2885336458-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623071200-1930754380-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623071200-2885336458-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623071200-1930754380-g_l.jpg)
 **製造健康乾淨的冰塊**
 兩隻大熊看過有人運送冰塊是用卡車運的，對~ 你沒看錯就是用卡車然後一直滴水，然後拿一個類似鉤子之類的東西，來回滑動的從車上把大冰塊拖下車，用手推車推進店裡~~~ @@，這是要幹嘛用的冰塊讓人匪夷所思，希望不是用來吃的 ="= ，買外面的冰塊很難考慮來源，製冰機所製造的是高純度、低雜質的冰塊，才能讓兩隻大熊安心吃，基於冰塊食用衛生因素，每日都要更換機器裡的飲用水，如果機器長時間沒有使用，要把水箱中的水排乾，然後保持製冰機乾燥就可以了。
-![](https://pic.pimg.tw/acikacik/1623069281-654973278-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069283-932257266-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623069281-654973278-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623069283-932257266-g_l.jpg)
 **多功能儲冰籃**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」獨立的上置式儲冰籃，因為大容量所以一次可以取出大量冰塊，因為夠深所以也不會卡冰，就算冰塊融化了也只是變成水滴入下方的蓄水槽中，如果缺水的時候也可以透過儲冰籃幫蓄水槽加水，不用把儲冰籃取出就可以直接加水，如果怕看不清楚最高止水線也可以把儲冰籃取出加水後再放回去。
-![](https://pic.pimg.tw/acikacik/1623069276-1036967194-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069279-4158291425-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069280-3649427171-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069270-1985223069-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869217/blog/acikacik/1623069276-1036967194-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069279-4158291425-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869214/blog/acikacik/1623069280-3649427171-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069270-1985223069-g_l.jpg)
 **製冰機按一鍵自動清洗好輕鬆**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」倒入清水案"清洗鍵"即可馬上聽到流水聲音，開始進行半個小時的清洗，每次製冰完成後，按壓即可自動清潔，輕鬆乾淨又衛生，其中的儲冰籃可以拆下清洗，盛冰杓建議另外放置會更乾淨。
-![](https://pic.pimg.tw/acikacik/1623069273-1081709980-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069275-750793725-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869219/blog/acikacik/1623069273-1081709980-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869216/blog/acikacik/1623069275-750793725-g_l.jpg)
 操作步驟如下 : 清潔機器內部可以使用軟布跟水清洗，可以使用中性的清潔劑清洗，清潔完畢後將乾淨的水倒入水箱至滿水位，插上插頭，待機時按住"開啟或關閉電源/清洗鍵" 五秒以上，機器將進入清洗模式，清洗時間30分鐘。清洗時"大冰" "小冰" 指示燈會輪流閃爍。清洗完成後請將全部的水由機器底部的排水口排出，然後把塞子塞回去機器內部用軟布確實擦乾，擦乾以防止細菌滋生，這樣就完成清洗了。
-![](https://pic.pimg.tw/acikacik/1623069272-1830824156-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069272-1830824156-g_l.jpg)
 製冰機清洗完畢之後，下方有個出水口塞子，將塞子取下排除清洗過的水，拉開就可以馬上排水嘍~ (不要把整個機器傾斜來倒水喔~)
-![](https://pic.pimg.tw/acikacik/1623069272-3337726705-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069272-3337726705-g_l.jpg)
 **散熱出風口保護機身不過熱**
 「 KOHZII 康馳微電腦全自動製冰機 KIM1200」製冰機放置的位置要跟四周保持10公分的間距，機器為了散熱側面排風口也要保持20公分以上來通風，避免機器高溫而降低冰塊的產量喔~ ^^
-![](https://pic.pimg.tw/acikacik/1623069276-2808536728-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069269-2776632681-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069276-2808536728-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069269-2776632681-g_l.jpg)
 **生菜冰一下更好吃**
 兩隻大熊每次吃烤肉就要配生菜，外面的生菜沙拉之所以口感脆脆的，是因為有冰鎮過，所以依樣畫葫蘆，這次兩隻大熊也用冰塊冰鎮美生菜，果然爽脆好吃搭配日式烤肉醬做的烤肉，這種每一口都很飽嘴好吃的要上天堂了啊!!
-![](https://pic.pimg.tw/acikacik/1623069283-678587429-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069283-678587429-g_l.jpg)
 **冰涼滋味真的很療癒**
 大熊非常喜歡喝冰咖啡，咕嚕咕嚕的將冰鎮的咖啡透心涼，而且還有隨時可以喝冰可樂超級爽嘴的，冰品飲料喝完立即消暑就算沒有開空調的房間裡，也可以暫時得到低溫口感的療癒。
-![](https://pic.pimg.tw/acikacik/1623069285-2008418208-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869219/blog/acikacik/1623069285-2008418208-g_l.jpg)
 **隨時隨地做冰沙好享受**
 製冰機製作出的冰塊可以直接拿來打冰沙，冷凍芒果搭配子彈冰塊一起打成泥狀，香氣十足又不會過甜真的很好喝~ 以後不用去 7-ELEVEN 買思樂冰了，自已在家裡做更健康! ^^
-![](https://pic.pimg.tw/acikacik/1623069284-4206205652-g.jpg)
-![](https://pic.pimg.tw/acikacik/1623069285-729140795-g.jpg)
-![](https://pic.pimg.tw/acikacik/1623069284-573394813-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069284-4206205652-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869222/blog/acikacik/1623069285-729140795-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623069284-573394813-g_l.jpg)
 **來杯沁涼水果氣泡水好滋味**
 兩隻大熊最愛喝氣泡水，最近COSTCO某牌高級品牌氣泡水一公升特價才三十多，喝氣泡水怎麼能沒有冰塊呢? 不冰的氣泡水等於失去它特別的風味了，中空的冰塊拿來做葡萄氣泡水也很美很好喝~ XD
 將果汁榨汁後加點檸檬放入子彈冰塊，搭配檸檬切片更優~ 大口喝一口享受究極的暢快感，看是不是很想喝一口呢!
-![](https://pic.pimg.tw/acikacik/1623074280-4255814566-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623074450-3287850235-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623156635-2366074038-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623074280-4255814566-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623074450-3287850235-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623156635-2366074038-g_l.jpg)
 **辦公室茶水間 **
 平時喝慣沖泡式熱紅茶熱咖啡，也想來點不一樣的，辦公室的茶水間有一台製冰機，隨時可以舀一杯冰塊加入熱咖啡，就變成涼快到底的美式冰咖啡，是不是可以省下去星巴克買美式冰咖啡的錢，一樣可以滿足口腹之慾~ XD
-![](https://pic.pimg.tw/acikacik/1623069281-483758224-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069285-3323828801-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623069281-483758224-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623069285-3323828801-g_l.jpg)
 **廚房解凍保存海鮮**
 到菜市場看到海鮮都是放在冰塊保鮮，媽媽在家裡將海鮮肉品解凍又想保鮮也可以在下面鋪上大量的冰塊，這時候製冰機跟冰杓就要出動了，製冰機真的是讓海鮮新鮮又美味的好幫手呀~ XD
-![](https://pic.pimg.tw/acikacik/1623073456-2220739145-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623073456-2220739145-g_l.jpg)
 **超愛咬冰塊**
 有時候睡前不能喝太多水，因為喝太多晚上會起來跑廁所影響睡眠，這時候大熊就會咬幾顆冰塊讓冰塊慢慢在嘴中融化，有了製冰機可以隨時咬幾顆止渴，以後不用跑去開開關關冷凍庫的門，大費周章的敲冰塊了!!
-![](https://pic.pimg.tw/acikacik/1623069284-3025414067-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869223/blog/acikacik/1623069284-3025414067-g_l.jpg)
 **自製不稀釋保冰杯**
 其實這個原理就是運用冰塊放在杯中杯來保冰的原理，比方攤販賣魚肉會把冰塊鋪在下面，運用杯中杯的方式，在內杯下方置入冰塊，內杯內置入要保冰的飲料，過幾分鐘就會發現外杯內的冰塊融化一些了，內杯的飲料變冷了，這種方法可以用來保冰不能稀釋的調酒或是不想沖淡口味的濃郁黑咖啡，不想喝冰冰涼涼但是超淡的果汁的朋友可以嘗試我的這個方法。
-![](https://pic.pimg.tw/acikacik/1623069278-2145289882-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069282-3504991713-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869222/blog/acikacik/1623069278-2145289882-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869226/blog/acikacik/1623069282-3504991713-g_l.jpg)
 **一年保固**
 製冰機插電之前請靜置一小時讓冷媒回流，避免損傷壓縮機。  
 製冰機自購買日起提供一年保固 (客服專線：02-77130039)
-![](https://pic.pimg.tw/acikacik/1623069276-2808536728-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069283-2466145060-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869220/blog/acikacik/1623069276-2808536728-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1623069283-2466145060-g_l.jpg)
 夏天到了你跟兩隻大熊一樣被豔陽融化了嗎?? 有了「 KOHZII 康馳微電腦全自動製冰機 KIM1200」隨時有冰塊可以使用，雖然最近兩隻大熊的冰箱裡就有半自動的製冰機，但是全自動的製冰機還是讓人愛不釋手，畢竟無腦使用的製冰功能可以按一下就有滿滿的冰塊，真的是兩隻大熊所追求的夢想呀~ 這個男人至尊的最高頂級炎熱對付策略算是大成功了~ 推薦給跟兩隻大熊一樣有著炙熱熱情的人們。 @^________^@
-![](https://pic.pimg.tw/acikacik/1623069277-1478188298-g_l.jpg)
-![](https://pic.pimg.tw/acikacik/1623069275-1780582734-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869226/blog/acikacik/1623069277-1478188298-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780869225/blog/acikacik/1623069275-1780582734-g_l.jpg)
 以下是購買相關的資訊，可以點選習慣的購物網站連結~ ^^
 東森購物：https://parg.co/bCHj  
 松果購物：https://parg.co/bCH2  

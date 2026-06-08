@@ -14,13 +14,13 @@ category: '其他'
 Old Layout for Facebook 如何操作？
 簡單的三個步驟，就跟平時下載 Chrome 的擴充功能一般簡單。
 第一個步驟. 到 "Old Layout for Facebook" 的 chrome 線上應用程式商店，點選「加到 Chrome」，之後點選「新增擴充功能」。
-![](https://pic.pimg.tw/acikacik/1601035139-3839410314-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865517/blog/acikacik/1601035139-3839410314-g_l.jpg)
 第二個步驟. 安裝完成~ 打開臉書頁面，在瀏覽器右上角的擴充功能欄選擇 "Old Layout for Facebook" 的功能，設定成「Enabled」。
-![](https://pic.pimg.tw/acikacik/1601035139-1717328989-g.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865517/blog/acikacik/1601035139-1717328989-g.jpg)
 第三個步驟. 重新整理頁面，神奇的 Facebook 經典版頁面就回來了。
-![](https://pic.pimg.tw/acikacik/1601035297-2027828187-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865518/blog/acikacik/1601035297-2027828187-g_l.jpg)
 許多使用過的網友分享心得，現在已經超過一萬個網友下載 "Old Layout for Facebook" 這個擴充功能了~ 
-![](https://pic.pimg.tw/acikacik/1601035140-2751812189-g_l.jpg)
+![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780865521/blog/acikacik/1601035140-2751812189-g_l.jpg)
 <<下面是設計者的心得分享與提示>>
 該擴展程序通過告訴Facebook您實際上使用的是舊瀏覽器來工作，而新的重新設計不支持該瀏覽器。
 但是...有一些副作用。有些功能可能無法完美運行，有些功能可能根本無法使用（例如，視頻聊天），並且可能存在一些視覺怪癖。

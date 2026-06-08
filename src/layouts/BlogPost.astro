@@ -362,9 +362,9 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					<div class="share-section">
 						<div class="share-label">覺得有幫助？分享給朋友！</div>
 						<div class="share-buttons">
-							<a href={} target="_blank" rel="noopener" class="share-btn share-line">LINE</a>
-							<a href={} target="_blank" rel="noopener" class="share-btn share-fb">Facebook</a>
-							<a href={} target="_blank" rel="noopener" class="share-btn share-x">X / Twitter</a>
+							<a href={`https://line.me/R/msg/text/?${encodedTitle}%0A${encodedUrl}`} target="_blank" rel="noopener" class="share-btn share-line">LINE</a>
+							<a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener" class="share-btn share-fb">Facebook</a>
+							<a href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`} target="_blank" rel="noopener" class="share-btn share-x">X / Twitter</a>
 							<button class="share-btn share-copy" id="copy-link-btn" data-url={pageUrl}>🔗 複製連結</button>
 						</div>
 					</div>
@@ -395,8 +395,8 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</div>
 					)}
 
-					<!-- Comments (Giscus) -->
-					<div class="giscus-wrap" style="margin: 2em 0;">
+					<!-- Comments (Giscus) — enable after installing app at github.com/apps/giscus -->
+					<div class="giscus-wrap" style="margin: 2em 0; display: none;">
 						<script src="https://giscus.app/client.js"
 							data-repo="acikacik1314/two-bears-blog"
 							data-repo-id="R_kgDOSm-zaA"

@@ -272,15 +272,16 @@ const { prophecies } = Astro.props;
   ────────────────────────────────────────────── */
   async function loadCurrency() {
     try {
-      const r = await fetch('https://api.frankfurter.app/latest?from=USD&to=TWD,JPY,EUR', {
+      // open.er-api.com: free, no key, supports TWD/JPY/EUR
+      const r = await fetch('https://open.er-api.com/v6/latest/USD', {
         signal: AbortSignal.timeout(8000),
       });
       const j = await r.json();
-      const rates = j?.rates;
-      if (!rates) return;
-      const twd = rates.TWD;
-      const jpy = rates.JPY;
-      const eur = rates.EUR;
+      if (j?.result !== 'success') return;
+      const rates = j.rates;
+      const twd = rates?.TWD;
+      const jpy = rates?.JPY;
+      const eur = rates?.EUR;
       const jpytwd = twd && jpy ? twd / jpy : null;
       const el1 = document.getElementById('li-usdtwd');
       const el2 = document.getElementById('li-jpytwd');
@@ -354,11 +355,12 @@ const { prophecies } = Astro.props;
         set('li-vix', `VIX ${fmt(v, 1)} <span class="${v > 25 ? 'li-dn' : ''}">${vLabel}</span>`);
       }
       if (qs['GC=F']) set('li-gold', `黃金 $${fmt(qs['GC=F'].price)}${chg(qs['GC=F'].change)}`);
-      if (qs['XRP-USD']) set('li-xrp', `XRP $${fmt(qs['XRP-USD'].price, 4)}${chg(qs['XRP-USD'].change)}`);
 
       const btc = d.crypto?.bitcoin;
-      const eth = d.crypto?.ethereum;
+      const xrp = d.crypto?.ripple;
       if (btc) set('li-btc', `₿ $${fmt(btc.usd)}${chg(btc.usd_24h_change)}`);
+      if (xrp) set('li-xrp', `XRP $${fmt(xrp.usd, 4)}${chg(xrp.usd_24h_change)}`);
+      else if (qs['XRP-USD']) set('li-xrp', `XRP $${fmt(qs['XRP-USD'].price, 4)}${chg(qs['XRP-USD'].change)}`);
 
       // Show silver placeholder (Yahoo: SI=F, not always available)
       const si = qs['SI=F'];
@@ -503,7 +505,7 @@ const { prophecies } = Astro.props;
 
   .li-tz {
     font-size: 0.6em;
-    color: #475569;
+    color: #94a3b8;
     margin-top: 2px;
     letter-spacing: 0.04em;
   }
@@ -533,7 +535,7 @@ const { prophecies } = Astro.props;
 
   .li-jieqi {
     font-size: 0.72em;
-    color: #64748b;
+    color: #94a3b8;
   }
 
   /* Mini calendar */
@@ -555,13 +557,13 @@ const { prophecies } = Astro.props;
     grid-column: 1 / -1;
     font-size: 1.1em;
     font-weight: 700;
-    color: #64748b;
+    color: #94a3b8;
     text-align: center;
     padding-bottom: 2px;
   }
 
   :global(.li-cgrid b) {
-    color: #475569;
+    color: #94a3b8;
     font-weight: 700;
   }
 
@@ -590,7 +592,7 @@ const { prophecies } = Astro.props;
 
   .li-clabel {
     font-size: 0.62em;
-    color: #475569;
+    color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.3em;
@@ -621,7 +623,7 @@ const { prophecies } = Astro.props;
 
   .li-cextra {
     font-size: 0.68em;
-    color: #64748b;
+    color: #94a3b8;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -766,13 +768,13 @@ const { prophecies } = Astro.props;
 
   .li-prop-date {
     font-size: 0.67em;
-    color: #475569;
+    color: #94a3b8;
   }
 
   .li-prop-count {
     flex-shrink: 0;
     font-size: 0.68em;
-    color: #475569;
+    color: #94a3b8;
     white-space: nowrap;
   }
 

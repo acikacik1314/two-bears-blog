@@ -16,9 +16,10 @@ export function getPostCategory(post: CollectionEntry<'blog'>): string {
 
   const tags: string[] = post.data.tags ?? [];
 
-  if (post.data.rumbleId || post.data.youtubeId) return '影片';
-
+  // 預言 check first — even video posts about prophecy belong here
   if (tags.some(t => PROPHECY_TAGS.some(k => t.includes(k)))) return '預言';
+
+  if (post.data.rumbleId || post.data.youtubeId) return '影片';
 
   // Exact match: review first so product reviews with 家電商品推薦 win
   if (tags.some(t => REVIEW_EXACT.has(t))) return '評測';

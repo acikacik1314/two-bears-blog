@@ -1,0 +1,259 @@
+---
+// DailyFortune — today's 宜忌 + daily joke + spiritual book (all computed client-side)
+---
+
+<div class="fortune-wrap">
+
+  <!-- 今日宜忌 -->
+  <div class="fortune-section">
+    <div class="fortune-label">📅 今日宜忌</div>
+    <div class="fortune-jian" id="f-jian">—</div>
+    <div class="fortune-row">
+      <span class="fortune-yi">宜</span>
+      <span id="f-yi">載入中…</span>
+    </div>
+    <div class="fortune-row">
+      <span class="fortune-ji">忌</span>
+      <span id="f-ji">載入中…</span>
+    </div>
+  </div>
+
+  <div class="fortune-divider"></div>
+
+  <!-- 每日笑話 -->
+  <div class="fortune-section">
+    <div class="fortune-label">😄 每日一笑</div>
+    <p class="fortune-joke" id="f-joke">載入中…</p>
+  </div>
+
+  <div class="fortune-divider"></div>
+
+  <!-- 靈性書籍推薦 -->
+  <div class="fortune-section">
+    <div class="fortune-label">📚 靈性推薦</div>
+    <div class="fortune-book">
+      <span class="book-title" id="f-book-title">載入中…</span>
+      <span class="book-author" id="f-book-author"></span>
+      <span class="book-desc" id="f-book-desc"></span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  /* ── 十二建除 宜忌 ── */
+  const JIAN_ZHI = ['建','除','滿','平','定','執','破','危','成','收','開','閉'];
+  const JIAN_AUSPICIOUS = ['中吉','吉','中吉','平','吉','平','凶','平','大吉','平','大吉','平'];
+  const JIAN_DATA = [
+    { yi: ['開市','出行','裁衣','置產'], ji: ['嫁娶','安床','入宅'] },
+    { yi: ['沐浴','求醫','除舊佈新'], ji: ['嫁娶','開業','入宅'] },
+    { yi: ['求財','祭祀','訂婚'], ji: ['嫁娶','開市','入宅','出行'] },
+    { yi: ['嫁娶','訂婚','入宅','出行'], ji: ['動土','開渠'] },
+    { yi: ['嫁娶','入宅','開業','祭祀'], ji: ['訴訟','爭執'] },
+    { yi: ['播種','求職','捕獵'], ji: ['嫁娶','開市','入宅'] },
+    { yi: ['破舊房','求醫診治'], ji: ['嫁娶','入宅','開市','出行','動土'] },
+    { yi: ['探病','整修房屋'], ji: ['嫁娶','入宅','登高'] },
+    { yi: ['嫁娶','入宅','開業','動土','出行'], ji: ['訴訟'] },
+    { yi: ['收割','入倉','納財','祭祀'], ji: ['嫁娶','出行'] },
+    { yi: ['嫁娶','入宅','開業','出行','動土'], ji: ['安葬'] },
+    { yi: ['安葬','入殮','祭祀'], ji: ['嫁娶','入宅','開市','出行'] },
+  ];
+
+  function getLunarMonthDay(): { month: number; day: number } {
+    try {
+      const fmt = new Intl.DateTimeFormat('zh-TW-u-ca-chinese', { month: 'numeric', day: 'numeric' });
+      const parts = fmt.formatToParts(new Date());
+      const month = parseInt(parts.find(p => p.type === 'month')?.value ?? '1');
+      const day = parseInt(parts.find(p => p.type === 'day')?.value ?? '1');
+      return { month, day };
+    } catch {
+      const d = new Date();
+      return { month: d.getMonth() + 1, day: d.getDate() };
+    }
+  }
+
+  function loadFortune() {
+    const { month, day } = getLunarMonthDay();
+    const jianIdx = ((month - 1) * 2 + day - 1) % 12;
+    const jianName = JIAN_ZHI[jianIdx];
+    const auspicious = JIAN_AUSPICIOUS[jianIdx];
+    const data = JIAN_DATA[jianIdx];
+
+    const jianEl = document.getElementById('f-jian');
+    const yiEl = document.getElementById('f-yi');
+    const jiEl = document.getElementById('f-ji');
+    const auspClass = auspicious === '大吉' ? 'jian-daji' : auspicious === '凶' ? 'jian-xiong' : '';
+    if (jianEl) jianEl.innerHTML = `${jianName}日 <span class="${auspClass}">${auspicious}</span>`;
+    if (yiEl) yiEl.textContent = data.yi.join('　');
+    if (jiEl) jiEl.textContent = data.ji.join('　');
+  }
+
+  /* ── 每日笑話 (rotates by day of year) ── */
+  const JOKES = [
+    '算命師說我今年大吉大利，結果我買彩券中了頭獎——是第三行從左數第四個「謝謝惠顧」。',
+    '問：預言家和氣象播報員有什麼不同？答：氣象播報員預報不準，頂多被罵；預言家預報不準，說是「時間線偏移」。',
+    '我問AI：「2039年防火牆會倒嗎？」AI說：「我無法預測未來。」比格斯說：「那我來。」',
+    '風水師看了我家說：「你的財位在廚房。」我：「難怪我冰箱裡的食物花費這麼多錢。」',
+    '投資顧問：「黃金是最好的避險資產。」我媽：「藏在床底下的現金叫什麼？」',
+    '某預言家說2026年有大地震，結果那天我不小心把電腦桌震倒了，他說：「你看，準了。」',
+    '朋友說他看了紫微斗數，命中注定是「領袖格局」。我：「那你現在為什麼在跟我借錢？」',
+    '九紫離火運中最旺的生意：算命、賣碉堡糧食、賣黃金——預言家的產業鏈真的打通了。',
+    '我問風水師：「桌子朝哪個方向最好？」他說：「北方。」我搬了三次家，問題是——我是租的。',
+    '加密貨幣：昨天跌30%。預言家：「我早說過這個月是盤整期。」昨天他說：「月底前會漲50%。」',
+    '占星師說我是「天蠍座，適合做偵探」。我確實有這個才能——每次找不到遙控器都能破案。',
+    '某算命師：「你印堂發黑，近期有災。」我：「那是我昨晚吃鍋貼沾到的醬油。」',
+    '問：什麼人最相信預言？答：剛好預言說中的人，和剛好預言沒說中的人。',
+    '預言家的名言：「我沒說錯，是你們的理解方式不對。」',
+    '比特幣創始人中本聰至今下落不明。風水師說：「他的財位肯定在某個匿名錢包裡。」',
+    '老闆問我為什麼遲到，我說：「我的星盤說今天水星逆行，不宜出門。」他說：「扣薪水不逆行。」',
+    '財經節目：「專家預測下半年台股走勢……」下一則新聞：「上半年預測全錯，下半年我們換一批專家。」',
+    '地震預警說5秒後有震感。我：「好，我先把杯子放好。」結果是假警報。但我那天沒打翻杯子。',
+    '我：「這個月黃金會漲嗎？」AI：「過去不代表未來。」我：「那我問比格斯好了。」比格斯：「漲！」（停頓）「或跌。」',
+    '問：預言家和醫生誰更準？答：醫生說你6個月能治好，預言家說你明年運勢大轉，兩個人講的都是「差不多那時候」。',
+  ];
+
+  function loadJoke() {
+    const doy = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    const joke = JOKES[doy % JOKES.length];
+    const el = document.getElementById('f-joke');
+    if (el) el.textContent = joke;
+  }
+
+  /* ── 靈性書籍推薦 (rotates by day) ── */
+  const BOOKS = [
+    { t: '與神對話', a: '尼爾．唐納·沃許', d: '探索靈魂本質，重新定義人與宇宙的關係' },
+    { t: '祕密', a: '朗達·拜恩', d: '吸引力法則的核心，改變無數人命運的經典之作' },
+    { t: '當下的力量', a: '埃克哈特·托勒', d: '活在當下，超越思想的束縛，找到內在平靜' },
+    { t: '靈魂的旅程', a: '麥可·紐頓', d: '記錄靈魂在兩世之間的旅程，揭示生命意義' },
+    { t: '牧羊少年奇幻之旅', a: '保羅·科埃略', d: '追隨天命的寓言，每個人心中都有一個寶藏' },
+    { t: '宇宙自然法則', a: '大衛·霍金斯', d: '意識層級地圖，從羞愧到啟悟的振動頻率探索' },
+    { t: '卡巴拉生命之樹', a: '多羅·巴哈勒', d: '古老的卡巴拉智慧，理解宇宙結構與靈魂路徑' },
+    { t: '瀕死體驗與生命的意義', a: '雷蒙·穆迪', d: '數百個瀕死案例，揭示死後意識的延續' },
+    { t: '拿破崙山丘: 思考致富', a: '拿破崙·希爾', d: '13個致富原則，改變一百年來無數人的命運' },
+    { t: '靈性的覺醒', a: '狄帕克·喬普拉', d: '現代神秘學與量子物理的交會，探索靈魂實相' },
+    { t: '人類宇宙事件簿', a: '芭芭拉·馬丁', d: '高靈傳達的靈性知識，解析現代人的靈性困境' },
+    { t: '生死之輪', a: '伊莉莎白·庫伯勒·羅斯', d: '悲傷的五個階段，以靈性視角看待生死循環' },
+    { t: '意識的光譜', a: '肯·威爾伯', d: '整合東西方靈性傳統，描繪人類意識的完整地圖' },
+    { t: '塔木德智慧', a: '韋恩·戴爾', d: '古老猶太智慧與現代心理學的融合' },
+    { t: '冥想的力量', a: '達賴喇嘛', d: '通過正念冥想，培養慈悲與內在喜悅的路徑' },
+    { t: '靈魂出竅', a: '羅伯特·門羅', d: '親身實驗靈魂出體，記錄非肉體意識的旅程' },
+    { t: '賽斯書：靈魂永生', a: '珍·羅伯茲', d: '賽斯傳導的靈性智慧，重新詮釋時間與現實' },
+    { t: '宇宙的全息投影', a: '邁克爾·托比亞斯', d: '量子物理與靈性的交集，探索現實本質' },
+    { t: '禪者的初心', a: '鈴木俊隆', d: '無論初學者或資深修行者，保持初心最重要' },
+    { t: '次元躍升', a: '安娜·海斯', d: '地球與人類意識正在進行的頻率升級過程' },
+  ];
+
+  function loadBook() {
+    const doy = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    const book = BOOKS[doy % BOOKS.length];
+    const tEl = document.getElementById('f-book-title');
+    const aEl = document.getElementById('f-book-author');
+    const dEl = document.getElementById('f-book-desc');
+    if (tEl) tEl.textContent = `📖 ${book.t}`;
+    if (aEl) aEl.textContent = `✦ ${book.a}`;
+    if (dEl) dEl.textContent = book.d;
+  }
+
+  loadFortune();
+  loadJoke();
+  loadBook();
+</script>
+
+<style>
+  .fortune-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 1em;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .fortune-section { padding: 0.5em 0; }
+
+  .fortune-label {
+    font-size: 0.65em;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    margin-bottom: 0.4em;
+  }
+
+  .fortune-jian {
+    font-size: 0.9em;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 0.35em;
+  }
+
+  :global(.jian-daji) { color: #4ade80; }
+  :global(.jian-xiong) { color: #f87171; }
+
+  .fortune-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    font-size: 0.78em;
+    line-height: 1.6;
+  }
+
+  .fortune-yi {
+    color: #4ade80;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+    background: rgba(74,222,128,0.12);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .fortune-ji {
+    color: #f87171;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+    background: rgba(248,113,113,0.12);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .fortune-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+    margin: 0.3em 0;
+  }
+
+  .fortune-joke {
+    font-size: 0.78em;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .fortune-book {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+  }
+
+  .book-title {
+    font-size: 0.84em;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+
+  .book-author {
+    font-size: 0.72em;
+    color: #a78bfa;
+  }
+
+  .book-desc {
+    font-size: 0.72em;
+    color: #64748b;
+    line-height: 1.4;
+  }
+</style>

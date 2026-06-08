@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import { getPostCategory } from '../utils/category';
+
+const allPosts = await getCollection('blog');
+
+const PROPHETS = [
+  { name: '比格斯', tags: ['比格斯'] },
+  { name: '國分玲', tags: ['國分玲'] },
+  { name: '帕克', tags: ['帕克'] },
+  { name: '阿南德', tags: ['阿南德'] },
+  { name: '薩洛梅', tags: ['薩洛梅'] },
+  { name: '摩普萊', tags: ['摩普萊'] },
+  { name: '未來人KFK', tags: ['未來人', 'kfk', 'KFK'] },
+  { name: '牛頓', tags: ['牛頓'] },
+  { name: '諾斯特拉達姆斯', tags: ['诺查丹玛斯', '諾斯特拉達姆斯'] },
+];
+
+const stats = PROPHETS.map(p => {
+  const posts = allPosts.filter(post =>
+    (post.data.tags ?? []).some(t =>
+      p.tags.some(k => t.toLowerCase().includes(k.toLowerCase()))
+    )
+  );
+  const hits = posts.reduce((n, post) => n + (post.data.predictions?.hits?.length ?? 0), 0);
+  const misses = posts.reduce((n, post) => n + (post.data.predictions?.misses?.length ?? 0), 0);
+  const pending = posts.reduce((n, post) => n + (post.data.predictions?.pending?.length ?? 0), 0);
+  const total = hits + misses;
+  const accuracy = total > 0 ? Math.round((hits / total) * 100) : null;
+  return { name: p.name, posts: posts.length, hits, misses, pending, accuracy };
+}).filter(s => s.posts > 0).sort((a, b) => {
+  if (a.accuracy !== null && b.accuracy !== null) return b.accuracy - a.accuracy;
+  if (a.accuracy !== null) return -1;
+  if (b.accuracy !== null) return 1;
+  return b.posts - a.posts;
+});
+---
+
+<div class="lb-wrap">
+  <div class="lb-header">
+    <span class="lb-title">🏆 預言命中率排行榜</span>
+    <a class="lb-link" href="/category/預言/">查看所有預言 →</a>
+  </div>
+
+  {stats.length === 0 ? (
+    <p class="lb-empty">尚無數據，在文章中加入 <code>predictions</code> 欄位後自動更新</p>
+  ) : (
+    <div class="lb-table-wrap">
+      <table class="lb-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>預言家</th>
+            <th>文章數</th>
+            <th>命中</th>
+            <th>失誤</th>
+            <th>待驗</th>
+            <th>準確率</th>
+          </tr>
+        </thead>
+        <tbody>
+          {stats.map((s, i) => (
+            <tr class={i === 0 && s.accuracy !== null ? 'lb-top' : ''}>
+              <td class="lb-rank">{i + 1}</td>
+              <td class="lb-name">{s.name}</td>
+              <td>{s.posts}</td>
+              <td class="lb-hit">{s.hits > 0 ? `✅ ${s.hits}` : '—'}</td>
+              <td class="lb-miss">{s.misses > 0 ? `❌ ${s.misses}` : '—'}</td>
+              <td class="lb-pend">{s.pending > 0 ? `⏳ ${s.pending}` : '—'}</td>
+              <td class="lb-acc">
+                {s.accuracy !== null ? (
+                  <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
+                    {s.accuracy}%
+                  </span>
+                ) : (
+                  <span class="acc-none">更新中</span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+  <p class="lb-hint">在文章 frontmatter 中加入 predictions: &#123; hits: [...], misses: [...], pending: [...] &#125; 即可更新統計</p>
+</div>
+
+<style>
+  .lb-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 0.9em 1em;
+    color: #e2e8f0;
+  }
+
+  .lb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7em;
+  }
+
+  .lb-title {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .lb-link {
+    font-size: 0.72em;
+    color: #64748b;
+    text-decoration: none;
+  }
+
+  .lb-link:hover { color: #a78bfa; }
+
+  .lb-empty {
+    font-size: 0.78em;
+    color: #475569;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  .lb-empty code {
+    background: rgba(255,255,255,0.08);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  .lb-table-wrap { overflow-x: auto; }
+
+  .lb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78em;
+  }
+
+  .lb-table th {
+    text-align: left;
+    color: #475569;
+    font-weight: 600;
+    padding: 0.3em 0.5em;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    white-space: nowrap;
+  }
+
+  .lb-table td {
+    padding: 0.35em 0.5em;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #94a3b8;
+    white-space: nowrap;
+  }
+
+  .lb-top td { background: rgba(118,17,166,0.08); }
+  .lb-rank { color: #64748b; font-weight: 700; }
+  .lb-name { color: #f1f5f9; font-weight: 600; }
+  .lb-hit { color: #4ade80; }
+  .lb-miss { color: #f87171; }
+  .lb-pend { color: #fbbf24; }
+
+  .acc-good { color: #4ade80; font-weight: 700; }
+  .acc-mid { color: #fbbf24; font-weight: 700; }
+  .acc-low { color: #f87171; font-weight: 700; }
+  .acc-none { color: #475569; }
+
+  .lb-hint {
+    font-size: 0.65em;
+    color: #374151;
+    margin: 0.5em 0 0;
+  }
+</style>

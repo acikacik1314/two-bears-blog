@@ -8,6 +8,12 @@ import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
 import LiveInfoBar from '../components/LiveInfoBar.astro';
+import ProphecyPoll from '../components/ProphecyPoll.astro';
+import DailyFortune from '../components/DailyFortune.astro';
+import EarthquakeWidget from '../components/EarthquakeWidget.astro';
+import MessageWall from '../components/MessageWall.astro';
+import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
+import MultiCityWeather from '../components/MultiCityWeather.astro';
 
 // Fetch view counts (returns {} if Blob not configured yet)
 let viewCounts: Record<string, number> = {};
@@ -101,8 +107,24 @@ const prophecyPosts = allPosts
 			<section class="hero">
 				<h1>兩隻熊的旅遊記事</h1>
 				<p>探索未來預言家的洞見、世界趨勢分析與真相拆解</p>
+				<a href="/fortune/" class="hero-fortune-link">🔮 命理分析 — 輸入生日算八字</a>
 			</section>
 
+			<!-- Interactive widgets section -->
+			<div class="widgets-section">
+				<div class="widgets-row widgets-row-3">
+					<DailyFortune />
+					<ProphecyPoll />
+					<EarthquakeWidget />
+				</div>
+				<div class="widgets-row widgets-row-2">
+					<MultiCityWeather />
+					<MessageWall />
+				</div>
+				<ProphecyLeaderboard />
+			</div>
+
+			<h2 class="posts-heading">最新文章</h2>
 			<ul>
 				{posts.map((post) => {
 					const cat = getPostCategory(post);
@@ -147,9 +169,51 @@ const prophecyPosts = allPosts
 	}
 	.hero {
 		text-align: center;
-		padding: 2em 0 2em;
-		margin-bottom: 1.5em;
+		padding: 1.5em 0 1.5em;
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+	.hero-fortune-link {
+		display: inline-block;
+		margin-top: 0.6em;
+		font-size: 0.82em;
+		color: var(--accent);
+		text-decoration: none;
+		background: rgba(118,17,166,0.1);
+		border: 1px solid rgba(118,17,166,0.25);
+		border-radius: 20px;
+		padding: 0.25em 0.9em;
+		transition: background 0.15s;
+	}
+	.hero-fortune-link:hover { background: rgba(118,17,166,0.2); }
+	.widgets-section {
+		margin: 1em 0 1.5em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7em;
+	}
+	.widgets-row {
+		display: grid;
+		gap: 0.7em;
+	}
+	.widgets-row-3 { grid-template-columns: repeat(3, 1fr); }
+	.widgets-row-2 { grid-template-columns: repeat(2, 1fr); }
+	.posts-heading {
+		font-size: 1em;
+		font-weight: 700;
+		color: rgb(var(--gray));
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin: 0 0 0.8em;
+		padding-bottom: 0.5em;
 		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	@media (max-width: 900px) {
+		.widgets-row-3 { grid-template-columns: 1fr 1fr; }
+		.widgets-row-2 { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 600px) {
+		.widgets-row-3 { grid-template-columns: 1fr; }
 	}
 	.hero h1 {
 		font-size: 2em;

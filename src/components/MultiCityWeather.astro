@@ -1,0 +1,257 @@
+---
+// Multi-city weather for Taiwan: 台北 台中 高雄 澎湖
+// Includes outfit recommendation and star crystal
+---
+
+<div class="mcw-wrap">
+  <div class="mcw-header">🌈 各地天氣 & 今日穿搭建議</div>
+
+  <div class="mcw-cities" id="mcw-cities">
+    <div class="mcw-loading">載入中…</div>
+  </div>
+
+  <div class="mcw-outfit-row">
+    <div class="mcw-outfit" id="mcw-outfit">
+      <span class="outfit-icon" id="outfit-icon">👕</span>
+      <span class="outfit-text" id="outfit-text">載入穿搭建議…</span>
+    </div>
+    <div class="mcw-crystal" id="mcw-crystal"></div>
+  </div>
+
+  <!-- 安撫人心的一句話 -->
+  <div class="mcw-quote" id="mcw-quote"></div>
+</div>
+
+<script>
+  const CITIES = [
+    { name: '台北', lat: 25.0330, lon: 121.5654 },
+    { name: '台中', lat: 24.1477, lon: 120.6736 },
+    { name: '高雄', lat: 22.6273, lon: 120.3014 },
+    { name: '澎湖', lat: 23.5654, lon: 119.5790 },
+  ];
+
+  const WMO_SIMPLE: Record<number, [string, string]> = {
+    0: ['☀️', '晴'], 1: ['🌤', '晴'], 2: ['⛅', '多雲'], 3: ['☁️', '陰'],
+    45: ['🌫', '霧'], 48: ['🌫', '霧'],
+    51: ['🌦', '毛雨'], 53: ['🌦', '毛雨'], 55: ['🌧', '毛雨'],
+    61: ['🌧', '雨'], 63: ['🌧', '雨'], 65: ['🌧', '大雨'],
+    80: ['🌦', '陣雨'], 81: ['🌧', '陣雨'], 95: ['⛈', '雷'], 99: ['⛈', '雷'],
+  };
+
+  function getOutfit(temp: number, code: number): [string, string] {
+    const rain = [51,53,55,61,63,65,80,81,82,95,96,99].includes(code);
+    const umbrella = rain ? '☂️ 帶傘！' : '';
+    if (temp < 10) return ['🧥❄️', `厚羽絨衣+毛帽手套 ${umbrella}`];
+    if (temp < 15) return ['🧥', `毛衣或羽絨外套 ${umbrella}`];
+    if (temp < 20) return ['🧥', `薄外套或夾克 ${umbrella}`];
+    if (temp < 25) return ['👔', `長袖上衣 ${umbrella}`];
+    if (temp < 30) return ['👕', `短袖+薄外套備用 ${umbrella}`];
+    return ['👕🌞', `涼爽短袖+防曬 ${umbrella}`];
+  }
+
+  /* ── Star crystal recommendations (rotates by day + zodiac) ── */
+  const ZODIAC_CRYSTALS = [
+    { sign: '摩羯', dates: [[12,22],[1,19]], color: '黑色、深綠色', crystal: '黑曜石、翡翠', lucky: '4、8', song: '平凡之路 — 朴樹' },
+    { sign: '水瓶', dates: [[1,20],[2,18]], color: '電藍色、銀色', crystal: '海藍寶、紫水晶', lucky: '7、11', song: '星空 — Jay Chou' },
+    { sign: '雙魚', dates: [[2,19],[3,20]], color: '海洋藍、淡紫', crystal: '月光石、紫螢石', lucky: '3、9', song: '告白氣球 — Jay Chou' },
+    { sign: '白羊', dates: [[3,21],[4,19]], color: '紅色、橙色', crystal: '紅碧璽、紅玉髓', lucky: '1、9', song: '活著 — 張雨生' },
+    { sign: '金牛', dates: [[4,20],[5,20]], color: '草綠色、粉紅', crystal: '玫瑰石英、祖母綠', lucky: '2、6', song: '給我一個理由忘記 — A-Lin' },
+    { sign: '雙子', dates: [[5,21],[6,21]], color: '黃色、淡藍', crystal: '黃水晶、天河石', lucky: '5、7', song: '稻香 — Jay Chou' },
+    { sign: '巨蟹', dates: [[6,22],[7,22]], color: '銀白、珍珠色', crystal: '月光石、珍珠', lucky: '2、7', song: '給未來的自己 — 張惠妹' },
+    { sign: '獅子', dates: [[7,23],[8,22]], color: '金黃、橙色', crystal: '琥珀、虎眼石', lucky: '1、5', song: 'Lion — Big Bang' },
+    { sign: '處女', dates: [[8,23],[9,22]], color: '米色、棕綠', crystal: '碧玉、薩達寧斯', lucky: '6、9', song: '第一天 — 孫燕姿' },
+    { sign: '天秤', dates: [[9,23],[10,23]], color: '粉藍、淺綠', crystal: '綠東陵、粉晶', lucky: '4、6', song: '因為愛情 — 陳奕迅' },
+    { sign: '天蠍', dates: [[10,24],[11,21]], color: '深紅、黑色', crystal: '石榴石、黑碧璽', lucky: '8、11', song: 'Still Dre — Dr. Dre' },
+    { sign: '射手', dates: [[11,22],[12,21]], color: '紫色、藍色', crystal: '紫水晶、青金石', lucky: '3、9', song: '漂向北方 — 黃明志' },
+  ];
+
+  function getTodayZodiac() {
+    const d = new Date();
+    const m = d.getMonth() + 1;
+    const day = d.getDate();
+    for (const z of ZODIAC_CRYSTALS) {
+      const [[sm, sd], [em, ed]] = z.dates;
+      const inRange = (m === sm && day >= sd) || (m === em && day <= ed) ||
+        (sm > em && (m === sm && day >= sd || m <= em && day <= ed));
+      if ((m === sm && day >= sd) || (m === em && day <= ed)) return z;
+    }
+    return ZODIAC_CRYSTALS[11]; // 射手 fallback
+  }
+
+  /* ── Comforting quotes (rotates daily) ── */
+  const QUOTES = [
+    '你不需要完美，只需要真實。每一個不完美的你，都是宇宙獨一無二的作品。',
+    '今天所有的不安，都是明天成長的養分。靜下來，你比自己想像的更有力量。',
+    '放慢腳步不是退步。月亮也要有陰晴圓缺，才能完整一個月的輪迴。',
+    '那些看起來走彎路的日子，往往最後都指向了正確的方向。',
+    '宇宙沒有忘記你。它只是在以你目前無法理解的方式愛著你。',
+    '你值得被溫柔對待。從自己開始，對自己溫柔。',
+    '不是所有的事都需要立刻解決。有些事需要交給時間，交給命運。',
+    '每一次深呼吸，都是在提醒自己：此刻，我還在。這就夠了。',
+    '焦慮的時候問自己：五年後這件事還重要嗎？多半答案是不。',
+    '你已經撐過了100%你以為撐不過的日子。今天也一樣。',
+    '有些人是來提醒你要轉彎的，不是要你繼續走那條路。',
+    '帶著傷走路是真實的。假裝沒有傷才是最累的事。',
+    '你現在感受到的一切，都是真實而有意義的。你的感受值得被尊重。',
+    '不必每天都很勇敢。有時候只是活著，已經很了不起了。',
+    '世界上最強大的力量，是知道自己最終一定沒問題的那種確信。',
+  ];
+
+  function loadQuote() {
+    const doy = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    const el = document.getElementById('mcw-quote');
+    if (el) el.textContent = `💫 ${QUOTES[doy % QUOTES.length]}`;
+  }
+
+  async function loadCities() {
+    const lats = CITIES.map(c => c.lat).join(',');
+    const lons = CITIES.map(c => c.lon).join(',');
+    try {
+      const r = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}` +
+        `&current=temperature_2m,weather_code,relative_humidity_2m&timezone=Asia/Taipei`,
+        { signal: AbortSignal.timeout(8000) }
+      );
+      const data = await r.json();
+
+      // API returns array when multiple locations requested
+      const results = Array.isArray(data) ? data : [data];
+      const container = document.getElementById('mcw-cities');
+      if (!container) return;
+
+      container.innerHTML = results.map((d: any, i: number) => {
+        const c = d?.current;
+        if (!c) return `<div class="mcw-city"><span>${CITIES[i]?.name}</span><span>—</span></div>`;
+        const temp = Math.round(c.temperature_2m);
+        const [icon] = WMO_SIMPLE[c.weather_code] ?? ['🌡', ''];
+        const hum = c.relative_humidity_2m;
+        return `
+          <div class="mcw-city">
+            <span class="mcw-city-name">${CITIES[i]?.name}</span>
+            <span class="mcw-city-temp">${icon} ${temp}°C</span>
+            <span class="mcw-city-hum">💧${hum}%</span>
+          </div>`;
+      }).join('');
+
+      // Outfit based on first city (台北) or average
+      const firstTemp = Math.round(results[0]?.current?.temperature_2m ?? 25);
+      const firstCode = results[0]?.current?.weather_code ?? 0;
+      const [outfitIcon, outfitText] = getOutfit(firstTemp, firstCode);
+      const iconEl = document.getElementById('outfit-icon');
+      const textEl = document.getElementById('outfit-text');
+      if (iconEl) iconEl.textContent = outfitIcon;
+      if (textEl) textEl.textContent = outfitText || '短袖出門';
+    } catch {
+      const container = document.getElementById('mcw-cities');
+      if (container) container.innerHTML = '<div class="mcw-loading">無法取得天氣資料</div>';
+    }
+
+    // Star & crystal
+    const z = getTodayZodiac();
+    const crystalEl = document.getElementById('mcw-crystal');
+    if (crystalEl) {
+      crystalEl.innerHTML = `<span class="crystal-sign">${z.sign}座</span><span class="crystal-color">今日幸運色 <b>${z.color}</b></span><span class="crystal-stone">🔮 水晶 ${z.crystal}</span>`;
+    }
+  }
+
+  loadCities();
+  loadQuote();
+  setInterval(loadCities, 10 * 60 * 1000);
+</script>
+
+<style>
+  .mcw-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 0.9em 1em;
+    color: #e2e8f0;
+  }
+
+  .mcw-header {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6em;
+  }
+
+  .mcw-cities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.4em;
+    margin-bottom: 0.6em;
+  }
+
+  .mcw-loading { font-size: 0.75em; color: #475569; grid-column: 1 / -1; }
+
+  .mcw-city {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.4em 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mcw-city-name { font-size: 0.68em; color: #64748b; font-weight: 700; }
+  .mcw-city-temp { font-size: 0.8em; font-weight: 700; color: #f1f5f9; }
+  .mcw-city-hum { font-size: 0.65em; color: #64748b; }
+
+  .mcw-outfit-row {
+    display: flex;
+    gap: 0.6em;
+    align-items: flex-start;
+    margin-bottom: 0.5em;
+  }
+
+  .mcw-outfit {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.4em 0.6em;
+    flex: 1;
+    font-size: 0.78em;
+  }
+
+  .outfit-icon { font-size: 1.2em; }
+  .outfit-text { color: #cbd5e1; }
+
+  .mcw-crystal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    background: rgba(118,17,166,0.1);
+    border: 1px solid rgba(118,17,166,0.25);
+    border-radius: 8px;
+    padding: 0.4em 0.6em;
+    flex: 1;
+    font-size: 0.72em;
+  }
+
+  .crystal-sign { color: #a78bfa; font-weight: 700; }
+  .crystal-color { color: #94a3b8; }
+  .crystal-color b { color: #f1f5f9; }
+  .crystal-stone { color: #64748b; }
+
+  .mcw-quote {
+    font-size: 0.75em;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.5;
+    padding-top: 0.4em;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  @media (max-width: 600px) {
+    .mcw-cities { grid-template-columns: repeat(2, 1fr); }
+    .mcw-outfit-row { flex-direction: column; }
+  }
+</style>

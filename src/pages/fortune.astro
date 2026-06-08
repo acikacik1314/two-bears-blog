@@ -1,0 +1,516 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <BaseHead title="命理分析 — 兩隻熊" description="輸入姓名和生日，獲得生肖、星座、五行、八字、紫薇命宮分析" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="fortune-page">
+        <div class="fp-hero">
+          <h1>🔮 命理分析</h1>
+          <p>輸入你的生日，探索八字五行、命宮星象與今年運勢</p>
+          <p class="fp-disclaimer">✦ 本工具僅供娛樂參考，不代表真實命理占卜</p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="fp-form">
+          <div class="fp-field">
+            <label>姓名（選填）</label>
+            <input type="text" id="fp-name" placeholder="你的名字" maxlength="20" />
+          </div>
+          <div class="fp-field">
+            <label>出生年月日 *</label>
+            <input type="date" id="fp-bdate" required />
+          </div>
+          <div class="fp-field">
+            <label>出生時辰（選填）</label>
+            <select id="fp-hour">
+              <option value="-1">不知道</option>
+              <option value="0">子時 23:00–01:00</option>
+              <option value="1">丑時 01:00–03:00</option>
+              <option value="2">寅時 03:00–05:00</option>
+              <option value="3">卯時 05:00–07:00</option>
+              <option value="4">辰時 07:00–09:00</option>
+              <option value="5">巳時 09:00–11:00</option>
+              <option value="6">午時 11:00–13:00</option>
+              <option value="7">未時 13:00–15:00</option>
+              <option value="8">申時 15:00–17:00</option>
+              <option value="9">酉時 17:00–19:00</option>
+              <option value="10">戌時 19:00–21:00</option>
+              <option value="11">亥時 21:00–23:00</option>
+            </select>
+          </div>
+          <button class="fp-btn" id="fp-calc">✨ 開始分析</button>
+        </div>
+
+        <!-- Results -->
+        <div class="fp-results" id="fp-results" style="display:none">
+          <!-- Basic -->
+          <div class="fp-section">
+            <h2 id="fp-greeting">—</h2>
+            <div class="fp-basic-grid" id="fp-basic"></div>
+          </div>
+
+          <!-- 四柱八字 -->
+          <div class="fp-section">
+            <h3 class="fp-section-title">🀄 四柱八字</h3>
+            <div class="fp-bazi" id="fp-bazi"></div>
+            <div class="fp-wuxing" id="fp-wuxing"></div>
+          </div>
+
+          <!-- 命宮分析 -->
+          <div class="fp-section" id="fp-palace-section">
+            <h3 class="fp-section-title">🌟 紫薇命宮分析</h3>
+            <div class="fp-palace" id="fp-palace"></div>
+          </div>
+
+          <!-- 今年運勢 -->
+          <div class="fp-section">
+            <h3 class="fp-section-title">📅 {new Date().getFullYear()} 年運勢</h3>
+            <div class="fp-luck" id="fp-luck"></div>
+          </div>
+
+          <!-- 幸運資訊 -->
+          <div class="fp-section">
+            <h3 class="fp-section-title">🍀 幸運資訊</h3>
+            <div class="fp-lucky" id="fp-lucky"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  /* ────────────────────────────────────────────────
+     Calendar algorithms
+  ──────────────────────────────────────────────── */
+  const TIAN_GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const DI_ZHI  = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const ZODIAC  = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
+  const WUXING_TG = ['木','木','火','火','土','土','金','金','水','水'];
+
+  function getYearPillar(year: number) {
+    const ganIdx = ((year - 4) % 10 + 10) % 10;
+    const zhiIdx = ((year - 4) % 12 + 12) % 12;
+    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx, zhiIdx };
+  }
+
+  function getDayPillar(year: number, month: number, day: number) {
+    const anchor = new Date(2000, 0, 1); // 甲辰 = cycle day 40
+    const diff = Math.floor((new Date(year, month - 1, day).getTime() - anchor.getTime()) / 86400000);
+    const dayNum = ((40 + diff) % 60 + 60) % 60;
+    return { gan: TIAN_GAN[dayNum % 10], zhi: DI_ZHI[dayNum % 12], ganIdx: dayNum % 10, zhiIdx: dayNum % 12 };
+  }
+
+  function getMonthPillar(year: number, month: number, day: number) {
+    // Approximate solar-term month
+    const TERM_DAYS = [6,4,6,5,6,6,7,7,8,8,7,7];
+    const branchOffset = (month - 1); // 寅=2 for Jan/Feb
+    const zhiIdx = ((branchOffset + 2) % 12);
+    const yearGanIdx = ((year - 4) % 10 + 10) % 10;
+    const MONTH_START = [2, 4, 6, 8, 0];
+    const startStem = MONTH_START[yearGanIdx % 5];
+    const ganIdx = (startStem + zhiIdx - 2 + 60) % 10;
+    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx, zhiIdx };
+  }
+
+  function getHourPillar(dayGanIdx: number, hourBranch: number) {
+    const HOUR_START = [0, 2, 4, 6, 8];
+    const ganIdx = (HOUR_START[dayGanIdx % 5] + hourBranch) % 10;
+    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[hourBranch], ganIdx, zhiIdx: hourBranch };
+  }
+
+  function getZodiac(year: number) {
+    return ZODIAC[((year - 4) % 12 + 12) % 12];
+  }
+
+  function getWesternZodiac(month: number, day: number) {
+    const SIGNS = [
+      [1,20,'水瓶'],[2,19,'雙魚'],[3,21,'白羊'],[4,20,'金牛'],
+      [5,21,'雙子'],[6,22,'巨蟹'],[7,23,'獅子'],[8,23,'處女'],
+      [9,23,'天秤'],[10,24,'天蠍'],[11,22,'射手'],[12,22,'摩羯'],
+    ];
+    for (let i = SIGNS.length - 1; i >= 0; i--) {
+      if (month > SIGNS[i][0] || (month === SIGNS[i][0] && day >= SIGNS[i][1])) {
+        return String(SIGNS[i][2]);
+      }
+    }
+    return '摩羯';
+  }
+
+  function countWuxing(pillars: { ganIdx: number }[]) {
+    const counts: Record<string, number> = { 木:0, 火:0, 土:0, 金:0, 水:0 };
+    for (const p of pillars) {
+      const wx = WUXING_TG[p.ganIdx];
+      counts[wx] = (counts[wx] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  /* ── Life Palace (紫薇命宮) simplified ── */
+  const PALACE_DESC: Record<string, { star: string; desc: string }> = {
+    '子': { star: '天機', desc: '思維靈活、善於分析，天生具備謀略才能，適合從事策略或研究工作。' },
+    '丑': { star: '天相', desc: '穩重踏實、守規矩，重視人際和諧，財運穩定，適合服務業或管理職。' },
+    '寅': { star: '七殺', desc: '獨立果斷、行動力強，天生領袖特質，適合創業或挑戰性工作。' },
+    '卯': { star: '太陽', desc: '光明磊落、熱情開朗，貴人運強，事業上容易得到他人提攜。' },
+    '辰': { star: '紫微', desc: '命帶帝王星，領袖氣質天成，自尊心強，天生適合主導與管理。' },
+    '巳': { star: '天府', desc: '保守穩健、重視家庭，財庫豐厚，一生衣食無虞，晚年尤佳。' },
+    '午': { star: '廉貞', desc: '執著有魅力、感情豐富，藝術才能強，適合創意類或娛樂業。' },
+    '未': { star: '太陰', desc: '感性直覺強、夜貓子類型，女性緣佳，適合從事藝術或靈性工作。' },
+    '申': { star: '貪狼', desc: '多才多藝、享受生活，桃花旺，社交能力極佳，適合業務或公關。' },
+    '酉': { star: '廉貞化祿', desc: '財帛豐盛、社交活躍，中年後事業大展，適合商業或金融業。' },
+    '戌': { star: '武曲', desc: '剛毅務實、財運強旺，意志力堅定，適合從事財務、工程或軍警。' },
+    '亥': { star: '破軍', desc: '開創精神強、不服輸，大起大落的命格，適合創業或改革性工作。' },
+  };
+
+  function getLifePalace(lunarMonth: number, hourBranch: number) {
+    const palaceZhiIdx = ((14 - lunarMonth - hourBranch) % 12 + 12) % 12;
+    return DI_ZHI[palaceZhiIdx];
+  }
+
+  /* ── Lucky data by zodiac ── */
+  const ZODIAC_LUCKY: Record<string, { color: string; number: string; direction: string; stone: string }> = {
+    '鼠': { color: '藍色、金色', number: '2、3', direction: '北方', stone: '石榴石' },
+    '牛': { color: '白色、黃色', number: '1、4', direction: '東北', stone: '翡翠' },
+    '虎': { color: '橙色、白色', number: '1、3', direction: '南方', stone: '藍晶石' },
+    '兔': { color: '紅色、粉色', number: '3、4', direction: '東方', stone: '珍珠' },
+    '龍': { color: '黃色、金色', number: '1、6', direction: '東方', stone: '黑曜石' },
+    '蛇': { color: '紅色、黑色', number: '2、8', direction: '南方', stone: '祖母綠' },
+    '馬': { color: '紫色、黃色', number: '2、3', direction: '南方', stone: '黃水晶' },
+    '羊': { color: '綠色、紅色', number: '3、9', direction: '南方', stone: '紫水晶' },
+    '猴': { color: '白色、藍色', number: '4、9', direction: '西北', stone: '矽孔雀石' },
+    '雞': { color: '金色、棕色', number: '5、7', direction: '西方', stone: '碧玉' },
+    '狗': { color: '紅色、綠色', number: '3、4', direction: '東方', stone: '鑽石' },
+    '豬': { color: '黃色、灰色', number: '2、5', direction: '東南', stone: '月光石' },
+  };
+
+  /* ── Year luck based on current year vs birth year interaction ── */
+  function getYearLuck(birthYear: number, currentYear: number) {
+    const birthZodiac = getZodiac(birthYear);
+    const currentZodiac = getZodiac(currentYear);
+    const CLASH: Record<string, string> = { '鼠':'馬','牛':'羊','虎':'猴','兔':'雞','龍':'狗','蛇':'豬','馬':'鼠','羊':'牛','猴':'虎','雞':'兔','狗':'龍','豬':'蛇' };
+    const HARM: Record<string, string> = { '鼠':'羊','牛':'馬','虎':'巳','兔':'辰','龍':'兔','蛇':'虎' };
+    if (CLASH[birthZodiac] === currentZodiac) {
+      return { level: '🔴 犯太歲', tip: `今年與太歲相沖，需注意健康、感情、財務三方面，建議多行善積德，可佩戴本命年守護飾品化解。` };
+    }
+    if (currentZodiac === birthZodiac) {
+      return { level: '⚠️ 值太歲', tip: `今年是你的本命年，太歲當頭坐，喜事多也是非多，建議行事謹慎，避免大投資大變動。` };
+    }
+    const harmMatch = Object.entries(HARM).find(([k, v]) => k === birthZodiac && v === currentZodiac);
+    if (harmMatch) {
+      return { level: '🟡 害太歲', tip: `今年有小害，人際關係需注意，宜低調行事，避免口舌是非。` };
+    }
+    return { level: '🟢 流年順遂', tip: `今年太歲與你相合，整體運勢平穩向上，適合推進重要計畫與人際關係的深化。` };
+  }
+
+  /* ────────────────────────────────────────────────
+     Main calculation
+  ──────────────────────────────────────────────── */
+  document.getElementById('fp-calc')?.addEventListener('click', () => {
+    const dateVal = (document.getElementById('fp-bdate') as HTMLInputElement)?.value;
+    if (!dateVal) { alert('請輸入出生日期'); return; }
+    const [year, month, day] = dateVal.split('-').map(Number);
+    const name = (document.getElementById('fp-name') as HTMLInputElement)?.value.trim() || '你';
+    const hourVal = parseInt((document.getElementById('fp-hour') as HTMLSelectElement)?.value ?? '-1');
+    const hasHour = hourVal >= 0;
+
+    const yearP = getYearPillar(year);
+    const monthP = getMonthPillar(year, month, day);
+    const dayP = getDayPillar(year, month, day);
+    const hourP = hasHour ? getHourPillar(dayP.ganIdx, hourVal) : null;
+
+    const zodiacCN = getZodiac(year);
+    const zodiacW = getWesternZodiac(month, day);
+    const wuxingCounts = countWuxing([yearP, monthP, dayP, ...(hourP ? [hourP] : [])]);
+    const palaceZhi = hasHour ? getLifePalace(month, hourVal) : null;
+    const yearLuck = getYearLuck(year, new Date().getFullYear());
+
+    // Greeting
+    const greetingEl = document.getElementById('fp-greeting');
+    if (greetingEl) {
+      greetingEl.textContent = `${name}，歡迎探索你的命理宇宙`;
+    }
+
+    // Basic
+    const basicEl = document.getElementById('fp-basic');
+    if (basicEl) {
+      basicEl.innerHTML = `
+        <div class="fp-basic-card"><span class="bc-label">生肖</span><span class="bc-val">${zodiacCN}</span></div>
+        <div class="fp-basic-card"><span class="bc-label">年份</span><span class="bc-val">${yearP.gan}${yearP.zhi}年</span></div>
+        <div class="fp-basic-card"><span class="bc-label">西洋星座</span><span class="bc-val">${zodiacW}座</span></div>
+        <div class="fp-basic-card"><span class="bc-label">天干五行</span><span class="bc-val">${WUXING_TG[yearP.ganIdx]}</span></div>
+      `;
+    }
+
+    // 四柱八字
+    const baziEl = document.getElementById('fp-bazi');
+    if (baziEl) {
+      const pillars = [
+        { label: '年柱', p: yearP },
+        { label: '月柱', p: monthP },
+        { label: '日柱（主星）', p: dayP },
+        ...(hourP ? [{ label: '時柱', p: hourP }] : []),
+      ];
+      baziEl.innerHTML = `
+        <div class="bazi-grid">
+          ${pillars.map(({ label, p }) => `
+            <div class="bazi-pillar">
+              <span class="bazi-label">${label}</span>
+              <span class="bazi-gan" style="color: ${ganColor(p.ganIdx)}">${p.gan}</span>
+              <span class="bazi-zhi">${p.zhi}</span>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    // 五行分析
+    const wxEl = document.getElementById('fp-wuxing');
+    if (wxEl) {
+      const total = Object.values(wuxingCounts).reduce((a, b) => a + b, 0);
+      const WX_COLORS: Record<string, string> = { 木:'#4ade80', 火:'#f87171', 土:'#fbbf24', 金:'#e2e8f0', 水:'#60a5fa' };
+      wxEl.innerHTML = `<div class="wx-row">${
+        ['木','火','土','金','水'].map(w => {
+          const n = wuxingCounts[w] ?? 0;
+          const pct = total > 0 ? Math.round(n / total * 100) : 0;
+          return `<div class="wx-item">
+            <span class="wx-name" style="color:${WX_COLORS[w]}">${w}</span>
+            <div class="wx-bar-bg"><div class="wx-bar" style="width:${pct}%;background:${WX_COLORS[w]}30;border:1px solid ${WX_COLORS[w]}60"></div></div>
+            <span class="wx-pct">${n}</span>
+          </div>`;
+        }).join('')
+      }</div>`;
+    }
+
+    // 命宮
+    const palaceEl = document.getElementById('fp-palace');
+    const palaceSectionEl = document.getElementById('fp-palace-section');
+    if (palaceEl && palaceSectionEl) {
+      if (palaceZhi && PALACE_DESC[palaceZhi]) {
+        const pd = PALACE_DESC[palaceZhi];
+        palaceEl.innerHTML = `
+          <div class="palace-card">
+            <span class="palace-zhi">${palaceZhi}宮</span>
+            <span class="palace-star">主星：${pd.star}</span>
+            <p class="palace-desc">${pd.desc}</p>
+          </div>`;
+        palaceSectionEl.style.display = '';
+      } else {
+        palaceSectionEl.style.display = 'none';
+      }
+    }
+
+    // 今年運勢
+    const luckEl = document.getElementById('fp-luck');
+    if (luckEl) {
+      luckEl.innerHTML = `
+        <div class="luck-card">
+          <span class="luck-level">${yearLuck.level}</span>
+          <p class="luck-tip">${yearLuck.tip}</p>
+        </div>`;
+    }
+
+    // 幸運資訊
+    const luckyEl = document.getElementById('fp-lucky');
+    const luckyData = ZODIAC_LUCKY[zodiacCN];
+    if (luckyEl && luckyData) {
+      luckyEl.innerHTML = `
+        <div class="lucky-grid">
+          <div class="lucky-item"><span class="lucky-l">幸運色</span><span>${luckyData.color}</span></div>
+          <div class="lucky-item"><span class="lucky-l">幸運數</span><span>${luckyData.number}</span></div>
+          <div class="lucky-item"><span class="lucky-l">吉利方位</span><span>${luckyData.direction}</span></div>
+          <div class="lucky-item"><span class="lucky-l">守護水晶</span><span>${luckyData.stone}</span></div>
+        </div>`;
+    }
+
+    const resultsEl = document.getElementById('fp-results');
+    if (resultsEl) {
+      resultsEl.style.display = '';
+      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  function ganColor(ganIdx: number) {
+    const COLORS = ['#4ade80','#86efac','#f87171','#fca5a5','#fbbf24','#fde68a','#e2e8f0','#cbd5e1','#60a5fa','#93c5fd'];
+    return COLORS[ganIdx] ?? '#e2e8f0';
+  }
+</script>
+
+<style>
+  main { max-width: 900px; margin: auto; padding: 1em 1.2em 4em; }
+
+  .fortune-page { color: #e2e8f0; }
+
+  .fp-hero {
+    text-align: center;
+    padding: 2em 0 1.5em;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 1.5em;
+  }
+
+  .fp-hero h1 { font-size: 1.8em; margin-bottom: 0.3em; }
+  .fp-hero p { color: #94a3b8; font-size: 0.9em; margin: 0.2em 0; }
+  .fp-disclaimer { font-size: 0.75em !important; color: #475569 !important; }
+
+  /* Form */
+  .fp-form {
+    background: linear-gradient(135deg, #0f1629 0%, #1a2f5e 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 0.8em;
+    align-items: end;
+    margin-bottom: 1.5em;
+  }
+
+  .fp-field { display: flex; flex-direction: column; gap: 0.3em; }
+  .fp-field label { font-size: 0.72em; color: #64748b; font-weight: 600; }
+
+  .fp-field input, .fp-field select {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 0.85em;
+    padding: 0.5em 0.7em;
+    outline: none;
+  }
+
+  .fp-field input:focus, .fp-field select:focus {
+    border-color: rgba(118,17,166,0.5);
+  }
+
+  .fp-field select option { background: #1e293b; }
+
+  .fp-btn {
+    background: var(--accent, #7611a6);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-weight: 700;
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+  .fp-btn:hover { opacity: 0.85; }
+
+  /* Results */
+  .fp-results { display: flex; flex-direction: column; gap: 1em; }
+
+  .fp-section {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.2em 1.4em;
+  }
+
+  .fp-section h2 { font-size: 1.1em; margin: 0 0 0.8em; color: #f1f5f9; }
+  .fp-section-title {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.8em;
+  }
+
+  /* Basic grid */
+  .fp-basic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; }
+
+  .fp-basic-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 0.6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .bc-label { font-size: 0.65em; color: #475569; }
+  .bc-val { font-size: 1em; font-weight: 700; color: #f1f5f9; }
+
+  /* 八字 */
+  .bazi-grid { display: flex; gap: 0.8em; flex-wrap: wrap; }
+
+  .bazi-pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 0.6em 0.9em;
+    min-width: 70px;
+  }
+
+  .bazi-label { font-size: 0.62em; color: #475569; }
+  .bazi-gan { font-size: 1.5em; font-weight: 800; }
+  .bazi-zhi { font-size: 1.2em; color: #94a3b8; }
+
+  /* 五行 */
+  .wx-row { display: flex; gap: 0.5em; align-items: stretch; margin-top: 0.6em; }
+
+  .wx-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .wx-name { font-size: 1em; font-weight: 800; }
+  .wx-bar-bg { width: 100%; height: 40px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; }
+  .wx-bar { width: 0%; height: 100%; border-radius: 4px; transition: width 0.8s; min-height: 4px; }
+  .wx-pct { font-size: 0.75em; color: #64748b; }
+
+  /* Palace */
+  .palace-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .palace-zhi { font-size: 1.1em; font-weight: 800; color: #a78bfa; }
+  .palace-star { font-size: 0.8em; color: #64748b; }
+  .palace-desc { font-size: 0.85em; color: #cbd5e1; line-height: 1.6; margin: 0; }
+
+  /* Luck */
+  .luck-card { display: flex; flex-direction: column; gap: 0.4em; }
+  .luck-level { font-size: 1em; font-weight: 700; }
+  .luck-tip { font-size: 0.85em; color: #94a3b8; line-height: 1.6; margin: 0; }
+
+  /* Lucky */
+  .lucky-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
+
+  .lucky-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 0.5em 0.7em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    font-size: 0.82em;
+    color: #f1f5f9;
+  }
+
+  .lucky-l { color: #475569; font-size: 0.88em; flex-shrink: 0; }
+
+  @media (max-width: 700px) {
+    .fp-form { grid-template-columns: 1fr 1fr; }
+    .fp-btn { grid-column: 1 / -1; }
+    .fp-basic-grid { grid-template-columns: repeat(2, 1fr); }
+    .lucky-grid { grid-template-columns: 1fr; }
+  }
+</style>

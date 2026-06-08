@@ -1,0 +1,319 @@
+---
+// MessageWall — anonymous daily messages that reset at midnight Taiwan time
+// Also includes 心燈祝福 candle/blessing feature
+---
+
+<div class="mwall-wrap">
+  <!-- Ticker marquee of today's messages -->
+  <div class="mwall-ticker-row">
+    <span class="mwall-ticker-label">📫 今日留言</span>
+    <div class="mwall-ticker-outer">
+      <div class="mwall-ticker" id="mwall-ticker">
+        <span class="mwall-ticker-empty">今天還沒有留言，來第一個吧！</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="mwall-input-row">
+    <input
+      type="text"
+      id="mwall-input"
+      class="mwall-input"
+      placeholder="留下今天的心情或預言（最多40字，隔天自動清空）"
+      maxlength="40"
+    />
+    <button class="mwall-btn" id="mwall-send">發送</button>
+  </div>
+  <p class="mwall-note" id="mwall-note">✦ 時空留言板：今日限定，無法修改，請勿留個人資訊</p>
+
+  <!-- 心燈祝福 -->
+  <div class="candle-section">
+    <div class="candle-header">🕯 點一盞心燈</div>
+    <div class="candle-grid" id="candle-grid">
+      <button class="candle-btn" data-type="考試順利" data-emoji="🎓">🎓 考試順利</button>
+      <button class="candle-btn" data-type="平安健康" data-emoji="💚">💚 平安健康</button>
+      <button class="candle-btn" data-type="財運亨通" data-emoji="💰">💰 財運亨通</button>
+      <button class="candle-btn" data-type="愛情美滿" data-emoji="💝">💝 愛情美滿</button>
+      <button class="candle-btn" data-type="心想事成" data-emoji="✨">✨ 心想事成</button>
+    </div>
+    <div class="candle-counts" id="candle-counts"></div>
+    <p class="candle-note">每日心燈於午夜重置，願你所願皆成真</p>
+  </div>
+</div>
+
+<script>
+  /* ── Message Wall ── */
+  async function loadMessages() {
+    try {
+      const r = await fetch('/api/messages');
+      const { messages } = await r.json();
+      const ticker = document.getElementById('mwall-ticker');
+      if (!ticker) return;
+      if (!messages || messages.length === 0) {
+        ticker.innerHTML = '<span class="mwall-ticker-empty">今天還沒有留言，來第一個吧！</span>';
+        return;
+      }
+      const items = messages.slice(-20).map((m: any) =>
+        `<span class="mwall-msg">${m.time} · ${m.text}</span>`
+      ).join('');
+      ticker.innerHTML = items + items; // duplicate for seamless loop
+      ticker.classList.add('mwall-animate');
+    } catch {}
+  }
+
+  const sendBtn = document.getElementById('mwall-send');
+  const inputEl = document.getElementById('mwall-input') as HTMLInputElement | null;
+  const noteEl = document.getElementById('mwall-note');
+
+  sendBtn?.addEventListener('click', async () => {
+    const text = inputEl?.value.trim();
+    if (!text) return;
+    sendBtn.setAttribute('disabled', 'true');
+    try {
+      const r = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      const d = await r.json();
+      if (d.ok || d.noStorage) {
+        if (inputEl) inputEl.value = '';
+        if (noteEl) noteEl.textContent = '✓ 留言成功！你的話語已留在今天的時空中';
+        loadMessages();
+      } else if (d.error === 'today is full') {
+        if (noteEl) noteEl.textContent = '今日留言已滿，明天再來吧！';
+      }
+    } catch {
+      if (noteEl) noteEl.textContent = '發送失敗，請稍後再試';
+    }
+    setTimeout(() => sendBtn.removeAttribute('disabled'), 3000);
+  });
+
+  inputEl?.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Enter') sendBtn?.click();
+  });
+
+  /* ── Candle Blessings (localStorage-backed with server count display) ── */
+  const CANDLE_KEY = 'candle-lit';
+
+  function getCandleCounts(): Record<string, number> {
+    const date = new Date().toLocaleDateString('sv', { timeZone: 'Asia/Taipei' });
+    const stored = localStorage.getItem(CANDLE_KEY);
+    if (!stored) return {};
+    try {
+      const { date: d, counts } = JSON.parse(stored);
+      if (d === date) return counts;
+      return {};
+    } catch { return {}; }
+  }
+
+  function saveCandleCount(type: string) {
+    const date = new Date().toLocaleDateString('sv', { timeZone: 'Asia/Taipei' });
+    const counts = getCandleCounts();
+    counts[type] = (counts[type] ?? 0) + 1;
+    localStorage.setItem(CANDLE_KEY, JSON.stringify({ date, counts }));
+  }
+
+  function renderCandleCounts() {
+    const counts = getCandleCounts();
+    const countEl = document.getElementById('candle-counts');
+    if (!countEl) return;
+    const types = ['考試順利','平安健康','財運亨通','愛情美滿','心想事成'];
+    const emojis: Record<string, string> = { '考試順利':'🎓','平安健康':'💚','財運亨通':'💰','愛情美滿':'💝','心想事成':'✨' };
+    const total = types.reduce((s, t) => s + (counts[t] ?? 0), 0);
+    if (total === 0) {
+      countEl.textContent = '';
+      return;
+    }
+    countEl.innerHTML = types.filter(t => counts[t]).map(t =>
+      `<span class="candle-count-item">${emojis[t]} ${t} × ${counts[t]}</span>`
+    ).join('');
+  }
+
+  document.querySelectorAll('.candle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = (btn as HTMLElement).dataset.type ?? '';
+      saveCandleCount(type);
+      renderCandleCounts();
+
+      // Visual feedback
+      btn.classList.add('candle-lit');
+      const original = btn.textContent ?? '';
+      btn.textContent = '🕯 心燈已點！';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('candle-lit');
+      }, 2000);
+    });
+  });
+
+  loadMessages();
+  renderCandleCounts();
+</script>
+
+<style>
+  .mwall-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 0.9em 1em;
+    color: #e2e8f0;
+  }
+
+  /* Ticker */
+  .mwall-ticker-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 0.6em;
+    overflow: hidden;
+  }
+
+  .mwall-ticker-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: #64748b;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .mwall-ticker-outer {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .mwall-ticker {
+    display: flex;
+    gap: 2em;
+    white-space: nowrap;
+    font-size: 0.78em;
+    color: #94a3b8;
+  }
+
+  .mwall-animate {
+    animation: ticker-scroll 30s linear infinite;
+  }
+
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .mwall-ticker-empty { color: #475569; font-size: 0.78em; }
+
+  :global(.mwall-msg) {
+    color: #cbd5e1;
+    flex-shrink: 0;
+  }
+
+  /* Input */
+  .mwall-input-row {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .mwall-input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px;
+    color: #f1f5f9;
+    font-size: 0.8em;
+    padding: 0.45em 0.7em;
+    outline: none;
+  }
+
+  .mwall-input::placeholder { color: #475569; }
+  .mwall-input:focus { border-color: rgba(118,17,166,0.5); }
+
+  .mwall-btn {
+    background: var(--accent, #7611a6);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.8em;
+    padding: 0.45em 0.9em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .mwall-btn:hover { opacity: 0.85; }
+  .mwall-btn:disabled { opacity: 0.4; cursor: default; }
+
+  .mwall-note {
+    font-size: 0.68em;
+    color: #475569;
+    margin: 0.3em 0 0.7em;
+  }
+
+  /* Candle */
+  .candle-section {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 0.7em;
+  }
+
+  .candle-header {
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5em;
+  }
+
+  .candle-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    margin-bottom: 0.5em;
+  }
+
+  .candle-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    color: #e2e8f0;
+    font-size: 0.75em;
+    padding: 0.3em 0.7em;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .candle-btn:hover {
+    background: rgba(251,191,36,0.15);
+    border-color: rgba(251,191,36,0.35);
+    color: #fde68a;
+  }
+
+  .candle-lit {
+    background: rgba(251,191,36,0.25) !important;
+    border-color: rgba(251,191,36,0.5) !important;
+    color: #fde68a !important;
+  }
+
+  .candle-counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    min-height: 1.2em;
+  }
+
+  :global(.candle-count-item) {
+    font-size: 0.7em;
+    color: #94a3b8;
+    background: rgba(255,255,255,0.04);
+    padding: 0.15em 0.5em;
+    border-radius: 10px;
+  }
+
+  .candle-note {
+    font-size: 0.67em;
+    color: #475569;
+    margin: 0.4em 0 0;
+    font-style: italic;
+  }
+</style>

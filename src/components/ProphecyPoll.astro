@@ -1,0 +1,209 @@
+---
+// ProphecyPoll — weekly rotating poll with live vote counts
+---
+
+<div class="poll-wrap" id="poll-wrap">
+  <div class="poll-header">
+    <span class="poll-icon">📊</span>
+    <span class="poll-title">本週預言投票</span>
+    <span class="poll-badge" id="poll-total">載入中…</span>
+  </div>
+  <p class="poll-question" id="poll-question">…</p>
+  <div class="poll-options" id="poll-options"></div>
+  <p class="poll-note" id="poll-note"></p>
+</div>
+
+<script>
+  const LS_KEY = 'poll-voted';
+
+  async function loadPoll() {
+    const wrap = document.getElementById('poll-wrap');
+    let data: any;
+    try {
+      const r = await fetch('/api/poll');
+      data = await r.json();
+    } catch { return; }
+
+    const { poll, votes, weekKey } = data;
+    const totalVotes = Object.values(votes as Record<string, number>).reduce((a: number, b: number) => a + (b as number), 0);
+
+    const qEl = document.getElementById('poll-question');
+    const totalEl = document.getElementById('poll-total');
+    if (qEl) qEl.textContent = `「${poll.q}」`;
+    if (totalEl) totalEl.textContent = `${totalVotes} 人投票`;
+
+    const voted = localStorage.getItem(LS_KEY) === weekKey;
+    renderOptions(poll.o, votes as Record<string, number>, totalVotes, voted, weekKey);
+  }
+
+  function renderOptions(
+    options: string[],
+    votes: Record<string, number>,
+    total: number,
+    voted: boolean,
+    weekKey: string
+  ) {
+    const container = document.getElementById('poll-options');
+    const noteEl = document.getElementById('poll-note');
+    if (!container) return;
+
+    container.innerHTML = options.map((opt, i) => {
+      const count = votes[i] ?? 0;
+      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+      if (voted) {
+        return `
+          <div class="poll-opt poll-opt-result">
+            <div class="poll-bar-wrap">
+              <div class="poll-bar" style="width:${pct}%"></div>
+              <span class="poll-opt-label">${opt}</span>
+              <span class="poll-opt-pct">${pct}%</span>
+            </div>
+          </div>`;
+      }
+      return `
+        <button class="poll-opt poll-opt-btn" data-idx="${i}">
+          ${opt}
+        </button>`;
+    }).join('');
+
+    if (noteEl) noteEl.textContent = voted ? '✓ 你已投票，謝謝！' : '點選你的答案';
+
+    if (!voted) {
+      container.querySelectorAll('.poll-opt-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const idx = Number((btn as HTMLElement).dataset.idx);
+          const r = await fetch('/api/poll', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ option: idx }),
+          });
+          const d = await r.json();
+          if (d.ok || d.noStorage) {
+            localStorage.setItem(LS_KEY, weekKey);
+            const newVotes = d.votes ?? {};
+            // Optimistic update if no storage
+            if (d.noStorage) newVotes[idx] = 1;
+            const newTotal = Object.values(newVotes as Record<string, number>).reduce((a: number, b: number) => a + b, 0);
+            const totalEl = document.getElementById('poll-total');
+            if (totalEl) totalEl.textContent = `${newTotal} 人投票`;
+            renderOptions(options, newVotes, newTotal, true, weekKey);
+          }
+        });
+      });
+    }
+  }
+
+  loadPoll();
+</script>
+
+<style>
+  .poll-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 1em;
+    color: #e2e8f0;
+  }
+
+  .poll-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-bottom: 0.6em;
+  }
+
+  .poll-icon { font-size: 1em; }
+
+  .poll-title {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .poll-badge {
+    margin-left: auto;
+    font-size: 0.68em;
+    color: #64748b;
+  }
+
+  .poll-question {
+    font-size: 0.88em;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0 0 0.7em;
+    line-height: 1.4;
+  }
+
+  .poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .poll-opt-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px;
+    color: #e2e8f0;
+    font-size: 0.82em;
+    padding: 0.45em 0.7em;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .poll-opt-btn:hover {
+    background: rgba(118,17,166,0.25);
+    border-color: rgba(118,17,166,0.5);
+  }
+
+  .poll-opt-result { background: transparent; border: none; padding: 0; }
+
+  .poll-bar-wrap {
+    position: relative;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 28px;
+    display: flex;
+    align-items: center;
+  }
+
+  .poll-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(118,17,166,0.45);
+    border-radius: 6px;
+    transition: width 0.6s ease;
+    min-width: 2px;
+  }
+
+  .poll-opt-label {
+    position: relative;
+    font-size: 0.8em;
+    color: #f1f5f9;
+    padding: 0 0.5em;
+    z-index: 1;
+    flex: 1;
+  }
+
+  .poll-opt-pct {
+    position: relative;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #a78bfa;
+    padding-right: 0.5em;
+    z-index: 1;
+  }
+
+  .poll-note {
+    font-size: 0.7em;
+    color: #64748b;
+    margin: 0.5em 0 0;
+    text-align: center;
+  }
+</style>

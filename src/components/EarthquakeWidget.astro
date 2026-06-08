@@ -1,0 +1,253 @@
+---
+// EarthquakeWidget — Taiwan earthquakes (USGS) + 防災小常識
+---
+
+<div class="eq-wrap">
+  <div class="eq-header">
+    <span>🌏 台灣近期地震</span>
+    <span class="eq-refresh" id="eq-time">載入中…</span>
+  </div>
+  <div class="eq-list" id="eq-list">
+    <div class="eq-loading">載入中…</div>
+  </div>
+
+  <!-- 防災小常識 -->
+  <details class="eq-tips">
+    <summary>🛡 防災小常識</summary>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-title">🏠 地震來了</div>
+        <ul>
+          <li>蹲下、掩護、抓緊（黃金三角？不如躲桌下）</li>
+          <li>遠離窗戶、高處物品、書架</li>
+          <li>在室外→遠離建築物與電線桿</li>
+          <li>開車中→靠邊停車，勿停橋上隧道旁</li>
+          <li>震後小心餘震，確認瓦斯有無外洩</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">⚡ 停電準備</div>
+        <ul>
+          <li>家中備充電式手電筒/蠟燭、打火機</li>
+          <li>行動電源保持充電狀態</li>
+          <li>冰箱停電後4小時內食物仍安全</li>
+          <li>重要藥物紀錄備份（不依賴電子設備）</li>
+          <li>報修：台電停電通報 1911</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🎒 72小時備災包</div>
+        <ul>
+          <li>飲用水（每人每天3公升×3天）</li>
+          <li>乾糧/罐頭/能量棒</li>
+          <li>急救藥品、常備藥</li>
+          <li>現金（停電時刷卡無效）</li>
+          <li>身份證/健保卡影本密封存放</li>
+          <li>口哨（被困時發出求救信號）</li>
+        </ul>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🌀 颱風來了</div>
+        <ul>
+          <li>提前確認停班停課資訊</li>
+          <li>固定陽台盆栽、室外物品</li>
+          <li>儲水（停水可能持續數天）</li>
+          <li>颱風眼過後風雨會再起，不要出門</li>
+          <li>洪水區域立即撤離，不要念家當</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tip-hotline">📞 緊急求助：119（消防）　110（警察）　1991（災害通報）</p>
+  </details>
+</div>
+
+<script>
+  async function loadEarthquakes() {
+    const listEl = document.getElementById('eq-list');
+    const timeEl = document.getElementById('eq-time');
+    try {
+      const r = await fetch('/api/earthquakes', { signal: AbortSignal.timeout(10000) });
+      const quakes: any[] = await r.json();
+
+      if (!listEl) return;
+      if (quakes.length === 0) {
+        listEl.innerHTML = '<div class="eq-empty">近期無顯著地震</div>';
+        return;
+      }
+
+      const now = Date.now();
+      function timeAgo(ts: number) {
+        const diff = now - ts;
+        const mins = Math.floor(diff / 60000);
+        if (mins < 60) return `${mins}分鐘前`;
+        const hrs = Math.floor(mins / 60);
+        if (hrs < 24) return `${hrs}小時前`;
+        return `${Math.floor(hrs / 24)}天前`;
+      }
+
+      function magClass(m: number) {
+        if (m >= 6) return 'eq-mag-6';
+        if (m >= 5) return 'eq-mag-5';
+        if (m >= 4) return 'eq-mag-4';
+        return 'eq-mag-3';
+      }
+
+      listEl.innerHTML = quakes.slice(0, 5).map(q => {
+        const place = q.place.replace(/\d+ km [A-Z]+ of /i, '').replace(/, Taiwan$/, '台灣');
+        return `
+          <div class="eq-item">
+            <span class="eq-mag ${magClass(q.mag)}">M${q.mag.toFixed(1)}</span>
+            <span class="eq-place">${place}</span>
+            <span class="eq-depth">${q.depth}km</span>
+            <span class="eq-time">${timeAgo(q.time)}</span>
+          </div>`;
+      }).join('');
+
+      if (timeEl) timeEl.textContent = `更新 ${new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Taipei' })}`;
+    } catch {
+      if (listEl) listEl.innerHTML = '<div class="eq-empty">無法取得資料</div>';
+    }
+  }
+
+  loadEarthquakes();
+  setInterval(loadEarthquakes, 5 * 60 * 1000);
+</script>
+
+<style>
+  .eq-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 0.85em 1em;
+    color: #e2e8f0;
+  }
+
+  .eq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .eq-refresh { font-size: 0.85em; color: #475569; font-weight: 400; }
+
+  .eq-list { display: flex; flex-direction: column; gap: 0.3em; min-height: 60px; }
+
+  .eq-loading, .eq-empty {
+    font-size: 0.78em;
+    color: #475569;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  .eq-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.78em;
+    padding: 0.2em 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .eq-item:last-child { border-bottom: none; }
+
+  .eq-mag {
+    font-weight: 800;
+    font-size: 0.9em;
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    min-width: 42px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .eq-mag-6 { background: rgba(248,113,113,0.3); color: #fca5a5; }
+  .eq-mag-5 { background: rgba(251,191,36,0.25); color: #fde68a; }
+  .eq-mag-4 { background: rgba(251,146,60,0.2); color: #fdba74; }
+  .eq-mag-3 { background: rgba(148,163,184,0.15); color: #94a3b8; }
+
+  .eq-place { flex: 1; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .eq-depth { color: #64748b; flex-shrink: 0; }
+  .eq-time { color: #475569; flex-shrink: 0; font-size: 0.9em; }
+
+  /* Tips section */
+  .eq-tips {
+    margin-top: 0.8em;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 0.6em;
+  }
+
+  .eq-tips summary {
+    font-size: 0.75em;
+    color: #64748b;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    user-select: none;
+    padding: 0.2em 0;
+  }
+
+  .eq-tips summary:hover { color: #94a3b8; }
+  .eq-tips[open] summary { color: #94a3b8; margin-bottom: 0.6em; }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .tip-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 0.6em 0.7em;
+  }
+
+  .tip-title {
+    font-size: 0.75em;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 0.3em;
+  }
+
+  .tip-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+
+  .tip-card ul li {
+    font-size: 0.7em;
+    color: #64748b;
+    padding-left: 0.8em;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .tip-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #475569;
+  }
+
+  .tip-hotline {
+    font-size: 0.72em;
+    color: #475569;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+</style>

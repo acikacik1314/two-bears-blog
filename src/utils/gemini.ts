@@ -45,7 +45,8 @@ export async function callGemini(body: object, keys?: string[]): Promise<{ ok: b
     }
 
     const data = await res.json()
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
+    const parts: { text?: string }[] = data?.candidates?.[0]?.content?.parts ?? []
+    const text = parts.map(p => p.text ?? '').join('').trim()
     if (!text) return { ok: false, text: '無法獲得回應，請稍後再試。' }
     return { ok: true, text }
   }

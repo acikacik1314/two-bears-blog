@@ -25,7 +25,7 @@ export async function POST({ request }: APIContext) {
   const result = await callGemini({
     systemInstruction: { parts: [{ text: SYSTEM }] },
     contents,
-    generationConfig: { maxOutputTokens: 512, temperature: 0.9 },
+    generationConfig: { maxOutputTokens: 1024, temperature: 0.9 },
   })
 
   if (result.text === '__RATE_LIMITED__') {

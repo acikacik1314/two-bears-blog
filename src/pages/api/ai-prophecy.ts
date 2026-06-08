@@ -25,7 +25,7 @@ export async function POST({ request, cookies }: APIContext) {
   const result = await callGemini({
     systemInstruction: { parts: [{ text: SYSTEM }] },
     contents: [{ role: 'user', parts: [{ text: question }] }],
-    generationConfig: { maxOutputTokens: 600, temperature: 0.85 },
+    generationConfig: { maxOutputTokens: 1024, temperature: 0.85 },
   })
 
   return new Response(JSON.stringify({ answer: result.text ?? '無法獲得回應，請稍後再試。' }), {

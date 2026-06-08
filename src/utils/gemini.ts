@@ -46,6 +46,7 @@ export async function callGemini(body: object, keys?: string[]): Promise<{ ok: b
 
     const data = await res.json()
     const parts: { text?: string }[] = data?.candidates?.[0]?.content?.parts ?? []
+    // Only join text parts (skip tool-call / grounding parts that have no text)
     const raw = parts.map(p => p.text ?? '').join('').trim()
     // Strip leaked thinking/meta lines (e.g. "* *Refining..." or lines starting with **)
     const text = raw

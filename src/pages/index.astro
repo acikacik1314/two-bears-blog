@@ -13,6 +13,7 @@ import MessageWall from '../components/MessageWall.astro';
 import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
 import ProphecyPoll from '../components/ProphecyPoll.astro';
+import NewsWidget from '../components/NewsWidget.astro';
 
 let viewCounts: Record<string, number> = {};
 try {
@@ -156,6 +157,13 @@ const CATEGORY_ICONS: Record<string, string> = {
 						<MessageWall />
 					</div>
 
+					<div class="sidebar-extra">
+						<div class="section-heading" style="margin-top:0.5em">
+							<span class="sh-icon">📡</span>
+							<h2 class="sh-title">即時新聞</h2>
+						</div>
+						<NewsWidget />
+					</div>
 					<div class="sidebar-extra">
 						<MultiCityWeather />
 					</div>
@@ -395,7 +403,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 	.post-date {
 		margin: 0;
 		font-size: 0.7em;
-		color: #64748b;
+		color: #94a3b8;
 	}
 
 	/* ── Sidebar ── */
@@ -420,7 +428,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 	.tab-btn {
 		background: transparent;
 		border: none;
-		color: #64748b;
+		color: #94a3b8;
 		font-size: 0.72em;
 		font-weight: 600;
 		padding: 0.45em 0.3em;

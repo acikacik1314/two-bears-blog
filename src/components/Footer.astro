@@ -4,13 +4,42 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} {FOOTER_TEXT}
+	<div class="footer-inner">
+		<span class="footer-bears">🐻🐻</span>
+		<span>&copy; {today.getFullYear()} {FOOTER_TEXT}</span>
+		<span class="footer-links">
+			<a href="/about">關於</a>
+			<a href="/blog">文章</a>
+			<a href="/fortune">命理</a>
+			<a href="/friends">交友</a>
+		</span>
+	</div>
 </footer>
+
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
+		background: rgba(15,23,42,0.95);
+		border-top: 1px solid rgba(255,255,255,0.06);
+		padding: 1.5em 1.5em 3em;
+		margin-top: 2em;
+	}
+	.footer-inner {
+		max-width: 1200px;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.8em;
+		color: #64748b;
+		font-size: 0.82em;
+	}
+	.footer-bears { font-size: 1.2em; }
+	.footer-links { display: flex; gap: 1.2em; }
+	.footer-links a { color: #64748b; text-decoration: none; transition: color 0.15s; }
+	.footer-links a:hover { color: #a855f7; }
+	@media (max-width: 600px) {
+		.footer-inner { justify-content: center; text-align: center; }
+		.footer-links { flex-wrap: wrap; justify-content: center; }
 	}
 </style>

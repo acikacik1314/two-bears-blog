@@ -15,6 +15,9 @@ import PredictionCheck from '../components/PredictionCheck.astro';
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
 const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions } = Astro.props;
+const pageUrl = Astro.url.href;
+const encodedUrl = encodeURIComponent(pageUrl);
+const encodedTitle = encodeURIComponent(title);
 // Derive category for display (re-derive since we only have data fields here)
 const derivedCategory = category ?? (() => {
 	if (rumbleId || youtubeId) return '影片';
@@ -28,6 +31,123 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 <html lang="zh-TW">
 	<head>
 		<BaseHead title={title} description={description} />
+		<style>
+			/* Reading progress bar */
+			#reading-progress {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 0%;
+				height: 3px;
+				background: linear-gradient(90deg, var(--accent), #ff6b6b);
+				z-index: 9999;
+				transition: width 0.1s linear;
+			}
+			/* Reading time */
+			.reading-meta {
+				display: flex;
+				align-items: center;
+				gap: 1em;
+				font-size: 0.82em;
+				color: rgb(var(--gray));
+				margin-bottom: 0.5em;
+				flex-wrap: wrap;
+			}
+			.reading-meta span { display: flex; align-items: center; gap: 0.3em; }
+			/* Share buttons */
+			.share-section {
+				margin: 2em 0 1em;
+				padding: 1.2em;
+				background: rgb(var(--gray-light), 0.4);
+				border-radius: 12px;
+				text-align: center;
+			}
+			.share-label {
+				font-size: 0.85em;
+				font-weight: 700;
+				color: rgb(var(--gray));
+				margin-bottom: 0.8em;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.share-buttons { display: flex; gap: 0.6em; justify-content: center; flex-wrap: wrap; }
+			.share-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				padding: 0.5em 1.1em;
+				border-radius: 20px;
+				font-size: 0.85em;
+				font-weight: 700;
+				text-decoration: none;
+				color: white;
+				border: none;
+				cursor: pointer;
+				transition: opacity 0.15s, transform 0.15s;
+			}
+			.share-btn:hover { opacity: 0.85; transform: translateY(-1px); color: white; }
+			.share-line { background: #00b900; }
+			.share-fb { background: #1877f2; }
+			.share-x { background: #000; }
+			.share-copy { background: rgb(var(--gray)); }
+			.share-copy.copied { background: #27ae60; }
+			/* Related posts */
+			.related-posts {
+				margin: 2.5em 0 1em;
+				border-top: 1px solid rgb(var(--gray-light));
+				padding-top: 1.5em;
+			}
+			.related-heading {
+				font-size: 0.9em;
+				font-weight: 700;
+				color: rgb(var(--gray));
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin: 0 0 1em;
+			}
+			.related-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 0.8em;
+			}
+			.related-card {
+				display: block;
+				text-decoration: none;
+				border-radius: 10px;
+				overflow: hidden;
+				border: 1px solid rgb(var(--gray-light));
+				transition: transform 0.15s, box-shadow 0.15s;
+				background: white;
+			}
+			.related-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+			.related-thumb {
+				width: 100%;
+				aspect-ratio: 16/9;
+				object-fit: cover;
+				display: block;
+				background: rgb(var(--gray-light));
+			}
+			.related-thumb-placeholder {
+				width: 100%;
+				aspect-ratio: 16/9;
+				background: linear-gradient(135deg, rgb(var(--gray-light)), rgb(var(--gray-light)));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2em;
+			}
+			.related-info { padding: 0.6em 0.8em 0.8em; }
+			.related-title {
+				font-size: 0.82em;
+				font-weight: 700;
+				color: rgb(var(--gray-dark));
+				line-height: 1.4;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+		</style>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",
@@ -150,6 +270,7 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 	</head>
 
 	<body>
+		<div id="reading-progress"></div>
 		<Header />
 		<main>
 			<article>
@@ -182,6 +303,9 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 								{tags.map((tag) => <span class="tag">#{tag}</span>)}
 							</div>
 						)}
+						<div class="reading-meta">
+							<span id="reading-time">⏱ 計算中…</span>
+						</div>
 						<hr />
 					</div>
 					{rumbleId && <RumbleEmbed videoId={rumbleId} title={title} />}
@@ -209,19 +333,90 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</div>
 					)}
 					<AffiliateLinks />
+
+					<!-- Share buttons -->
+					<div class="share-section">
+						<div class="share-label">覺得有幫助？分享給朋友！</div>
+						<div class="share-buttons">
+							<a href={} target="_blank" rel="noopener" class="share-btn share-line">LINE</a>
+							<a href={} target="_blank" rel="noopener" class="share-btn share-fb">Facebook</a>
+							<a href={} target="_blank" rel="noopener" class="share-btn share-x">X / Twitter</a>
+							<button class="share-btn share-copy" id="copy-link-btn" data-url={pageUrl}>🔗 複製連結</button>
+						</div>
+					</div>
+
 					<NewsletterSubscribe />
+
+					<!-- Comments (Giscus) -->
+					<div class="giscus-wrap" style="margin: 2em 0;">
+						<script src="https://giscus.app/client.js"
+							data-repo="acikacik1314/two-bears-blog"
+							data-repo-id="R_kgDOSm-zaA"
+							data-category="General"
+							data-category-id="DIC_kwDOOzluJM4CrS8Q"
+							data-mapping="pathname"
+							data-strict="0"
+							data-reactions-enabled="1"
+							data-emit-metadata="0"
+							data-input-position="top"
+							data-theme="light"
+							data-lang="zh-TW"
+							crossorigin="anonymous"
+							async>
+						</script>
+					</div>
 				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 	<script define:vars={{ slug: Astro.url.pathname }}>
-		// Fire-and-forget view tracking
+		// View tracking
 		fetch('/api/view', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ slug }),
 			keepalive: true,
 		}).catch(() => {});
+
+		// Reading progress bar
+		const bar = document.getElementById('reading-progress');
+		const article = document.querySelector('article');
+		if (bar && article) {
+			window.addEventListener('scroll', () => {
+				const rect = article.getBoundingClientRect();
+				const total = article.offsetHeight - window.innerHeight;
+				const scrolled = Math.max(0, -rect.top);
+				bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+			}, { passive: true });
+		}
+
+		// Reading time estimate
+		const prose = document.querySelector('.prose');
+		const rtEl = document.getElementById('reading-time');
+		if (prose && rtEl) {
+			const text = prose.innerText || prose.textContent || '';
+			const words = text.trim().split(/\s+/).length;
+			const mins = Math.max(1, Math.round(words / 400));
+			rtEl.textContent = `⏱ 約 ${mins} 分鐘閱讀`;
+		}
+
+		// Copy link button
+		const copyBtn = document.getElementById('copy-link-btn');
+		if (copyBtn) {
+			copyBtn.addEventListener('click', () => {
+				const url = copyBtn.dataset.url;
+				navigator.clipboard.writeText(url).then(() => {
+					copyBtn.textContent = '✓ 已複製！';
+					copyBtn.classList.add('copied');
+					setTimeout(() => {
+						copyBtn.textContent = '🔗 複製連結';
+						copyBtn.classList.remove('copied');
+					}, 2000);
+				}).catch(() => {
+					prompt('複製這個連結：', url);
+				});
+			});
+		}
 	</script>
 </html>

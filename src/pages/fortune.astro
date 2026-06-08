@@ -6,511 +6,739 @@ import Footer from '../components/Footer.astro';
 
 <!doctype html>
 <html lang="zh-TW">
-  <head>
-    <BaseHead title="命理分析 — 兩隻熊" description="輸入姓名和生日，獲得生肖、星座、五行、八字、紫薇命宮分析" />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <div class="fortune-page">
-        <div class="fp-hero">
-          <h1>🔮 命理分析</h1>
-          <p>輸入你的生日，探索八字五行、命宮星象與今年運勢</p>
-          <p class="fp-disclaimer">✦ 本工具僅供娛樂參考，不代表真實命理占卜</p>
+<head>
+  <BaseHead title="命理分析中心 — 兩隻熊" description="西洋星座命盤、紫薇斗數、卜卦易經、八字四柱全方位命理分析" />
+</head>
+<body>
+<Header />
+<main class="fp-main">
+
+  <!-- Hero -->
+  <div class="fp-hero">
+    <div class="fp-badge">✦ 綜合命理分析平台</div>
+    <h1>🔮 命理分析中心</h1>
+    <p class="fp-sub">整合西洋星座命盤・紫薇斗數・卜卦易經・八字四柱<br/>輸入生日即可獲得全方位命理解析</p>
+  </div>
+
+  <!-- Input Form -->
+  <div class="fp-form-wrap">
+    <div class="fp-form">
+      <div class="fp-field">
+        <label>姓名（選填）</label>
+        <input type="text" id="fp-name" placeholder="你的名字" maxlength="20" />
+      </div>
+      <div class="fp-field">
+        <label>出生年月日 *</label>
+        <input type="date" id="fp-bdate" required />
+      </div>
+      <div class="fp-field">
+        <label>出生時辰（選填）</label>
+        <select id="fp-hour">
+          <option value="-1">不知道</option>
+          <option value="0">子時 23:00–01:00</option>
+          <option value="1">丑時 01:00–03:00</option>
+          <option value="2">寅時 03:00–05:00</option>
+          <option value="3">卯時 05:00–07:00</option>
+          <option value="4">辰時 07:00–09:00</option>
+          <option value="5">巳時 09:00–11:00</option>
+          <option value="6">午時 11:00–13:00</option>
+          <option value="7">未時 13:00–15:00</option>
+          <option value="8">申時 15:00–17:00</option>
+          <option value="9">酉時 17:00–19:00</option>
+          <option value="10">戌時 19:00–21:00</option>
+          <option value="11">亥時 21:00–23:00</option>
+        </select>
+      </div>
+      <button class="fp-btn" id="fp-calc">✨ 開始分析</button>
+    </div>
+    <p class="fp-note">✦ 本工具僅供娛樂參考，不代表真實命理占卜</p>
+  </div>
+
+  <!-- Results (hidden until calculated) -->
+  <div id="fp-results" style="display:none">
+    <div class="res-tabs">
+      <button class="res-tab active" data-panel="zodiac">🌟 星座命盤</button>
+      <button class="res-tab" data-panel="ziwei">⭐ 紫薇斗數</button>
+      <button class="res-tab" data-panel="bazi">🀄 八字四柱</button>
+    </div>
+
+    <!-- 星座命盤 Panel -->
+    <div class="res-panel active" id="panel-zodiac">
+      <div class="res-greeting" id="res-greeting"></div>
+      <div class="zodiac-result-grid" id="zodiac-result"></div>
+      <div class="year-fortune-box" id="year-fortune"></div>
+    </div>
+
+    <!-- 紫薇斗數 Panel -->
+    <div class="res-panel" id="panel-ziwei">
+      <div id="ziwei-result"></div>
+    </div>
+
+    <!-- 八字四柱 Panel -->
+    <div class="res-panel" id="panel-bazi">
+      <div id="bazi-result"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       卜卦易經
+  ══════════════════════════════ -->
+  <section class="knowledge-section" id="iching-section">
+    <div class="ks-header">
+      <h2 class="ks-title">🔯 卜卦易經</h2>
+      <p class="ks-sub">心誠則靈，靜心一問，觀卦象以知天機</p>
+    </div>
+
+    <div class="iching-tool">
+      <div class="iching-question">
+        <label>你的問題（選填）</label>
+        <input type="text" id="iching-q" placeholder="例：這次創業會成功嗎？" maxlength="50" />
+      </div>
+      <button class="iching-btn" id="iching-cast">🎲 擲卦</button>
+    </div>
+    <div class="iching-result" id="iching-result" style="display:none"></div>
+
+    <div class="trigrams-grid">
+      <h3 class="sub-heading">八卦基礎</h3>
+      <div class="trigrams">
+        <div class="trigram-card">
+          <div class="tri-symbol">☰</div>
+          <div class="tri-name">乾 · 天</div>
+          <div class="tri-attr">剛健、創始</div>
+          <p class="tri-desc">乾為天，代表至陽、至剛之力。乾卦象徵天道運行，生生不息，剛健而不止。凡事皆有其時，懷抱理想，行動果決，可成大業。乾卦之人，志向高遠，領袖氣質天成，適合在逆境中展現韌性，但需避免剛愎自用，保持謙遜方能長久。</p>
         </div>
-
-        <!-- Input Form -->
-        <div class="fp-form">
-          <div class="fp-field">
-            <label>姓名（選填）</label>
-            <input type="text" id="fp-name" placeholder="你的名字" maxlength="20" />
-          </div>
-          <div class="fp-field">
-            <label>出生年月日 *</label>
-            <input type="date" id="fp-bdate" required />
-          </div>
-          <div class="fp-field">
-            <label>出生時辰（選填）</label>
-            <select id="fp-hour">
-              <option value="-1">不知道</option>
-              <option value="0">子時 23:00–01:00</option>
-              <option value="1">丑時 01:00–03:00</option>
-              <option value="2">寅時 03:00–05:00</option>
-              <option value="3">卯時 05:00–07:00</option>
-              <option value="4">辰時 07:00–09:00</option>
-              <option value="5">巳時 09:00–11:00</option>
-              <option value="6">午時 11:00–13:00</option>
-              <option value="7">未時 13:00–15:00</option>
-              <option value="8">申時 15:00–17:00</option>
-              <option value="9">酉時 17:00–19:00</option>
-              <option value="10">戌時 19:00–21:00</option>
-              <option value="11">亥時 21:00–23:00</option>
-            </select>
-          </div>
-          <button class="fp-btn" id="fp-calc">✨ 開始分析</button>
+        <div class="trigram-card">
+          <div class="tri-symbol">☷</div>
+          <div class="tri-name">坤 · 地</div>
+          <div class="tri-attr">柔順、承載</div>
+          <p class="tri-desc">坤為地，代表至陰、至柔之德。坤卦象徵大地承載萬物，厚德載物，以柔克剛。坤卦指引我們以包容、謙遜的姿態面對人生，順應自然規律，不強求而自得。此卦提醒：柔順非軟弱，而是更高層次的智慧與力量。</p>
         </div>
-
-        <!-- Results -->
-        <div class="fp-results" id="fp-results" style="display:none">
-          <!-- Basic -->
-          <div class="fp-section">
-            <h2 id="fp-greeting">—</h2>
-            <div class="fp-basic-grid" id="fp-basic"></div>
-          </div>
-
-          <!-- 四柱八字 -->
-          <div class="fp-section">
-            <h3 class="fp-section-title">🀄 四柱八字</h3>
-            <div class="fp-bazi" id="fp-bazi"></div>
-            <div class="fp-wuxing" id="fp-wuxing"></div>
-          </div>
-
-          <!-- 命宮分析 -->
-          <div class="fp-section" id="fp-palace-section">
-            <h3 class="fp-section-title">🌟 紫薇命宮分析</h3>
-            <div class="fp-palace" id="fp-palace"></div>
-          </div>
-
-          <!-- 今年運勢 -->
-          <div class="fp-section">
-            <h3 class="fp-section-title">📅 {new Date().getFullYear()} 年運勢</h3>
-            <div class="fp-luck" id="fp-luck"></div>
-          </div>
-
-          <!-- 幸運資訊 -->
-          <div class="fp-section">
-            <h3 class="fp-section-title">🍀 幸運資訊</h3>
-            <div class="fp-lucky" id="fp-lucky"></div>
-          </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☳</div>
+          <div class="tri-name">震 · 雷</div>
+          <div class="tri-attr">動、行動力</div>
+          <p class="tri-desc">震為雷，象徵震動、驚醒與行動。雷聲一響，萬物驚醒，代表突破舊局的力量。震卦提醒我們：危機往往是轉機的開始，勇於行動、敢於面對恐懼，才能突破現狀。凡遇震卦，宜大膽前進，但需保持清醒的判斷，避免衝動冒失。</p>
+        </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☴</div>
+          <div class="tri-name">巽 · 風</div>
+          <div class="tri-attr">入、柔和滲透</div>
+          <p class="tri-desc">巽為風，象徵柔和而持續的滲透力。風無形無跡，卻能穿透一切。巽卦提示我們以溫和、靈活的方式處世，循序漸進，以退為進，待機而動。此卦也代表溝通與交流，善於傾聽與協調，往往能化解衝突，創造共贏局面。</p>
+        </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☵</div>
+          <div class="tri-name">坎 · 水</div>
+          <div class="tri-attr">陷、危險與智慧</div>
+          <p class="tri-desc">坎為水，象徵重重險阻與深不可測的智慧。水無常形，遇方則方，遇圓則圓，無論何種阻礙皆能找到出路。坎卦代表人生中的試煉與磨難，提醒我們在逆境中保持冷靜，以智慧化解危機。歷經坎坷者，往往擁有最深厚的人生閱歷。</p>
+        </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☲</div>
+          <div class="tri-name">離 · 火</div>
+          <div class="tri-attr">麗、附著光明</div>
+          <p class="tri-desc">離為火，象徵光明、熱情與附著之力。火必附著於物方能燃燒，代表事物依附關係的重要性。離卦之人，才華橫溢，光芒四射，具有感染他人的能量。此卦提醒我們珍惜當下的光明，發揮自身才能照亮周遭，但需注意不可過於燃燒自己，適時補充能量。</p>
+        </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☶</div>
+          <div class="tri-name">艮 · 山</div>
+          <div class="tri-attr">止、靜止沉穩</div>
+          <p class="tri-desc">艮為山，象徵靜止、止步與沉穩。山屹立不動，代表知所進退、適時停止的智慧。艮卦提醒我們：並非所有時刻都適合前進，懂得在適當時機停下腳步，沉澱思慮，才是真正的智慧。凡遇艮卦，宜靜觀其變，養精蓄銳，等待最佳時機再行動。</p>
+        </div>
+        <div class="trigram-card">
+          <div class="tri-symbol">☱</div>
+          <div class="tri-name">兌 · 澤</div>
+          <div class="tri-attr">悅、喜悅交流</div>
+          <p class="tri-desc">兌為澤，象徵喜悅、溝通與滋潤萬物之力。澤水滋養大地，代表分享與交流的美好。兌卦之人，口才出眾，善於表達，容易獲得他人喜愛。此卦提示我們：以真誠喜悅的心態與人互動，廣結善緣，人際關係將成為最大的財富與助力。</p>
         </div>
       </div>
-    </main>
-    <Footer />
-  </body>
+    </div>
+
+    <div class="hexagrams-highlight">
+      <h3 class="sub-heading">六十四卦精選解析</h3>
+      <div class="hex-grid">
+        <div class="hex-card">
+          <div class="hex-num">第1卦</div>
+          <div class="hex-name">乾為天 ䷀</div>
+          <p class="hex-meaning"><strong>象曰：</strong>天行健，君子以自強不息。此卦象徵剛健有為，萬事亨通。事業上宜積極進取，不可懈怠；感情上熱情主動，但需避免強求；財運旺盛，適合大膽投資。整體運勢極佳，把握機遇，前途無量。</p>
+        </div>
+        <div class="hex-card">
+          <div class="hex-num">第2卦</div>
+          <div class="hex-name">坤為地 ䷁</div>
+          <p class="hex-meaning"><strong>象曰：</strong>地勢坤，君子以厚德載物。此卦象徵包容謙遜，順勢而為。事業上宜輔佐而非領導，配合他人能有所成就；感情上以包容取勝，對方需要穩定的支持；財運平穩，適合守成而非冒進。</p>
+        </div>
+        <div class="hex-card">
+          <div class="hex-num">第11卦</div>
+          <div class="hex-name">地天泰 ䷊</div>
+          <p class="hex-meaning"><strong>象曰：</strong>天地交，泰。此卦象徵萬事亨通，陰陽調和。凡事順暢，計畫易成，人際關係和諧美滿。事業迎來高峰期，適合推進重要項目；感情甜蜜融洽，可考慮進一步發展；整體財運大吉，可積極把握機遇。</p>
+        </div>
+        <div class="hex-card">
+          <div class="hex-num">第14卦</div>
+          <div class="hex-name">火天大有 ䷍</div>
+          <p class="hex-meaning"><strong>象曰：</strong>火在天上，大有。此卦象徵豐收與盛大。處於鼎盛時期，地位崇高，財富豐盛。然盛極必衰，提醒在享受成功的同時，應保持謙遜，廣施恩德，方能持續長久。此時宜積極行動，但需避免驕傲自滿。</p>
+        </div>
+        <div class="hex-card">
+          <div class="hex-num">第29卦</div>
+          <div class="hex-name">坎為水 ䷜</div>
+          <p class="hex-meaning"><strong>象曰：</strong>水洊至，習坎。此卦象徵重重險阻，考驗重重。當前面臨困境，需謹慎應對，不可輕舉妄動。保持內心的誠信與堅持，終能度過難關。遇此卦者，宜靜不宜動，等待時機，守正待變，危機自然解除。</p>
+        </div>
+        <div class="hex-card">
+          <div class="hex-num">第63卦</div>
+          <div class="hex-name">水火既濟 ䷾</div>
+          <p class="hex-meaning"><strong>象曰：</strong>水在火上，既濟。此卦象徵事業已成，諸事完備。代表某件事已達到完成的狀態，凡事各得其位，秩序井然。然此卦也提醒：成功之後更需謹慎維持，防微杜漸，避免功虧一簣。宜鞏固現有成果，不宜輕易冒險改變。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       西洋十二星座完整解析
+  ══════════════════════════════ -->
+  <section class="knowledge-section">
+    <div class="ks-header">
+      <h2 class="ks-title">🌟 西洋十二星座完整解析</h2>
+      <p class="ks-sub">從火象到水象，深入了解每個星座的性格特質、愛情觀與事業傾向</p>
+    </div>
+    <div class="zodiac-full-grid">
+
+      <div class="zf-card fire">
+        <div class="zf-head">
+          <span class="zf-symbol">♈</span>
+          <div><div class="zf-name">白羊座</div><div class="zf-date">3/21 – 4/19　火象　守護星：火星</div></div>
+        </div>
+        <p>白羊座是黃道帶的第一個星座，象徵著新生命的開端與無限可能。白羊座的人天生具有衝勁與領袖魅力，面對挑戰從不退縮，行動力與執行力是他們最大的優勢。在感情方面，白羊座率直熱烈，喜歡主動出擊，愛得轟轟烈烈，卻也容易因為沒有耐心而讓感情降溫。在職業選擇上，白羊座適合從事創業、體育競技、軍警或任何需要突破與開創的領域。今年流年對白羊座而言，事業運強勁，有機會升職或拓展新業務；感情方面需多一些耐心與包容，才能讓關係更加穩固。健康方面需注意頭部與頸部問題，避免過度勞累。</p>
+      </div>
+
+      <div class="zf-card earth">
+        <div class="zf-head">
+          <span class="zf-symbol">♉</span>
+          <div><div class="zf-name">金牛座</div><div class="zf-date">4/20 – 5/20　土象　守護星：金星</div></div>
+        </div>
+        <p>金牛座由金星守護，天生具有對美與舒適的強烈追求。金牛座的人務實穩重，做事有始有終，對財物的管理極為謹慎，是十二星座中最擅長積累財富的星座之一。在感情方面，金牛座深情專一，一旦付出便全心全意，但固執的個性有時會讓感情陷入僵局。在職業上，金牛座適合從事金融、藝術、房地產或任何需要長期規劃與執行的領域。今年金牛座在財運方面表現亮眼，適合進行長期投資或置產；感情方面穩定中帶有浪漫，單身者有機會遇到合拍的對象。需注意喉嚨與甲狀腺健康，以及過度飲食帶來的體重問題。</p>
+      </div>
+
+      <div class="zf-card air">
+        <div class="zf-head">
+          <span class="zf-symbol">♊</span>
+          <div><div class="zf-name">雙子座</div><div class="zf-date">5/21 – 6/20　風象　守護星：水星</div></div>
+        </div>
+        <p>雙子座由水星守護，象徵溝通、智慧與變化。雙子座的人思維敏捷，口才出眾，善於同時處理多件事情，對新知識有著強烈的好奇心。在感情方面，雙子座需要智識上的刺激與心靈的共鳴，一旦對伴侶失去新鮮感便容易分心。在職業上，雙子座適合從事媒體、教育、銷售、公關或任何需要溝通交流的工作。今年雙子座的溝通運與人際運旺盛，適合拓展人脈、簽署合約或推動新計畫；感情方面多說甜言蜜語，減少爭辯，有助於關係升溫。需注意手臂、肺部與神經系統的保養，避免過度用腦造成精神疲憊。</p>
+      </div>
+
+      <div class="zf-card water">
+        <div class="zf-head">
+          <span class="zf-symbol">♋</span>
+          <div><div class="zf-name">巨蟹座</div><div class="zf-date">6/21 – 7/22　水象　守護星：月亮</div></div>
+        </div>
+        <p>巨蟹座由月亮守護，象徵情感、家庭與記憶。巨蟹座的人感情細膩豐富，對家人與朋友有著深厚的情感，保護慾強烈，是十二星座中最重視家庭溫暖的星座。他們直覺敏銳，能快速感受到他人的情緒變化，但也容易因情緒起伏影響判斷力。在職業上，巨蟹座適合從事教育、心理諮詢、護理、餐飲或任何以照顧他人為核心的工作。今年巨蟹座的家庭運與感情運強旺，適合改善居家環境或深化親密關係；事業方面需要主動出擊，不可過於被動等待。需特別注意腸胃問題，飲食規律對健康至關重要。</p>
+      </div>
+
+      <div class="zf-card fire">
+        <div class="zf-head">
+          <span class="zf-symbol">♌</span>
+          <div><div class="zf-name">獅子座</div><div class="zf-date">7/23 – 8/22　火象　守護星：太陽</div></div>
+        </div>
+        <p>獅子座由太陽守護，象徵自信、光芒與統御力。獅子座的人天生喜歡成為焦點，具有強烈的表現慾與創造力，慷慨大方，對朋友忠誠可靠。在感情方面，獅子座需要被崇拜與認可，懂得欣賞他們的伴侶才能讓這段感情長久。在職業上，獅子座適合從事演藝、管理、設計、政治或任何需要展現個人魅力的領域。今年獅子座的創意運與表現運達到高峰，適合展現才華或推出個人品牌；感情上若能放下自我中心，願意傾聽伴侶，關係將有質的飛躍。心臟與脊椎是獅子座需要特別保養的部位。</p>
+      </div>
+
+      <div class="zf-card earth">
+        <div class="zf-head">
+          <span class="zf-symbol">♍</span>
+          <div><div class="zf-name">處女座</div><div class="zf-date">8/23 – 9/22　土象　守護星：水星</div></div>
+        </div>
+        <p>處女座同樣由水星守護，象徵分析、完美與服務精神。處女座的人心思縝密，注重細節，對自己與他人都有很高的要求標準，是十二星座中最具批判性思維的星座。在感情方面，處女座內斂含蓄，不擅長表達情感，但內心充滿溫柔，一旦確定關係便會全力付出。在職業上，處女座適合從事醫療、研究、會計、編輯或任何需要嚴謹分析的工作。今年處女座在工作效率上表現卓越，適合完成複雜的長期項目；感情方面需降低完美主義傾向，接受伴侶的不完美，關係才能更輕鬆。消化系統是處女座的健康弱點，飲食習慣影響整體狀況甚鉅。</p>
+      </div>
+
+      <div class="zf-card air">
+        <div class="zf-head">
+          <span class="zf-symbol">♎</span>
+          <div><div class="zf-name">天秤座</div><div class="zf-date">9/23 – 10/22　風象　守護星：金星</div></div>
+        </div>
+        <p>天秤座由金星守護，象徵平衡、美感與人際和諧。天秤座的人重視公平正義，善於從多角度思考問題，外交手腕圓熟，是天生的調停者與外交官。在感情方面，天秤座渴望靈魂伴侶，需要一段平等、和諧的關係，容易陷入對感情的理想化。在職業上，天秤座適合從事法律、外交、設計、藝術或任何需要美學品味與協調溝通的工作。今年天秤座的合作運與桃花運旺盛，適合推進合夥事業或發展新感情；財運方面需注意過度消費，建立固定的儲蓄習慣。需注意腰部與腎臟保健，避免久坐不動。</p>
+      </div>
+
+      <div class="zf-card water">
+        <div class="zf-head">
+          <span class="zf-symbol">♏</span>
+          <div><div class="zf-name">天蠍座</div><div class="zf-date">10/23 – 11/21　水象　守護星：冥王星</div></div>
+        </div>
+        <p>天蠍座由冥王星守護，象徵深度、轉化與神秘力量。天蠍座的人感情深沉，意志力極強，具有穿透人心的洞察力，對秘密與神秘事物有天生的吸引力。在感情方面，天蠍座愛得深刻而專一，佔有慾強，忠誠度高，但若被背叛則難以原諒。在職業上，天蠍座適合從事心理學、偵查、研究、金融或任何需要深度挖掘的工作。今年天蠍座的運勢帶有蛻變的主題，適合放下舊包袱、迎接全新的生命篇章；財運方面有意外之財的機會，但需謹慎評估風險。需特別注意生殖系統與泌尿系統的健康。</p>
+      </div>
+
+      <div class="zf-card fire">
+        <div class="zf-head">
+          <span class="zf-symbol">♐</span>
+          <div><div class="zf-name">射手座</div><div class="zf-date">11/22 – 12/21　火象　守護星：木星</div></div>
+        </div>
+        <p>射手座由木星守護，象徵自由、探索與哲學智慧。射手座的人樂觀開朗，充滿冒險精神，對知識與文化有著廣泛的興趣，渴望探索世界的每一個角落。在感情方面，射手座重視精神自由，需要給予伴侶足夠的個人空間，才能讓感情長久。在職業上，射手座適合從事旅行業、教育、出版、哲學或任何能拓展視野的工作。今年射手座的貴人運旺盛，適合出行、求學或拓展國際業務；感情上需對伴侶多一點承諾與踏實，減少無謂的遊蕩。需注意臀部與大腿的健康，以及肝臟的保養。</p>
+      </div>
+
+      <div class="zf-card earth">
+        <div class="zf-head">
+          <span class="zf-symbol">♑</span>
+          <div><div class="zf-name">摩羯座</div><div class="zf-date">12/22 – 1/19　土象　守護星：土星</div></div>
+        </div>
+        <p>摩羯座由土星守護，象徵責任、紀律與長遠規劃。摩羯座的人目標明確，意志堅定，善於延遲滿足，為了達成目標可以忍耐漫長的等待，是十二星座中最能吃苦耐勞的星座。在感情方面，摩羯座含蓄保守，對感情極為慎重，一旦投入便是長期承諾。在職業上，摩羯座適合從事企業管理、建築、政治、金融或任何需要長期規劃的領域。今年摩羯座的事業運持續攀升，之前的努力開始看到成果，適合鞏固成績並規劃下一個里程碑；感情方面多一些浪漫的驚喜，讓關係注入新鮮感。需注意膝蓋與骨骼健康，以及工作壓力帶來的心理狀態。</p>
+      </div>
+
+      <div class="zf-card air">
+        <div class="zf-head">
+          <span class="zf-symbol">♒</span>
+          <div><div class="zf-name">水瓶座</div><div class="zf-date">1/20 – 2/18　風象　守護星：天王星</div></div>
+        </div>
+        <p>水瓶座由天王星守護，象徵革新、獨立與人道主義精神。水瓶座的人思維前衛，不受傳統束縛，對社會變革有著強烈的使命感，往往是時代的先行者。在感情方面，水瓶座重視心靈交流，需要一個能理解並欣賞其獨特性的伴侶，對傳統的愛情模式往往有自己的一套詮釋。在職業上，水瓶座適合從事科技、社會工作、天文、心理學或任何與創新革新相關的領域。今年水瓶座有突破性的靈感湧現，適合推出創新項目或引進新思維；財運方面因獨特的投資眼光而受益，但需避免過於激進的財務決策。需注意小腿、踝部與循環系統的健康。</p>
+      </div>
+
+      <div class="zf-card water">
+        <div class="zf-head">
+          <span class="zf-symbol">♓</span>
+          <div><div class="zf-name">雙魚座</div><div class="zf-date">2/19 – 3/20　水象　守護星：海王星</div></div>
+        </div>
+        <p>雙魚座由海王星守護，象徵夢想、靈性與無私奉獻。雙魚座的人直覺超強，富有同情心，對藝術與靈性有天生的敏感度，是十二星座中最具靈性特質的星座。在感情方面，雙魚座浪漫而理想化，容易沉浸在自己對愛情的幻想中，需要多一些現實感來維護健康的感情關係。在職業上，雙魚座適合從事藝術、音樂、心靈療癒、攝影或任何需要高度創造力的工作。今年雙魚座的靈感爆發，是創作的黃金時期；財運方面需提防詐騙與模糊的財務合作，凡事白紙黑字。需注意免疫系統與腳部健康，靜心冥想有助於整體能量的平衡。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       紫薇斗數十二宮
+  ══════════════════════════════ -->
+  <section class="knowledge-section">
+    <div class="ks-header">
+      <h2 class="ks-title">⭐ 紫薇斗數十二宮位詳解</h2>
+      <p class="ks-sub">紫薇斗數起源於中國唐代，以出生年月日時排列十二宮，每宮代表人生不同面向</p>
+    </div>
+
+    <div class="ziwei-intro">
+      <p>紫薇斗數是中國最精密的命理系統之一，以一百四十四顆星曜分布於十二宮位，通過星曜間的互動與四化（化祿、化權、化科、化忌）來推算一個人的命運走向。與西洋占星不同，紫薇斗數更注重具體的事件預測與時間點的判斷，被許多命理師稱為「最接近人生真實面貌」的占卜系統。</p>
+    </div>
+
+    <div class="palaces-grid">
+      <div class="palace-card-full">
+        <h4>命宮 ✦ 自我與人生使命</h4>
+        <p>命宮是紫薇斗數中最核心的宮位，代表一個人的基本個性、外在形象、才能傾向以及整體人生走向。命宮的主星決定了一個人與生俱來的氣質與能量。紫微坐命者，天生具有領袖氣質；天機坐命者，思維靈活善謀略；太陽坐命者，熱情開朗貴人多；武曲坐命者，剛毅果斷重財富。命宮的強弱也影響一個人面對人生起伏的能力，命宮強旺者，面對逆境能快速恢復；命宮衰弱者，則需要更多的後天努力來彌補先天的不足。</p>
+      </div>
+      <div class="palace-card-full">
+        <h4>夫妻宮 ✦ 愛情與婚姻</h4>
+        <p>夫妻宮代表一個人的婚姻狀況、配偶特質以及感情發展模式。此宮位的星曜組合顯示配偶的個性與外貌特徵。夫妻宮化祿者，婚姻美滿，配偶溫柔體貼；夫妻宮化忌者，感情波折多，需要更多耐心與包容。夫妻宮三方四正的星曜也影響結婚時機，天空、地劫入夫妻宮者，往往結婚較晚或感情緣分特殊。流年夫妻宮逢吉星同宮或照會，適合論及婚嫁或改善感情關係；逢煞星則需注意感情摩擦。</p>
+      </div>
+      <div class="palace-card-full">
+        <h4>財帛宮 ✦ 財富與金錢觀</h4>
+        <p>財帛宮代表一個人賺錢的能力、財富的多寡以及與金錢的關係。財帛宮吉星多者，財源廣進，善於理財；紫微、天府坐財帛宮者，財庫豐厚，一生衣食無虞；武曲化祿坐財帛宮者，更是金錢運極旺的組合。財帛宮化忌者，雖能賺錢，但也容易有意外支出或財來財去的情況。此宮位也代表一個人對金錢的態度，天機坐財帛宮者善於投資理財；貪狼坐財帛宮者，偏財運強，但也容易在娛樂方面花費過多。</p>
+      </div>
+      <div class="palace-card-full">
+        <h4>官祿宮 ✦ 事業與社會地位</h4>
+        <p>官祿宮代表一個人的事業發展、職業選擇與社會地位。此宮位星曜的組合顯示最適合的職業方向。紫微坐官祿宮者，適合從政或擔任管理職；天機坐官祿宮者，適合謀略、策劃或IT相關工作；太陽坐官祿宮者，適合公眾服務或媒體工作；武曲坐官祿宮者，適合金融或工程；廉貞坐官祿宮者，適合藝術或法律。流年官祿宮逢化祿或化權，是事業突破的大好時機；逢化忌則需謹慎應對職場變動，不宜輕易跳槽。</p>
+      </div>
+      <div class="palace-card-full">
+        <h4>福德宮 ✦ 精神世界與福氣</h4>
+        <p>福德宮代表一個人的內在世界、精神層面的滿足感以及一生的福氣指數。此宮位也顯示一個人休閒娛樂的偏好與享樂能力。天同坐福德宮者，生性樂觀，容易感受幸福；天梁坐福德宮者，重視靈性成長，對宗教或哲學有濃厚興趣；太陰坐福德宮者，夜生活豐富，感性細膩。福德宮也被稱為「祖上蔭德」之宮，此宮吉旺者，往往生來便享有良好的成長環境與社會資源。流年福德宮若有吉星加持，精神愉快，萬事順心；若逢煞忌，則情緒起伏較大，容易感到煩躁或憂鬱。</p>
+      </div>
+      <div class="palace-card-full">
+        <h4>疾厄宮 ✦ 健康與身體狀況</h4>
+        <p>疾厄宮代表一個人的健康狀況、容易罹患的疾病類型以及整體體質。廉貞坐疾厄宮者，需注意心血管系統；天機坐疾厄宮者，需注意神經系統與睡眠品質；太陰坐疾厄宮者，情緒狀態直接影響身體健康。疾厄宮化忌是命理師特別重視的警示訊號，代表該宮位代表的健康領域需要特別留意。此宮位也反映一個人的心理健康狀態，福德宮與疾厄宮互為三方，精神狀態良好者，身體健康往往也較佳。流年逢疾厄宮不順，宜定期健康檢查，避免諱疾忌醫。</p>
+      </div>
+    </div>
+
+    <div class="ziwei-stars">
+      <h3 class="sub-heading">主要星曜特質速覽</h3>
+      <div class="stars-grid">
+        <div class="star-item"><span class="star-name">紫微</span><span class="star-trait">帝王星，領袖氣質，尊貴權威</span></div>
+        <div class="star-item"><span class="star-name">天機</span><span class="star-trait">智慧星，思慮縝密，善謀多變</span></div>
+        <div class="star-item"><span class="star-name">太陽</span><span class="star-trait">光明星，熱情外向，貴人相助</span></div>
+        <div class="star-item"><span class="star-name">武曲</span><span class="star-trait">財星，剛毅果決，重實際利益</span></div>
+        <div class="star-item"><span class="star-name">天同</span><span class="star-trait">福星，溫和樂觀，享受生活</span></div>
+        <div class="star-item"><span class="star-name">廉貞</span><span class="star-trait">囚星，桀驁不馴，才藝多情</span></div>
+        <div class="star-item"><span class="star-name">天府</span><span class="star-trait">財庫星，穩重保守，財運豐厚</span></div>
+        <div class="star-item"><span class="star-name">太陰</span><span class="star-trait">月亮星，感性細膩，陰柔智慧</span></div>
+        <div class="star-item"><span class="star-name">貪狼</span><span class="star-trait">桃花星，多才多藝，偏財運旺</span></div>
+        <div class="star-item"><span class="star-name">巨門</span><span class="star-trait">是非星，口才出眾，思辨能力強</span></div>
+        <div class="star-item"><span class="star-name">天相</span><span class="star-trait">印星，穩重仁慈，貴人多助</span></div>
+        <div class="star-item"><span class="star-name">天梁</span><span class="star-trait">蔭星，正義凜然，保護庇蔭</span></div>
+        <div class="star-item"><span class="star-name">七殺</span><span class="star-trait">將星，剛烈孤傲，開創破舊</span></div>
+        <div class="star-item"><span class="star-name">破軍</span><span class="star-trait">耗星，衝動叛逆，革命破壞</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<Footer />
+</body>
 </html>
 
 <script>
-  /* ────────────────────────────────────────────────
-     Calendar algorithms
-  ──────────────────────────────────────────────── */
+  /* ── 基礎算法 ── */
   const TIAN_GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
-  const DI_ZHI  = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
-  const ZODIAC  = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
+  const DI_ZHI   = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const ZODIAC   = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
   const WUXING_TG = ['木','木','火','火','土','土','金','金','水','水'];
 
-  function getYearPillar(year: number) {
-    const ganIdx = ((year - 4) % 10 + 10) % 10;
-    const zhiIdx = ((year - 4) % 12 + 12) % 12;
-    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx, zhiIdx };
+  function getYearPillar(y: number) {
+    return { gan: TIAN_GAN[((y-4)%10+10)%10], zhi: DI_ZHI[((y-4)%12+12)%12], ganIdx: ((y-4)%10+10)%10, zhiIdx: ((y-4)%12+12)%12 };
   }
-
-  function getDayPillar(year: number, month: number, day: number) {
-    const anchor = new Date(2000, 0, 1); // 甲辰 = cycle day 40
-    const diff = Math.floor((new Date(year, month - 1, day).getTime() - anchor.getTime()) / 86400000);
-    const dayNum = ((40 + diff) % 60 + 60) % 60;
-    return { gan: TIAN_GAN[dayNum % 10], zhi: DI_ZHI[dayNum % 12], ganIdx: dayNum % 10, zhiIdx: dayNum % 12 };
+  function getDayPillar(y: number, mo: number, d: number) {
+    const diff = Math.floor((new Date(y,mo-1,d).getTime()-new Date(2000,0,1).getTime())/86400000);
+    const n = ((40+diff)%60+60)%60;
+    return { gan: TIAN_GAN[n%10], zhi: DI_ZHI[n%12], ganIdx: n%10, zhiIdx: n%12 };
   }
-
-  function getMonthPillar(year: number, month: number, day: number) {
-    // Approximate solar-term month
-    const TERM_DAYS = [6,4,6,5,6,6,7,7,8,8,7,7];
-    const branchOffset = (month - 1); // 寅=2 for Jan/Feb
-    const zhiIdx = ((branchOffset + 2) % 12);
-    const yearGanIdx = ((year - 4) % 10 + 10) % 10;
-    const MONTH_START = [2, 4, 6, 8, 0];
-    const startStem = MONTH_START[yearGanIdx % 5];
-    const ganIdx = (startStem + zhiIdx - 2 + 60) % 10;
-    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx, zhiIdx };
+  function getMonthPillar(y: number, mo: number) {
+    const zi = ((mo+1)%12); const ygi = ((y-4)%10+10)%10;
+    const starts = [2,4,6,8,0]; const gi = (starts[ygi%5]+zi-2+60)%10;
+    return { gan: TIAN_GAN[gi], zhi: DI_ZHI[zi], ganIdx: gi, zhiIdx: zi };
   }
-
-  function getHourPillar(dayGanIdx: number, hourBranch: number) {
-    const HOUR_START = [0, 2, 4, 6, 8];
-    const ganIdx = (HOUR_START[dayGanIdx % 5] + hourBranch) % 10;
-    return { gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[hourBranch], ganIdx, zhiIdx: hourBranch };
+  function getHourPillar(dgi: number, hb: number) {
+    const starts = [0,2,4,6,8]; return { gan: TIAN_GAN[(starts[dgi%5]+hb)%10], zhi: DI_ZHI[hb], ganIdx: (starts[dgi%5]+hb)%10, zhiIdx: hb };
   }
-
-  function getZodiac(year: number) {
-    return ZODIAC[((year - 4) % 12 + 12) % 12];
+  function getZodiac(y: number) { return ZODIAC[((y-4)%12+12)%12]; }
+  function getWesternSign(mo: number, d: number) {
+    const S=[['摩羯',1,1],['水瓶',1,20],['雙魚',2,19],['白羊',3,21],['金牛',4,20],['雙子',5,21],['巨蟹',6,21],['獅子',7,23],['處女',8,23],['天秤',9,23],['天蠍',10,23],['射手',11,22],['摩羯',12,22]] as [string,number,number][];
+    let sign='摩羯'; for(const [n,m,day] of S){ if(mo>m||(mo===m&&d>=day)) sign=n; } return sign;
   }
-
-  function getWesternZodiac(month: number, day: number) {
-    const SIGNS = [
-      [1,20,'水瓶'],[2,19,'雙魚'],[3,21,'白羊'],[4,20,'金牛'],
-      [5,21,'雙子'],[6,22,'巨蟹'],[7,23,'獅子'],[8,23,'處女'],
-      [9,23,'天秤'],[10,24,'天蠍'],[11,22,'射手'],[12,22,'摩羯'],
-    ];
-    for (let i = SIGNS.length - 1; i >= 0; i--) {
-      if (month > SIGNS[i][0] || (month === SIGNS[i][0] && day >= SIGNS[i][1])) {
-        return String(SIGNS[i][2]);
-      }
-    }
-    return '摩羯';
+  function getWesternSignSymbol(name: string) {
+    const M: Record<string,string>={白羊:'♈',金牛:'♉',雙子:'♊',巨蟹:'♋',獅子:'♌',處女:'♍',天秤:'♎',天蠍:'♏',射手:'♐',摩羯:'♑',水瓶:'♒',雙魚:'♓'};
+    return M[name]??'⭐';
   }
-
-  function countWuxing(pillars: { ganIdx: number }[]) {
-    const counts: Record<string, number> = { 木:0, 火:0, 土:0, 金:0, 水:0 };
-    for (const p of pillars) {
-      const wx = WUXING_TG[p.ganIdx];
-      counts[wx] = (counts[wx] ?? 0) + 1;
-    }
-    return counts;
+  function getElement(sign: string) {
+    const fire=['白羊','獅子','射手']; const earth=['金牛','處女','摩羯']; const air=['雙子','天秤','水瓶'];
+    if(fire.includes(sign)) return '🔥 火象'; if(earth.includes(sign)) return '🌍 土象'; if(air.includes(sign)) return '💨 風象'; return '💧 水象';
   }
-
-  /* ── Life Palace (紫薇命宮) simplified ── */
-  const PALACE_DESC: Record<string, { star: string; desc: string }> = {
-    '子': { star: '天機', desc: '思維靈活、善於分析，天生具備謀略才能，適合從事策略或研究工作。' },
-    '丑': { star: '天相', desc: '穩重踏實、守規矩，重視人際和諧，財運穩定，適合服務業或管理職。' },
-    '寅': { star: '七殺', desc: '獨立果斷、行動力強，天生領袖特質，適合創業或挑戰性工作。' },
-    '卯': { star: '太陽', desc: '光明磊落、熱情開朗，貴人運強，事業上容易得到他人提攜。' },
-    '辰': { star: '紫微', desc: '命帶帝王星，領袖氣質天成，自尊心強，天生適合主導與管理。' },
-    '巳': { star: '天府', desc: '保守穩健、重視家庭，財庫豐厚，一生衣食無虞，晚年尤佳。' },
-    '午': { star: '廉貞', desc: '執著有魅力、感情豐富，藝術才能強，適合創意類或娛樂業。' },
-    '未': { star: '太陰', desc: '感性直覺強、夜貓子類型，女性緣佳，適合從事藝術或靈性工作。' },
-    '申': { star: '貪狼', desc: '多才多藝、享受生活，桃花旺，社交能力極佳，適合業務或公關。' },
-    '酉': { star: '廉貞化祿', desc: '財帛豐盛、社交活躍，中年後事業大展，適合商業或金融業。' },
-    '戌': { star: '武曲', desc: '剛毅務實、財運強旺，意志力堅定，適合從事財務、工程或軍警。' },
-    '亥': { star: '破軍', desc: '開創精神強、不服輸，大起大落的命格，適合創業或改革性工作。' },
+  function countWuxing(pillars: {ganIdx:number}[]) {
+    const c: Record<string,number>={木:0,火:0,土:0,金:0,水:0};
+    for(const p of pillars){ const w=WUXING_TG[p.ganIdx]; c[w]=(c[w]??0)+1; } return c;
+  }
+  function getPalace(mo: number, hb: number) {
+    const zi = ((14-mo-hb)%12+12)%12;
+    const DESC: Record<string,{star:string,title:string,desc:string}> = {
+      子:{star:'天機',title:'謀略之宮',desc:'命主思維靈活，善於策略規劃，適合幕後運籌帷幄。貴人緣佳，但需防止想太多而錯失行動時機。'},
+      丑:{star:'天相',title:'輔佐之宮',desc:'命主穩重踏實，重視規則秩序，具有良好的執行力與服務精神。財運穩定，適合擔任管理或行政職務。'},
+      寅:{star:'七殺',title:'將帥之宮',desc:'命主個性剛烈，獨立不群，具有強烈的開創精神。適合挑戰性高的工作，但需學會團隊合作。'},
+      卯:{star:'太陽',title:'光明之宮',desc:'命主熱情外向，正義感強，貴人運極佳。事業上容易得到上司賞識，適合公眾性工作。'},
+      辰:{star:'紫微',title:'帝王之宮',desc:'命帶紫微帝星，天生具有領袖氣質與統御能力。自尊心強，適合擔任領導職，但需學習謙遜。'},
+      巳:{star:'天府',title:'財庫之宮',desc:'命主保守穩健，財庫豐厚，一生衣食無虞。重視家庭與安全感，適合長期規劃的工作。'},
+      午:{star:'廉貞',title:'才藝之宮',desc:'命主感情豐富，才華出眾，藝術天分高。適合創意藝術或娛樂業，感情路上多彩多姿。'},
+      未:{star:'太陰',title:'陰柔之宮',desc:'命主感性直覺強，夜型人，精神世界豐富。女性緣佳，適合靈性、藝術或輔導相關工作。'},
+      申:{star:'貪狼',title:'桃花之宮',desc:'命主多才多藝，享受生活，桃花旺盛。社交能力極強，適合業務、公關或娛樂行業。'},
+      酉:{star:'廉貞化祿',title:'財運之宮',desc:'命主財帛豐盛，中年後事業大展。社交活躍，商業嗅覺敏銳，適合金融或商業領域。'},
+      戌:{star:'武曲',title:'財運之宮',desc:'命主剛毅務實，財運旺盛，意志力堅強。適合財務、工程、軍警或需要高度紀律的工作。'},
+      亥:{star:'破軍',title:'開創之宮',desc:'命主具有強烈的改革精神，不服輸，敢拼敢闖。人生大起大落，但每次跌倒都能重新站起。'},
+    };
+    return { zhi: DI_ZHI[zi], ...DESC[DI_ZHI[zi]] };
+  }
+  function getYearLuck(by: number, cy: number) {
+    const bz=getZodiac(by); const cz=getZodiac(cy);
+    const CLASH: Record<string,string>={鼠:'馬',牛:'羊',虎:'猴',兔:'雞',龍:'狗',蛇:'豬',馬:'鼠',羊:'牛',猴:'虎',雞:'兔',狗:'龍',豬:'蛇'};
+    if(CLASH[bz]===cz) return {level:'🔴 犯太歲',color:'#ef4444',tip:'今年與太歲相沖，需特別注意健康、財務與感情三方面的波動。建議多行善積德、佩戴本命年守護飾品，並在重大決策上多加謹慎，避免衝動行事。'};
+    if(bz===cz) return {level:'⚠️ 值太歲',color:'#f59e0b',tip:'今年是你的本命年，太歲當頭坐，喜事多也是非多。建議行事謹慎，避免大投資、大變動，可佩戴紅色護身物品化煞，廣行善事以積累福德。'};
+    const COMBINE: Record<string,string>={鼠:'牛',虎:'豬',兔:'狗',龍:'雞',馬:'羊',猴:'蛇'};
+    if(COMBINE[bz]===cz||COMBINE[cz]===bz) return {level:'🟢 六合年',color:'#22c55e',tip:'今年與太歲六合，整體運勢和諧順遂，貴人相助，諸事易成。適合推進重要計畫、深化人際關係，把握機遇積極進取。'};
+    return {level:'🔵 平順年',color:'#60a5fa',tip:'今年太歲與你無特殊衝突，整體運勢平穩向上。適合穩紮穩打，推進長期計畫，在原有基礎上持續累積實力。'};
+  }
+  const ZODIAC_LUCKY: Record<string,{color:string,num:string,dir:string,stone:string}> = {
+    鼠:{color:'藍色、金色',num:'2、3',dir:'北方',stone:'石榴石'},牛:{color:'白色、黃色',num:'1、4',dir:'東北',stone:'翡翠'},
+    虎:{color:'橙色、白色',num:'1、3',dir:'南方',stone:'藍晶石'},兔:{color:'紅色、粉色',num:'3、4',dir:'東方',stone:'珍珠'},
+    龍:{color:'黃色、金色',num:'1、6',dir:'東方',stone:'黑曜石'},蛇:{color:'紅色、黑色',num:'2、8',dir:'南方',stone:'祖母綠'},
+    馬:{color:'紫色、黃色',num:'2、3',dir:'南方',stone:'黃水晶'},羊:{color:'綠色、紅色',num:'3、9',dir:'南方',stone:'紫水晶'},
+    猴:{color:'白色、藍色',num:'4、9',dir:'西北',stone:'矽孔雀石'},雞:{color:'金色、棕色',num:'5、7',dir:'西方',stone:'碧玉'},
+    狗:{color:'紅色、綠色',num:'3、4',dir:'東方',stone:'鑽石'},豬:{color:'黃色、灰色',num:'2、5',dir:'東南',stone:'月光石'},
   };
+  const WX_COLOR: Record<string,string>={木:'#4ade80',火:'#f87171',土:'#fbbf24',金:'#e2e8f0',水:'#60a5fa'};
+  const GAN_COLOR = ['#4ade80','#86efac','#f87171','#fca5a5','#fbbf24','#fde68a','#e2e8f0','#cbd5e1','#60a5fa','#93c5fd'];
 
-  function getLifePalace(lunarMonth: number, hourBranch: number) {
-    const palaceZhiIdx = ((14 - lunarMonth - hourBranch) % 12 + 12) % 12;
-    return DI_ZHI[palaceZhiIdx];
-  }
-
-  /* ── Lucky data by zodiac ── */
-  const ZODIAC_LUCKY: Record<string, { color: string; number: string; direction: string; stone: string }> = {
-    '鼠': { color: '藍色、金色', number: '2、3', direction: '北方', stone: '石榴石' },
-    '牛': { color: '白色、黃色', number: '1、4', direction: '東北', stone: '翡翠' },
-    '虎': { color: '橙色、白色', number: '1、3', direction: '南方', stone: '藍晶石' },
-    '兔': { color: '紅色、粉色', number: '3、4', direction: '東方', stone: '珍珠' },
-    '龍': { color: '黃色、金色', number: '1、6', direction: '東方', stone: '黑曜石' },
-    '蛇': { color: '紅色、黑色', number: '2、8', direction: '南方', stone: '祖母綠' },
-    '馬': { color: '紫色、黃色', number: '2、3', direction: '南方', stone: '黃水晶' },
-    '羊': { color: '綠色、紅色', number: '3、9', direction: '南方', stone: '紫水晶' },
-    '猴': { color: '白色、藍色', number: '4、9', direction: '西北', stone: '矽孔雀石' },
-    '雞': { color: '金色、棕色', number: '5、7', direction: '西方', stone: '碧玉' },
-    '狗': { color: '紅色、綠色', number: '3、4', direction: '東方', stone: '鑽石' },
-    '豬': { color: '黃色、灰色', number: '2、5', direction: '東南', stone: '月光石' },
-  };
-
-  /* ── Year luck based on current year vs birth year interaction ── */
-  function getYearLuck(birthYear: number, currentYear: number) {
-    const birthZodiac = getZodiac(birthYear);
-    const currentZodiac = getZodiac(currentYear);
-    const CLASH: Record<string, string> = { '鼠':'馬','牛':'羊','虎':'猴','兔':'雞','龍':'狗','蛇':'豬','馬':'鼠','羊':'牛','猴':'虎','雞':'兔','狗':'龍','豬':'蛇' };
-    const HARM: Record<string, string> = { '鼠':'羊','牛':'馬','虎':'巳','兔':'辰','龍':'兔','蛇':'虎' };
-    if (CLASH[birthZodiac] === currentZodiac) {
-      return { level: '🔴 犯太歲', tip: `今年與太歲相沖，需注意健康、感情、財務三方面，建議多行善積德，可佩戴本命年守護飾品化解。` };
-    }
-    if (currentZodiac === birthZodiac) {
-      return { level: '⚠️ 值太歲', tip: `今年是你的本命年，太歲當頭坐，喜事多也是非多，建議行事謹慎，避免大投資大變動。` };
-    }
-    const harmMatch = Object.entries(HARM).find(([k, v]) => k === birthZodiac && v === currentZodiac);
-    if (harmMatch) {
-      return { level: '🟡 害太歲', tip: `今年有小害，人際關係需注意，宜低調行事，避免口舌是非。` };
-    }
-    return { level: '🟢 流年順遂', tip: `今年太歲與你相合，整體運勢平穩向上，適合推進重要計畫與人際關係的深化。` };
-  }
-
-  /* ────────────────────────────────────────────────
-     Main calculation
-  ──────────────────────────────────────────────── */
+  /* ── 計算按鈕 ── */
   document.getElementById('fp-calc')?.addEventListener('click', () => {
-    const dateVal = (document.getElementById('fp-bdate') as HTMLInputElement)?.value;
-    if (!dateVal) { alert('請輸入出生日期'); return; }
-    const [year, month, day] = dateVal.split('-').map(Number);
-    const name = (document.getElementById('fp-name') as HTMLInputElement)?.value.trim() || '你';
-    const hourVal = parseInt((document.getElementById('fp-hour') as HTMLSelectElement)?.value ?? '-1');
-    const hasHour = hourVal >= 0;
+    const dv = (document.getElementById('fp-bdate') as HTMLInputElement).value;
+    if (!dv) { alert('請輸入出生日期'); return; }
+    const [y,mo,d] = dv.split('-').map(Number);
+    const name = (document.getElementById('fp-name') as HTMLInputElement).value.trim()||'你';
+    const hv = parseInt((document.getElementById('fp-hour') as HTMLSelectElement).value??'-1');
+    const hasHour = hv >= 0;
 
-    const yearP = getYearPillar(year);
-    const monthP = getMonthPillar(year, month, day);
-    const dayP = getDayPillar(year, month, day);
-    const hourP = hasHour ? getHourPillar(dayP.ganIdx, hourVal) : null;
-
-    const zodiacCN = getZodiac(year);
-    const zodiacW = getWesternZodiac(month, day);
-    const wuxingCounts = countWuxing([yearP, monthP, dayP, ...(hourP ? [hourP] : [])]);
-    const palaceZhi = hasHour ? getLifePalace(month, hourVal) : null;
-    const yearLuck = getYearLuck(year, new Date().getFullYear());
+    const yp = getYearPillar(y); const mp = getMonthPillar(y,mo); const dp = getDayPillar(y,mo,d);
+    const hp = hasHour ? getHourPillar(dp.ganIdx,hv) : null;
+    const zodCN = getZodiac(y); const zodW = getWesternSign(mo,d);
+    const wx = countWuxing([yp,mp,dp,...(hp?[hp]:[])]);
+    const luck = getYearLuck(y, new Date().getFullYear());
+    const lucky = ZODIAC_LUCKY[zodCN];
+    const curY = new Date().getFullYear();
+    const palace = hasHour ? getPalace(mo,hv) : null;
 
     // Greeting
-    const greetingEl = document.getElementById('fp-greeting');
-    if (greetingEl) {
-      greetingEl.textContent = `${name}，歡迎探索你的命理宇宙`;
-    }
+    document.getElementById('res-greeting')!.innerHTML = `<h2 class="res-name">${name}，以下是你的命理解析</h2>`;
 
-    // Basic
-    const basicEl = document.getElementById('fp-basic');
-    if (basicEl) {
-      basicEl.innerHTML = `
-        <div class="fp-basic-card"><span class="bc-label">生肖</span><span class="bc-val">${zodiacCN}</span></div>
-        <div class="fp-basic-card"><span class="bc-label">年份</span><span class="bc-val">${yearP.gan}${yearP.zhi}年</span></div>
-        <div class="fp-basic-card"><span class="bc-label">西洋星座</span><span class="bc-val">${zodiacW}座</span></div>
-        <div class="fp-basic-card"><span class="bc-label">天干五行</span><span class="bc-val">${WUXING_TG[yearP.ganIdx]}</span></div>
-      `;
-    }
+    // 星座命盤
+    document.getElementById('zodiac-result')!.innerHTML = `
+      <div class="zr-card main">
+        <div class="zr-symbol">${getWesternSignSymbol(zodW)}</div>
+        <div>
+          <div class="zr-sign">${zodW}座</div>
+          <div class="zr-attr">${getElement(zodW)}</div>
+        </div>
+      </div>
+      <div class="zr-card"><div class="zr-label">生肖</div><div class="zr-val">${zodCN}</div></div>
+      <div class="zr-card"><div class="zr-label">干支年</div><div class="zr-val">${yp.gan}${yp.zhi}年</div></div>
+      <div class="zr-card"><div class="zr-label">幸運色</div><div class="zr-val">${lucky?.color??'—'}</div></div>
+      <div class="zr-card"><div class="zr-label">幸運數</div><div class="zr-val">${lucky?.num??'—'}</div></div>
+      <div class="zr-card"><div class="zr-label">吉利方位</div><div class="zr-val">${lucky?.dir??'—'}</div></div>
+      <div class="zr-card"><div class="zr-label">守護水晶</div><div class="zr-val">${lucky?.stone??'—'}</div></div>
+    `;
 
-    // 四柱八字
-    const baziEl = document.getElementById('fp-bazi');
-    if (baziEl) {
-      const pillars = [
-        { label: '年柱', p: yearP },
-        { label: '月柱', p: monthP },
-        { label: '日柱（主星）', p: dayP },
-        ...(hourP ? [{ label: '時柱', p: hourP }] : []),
-      ];
-      baziEl.innerHTML = `
-        <div class="bazi-grid">
-          ${pillars.map(({ label, p }) => `
-            <div class="bazi-pillar">
-              <span class="bazi-label">${label}</span>
-              <span class="bazi-gan" style="color: ${ganColor(p.ganIdx)}">${p.gan}</span>
-              <span class="bazi-zhi">${p.zhi}</span>
-            </div>`).join('')}
-        </div>`;
-    }
+    document.getElementById('year-fortune')!.innerHTML = `
+      <div class="yf-title">${curY} 年流年運勢</div>
+      <div class="yf-level" style="color:${luck.color}">${luck.level}</div>
+      <p class="yf-tip">${luck.tip}</p>
+    `;
 
-    // 五行分析
-    const wxEl = document.getElementById('fp-wuxing');
-    if (wxEl) {
-      const total = Object.values(wuxingCounts).reduce((a, b) => a + b, 0);
-      const WX_COLORS: Record<string, string> = { 木:'#4ade80', 火:'#f87171', 土:'#fbbf24', 金:'#e2e8f0', 水:'#60a5fa' };
-      wxEl.innerHTML = `<div class="wx-row">${
-        ['木','火','土','金','水'].map(w => {
-          const n = wuxingCounts[w] ?? 0;
-          const pct = total > 0 ? Math.round(n / total * 100) : 0;
-          return `<div class="wx-item">
-            <span class="wx-name" style="color:${WX_COLORS[w]}">${w}</span>
-            <div class="wx-bar-bg"><div class="wx-bar" style="width:${pct}%;background:${WX_COLORS[w]}30;border:1px solid ${WX_COLORS[w]}60"></div></div>
-            <span class="wx-pct">${n}</span>
-          </div>`;
-        }).join('')
-      }</div>`;
-    }
+    // 紫薇斗數
+    const palHtml = palace ? `
+      <div class="zw-palace-result">
+        <div class="zw-palace-zhi">${palace.zhi}宮　${palace.title}</div>
+        <div class="zw-palace-star">命宮主星：${palace.star}</div>
+        <p class="zw-palace-desc">${palace.desc}</p>
+      </div>` : `<p class="zw-no-hour">請選擇出生時辰以獲得命宮分析</p>`;
 
-    // 命宮
-    const palaceEl = document.getElementById('fp-palace');
-    const palaceSectionEl = document.getElementById('fp-palace-section');
-    if (palaceEl && palaceSectionEl) {
-      if (palaceZhi && PALACE_DESC[palaceZhi]) {
-        const pd = PALACE_DESC[palaceZhi];
-        palaceEl.innerHTML = `
-          <div class="palace-card">
-            <span class="palace-zhi">${palaceZhi}宮</span>
-            <span class="palace-star">主星：${pd.star}</span>
-            <p class="palace-desc">${pd.desc}</p>
-          </div>`;
-        palaceSectionEl.style.display = '';
-      } else {
-        palaceSectionEl.style.display = 'none';
-      }
-    }
+    const wxHtml = ['木','火','土','金','水'].map(w=>{
+      const n=wx[w]??0; const t=Object.values(wx).reduce((a,b)=>a+b,0);
+      const pct=t>0?Math.round(n/t*100):0;
+      return `<div class="wx-col"><span class="wx-n" style="color:${WX_COLOR[w]}">${w}</span><div class="wx-bg"><div class="wx-bar" style="width:${pct}%;background:${WX_COLOR[w]}40;border:1px solid ${WX_COLOR[w]}80"></div></div><span class="wx-c">${n}</span></div>`;
+    }).join('');
 
-    // 今年運勢
-    const luckEl = document.getElementById('fp-luck');
-    if (luckEl) {
-      luckEl.innerHTML = `
-        <div class="luck-card">
-          <span class="luck-level">${yearLuck.level}</span>
-          <p class="luck-tip">${yearLuck.tip}</p>
-        </div>`;
-    }
+    document.getElementById('ziwei-result')!.innerHTML = palHtml + `
+      <div class="zw-section-title">五行能量分布</div>
+      <div class="wx-row">${wxHtml}</div>`;
 
-    // 幸運資訊
-    const luckyEl = document.getElementById('fp-lucky');
-    const luckyData = ZODIAC_LUCKY[zodiacCN];
-    if (luckyEl && luckyData) {
-      luckyEl.innerHTML = `
-        <div class="lucky-grid">
-          <div class="lucky-item"><span class="lucky-l">幸運色</span><span>${luckyData.color}</span></div>
-          <div class="lucky-item"><span class="lucky-l">幸運數</span><span>${luckyData.number}</span></div>
-          <div class="lucky-item"><span class="lucky-l">吉利方位</span><span>${luckyData.direction}</span></div>
-          <div class="lucky-item"><span class="lucky-l">守護水晶</span><span>${luckyData.stone}</span></div>
-        </div>`;
-    }
+    // 八字
+    const pillars=[{l:'年柱',p:yp},{l:'月柱',p:mp},{l:'日柱（日主）',p:dp},...(hp?[{l:'時柱',p:hp}]:[])];
+    const baziHtml = pillars.map(({l,p})=>`
+      <div class="bz-pillar">
+        <span class="bz-label">${l}</span>
+        <span class="bz-gan" style="color:${GAN_COLOR[p.ganIdx]}">${p.gan}</span>
+        <span class="bz-zhi">${p.zhi}</span>
+        <span class="bz-wx" style="color:${WX_COLOR[WUXING_TG[p.ganIdx]]}">${WUXING_TG[p.ganIdx]}</span>
+      </div>`).join('');
+    document.getElementById('bazi-result')!.innerHTML = `
+      <div class="bz-grid">${baziHtml}</div>
+      <p class="bz-note">日主（${dp.gan}）為命主本身，代表你的個性能量。日主天干為<strong>${WUXING_TG[dp.ganIdx]}</strong>屬性，${getBaziNote(dp.ganIdx)}</p>`;
 
-    const resultsEl = document.getElementById('fp-results');
-    if (resultsEl) {
-      resultsEl.style.display = '';
-      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    document.getElementById('fp-results')!.style.display='';
+    document.getElementById('fp-results')!.scrollIntoView({behavior:'smooth'});
   });
 
-  function ganColor(ganIdx: number) {
-    const COLORS = ['#4ade80','#86efac','#f87171','#fca5a5','#fbbf24','#fde68a','#e2e8f0','#cbd5e1','#60a5fa','#93c5fd'];
-    return COLORS[ganIdx] ?? '#e2e8f0';
+  function getBaziNote(gi: number) {
+    const notes=['甲木頂天立地，正直剛強，有進取心，重名譽。','乙木柔韌如藤，善於適應環境，心思細膩，有美感。','丙火光明磊落，熱情外向，慷慨大方，正義感強。','丁火溫柔含蓄，思慮周全，有藝術才能，感情細膩。','戊土寬厚穩重，包容萬物，可靠可信，踏實務實。','己土柔和親切，善解人意，重視人際，有藝術氣質。','庚金剛強果斷，行動力強，重義氣，有俠義精神。','辛金溫潤精緻，注重品味，有審美力，處事謹慎。','壬水廣博聰慧，適應力強，有遠見，善於化解矛盾。','癸水清澈靈動，直覺敏銳，多愁善感，富有同情心。'];
+    return notes[gi]??'';
   }
+
+  /* ── 結果Tab切換 ── */
+  document.querySelectorAll<HTMLButtonElement>('.res-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const target=btn.dataset.panel!;
+      document.querySelectorAll('.res-tab').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.res-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`panel-${target}`)?.classList.add('active');
+    });
+  });
+
+  /* ── 卜卦易經 ── */
+  const HEXAGRAMS = [
+    {n:1,name:'乾為天',sym:'䷀',judge:'大吉',meaning:'天行健，剛健自強。諸事宜積極進取，勇往直前。'},
+    {n:2,name:'坤為地',sym:'䷁',judge:'中吉',meaning:'厚德載物，以柔克剛。宜靜待時機，順勢而行。'},
+    {n:3,name:'水雷屯',sym:'䷂',judge:'待時',meaning:'萬事起頭難，初始多阻礙。堅持不放棄，終有所成。'},
+    {n:4,name:'山水蒙',sym:'䷃',judge:'宜學',meaning:'蒙昧未開，宜謙虛求學。誠心求師，智慧漸長。'},
+    {n:5,name:'水天需',sym:'䷄',judge:'等待',meaning:'時機未成熟，宜等待。耐心守正，吉祥可期。'},
+    {n:6,name:'天水訟',sym:'䷅',judge:'宜和',meaning:'有爭訟之象，宜以和為貴。退一步海闊天空。'},
+    {n:7,name:'地水師',sym:'䷆',judge:'紀律',meaning:'整頓紀律，凝聚力量。以正義帶領眾人前行。'},
+    {n:8,name:'水地比',sym:'䷇',judge:'合作',meaning:'比鄰相親，宜廣結善緣。合作共贏，吉祥如意。'},
+    {n:11,name:'地天泰',sym:'䷊',judge:'大吉',meaning:'陰陽交泰，萬事亨通。此乃極佳之象，宜積極行動。'},
+    {n:12,name:'天地否',sym:'䷋',judge:'受阻',meaning:'天地不交，萬物滯礙。暫時蟄伏，靜待時機轉變。'},
+    {n:14,name:'火天大有',sym:'䷍',judge:'豐盛',meaning:'財富豐盛，地位崇高。盛時宜謙，廣施恩德。'},
+    {n:17,name:'澤雷隨',sym:'䷐',judge:'順應',meaning:'順應時勢，靈活應變。跟隨正確方向，可獲佳果。'},
+    {n:22,name:'山火賁',sym:'䷕',judge:'美飾',meaning:'外表光鮮，注重儀態。內外兼修，方為真美。'},
+    {n:29,name:'坎為水',sym:'䷜',judge:'險阻',meaning:'重重險阻，考驗重重。保持誠信，靜待險去。'},
+    {n:30,name:'離為火',sym:'䷝',judge:'光明',meaning:'光明磊落，才華煥發。依附正道，前途光明。'},
+    {n:36,name:'地火明夷',sym:'䷣',judge:'隱忍',meaning:'光明受損，宜低調隱忍。靜待時機，蓄積力量。'},
+    {n:40,name:'雷水解',sym:'䷧',judge:'解困',meaning:'困境解除，萬物舒展。把握時機，行動不拖延。'},
+    {n:42,name:'風雷益',sym:'䷩',judge:'增益',meaning:'益上下損，萬民皆喜。慷慨施予，福報自來。'},
+    {n:48,name:'水風井',sym:'䷯',judge:'求源',meaning:'飲水思源，取之不盡。固守本職，方能長久。'},
+    {n:50,name:'火風鼎',sym:'䷱',judge:'革新',meaning:'鼎器革新，萬象更新。把握變革時機，建立新秩序。'},
+    {n:55,name:'雷火豐',sym:'䷶',judge:'豐盛',meaning:'豐收之象，光明燦爛。盛世當及時行樂，也需居安思危。'},
+    {n:58,name:'兌為澤',sym:'䷹',judge:'喜悅',meaning:'喜悅相感，萬事和諧。以誠相待，廣結善緣。'},
+    {n:63,name:'水火既濟',sym:'䷾',judge:'已成',meaning:'諸事已成，各得其位。謹守成果，防微杜漸。'},
+    {n:64,name:'火水未濟',sym:'䷿',judge:'待成',meaning:'事業未竟，仍在路上。堅持努力，終將成功。'},
+  ];
+
+  document.getElementById('iching-cast')?.addEventListener('click', ()=>{
+    const idx = Math.floor(Math.random()*HEXAGRAMS.length);
+    const hex = HEXAGRAMS[idx];
+    const q = (document.getElementById('iching-q') as HTMLInputElement).value.trim();
+    const colors: Record<string,string>={大吉:'#22c55e',中吉:'#4ade80',豐盛:'#22c55e',喜悅:'#4ade80',已成:'#60a5fa',解困:'#60a5fa',合作:'#60a5fa',光明:'#f59e0b',增益:'#f59e0b',革新:'#f59e0b',美飾:'#a78bfa',求源:'#94a3b8',順應:'#94a3b8',紀律:'#94a3b8',宜學:'#94a3b8',宜和:'#94a3b8',等待:'#94a3b8',待時:'#f59e0b',待成:'#f59e0b',受阻:'#f87171',險阻:'#ef4444',隱忍:'#f87171'};
+    const c=colors[hex.judge]??'#94a3b8';
+    const el=document.getElementById('iching-result')!;
+    el.style.display='block';
+    el.innerHTML=`
+      <div class="iching-cast-result">
+        ${q?`<div class="iching-q-display">問：${q}</div>`:''}
+        <div class="iching-hex-display">
+          <div class="ihex-num">第 ${hex.n} 卦</div>
+          <div class="ihex-sym">${hex.sym}</div>
+          <div class="ihex-name">${hex.name}</div>
+          <div class="ihex-judge" style="color:${c}">【${hex.judge}】</div>
+        </div>
+        <p class="ihex-meaning">${hex.meaning}</p>
+        <button class="iching-again" onclick="document.getElementById('iching-cast').click()">🔄 再擲一卦</button>
+      </div>`;
+  });
 </script>
 
 <style>
-  main { max-width: 900px; margin: auto; padding: 1em 1.2em 4em; }
+.fp-main { max-width: 1080px; margin: 0 auto; padding: 0 1.2em 5em; color: #e2e8f0; }
 
-  .fortune-page { color: #e2e8f0; }
+/* Hero */
+.fp-hero { text-align: center; padding: 2.5em 1em 1.5em; }
+.fp-badge { display: inline-block; background: rgba(168,85,247,.12); border: 1px solid rgba(168,85,247,.25); color: #c084fc; font-size: .72em; font-weight: 700; padding: .3em 1em; border-radius: 20px; margin-bottom: .8em; letter-spacing: .05em; }
+.fp-hero h1 { font-size: clamp(1.6em,4vw,2.4em); font-weight: 900; color: #f1f5f9; margin-bottom: .4em; }
+.fp-sub { font-size: .9em; color: #64748b; line-height: 1.7; }
 
-  .fp-hero {
-    text-align: center;
-    padding: 2em 0 1.5em;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    margin-bottom: 1.5em;
-  }
+/* Form */
+.fp-form-wrap { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1.5em; margin-bottom: 1.5em; }
+.fp-form { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: .8em; align-items: end; }
+.fp-field { display: flex; flex-direction: column; gap: .3em; }
+.fp-field label { font-size: .72em; color: #64748b; font-weight: 600; }
+.fp-field input, .fp-field select { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: #f1f5f9; font-size: .85em; padding: .5em .7em; outline: none; }
+.fp-field input:focus, .fp-field select:focus { border-color: rgba(168,85,247,.5); }
+.fp-field select option { background: #1e293b; }
+.fp-btn { background: linear-gradient(135deg,#7e22ce,#a855f7); color: white; border: none; border-radius: 10px; font-size: .9em; font-weight: 700; padding: .65em 1.3em; cursor: pointer; transition: opacity .15s; white-space: nowrap; }
+.fp-btn:hover { opacity: .85; }
+.fp-note { font-size: .7em; color: #334155; margin: .7em 0 0; text-align: center; }
 
-  .fp-hero h1 { font-size: 1.8em; margin-bottom: 0.3em; }
-  .fp-hero p { color: #94a3b8; font-size: 0.9em; margin: 0.2em 0; }
-  .fp-disclaimer { font-size: 0.75em !important; color: #475569 !important; }
+/* Results */
+.res-tabs { display: flex; gap: .4em; margin-bottom: 1em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); padding: .3em; border-radius: 10px; }
+.res-tab { flex: 1; background: none; border: none; color: #64748b; font-size: .78em; font-weight: 600; padding: .5em; border-radius: 7px; cursor: pointer; transition: all .15s; }
+.res-tab.active { background: rgba(168,85,247,.2); color: #c084fc; }
+.res-tab:hover:not(.active) { color: #e2e8f0; }
+.res-panel { display: none; }
+.res-panel.active { display: block; }
+.res-greeting { margin-bottom: 1em; }
+.res-name { font-size: 1.1em; font-weight: 700; color: #f1f5f9; margin: 0; }
 
-  /* Form */
-  .fp-form {
-    background: linear-gradient(135deg, #0f1629 0%, #1a2f5e 100%);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 1.5em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr auto;
-    gap: 0.8em;
-    align-items: end;
-    margin-bottom: 1.5em;
-  }
+/* Zodiac result */
+.zodiac-result-grid { display: grid; grid-template-columns: auto repeat(6,1fr); gap: .6em; margin-bottom: 1em; }
+.zr-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .6em .8em; display: flex; align-items: center; gap: .5em; }
+.zr-card.main { background: rgba(168,85,247,.08); border-color: rgba(168,85,247,.2); }
+.zr-symbol { font-size: 1.8em; }
+.zr-sign { font-size: 1em; font-weight: 800; color: #c084fc; }
+.zr-attr { font-size: .7em; color: #64748b; }
+.zr-label { font-size: .65em; color: #475569; display: block; }
+.zr-val { font-size: .82em; font-weight: 700; color: #e2e8f0; }
 
-  .fp-field { display: flex; flex-direction: column; gap: 0.3em; }
-  .fp-field label { font-size: 0.72em; color: #64748b; font-weight: 600; }
+/* Year fortune */
+.year-fortune-box { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1em 1.2em; }
+.yf-title { font-size: .72em; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5em; }
+.yf-level { font-size: 1em; font-weight: 800; margin-bottom: .4em; }
+.yf-tip { font-size: .85em; color: #94a3b8; line-height: 1.7; margin: 0; }
 
-  .fp-field input, .fp-field select {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    color: #f1f5f9;
-    font-size: 0.85em;
-    padding: 0.5em 0.7em;
-    outline: none;
-  }
+/* Zi Wei result */
+.zw-palace-result { background: rgba(168,85,247,.06); border: 1px solid rgba(168,85,247,.15); border-radius: 12px; padding: 1em 1.2em; margin-bottom: 1em; }
+.zw-palace-zhi { font-size: 1em; font-weight: 800; color: #a78bfa; margin-bottom: .2em; }
+.zw-palace-star { font-size: .75em; color: #64748b; margin-bottom: .5em; }
+.zw-palace-desc { font-size: .85em; color: #cbd5e1; line-height: 1.6; margin: 0; }
+.zw-no-hour { font-size: .85em; color: #475569; text-align: center; padding: 1.5em; }
+.zw-section-title { font-size: .72em; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin: 1em 0 .5em; }
+.wx-row { display: flex; gap: .5em; }
+.wx-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: .2em; }
+.wx-n { font-size: .95em; font-weight: 800; }
+.wx-bg { width: 100%; height: 36px; background: rgba(255,255,255,.04); border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; }
+.wx-bar { height: 100%; border-radius: 4px; min-height: 4px; transition: width .8s; }
+.wx-c { font-size: .72em; color: #475569; }
 
-  .fp-field input:focus, .fp-field select:focus {
-    border-color: rgba(118,17,166,0.5);
-  }
+/* Ba Zi result */
+.bz-grid { display: flex; gap: 1em; flex-wrap: wrap; margin-bottom: 1em; }
+.bz-pillar { display: flex; flex-direction: column; align-items: center; gap: .2em; background: rgba(255,255,255,.04); border-radius: 10px; padding: .7em 1em; min-width: 75px; }
+.bz-label { font-size: .62em; color: #475569; }
+.bz-gan { font-size: 1.6em; font-weight: 900; }
+.bz-zhi { font-size: 1.2em; color: #94a3b8; }
+.bz-wx { font-size: .72em; font-weight: 700; }
+.bz-note { font-size: .82em; color: #94a3b8; line-height: 1.6; background: rgba(255,255,255,.03); border-radius: 8px; padding: .8em 1em; margin: 0; }
 
-  .fp-field select option { background: #1e293b; }
+/* Knowledge sections */
+.knowledge-section { margin-top: 2.5em; border-top: 1px solid rgba(255,255,255,.06); padding-top: 2em; }
+.ks-header { text-align: center; margin-bottom: 1.8em; }
+.ks-title { font-size: 1.4em; font-weight: 900; color: #f1f5f9; margin-bottom: .3em; }
+.ks-sub { font-size: .82em; color: #64748b; }
+.sub-heading { font-size: .78em; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin: 1.8em 0 .8em; border-bottom: 1px solid rgba(255,255,255,.06); padding-bottom: .5em; }
 
-  .fp-btn {
-    background: var(--accent, #7611a6);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.9em;
-    font-weight: 700;
-    padding: 0.6em 1.2em;
-    cursor: pointer;
-    transition: opacity 0.15s;
-    white-space: nowrap;
-  }
-  .fp-btn:hover { opacity: 0.85; }
+/* I Ching tool */
+.iching-tool { display: flex; gap: .8em; align-items: flex-end; margin-bottom: 1em; flex-wrap: wrap; }
+.iching-question { display: flex; flex-direction: column; gap: .3em; flex: 1; min-width: 200px; }
+.iching-question label { font-size: .72em; color: #64748b; font-weight: 600; }
+.iching-question input { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: #f1f5f9; font-size: .85em; padding: .5em .7em; outline: none; }
+.iching-btn { background: linear-gradient(135deg,#581c87,#7e22ce); color: white; border: none; border-radius: 10px; font-size: .9em; font-weight: 700; padding: .6em 1.4em; cursor: pointer; white-space: nowrap; transition: opacity .15s; }
+.iching-btn:hover { opacity: .85; }
 
-  /* Results */
-  .fp-results { display: flex; flex-direction: column; gap: 1em; }
+.iching-cast-result { background: rgba(168,85,247,.06); border: 1px solid rgba(168,85,247,.2); border-radius: 14px; padding: 1.2em 1.5em; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5em; }
+.iching-q-display { font-size: .82em; color: #64748b; align-self: flex-start; }
+.ihex-num { font-size: .7em; color: #64748b; }
+.ihex-sym { font-size: 3em; line-height: 1; }
+.ihex-name { font-size: 1.2em; font-weight: 800; color: #e2e8f0; }
+.ihex-judge { font-size: .9em; font-weight: 700; }
+.ihex-meaning { font-size: .85em; color: #94a3b8; line-height: 1.7; max-width: 500px; margin: 0; }
+.iching-again { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #94a3b8; padding: .4em 1em; border-radius: 8px; cursor: pointer; font-size: .78em; transition: all .15s; }
+.iching-again:hover { background: rgba(255,255,255,.1); color: #e2e8f0; }
 
-  .fp-section {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 1.2em 1.4em;
-  }
+/* Trigrams */
+.trigrams { display: grid; grid-template-columns: repeat(4,1fr); gap: .8em; }
+.trigram-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1em; }
+.tri-symbol { font-size: 1.8em; margin-bottom: .3em; }
+.tri-name { font-size: .88em; font-weight: 700; color: #c084fc; margin-bottom: .1em; }
+.tri-attr { font-size: .7em; color: #64748b; margin-bottom: .5em; }
+.tri-desc { font-size: .78em; color: #94a3b8; line-height: 1.6; margin: 0; }
 
-  .fp-section h2 { font-size: 1.1em; margin: 0 0 0.8em; color: #f1f5f9; }
-  .fp-section-title {
-    font-size: 0.82em;
-    font-weight: 700;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 0 0.8em;
-  }
+/* Hexagrams highlight */
+.hex-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .8em; }
+.hex-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .9em 1em; }
+.hex-num { font-size: .65em; color: #475569; margin-bottom: .2em; }
+.hex-name { font-size: .88em; font-weight: 700; color: #a78bfa; margin-bottom: .5em; }
+.hex-meaning { font-size: .78em; color: #94a3b8; line-height: 1.6; margin: 0; }
 
-  /* Basic grid */
-  .fp-basic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; }
+/* Zodiac full */
+.zodiac-full-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+.zf-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1.1em 1.2em; }
+.zf-card.fire { border-color: rgba(248,113,113,.15); }
+.zf-card.earth { border-color: rgba(251,191,36,.15); }
+.zf-card.air { border-color: rgba(96,165,250,.15); }
+.zf-card.water { border-color: rgba(96,165,250,.2); }
+.zf-head { display: flex; align-items: center; gap: .7em; margin-bottom: .7em; }
+.zf-symbol { font-size: 1.6em; }
+.zf-name { font-size: .95em; font-weight: 800; color: #e2e8f0; }
+.zf-date { font-size: .68em; color: #64748b; margin-top: .1em; }
+.zf-card p { font-size: .8em; color: #94a3b8; line-height: 1.75; margin: 0; }
 
-  .fp-basic-card {
-    background: rgba(255,255,255,0.04);
-    border-radius: 8px;
-    padding: 0.6em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3em;
-  }
+/* Zi Wei palaces */
+.ziwei-intro { background: rgba(168,85,247,.05); border-left: 3px solid rgba(168,85,247,.4); padding: .8em 1.1em; border-radius: 0 8px 8px 0; margin-bottom: 1.5em; font-size: .85em; color: #94a3b8; line-height: 1.7; }
+.palaces-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9em; }
+.palace-card-full { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1em 1.2em; }
+.palace-card-full h4 { font-size: .85em; font-weight: 700; color: #c084fc; margin: 0 0 .5em; }
+.palace-card-full p { font-size: .8em; color: #94a3b8; line-height: 1.7; margin: 0; }
 
-  .bc-label { font-size: 0.65em; color: #475569; }
-  .bc-val { font-size: 1em; font-weight: 700; color: #f1f5f9; }
+/* Stars grid */
+.stars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: .5em; }
+.star-item { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 8px; padding: .5em .7em; display: flex; flex-direction: column; gap: .2em; }
+.star-name { font-size: .82em; font-weight: 700; color: #a78bfa; }
+.star-trait { font-size: .7em; color: #64748b; line-height: 1.4; }
 
-  /* 八字 */
-  .bazi-grid { display: flex; gap: 0.8em; flex-wrap: wrap; }
-
-  .bazi-pillar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2em;
-    background: rgba(255,255,255,0.04);
-    border-radius: 8px;
-    padding: 0.6em 0.9em;
-    min-width: 70px;
-  }
-
-  .bazi-label { font-size: 0.62em; color: #475569; }
-  .bazi-gan { font-size: 1.5em; font-weight: 800; }
-  .bazi-zhi { font-size: 1.2em; color: #94a3b8; }
-
-  /* 五行 */
-  .wx-row { display: flex; gap: 0.5em; align-items: stretch; margin-top: 0.6em; }
-
-  .wx-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3em;
-  }
-
-  .wx-name { font-size: 1em; font-weight: 800; }
-  .wx-bar-bg { width: 100%; height: 40px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; display: flex; align-items: flex-end; }
-  .wx-bar { width: 0%; height: 100%; border-radius: 4px; transition: width 0.8s; min-height: 4px; }
-  .wx-pct { font-size: 0.75em; color: #64748b; }
-
-  /* Palace */
-  .palace-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-  }
-
-  .palace-zhi { font-size: 1.1em; font-weight: 800; color: #a78bfa; }
-  .palace-star { font-size: 0.8em; color: #64748b; }
-  .palace-desc { font-size: 0.85em; color: #cbd5e1; line-height: 1.6; margin: 0; }
-
-  /* Luck */
-  .luck-card { display: flex; flex-direction: column; gap: 0.4em; }
-  .luck-level { font-size: 1em; font-weight: 700; }
-  .luck-tip { font-size: 0.85em; color: #94a3b8; line-height: 1.6; margin: 0; }
-
-  /* Lucky */
-  .lucky-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5em; }
-
-  .lucky-item {
-    background: rgba(255,255,255,0.04);
-    border-radius: 8px;
-    padding: 0.5em 0.7em;
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-    font-size: 0.82em;
-    color: #f1f5f9;
-  }
-
-  .lucky-l { color: #475569; font-size: 0.88em; flex-shrink: 0; }
-
-  @media (max-width: 700px) {
-    .fp-form { grid-template-columns: 1fr 1fr; }
-    .fp-btn { grid-column: 1 / -1; }
-    .fp-basic-grid { grid-template-columns: repeat(2, 1fr); }
-    .lucky-grid { grid-template-columns: 1fr; }
-  }
+/* Responsive */
+@media (max-width:900px) {
+  .fp-form { grid-template-columns: 1fr 1fr; }
+  .fp-btn { grid-column: 1/-1; }
+  .zodiac-result-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .zodiac-full-grid { grid-template-columns: 1fr; }
+  .palaces-grid { grid-template-columns: 1fr; }
+  .trigrams { grid-template-columns: repeat(2,1fr); }
+  .hex-grid { grid-template-columns: 1fr 1fr; }
+  .stars-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width:600px) {
+  .fp-form { grid-template-columns: 1fr; }
+  .zodiac-result-grid { grid-template-columns: 1fr 1fr; }
+  .trigrams { grid-template-columns: 1fr; }
+  .hex-grid { grid-template-columns: 1fr; }
+}
 </style>

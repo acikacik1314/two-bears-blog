@@ -161,6 +161,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				<button class="tab-btn active" data-tab="guide">📅 今日指引</button>
 				<button class="tab-btn" data-tab="survival">🛡 生存防災</button>
 				<button class="tab-btn" data-tab="soul">🕯 心靈互動</button>
+				<button class="tab-btn" data-tab="gpt">🤖 AI問熊</button>
 			</div>
 			<div class="tab-content active" id="tab-guide">
 				<GlobalCountdown />
@@ -171,6 +172,16 @@ const CATEGORY_ICONS: Record<string, string> = {
 			</div>
 			<div class="tab-content" id="tab-soul">
 				<MessageWall />
+			</div>
+			<div class="tab-content" id="tab-gpt">
+				<iframe
+					src="/biggsgpt"
+					width="100%"
+					height="520"
+					style="border:none;border-radius:12px;display:block;"
+					title="比格斯 GPT"
+					loading="lazy"
+				></iframe>
 			</div>
 
 			<ProphecyPoll />
@@ -298,7 +309,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 /* ── Sidebar ── */
 .tools-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1em; }
-.tab-bar { display: grid; grid-template-columns: repeat(3,1fr); gap: .3em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .3em; }
+.tab-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: .3em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .3em; }
 .tab-btn { background: transparent; border: none; color: #94a3b8; font-size: .72em; font-weight: 600; padding: .45em .3em; border-radius: 7px; cursor: pointer; transition: all .15s; white-space: nowrap; }
 .tab-btn.active { background: rgba(168,85,247,.2); color: #c084fc; }
 .tab-btn:hover:not(.active) { color: #e2e8f0; background: rgba(255,255,255,.04); }

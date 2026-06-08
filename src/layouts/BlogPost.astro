@@ -215,4 +215,13 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 		</main>
 		<Footer />
 	</body>
+	<script define:vars={{ slug: Astro.url.pathname }}>
+		// Fire-and-forget view tracking
+		fetch('/api/view', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ slug }),
+			keepalive: true,
+		}).catch(() => {});
+	</script>
 </html>

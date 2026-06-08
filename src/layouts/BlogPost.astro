@@ -12,6 +12,7 @@ import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
 import NewsletterSubscribe from '../components/NewsletterSubscribe.astro';
 import AffiliateLinks from '../components/AffiliateLinks.astro';
 import PredictionCheck from '../components/PredictionCheck.astro';
+import ProphecyVote from '../components/ProphecyVote.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
@@ -372,6 +373,8 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 							<button class="share-btn share-copy" id="copy-link-btn" data-url={pageUrl}>🔗 複製連結</button>
 						</div>
 					</div>
+
+					<ProphecyVote slug={Astro.url.pathname} />
 
 					<NewsletterSubscribe />
 

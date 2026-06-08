@@ -4,58 +4,56 @@ import type { APIRoute } from 'astro';
 export const GET: APIRoute = async () => {
   const out: { quotes: any[]; crypto: Record<string, any> } = { quotes: [], crypto: {} };
 
-  const YF_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+  const CNBC_HDR = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36',
+    'Referer': 'https://www.cnbc.com/',
     'Accept': 'application/json, */*',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Referer': 'https://finance.yahoo.com/',
+  };
+
+  // CNBC symbol → Yahoo Finance symbol (frontend reads Yahoo-style keys)
+  const SYM_MAP: Record<string, string> = {
+    '.SPX':  '^GSPC',
+    '.VIX':  '^VIX',
+    '.IXIC': '^IXIC',
+    '@CL.1': 'CL=F',
+    '@GC.1': 'GC=F',
+    '.TWII': '^TWII',
+    'TSM':   'TSM',
   };
 
   await Promise.allSettled([
-    // Stocks + VIX via Yahoo Finance (try query2/v8 first, fall back to query1/v7)
+    // ── Stocks + VIX + Oil + Gold via CNBC (no auth required) ──
     (async () => {
-      const symbols = '%5ETWII,%5EGSPC,%5EVIX,%5EIXIC,CL%3DF';
-      let d: any = null;
+      const syms = Object.keys(SYM_MAP).join('|');
       try {
         const r = await fetch(
-          `https://query2.finance.yahoo.com/v8/finance/quote?symbols=${symbols}`,
-          { headers: YF_HEADERS, signal: AbortSignal.timeout(7000) }
+          `https://quote.cnbc.com/quote-html-webservice/quote.htm?symbols=${encodeURIComponent(syms)}&output=json`,
+          { headers: CNBC_HDR, signal: AbortSignal.timeout(8000) }
         );
-        if (r.ok) d = await r.json();
+        if (!r.ok) return;
+        const d = await r.json();
+        let qs = d?.QuickQuoteResult?.QuickQuote ?? [];
+        if (!Array.isArray(qs)) qs = [qs];
+        for (const q of qs) {
+          const mapped = SYM_MAP[q.symbol];
+          if (mapped && q.last != null) {
+            out.quotes.push({
+              symbol: mapped,
+              price: parseFloat(q.last),
+              change: q.change_pct != null ? parseFloat(q.change_pct) : null,
+            });
+          }
+        }
       } catch {}
-      if (!d) {
-        try {
-          const r = await fetch(
-            `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}`,
-            { headers: YF_HEADERS, signal: AbortSignal.timeout(7000) }
-          );
-          if (r.ok) d = await r.json();
-        } catch {}
-      }
-      if (!d) return;
-      const results = d.quoteResponse?.result ?? [];
-      for (const s of results) {
-        out.quotes.push({ symbol: s.symbol, price: s.regularMarketPrice ?? null, change: s.regularMarketChangePercent ?? null });
-      }
     })(),
 
-    // BTC + ETH + XRP via CoinGecko (free, no key)
+    // ── Crypto via CoinGecko (free, no key) ──
     fetch(
       'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple&vs_currencies=usd&include_24hr_change=true',
       { signal: AbortSignal.timeout(8000) }
     )
-      .then(r => (r.ok ? r.json() : null))
-      .then(d => { if (d) out.crypto = d; }),
-
-    // Gold via goldprice.org (free, no key needed)
-    fetch('https://data-asg.goldprice.org/dbXRates/USD', { signal: AbortSignal.timeout(7000) })
       .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        const item = d?.items?.[0];
-        if (item?.xauPrice) {
-          out.quotes.push({ symbol: 'GC=F', price: item.xauPrice, change: item.pcXau ?? null });
-        }
-      })
+      .then(d => { if (d) out.crypto = d; })
       .catch(() => {}),
   ]);
 

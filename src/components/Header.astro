@@ -16,10 +16,11 @@ import UserMenu from './UserMenu.astro';
       <span class="ticker-item" id="t-nasdaq">📈 NASDAQ <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-sp500">📊 S&P500 <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-fng">😱 恐慌貪婪 <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-cnytwd">🇨🇳 CNY/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-jpytwd">🇯🇵 JPY/TWD <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-usdtwd">💱 USD/TWD <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-btc">🪙 BTC <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-twii">台股 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-tsm">🔵 台積電ADR <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-weather">🌏 台北天氣 <span class="t-wait">—</span></span>
     </div>
     <!-- duplicate for seamless loop -->
@@ -32,10 +33,11 @@ import UserMenu from './UserMenu.astro';
       <span class="ticker-item" id="t-nasdaq2">📈 NASDAQ <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-sp5002">📊 S&P500 <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-fng2">😱 恐慌貪婪 <span class="t-wait">—</span></span>
-      <span class="ticker-item" id="t-cnytwd2">🇨🇳 CNY/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-jpytwd2">🇯🇵 JPY/TWD <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-usdtwd2">💱 USD/TWD <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-btc2">🪙 BTC <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-twii2">台股 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-tsm2">🔵 台積電ADR <span class="t-wait">—</span></span>
       <span class="ticker-item" id="t-weather2">🌏 台北天氣 <span class="t-wait">—</span></span>
     </div>
   </div>
@@ -103,6 +105,7 @@ import UserMenu from './UserMenu.astro';
       }
       if (qs['^IXIC']) setTicker('nasdaq', `📈 NASDAQ <span>${fmt(qs['^IXIC'].price)}${chg(qs['^IXIC'].change)}</span>`);
       if (qs['CL=F']) setTicker('oil', `🛢 油價 <span class="text-orange-300">$${fmt(qs['CL=F'].price, 2)}</span>`);
+      if (qs['TSM']) setTicker('tsm', `🔵 台積電ADR <span>${fmt(qs['TSM'].price, 2)}${chg(qs['TSM'].change)}</span>`);
     } catch {}
   }
 
@@ -113,12 +116,9 @@ import UserMenu from './UserMenu.astro';
       if (j?.result !== 'success') return;
       const twd = j.rates?.TWD;
       const jpy = j.rates?.JPY;
-      const cny = j.rates?.CNY;
       const jpytwd = twd && jpy ? twd / jpy : null;
-      const cnytwd = twd && cny ? twd / cny : null;
       if (twd) setTicker('usdtwd', `💱 USD/TWD <span class="text-blue-300">${twd.toFixed(2)}</span>`);
-      if (jpytwd) setTicker('jpytwd', `JPY/TWD <span class="text-blue-300">${jpytwd.toFixed(4)}</span>`);
-      if (cnytwd) setTicker('cnytwd', `🇨🇳 CNY/TWD <span class="text-blue-300">${cnytwd.toFixed(4)}</span>`);
+      if (jpytwd) setTicker('jpytwd', `🇯🇵 JPY/TWD <span class="text-blue-300">${jpytwd.toFixed(4)}</span>`);
     } catch {}
   }
 

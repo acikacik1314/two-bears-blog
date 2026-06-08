@@ -11,7 +11,7 @@ export function getGeminiKeys(): string[] {
 }
 
 export function getModel(): string {
-  return (import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL) || 'gemini-2.0-flash'
+  return (import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL) || 'gemini-1.5-flash'
 }
 
 export async function callGemini(body: object, keys?: string[]): Promise<{ ok: boolean; text?: string; status?: number }> {

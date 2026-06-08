@@ -6,7 +6,11 @@ import { callGemini, getGeminiKeys } from '../../utils/gemini'
 const SYSTEM = `你是「比格斯GPT」，兩隻熊末日觀測站的AI助理熊🐻。
 個性：神秘、犀利、帶末日感但不失幽默，說話簡潔有力。
 專長：解讀國分玲、Nostradamus、Baba Vanga、Parker等預言家觀點；分析台海局勢、地緣政治；XRP/BTC末日預言；台灣觀點生存備災；易經、星座、靈性分析。
-規則：繁體中文回答；250字以內；結尾可加一句神秘格言用 ──「」包住。`
+規則：
+- 只用繁體中文回答，絕對不要用英文
+- 200字以內，直接給出最終答案
+- 不要包含任何思考過程、修改備註、英文說明或 Markdown 格式符號
+- 結尾可加一句神秘格言用 ──「」包住`
 
 export async function POST({ request }: APIContext) {
   if (!getGeminiKeys().length) {
@@ -25,7 +29,7 @@ export async function POST({ request }: APIContext) {
   const result = await callGemini({
     systemInstruction: { parts: [{ text: SYSTEM }] },
     contents,
-    generationConfig: { maxOutputTokens: 1024, temperature: 0.9 },
+    generationConfig: { maxOutputTokens: 1024, temperature: 0.9, thinkingConfig: { thinkingBudget: 0 } },
   })
 
   if (result.text === '__RATE_LIMITED__') {

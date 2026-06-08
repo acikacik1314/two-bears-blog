@@ -46,7 +46,13 @@ export async function callGemini(body: object, keys?: string[]): Promise<{ ok: b
 
     const data = await res.json()
     const parts: { text?: string }[] = data?.candidates?.[0]?.content?.parts ?? []
-    const text = parts.map(p => p.text ?? '').join('').trim()
+    const raw = parts.map(p => p.text ?? '').join('').trim()
+    // Strip leaked thinking/meta lines (e.g. "* *Refining..." or lines starting with **)
+    const text = raw
+      .split('\n')
+      .filter(line => !/^\s*\*\*?[A-Za-z]/.test(line))
+      .join('\n')
+      .trim()
     if (!text) return { ok: false, text: '無法獲得回應，請稍後再試。' }
     return { ok: true, text }
   }

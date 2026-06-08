@@ -9,19 +9,11 @@ from pathlib import Path
 
 BLOG_DIR = Path(__file__).parent.parent / 'src' / 'content' / 'blog'
 
-API_KEYS = [
-    "AIzaSyA4kf23sC8fU4NbMt_gPPJrCx4vatd-plE",
-    "AIzaSyACbLPdU-tcqPXArPyFiAkmb_OqgpNlnrY",
-    "AIzaSyA_dMT2r3Kvg2rzvecveLFK2A81WfMNaME",
-    "AIzaSyAnHD-WWcl9b5JmczM28tJCMNOIH3U66YE",
-    "AIzaSyAsAL9RncwG5I_ahk0m2nVsXi1VUXJZerk",
-    "AIzaSyAsVbdJNKVgzXX1vWUUYLMiZPkgA_Ft8eQ",
-    "AIzaSyBXESjdtBM1vCEnjc0pyT9mtHMqhr6wx4o",
-    "AIzaSyCAfi2Wxo8cNZ7nFUgrxunKEbUfi6Q_jP0",
-    "AIzaSyCX9zUpitoRBDQfhr0pmB91BZi5z7MnqHo",
-    "AIzaSyDFJ0ppzqabkuS1OkyTz3yq8kZcP-TB4JQ",
-    "AIzaSyDUHeggkHddrdb2S1NIW92s5_lNtCe-tEc",
-]
+# API keys must be stored in environment variables, NOT in code.
+# Set GEMINI_API_KEY in your shell: export GEMINI_API_KEY=your_key_here
+import os
+_key = os.environ.get("GEMINI_API_KEY", "")
+API_KEYS = [k.strip() for k in _key.split(",") if k.strip()]
 
 key_index = 0
 

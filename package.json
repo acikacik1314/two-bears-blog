@@ -19,13 +19,15 @@
     "@astrojs/vercel": "^10.0.7",
     "@keystatic/astro": "^5.1.0",
     "@keystatic/core": "^0.5.50",
+    "@tailwindcss/vite": "^4.3.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.4.0",
     "astro": "^6.3.7",
     "cloudinary": "^2.10.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "node-html-parser": "^7.1.0"

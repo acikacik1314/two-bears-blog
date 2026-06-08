@@ -3,47 +3,241 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">首頁</HeaderLink>
-			<HeaderLink href="/blog">文章</HeaderLink>
-			<HeaderLink href="/podcast">Podcast</HeaderLink>
-			<HeaderLink href="/about">關於</HeaderLink>
-			<HeaderLink href="/friends">交友</HeaderLink>
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+<!-- Ticker bar -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-track" id="ticker-track">
+      <span class="ticker-label">⚡ 即時觀測</span>
+      <span class="ticker-item" id="t-btc">🪙 BTC <span class="t-wait">載入中…</span></span>
+      <span class="ticker-item" id="t-xrp">XRP <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-usdtwd">💱 USD/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-jpytwd">JPY/TWD <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-sp500">📊 S&P500 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-twii">台股 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-gold">🏅 黃金 <span class="t-wait">—</span></span>
+      <span class="ticker-item" id="t-weather">🌏 台北天氣 <span class="t-wait">載入中…</span></span>
+    </div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-track ticker-track-dup" aria-hidden="true">
+      <span class="ticker-label">⚡ 即時觀測</span>
+      <span class="ticker-item">🪙 BTC <span id="t-btc2" class="t-wait">—</span></span>
+      <span class="ticker-item">XRP <span id="t-xrp2" class="t-wait">—</span></span>
+      <span class="ticker-item">💱 USD/TWD <span id="t-usdtwd2" class="t-wait">—</span></span>
+      <span class="ticker-item">JPY/TWD <span id="t-jpytwd2" class="t-wait">—</span></span>
+      <span class="ticker-item">📊 S&P500 <span id="t-sp5002" class="t-wait">—</span></span>
+      <span class="ticker-item">台股 <span id="t-twii2" class="t-wait">—</span></span>
+      <span class="ticker-item">🏅 黃金 <span id="t-gold2" class="t-wait">—</span></span>
+      <span class="ticker-item">🌏 台北天氣 <span id="t-weather2" class="t-wait">—</span></span>
+    </div>
+  </div>
+</div>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
+<!-- Main header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <span class="logo-bears">🐻🐻</span>
+      <span class="logo-title">{SITE_TITLE}</span>
+    </a>
+    <nav class="site-nav">
+      <HeaderLink href="/">首頁</HeaderLink>
+      <HeaderLink href="/blog">文章</HeaderLink>
+      <HeaderLink href="/fortune">命理</HeaderLink>
+      <HeaderLink href="/friends">交友</HeaderLink>
+      <HeaderLink href="/about">關於</HeaderLink>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function setTicker(id: string, html: string) {
+    const el1 = document.getElementById(`t-${id}`);
+    const el2 = document.getElementById(`t-${id}2`);
+    if (el1) el1.innerHTML = html;
+    if (el2) el2.innerHTML = html;
+  }
+
+  function chg(pct: number | null | undefined): string {
+    if (pct == null) return '';
+    const sign = pct >= 0 ? '▲' : '▼';
+    const cls = pct >= 0 ? 'text-green-400' : 'text-red-400';
+    return ` <span class="${cls}">${sign}${Math.abs(pct).toFixed(2)}%</span>`;
+  }
+
+  function fmt(p: number | null, dec?: number): string {
+    if (p == null) return '—';
+    return p.toLocaleString('en-US', { maximumFractionDigits: dec ?? (p >= 100 ? 0 : 4) });
+  }
+
+  async function loadMarket() {
+    try {
+      const r = await fetch('/api/market');
+      const d = await r.json();
+      const qs: Record<string, any> = {};
+      for (const q of (d.quotes ?? [])) qs[q.symbol] = q;
+
+      const btc = d.crypto?.bitcoin;
+      const xrp = d.crypto?.ripple;
+      if (btc) setTicker('btc', `🪙 BTC <span class="text-green-400">$${fmt(btc.usd)}${chg(btc.usd_24h_change)}</span>`);
+      if (xrp) setTicker('xrp', `XRP <span class="text-purple-300">$${fmt(xrp.usd, 4)}${chg(xrp.usd_24h_change)}</span>`);
+      if (qs['^GSPC']) setTicker('sp500', `📊 S&P500 <span>${fmt(qs['^GSPC'].price)}${chg(qs['^GSPC'].change)}</span>`);
+      if (qs['^TWII']) setTicker('twii', `台股 <span>${fmt(qs['^TWII'].price)}${chg(qs['^TWII'].change)}</span>`);
+      if (qs['GC=F']) setTicker('gold', `🏅 黃金 <span class="text-yellow-300">$${fmt(qs['GC=F'].price)}</span>`);
+    } catch {}
+  }
+
+  async function loadCurrency() {
+    try {
+      const r = await fetch('https://open.er-api.com/v6/latest/USD', { signal: AbortSignal.timeout(8000) });
+      const j = await r.json();
+      if (j?.result !== 'success') return;
+      const twd = j.rates?.TWD;
+      const jpy = j.rates?.JPY;
+      const jpytwd = twd && jpy ? twd / jpy : null;
+      if (twd) setTicker('usdtwd', `💱 USD/TWD <span class="text-blue-300">${twd.toFixed(2)}</span>`);
+      if (jpytwd) setTicker('jpytwd', `JPY/TWD <span class="text-blue-300">${jpytwd.toFixed(4)}</span>`);
+    } catch {}
+  }
+
+  async function loadWeather() {
+    try {
+      const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.0330&longitude=121.5654&current=temperature_2m,weather_code&timezone=Asia/Taipei', { signal: AbortSignal.timeout(6000) });
+      const j = await r.json();
+      const c = j?.current;
+      if (!c) return;
+      const WMO: Record<number, string> = { 0:'☀️', 1:'🌤', 2:'⛅', 3:'☁️', 45:'🌫', 51:'🌦', 61:'🌧', 65:'🌧', 80:'🌦', 95:'⛈' };
+      const icon = WMO[c.weather_code] ?? '🌡';
+      setTicker('weather', `🌏 台北 ${icon} <span class="text-sky-300">${Math.round(c.temperature_2m)}°C</span>`);
+    } catch {}
+  }
+
+  loadMarket();
+  loadCurrency();
+  loadWeather();
+  setInterval(loadMarket, 60000);
+  setInterval(loadCurrency, 300000);
+  setInterval(loadWeather, 600000);
+</script>
+
+<style>
+  .ticker-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    overflow: hidden;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ticker-inner {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 35s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .ticker-label {
+    font-size: 0.68em;
+    font-weight: 800;
+    color: #a855f7;
+    padding: 0 1.2em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ticker-item {
+    font-size: 0.72em;
+    color: #94a3b8;
+    padding: 0 1em;
+    border-left: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .t-wait { color: #64748b; }
+
+  .site-header {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 32px;
+    z-index: 99;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none;
+  }
+
+  .logo-bears { font-size: 1.3em; }
+
+  .logo-title {
+    font-size: 1em;
+    font-weight: 900;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+  }
+
+  .site-nav :global(a) {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+    border-radius: 8px;
+    transition: color 0.15s, background 0.15s;
+    border-bottom: none !important;
+  }
+
+  .site-nav :global(a:hover),
+  .site-nav :global(a.active) {
+    color: #e2e8f0;
+    background: rgba(168, 85, 247, 0.12);
+  }
+
+  .site-nav :global(a.active) {
+    color: #a855f7;
+  }
+
+  @media (max-width: 600px) {
+    .logo-title { display: none; }
+    .site-nav :global(a) { padding: 0.4em 0.5em; font-size: 0.82em; }
+    .header-inner { padding: 0 0.8em; }
+  }
 </style>

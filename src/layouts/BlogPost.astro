@@ -7,6 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import RumbleEmbed from '../components/RumbleEmbed.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
+import { getCollection } from 'astro:content';
 import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
 import NewsletterSubscribe from '../components/NewsletterSubscribe.astro';
 import AffiliateLinks from '../components/AffiliateLinks.astro';
@@ -18,6 +19,29 @@ const { title, description, pubDate, updatedDate, heroImage, tags, category, you
 const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
+
+// Related posts: same tags or same category, exclude current page
+const currentSlug = Astro.url.pathname;
+const allPosts = await getCollection('blog');
+const related = allPosts
+	.filter(p => {
+		const slug = `/blog/${p.id.replace(/\.mdx?$/, '')}/`;
+		if (slug === currentSlug) return false;
+		const sameCat = category && getPostCategory(p) === category;
+		const sharedTag = tags?.some(t => p.data.tags?.includes(t));
+		return sameCat || sharedTag;
+	})
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
+
+function getThumb(post: CollectionEntry<'blog'>): string | null {
+	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/mqdefault.jpg`;
+	if (post.data.heroImage) {
+		const h = post.data.heroImage as any;
+		return typeof h === 'string' ? h : h?.src ?? null;
+	}
+	return null;
+}
 // Derive category for display (re-derive since we only have data fields here)
 const derivedCategory = category ?? (() => {
 	if (rumbleId || youtubeId) return '影片';
@@ -346,6 +370,30 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					</div>
 
 					<NewsletterSubscribe />
+
+					<!-- Related posts -->
+					{related.length > 0 && (
+						<div class="related-posts">
+							<div class="related-heading">✦ 你可能也喜歡</div>
+							<div class="related-grid">
+								{related.map(post => {
+									const thumb = getThumb(post);
+									const postSlug = `/blog/${post.id.replace(/\.mdx?$/, '')}/`;
+									return (
+										<a href={postSlug} class="related-card">
+											{thumb
+												? <img src={thumb} alt={post.data.title} class="related-thumb" loading="lazy" />
+												: <div class="related-thumb-placeholder">📄</div>
+											}
+											<div class="related-info">
+												<div class="related-title">{post.data.title}</div>
+											</div>
+										</a>
+									);
+								})}
+							</div>
+						</div>
+					)}
 
 					<!-- Comments (Giscus) -->
 					<div class="giscus-wrap" style="margin: 2em 0;">

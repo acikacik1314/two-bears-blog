@@ -28,6 +28,33 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 <html lang="zh-TW">
 	<head>
 		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": title,
+			"description": description,
+			"datePublished": pubDate?.toISOString?.() ?? pubDate,
+			"dateModified": updatedDate?.toISOString?.() ?? updatedDate ?? pubDate?.toISOString?.() ?? pubDate,
+			"author": {
+				"@type": "Person",
+				"name": "兩隻大熊",
+				"url": "https://twobears.vercel.app/about"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "兩隻大熊號",
+				"url": "https://twobears.vercel.app",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://twobears.vercel.app/favicon.svg"
+				}
+			},
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": Astro.url.href
+			},
+			...(heroImage ? { "image": new URL(heroImage.src ?? heroImage, Astro.site).href } : {})
+		})} />
 		<style>
 			main {
 				width: calc(100% - 2em);

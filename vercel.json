@@ -4,10 +4,5 @@
       "path": "/api/cron/refresh-food-codes",
       "schedule": "0 0 1 * *"
     }
-  ],
-  "functions": {
-    "src/pages/api/gemini-analyze.ts": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }

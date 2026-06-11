@@ -462,12 +462,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-city]').forEach(el => {
     el.addEventListener('click', () => quickSearch(el.dataset.city))
   })
-
-  document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') doSearch()
-    })
-  })
 })
 
 window.doSearch    = doSearch

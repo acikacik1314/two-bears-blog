@@ -51,8 +51,7 @@ const DIMENSIONS: Record<number, { label: string; prompt: (symbol: string) => st
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol}"、"Brandon Biggs XRP prediction"、"Brandon Biggs prophecy crypto 2025 2026"。比格斯是知名英語 YouTube 先知，長期關注 XRP 與加密貨幣，YouTube 上有大量相關影片，務必搜尋其影片標題與摘要
    - 阿南德（Anand Kumar）：搜尋「阿南德 ${symbol}」及 "Anand Kumar ${symbol} prediction"
    - KFK 先知：搜尋「KFK ${symbol}」
-   - 盲眼龍婆（Baba Vanga）、2060未來人、帕克（Craig Hamilton-Parker）、麥克蒙尼格（Joseph McMoneagle）：搜尋其對 ${symbol} 所屬資產類別的預言，以及對科技週期、AI 浪潮、全球經濟的公開發言
-   仔細確認查無任何公開網路記錄後，才能標注「查無可靠記錄」
+   - 阿南德（Anand Kumar）、KFK 先知、盲眼龍婆（Baba Vanga）、2060未來人、帕克（Craig Hamilton-Parker）、麥克蒙尼格（Joseph McMoneagle）：先搜尋其對「${symbol}」的直接記錄；若找不到，**改搜尋其對加密貨幣（cryptocurrency、crypto、digital assets）整體的預言**，以及對科技週期、AI 浪潮、全球金融體系的公開發言，並以「雖無 ${symbol} 直接記錄，其對加密貨幣/全球金融的預言如下」方式呈現，不要直接說查無記錄
 3. 用 Markdown 表格對齊「財務時間線」與「預言時間線」，標出重合與矛盾之處。
 4. 以「基準情境 / 樂觀情境 / 悲觀情境」三種敘事推演未來 24 個月的可能產業環境，不得包含任何價格預測。`,
   },
@@ -68,9 +67,7 @@ const DIMENSIONS: Record<number, { label: string; prompt: (symbol: string) => st
    - 成本優勢（規模效益或獨特資源）
 2. 使用 Google Search 搜尋各預言家對「${symbol}」的公開記錄（YouTube 影片標題、部落格、社群媒體均為有效來源）：
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol}"、"Brandon Biggs crypto prophecy"。比格斯是英語 YouTube 先知，長期討論 XRP 與加密貨幣及地緣政治，務必查找其影片記錄
-   - 阿南德（Anand Kumar）：搜尋「阿南德 ${symbol}」及 "Anand Kumar ${symbol}"
-   - 同時搜尋各預言家對重大衝突、地緣政治轉折、金融重組的年份記錄
-   仔細確認查無任何公開網路記錄後，才能標注「查無可靠記錄」
+   - 阿南德（Anand Kumar）及其他預言家：先搜尋「阿南德 ${symbol}」及 "Anand Kumar ${symbol}"；若找不到直接記錄，**改搜尋其對加密貨幣整體、全球金融體系、地緣政治轉折的預言**，以「雖無 ${symbol} 直接記錄，其對加密貨幣/金融體系的預言如下」方式呈現，不要直接說查無記錄
 3. 以「護城河防禦力 × 預言情境耐受度」為核心，敘事分析在三種預言情境下（溫和衝擊、系統性危機、極端黑天鵝）企業體質的耐受程度。
 4. 給出「防禦韌性評級」（僅定性描述，嚴禁含任何目標價格）。`,
   },
@@ -82,10 +79,10 @@ const DIMENSIONS: Record<number, { label: string; prompt: (symbol: string) => st
 1. 掃描「${symbol}」的宏觀風險層（地緣政治、供應鏈中斷、監管收緊、匯率波動、利率政策）與微觀風險層（競爭格局、技術替代、客戶集中度）。
 2. 使用 Google Search 搜尋各預言家對「${symbol}」的公開記錄（YouTube 影片標題、部落格、社群媒體均為有效來源）：
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol}"、"Brandon Biggs XRP risk"、"Brandon Biggs prophecy 2025 2026"。比格斯是英語 YouTube 先知，長期討論 XRP、地緣政治與黑天鵝事件
-   - KFK 先知：搜尋「KFK ${symbol}」
-   - 麥克蒙尼格（Joseph McMoneagle）：搜尋 "Joseph McMoneagle ${symbol}" 及其對 2026–2030 年地緣政治記錄
-   - 其他預言家（2060未來人、阿南德）：搜尋其對台海情勢、金融體系重組、能源轉型的公開發言
-   仔細確認查無任何公開網路記錄後，才能標注「查無可靠記錄」
+   - KFK 先知：先搜尋「KFK ${symbol}」；若找不到，改搜尋其對加密貨幣整體或全球金融危機的預言
+   - 麥克蒙尼格（Joseph McMoneagle）：先搜尋 "Joseph McMoneagle ${symbol}"；若找不到，改搜尋 "Joseph McMoneagle cryptocurrency" 或其對 2026–2030 年地緣政治、金融體系的記錄
+   - 其他預言家（2060未來人、阿南德）：先搜尋其對 ${symbol} 的直接記錄；若找不到，改搜尋其對加密貨幣整體、台海情勢、金融體系重組的公開發言
+   以上若找不到直接 ${symbol} 記錄，一律以「雖無 ${symbol} 直接記錄，其對加密貨幣/全球金融的預言如下」方式呈現，不要直接說查無記錄
 3. 建立 2×2 風險矩陣表格：
    - 橫軸：網路討論熱度（高 / 低）
    - 縱軸：與「${symbol}」的關聯度（強 / 弱）
@@ -102,7 +99,7 @@ const DIMENSIONS: Record<number, { label: string; prompt: (symbol: string) => st
 3. 使用 Google Search 即時檢索當前市場情緒指標（VIX 水位、恐慌貪婪指數等公開數據），描述目前在「貪婪–恐懼循環」的位置。
 4. 使用 Google Search 搜尋各預言家提及「${symbol}」所屬週期節點的公開記錄（YouTube 影片標題、部落格均為有效來源）：
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol} cycle"、"Brandon Biggs ${symbol} 2025 2026 timing"
-   - 阿南德、KFK 先知：搜尋其對 ${symbol} 時間節點的相關記錄
+   - 阿南德、KFK 先知及其他預言家：先搜尋對 ${symbol} 的直接記錄；若找不到，改搜尋其對加密貨幣週期、金融體系崩潰時間節點的預言，以「雖無 ${symbol} 直接記錄，其對加密貨幣/金融週期的預言如下」方式呈現
    與目前市場情緒位置進行交叉比對，找出時間節點的重合性或矛盾。`,
   },
   5: {
@@ -122,7 +119,7 @@ const DIMENSIONS: Record<number, { label: string; prompt: (symbol: string) => st
 3. 若 Google Search 檢索到任何券商共識或分析師報告，必須以「據 [來源名稱] 報導，市場共識為…」的轉述格式呈現，並附 grounding 引用來源；絕不以 AI 自己的口吻給出價格預測或目標價。
 4. 使用 Google Search 搜尋各預言家提及「${symbol}」估值泡沫或資產價格重置的公開記錄（YouTube 影片標題、部落格均為有效來源）：
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol} valuation"、"Brandon Biggs ${symbol} price reset"、"Brandon Biggs crypto 2025 2026"
-   - 阿南德、KFK 先知：搜尋其對 ${symbol} 估值週期的相關記錄
+   - 阿南德、KFK 先知及其他預言家：先搜尋對 ${symbol} 的直接記錄；若找不到，改搜尋其對加密貨幣泡沫、資產價格重置、法幣崩潰的預言，以「雖無 ${symbol} 直接記錄，其對加密貨幣/法幣崩潰的預言如下」方式呈現
    做歷史對比說明。`,
   },
 };

@@ -81,6 +81,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				<a href="/category/預言" class="hero-btn btn-prophecy">🔮 今日預言</a>
 				<a href="/category/影片" class="hero-btn btn-video">📺 最新影片</a>
 				<a href="/blog" class="hero-btn btn-news">🚨 全球異常事件</a>
+				<a href="/hotels" class="hero-btn btn-hotels">🏨 超省訂房</a>
 			</div>
 		</div>
 	</section>
@@ -113,6 +114,89 @@ const CATEGORY_ICONS: Record<string, string> = {
 	<!-- ── Leaderboard full width ── -->
 	<section class="lb-section">
 		<ProphecyLeaderboard />
+	</section>
+
+	<!-- ── Hotel Finder Banner ── -->
+	<a href="/hotels" class="hotel-banner">
+		<div class="hotel-banner-left">
+			<span class="hotel-banner-emoji">🐻</span>
+			<div>
+				<div class="hotel-banner-title">兩隻熊超省飯店搜尋器</div>
+				<div class="hotel-banner-sub">全網比價 · 信用卡疊加省錢 · AI旅遊助手 · LINE降價通知</div>
+			</div>
+		</div>
+		<div class="hotel-banner-deals">
+			<span>沖繩 ↓31%</span>
+			<span>東京 ↓23%</span>
+			<span>首爾 ↓27%</span>
+			<span>曼谷 ↓35%</span>
+		</div>
+		<div class="hotel-banner-cta">立即找最低價 →</div>
+	</a>
+
+	<!-- ── Food Delivery Promos ── -->
+	<section class="food-section">
+		<div class="food-header">
+			<span class="food-header-icon">🛵</span>
+			<span class="food-header-title">外送優惠</span>
+			<span class="food-header-sub">新顧客首單 · 老顧客本月代碼 <span class="auto-badge">🤖 每月自動更新</span></span>
+		</div>
+		<div class="food-grid">
+
+			<!-- 左：foodpanda -->
+			<div class="food-card">
+				<div class="food-platform-header fp-header">
+					<span class="fp-logo">🐼</span>
+					<span class="fp-name">foodpanda</span>
+				</div>
+				<div class="food-card-label">🆕 新顧客</div>
+				<a
+					href="https://www.foodpanda.com.tw/referral?code=cb759283bc3b8d82342c97237b399e9b&geid=FP_TW&ts=1781084008"
+					target="_blank" rel="noopener noreferrer"
+					class="food-btn food-btn-panda"
+				>
+					<div class="food-btn-text">
+						<div class="food-btn-name">首單最高現折</div>
+						<div class="food-btn-deal"><strong>$150</strong> 優惠</div>
+					</div>
+					<span class="food-btn-arrow">立即領取 →</span>
+				</a>
+				<div class="food-card-label" style="margin-top:.85em">
+					📅 老顧客代碼
+				</div>
+				<div id="food-codes-panda">
+					<div class="code-loading"><span class="code-spin">⟳</span> 載入中...</div>
+				</div>
+			</div>
+
+			<!-- 右：Uber Eats -->
+			<div class="food-card">
+				<div class="food-platform-header ue-header">
+					<span class="fp-logo">🚗</span>
+					<span class="fp-name">Uber Eats</span>
+				</div>
+				<div class="food-card-label">🆕 新顧客</div>
+				<a
+					href="https://ubereats.com/feed?promoCode=eats-b7ybz1"
+					target="_blank" rel="noopener noreferrer"
+					class="food-btn food-btn-uber"
+				>
+					<div class="food-btn-text">
+						<div class="food-btn-name">首單折抵優惠</div>
+						<div class="food-btn-deal"><strong>15%</strong> · 代碼 <code>eats-b7ybz1</code></div>
+					</div>
+					<span class="food-btn-arrow">立即領取 →</span>
+				</a>
+				<div class="food-card-label" style="margin-top:.85em">
+					📅 老顧客代碼
+				</div>
+				<div id="food-codes-uber">
+					<div class="code-loading"><span class="code-spin">⟳</span> 載入中...</div>
+				</div>
+			</div>
+
+		</div>
+		<p class="food-update-note" id="food-update-note">📌 每月1日自動從全網更新最新有效代碼</p>
 	</section>
 
 	<!-- ── Main grid: articles + sidebar ── -->
@@ -207,6 +291,103 @@ const CATEGORY_ICONS: Record<string, string> = {
 </html>
 
 <script>
+  function copyCode(btn: HTMLButtonElement) {
+    const code = btn.dataset.code;
+    if (!code) return;
+    navigator.clipboard.writeText(code).then(() => {
+      const label = btn.querySelector('.copy-label') as HTMLElement;
+      if (label) { label.textContent = '已複製！'; setTimeout(() => { label.textContent = '複製'; }, 2000); }
+    });
+  }
+  (window as any).copyCode = copyCode;
+
+  function toggleRegion(id: string) {
+    const el = document.getElementById(id);
+    const btn = el?.previousElementSibling as HTMLButtonElement | null;
+    if (!el || !btn) return;
+    const open = el.style.display !== 'none';
+    el.style.display = open ? 'none' : 'block';
+    btn.textContent = btn.textContent!.replace(open ? '▲' : '▼', open ? '▼' : '▲');
+  }
+  (window as any).toggleRegion = toggleRegion;
+
+  // ── Auto-load food delivery codes ──
+  async function loadFoodCodes() {
+    const pandaEl = document.getElementById('food-codes-panda');
+    const uberEl  = document.getElementById('food-codes-uber');
+    const note    = document.getElementById('food-update-note');
+
+    type CodeEntry = { platform: string; code: string; desc: string; expires?: string; general: boolean; source?: string };
+
+    const CODE_COLORS = [
+      { bg: 'rgba(251,191,36,.15)',  border: 'rgba(251,191,36,.4)',  text: '#fbbf24' },
+      { bg: 'rgba(52,211,153,.15)',  border: 'rgba(52,211,153,.4)',  text: '#34d399' },
+      { bg: 'rgba(167,139,250,.15)', border: 'rgba(167,139,250,.4)', text: '#a78bfa' },
+      { bg: 'rgba(251,146,60,.15)',  border: 'rgba(251,146,60,.4)',  text: '#fb923c' },
+      { bg: 'rgba(96,165,250,.15)',  border: 'rgba(96,165,250,.4)',  text: '#60a5fa' },
+      { bg: 'rgba(244,114,182,.15)', border: 'rgba(244,114,182,.4)', text: '#f472b6' },
+      { bg: 'rgba(74,222,128,.15)',  border: 'rgba(74,222,128,.4)',  text: '#4ade80' },
+      { bg: 'rgba(248,113,113,.15)', border: 'rgba(248,113,113,.4)', text: '#f87171' },
+    ];
+    let codeColorIdx = 0;
+
+    function codeRowHtml(entry: CodeEntry, accentColor: string): string {
+      const expireStr = entry.expires ? `・${entry.expires.slice(5).replace('-','/')} 到期` : '';
+      const autoTag   = entry.source === 'auto' ? '<span style="font-size:.6em;opacity:.5;margin-left:.3em">網路搜尋</span>' : '';
+      const c = CODE_COLORS[codeColorIdx % CODE_COLORS.length];
+      codeColorIdx++;
+      return `<div class="code-row" style="--accent:${accentColor}">
+        <div class="code-info">
+          <div class="code-desc">${entry.desc}${expireStr}${autoTag}</div>
+        </div>
+        <button class="code-copy-btn" data-code="${entry.code}" onclick="copyCode(this)"
+          style="background:${c.bg};border-color:${c.border}">
+          <span class="code-val" style="color:${c.text}">${entry.code}</span>
+          <span class="copy-label">複製</span>
+        </button>
+      </div>`;
+    }
+
+    function renderPlatform(el: HTMLElement | null, codes: CodeEntry[], color: string, fbUrl: string, rid: string) {
+      if (!el) return;
+      const general  = codes.filter(c => c.general);
+      const regional = codes.filter(c => !c.general);
+      if (codes.length === 0) {
+        el.innerHTML = `<div class="code-row" style="--accent:${color}">
+          <div class="code-info"><div class="code-desc">本月暫無公開代碼</div></div>
+          <a href="${fbUrl}" target="_blank" rel="noopener noreferrer" class="code-fb-btn">粉專 →</a>
+        </div>`;
+        return;
+      }
+      let html = general.map(e => codeRowHtml(e, color)).join('');
+      if (regional.length > 0) {
+        html += `<button class="code-expand-btn" onclick="toggleRegion('${rid}')">🗺 還有 ${regional.length} 個地區限定代碼 ▼</button>
+          <div id="${rid}" class="code-regional" style="display:none">${regional.map(e => codeRowHtml(e, color)).join('')}</div>`;
+      }
+      el.innerHTML = html;
+    }
+
+    try {
+      const res = await fetch('/api/food-codes');
+      const data = await res.json();
+      const allCodes: CodeEntry[] = (data as any).codes ?? [];
+
+      codeColorIdx = 0;
+      renderPlatform(pandaEl, allCodes.filter(c => c.platform === 'foodpanda'), '#d70f64', 'https://www.facebook.com/foodpanda.taiwan', 'region-panda');
+      codeColorIdx = 4;
+      renderPlatform(uberEl,  allCodes.filter(c => c.platform === 'ubereats'),  '#00b140', 'https://www.facebook.com/UberEatsTaiwan',    'region-uber');
+
+      if (note && (data as any).fetched) {
+        const d = new Date((data as any).fetched);
+        note.textContent = `📌 上次更新：${d.getMonth()+1}月${d.getDate()}日 · 每月1日自動刷新`;
+      }
+    } catch {
+      if (pandaEl) pandaEl.innerHTML = '<p class="code-error">載入失敗</p>';
+      if (uberEl)  uberEl.innerHTML  = '<p class="code-error">載入失敗</p>';
+    }
+  }
+  loadFoodCodes();
+
   const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
   const tabContents = document.querySelectorAll<HTMLElement>('.tab-content');
   tabBtns.forEach(btn => {
@@ -265,7 +446,37 @@ const CATEGORY_ICONS: Record<string, string> = {
 .btn-prophecy { background: linear-gradient(135deg,#7e22ce,#6b21a8); color:white; box-shadow:0 4px 16px rgba(126,34,206,.4); }
 .btn-video    { background: linear-gradient(135deg,#1e40af,#1d4ed8); color:white; box-shadow:0 4px 16px rgba(30,64,175,.4); }
 .btn-news     { background: linear-gradient(135deg,#9f1239,#be185d); color:white; box-shadow:0 4px 16px rgba(159,18,57,.4); }
+.btn-hotels   { background: linear-gradient(135deg,#92400e,#d97706); color:white; box-shadow:0 4px 16px rgba(217,119,6,.4); }
 .hero-btn:hover { color: white; }
+
+/* ── Hotel Banner ── */
+.hotel-banner {
+	display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1em;
+	background: linear-gradient(135deg, rgba(146,64,14,.25) 0%, rgba(217,119,6,.15) 100%);
+	border: 1px solid rgba(217,119,6,.35);
+	border-radius: 16px; padding: 1em 1.4em; margin-bottom: 1.2em;
+	text-decoration: none; transition: border-color .2s, box-shadow .2s;
+}
+.hotel-banner:hover { border-color: rgba(217,119,6,.6); box-shadow: 0 0 24px rgba(217,119,6,.15); }
+.hotel-banner-left { display: flex; align-items: center; gap: .8em; }
+.hotel-banner-emoji { font-size: 2em; }
+.hotel-banner-title { font-size: .95em; font-weight: 800; color: #fbbf24; margin-bottom: .15em; }
+.hotel-banner-sub { font-size: .72em; color: #94a3b8; }
+.hotel-banner-deals { display: flex; gap: .5em; flex-wrap: wrap; }
+.hotel-banner-deals span {
+	background: rgba(239,68,68,.15); border: 1px solid rgba(239,68,68,.3);
+	color: #f87171; font-size: .72em; font-weight: 700;
+	padding: .2em .6em; border-radius: 20px;
+}
+.hotel-banner-cta {
+	background: linear-gradient(135deg,#92400e,#d97706);
+	color: white; font-weight: 800; font-size: .85em;
+	padding: .55em 1.3em; border-radius: 10px; white-space: nowrap;
+}
+@media (max-width: 700px) {
+	.hotel-banner { flex-direction: column; align-items: flex-start; }
+	.hotel-banner-deals { display: none; }
+}
 
 /* ── Top grid ── */
 .top-grid {
@@ -324,6 +535,103 @@ const CATEGORY_ICONS: Record<string, string> = {
 .tab-btn:hover:not(.active) { color: #e2e8f0; background: rgba(255,255,255,.04); }
 .tab-content { display: none; }
 .tab-content.active { display: flex; flex-direction: column; gap: .8em; }
+
+/* ── Food Delivery ── */
+.food-section { margin-bottom: 1.2em; }
+.food-header {
+	display: flex; align-items: center; gap: .5em;
+	margin-bottom: .85em;
+}
+.food-header-icon { font-size: 1.2em; }
+.food-header-title { font-size: .95em; font-weight: 800; color: #e2e8f0; letter-spacing: .04em; text-transform: uppercase; }
+.food-header-sub { font-size: .72em; color: #64748b; margin-left: .3em; }
+.food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+.food-card {
+	background: rgba(255,255,255,.03);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 14px; padding: 1.1em 1.2em;
+}
+.food-card-label {
+	font-size: .7em; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+	color: #64748b; margin-bottom: .75em;
+}
+/* New customer buttons */
+.food-btn {
+	display: flex; align-items: center; gap: .75em;
+	padding: .8em 1em; border-radius: 10px; text-decoration: none;
+	margin-bottom: .5em; transition: transform .15s, box-shadow .15s;
+}
+.food-btn:last-of-type { margin-bottom: 0; }
+.food-btn:hover { transform: translateY(-2px); }
+.food-btn-panda { background: linear-gradient(135deg, #d70f64, #ff2a72); color: white; box-shadow: 0 4px 14px rgba(215,15,100,.35); }
+.food-btn-uber  { background: linear-gradient(135deg, #06c167, #00b140); color: white; box-shadow: 0 4px 14px rgba(6,193,103,.35); }
+.food-btn-emoji { font-size: 1.6em; line-height: 1; }
+.food-btn-text { flex: 1; min-width: 0; }
+.food-btn-name { font-size: .8em; font-weight: 700; margin-bottom: .1em; }
+.food-btn-deal { font-size: .72em; opacity: .85; }
+.food-btn-deal strong { font-size: 1.1em; }
+.food-btn-deal code { background: rgba(255,255,255,.2); padding: .05em .35em; border-radius: 4px; font-size: .9em; font-family: monospace; }
+.food-btn-arrow { font-size: 1.2em; opacity: .7; }
+/* Old customer codes */
+.code-row {
+	display: flex; align-items: center; gap: .7em;
+	padding: .7em .85em; border-radius: 9px; margin-bottom: .5em;
+	background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06);
+	border-left: 3px solid var(--accent, #a855f7);
+}
+.code-row:last-of-type { margin-bottom: 0; }
+.code-emoji { font-size: 1.2em; shrink: 0; }
+.code-info { flex: 1; min-width: 0; }
+.code-platform { font-size: .78em; font-weight: 700; color: #e2e8f0; }
+.code-desc { font-size: .68em; color: #64748b; margin-top: .1em; }
+.code-copy-btn {
+	display: flex; align-items: center; gap: .4em; flex-direction: column;
+	background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+	border-radius: 7px; padding: .35em .7em;
+	color: #e2e8f0; cursor: pointer; font-family: inherit;
+	transition: background .15s; flex-shrink: 0;
+}
+.code-copy-btn:hover { background: rgba(255,255,255,.12); }
+.code-val { font-family: 'Courier New', monospace; font-size: .75em; font-weight: 700; color: #fbbf24; letter-spacing: .05em; }
+.copy-label { font-size: .6em; color: #94a3b8; }
+.code-fb-btn {
+	font-size: .72em; font-weight: 700; color: #1877f2;
+	background: rgba(24,119,242,.12); border: 1px solid rgba(24,119,242,.25);
+	border-radius: 7px; padding: .4em .7em;
+	text-decoration: none; flex-shrink: 0; white-space: nowrap;
+	transition: background .15s;
+}
+.code-fb-btn:hover { background: rgba(24,119,242,.2); }
+.food-update-note { font-size: .67em; color: #475569; margin-top: .6em; margin-bottom: 0; text-align:center; }
+.food-platform-header {
+  display: flex; align-items: center; gap: .5em;
+  padding: .6em .75em; border-radius: 8px; margin-bottom: .85em;
+}
+.fp-header { background: rgba(215,15,100,.12); border: 1px solid rgba(215,15,100,.2); }
+.ue-header { background: rgba(0,177,64,.12);  border: 1px solid rgba(0,177,64,.2);  }
+.fp-logo { font-size: 1.3em; }
+.fp-name { font-size: .85em; font-weight: 800; color: #e2e8f0; letter-spacing: .04em; }
+.auto-badge {
+	display: inline-block; font-size: .68em; font-weight: 700;
+	background: rgba(168,85,247,.15); color: #a855f7; border: 1px solid rgba(168,85,247,.25);
+	border-radius: 20px; padding: .1em .55em; margin-left: .5em; vertical-align: middle;
+}
+.code-loading { font-size: .8em; color: #64748b; padding: .75em 0; display: flex; align-items: center; gap: .4em; }
+.code-spin { display: inline-block; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.code-empty { font-size: .75em; color: #64748b; padding: .6em 0; }
+.code-error { font-size: .72em; color: #ef4444; padding: .4em 0; }
+.code-expand-btn {
+  width: 100%; text-align: left; background: rgba(255,255,255,.04);
+  border: .5px dashed rgba(255,255,255,.12); border-radius: 7px;
+  color: #64748b; font-size: .7em; font-weight: 600; padding: .5em .8em;
+  cursor: pointer; margin-top: .4em; transition: color .15s, border-color .15s;
+}
+.code-expand-btn:hover { color: #94a3b8; border-color: rgba(255,255,255,.2); }
+.code-regional { margin-top: .3em; }
+@media (max-width: 700px) {
+	.food-grid { grid-template-columns: 1fr; }
+}
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {

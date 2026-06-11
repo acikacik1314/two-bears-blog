@@ -55,7 +55,12 @@ import UserMenu from './UserMenu.astro';
         <HeaderLink href="/">首頁</HeaderLink>
         <HeaderLink href="/blog">文章</HeaderLink>
         <HeaderLink href="/podcast">播客</HeaderLink>
+
+        <HeaderLink href="/travel">✈️ 人生清單</HeaderLink>
+        <HeaderLink href="/avoid">🚨 避雷</HeaderLink>
+        <HeaderLink href="/oracle">🔮 觀測站</HeaderLink>
         <HeaderLink href="/fortune">命理</HeaderLink>
+        <HeaderLink href="/omikuji">命運籤</HeaderLink>
         <HeaderLink href="/friends">交友</HeaderLink>
         <HeaderLink href="/member">會員</HeaderLink>
         <HeaderLink href="/about">關於</HeaderLink>
@@ -255,19 +260,22 @@ import UserMenu from './UserMenu.astro';
 
   .site-nav {
     display: flex;
-    gap: 0.2em;
+    gap: 0.05em;
     align-items: center;
+    flex-wrap: nowrap;
+    overflow: visible;
   }
 
   .site-nav :global(a) {
     color: #94a3b8;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.82em;
     font-weight: 500;
-    padding: 0.4em 0.8em;
+    padding: 0.4em 0.55em;
     border-radius: 8px;
     transition: color 0.15s, background 0.15s;
     border-bottom: none !important;
+    white-space: nowrap;
   }
 
   .site-nav :global(a:hover),
@@ -280,9 +288,43 @@ import UserMenu from './UserMenu.astro';
     color: #a855f7;
   }
 
+  /* 訂房 highlight */
+  .site-nav :global(a[href="/hotels"]) {
+    color: #f59e0b;
+    font-weight: 700;
+  }
+  .site-nav :global(a[href="/hotels"]:hover) {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+  }
+
+  /* 避雷 highlight */
+  .site-nav :global(a[href="/avoid"]) {
+    color: #e11d48;
+    font-weight: 700;
+  }
+  .site-nav :global(a[href="/avoid"]:hover) {
+    background: rgba(225, 29, 72, 0.1);
+    color: #fb7185;
+  }
+
+  /* 觀測站 highlight */
+  .site-nav :global(a[href="/oracle"]) {
+    color: #14b8a6;
+    font-weight: 700;
+  }
+  .site-nav :global(a[href="/oracle"]:hover) {
+    background: rgba(20, 184, 166, 0.1);
+    color: #2dd4bf;
+  }
+
+  @media (max-width: 900px) {
+    .site-nav :global(a) { padding: 0.4em 0.4em; font-size: 0.78em; }
+  }
+
   @media (max-width: 600px) {
     .logo-title { display: none; }
-    .site-nav :global(a) { padding: 0.4em 0.5em; font-size: 0.82em; }
-    .header-inner { padding: 0 0.8em; }
+    .site-nav :global(a) { padding: 0.35em 0.35em; font-size: 0.72em; }
+    .header-inner { padding: 0 0.5em; }
   }
 </style>

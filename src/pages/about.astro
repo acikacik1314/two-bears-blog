@@ -1,22 +1,413 @@
 ---
-import { getEntry, render } from 'astro:content';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-const entry = await getEntry('about', 'about');
-const { Content } = entry ? await render(entry) : { Content: null };
-const title = entry?.data.title ?? '關於兩隻熊的旅遊記事';
-const description = entry?.data.description ?? '探索未來預言家的洞見';
-const youtubeUrl = entry?.data.youtubeUrl;
+const title = '關於兩隻熊 ｜ 未來的觀測者';
+const description = '誰說旅遊只能留在當下？兩隻熊異象觀測站，帶你旅行到未來的邊境。';
 ---
 
-<Layout title={title} description={description} pubDate={new Date('2026-05-22')}>
-	{Content && <Content />}
-	{youtubeUrl && (
-		<div style="text-align:center; margin: 2em 0;">
-			<a href={youtubeUrl} target="_blank" rel="noopener"
-			   style="display:inline-block;background:#ff0000;color:white;padding:0.7em 1.5em;border-radius:6px;text-decoration:none;font-weight:700;">
-				▶ 訂閱 YouTube 頻道
-			</a>
-		</div>
-	)}
-</Layout>
+<html lang="zh-TW">
+<head>
+  <BaseHead title={title} description={description} />
+  <style is:global>
+    .about-page {
+      background: #020a14;
+      min-height: 100vh;
+      color: #e2e8f0;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    /* ── HERO ── */
+    .about-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 6rem 1.5rem 4rem;
+    }
+    .about-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .about-grid-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, #020a14 100%);
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 820px;
+      width: 100%;
+    }
+    .about-eyebrow {
+      font-size: .75rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #00f5ff;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+    }
+    .about-eyebrow::before,
+    .about-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: #00f5ff;
+      opacity: .5;
+    }
+    .about-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin: 0 0 2rem;
+      background: linear-gradient(135deg, #fff 0%, #00f5ff 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-manifesto {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 2;
+      color: #94a3b8;
+      border-left: 3px solid #00f5ff;
+      padding-left: 1.5rem;
+      text-align: left;
+      max-width: 640px;
+      margin: 0 auto 3rem;
+    }
+    .about-manifesto strong {
+      color: #e2e8f0;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .about-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+    .about-section-label {
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #00f5ff;
+      margin-bottom: .75rem;
+      text-align: left;
+    }
+    .about-section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 3rem;
+      text-align: left;
+    }
+    .about-divider {
+      border: none;
+      border-top: 1px solid rgba(0,245,255,.12);
+      margin: 0;
+    }
+
+    /* ── WHY CARDS ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: rgba(0,245,255,.04);
+      border: 1px solid rgba(0,245,255,.15);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color .3s, transform .3s;
+    }
+    .why-card:hover {
+      border-color: rgba(0,245,255,.5);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .why-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0 0 .75rem;
+    }
+    .why-card p {
+      font-size: .9rem;
+      color: #94a3b8;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ── RULES ── */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .rule-item {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.5rem;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 10px;
+    }
+    .rule-emoji {
+      font-size: 1.5rem;
+      padding-top: .1rem;
+    }
+    .rule-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0 0 .4rem;
+    }
+    .rule-item p {
+      font-size: .88rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ── BEAR CREW ── */
+    .crew-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .crew-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(0,245,255,.05) 0%, rgba(167,139,250,.05) 100%);
+      border: 1px solid rgba(167,139,250,.25);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      overflow: hidden;
+    }
+    .crew-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00f5ff, #a78bfa);
+    }
+    .crew-bear-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .crew-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 .5rem;
+    }
+    .crew-role {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #00f5ff;
+      margin-bottom: 1rem;
+    }
+    .crew-card p {
+      font-size: .9rem;
+      color: #94a3b8;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .crew-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    .crew-tag {
+      font-size: .7rem;
+      padding: .2rem .65rem;
+      border-radius: 999px;
+      background: rgba(167,139,250,.15);
+      color: #a78bfa;
+      border: 1px solid rgba(167,139,250,.3);
+    }
+
+    /* ── CTA ── */
+    .about-cta {
+      text-align: center;
+      padding: 5rem 1.5rem 6rem;
+      position: relative;
+    }
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; max-width: 90%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00f5ff, transparent);
+    }
+    .about-cta p {
+      font-size: 1.05rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+    .about-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: linear-gradient(135deg, #00f5ff, #a78bfa);
+      color: #020a14;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .about-cta-btn:hover {
+      opacity: .9;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .about-manifesto { font-size: .95rem; }
+      .rule-item { grid-template-columns: 2.5rem 1fr; }
+    }
+  </style>
+</head>
+
+<body class="about-page">
+  <Header />
+
+  <!-- ── LAYER 1: MANIFESTO ── -->
+  <section class="about-hero">
+    <div class="about-grid-bg"></div>
+    <div class="about-hero-content">
+      <div class="about-eyebrow">異象觀測站 · 數位避難所</div>
+      <h1>關於兩隻熊<br/>未來的觀測者</h1>
+      <blockquote class="about-manifesto">
+        誰說旅遊只能留在當下？<br/>
+        過去，我們用雙腳記錄世界的風景；<br/>
+        現在，我們用<strong>數據、玄學與危機意識</strong>，<br/>
+        帶你「旅行」到未來的邊境。<br/><br/>
+        歡迎來到數位避難所，<br/>
+        這裡是<strong>兩隻熊的異象觀測站</strong>。
+      </blockquote>
+    </div>
+  </section>
+
+  <hr class="about-divider" />
+
+  <!-- ── LAYER 2: WHY ── -->
+  <section class="about-section">
+    <div class="about-section-label">為什麼建立這個網站</div>
+    <div class="about-section-title">我們能為你解決什麼</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>抗衡焦慮的儀表板</h3>
+        <p>世界變化太快，傳統新聞只會散播恐慌。我們整合即時行情、地緣風險與天災數據，把焦慮變成可視化的客觀指數。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔮</div>
+        <h3>探索未知的先知百科</h3>
+        <p>從 Baba Vanga 到比格斯，我們不盲信預言，但我們記錄天時的軌跡，在九運的混亂中尋找可能出現的轉折點。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🕯️</div>
+        <h3>亂世之中的心靈錨點</h3>
+        <p>無論世界怎麼變，這裡提供純粹的個人命理指引與匿名許願池，讓每個迷茫的靈魂在數位荒漠中找到一盞明燈。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="about-divider" />
+
+  <!-- ── LAYER 3: RULES ── -->
+  <section class="about-section">
+    <div class="about-section-label">觀測站核心守則</div>
+    <div class="about-section-title">我們的態度與承諾</div>
+    <div class="rules-list">
+      <div class="rule-item">
+        <div class="rule-emoji">📊</div>
+        <div>
+          <h3>數據絕對客觀</h3>
+          <p>我們的金融走馬燈與全球異常事件（如地震、國際局勢）皆串接第三方權威 API，只呈現事實，不加工恐慌。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-emoji">🔮</div>
+        <div>
+          <h3>觀點保持開放</h3>
+          <p>預言與命理系統是古老智慧與未來模型的結合，我們將其數據化、趣味化，提供大眾不同的思考維度，而非宣揚絕對真理。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-emoji">🕯️</div>
+        <div>
+          <h3>社群互相守望</h3>
+          <p>這是一個專為「對未來保持警覺、拒絕盲從」的人打造的地下公會，我們共同應對金融重組與時代變革，不孤單前行。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="about-divider" />
+
+  <!-- ── LAYER 4: BEAR CREW ── -->
+  <section class="about-section">
+    <div class="about-section-label">創作者檔案</div>
+    <div class="about-section-title">認識兩隻熊</div>
+    <div class="crew-grid">
+      <div class="crew-card">
+        <span class="crew-bear-icon">🐻</span>
+        <h3>泰迪</h3>
+        <div class="crew-role">技術架構 · 數據觀測</div>
+        <p>負責在後端編織 Gemini AI 的靈魂、串接全球地震與 TradingView 數據，負責建造這個數位避難所的防空洞。每一行程式碼，都是為了讓你在亂世中看得更清楚。</p>
+        <div class="crew-tags">
+          <span class="crew-tag">AI 工程</span>
+          <span class="crew-tag">數據串接</span>
+          <span class="crew-tag">全端開發</span>
+        </div>
+      </div>
+      <div class="crew-card">
+        <span class="crew-bear-icon">🐼</span>
+        <h3>熊蓋讚</h3>
+        <div class="crew-role">命理研究 · 趨勢解碼</div>
+        <p>負責解碼六十四卦、梳理國際預言家脈絡，在亂世中為迷航者點燈。把晦澀難懂的預言語言翻譯成每個人都能理解的生存地圖。</p>
+        <div class="crew-tags">
+          <span class="crew-tag">易經命理</span>
+          <span class="crew-tag">預言研究</span>
+          <span class="crew-tag">趨勢分析</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <div class="about-cta">
+    <p>準備好進入未來了嗎？</p>
+    <a href="/" class="about-cta-btn">
+      前往首頁控制台 →
+    </a>
+  </div>
+
+  <Footer />
+</body>
+</html>

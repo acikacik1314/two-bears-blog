@@ -1,0 +1,372 @@
+---
+// src/pages/pick.astro
+// 兩隻熊比價神器 🐻 — 前端頁面
+export const prerender = false;
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead title="兩隻熊比價神器｜一秒找出最便宜" description="輸入商品名稱，AI 幫你搜尋 momo、蝦皮、酷澎、家樂福等八大平台價格，一秒比出最便宜。" />
+</head>
+<body>
+  <Header />
+  <main class="pick-page">
+    <header class="pick-hero">
+      <p class="pick-eyebrow">兩隻熊 × AI 比價</p>
+      <h1>買東西，<span class="pick-accent">哪裡買最便宜？</span></h1>
+      <p class="pick-sub">輸入商品名稱，讓我幫你翻遍八大平台找出目前最低價 🐻</p>
+    </header>
+
+    <section class="pick-search">
+      <div class="pick-input-row">
+        <input
+          id="kw"
+          type="text"
+          placeholder="例如：綿羊油 650ml、Dyson V15、SK-II 神仙水"
+          maxlength="50"
+          autocomplete="off"
+        />
+        <button id="go" type="button">開始比價</button>
+      </div>
+      <div class="pick-tags" id="tags">
+        <button type="button" data-kw="衛生紙 抽取式">衛生紙</button>
+        <button type="button" data-kw="空氣清淨機">空氣清淨機</button>
+        <button type="button" data-kw="行動電源 20000mAh">行動電源</button>
+        <button type="button" data-kw="洗碗機 30組">洗碗機</button>
+        <button type="button" data-kw="氣泡水 24入">氣泡水</button>
+      </div>
+    </section>
+
+    <section id="status" class="pick-status" hidden></section>
+
+    <section id="results" class="pick-results" hidden>
+      <h2 id="results-title"></h2>
+      <div id="results-list"></div>
+      <p class="pick-disclaimer">
+        ⚠️ 價格由 AI 即時搜尋整理，可能與平台實際定價有時間差，請以商品頁顯示為準。
+        點「去買」會開啟兩個頁面（聯盟入口 + 商品頁），第二個是商品頁。
+        部分連結為聯盟連結，你不會多花一分錢，但會讓兩隻熊獲得一點回饋。
+      </p>
+    </section>
+
+    <section class="pick-manual">
+      <h2>想自己翻？一鍵搜尋各大平台</h2>
+      <p>AI 找不到或想要更多選擇時，直接用下面的按鈕開啟各平台搜尋結果。</p>
+      <div class="pick-platforms" id="platforms"></div>
+      <button id="open-all" type="button" class="pick-openall">🐻 全部一鍵開啟（記得允許彈出視窗）</button>
+    </section>
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+  .pick-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    font-family: inherit;
+  }
+  .pick-hero { text-align: center; margin-bottom: 2rem; }
+  .pick-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: #8a6d3b;
+    background: #fdf3e0;
+    border: 1px solid #f0dcb8;
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  .pick-hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin: 0 0 0.5rem; line-height: 1.25; }
+  .pick-accent { color: #c47b27; }
+  .pick-sub { color: #6b6b6b; margin: 0; }
+
+  .pick-input-row { display: flex; gap: 0.5rem; }
+  .pick-input-row input {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e3d5bd;
+    border-radius: 12px;
+    outline: none;
+    background: #fff;
+    color: #222;
+  }
+  .pick-input-row input:focus { border-color: #c47b27; }
+  .pick-input-row button {
+    padding: 0.85rem 1.3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background: #c47b27;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .pick-input-row button:disabled { background: #d9c4a3; cursor: wait; }
+
+  .pick-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+  .pick-tags button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid #e3d5bd;
+    background: #fffdf8;
+    border-radius: 999px;
+    cursor: pointer;
+    color: #6b5a3e;
+  }
+  .pick-tags button:hover { background: #fdf3e0; }
+
+  .pick-status {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #fdf3e0;
+    color: #6b5a3e;
+    text-align: center;
+  }
+  .pick-status.error { background: #fdeaea; color: #a33; }
+
+  .pick-results { margin-top: 2rem; }
+  .pick-results h2 { font-size: 1.2rem; }
+
+  .pick-card {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #eee3cf;
+    border-radius: 14px;
+    margin-bottom: 0.6rem;
+    background: #fffefb;
+  }
+  .pick-card.best { border: 2px solid #c47b27; background: #fff8ec; }
+  .pick-card .info { flex: 1; min-width: 0; }
+  .pick-card .platform { font-weight: 700; font-size: 0.95rem; }
+  .pick-card .best-badge {
+    font-size: 0.75rem;
+    color: #fff;
+    background: #c47b27;
+    border-radius: 6px;
+    padding: 0.1rem 0.45rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .pick-card .name {
+    font-size: 0.85rem;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pick-card .spec { font-size: 0.8rem; color: #9a8a6e; }
+  .pick-card .price { font-size: 1.25rem; font-weight: 800; color: #b3541e; white-space: nowrap; }
+  .pick-card .price small { font-size: 0.75rem; font-weight: 400; color: #999; }
+  .pick-card .buy-btn {
+    padding: 0.5rem 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    background: #2e7d32;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+
+  .pick-disclaimer {
+    font-size: 0.8rem;
+    color: #999;
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  .pick-manual { margin-top: 3rem; padding-top: 2rem; border-top: 1px dashed #e3d5bd; }
+  .pick-manual h2 { font-size: 1.1rem; }
+  .pick-manual p { color: #777; font-size: 0.9rem; }
+  .pick-platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  .pick-platforms button {
+    padding: 0.7rem 0.5rem;
+    border: 1px solid #e3d5bd;
+    background: #fffdf8;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+  .pick-platforms button:hover { background: #fdf3e0; }
+  .pick-openall {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #6b5a3e;
+    background: #fdf3e0;
+    border: 2px solid #e3d5bd;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  @media (max-width: 480px) {
+    .pick-input-row { flex-direction: column; }
+    .pick-card { flex-wrap: wrap; }
+    .pick-card .buy-btn { width: 100%; }
+  }
+</style>
+
+<script>
+  // ===== 平台設定（聯盟連結 + 搜尋網址）=====
+  const PLATFORMS = [
+    { name: 'momo購物網', match: /momo/i, aff: 'https://adcenter.conn.tw/3Ii4v',
+      search: (k) => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
+    { name: '蝦皮商城', match: /蝦皮|shopee/i, aff: 'https://product.mchannles.com/3RDin',
+      search: (k) => `https://shopee.tw/mall/search?keyword=${k}` },
+    { name: '酷澎', match: /酷澎|coupang/i, aff: 'https://joymall.co/3RDil',
+      search: (k) => `https://www.tw.coupang.com/search?q=${k}` },
+    { name: '家樂福線上', match: /家樂福|carrefour/i, aff: 'https://wonderfulapple.net/3RDio',
+      search: (k) => `https://online.carrefour.com.tw/zh/search?q=${k}` },
+    { name: 'Yahoo購物中心', match: /yahoo|雅虎/i, aff: 'https://www1.oeya.com.tw/3RDip',
+      search: (k) => `https://tw.buy.yahoo.com/search/product?p=${k}` },
+    { name: '台灣樂天市場', match: /樂天|rakuten/i, aff: 'https://easymall.co/3RDiq',
+      search: (k) => `https://www.rakuten.com.tw/search/${k}/` },
+    { name: '小三美日', match: /小三|s3/i, aff: 'https://afflink.one/s/nP5WT',
+      search: (k) => `https://www.s3.com.tw/Search?q=${k}` },
+    { name: 'PChome 24h', match: /pchome/i, aff: null,
+      search: (k) => `https://24h.pchome.com.tw/search/?q=${k}` },
+    { name: '飛比價格', match: /飛比|feebee/i, aff: null,
+      search: (k) => `https://feebee.com.tw/s/?q=${k}` },
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const kwInput = $('kw') as HTMLInputElement;
+  const goBtn = $('go') as HTMLButtonElement;
+  const statusBox = $('status') as HTMLElement;
+  const resultsBox = $('results') as HTMLElement;
+  const resultsTitle = $('results-title') as HTMLElement;
+  const resultsList = $('results-list') as HTMLElement;
+
+  function findPlatform(name: string) {
+    return PLATFORMS.find((p) => p.match.test(name)) || null;
+  }
+
+  // 雙層跳轉：聯盟入口 + 商品頁在同一次點擊事件內同步執行
+  // 大多數瀏覽器會放行，被擋的瀏覽器會提示允許彈出視窗
+  function dualOpen(affUrl: string | null, targetUrl: string) {
+    if (affUrl) window.open(affUrl, '_blank');
+    if (targetUrl) window.open(targetUrl, '_blank');
+  }
+
+  function showStatus(msg: string, isError = false) {
+    statusBox.hidden = false;
+    statusBox.textContent = msg;
+    statusBox.classList.toggle('error', isError);
+  }
+
+  function escapeHtml(s: string) {
+    return String(s).replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] ?? c));
+  }
+
+  async function compare() {
+    const keyword = kwInput.value.trim();
+    if (keyword.length < 2) {
+      showStatus('請輸入至少 2 個字的商品名稱', true);
+      return;
+    }
+
+    goBtn.disabled = true;
+    goBtn.textContent = '搜尋中…';
+    resultsBox.hidden = true;
+    showStatus('🐻 正在翻遍八大平台，大約需要 10～20 秒…');
+
+    try {
+      const res = await fetch('/api/compare', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ keyword }),
+      });
+      const data = await res.json();
+
+      if (data.error) {
+        showStatus(data.error, true);
+        return;
+      }
+      if (!data.results || data.results.length === 0) {
+        showStatus('找不到這個商品的價格，換個關鍵詞試試，或用下面的按鈕直接開平台搜尋 🐻', true);
+        return;
+      }
+
+      statusBox.hidden = true;
+      resultsBox.hidden = false;
+      resultsTitle.textContent = `「${data.keyword}」目前找到 ${data.results.length} 個平台的價格（由低到高）`;
+      resultsList.innerHTML = '';
+
+      data.results.forEach((r: any, i: number) => {
+        const p = findPlatform(r.platform);
+        const card = document.createElement('div');
+        card.className = 'pick-card' + (i === 0 ? ' best' : '');
+        card.innerHTML = `
+          <div class="info">
+            <div class="platform">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}</div>
+            <div class="name">${escapeHtml(r.name)}</div>
+            <div class="spec">${escapeHtml(r.spec)}</div>
+          </div>
+          <div class="price">NT$${r.price.toLocaleString()}<br /><small>請以商品頁為準</small></div>
+        `;
+        const buy = document.createElement('button');
+        buy.className = 'buy-btn';
+        buy.textContent = '去買';
+        buy.addEventListener('click', () => {
+          const target = r.url || (p ? p.search(encodeURIComponent(data.keyword)) : '');
+          dualOpen(p ? p.aff : null, target);
+        });
+        card.appendChild(buy);
+        resultsList.appendChild(card);
+      });
+    } catch {
+      showStatus('連線失敗，請稍後再試', true);
+    } finally {
+      goBtn.disabled = false;
+      goBtn.textContent = '開始比價';
+    }
+  }
+
+  goBtn.addEventListener('click', compare);
+  kwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') compare(); });
+  $('tags')!.addEventListener('click', (e) => {
+    const t = (e.target as HTMLElement).closest('button[data-kw]') as HTMLButtonElement | null;
+    if (t) { kwInput.value = t.dataset.kw!; compare(); }
+  });
+
+  // ===== 手動搜尋各平台 =====
+  const platformsBox = $('platforms')!;
+  PLATFORMS.forEach((p) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = (p.aff ? '❤️ ' : '🔗 ') + p.name;
+    btn.addEventListener('click', () => {
+      const k = encodeURIComponent(kwInput.value.trim() || '');
+      dualOpen(p.aff, p.search(k));
+    });
+    platformsBox.appendChild(btn);
+  });
+
+  $('open-all')!.addEventListener('click', () => {
+    const k = encodeURIComponent(kwInput.value.trim() || '');
+    PLATFORMS.forEach((p) => window.open(p.search(k), '_blank'));
+  });
+</script>

@@ -5,6 +5,14 @@ pubDate: '2026-05-22'
 tags: ['預言', '帕克', '台灣', '備災', '警告']
 youtubePost: 'https://www.youtube.com/post/UgkxH0eGpNFBC7vhtgwOPoqYRdBBBmsCM3OF'
 heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
+predictions:
+  hits:
+    - '台灣在全球局勢中的關鍵地位持續受到關注'
+    - '台海緊張情勢升溫，帕克建議備災具有現實參考意義'
+  misses: []
+  pending:
+    - '台灣面臨的衝擊程度超過大多數人想像的重大事件'
+    - '銀行系統中斷導致需以現金因應的危機場景'
 ---
 
 帕克這次的警告比以往更為直接——他不只說「要出事」，他說「現在就開始準備物資」。

@@ -5,6 +5,14 @@ pubDate: '2026-05-22'
 tags: ['預言', 'CIA', '遙視', '三戰', '末日']
 youtubePost: 'https://www.youtube.com/post/UgkxHPICWEp3em_LcVR0xW3edyfyjcbN92O2'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+predictions:
+  hits:
+    - '全球緊張局勢持續升溫，末日時鐘維持史上最接近午夜位置'
+    - '多個核大國（俄、中、北韓）同時進入高度備戰狀態'
+  misses: []
+  pending:
+    - '第三次世界大戰正式爆發導致文明基礎建設全面崩潰'
+    - '人類文明倒退至石器時代的末日場景'
 ---
 
 喬·麥克蒙尼格（Joe McMoneagle）不是普通人——他是美國 CIA 「星門計畫」（Stargate Project）的核心遙視員，曾為美國政府執行數百次高機密超感知任務。

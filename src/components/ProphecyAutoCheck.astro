@@ -1,0 +1,223 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description?: string;
+  tags?: string[];
+}
+const { slug, title, description = '', tags = [] } = Astro.props;
+---
+
+<div class="pac-wrap" id="pac-wrap"
+  data-slug={slug}
+  data-title={title}
+  data-desc={description}
+  data-tags={tags.join(',')}
+>
+  <div class="pac-header">
+    <span class="pac-icon">🤖</span>
+    <span class="pac-title">AI 自動驗證</span>
+    <span class="pac-sub">使用 Google Search 查核預言是否成真</span>
+  </div>
+
+  <div class="pac-body" id="pac-body">
+    <div class="pac-loading" id="pac-loading">
+      <span class="pac-spinner"></span>
+      <span>AI 正在搜尋驗證中…</span>
+    </div>
+    <div class="pac-result" id="pac-result" style="display:none"></div>
+    <div class="pac-refresh" id="pac-refresh" style="display:none">
+      <button class="pac-btn-refresh" id="pac-btn-refresh">🔄 重新查核</button>
+      <span class="pac-checked-at" id="pac-checked-at"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const wrap   = document.getElementById('pac-wrap') as HTMLElement
+  const slug   = wrap.dataset.slug ?? ''
+  const title  = wrap.dataset.title ?? ''
+  const desc   = wrap.dataset.desc ?? ''
+  const tags   = wrap.dataset.tags ?? ''
+
+  const LABELS: Record<string, { emoji: string; text: string; cls: string }> = {
+    t: { emoji: '✅', text: '已成真', cls: 'pac-true' },
+    f: { emoji: '❌', text: '未成真', cls: 'pac-false' },
+    p: { emoji: '⏳', text: '待觀察', cls: 'pac-pend' },
+  }
+
+  function renderResult(data: { status: string; reason: string; checkedAt: string; cached?: boolean }) {
+    const loading  = document.getElementById('pac-loading')
+    const result   = document.getElementById('pac-result')
+    const refresh  = document.getElementById('pac-refresh')
+    const checkedAt = document.getElementById('pac-checked-at')
+
+    if (loading) loading.style.display = 'none'
+
+    const info = LABELS[data.status] ?? LABELS['p']
+    if (result) {
+      result.style.display = 'block'
+      result.innerHTML = `
+        <div class="pac-badge ${info.cls}">${info.emoji} ${info.text}</div>
+        <div class="pac-reason">${data.reason}</div>
+      `
+    }
+
+    if (refresh) refresh.style.display = 'flex'
+    if (checkedAt && data.checkedAt) {
+      const d = new Date(data.checkedAt)
+      checkedAt.textContent = `查核於 ${d.toLocaleDateString('zh-TW')} ${d.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })}`
+    }
+  }
+
+  function renderError() {
+    const loading = document.getElementById('pac-loading')
+    const result  = document.getElementById('pac-result')
+    if (loading) loading.style.display = 'none'
+    if (result) {
+      result.style.display = 'block'
+      result.innerHTML = `<div class="pac-error">⚠️ 暫時無法查核，請稍後再試</div>`
+    }
+  }
+
+  async function runCheck() {
+    const loading = document.getElementById('pac-loading')
+    const result  = document.getElementById('pac-result')
+    const refresh = document.getElementById('pac-refresh')
+    if (loading) loading.style.display = 'flex'
+    if (result)  result.style.display  = 'none'
+    if (refresh) refresh.style.display = 'none'
+
+    try {
+      const params = new URLSearchParams({ slug, title, desc, tags })
+      const r = await fetch(`/api/prophecy-check?${params}`)
+      const d = await r.json()
+      if (d.ok && d.status) {
+        renderResult(d)
+      } else {
+        renderError()
+      }
+    } catch {
+      renderError()
+    }
+  }
+
+  document.getElementById('pac-btn-refresh')?.addEventListener('click', runCheck)
+
+  // Auto-run on load
+  runCheck()
+</script>
+
+<style>
+  .pac-wrap {
+    margin: 2em 0;
+    padding: 1.4em 1.6em;
+    background: linear-gradient(135deg, rgba(15,23,42,.06), rgba(30,64,175,.05));
+    border: 1px solid rgba(59,130,246,.25);
+    border-left: 4px solid #3b82f6;
+    border-radius: 12px;
+  }
+
+  .pac-header {
+    display: flex;
+    align-items: center;
+    gap: .6em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+  }
+
+  .pac-icon { font-size: 1.1em; }
+
+  .pac-title {
+    font-size: 1em;
+    font-weight: 800;
+    color: #1e3a8a;
+  }
+
+  .pac-sub {
+    font-size: .78em;
+    color: #64748b;
+  }
+
+  .pac-loading {
+    display: flex;
+    align-items: center;
+    gap: .7em;
+    font-size: .85em;
+    color: #64748b;
+  }
+
+  .pac-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #cbd5e1;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: pac-spin .7s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pac-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .pac-result { margin-bottom: .6em; }
+
+  .pac-badge {
+    display: inline-block;
+    padding: .35em .9em;
+    border-radius: 20px;
+    font-size: .9em;
+    font-weight: 800;
+    margin-bottom: .5em;
+  }
+
+  .pac-true  { background: #dcfce7; color: #166534; }
+  .pac-false { background: #fee2e2; color: #991b1b; }
+  .pac-pend  { background: #fef9c3; color: #854d0e; }
+
+  .pac-reason {
+    font-size: .85em;
+    color: #374151;
+    line-height: 1.6;
+  }
+
+  .pac-error {
+    font-size: .83em;
+    color: #92400e;
+    background: #fef3c7;
+    padding: .5em .8em;
+    border-radius: 8px;
+  }
+
+  .pac-refresh {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: .4em;
+  }
+
+  .pac-btn-refresh {
+    font-size: .75em;
+    color: #3b82f6;
+    background: none;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: .25em .7em;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+  }
+
+  .pac-btn-refresh:hover { background: #eff6ff; }
+
+  .pac-checked-at {
+    font-size: .72em;
+    color: #9ca3af;
+  }
+
+  @media (max-width: 500px) {
+    .pac-wrap { padding: 1em; }
+  }
+</style>

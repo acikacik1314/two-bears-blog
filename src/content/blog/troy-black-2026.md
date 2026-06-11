@@ -5,6 +5,13 @@ pubDate: '2026-05-22'
 tags: ['預言', '特洛伊布萊克', '末日', '2026', '幕後黑手']
 youtubePost: 'https://www.youtube.com/post/UgkxFJLm4VUch1P5dlIrDzdLVTtGoLVa8TxH'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+predictions:
+  hits:
+    - '2026年全球衝突背後存在超國家層級的系統性操控力量'
+  misses: []
+  pending:
+    - '2026年「它」這一黑暗幕後力量的計畫全面執行'
+    - '表面衝突背後統一操縱者身分被公開揭露'
 ---
 
 全球戰火蔓延，但特洛伊·布萊克（Troy Black）看見了多數人都看不見的東西——在所有的戰爭、衝突、混亂背後，有一個共同的「真兇」。

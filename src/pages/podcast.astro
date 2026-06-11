@@ -1,226 +1,446 @@
 ---
 export const prerender = false;
-
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
-
-// Fetch RSS at build/request time
-let episodes: Array<{
-	title: string;
-	date: string;
-	link: string;
-	embedUrl: string;
-	duration: string;
-	description: string;
-}> = [];
-
-let coverImage = '';
-let podcastTitle = '';
-let podcastDesc = '';
-
-try {
-	const res = await fetch('https://anchor.fm/s/11310a874/podcast/rss');
-	const xml = await res.text();
-
-	const extractCdata = (tag: string, str: string) => {
-		const m = str.match(new RegExp(`<${tag}><\\!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`));
-		return m ? m[1].trim() : '';
-	};
-	const extractTag = (tag: string, str: string) => {
-		const m = str.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`));
-		return m ? m[1].trim() : '';
-	};
-
-	coverImage = (xml.match(/<itunes:image href="([^"]+)"/) || [])[1] ?? '';
-	podcastTitle = extractCdata('title', xml.split('<item>')[0]);
-	podcastDesc = extractCdata('description', xml.split('<item>')[0]);
-
-	const items = xml.split('<item>').slice(1);
-	episodes = items.map(item => {
-		const link = extractTag('link', item);
-		// Extract episode slug from podcasters.spotify.com URL for embed
-		const slugMatch = link.match(/\/episodes\/([^/\s]+)$/);
-		const embedUrl = slugMatch
-			? `https://creators.spotify.com/pod/profile/teddy175/embed/episodes/${slugMatch[1]}`
-			: '';
-		return {
-			title: extractCdata('title', item),
-			date: extractTag('pubDate', item),
-			link,
-			embedUrl,
-			duration: extractTag('itunes:duration', item),
-			description: extractCdata('description', item).replace(/<[^>]+>/g, '').slice(0, 200),
-		};
-	});
-} catch (e) {
-	// RSS fetch failed silently
-}
-
-function formatDate(dateStr: string) {
-	if (!dateStr) return '';
-	const d = new Date(dateStr);
-	return d.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function formatDuration(s: string) {
-	if (!s) return '';
-	// HH:MM:SS format — strip leading "00:" hour if zero
-	if (s.includes(':')) {
-		return s.startsWith('00:') ? s.slice(3) : s;
-	}
-	// seconds integer format
-	const n = parseInt(s);
-	if (isNaN(n)) return s;
-	const m = Math.floor(n / 60);
-	const sec = n % 60;
-	return `${m}:${sec.toString().padStart(2, '0')}`;
-}
 ---
 
 <!doctype html>
 <html lang="zh-TW">
-	<head>
-		<BaseHead title={`Podcast | ${SITE_TITLE}`} description={podcastDesc || '兩隻熊的未來人預言家 Podcast'} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div class="podcast-header">
-				{coverImage && <img class="cover" src={coverImage} alt={podcastTitle} />}
-				<div class="podcast-meta">
-					<h1>{podcastTitle || '兩隻熊的未來人預言家'}</h1>
-					<p class="podcast-desc">{podcastDesc}</p>
-					<a class="spotify-btn" href="https://podcasters.spotify.com/pod/show/teddy175" target="_blank" rel="noopener">
-						▶ 在 Spotify 收聽
-					</a>
-				</div>
-			</div>
+  <head>
+    <BaseHead
+      title={`未來人預言家 Podcast | ${SITE_TITLE}`}
+      description="兩隻熊的未來人預言家 Podcast — 解讀末日預言、台海局勢、靈性分析"
+    />
+  </head>
+  <body class="pod-page">
+    <Header />
+    <main class="pod-main">
 
-			<div class="episodes">
-				{episodes.map((ep, i) => (
-					<div class="episode">
-						<div class="ep-header">
-							<span class="ep-num">EP {episodes.length - i}</span>
-							<h2 class="ep-title">{ep.title}</h2>
-						</div>
-						<div class="ep-meta">
-							<span class="ep-date">{formatDate(ep.date)}</span>
-							{ep.duration && <span class="ep-dur">⏱ {formatDuration(ep.duration)}</span>}
-						</div>
-						{ep.description && <p class="ep-desc">{ep.description}…</p>}
-						{ep.embedUrl && (
-							<iframe
-								src={ep.embedUrl}
-								width="100%"
-								height="152"
-								frameborder="0"
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-								class="ep-embed"
-							></iframe>
-						)}
-					</div>
-				))}
-			</div>
-		</main>
-		<Footer />
-	</body>
+      <!-- ── HERO ── -->
+      <div class="pod-hero">
+        <div class="pod-hero-backdrop"></div>
+        <div class="pod-hero-inner">
+          <img
+            class="pod-cover"
+            src="/images/two-bears-avatar.jpg"
+            alt="兩隻熊"
+          />
+          <div class="pod-hero-text">
+            <span class="pod-label">PODCAST</span>
+            <h1 class="pod-title">未來人預言家</h1>
+            <p class="pod-desc">末日預言・台海局勢・靈性分析・XRP<br/>帶你直擊各大預言家的第一手話語</p>
+            <div class="pod-meta">
+              <span class="pod-creator">🐻 兩隻熊</span>
+              <span class="pod-dot">·</span>
+              <span id="pod-total">載入中…</span>
+            </div>
+            <a
+              class="pod-spotify-btn"
+              href="https://open.spotify.com/show/033nZopH7VWW9G0RdIchZG"
+              target="_blank" rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+              訂閱頻道
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Loading / Error ── -->
+      <div class="pod-loading" id="pod-loading">
+        <span class="pod-spinner"></span> 載入集數中…
+      </div>
+      <div class="pod-error" id="pod-error" style="display:none">
+        ⚠️ 無法載入節目，請重新整理頁面。
+      </div>
+
+      <!-- ── Episodes ── -->
+      <div id="pod-content" style="display:none" class="pod-content">
+
+        <div class="pod-ep-header">
+          <h2 class="pod-ep-title">所有集數 <span id="pod-ep-count" class="pod-ep-count"></span></h2>
+        </div>
+
+        <div class="pod-list" id="pod-list"></div>
+
+      </div>
+
+    </main>
+    <Footer />
+  </body>
 </html>
 
-<style>
-	main {
-		max-width: 760px;
-		margin: auto;
-		padding: 2em 1em 4em;
-	}
-	.podcast-header {
-		display: flex;
-		gap: 1.5em;
-		align-items: flex-start;
-		margin-bottom: 2.5em;
-		padding-bottom: 2em;
-		border-bottom: 1px solid rgb(var(--gray-light));
-	}
-	.cover {
-		width: 140px;
-		height: 140px;
-		object-fit: cover;
-		border-radius: 12px;
-		flex-shrink: 0;
-		box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-	}
-	.podcast-meta h1 {
-		font-size: 1.4em;
-		margin: 0 0 0.4em;
-	}
-	.podcast-desc {
-		color: rgb(var(--gray));
-		font-size: 0.9em;
-		margin: 0 0 1em;
-		line-height: 1.5;
-	}
-	.spotify-btn {
-		display: inline-block;
-		background: #1DB954;
-		color: white;
-		padding: 0.5em 1.2em;
-		border-radius: 20px;
-		text-decoration: none;
-		font-size: 0.85em;
-		font-weight: 700;
-	}
-	.spotify-btn:hover { background: #17a349; }
+<script>
+  const PROPHETS: Record<string, { label: string; color: string }> = {
+    '比格斯':     { label: '比格斯',     color: '#f59e0b' },
+    '帕克':       { label: '帕克',       color: '#3b82f6' },
+    '麥克蒙尼格': { label: '麥克蒙尼格', color: '#10b981' },
+    '摩普萊':     { label: '摩普萊',     color: '#ef4444' },
+    '波蘭預言家': { label: '波蘭預言家', color: '#8b5cf6' },
+    '英國神算':   { label: '英國神算',   color: '#06b6d4' },
+    'default':    { label: '',          color: '#64748b' },
+  };
 
-	.episodes { display: flex; flex-direction: column; gap: 1.5em; }
-	.episode {
-		border: 1px solid rgb(var(--gray-light));
-		border-radius: 12px;
-		padding: 1.2em 1.4em;
-	}
-	.ep-header {
-		display: flex;
-		align-items: baseline;
-		gap: 0.7em;
-		margin-bottom: 0.4em;
-	}
-	.ep-num {
-		font-size: 0.75em;
-		font-weight: 700;
-		color: var(--accent);
-		background: rgba(var(--accent-dark), 0.08);
-		padding: 0.1em 0.5em;
-		border-radius: 4px;
-		white-space: nowrap;
-	}
-	.ep-title {
-		font-size: 1em;
-		margin: 0;
-		line-height: 1.4;
-	}
-	.ep-meta {
-		display: flex;
-		gap: 1em;
-		font-size: 0.8em;
-		color: rgb(var(--gray));
-		margin-bottom: 0.6em;
-	}
-	.ep-desc {
-		font-size: 0.85em;
-		color: rgb(var(--gray));
-		margin: 0 0 0.8em;
-		line-height: 1.5;
-	}
-	.ep-embed {
-		border-radius: 12px;
-		border: none;
-		display: block;
-		margin-top: 0.8em;
-	}
+  function detectProphet(title: string): string {
+    if (/比格斯|biggs|pastor|末日牧師/i.test(title))          return '比格斯';
+    if (/帕克|parker/i.test(title))                           return '帕克';
+    if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title)) return '麥克蒙尼格';
+    if (/摩普萊/i.test(title))                                return '摩普萊';
+    if (/波蘭/i.test(title))                                  return '波蘭預言家';
+    if (/英國神算/i.test(title))                              return '英國神算';
+    return 'default';
+  }
 
-	@media (max-width: 480px) {
-		.podcast-header { flex-direction: column; }
-		.cover { width: 100px; height: 100px; }
-	}
+  function fmtDate(s: string) {
+    if (!s) return '';
+    return new Date(s).toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' });
+  }
+
+  function fmtDur(s: string) {
+    if (!s) return '';
+    if (s.includes(':')) return s.startsWith('00:') ? s.slice(3) : s;
+    const n = parseInt(s);
+    if (isNaN(n)) return '';
+    return `${Math.floor(n / 60)}:${(n % 60).toString().padStart(2, '0')}`;
+  }
+
+  let allEpisodes: any[] = [];
+
+  function renderList(filter: string) {
+    const list = document.getElementById('pod-list')!;
+    const eps = filter === 'all'
+      ? allEpisodes
+      : allEpisodes.filter(ep => ep._prophet === filter);
+
+    list.innerHTML = '';
+
+    if (!eps.length) {
+      list.innerHTML = '<div class="pod-empty">沒有找到相關集數</div>';
+      return;
+    }
+
+    eps.forEach((ep: any) => {
+      const p = PROPHETS[ep._prophet];
+      const dur = fmtDur(ep.duration);
+      const date = fmtDate(ep.date);
+
+      const card = document.createElement('div');
+      card.className = 'pod-card';
+      card.style.setProperty('--accent', p.color);
+      card.innerHTML = `
+        <div class="pod-card-top">
+          <div class="pod-card-info">
+            <div class="pod-card-meta">
+              ${p.label ? `<span class="pod-card-prophet" style="color:${p.color}">${p.label}</span>` : ''}
+              ${date ? `<span class="pod-card-date">${date}</span>` : ''}
+              ${dur  ? `<span class="pod-card-dur">⏱ ${dur}</span>` : ''}
+            </div>
+            <div class="pod-card-num">EP ${ep.num ?? ep._idx + 1}</div>
+            <h3 class="pod-card-title">${ep.title}</h3>
+          </div>
+        </div>
+        ${ep.embedUrl ? `
+        <div class="pod-card-player">
+          <iframe
+            src="${ep.embedUrl}"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+          ${ep.description ? `
+          <button class="pod-transcript-btn" aria-expanded="false" aria-label="展開預言文章">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+            展開預言文章
+            <svg class="pod-btn-arrow" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="pod-transcript" hidden>${ep.description}</div>` : ''}
+        </div>` : ''}
+      `;
+
+      if (ep.description) {
+        card.querySelector('.pod-transcript-btn')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const btn = e.currentTarget as HTMLButtonElement;
+          const transcript = btn.closest('.pod-card-player')!.querySelector('.pod-transcript') as HTMLElement;
+          const isOpen = transcript && !transcript.hidden;
+          if (transcript) transcript.hidden = isOpen;
+          btn.setAttribute('aria-expanded', String(!isOpen));
+          btn.classList.toggle('is-open', !isOpen);
+        });
+      }
+
+      list.appendChild(card);
+    });
+  }
+
+  async function init() {
+    const loadingEl = document.getElementById('pod-loading')!;
+    const errorEl   = document.getElementById('pod-error')!;
+    const contentEl = document.getElementById('pod-content')!;
+
+    try {
+      const r = await fetch('/api/podcast-rss');
+      if (!r.ok) throw new Error('fetch');
+      const d = await r.json();
+      if (d.error) throw new Error(d.error);
+
+      allEpisodes = (d.episodes as any[]).map((ep, i) => ({
+        ...ep,
+        _idx: i,
+        _prophet: detectProphet(ep.title),
+      }));
+
+      const totalEl = document.getElementById('pod-total');
+      if (totalEl) totalEl.textContent = `${allEpisodes.length} 集`;
+
+      const countEl = document.getElementById('pod-ep-count');
+      if (countEl) countEl.textContent = `${allEpisodes.length} 集`;
+
+      renderList('all');
+
+      loadingEl.style.display = 'none';
+      contentEl.style.display = 'block';
+
+    } catch {
+      loadingEl.style.display = 'none';
+      errorEl.style.display = 'block';
+    }
+  }
+
+  init();
+</script>
+
+<style is:global>
+  :global(.pod-page) {
+    background: #121212 !important;
+    color: #fff;
+  }
+  :global(.pod-page footer) {
+    background: #0a0a0a !important;
+    border-top: 1px solid rgba(255,255,255,.07) !important;
+    color: #a7a7a7 !important;
+  }
+  :global(.pod-page footer a) { color: #a7a7a7 !important; }
+
+  .pod-main { min-height: 80vh; }
+
+  /* ── Hero ── */
+  .pod-hero {
+    position: relative;
+    padding: 3.5em 2em 2.5em;
+    overflow: hidden;
+  }
+  .pod-hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(124,58,237,.22) 0%, transparent 70%),
+      linear-gradient(135deg, #1a0a3c 0%, #0d1b4b 50%, #0a1d10 100%);
+    pointer-events: none;
+  }
+  .pod-hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 2.2em;
+  }
+  .pod-cover {
+    width: 220px; height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.7);
+    flex-shrink: 0;
+  }
+  .pod-hero-text { flex: 1; min-width: 0; padding-bottom: .5em; }
+  .pod-label {
+    font-size: .68em; font-weight: 700;
+    letter-spacing: .12em; color: rgba(255,255,255,.6);
+    display: block; margin-bottom: .4em;
+  }
+  .pod-title {
+    font-size: clamp(2em, 5vw, 3.5em);
+    font-weight: 900; color: #fff;
+    margin: 0 0 .35em; line-height: 1.05;
+  }
+  .pod-desc {
+    font-size: .85em; color: #b3b3b3;
+    line-height: 1.65; margin: 0 0 .9em; max-width: 560px;
+  }
+  .pod-meta {
+    display: flex; align-items: center; gap: .4em;
+    font-size: .82em; color: #b3b3b3; margin-bottom: 1.4em;
+  }
+  .pod-creator { font-weight: 700; color: #fff; }
+  .pod-dot { opacity: .4; }
+  .pod-spotify-btn {
+    display: inline-flex; align-items: center; gap: .5em;
+    background: #1DB954; color: #000;
+    font-size: .85em; font-weight: 700;
+    padding: .65em 1.6em; border-radius: 24px;
+    text-decoration: none;
+    transition: background .15s, transform .12s;
+  }
+  .pod-spotify-btn:hover { background: #1ed760; transform: translateY(-2px); }
+
+  /* ── Loading / Error ── */
+  .pod-loading {
+    display: flex; align-items: center; gap: .8em;
+    color: #7c3aed; font-size: .9em;
+    padding: 3em; justify-content: center;
+  }
+  .pod-spinner {
+    width: 20px; height: 20px;
+    border: 2px solid rgba(124,58,237,.25);
+    border-top-color: #7c3aed;
+    border-radius: 50%;
+    animation: spin .7s linear infinite; flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .pod-error {
+    margin: 2em auto; max-width: 600px;
+    padding: 1.2em 1.5em;
+    background: rgba(239,68,68,.1);
+    border-left: 4px solid #ef4444;
+    border-radius: 8px; color: #fca5a5; font-size: .9em;
+  }
+
+  /* ── Content ── */
+  .pod-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5em 1.5em 5em;
+  }
+
+  /* ── Header + filter ── */
+  .pod-ep-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; gap: 1em;
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .pod-ep-title {
+    font-size: 1.4em; font-weight: 800; color: #fff; margin: 0;
+  }
+  .pod-ep-count {
+    font-size: .6em; font-weight: 400;
+    color: #727272; margin-left: .5em;
+  }
+
+  /* ── Episode card ── */
+  .pod-card {
+    border-left: 3px solid var(--accent, #64748b);
+    background: #1a1a1a;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1.6em;
+    overflow: hidden;
+    transition: background .15s;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  }
+  .pod-card:hover { background: #202020; }
+
+  .pod-card-top {
+    padding: 1em 1.2em .8em;
+  }
+  .pod-card-meta {
+    display: flex; align-items: center; gap: .8em;
+    margin-bottom: .4em; flex-wrap: wrap;
+  }
+  .pod-card-prophet {
+    font-size: .72em; font-weight: 700; letter-spacing: .03em;
+  }
+  .pod-card-date, .pod-card-dur {
+    font-size: .72em; color: #727272;
+  }
+  .pod-card-num {
+    font-size: .7em; font-weight: 700;
+    color: rgba(255,255,255,.3);
+    letter-spacing: .06em;
+    margin-bottom: .25em;
+  }
+  .pod-card-title {
+    font-size: .95em; font-weight: 700;
+    color: #fff; line-height: 1.45; margin: 0;
+  }
+
+  .pod-card-player {
+    padding: 0 1.2em 1.2em;
+  }
+  .pod-card-player iframe {
+    border-radius: 8px;
+    display: block; border: none;
+  }
+  .pod-transcript-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    width: 100%;
+    margin-top: .7em;
+    padding: .6em 1.2em;
+    background: linear-gradient(90deg, rgba(124,58,237,.15) 0%, rgba(124,58,237,.05) 100%);
+    border: 1px solid rgba(124,58,237,.3);
+    border-radius: 8px;
+    color: #a78bfa;
+    font-size: .8em;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: .03em;
+    transition: all .18s;
+  }
+  .pod-transcript-btn:hover {
+    background: linear-gradient(90deg, rgba(124,58,237,.28) 0%, rgba(124,58,237,.1) 100%);
+    border-color: rgba(124,58,237,.6);
+    color: #c4b5fd;
+  }
+  .pod-btn-arrow { transition: transform .25s; opacity: .8; margin-left: auto; }
+  .pod-transcript-btn.is-open {
+    background: linear-gradient(90deg, rgba(29,185,84,.15) 0%, rgba(29,185,84,.05) 100%);
+    border-color: rgba(29,185,84,.4);
+    color: #1DB954;
+  }
+  .pod-transcript-btn.is-open .pod-btn-arrow { transform: rotate(180deg); }
+  .pod-transcript {
+    margin-top: .8em;
+    padding: 1em 1.2em;
+    background: rgba(255,255,255,.04);
+    border-radius: 8px;
+    font-size: .82em;
+    line-height: 1.8;
+    color: #b3b3b3;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .pod-transcript :global(p) { margin: .4em 0; }
+  .pod-transcript :global(a) { color: #1DB954; }
+
+  .pod-empty {
+    text-align: center; color: #727272;
+    padding: 3em 0; font-size: .9em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .pod-hero-inner { flex-direction: column; align-items: flex-start; gap: 1.4em; }
+    .pod-cover { width: 160px; height: 160px; }
+    .pod-ep-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 520px) {
+    .pod-hero { padding: 2em 1em 1.8em; }
+    .pod-content { padding: 1.5em 1em 3em; }
+  }
 </style>

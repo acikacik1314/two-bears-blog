@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { getPostCategory } from '../utils/category';
 
 const allPosts = await getCollection('blog');
 
@@ -22,11 +21,11 @@ const stats = PROPHETS.map(p => {
       p.tags.some(k => t.toLowerCase().includes(k.toLowerCase()))
     )
   );
-  const hits = posts.reduce((n, post) => n + (post.data.predictions?.hits?.length ?? 0), 0);
-  const misses = posts.reduce((n, post) => n + (post.data.predictions?.misses?.length ?? 0), 0);
-  const pending = posts.reduce((n, post) => n + (post.data.predictions?.pending?.length ?? 0), 0);
-  const total = hits + misses;
-  const accuracy = total > 0 ? Math.round((hits / total) * 100) : null;
+  const hits    = [...new Set(posts.flatMap(post => post.data.predictions?.hits    ?? []))];
+  const misses  = [...new Set(posts.flatMap(post => post.data.predictions?.misses  ?? []))];
+  const pending = [...new Set(posts.flatMap(post => post.data.predictions?.pending ?? []))];
+  const total = hits.length + misses.length;
+  const accuracy = total > 0 ? Math.round((hits.length / total) * 100) : null;
   return { name: p.name, posts: posts.length, hits, misses, pending, accuracy };
 }).filter(s => s.posts > 0).sort((a, b) => {
   if (a.accuracy !== null && b.accuracy !== null) return b.accuracy - a.accuracy;
@@ -34,6 +33,15 @@ const stats = PROPHETS.map(p => {
   if (b.accuracy !== null) return 1;
   return b.posts - a.posts;
 });
+
+// Embed data for client-side modal
+const statsJson = JSON.stringify(stats.map(s => ({
+  name: s.name,
+  hits: s.hits,
+  misses: s.misses,
+  pending: s.pending,
+  accuracy: s.accuracy,
+})));
 ---
 
 <div class="lb-wrap">
@@ -60,13 +68,20 @@ const stats = PROPHETS.map(p => {
         </thead>
         <tbody>
           {stats.map((s, i) => (
-            <tr class={i === 0 && s.accuracy !== null ? 'lb-top' : ''}>
+            <tr
+              class={`lb-row${i === 0 && s.accuracy !== null ? ' lb-top' : ''}`}
+              data-idx={i}
+              title={`點擊查看 ${s.name} 的詳細預言`}
+            >
               <td class="lb-rank">{i + 1}</td>
-              <td class="lb-name">{s.name}</td>
+              <td class="lb-name">
+                <span class="lb-name-text">{s.name}</span>
+                <span class="lb-detail-hint">詳情</span>
+              </td>
               <td>{s.posts}</td>
-              <td class="lb-hit">{s.hits > 0 ? `✅ ${s.hits}` : '—'}</td>
-              <td class="lb-miss">{s.misses > 0 ? `❌ ${s.misses}` : '—'}</td>
-              <td class="lb-pend">{s.pending > 0 ? `⏳ ${s.pending}` : '—'}</td>
+              <td class="lb-hit">{s.hits.length > 0 ? `✅ ${s.hits.length}` : '—'}</td>
+              <td class="lb-miss">{s.misses.length > 0 ? `❌ ${s.misses.length}` : '—'}</td>
+              <td class="lb-pend">{s.pending.length > 0 ? `⏳ ${s.pending.length}` : '—'}</td>
               <td class="lb-acc">
                 {s.accuracy !== null ? (
                   <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
@@ -83,6 +98,82 @@ const stats = PROPHETS.map(p => {
     </div>
   )}
 </div>
+
+<!-- Modal -->
+<div class="pred-modal-overlay" id="pred-modal-overlay">
+  <div class="pred-modal" id="pred-modal">
+    <div class="pred-modal-header">
+      <div>
+        <div class="pred-modal-eyebrow">預言詳情</div>
+        <div class="pred-modal-name" id="pred-modal-name"></div>
+      </div>
+      <button class="pred-modal-close" id="pred-modal-close">✕</button>
+    </div>
+    <div class="pred-modal-body" id="pred-modal-body"></div>
+  </div>
+</div>
+
+<script define:vars={{ statsJson }}>
+  const STATS = JSON.parse(statsJson);
+
+  function openModal(idx) {
+    const s = STATS[idx];
+    if (!s) return;
+
+    document.getElementById('pred-modal-name').textContent = s.name;
+
+    let html = '';
+
+    if (s.hits.length > 0) {
+      html += `<div class="pred-section">
+        <div class="pred-section-label hit">✅ 命中預言 (${s.hits.length})</div>
+        <ul class="pred-list hit-list">
+          ${s.hits.map(h => `<li>${h}</li>`).join('')}
+        </ul>
+      </div>`;
+    }
+    if (s.misses.length > 0) {
+      html += `<div class="pred-section">
+        <div class="pred-section-label miss">❌ 未命中 (${s.misses.length})</div>
+        <ul class="pred-list miss-list">
+          ${s.misses.map(m => `<li>${m}</li>`).join('')}
+        </ul>
+      </div>`;
+    }
+    if (s.pending.length > 0) {
+      html += `<div class="pred-section">
+        <div class="pred-section-label pend">⏳ 待驗證 (${s.pending.length})</div>
+        <ul class="pred-list pend-list">
+          ${s.pending.map(p => `<li>${p}</li>`).join('')}
+        </ul>
+      </div>`;
+    }
+    if (!html) {
+      html = '<p class="pred-empty">此預言家尚未記錄具體預言內容</p>';
+    }
+
+    document.getElementById('pred-modal-body').innerHTML = html;
+    document.getElementById('pred-modal-overlay').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('pred-modal-overlay').classList.remove('open');
+  }
+
+  document.querySelectorAll('.lb-row').forEach(row => {
+    row.addEventListener('click', () => {
+      openModal(Number(row.getAttribute('data-idx')));
+    });
+  });
+
+  document.getElementById('pred-modal-close').addEventListener('click', closeModal);
+  document.getElementById('pred-modal-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
 
 <style>
   .lb-wrap {
@@ -108,12 +199,7 @@ const stats = PROPHETS.map(p => {
     letter-spacing: 0.04em;
   }
 
-  .lb-link {
-    font-size: 0.72em;
-    color: #94a3b8;
-    text-decoration: none;
-  }
-
+  .lb-link { font-size: 0.72em; color: #94a3b8; text-decoration: none; }
   .lb-link:hover { color: #a78bfa; }
 
   .lb-empty {
@@ -122,7 +208,6 @@ const stats = PROPHETS.map(p => {
     text-align: center;
     padding: 1em 0;
   }
-
   .lb-empty code {
     background: rgba(255,255,255,0.08);
     padding: 0.1em 0.3em;
@@ -154,16 +239,166 @@ const stats = PROPHETS.map(p => {
     white-space: nowrap;
   }
 
+  .lb-row { cursor: pointer; }
+  .lb-row:hover td { background: rgba(168,85,247,0.06); }
   .lb-top td { background: rgba(118,17,166,0.08); }
+
   .lb-rank { color: #94a3b8; font-weight: 700; }
   .lb-name { color: #f1f5f9; font-weight: 600; }
-  .lb-hit { color: #4ade80; }
+  .lb-name-text { margin-right: 0.4em; }
+  .lb-detail-hint {
+    font-size: 0.68em;
+    color: #a78bfa;
+    font-weight: 600;
+    background: rgba(167,139,250,0.12);
+    border: 1px solid rgba(167,139,250,0.35);
+    border-radius: 4px;
+    padding: 0.1em 0.5em;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .lb-row:hover .lb-detail-hint {
+    color: #fff;
+    background: rgba(167,139,250,0.28);
+    border-color: rgba(167,139,250,0.7);
+  }
+
+  .lb-hit  { color: #4ade80; }
   .lb-miss { color: #f87171; }
   .lb-pend { color: #fbbf24; }
 
   .acc-good { color: #4ade80; font-weight: 700; }
-  .acc-mid { color: #fbbf24; font-weight: 700; }
-  .acc-low { color: #f87171; font-weight: 700; }
+  .acc-mid  { color: #fbbf24; font-weight: 700; }
+  .acc-low  { color: #f87171; font-weight: 700; }
   .acc-none { color: #94a3b8; }
 
+  /* ── Modal ── */
+  .pred-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(2,10,20,0.85);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .pred-modal-overlay.open { display: flex; }
+
+  .pred-modal {
+    background: #0d1828;
+    border: 1px solid rgba(167,139,250,0.3);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(167,139,250,0.2);
+    animation: modalIn 0.2s ease-out;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .pred-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.1rem 1.25rem 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+
+  .pred-modal-eyebrow {
+    font-size: 0.62em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 0.2rem;
+  }
+
+  .pred-modal-name {
+    font-size: 1.15em;
+    font-weight: 800;
+    color: #f1f5f9;
+  }
+
+  .pred-modal-close {
+    background: none;
+    border: none;
+    color: #475569;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    line-height: 1;
+  }
+  .pred-modal-close:hover { color: #e2e8f0; background: rgba(255,255,255,0.08); }
+
+  .pred-modal-body {
+    overflow-y: auto;
+    padding: 1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .pred-section {}
+
+  .pred-section-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .pred-section-label.hit  { color: #4ade80; }
+  .pred-section-label.miss { color: #f87171; }
+  .pred-section-label.pend { color: #fbbf24; }
+
+  .pred-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .pred-list li {
+    font-size: 0.82em;
+    color: #94a3b8;
+    line-height: 1.55;
+    padding: 0.4em 0.6em 0.4em 0.9em;
+    border-radius: 6px;
+    position: relative;
+  }
+  .pred-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    border-radius: 2px;
+  }
+
+  .hit-list  li { background: rgba(74,222,128,0.05); }
+  .hit-list  li::before { background: #4ade80; }
+  .miss-list li { background: rgba(248,113,113,0.05); }
+  .miss-list li::before { background: #f87171; }
+  .pend-list li { background: rgba(251,191,36,0.05); }
+  .pend-list li::before { background: #fbbf24; }
+
+  .pred-empty {
+    font-size: 0.8em;
+    color: #334155;
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+  }
 </style>

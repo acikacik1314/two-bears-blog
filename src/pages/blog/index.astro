@@ -199,7 +199,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				<a href="/blog" class="nav-tab active">
 					全部 <span class="count-badge">{categoryCounts['全部']}</span>
 				</a>
-				{(['預言', '影片', '旅遊', '評測'] as const).map(cat => (
+				{(['評測', '預言', '旅遊', '影片'] as const).map(cat => (
 					<a href={`/category/${cat}`} class="nav-tab">
 						{cat} <span class="count-badge">{categoryCounts[cat] ?? 0}</span>
 					</a>

@@ -5,6 +5,16 @@ pubDate: '2026-05-22'
 tags: ['預言', '阿南德', '三戰', '美元', 'AI', '加密貨幣']
 youtubePost: 'https://www.youtube.com/post/UgkxMpH0xbFNunmQyuy7dwDViohAeiRAffzE'
 heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h=450&fit=crop'
+predictions:
+  hits:
+    - '第三次世界大戰以「非傳統形式」展開（代理人戰爭、資訊戰持續）'
+    - '美元作為全球儲備貨幣地位受挑戰（BRICS去美元化推進）'
+    - 'AI技術快速滲透各行業，對就業市場造成衝擊'
+  misses:
+    - '美元全面崩潰（截至2026年6月未發生）'
+  pending:
+    - 'AI全面掌控人類經濟生計，成為新型經濟獨裁者'
+    - '全球儲備貨幣體系正式終結美元主導地位'
 ---
 
 阿南德（Anand）的預言紀錄令人印象深刻——他過去的多次預言已陸續應驗，所以當他說「三戰已經開打了」，沒有人敢輕忽。

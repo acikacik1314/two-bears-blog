@@ -13,10 +13,14 @@ import NewsletterSubscribe from '../components/NewsletterSubscribe.astro';
 import AffiliateLinks from '../components/AffiliateLinks.astro';
 import PredictionCheck from '../components/PredictionCheck.astro';
 import ProphecyVote from '../components/ProphecyVote.astro';
+import ProphecyAutoCheck from '../components/ProphecyAutoCheck.astro';
+import CommentSection from '../components/CommentSection.astro';
+import { getProphetConfig } from '../utils/prophets';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions, prophet } = Astro.props;
+const prophetConfig = prophet ? getProphetConfig(prophet) : null;
 const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
@@ -238,6 +242,44 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 			.last-updated-on {
 				font-style: italic;
 			}
+			/* Prophet banner */
+			.prophet-banner {
+				display: flex;
+				align-items: flex-start;
+				gap: 1em;
+				padding: 1.1em 1.3em;
+				border: 1.5px solid;
+				border-radius: 14px;
+				margin: 0 0 1.6em;
+			}
+			.prophet-avatar {
+				width: 68px;
+				height: 68px;
+				border-radius: 50%;
+				object-fit: cover;
+				flex-shrink: 0;
+				border: 2px solid currentColor;
+			}
+			.prophet-info { flex: 1; min-width: 0; }
+			.prophet-name {
+				font-size: 0.9em;
+				font-weight: 800;
+				margin-bottom: 0.3em;
+			}
+			.prophet-bio {
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+				line-height: 1.55;
+				margin-bottom: 0.5em;
+			}
+			.prophet-chips { display: flex; flex-wrap: wrap; gap: 0.35em; }
+			.prophet-chip {
+				font-size: 0.7em;
+				font-weight: 700;
+				border: 1px solid;
+				border-radius: 4px;
+				padding: 0.1em 0.5em;
+			}
 			.tags {
 				display: flex;
 				flex-wrap: wrap;
@@ -299,13 +341,15 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && (
-						typeof heroImage === 'string'
-							? <img src={heroImage} alt="" width={1020} height={510} style="width:100%;height:auto;border-radius:12px;" />
-							: <Image width={1020} height={510} src={heroImage} alt="" />
-					)}
-				</div>
+				{!prophet && (
+					<div class="hero-image">
+						{heroImage && (
+							typeof heroImage === 'string'
+								? <img src={heroImage} alt="" width={1020} height={510} style="width:100%;height:auto;border-radius:12px;" />
+								: <Image width={1020} height={510} src={heroImage} alt="" />
+						)}
+					</div>
+				)}
 				<div class="prose">
 					<div class="title">
 						<div class="date">
@@ -337,6 +381,24 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</div>
 						<hr />
 					</div>
+
+					{prophetConfig && (
+						<div class="prophet-banner" style={`border-color:${prophetConfig.color};background:${prophetConfig.bg}`}>
+							<img class="prophet-avatar" src={prophetConfig.image} alt={prophetConfig.label} />
+							<div class="prophet-info">
+								<div class="prophet-name" style={`color:${prophetConfig.color}`}>
+									{prophetConfig.icon} {prophetConfig.en}（{prophetConfig.label}）
+								</div>
+								<div class="prophet-bio">{prophetConfig.bio}</div>
+								<div class="prophet-chips">
+									{prophetConfig.tags.map(t => (
+										<span class="prophet-chip" style={`border-color:${prophetConfig!.color}40;color:${prophetConfig!.color}`}>{t}</span>
+									))}
+								</div>
+							</div>
+						</div>
+					)}
+
 					{rumbleId && <RumbleEmbed videoId={rumbleId} title={title} />}
 					{rumblePage && (
 						<div class="rumble-watch-link">
@@ -374,7 +436,15 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</div>
 					</div>
 
+					<ProphecyAutoCheck
+						slug={Astro.url.pathname}
+						title={title}
+						description={description}
+						tags={tags}
+					/>
 					<ProphecyVote slug={Astro.url.pathname} />
+
+					<CommentSection slug={Astro.url.pathname} />
 
 					<NewsletterSubscribe />
 

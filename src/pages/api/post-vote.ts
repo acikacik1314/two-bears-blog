@@ -9,7 +9,9 @@ type VoteStore  = Record<string, VoteCounts>;
 
 async function load(): Promise<VoteStore> {
   try {
-    const { blobs } = await list({ prefix: BLOB_PATH });
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!token) return {};
+    const { blobs } = await list({ prefix: BLOB_PATH, token });
     if (!blobs.length) return {};
     const res = await fetch(blobs[0].url);
     return await res.json();
@@ -19,10 +21,13 @@ async function load(): Promise<VoteStore> {
 }
 
 async function save(data: VoteStore) {
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
+  if (!token) return;
   await put(BLOB_PATH, JSON.stringify(data), {
     access: 'public',
     addRandomSuffix: false,
-    token: process.env.BLOB_READ_WRITE_TOKEN,
+    allowOverwrite: true,
+    token,
   });
 }
 
@@ -37,7 +42,6 @@ export const GET: APIRoute = async ({ url }) => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return json({ ok: false });
   try {
     const { slug, vote } = await request.json() as { slug: string; vote: 't' | 'f' | 'p' };
     if (!slug || !['t', 'f', 'p'].includes(vote)) return new Response('Bad Request', { status: 400 });
@@ -45,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
     const store = await load();
     if (!store[slug]) store[slug] = { t: 0, f: 0, p: 0 };
     store[slug][vote]++;
-    await save(store);
+    try { await save(store); } catch { /* blob unavailable */ }
     return json({ ok: true, counts: store[slug] });
   } catch {
     return new Response('Error', { status: 500 });

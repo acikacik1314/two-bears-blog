@@ -5,6 +5,16 @@ pubDate: '2026-05-22'
 tags: ['預言', '巴夏', '外星', '靈性', '和平']
 youtubePost: 'https://www.youtube.com/post/Ugkx3hvDGAaGULJ5bxQKraK7qPabgfBXP4Nj'
 heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
+predictions:
+  hits:
+    - '台灣被視為美中談判籌碼，地緣政治快速變化中'
+    - 'AI技術快速演進，深偽與仿冒問題日益嚴峻'
+  misses:
+    - '2026年底前主流新聞出現無可否認的外星飛船實體影像（未發生）'
+  pending:
+    - '2026年所有隱藏秘密與隱藏議程全面攤開'
+    - '2027年外星文明與人類公開接觸'
+    - '外星文明阻止任何會讓人類文明歸零的毀滅性事件'
 ---
 
 ## 台灣處於歷史十字路口

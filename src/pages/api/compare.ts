@@ -1,12 +1,12 @@
 // src/pages/api/compare.ts
 // 兩隻熊比價神器 — 後端 API 路由
-// Gemini API Key 放在 Vercel 環境變數 GEMINI_API_KEY，前端永遠看不到
 
 export const prerender = false;
+export const config = { maxDuration: 60 };
 
 import type { APIRoute } from 'astro';
+import { getGeminiKeys } from '../../utils/gemini';
 
-const GEMINI_KEY = import.meta.env.GEMINI_API_KEY;
 const GEMINI_URL =
   'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
@@ -23,7 +23,8 @@ export const POST: APIRoute = async ({ request }) => {
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
     });
 
-  if (!GEMINI_KEY) {
+  const keys = getGeminiKeys();
+  if (!keys.length) {
     return json({ error: '伺服器尚未設定 GEMINI_API_KEY' }, 500);
   }
 
@@ -53,26 +54,52 @@ momo購物網、蝦皮商城、酷澎(Coupang台灣)、家樂福線上購物、Y
 JSON 格式：
 {"results":[{"platform":"momo購物網","name":"商品完整名稱","price":299,"spec":"24入箱購","url":"https://..."}]}`;
 
-  try {
-    const res = await fetch(`${GEMINI_URL}?key=${GEMINI_KEY}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        tools: [{ google_search: {} }],
-        generationConfig: { temperature: 0.1, maxOutputTokens: 4096 },
-      }),
-    });
+  const shuffled = [...keys].sort(() => Math.random() - 0.5);
+  let lastErr = '';
+  let geminiData: any = null;
+
+  for (const key of shuffled) {
+    let res: Response;
+    try {
+      res = await fetch(`${GEMINI_URL}?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          tools: [{ google_search: {} }],
+          generationConfig: { temperature: 0.1, maxOutputTokens: 4096 },
+        }),
+        signal: AbortSignal.timeout(50000),
+      });
+    } catch (e) {
+      lastErr = String(e);
+      continue;
+    }
+
+    if (res.status === 429 || res.status === 401 || res.status === 403) {
+      lastErr = `status ${res.status}`;
+      continue;
+    }
 
     if (!res.ok) {
       const errText = await res.text();
       console.error('Gemini API error:', res.status, errText);
-      return json({ error: 'AI 搜尋服務暫時無法使用，請稍後再試' }, 502);
+      lastErr = `status ${res.status}`;
+      continue;
     }
 
-    const data = await res.json();
+    geminiData = await res.json();
+    break;
+  }
+
+  if (!geminiData) {
+    console.error('All Gemini keys failed, last error:', lastErr);
+    return json({ error: 'AI 搜尋服務暫時無法使用，請稍後再試' }, 502);
+  }
+
+  try {
     const text: string =
-      data?.candidates?.[0]?.content?.parts
+      geminiData?.candidates?.[0]?.content?.parts
         ?.map((p: { text?: string }) => p.text ?? '')
         .join('') ?? '';
 
@@ -103,7 +130,7 @@ JSON 格式：
 
     return json({ keyword, results });
   } catch (err) {
-    console.error('compare API error:', err);
+    console.error('compare API parse error:', err);
     return json({ error: '比價失敗，請稍後再試' }, 500);
   }
 };

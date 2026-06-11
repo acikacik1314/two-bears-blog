@@ -1,4 +1,5 @@
 export const prerender = false;
+export const config = { maxDuration: 90 };
 
 import type { APIRoute } from 'astro';
 import { getGeminiKeys } from '../../utils/gemini';
@@ -157,7 +158,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     systemInstruction: { parts: [{ text: dim.prompt + SYSTEM_SUFFIX }] },
     contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
     tools: [{ googleSearch: {} }],
-    generationConfig: { maxOutputTokens: 4096, temperature: 0.7 },
+    generationConfig: { maxOutputTokens: 8192, temperature: 0.7 },
   });
 
   let geminiRes: Response | null = null;

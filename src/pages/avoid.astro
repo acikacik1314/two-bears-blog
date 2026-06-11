@@ -413,14 +413,22 @@ document.querySelectorAll('.pain-item').forEach(item => {
 })
 
 // ── 取得 Agoda 篩選參數 ───────────────────────────────────────
-function getAgodaFilter(pains) {
-  const params = ['roomAmenities=31', 'sort=popularity']
+const JAPAN_CITIES = new Set(['東京','大阪','京都','福岡','沖繩','北海道','箱根'])
+
+function getAgodaFilter(pains, city) {
+  const params = ['sort=popularity']
+  // 桑拿/浴池設施只有日本或選了五星級（行李箱痛點）時才篩選
+  const isJapan = JAPAN_CITIES.has(city)
+  const isLuxury = pains.includes('luggage')
+  if (isJapan || isLuxury) {
+    params.push('roomAmenities=31')
+  }
   if (pains.includes('noise') || pains.includes('bed') || pains.includes('female')) {
     params.push('hotelReviewScore=9')
   } else {
     params.push('hotelReviewScore=8')
   }
-  if (pains.includes('luggage')) {
+  if (isLuxury) {
     params.push('hotelStarRating=4')
   }
   if (pains.includes('elderly')) {
@@ -474,7 +482,7 @@ function analyze() {
 
   const agodaId = AGODA_IDS[city] || 5085
   const cityEn = CITY_EN[city] || city
-  const agodaFilter = getAgodaFilter(selectedPains)
+  const agodaFilter = getAgodaFilter(selectedPains, city)
   const bookingNflt = getBookingNflt(selectedPains)
 
   const html = zones.map((z, i) => {

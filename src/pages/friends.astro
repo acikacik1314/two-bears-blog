@@ -1,4 +1,5 @@
 ---
+export const prerender = false;
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -7,662 +8,1037 @@ import Footer from '../components/Footer.astro';
 <!doctype html>
 <html lang="zh-TW">
   <head>
-    <BaseHead title="交友頻道 — 兩隻熊" description="老式交友留言板，寫下你的故事，等待緣分相遇" />
+    <BaseHead
+      title="先行者聯盟 · 情報交換站 — 兩隻熊"
+      description="先行者聯盟是一個末日預言情報交換與互助社群，集結關注預言、未來趨勢與靈性分析的先行者。"
+    />
   </head>
-  <body>
+  <body class="alliance-page">
     <Header />
-    <main>
-      <section class="hero">
-        <h1>💌 交友頻道</h1>
-        <p>老式留言板風格 · 寫下你的故事 · 等待緣分相遇</p>
+    <main class="alliance-main">
+
+      <!-- ── Star canvas ── -->
+      <canvas id="star-canvas" aria-hidden="true"></canvas>
+
+      <!-- ══════════ HERO ══════════ -->
+      <section class="al-hero">
+        <div class="al-hero-badge">⬡ CLASSIFIED · EYES ONLY</div>
+        <h1 class="al-hero-title">
+          <span class="al-title-main">先行者聯盟</span>
+          <span class="al-title-sub">· 情報交換站</span>
+        </h1>
+        <p class="al-hero-desc">
+          亂世中，獨自清醒是孤獨的。<br/>
+          這裡聚集了最早看穿局勢的人——<br/>
+          我們交換情報、互相備戰、不留下任何人。
+        </p>
+        <div class="al-hero-stats" id="hero-stats">
+          <div class="al-stat"><span class="al-stat-num" id="stat-members">-</span><span class="al-stat-lbl">聯盟成員</span></div>
+          <div class="al-stat-div"></div>
+          <div class="al-stat"><span class="al-stat-num" id="stat-online">🟢 即時</span><span class="al-stat-lbl">情報更新中</span></div>
+          <div class="al-stat-div"></div>
+          <div class="al-stat"><span class="al-stat-num">17</span><span class="al-stat-lbl">預言檔案</span></div>
+        </div>
+        <div class="al-hero-cta">
+          <a href="https://t.me/twobearstw" target="_blank" rel="noopener" class="al-btn al-btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.516c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.68 14.49l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.535-.194 1.002.13.167.077z"/></svg>
+            加入 Telegram 社群
+          </a>
+          <a href="#join" class="al-btn al-btn-ghost">⬇ 留下你的情報檔案</a>
+        </div>
+        <p class="al-hero-warn">⚠ 重要生存訊息僅對聯盟成員開放 · 不要錯過每週情報彙整</p>
       </section>
 
-      <!-- Create Profile Form -->
-      <div class="card form-card" id="form-section">
-        <div class="card-title-row">
-          <span class="card-icon">✏️</span>
-          <h2 class="card-title">留下你的自我介紹</h2>
+      <!-- ══════════ BELIEF VOTE ══════════ -->
+      <section class="al-section">
+        <div class="al-section-label">📡 本週信念投票</div>
+        <h2 class="al-section-title">你認為三戰在幾年內爆發？</h2>
+        <div class="al-vote-wrap" id="belief-vote">
+          <div class="al-vote-options" id="vote-options">
+            <button class="al-vote-btn" data-vote="1y">1 年內</button>
+            <button class="al-vote-btn" data-vote="3y">1–3 年</button>
+            <button class="al-vote-btn" data-vote="5y">3–5 年</button>
+            <button class="al-vote-btn" data-vote="never">不會發生</button>
+          </div>
+          <div class="al-vote-result" id="vote-result" style="display:none"></div>
+          <div class="al-vote-total" id="vote-total"></div>
         </div>
-        <form id="friend-form" class="friend-form">
-          <div class="form-grid">
-            <div class="field">
-              <label>暱稱 <span class="req">*</span></label>
-              <input type="text" name="nickname" maxlength="20" placeholder="你的暱稱（最多20字）" required />
-            </div>
-            <div class="field">
-              <label>年齡</label>
-              <input type="text" name="age" maxlength="10" placeholder="例：28歲" />
-            </div>
-            <div class="field">
-              <label>性別</label>
-              <select name="gender">
-                <option value="">不透露</option>
-                <option>男</option>
-                <option>女</option>
-                <option>非二元</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>居住地</label>
-              <input type="text" name="location" maxlength="20" placeholder="例：台北、高雄、海外..." />
-            </div>
-          </div>
-          <div class="field">
-            <label>興趣喜好</label>
-            <input type="text" name="interests" maxlength="80" placeholder="例：旅遊、神秘學、美食、電影..." />
-          </div>
-          <div class="field">
-            <label>我在尋找</label>
-            <input type="text" name="lookingFor" maxlength="60" placeholder="例：聊天朋友、旅伴、靈魂伴侶..." />
-          </div>
-          <div class="field">
-            <label>自我介紹 <span class="req">*</span></label>
-            <textarea name="intro" maxlength="200" rows="3" placeholder="說說你是誰、你的故事...（最多200字）" required></textarea>
-          </div>
-          <div class="field">
-            <label>聯絡方式</label>
-            <input type="text" name="contact" maxlength="60" placeholder="例：IG @xxx、LINE ID、Email（自願填寫）" />
-          </div>
-          <div class="form-footer">
-            <p class="form-disclaimer">✦ 請勿填寫真實姓名或敏感個人資料。本頻道為開放式社群空間。</p>
-            <button type="submit" class="submit-btn" id="submit-btn">發佈自我介紹</button>
-          </div>
-          <p class="form-status" id="form-status"></p>
-        </form>
-      </div>
+      </section>
 
-      <!-- Profile List -->
-      <div class="section-header">
-        <h2>📋 交友列表</h2>
-        <span class="section-sub">點擊任何卡片可展開留言</span>
-      </div>
+      <!-- ══════════ HOT TOPICS ══════════ -->
+      <section class="al-section">
+        <div class="al-section-label">🔥 熱門情報討論串</div>
+        <h2 class="al-section-title">目前最受關注的預言分析</h2>
+        <div class="al-topics">
 
-      <div id="profiles-container" class="profiles-list">
-        <div class="loading-state">載入中…</div>
-      </div>
+          <a href="/blog/mcmoneagle-2026-end/" class="al-topic-card al-glow-green">
+            <div class="al-topic-header">
+              <span class="al-topic-badge al-badge-green">CIA 遙視</span>
+              <span class="al-topic-hot">🔴 LIVE</span>
+            </div>
+            <h3 class="al-topic-title">美軍001號遙視者：四年內大國政府崩潰，三戰起點已鎖定</h3>
+            <p class="al-topic-desc">麥克蒙尼格親口說——他用靈魂出體潛入中國機密設施，還預言了 2025 年北韓的愚蠢行動……</p>
+            <div class="al-topic-meta">
+              <span>👁 2.4k 查看</span>
+              <span>💬 87 討論</span>
+              <span>🕐 2天前更新</span>
+            </div>
+          </a>
+
+          <a href="/blog/brandon-biggs-2026/" class="al-topic-card al-glow-amber">
+            <div class="al-topic-header">
+              <span class="al-topic-badge al-badge-amber">末日預言</span>
+              <span class="al-topic-hot">🟠 HOT</span>
+            </div>
+            <h3 class="al-topic-title">比格斯警告：美元已完蛋、蚯蚓漢堡時代來臨、電網即將被攻擊</h3>
+            <p class="al-topic-desc">他說「需求金字塔」正在被從底層攻擊——食物、水、溫暖都會被控制。你準備好了嗎？</p>
+            <div class="al-topic-meta">
+              <span>👁 3.1k 查看</span>
+              <span>💬 134 討論</span>
+              <span>🕐 1天前更新</span>
+            </div>
+          </a>
+
+          <a href="/blog/craig-hamilton-parker-2026/" class="al-topic-card al-glow-blue">
+            <div class="al-topic-header">
+              <span class="al-topic-badge al-badge-blue">英國通靈</span>
+            </div>
+            <h3 class="al-topic-title">帕克驚爆：英國加拿大終將成為美國一部分，無限能源技術已存在</h3>
+            <p class="al-topic-desc">他說「自由民主是病入膏肓的動物」。西方體制大洗牌、UFO古代技術即將公開……</p>
+            <div class="al-topic-meta">
+              <span>👁 1.8k 查看</span>
+              <span>💬 62 討論</span>
+              <span>🕐 1天前更新</span>
+            </div>
+          </a>
+
+          <a href="/blog/2026-05-22-brandon-biggs-gray-matter-taiwan/" class="al-topic-card al-glow-red">
+            <div class="al-topic-header">
+              <span class="al-topic-badge al-badge-red">台灣局勢</span>
+              <span class="al-topic-hot">⚠ 緊急</span>
+            </div>
+            <h3 class="al-topic-title">灰色物質降臨美東！比格斯：這就是中國動台灣的完美時機</h3>
+            <p class="al-topic-desc">美國東海岸被神秘物質覆蓋時，台海危機同步爆發。「閃電戰・48小時・台灣領導層直接被換掉」……</p>
+            <div class="al-topic-meta">
+              <span>👁 4.2k 查看</span>
+              <span>💬 211 討論</span>
+              <span>🕐 3天前更新</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ══════════ REGIONAL MAP ══════════ -->
+      <section class="al-section">
+        <div class="al-section-label">🗺 地區互助網絡</div>
+        <h2 class="al-section-title">認領你的地區，建立本地聯盟小組</h2>
+        <p class="al-section-desc">在大事發生前，本地情報網比任何東西都重要。點擊你的地區，留下你的聯繫。</p>
+        <div class="al-regions" id="region-grid"></div>
+        <p class="al-region-note">✦ 地區資料僅供媒合，不會儲存個人資訊</p>
+      </section>
+
+      <!-- ══════════ CHECK-IN ══════════ -->
+      <section class="al-section al-checkin-section">
+        <div class="al-checkin-inner">
+          <div class="al-checkin-left">
+            <div class="al-section-label">⚡ 每日簽到</div>
+            <h2 class="al-section-title" style="margin-bottom:.4em">先行者打卡</h2>
+            <p class="al-section-desc" style="margin:0">保持警醒，每日簽到累積連續天數。</p>
+          </div>
+          <div class="al-checkin-right" id="checkin-area">
+            <div class="al-checkin-streak" id="checkin-streak">
+              <span class="al-streak-num" id="streak-num">-</span>
+              <span class="al-streak-lbl">連續天數</span>
+            </div>
+            <button class="al-btn al-btn-checkin" id="checkin-btn">⚡ 今日簽到</button>
+            <p class="al-checkin-status" id="checkin-status"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ JOIN FORM ══════════ -->
+      <section class="al-section" id="join">
+        <div class="al-section-label">📁 建立你的情報檔案</div>
+        <h2 class="al-section-title">加入先行者聯盟</h2>
+        <p class="al-section-desc">留下你的情報檔案，讓同頻的人找到你。我們不需要你的真名，只需要你的洞察。</p>
+
+        <div class="al-form-card">
+          <form id="alliance-form">
+            <div class="al-form-grid">
+              <div class="al-field">
+                <label>代號 <span class="al-req">*</span></label>
+                <input type="text" name="nickname" maxlength="20" placeholder="你的代號（最多20字）" required />
+              </div>
+              <div class="al-field">
+                <label>地區</label>
+                <input type="text" name="location" maxlength="20" placeholder="例：台北、高雄、海外" />
+              </div>
+              <div class="al-field">
+                <label>性別</label>
+                <select name="gender">
+                  <option value="">不透露</option>
+                  <option>男</option>
+                  <option>女</option>
+                  <option>非二元</option>
+                </select>
+              </div>
+              <div class="al-field">
+                <label>年齡</label>
+                <input type="text" name="age" maxlength="10" placeholder="例：28歲" />
+              </div>
+            </div>
+            <div class="al-field">
+              <label>關注領域</label>
+              <input type="text" name="interests" maxlength="80" placeholder="例：末日備戰、靈性修行、台海局勢、XRP..." />
+            </div>
+            <div class="al-field">
+              <label>尋找同伴類型</label>
+              <input type="text" name="lookingFor" maxlength="60" placeholder="例：同城備戰夥伴、靈性討論對象..." />
+            </div>
+            <div class="al-field">
+              <label>情報簡報 <span class="al-req">*</span></label>
+              <textarea name="intro" maxlength="200" rows="3" placeholder="說說你對目前局勢的判斷，或你在關注什麼……（最多200字）" required></textarea>
+            </div>
+            <div class="al-field">
+              <label>聯絡方式</label>
+              <input type="text" name="contact" maxlength="60" placeholder="IG、Telegram、LINE（自願填寫）" />
+            </div>
+            <div class="al-form-footer">
+              <p class="al-disclaimer">⬡ 請勿填寫真實姓名。本站為開放式社群，請自行判斷資訊安全。</p>
+              <button type="submit" class="al-btn al-btn-primary" id="submit-btn">📡 發佈情報檔案</button>
+            </div>
+            <p class="al-form-status" id="form-status"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ══════════ MEMBERS ══════════ -->
+      <section class="al-section">
+        <div class="al-section-label" style="display:flex;align-items:center;justify-content:space-between">
+          <span>👥 聯盟成員檔案</span>
+          <span id="member-count-badge" class="al-count-badge">載入中…</span>
+        </div>
+        <div id="profiles-container" class="al-profiles"></div>
+      </section>
+
     </main>
     <Footer />
   </body>
 </html>
 
 <script>
-  interface Comment {
-    id: string;
-    text: string;
-    time: string;
-  }
-  interface Profile {
-    id: string;
-    nickname: string;
-    age: string;
-    gender: string;
-    location: string;
-    interests: string;
-    lookingFor: string;
-    intro: string;
-    contact: string;
-    createdAt: string;
-    comments: Comment[];
-  }
+/* ═══ TYPES ═══ */
+interface Comment { id: string; text: string; time: string; }
+interface Profile {
+  id: string; nickname: string; age: string; gender: string;
+  location: string; interests: string; lookingFor: string;
+  intro: string; contact: string; createdAt: string; comments: Comment[];
+}
 
-  const GENDER_EMOJI: Record<string, string> = { '男': '♂', '女': '♀', '非二元': '⚧', '': '…' };
+/* ═══ STAR CANVAS ═══ */
+(function initStars() {
+  const canvas = document.getElementById('star-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+  let stars: { x: number; y: number; r: number; o: number; d: number }[] = [];
 
-  function renderProfile(p: Profile): string {
-    const genderEmoji = GENDER_EMOJI[p.gender] ?? '…';
-    const metaTags = [p.age, p.gender ? `${genderEmoji} ${p.gender}` : '', p.location]
-      .filter(Boolean)
-      .map(t => `<span class="meta-tag">${t}</span>`)
-      .join('');
-
-    const commentsHtml = p.comments.length > 0
-      ? p.comments.map(c => `
-          <div class="comment-item">
-            <span class="comment-time">${c.time}</span>
-            <span class="comment-text">${escHtml(c.text)}</span>
-          </div>`).join('')
-      : '<p class="no-comments">還沒有人留言，來第一個吧！</p>';
-
-    return `
-    <div class="profile-card" data-id="${p.id}">
-      <div class="profile-header" onclick="toggleProfile('${p.id}')">
-        <div class="profile-avatar">${getInitial(p.nickname)}</div>
-        <div class="profile-summary">
-          <span class="profile-name">${escHtml(p.nickname)}</span>
-          <div class="profile-meta">${metaTags}</div>
-          ${p.interests ? `<div class="profile-interests">🎯 ${escHtml(p.interests)}</div>` : ''}
-        </div>
-        <div class="profile-right">
-          <span class="comment-count">💬 ${p.comments.length}</span>
-          <span class="expand-icon" id="icon-${p.id}">▼</span>
-        </div>
-      </div>
-      <div class="profile-body" id="body-${p.id}" style="display:none">
-        <div class="profile-intro">${escHtml(p.intro)}</div>
-        ${p.lookingFor ? `<div class="profile-looking"><span class="looking-label">尋找：</span>${escHtml(p.lookingFor)}</div>` : ''}
-        ${p.contact ? `<div class="profile-contact">📱 ${escHtml(p.contact)}</div>` : ''}
-        <div class="profile-date">📅 ${p.createdAt}</div>
-        <div class="comments-section">
-          <div class="comments-title">留言板</div>
-          <div class="comments-list" id="comments-${p.id}">${commentsHtml}</div>
-          <div class="comment-form">
-            <input type="text" class="comment-input" id="cinput-${p.id}" maxlength="100" placeholder="留下你的話（最多100字）…" />
-            <button class="comment-btn" onclick="submitComment('${p.id}')">留言</button>
-          </div>
-          <p class="comment-status" id="cstatus-${p.id}"></p>
-        </div>
-      </div>
-    </div>`;
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
 
-  function escHtml(s: string): string {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function createStars() {
+    stars = Array.from({ length: 160 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.4 + 0.3,
+      o: Math.random(),
+      d: (Math.random() * 0.004 + 0.001) * (Math.random() > 0.5 ? 1 : -1),
+    }));
   }
 
-  function getInitial(name: string): string {
-    return name ? name.charAt(0).toUpperCase() : '?';
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      s.o += s.d;
+      if (s.o > 1 || s.o < 0.1) s.d *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(180,160,255,${s.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
   }
 
-  const avatarColors = ['#7611a6','#2563eb','#059669','#dc2626','#d97706','#0891b2','#7c3aed'];
-  function getAvatarColor(id: string): string {
-    let hash = 0;
-    for (const c of id) hash = (hash * 31 + c.charCodeAt(0)) & 0xffffffff;
-    return avatarColors[Math.abs(hash) % avatarColors.length];
-  }
+  resize();
+  createStars();
+  draw();
+  window.addEventListener('resize', () => { resize(); createStars(); });
+})();
 
-  async function loadProfiles() {
-    const container = document.getElementById('profiles-container');
-    if (!container) return;
-    try {
-      const r = await fetch('/api/friends');
-      const profiles: Profile[] = await r.json();
-      if (profiles.length === 0) {
-        container.innerHTML = '<div class="empty-state">還沒有人發佈自我介紹，來第一個吧！✨</div>';
-        return;
-      }
-      container.innerHTML = profiles.map(renderProfile).join('');
+/* ═══ BELIEF VOTE ═══ */
+(function initVote() {
+  const VOTE_KEY = 'al_belief_vote_ww3';
+  const LABELS: Record<string, string> = { '1y': '1 年內', '3y': '1–3 年', '5y': '3–5 年', 'never': '不會發生' };
+  const COLORS: Record<string, string> = { '1y': '#ef4444', '3y': '#f59e0b', '5y': '#10b981', 'never': '#3b82f6' };
 
-      // Apply avatar colors
-      profiles.forEach(p => {
-        const avatar = container.querySelector(`.profile-card[data-id="${p.id}"] .profile-avatar`) as HTMLElement | null;
-        if (avatar) avatar.style.background = getAvatarColor(p.id);
-      });
-    } catch {
-      container.innerHTML = '<div class="empty-state">載入失敗，請重新整理頁面</div>';
-    }
-  }
+  const stored = localStorage.getItem(VOTE_KEY);
+  if (stored) showVoteResult(JSON.parse(stored).vote);
 
-  (window as any).toggleProfile = function(id: string) {
-    const body = document.getElementById(`body-${id}`);
-    const icon = document.getElementById(`icon-${id}`);
-    if (!body) return;
-    const open = body.style.display === 'none';
-    body.style.display = open ? 'block' : 'none';
-    if (icon) icon.textContent = open ? '▲' : '▼';
-  };
+  document.querySelectorAll('.al-vote-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const vote = (btn as HTMLElement).dataset.vote!;
+      const existing = JSON.parse(localStorage.getItem(VOTE_KEY) || 'null');
+      if (existing) return;
 
-  (window as any).submitComment = async function(profileId: string) {
-    const input = document.getElementById(`cinput-${profileId}`) as HTMLInputElement | null;
-    const statusEl = document.getElementById(`cstatus-${profileId}`);
-    if (!input) return;
-    const text = input.value.trim();
-    if (!text) return;
-
-    try {
-      const r = await fetch('/api/friends', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'comment', profileId, text }),
-      });
-      const d = await r.json();
-      if (d.ok) {
-        input.value = '';
-        const listEl = document.getElementById(`comments-${profileId}`);
-        if (listEl) {
-          const noComments = listEl.querySelector('.no-comments');
-          if (noComments) noComments.remove();
-          const div = document.createElement('div');
-          div.className = 'comment-item';
-          div.innerHTML = `<span class="comment-time">${d.comment.time}</span><span class="comment-text">${escHtml(d.comment.text)}</span>`;
-          listEl.appendChild(div);
-        }
-        // Update comment count
-        const card = document.querySelector(`.profile-card[data-id="${profileId}"]`);
-        const countEl = card?.querySelector('.comment-count');
-        if (countEl) {
-          const cur = parseInt(countEl.textContent?.replace(/\D/g,'') ?? '0');
-          countEl.textContent = `💬 ${cur + 1}`;
-        }
-        if (statusEl) { statusEl.textContent = '✓ 留言成功！'; setTimeout(() => { if(statusEl) statusEl.textContent=''; }, 3000); }
-      } else {
-        if (statusEl) statusEl.textContent = d.error === 'comments full' ? '此卡片留言已滿' : '留言失敗，請稍後再試';
-      }
-    } catch {
-      if (statusEl) statusEl.textContent = '留言失敗，請稍後再試';
-    }
-  };
-
-  // Profile submission form
-  const form = document.getElementById('friend-form') as HTMLFormElement | null;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
-  const formStatus = document.getElementById('form-status');
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!submitBtn) return;
-    submitBtn.disabled = true;
-    submitBtn.textContent = '發佈中…';
-
-    const fd = new FormData(form);
-    const body = Object.fromEntries(fd.entries());
-
-    try {
-      const r = await fetch('/api/friends', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const d = await r.json();
-      if (d.ok) {
-        form.reset();
-        if (formStatus) formStatus.textContent = '✓ 發佈成功！你的介紹已出現在下方列表中';
-        loadProfiles();
-      } else if (d.error === 'board full') {
-        if (formStatus) formStatus.textContent = '留言板已滿，感謝你的熱情！';
-      } else {
-        if (formStatus) formStatus.textContent = '發佈失敗，請確認必填欄位';
-      }
-    } catch {
-      if (formStatus) formStatus.textContent = '發佈失敗，請稍後再試';
-    }
-
-    submitBtn.disabled = false;
-    submitBtn.textContent = '發佈自我介紹';
+      // Simulated community totals
+      const base: Record<string, number> = { '1y': 342, '3y': 589, '5y': 201, 'never': 87 };
+      base[vote]++;
+      localStorage.setItem(VOTE_KEY, JSON.stringify({ vote, totals: base }));
+      showVoteResult(vote, base);
+    });
   });
 
-  loadProfiles();
+  function showVoteResult(myVote: string, totals?: Record<string, number>) {
+    const opts = document.getElementById('vote-options');
+    const res = document.getElementById('vote-result');
+    const tot = document.getElementById('vote-total');
+    if (!opts || !res) return;
+
+    const t = totals ?? JSON.parse(localStorage.getItem(VOTE_KEY) || '{}').totals ?? { '1y': 342, '3y': 589, '5y': 201, 'never': 87 };
+    const total = Object.values(t).reduce((a: number, b: number) => a + b, 0);
+
+    opts.style.display = 'none';
+    res.style.display = 'block';
+    res.innerHTML = Object.entries(LABELS).map(([k, lbl]) => {
+      const pct = Math.round((t[k] / total) * 100);
+      const isMine = k === myVote;
+      return `<div class="al-vbar-row${isMine ? ' al-vbar-mine' : ''}">
+        <span class="al-vbar-lbl">${isMine ? '▶ ' : ''}${lbl}</span>
+        <div class="al-vbar-wrap">
+          <div class="al-vbar-fill" style="width:${pct}%;background:${COLORS[k]}22;border-right:2px solid ${COLORS[k]}"></div>
+        </div>
+        <span class="al-vbar-pct" style="color:${COLORS[k]}">${pct}%</span>
+      </div>`;
+    }).join('');
+    if (tot) tot.textContent = `共 ${total.toLocaleString()} 位先行者投票`;
+  }
+})();
+
+/* ═══ REGIONAL MAP ═══ */
+(function initRegions() {
+  const REGIONS = [
+    '台北', '新北', '桃園', '新竹', '台中', '彰化', '南投', '雲林',
+    '嘉義', '台南', '高雄', '屏東', '宜蘭', '花蓮', '台東', '澎湖',
+    '金門', '馬祖', '海外', '其他',
+  ];
+  const KEY = 'al_region';
+  const COUNTS: Record<string, number> = {
+    '台北': 47, '新北': 38, '桃園': 29, '台中': 31, '高雄': 24,
+    '新竹': 18, '台南': 21, '彰化': 12, '海外': 35,
+  };
+
+  const grid = document.getElementById('region-grid');
+  if (!grid) return;
+  const myRegion = localStorage.getItem(KEY);
+
+  grid.innerHTML = REGIONS.map(r => {
+    const count = COUNTS[r] ?? Math.floor(Math.random() * 8) + 1;
+    const mine = r === myRegion;
+    return `<button class="al-region-btn${mine ? ' al-region-mine' : ''}" data-region="${r}">
+      <span class="al-region-name">${r}</span>
+      <span class="al-region-count">${mine ? '✓ 你在這' : `${count} 人`}</span>
+    </button>`;
+  }).join('');
+
+  grid.addEventListener('click', e => {
+    const btn = (e.target as HTMLElement).closest('[data-region]') as HTMLElement | null;
+    if (!btn) return;
+    const region = btn.dataset.region!;
+    if (localStorage.getItem(KEY) === region) return;
+    localStorage.setItem(KEY, region);
+    grid.querySelectorAll('.al-region-btn').forEach(b => {
+      b.classList.remove('al-region-mine');
+      const c = (b as HTMLElement).dataset.region!;
+      const cnt = b.querySelector('.al-region-count')!;
+      cnt.textContent = `${COUNTS[c] ?? 3} 人`;
+    });
+    btn.classList.add('al-region-mine');
+    btn.querySelector('.al-region-count')!.textContent = '✓ 你在這';
+  });
+})();
+
+/* ═══ CHECK-IN ═══ */
+(function initCheckin() {
+  const KEY_LAST = 'al_checkin_last';
+  const KEY_STREAK = 'al_checkin_streak';
+  const btn = document.getElementById('checkin-btn') as HTMLButtonElement;
+  const statusEl = document.getElementById('checkin-status');
+  const numEl = document.getElementById('streak-num');
+
+  const streak = parseInt(localStorage.getItem(KEY_STREAK) ?? '0');
+  if (numEl) numEl.textContent = streak.toString();
+
+  const last = localStorage.getItem(KEY_LAST);
+  const today = new Date().toDateString();
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+
+  if (last === today) {
+    if (btn) { btn.textContent = '✅ 今日已簽到'; btn.disabled = true; }
+    if (statusEl) statusEl.textContent = `連續 ${streak} 天 — 保持警醒！`;
+  }
+
+  btn?.addEventListener('click', () => {
+    const now = new Date().toDateString();
+    const prev = localStorage.getItem(KEY_LAST);
+    let s = parseInt(localStorage.getItem(KEY_STREAK) ?? '0');
+    if (prev === new Date(Date.now() - 86400000).toDateString()) s++;
+    else if (prev !== now) s = 1;
+
+    localStorage.setItem(KEY_LAST, now);
+    localStorage.setItem(KEY_STREAK, s.toString());
+    if (numEl) numEl.textContent = s.toString();
+    btn.textContent = '✅ 今日已簽到';
+    btn.disabled = true;
+    if (statusEl) statusEl.textContent = `連續 ${s} 天 — 先行者保持警醒！`;
+  });
+})();
+
+/* ═══ FRIENDS API ═══ */
+function esc(s: string): string {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+const COLORS = ['#7c3aed','#2563eb','#059669','#dc2626','#d97706','#0891b2','#c026d3'];
+function avatarColor(id: string): string {
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) & 0xffffffff;
+  return COLORS[Math.abs(h) % COLORS.length];
+}
+
+function renderProfile(p: Profile): string {
+  const tags = [p.age, p.gender, p.location].filter(Boolean)
+    .map(t => `<span class="al-ptag">${t}</span>`).join('');
+
+  const cmts = p.comments.length
+    ? p.comments.map(c => `<div class="al-cmt"><span class="al-cmt-time">${c.time}</span><span class="al-cmt-text">${esc(c.text)}</span></div>`).join('')
+    : '<p class="al-cmt-empty">成為第一個回應的先行者</p>';
+
+  return `<div class="al-profile" data-id="${p.id}">
+    <div class="al-profile-hd" onclick="toggleP('${p.id}')">
+      <div class="al-avatar" style="background:${avatarColor(p.id)}">${p.nickname.charAt(0).toUpperCase()}</div>
+      <div class="al-profile-info">
+        <span class="al-profile-name">${esc(p.nickname)}</span>
+        <div class="al-profile-tags">${tags}</div>
+        ${p.interests ? `<div class="al-profile-int">⬡ ${esc(p.interests)}</div>` : ''}
+      </div>
+      <div class="al-profile-right">
+        <span class="al-cmt-cnt">💬 ${p.comments.length}</span>
+        <span class="al-expand" id="icon-${p.id}">▼</span>
+      </div>
+    </div>
+    <div class="al-profile-bd" id="body-${p.id}" style="display:none">
+      <div class="al-profile-intro">${esc(p.intro)}</div>
+      ${p.lookingFor ? `<div class="al-profile-looking"><span>尋找：</span>${esc(p.lookingFor)}</div>` : ''}
+      ${p.contact ? `<div class="al-profile-contact">📡 ${esc(p.contact)}</div>` : ''}
+      <div class="al-profile-date">🕐 ${p.createdAt}</div>
+      <div class="al-cmts-wrap">
+        <div class="al-cmts-label">回應電文</div>
+        <div class="al-cmts-list" id="cmts-${p.id}">${cmts}</div>
+        <div class="al-cmt-form">
+          <input class="al-cmt-input" id="ci-${p.id}" maxlength="100" placeholder="回應此情報（最多100字）…" />
+          <button class="al-cmt-btn" onclick="sendCmt('${p.id}')">發送</button>
+        </div>
+        <p class="al-cmt-status" id="cs-${p.id}"></p>
+      </div>
+    </div>
+  </div>`;
+}
+
+(window as any).toggleP = function(id: string) {
+  const body = document.getElementById(`body-${id}`);
+  const icon = document.getElementById(`icon-${id}`);
+  if (!body) return;
+  const open = body.style.display === 'none';
+  body.style.display = open ? 'block' : 'none';
+  if (icon) icon.textContent = open ? '▲' : '▼';
+};
+
+(window as any).sendCmt = async function(pid: string) {
+  const input = document.getElementById(`ci-${pid}`) as HTMLInputElement;
+  const status = document.getElementById(`cs-${pid}`);
+  if (!input) return;
+  const text = input.value.trim();
+  if (!text) return;
+  try {
+    const r = await fetch('/api/friends', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'comment', profileId: pid, text }),
+    });
+    const d = await r.json();
+    if (d.ok) {
+      input.value = '';
+      const list = document.getElementById(`cmts-${pid}`);
+      if (list) {
+        list.querySelector('.al-cmt-empty')?.remove();
+        const div = document.createElement('div');
+        div.className = 'al-cmt';
+        div.innerHTML = `<span class="al-cmt-time">${d.comment.time}</span><span class="al-cmt-text">${esc(d.comment.text)}</span>`;
+        list.appendChild(div);
+      }
+      const card = document.querySelector(`.al-profile[data-id="${pid}"]`);
+      const cnt = card?.querySelector('.al-cmt-cnt');
+      if (cnt) cnt.textContent = `💬 ${parseInt(cnt.textContent?.replace(/\D/g,'') ?? '0') + 1}`;
+      if (status) { status.textContent = '✓ 電文發送成功'; setTimeout(() => { if (status) status.textContent=''; }, 3000); }
+    }
+  } catch { /* ignore */ }
+};
+
+async function loadProfiles() {
+  const container = document.getElementById('profiles-container');
+  const badge = document.getElementById('member-count-badge');
+  const statEl = document.getElementById('stat-members');
+  if (!container) return;
+  try {
+    const r = await fetch('/api/friends');
+    const profiles: Profile[] = await r.json();
+    if (badge) badge.textContent = `${profiles.length} 位成員`;
+    if (statEl) statEl.textContent = (profiles.length + 1284).toString(); // adds simulated community size
+    if (!profiles.length) {
+      container.innerHTML = '<div class="al-empty">聯盟尚無成員檔案，成為第一位先行者！</div>';
+      return;
+    }
+    container.innerHTML = profiles.map(renderProfile).join('');
+  } catch {
+    container.innerHTML = '<div class="al-empty">載入失敗，請重新整理頁面</div>';
+  }
+}
+
+/* ═══ FORM SUBMIT ═══ */
+const form = document.getElementById('alliance-form') as HTMLFormElement;
+const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+const formStatus = document.getElementById('form-status');
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = '傳輸中…';
+  const body = Object.fromEntries(new FormData(form).entries());
+  try {
+    const r = await fetch('/api/friends', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const d = await r.json();
+    if (d.ok) {
+      form.reset();
+      if (formStatus) formStatus.textContent = '✓ 情報檔案已建立，歡迎加入聯盟！';
+      loadProfiles();
+    } else {
+      if (formStatus) formStatus.textContent = d.error === 'board full' ? '聯盟成員已滿' : '發佈失敗，請確認必填欄位';
+    }
+  } catch {
+    if (formStatus) formStatus.textContent = '連線失敗，請稍後再試';
+  }
+  submitBtn.disabled = false;
+  submitBtn.textContent = '📡 發佈情報檔案';
+});
+
+loadProfiles();
 </script>
 
-<style>
-  main {
-    width: 860px;
-    max-width: calc(100% - 2em);
-    margin: auto;
-    padding: 0 1em 3em;
+<style is:global>
+  .alliance-page {
+    background: #0d0f1a !important;
+    color: #e2e8f0;
+  }
+  .alliance-page header {
+    background: rgba(13,15,26,.95) !important;
+    border-bottom: 1px solid rgba(124,58,237,.2) !important;
+  }
+  .alliance-page footer {
+    background: #080a12 !important;
+    border-top: 1px solid rgba(124,58,237,.15) !important;
+    color: #64748b !important;
+  }
+  .alliance-page footer a { color: #64748b !important; }
+
+  /* ── Canvas ── */
+  #star-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .55;
   }
 
-  .hero {
+  .alliance-main {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.2em 5em;
+  }
+
+  /* ── Hero ── */
+  .al-hero {
     text-align: center;
-    padding: 2em 0 1.5em;
+    padding: 4em 1em 3em;
   }
-
-  .hero h1 {
-    font-size: 2em;
-    margin-bottom: 0.3em;
-    color: rgb(var(--black));
+  .al-hero-badge {
+    display: inline-block;
+    font-size: .65em;
+    font-weight: 700;
+    letter-spacing: .18em;
+    color: #7c3aed;
+    border: 1px solid rgba(124,58,237,.35);
+    border-radius: 4px;
+    padding: .2em .8em;
+    margin-bottom: 1.2em;
   }
-
-  .hero p {
-    color: rgb(var(--gray));
-    font-size: 0.95em;
+  .al-hero-title {
+    font-size: clamp(2em, 6vw, 3.6em);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 .6em;
+    color: #fff;
   }
-
-  /* Form Card */
-  .card {
-    background: #fff;
-    border: 1px solid rgb(var(--gray-light));
-    border-radius: 14px;
-    padding: 1.2em 1.4em;
-    margin-bottom: 1.5em;
-    box-shadow: 0 2px 8px rgba(var(--gray), 8%);
+  .al-title-main {
+    background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
-  .card-title-row {
+  .al-title-sub { color: #94a3b8; font-weight: 400; }
+  .al-hero-desc {
+    font-size: .92em;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin: 0 0 1.8em;
+  }
+  .al-hero-stats {
     display: flex;
     align-items: center;
-    gap: 0.5em;
-    margin-bottom: 1em;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
   }
+  .al-stat { display: flex; flex-direction: column; align-items: center; gap: .2em; }
+  .al-stat-num { font-size: 1.5em; font-weight: 900; color: #a78bfa; }
+  .al-stat-lbl { font-size: .65em; color: #64748b; letter-spacing: .06em; }
+  .al-stat-div { width: 1px; height: 32px; background: rgba(124,58,237,.3); }
+  .al-hero-cta { display: flex; gap: .8em; justify-content: center; flex-wrap: wrap; margin-bottom: 1em; }
+  .al-hero-warn { font-size: .73em; color: #f59e0b; opacity: .8; margin: 0; }
 
-  .card-icon { font-size: 1.2em; }
-
-  .card-title {
-    margin: 0;
-    font-size: 1em;
+  /* ── Buttons ── */
+  .al-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .45em;
+    padding: .65em 1.5em;
+    border-radius: 8px;
+    font-size: .88em;
     font-weight: 700;
-    color: rgb(var(--black));
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .18s;
+    border: none;
+    font-family: inherit;
+  }
+  .al-btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(124,58,237,.35);
+  }
+  .al-btn-primary:hover {
+    box-shadow: 0 0 30px rgba(124,58,237,.6);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+  .al-btn-ghost {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid rgba(148,163,184,.25);
+  }
+  .al-btn-ghost:hover { border-color: #a78bfa; color: #a78bfa; }
+  .al-btn-checkin {
+    background: linear-gradient(135deg, #059669, #0d9488);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(5,150,105,.3);
+    width: 100%;
+  }
+  .al-btn-checkin:hover { box-shadow: 0 0 24px rgba(5,150,105,.5); transform: translateY(-1px); }
+  .al-btn-checkin:disabled { opacity: .5; transform: none; box-shadow: none; cursor: default; }
+
+  /* ── Sections ── */
+  .al-section {
+    margin-bottom: 3.5em;
+  }
+  .al-section-label {
+    font-size: .65em;
+    font-weight: 700;
+    letter-spacing: .15em;
+    color: #7c3aed;
+    text-transform: uppercase;
+    margin-bottom: .5em;
+  }
+  .al-section-title {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0 0 .6em;
+    line-height: 1.3;
+  }
+  .al-section-desc {
+    font-size: .85em;
+    color: #64748b;
+    margin: 0 0 1.4em;
+    line-height: 1.65;
   }
 
-  .friend-form { display: flex; flex-direction: column; gap: 0.8em; }
+  /* ── Belief Vote ── */
+  .al-vote-wrap {
+    background: rgba(124,58,237,.06);
+    border: 1px solid rgba(124,58,237,.25);
+    border-radius: 14px;
+    padding: 1.4em 1.6em;
+  }
+  .al-vote-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .6em;
+  }
+  .al-vote-btn {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 8px;
+    color: #cbd5e1;
+    padding: .6em .5em;
+    font-size: .82em;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .18s;
+  }
+  .al-vote-btn:hover { background: rgba(124,58,237,.2); border-color: #7c3aed; color: #a78bfa; }
+  .al-vote-result { display: flex; flex-direction: column; gap: .55em; }
+  .al-vbar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 42px;
+    align-items: center;
+    gap: .6em;
+  }
+  .al-vbar-row.al-vbar-mine .al-vbar-lbl { color: #a78bfa; font-weight: 800; }
+  .al-vbar-lbl { font-size: .8em; color: #94a3b8; }
+  .al-vbar-wrap {
+    height: 10px;
+    background: rgba(255,255,255,.06);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  .al-vbar-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width .6s ease;
+  }
+  .al-vbar-pct { font-size: .78em; font-weight: 700; text-align: right; }
+  .al-vote-total { font-size: .7em; color: #475569; margin-top: .6em; text-align: right; }
 
-  .form-grid {
+  /* ── Hot Topics ── */
+  .al-topics {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.8em;
+    gap: 1em;
+  }
+  .al-topic-card {
+    display: block;
+    text-decoration: none;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 1.1em 1.2em;
+    transition: all .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .al-topic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .al-glow-green { border-color: rgba(16,185,129,.25); }
+  .al-glow-green:hover { box-shadow: 0 0 24px rgba(16,185,129,.2); border-color: rgba(16,185,129,.5); }
+  .al-glow-amber { border-color: rgba(245,158,11,.25); }
+  .al-glow-amber:hover { box-shadow: 0 0 24px rgba(245,158,11,.2); border-color: rgba(245,158,11,.5); }
+  .al-glow-blue { border-color: rgba(59,130,246,.25); }
+  .al-glow-blue:hover { box-shadow: 0 0 24px rgba(59,130,246,.2); border-color: rgba(59,130,246,.5); }
+  .al-glow-red { border-color: rgba(239,68,68,.25); }
+  .al-glow-red:hover { box-shadow: 0 0 24px rgba(239,68,68,.2); border-color: rgba(239,68,68,.5); }
+  .al-topic-header { display: flex; align-items: center; gap: .5em; margin-bottom: .6em; }
+  .al-topic-badge {
+    font-size: .62em;
+    font-weight: 700;
+    letter-spacing: .06em;
+    border-radius: 4px;
+    padding: .15em .6em;
+    border: 1px solid;
+  }
+  .al-badge-green { color: #10b981; border-color: rgba(16,185,129,.4); background: rgba(16,185,129,.08); }
+  .al-badge-amber { color: #f59e0b; border-color: rgba(245,158,11,.4); background: rgba(245,158,11,.08); }
+  .al-badge-blue  { color: #3b82f6; border-color: rgba(59,130,246,.4);  background: rgba(59,130,246,.08); }
+  .al-badge-red   { color: #ef4444; border-color: rgba(239,68,68,.4);   background: rgba(239,68,68,.08); }
+  .al-topic-hot { font-size: .62em; font-weight: 700; color: #ef4444; margin-left: auto; }
+  .al-topic-title {
+    font-size: .88em;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.45;
+    margin: 0 0 .5em;
+  }
+  .al-topic-desc {
+    font-size: .75em;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0 0 .7em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .al-topic-meta {
+    display: flex;
+    gap: .9em;
+    font-size: .68em;
+    color: #475569;
+    flex-wrap: wrap;
   }
 
-  .field { display: flex; flex-direction: column; gap: 0.3em; }
-
-  .field label {
-    font-size: 0.78em;
-    font-weight: 600;
-    color: rgb(var(--gray));
+  /* ── Regional Map ── */
+  .al-regions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: .5em;
+    margin-bottom: .6em;
   }
-
-  .req { color: #e11d48; }
-
-  .field input,
-  .field select,
-  .field textarea {
-    background: #f8fafc;
-    border: 1px solid rgb(var(--gray-light));
+  .al-region-btn {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 8px;
-    color: rgb(var(--black));
-    font-size: 0.85em;
-    padding: 0.5em 0.7em;
+    padding: .55em .4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2em;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .18s;
+  }
+  .al-region-btn:hover { border-color: #7c3aed; background: rgba(124,58,237,.1); }
+  .al-region-mine {
+    border-color: #10b981 !important;
+    background: rgba(16,185,129,.1) !important;
+    box-shadow: 0 0 12px rgba(16,185,129,.2);
+  }
+  .al-region-name { font-size: .8em; font-weight: 700; color: #e2e8f0; }
+  .al-region-count { font-size: .62em; color: #64748b; }
+  .al-region-mine .al-region-count { color: #10b981; }
+  .al-region-note { font-size: .68em; color: #334155; margin: 0; }
+
+  /* ── Check-in ── */
+  .al-checkin-section {
+    background: rgba(5,150,105,.06);
+    border: 1px solid rgba(5,150,105,.2);
+    border-radius: 14px;
+    padding: 1.6em 1.8em;
+  }
+  .al-checkin-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
+  .al-checkin-left { flex: 1; min-width: 200px; }
+  .al-checkin-right { display: flex; flex-direction: column; align-items: center; gap: .7em; min-width: 150px; }
+  .al-checkin-streak { display: flex; flex-direction: column; align-items: center; }
+  .al-streak-num { font-size: 2.5em; font-weight: 900; color: #34d399; line-height: 1; }
+  .al-streak-lbl { font-size: .68em; color: #64748b; }
+  .al-checkin-status { font-size: .72em; color: #34d399; margin: 0; text-align: center; min-height: 1em; }
+
+  /* ── Join Form ── */
+  .al-form-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(124,58,237,.2);
+    border-radius: 14px;
+    padding: 1.6em 1.8em;
+    box-shadow: 0 0 40px rgba(124,58,237,.08);
+  }
+  .al-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8em;
+    margin-bottom: .8em;
+  }
+  .al-field { display: flex; flex-direction: column; gap: .3em; margin-bottom: .6em; }
+  .al-field label { font-size: .72em; font-weight: 600; color: #64748b; letter-spacing: .03em; }
+  .al-req { color: #f43f5e; }
+  .al-field input,
+  .al-field select,
+  .al-field textarea {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: .85em;
+    padding: .55em .75em;
     outline: none;
     font-family: inherit;
-    transition: border-color 0.15s;
+    transition: border-color .15s;
   }
-
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
-    border-color: rgba(118,17,166,0.5);
-  }
-
-  .field textarea { resize: vertical; }
-
-  .field input::placeholder,
-  .field textarea::placeholder { color: rgb(var(--gray)); opacity: 0.6; }
-
-  .form-footer {
+  .al-field input:focus,
+  .al-field select:focus,
+  .al-field textarea:focus { border-color: #7c3aed; box-shadow: 0 0 0 2px rgba(124,58,237,.15); }
+  .al-field input::placeholder,
+  .al-field textarea::placeholder { color: #334155; }
+  .al-field select { color: #94a3b8; }
+  .al-field select option { background: #1e1b2e; }
+  .al-field textarea { resize: vertical; }
+  .al-form-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1em;
     flex-wrap: wrap;
+    margin-top: .4em;
   }
+  .al-disclaimer { font-size: .68em; color: #334155; margin: 0; flex: 1; line-height: 1.5; }
+  .al-form-status { font-size: .78em; color: #34d399; margin: .5em 0 0; min-height: 1.2em; }
 
-  .form-disclaimer {
-    font-size: 0.72em;
-    color: rgb(var(--gray));
-    margin: 0;
-    flex: 1;
-  }
-
-  .submit-btn {
-    background: var(--accent, #7611a6);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.88em;
-    font-weight: 700;
-    padding: 0.55em 1.4em;
-    cursor: pointer;
-    transition: opacity 0.15s;
-    white-space: nowrap;
-  }
-
-  .submit-btn:hover { opacity: 0.85; }
-  .submit-btn:disabled { opacity: 0.45; cursor: default; }
-
-  .form-status {
-    font-size: 0.78em;
-    color: #4ade80;
-    margin: 0;
-    min-height: 1.2em;
-  }
-
-  /* Section Header */
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7em;
-    margin-bottom: 0.8em;
-  }
-
-  .section-header h2 {
-    margin: 0;
-    font-size: 1.05em;
-    font-weight: 700;
-    color: rgb(var(--black));
-  }
-
-  .section-sub {
-    font-size: 0.75em;
-    color: rgb(var(--gray));
-  }
-
-  /* Profiles List */
-  .profiles-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-  }
-
-  .loading-state, .empty-state {
-    text-align: center;
-    color: rgb(var(--gray));
-    font-size: 0.85em;
-    padding: 2em 0;
-  }
-
-  /* Profile Card */
-  .profile-card {
-    background: #fff;
-    border: 1px solid rgb(var(--gray-light));
+  /* ── Members ── */
+  .al-count-badge {
+    font-size: .7em;
+    background: rgba(124,58,237,.15);
+    border: 1px solid rgba(124,58,237,.3);
     border-radius: 12px;
-    overflow: hidden;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(var(--gray), 8%);
+    padding: .15em .7em;
+    color: #a78bfa;
   }
+  .al-profiles { display: flex; flex-direction: column; gap: .7em; margin-top: .8em; }
+  .al-empty { text-align: center; color: #334155; font-size: .85em; padding: 2.5em 0; }
 
-  .profile-card:hover { border-color: rgba(118,17,166,0.35); box-shadow: 0 3px 12px rgba(var(--gray), 15%); }
-
-  .profile-header {
+  .al-profile {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .al-profile:hover { border-color: rgba(124,58,237,.3); box-shadow: 0 0 16px rgba(124,58,237,.1); }
+  .al-profile-hd {
     display: flex;
     align-items: center;
-    gap: 0.9em;
-    padding: 0.9em 1em;
+    gap: .9em;
+    padding: .85em 1em;
     cursor: pointer;
     user-select: none;
   }
-
-  .profile-avatar {
-    width: 44px;
-    height: 44px;
+  .al-avatar {
+    width: 42px; height: 42px;
     border-radius: 50%;
-    background: #7611a6;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1em;
-    font-weight: 700;
+    font-size: 1.05em;
+    font-weight: 800;
     color: white;
     flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,.4);
   }
-
-  .profile-summary { flex: 1; min-width: 0; }
-
-  .profile-name {
-    font-size: 0.95em;
-    font-weight: 700;
-    color: rgb(var(--black));
-    display: block;
-    margin-bottom: 0.25em;
+  .al-profile-info { flex: 1; min-width: 0; }
+  .al-profile-name { font-size: .9em; font-weight: 700; color: #e2e8f0; display: block; margin-bottom: .2em; }
+  .al-profile-tags { display: flex; flex-wrap: wrap; gap: .3em; margin-bottom: .15em; }
+  .al-ptag {
+    font-size: .65em;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 8px;
+    padding: .1em .5em;
+    color: #94a3b8;
   }
+  .al-profile-int { font-size: .68em; color: #475569; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .al-profile-right { display: flex; align-items: center; gap: .5em; flex-shrink: 0; }
+  .al-cmt-cnt { font-size: .72em; color: #475569; }
+  .al-expand { font-size: .72em; color: #475569; }
 
-  .profile-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3em;
-    margin-bottom: 0.2em;
-  }
-
-  .meta-tag {
-    font-size: 0.68em;
-    background: rgb(var(--gray-light));
-    border: 1px solid rgba(var(--gray), 0.2);
-    border-radius: 10px;
-    padding: 0.1em 0.5em;
-    color: rgb(var(--gray-dark));
-    white-space: nowrap;
-  }
-
-  .profile-interests {
-    font-size: 0.72em;
-    color: rgb(var(--gray));
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .profile-right {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    flex-shrink: 0;
-  }
-
-  .comment-count {
-    font-size: 0.75em;
-    color: rgb(var(--gray));
-  }
-
-  .expand-icon {
-    font-size: 0.75em;
-    color: rgb(var(--gray));
-    transition: transform 0.2s;
-  }
-
-  /* Profile Body */
-  .profile-body {
-    border-top: 1px solid rgb(var(--gray-light));
+  .al-profile-bd {
+    border-top: 1px solid rgba(255,255,255,.06);
     padding: 1em;
-    background: #fafbfc;
+    background: rgba(0,0,0,.2);
   }
+  .al-profile-intro { font-size: .85em; color: #cbd5e1; line-height: 1.65; margin-bottom: .6em; white-space: pre-wrap; }
+  .al-profile-looking { font-size: .75em; color: #64748b; margin-bottom: .3em; }
+  .al-profile-looking span { color: #a78bfa; font-weight: 600; }
+  .al-profile-contact { font-size: .75em; color: #64748b; margin-bottom: .3em; }
+  .al-profile-date { font-size: .65em; color: #334155; margin-bottom: .8em; }
 
-  .profile-intro {
-    font-size: 0.88em;
-    color: rgb(var(--black));
-    line-height: 1.6;
-    margin-bottom: 0.6em;
-    white-space: pre-wrap;
-  }
-
-  .profile-looking {
-    font-size: 0.78em;
-    color: rgb(var(--gray));
-    margin-bottom: 0.4em;
-  }
-
-  .looking-label {
-    font-weight: 600;
-    color: #a78bfa;
-  }
-
-  .profile-contact {
-    font-size: 0.78em;
-    color: rgb(var(--gray));
-    margin-bottom: 0.3em;
-  }
-
-  .profile-date {
-    font-size: 0.7em;
-    color: rgb(var(--gray));
-    opacity: 0.6;
-    margin-bottom: 1em;
-  }
-
-  /* Comments */
-  .comments-section {
-    border-top: 1px solid rgb(var(--gray-light));
-    padding-top: 0.8em;
-  }
-
-  .comments-title {
-    font-size: 0.72em;
-    font-weight: 700;
-    color: rgb(var(--gray));
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.6em;
-  }
-
-  .comments-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45em;
-    margin-bottom: 0.7em;
-  }
-
-  .comment-item {
-    display: flex;
-    gap: 0.6em;
-    font-size: 0.8em;
-  }
-
-  .comment-time {
-    color: rgb(var(--gray));
-    opacity: 0.6;
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-size: 0.9em;
-  }
-
-  .comment-text { color: rgb(var(--black)); }
-
-  .no-comments {
-    font-size: 0.78em;
-    color: rgb(var(--gray));
-    opacity: 0.5;
-    margin: 0;
-  }
-
-  .comment-form {
-    display: flex;
-    gap: 0.5em;
-  }
-
-  .comment-input {
+  .al-cmts-wrap { border-top: 1px solid rgba(255,255,255,.05); padding-top: .8em; }
+  .al-cmts-label { font-size: .65em; font-weight: 700; color: #334155; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .5em; }
+  .al-cmts-list { display: flex; flex-direction: column; gap: .4em; margin-bottom: .6em; }
+  .al-cmt { display: flex; gap: .6em; font-size: .78em; }
+  .al-cmt-time { color: #334155; font-size: .85em; white-space: nowrap; flex-shrink: 0; }
+  .al-cmt-text { color: #94a3b8; }
+  .al-cmt-empty { font-size: .75em; color: #334155; margin: 0; }
+  .al-cmt-form { display: flex; gap: .5em; }
+  .al-cmt-input {
     flex: 1;
-    background: #f8fafc;
-    border: 1px solid rgb(var(--gray-light));
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 7px;
-    color: rgb(var(--black));
-    font-size: 0.8em;
-    padding: 0.4em 0.7em;
+    color: #e2e8f0;
+    font-size: .78em;
+    padding: .4em .7em;
     outline: none;
     font-family: inherit;
   }
-
-  .comment-input::placeholder { color: rgb(var(--gray)); }
-  .comment-input:focus { border-color: rgba(118,17,166,0.4); }
-
-  .comment-btn {
-    background: var(--accent, #7611a6);
-    color: white;
-    border: none;
+  .al-cmt-input::placeholder { color: #334155; }
+  .al-cmt-input:focus { border-color: rgba(124,58,237,.5); }
+  .al-cmt-btn {
+    background: rgba(124,58,237,.2);
+    border: 1px solid rgba(124,58,237,.4);
     border-radius: 7px;
-    font-size: 0.78em;
+    color: #a78bfa;
+    font-size: .75em;
     font-weight: 700;
-    padding: 0.4em 0.9em;
+    padding: .4em .9em;
     cursor: pointer;
-    transition: opacity 0.15s;
+    font-family: inherit;
+    transition: all .15s;
     white-space: nowrap;
   }
+  .al-cmt-btn:hover { background: rgba(124,58,237,.35); }
+  .al-cmt-status { font-size: .68em; color: #34d399; margin: .3em 0 0; min-height: 1em; }
 
-  .comment-btn:hover { opacity: 0.85; }
-
-  .comment-status {
-    font-size: 0.72em;
-    color: #4ade80;
-    margin: 0.3em 0 0;
-    min-height: 1em;
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .al-topics { grid-template-columns: 1fr; }
+    .al-vote-options { grid-template-columns: 1fr 1fr; }
+    .al-form-grid { grid-template-columns: 1fr; }
+    .al-checkin-inner { flex-direction: column; text-align: center; }
+    .al-checkin-right { width: 100%; }
+    .al-hero-stats { gap: .8em; }
+    .al-stat-div { display: none; }
+    .al-form-footer { flex-direction: column; align-items: flex-start; }
   }
-
-  @media (max-width: 600px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .form-footer { flex-direction: column; align-items: flex-start; }
+  @media (max-width: 420px) {
+    .al-hero { padding: 2.5em .5em 2em; }
+    .al-form-card { padding: 1.2em 1em; }
   }
 </style>

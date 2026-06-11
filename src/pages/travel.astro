@@ -1,0 +1,963 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="zh-TW">
+<head>
+  <BaseHead
+    title="如果世界越來越亂，你還想去哪裡？｜兩隻熊人生清單"
+    description="兩隻熊精選人生清單旅遊目的地，台灣人視角深度避雷分析，附 Agoda 聯盟最低價連結"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1816;--ink2:#4a4540;--ink3:#8a827a;
+  --paper:#f7f4ef;--paper2:#ede9e2;--paper3:#e4dfd6;
+  --gold:#b8960c;--gold2:#d4aa20;--red:#8b2020;--green:#2a5a3a;
+  --radius:3px;--shadow:0 1px 8px rgba(26,24,22,0.08);
+}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-weight:300;line-height:1.7}
+
+/* HERO */
+.hero{background:var(--ink);color:var(--paper);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 20% 50%,rgba(184,150,12,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 30%,rgba(139,32,32,.10) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.25em;color:var(--gold2);margin-bottom:1.5rem;text-transform:uppercase}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(1.8rem,5vw,3rem);line-height:1.4;max-width:700px;margin:0 auto 1.25rem;letter-spacing:.02em}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero-sub{font-size:14px;color:rgba(247,244,239,.6);max-width:480px;margin:0 auto 1.5rem;line-height:1.8}
+.hero-bears{font-size:28px;letter-spacing:.1em;margin-bottom:.75rem}
+.hero-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.hero-nav a{font-size:12px;padding:6px 16px;border-radius:100px;border:.5px solid rgba(247,244,239,.25);color:rgba(247,244,239,.7);text-decoration:none;transition:all .2s}
+.hero-nav a:hover{border-color:var(--gold2);color:var(--gold2)}
+
+/* SEARCH (sticky) */
+.search-wrap{background:var(--ink);padding:0 2rem 1.25rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(247,244,239,.06)}
+.search-inner{max-width:900px;margin:0 auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.search-inner label{font-size:11px;color:rgba(247,244,239,.4);white-space:nowrap}
+.search-inner input,.search-inner select{font-size:13px;padding:7px 12px;border:.5px solid rgba(247,244,239,.15);border-radius:var(--radius);background:rgba(247,244,239,.06);color:var(--paper);font-family:'Noto Sans TC',sans-serif;font-weight:300}
+.search-inner input[type="date"]{width:145px;color-scheme:dark}
+.search-inner input:focus,.search-inner select:focus{outline:none;border-color:var(--gold2)}
+.search-inner select option{background:var(--ink)}
+
+/* FILTER */
+.filter-wrap{background:var(--paper2);border-bottom:1px solid var(--paper3);padding:.85rem 2rem}
+.filter-inner{max-width:900px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:11px;color:var(--ink3);letter-spacing:.1em;margin-right:4px}
+.filter-btn{font-size:11px;padding:5px 12px;border-radius:100px;border:.5px solid var(--paper3);background:var(--paper);color:var(--ink3);cursor:pointer;font-family:'Noto Sans TC',sans-serif;font-weight:300;transition:all .15s}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:2rem}
+
+/* INTENT ROW */
+.intent-row{display:flex;gap:10px;margin-bottom:2rem;flex-wrap:wrap}
+.intent-btn{flex:1;min-width:150px;padding:12px 14px;border:.5px solid var(--paper3);border-radius:var(--radius);background:var(--paper);cursor:pointer;text-align:left;font-family:'Noto Sans TC',sans-serif;transition:all .2s;box-shadow:var(--shadow)}
+.intent-btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+.intent-btn.active{border-color:var(--gold);background:#fffbee}
+.intent-icon{font-size:18px;margin-bottom:4px}
+.intent-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:1px}
+.intent-desc{font-size:10px;color:var(--ink3);line-height:1.5}
+
+/* INTENT BADGE */
+.intent-badge{
+  background:var(--ink);color:var(--paper);
+  border-radius:var(--radius);padding:.75rem 1rem;
+  margin-bottom:1.5rem;font-size:12px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap
+}
+.intent-badge strong{color:var(--gold2)}
+.intent-badge span{color:rgba(247,244,239,.6);font-size:11px}
+.intent-badge.hidden{display:none}
+
+/* SECTION TITLE */
+.section-title{font-family:'Noto Serif TC',serif;font-size:12px;font-weight:400;color:var(--ink3);letter-spacing:.15em;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:.5px solid var(--paper3)}
+
+/* CITY GRID */
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-bottom:2rem}
+.city-card{background:var(--paper);border:.5px solid var(--paper3);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .2s}
+.city-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(26,24,22,.12);border-color:var(--gold)}
+.city-card.hidden{display:none}
+
+.card-header{padding:1.25rem 1.25rem 1rem;border-bottom:.5px solid var(--paper3);position:relative}
+.card-flag{font-size:20px;margin-bottom:5px}
+.card-city{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:2px}
+.card-region{font-size:11px;color:var(--ink3)}
+.card-score{position:absolute;top:1.25rem;right:1.25rem;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;border:1.5px solid currentColor}
+.score-high{color:var(--green);background:rgba(42,90,58,.08)}
+.score-mid{color:var(--gold);background:rgba(184,150,12,.08)}
+.score-low{color:var(--red);background:rgba(139,32,32,.08)}
+
+.card-body{padding:1rem 1.25rem}
+.card-intent-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:3px 8px;border-radius:100px;margin-bottom:10px}
+.tag-luxury{background:rgba(184,150,12,.12);color:#7a6008}
+.tag-escape{background:rgba(42,90,58,.12);color:#1a4028}
+.tag-base{background:rgba(60,80,140,.12);color:#253060}
+
+.card-quote{font-family:'Noto Serif TC',serif;font-size:12px;font-style:italic;color:var(--ink2);line-height:1.7;margin-bottom:12px;padding-left:10px;border-left:2px solid var(--paper3)}
+
+.resilience{margin-bottom:12px}
+.resilience-title{font-size:10px;color:var(--ink3);letter-spacing:.1em;margin-bottom:6px}
+.resilience-bars{display:flex;flex-direction:column;gap:4px}
+.r-bar{display:flex;align-items:center;gap:8px}
+.r-label{font-size:10px;color:var(--ink3);width:52px;flex-shrink:0}
+.r-track{flex:1;height:3px;background:var(--paper3);border-radius:2px;overflow:hidden}
+.r-fill{height:100%;border-radius:2px;background:var(--gold);transition:width .8s ease}
+.r-fill.high{background:var(--green)}
+.r-fill.low{background:var(--red)}
+
+.card-warning{font-size:11px;color:var(--red);background:rgba(139,32,32,.06);border-left:2px solid var(--red);padding:6px 10px;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:10px;line-height:1.6}
+.card-tip{font-size:11px;color:var(--green);background:rgba(42,90,58,.06);border-left:2px solid var(--green);padding:6px 10px;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:10px;line-height:1.6}
+
+/* CARD FOOTER */
+.card-footer{padding:.85rem 1.25rem;border-top:.5px solid var(--paper3);background:var(--paper2);display:flex;gap:6px}
+.book-btn{flex:1;padding:8px 10px;border-radius:var(--radius);border:.5px solid var(--paper3);background:var(--paper);color:var(--ink2);font-size:11px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;text-decoration:none;text-align:center;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-weight:400}
+.book-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.book-btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.book-btn.primary:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+
+/* PROPHET STRIP */
+.prophet-strip{background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:1.5rem;margin-bottom:2rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+.prophet-card{flex:1;min-width:180px;border-left:2px solid rgba(184,150,12,.3);padding-left:1rem}
+.prophet-name{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.15em;color:var(--gold2);margin-bottom:5px}
+.prophet-quote{font-family:'Noto Serif TC',serif;font-size:12px;font-style:italic;color:rgba(247,244,239,.65);line-height:1.7}
+
+.disclaimer{font-size:11px;color:var(--ink3);text-align:center;padding:1rem 0 2rem;line-height:1.8}
+
+@media(max-width:600px){
+  .search-inner{gap:6px}
+  .intent-row{flex-direction:column}
+  .prophet-strip{flex-direction:column}
+  .city-grid{grid-template-columns:1fr}
+  .search-inner input[type="date"]{width:130px}
+}
+  </style>
+</head>
+<body>
+  <Header />
+
+<div class="hero">
+  <div class="hero-bears">🐻🐻</div>
+  <div class="hero-eyebrow">兩隻熊的人生清單 · BUCKET LIST TRAVEL</div>
+  <h1>如果世界越來越亂，<br>你<em>還想去哪裡</em>？</h1>
+  <p class="hero-sub">預言家說的那些事也許不會發生，但有些地方、有些時刻，值得你現在就出發。</p>
+  <div class="hero-nav">
+    <a href="/">← 回首頁</a>
+    <a href="/avoid">🚨 避雷地圖</a>
+    <a href="/podcast">🎙 預言 Podcast</a>
+    <a href="/blog">📖 最新文章</a>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <div class="search-inner">
+    <label>入住</label>
+    <input type="date" id="checkIn">
+    <label>退房</label>
+    <input type="date" id="checkOut">
+    <label>大人</label>
+    <select id="adults">
+      <option value="1">1人</option>
+      <option value="2" selected>2人</option>
+      <option value="3">3人</option>
+      <option value="4">4人</option>
+    </select>
+    <label>房間</label>
+    <select id="rooms">
+      <option value="1" selected>1間</option>
+      <option value="2">2間</option>
+    </select>
+  </div>
+</div>
+
+<div class="filter-wrap">
+  <div class="filter-inner">
+    <span class="filter-label">篩選</span>
+    <button class="filter-btn active" data-filter="all" onclick="filterCards('all',this)">全部</button>
+    <button class="filter-btn" data-filter="luxury" onclick="filterCards('luxury',this)">✨ 奢華</button>
+    <button class="filter-btn" data-filter="escape" onclick="filterCards('escape',this)">🌿 避世</button>
+    <button class="filter-btn" data-filter="base" onclick="filterCards('base',this)">🏡 長住</button>
+    <button class="filter-btn" data-filter="japan" onclick="filterCards('japan',this)">🇯🇵 日本</button>
+    <button class="filter-btn" data-filter="sea" onclick="filterCards('sea',this)">🌏 東南亞</button>
+    <button class="filter-btn" data-filter="taiwan" onclick="filterCards('taiwan',this)">🇹🇼 台灣</button>
+    <button class="filter-btn" data-filter="korea" onclick="filterCards('korea',this)">🇰🇷 韓國</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="prophet-strip">
+    <div class="prophet-card">
+      <div class="prophet-name">BRANDON BIGGS</div>
+      <div class="prophet-quote">「財富將轉移。在最後的日子裡，那些準備好的人將擁有充足的資源。」</div>
+    </div>
+    <div class="prophet-card">
+      <div class="prophet-name">松原照子</div>
+      <div class="prophet-quote">「千年古都的地脈能量，在未來的震盪中相對穩定。去那些有歷史的地方感受一下吧。」</div>
+    </div>
+    <div class="prophet-card">
+      <div class="prophet-name">JOE McMONEAGLE</div>
+      <div class="prophet-quote">「在混亂之前，先找到讓你的心回到平靜的地方。清空大腦，你會發現世界其實很平靜。」</div>
+    </div>
+  </div>
+
+  <div class="intent-row">
+    <button class="intent-btn active" data-intent="all" onclick="setIntent('all',this)">
+      <div class="intent-icon">🌍</div>
+      <div class="intent-title">全部顯示</div>
+      <div class="intent-desc">讓我自己決定</div>
+    </button>
+    <button class="intent-btn" data-intent="luxury" onclick="setIntent('luxury',this)">
+      <div class="intent-icon">🥂</div>
+      <div class="intent-title">最後一次奢華</div>
+      <div class="intent-desc">4星以上・高景觀・頂級體驗</div>
+    </button>
+    <button class="intent-btn" data-intent="escape" onclick="setIntent('escape',this)">
+      <div class="intent-icon">🌿</div>
+      <div class="intent-title">與世隔絕</div>
+      <div class="intent-desc">溫泉・秘境・最高評分優先</div>
+    </button>
+    <button class="intent-btn" data-intent="base" onclick="setIntent('base',this)">
+      <div class="intent-icon">🏡</div>
+      <div class="intent-title">長期落腳考察</div>
+      <div class="intent-desc">附廚房・長住・最低價優先</div>
+    </button>
+  </div>
+
+  <!-- 目前篩選條件說明 -->
+  <div class="intent-badge hidden" id="intentBadge">
+    <span>🎯 目前搜尋條件：</span>
+    <strong id="badgeText"></strong>
+    <span id="badgeDetail"></span>
+  </div>
+
+  <div class="section-title">🐻 兩隻熊人生清單 · 精選目的地</div>
+
+  <div class="city-grid" id="cityGrid">
+
+    <!-- 京都 -->
+    <div class="city-card" data-tags="japan escape">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">京都 · 宇治</div>
+        <div class="card-region">日本關西 · 千年古都</div>
+        <div class="card-score score-high">87</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">松原照子暗示，千年古都的地脈在未來震盪中相對穩定。京都是台灣人心中最接近「結界」的地方。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:92%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:85%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:75%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：祇園四条商務旅館常見12㎡小房，行李箱無法攤平。嵐山往來需爬坡，帶行李箱請三思。</div>
+        <div class="card-tip">✓ 推薦：宇治或嵐山區公寓型旅館，空間大、安靜，步行至車站為平路。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(1784); return false;">🔍 搜尋京都住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Kyoto'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 河口湖 -->
+    <div class="city-card" data-tags="japan luxury">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">河口湖 · 富士山麓</div>
+        <div class="card-region">日本關東 · 富士山第一排</div>
+        <div class="card-score score-mid">72</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-luxury">✨ 最後一次奢華</div>
+        <div class="card-quote">比格斯和松原照子都提過富士山的未來變數。如果這是最平靜的一年，這輩子總要任性一次，在第一排看過富士山倒影。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:58%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:52%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:62%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：河口湖交通靠巴士，班次有限，大行李要計算時間。冬季清晨氣溫極低。</div>
+        <div class="card-tip">✓ 推薦：湖北岸一線湖景旅館，清晨富士山無雲機率冬春最高，私人風呂值得升等。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(5085); return false;">🔍 搜尋東京/富士住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Kawaguchiko'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 大阪 -->
+    <div class="city-card" data-tags="japan luxury">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">大阪</div>
+        <div class="card-region">日本關西 · 美食之都</div>
+        <div class="card-score score-mid">68</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-luxury">✨ 最後一次奢華</div>
+        <div class="card-quote">世界再亂，大阪的章魚燒不會少。這是那種「讓人忘記末日」的城市，吃飽喝足，煩惱自然少一半。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:55%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:95%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:85%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：新今宮NT$800旅館周邊夜間氛圍複雜。心齋橋設計旅館雙人房常只有11㎡。</div>
+        <div class="card-tip">✓ 推薦：北堀江或南船場公寓型旅館，空間大、鄰近美食、治安好。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(9590); return false;">🔍 搜尋大阪住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Osaka'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 首爾 -->
+    <div class="city-card" data-tags="korea luxury">
+      <div class="card-header">
+        <div class="card-flag">🇰🇷</div>
+        <div class="card-city">首爾</div>
+        <div class="card-region">韓國 · 時尚美食之都</div>
+        <div class="card-score score-mid">70</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-luxury">✨ 最後一次奢華</div>
+        <div class="card-quote">帕克說北韓局勢是未來幾年的變數，但首爾人完全不在意——他們在吃烤肉、逛弘大。這種日常感，才是最強的心理韌性。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:65%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:95%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:92%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：明洞旅館平均15㎡，行李族請選弘大或麻浦區。部分旅館電梯只容一個行李箱。</div>
+        <div class="card-tip">✓ 推薦：漢南洞或聖水洞設計旅館，空間感佳，步行有咖啡街，夜間安全。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(14690); return false;">🔍 搜尋首爾住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Seoul'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 曼谷 -->
+    <div class="city-card" data-tags="sea base luxury">
+      <div class="card-header">
+        <div class="card-flag">🇹🇭</div>
+        <div class="card-city">曼谷</div>
+        <div class="card-region">泰國 · CP值天花板</div>
+        <div class="card-score score-high">82</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">摩普萊從佛教業力觀點看，泰國在未來亂局中相對穩定。更實際的是：同樣的錢，曼谷能讓你住得比台北好三倍。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:72%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:78%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:96%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：素坤逸路邊攤雨季積水嚴重，行李箱是噩夢。BTS站外打車比App還貴。</div>
+        <div class="card-tip">✓ 推薦：Ari或Phromphong站附近公寓型旅館，附廚房洗衣，週租月租優惠，適合長住。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(9395); return false;">🔍 搜尋曼谷住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Bangkok'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 新加坡 -->
+    <div class="city-card" data-tags="sea base">
+      <div class="card-header">
+        <div class="card-flag">🇸🇬</div>
+        <div class="card-city">新加坡</div>
+        <div class="card-region">東南亞 · 避風港首選</div>
+        <div class="card-score score-high">90</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">全球和平指數常年前段班，政治穩定、法治完善、華語通行。比格斯說的財富轉移期，這裡是高淨值人士首選的觀望地。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:94%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:96%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:98%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:95%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：住宿費是亞洲最貴之一，同樣預算在曼谷可以升等三個等級。</div>
+        <div class="card-tip">✓ 推薦：烏節路或克拉碼頭服務式公寓，含廚房，週租月租比酒店划算50%以上。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4064); return false;">🔍 搜尋新加坡住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Singapore'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 東京 -->
+    <div class="city-card" data-tags="japan luxury">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">東京</div>
+        <div class="card-region">日本關東 · 世界首都</div>
+        <div class="card-score score-high">85</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-luxury">✨ 最後一次奢華</div>
+        <div class="card-quote">比格斯說 AI 浪潮將重塑世界秩序，而東京是那種「無論世界怎麼變都能自成一格」的城市。銀座的絕頂壽司、澀谷的霓虹——在那之前先去吃一頓。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:68%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:98%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:99%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：新宿歌舞伎町周邊旅館常見10㎡超迷你房，行李箱打開就沒路走。</div>
+        <div class="card-tip">✓ 推薦：中目黑或清澄白河公寓型旅館，空間感佳，遠離觀光人潮，鄰近地鐵。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(5085); return false;">🔍 搜尋東京住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Tokyo'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 沖繩 -->
+    <div class="city-card" data-tags="japan escape">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">沖繩</div>
+        <div class="card-region">日本南島 · 珊瑚海天堂</div>
+        <div class="card-score score-high">80</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">沖繩人的平均壽命曾是世界第一。慢活哲學、珊瑚礁、泡盛，這裡是日本的另一個宇宙，離台灣最近的遠方。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:55%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:65%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：那霸市區以外幾乎沒有大眾運輸，需租車。颱風季（8–9月）可能班機取消。</div>
+        <div class="card-tip">✓ 推薦：本部町或恩納村度假村，浮潛從旅館直走下水，訂房記得確認含早餐。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(1706); return false;">🔍 搜尋沖繩住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Okinawa'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 北海道 -->
+    <div class="city-card" data-tags="japan escape">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">北海道</div>
+        <div class="card-region">日本北端 · 四季絕景</div>
+        <div class="card-score score-mid">78</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">夏天薰衣草、冬天粉雪，北海道就是那種「一輩子應該去一次」的清單頂端。帕克說 2026 年前多旅行，這句話我記住了。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:60%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:68%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:72%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：富良野薰衣草季（7月）旅館一房難求，需提前半年訂。冬季自駕路面結冰需雪胎。</div>
+        <div class="card-tip">✓ 推薦：登別或洞爺湖溫泉旅館，附雪景露天風呂，吃螃蟹海膽，人生值了。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(1706); return false;">🔍 搜尋北海道住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Hokkaido'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 福岡 -->
+    <div class="city-card" data-tags="japan luxury">
+      <div class="card-header">
+        <div class="card-flag">🇯🇵</div>
+        <div class="card-city">福岡</div>
+        <div class="card-region">日本九州 · 最近的日本</div>
+        <div class="card-score score-mid">76</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-luxury">✨ 最後一次奢華</div>
+        <div class="card-quote">台灣飛福岡 2.5 小時，便宜到讓人懷疑人生。豚骨拉麵發源地、博多屋台文化，是那種「不用很多預算就能很滿足」的日本。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:75%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:85%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:82%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：中洲夜市周邊屋台消費比想像中高，每攤加起來很可觀。</div>
+        <div class="card-tip">✓ 推薦：天神或博多站前設計旅館，步行到屋台街 10 分鐘，機場巴士直達。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(1714); return false;">🔍 搜尋福岡住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Fukuoka'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 峇厘島 -->
+    <div class="city-card" data-tags="sea escape luxury">
+      <div class="card-header">
+        <div class="card-flag">🇮🇩</div>
+        <div class="card-city">峇厘島</div>
+        <div class="card-region">印尼 · 神的島嶼</div>
+        <div class="card-score score-high">83</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">同樣的錢，峇厘島能讓你住進私人泳池別墅。摩普萊說東南亞在亂局中相對穩定，印尼是個龐然大國，有自己的地緣邏輯。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:85%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:48%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:65%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：庫塔海灘區人多擁擠，推銷嚴重。計程車務必用 Gojek/Grab，路邊喊價是3倍。</div>
+        <div class="card-tip">✓ 推薦：烏布藝術村公寓或水明漾私人泳池Villa，同樣預算住出五倍的爽度。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(1271); return false;">🔍 搜尋峇厘島住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Bali'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 清邁 -->
+    <div class="city-card" data-tags="sea escape base">
+      <div class="card-header">
+        <div class="card-flag">🇹🇭</div>
+        <div class="card-city">清邁</div>
+        <div class="card-region">泰國北部 · 古城慢活</div>
+        <div class="card-score score-high">84</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">清邁是全球數位遊牧者票選第一的城市。古城護城河、咖啡館比台北還多、物價三分之一，是那種「我可以在這住三個月」的地方。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:52%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:82%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:72%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：3–4月煙霾季（Burning Season）空氣品質極差，有呼吸道問題者避開。</div>
+        <div class="card-tip">✓ 推薦：古城區精品旅館或尼曼路公寓，步行到夜市、咖啡館，月租比曼谷便宜一半。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(3573); return false;">🔍 搜尋清邁住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Chiang Mai'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 吉隆坡 -->
+    <div class="city-card" data-tags="sea base">
+      <div class="card-header">
+        <div class="card-flag">🇲🇾</div>
+        <div class="card-city">吉隆坡</div>
+        <div class="card-region">馬來西亞 · 東南亞樞紐</div>
+        <div class="card-score score-mid">75</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">雙峰塔底下是東南亞最便宜的精品購物中心。馬幣匯率讓台灣人住五星感覺像住商務，語言又通英語，是東南亞布局的理想中繼站。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:72%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:90%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：武吉免登路邊路況複雜，白天還好，夜間建議 Grab。雨季（10–11月）說下就下。</div>
+        <div class="card-tip">✓ 推薦：孟沙或班底谷服務式公寓，含廚房，月租比酒店划算，鄰近 MRT。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(3573); return false;">🔍 搜尋吉隆坡住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Kuala Lumpur'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 胡志明市 -->
+    <div class="city-card" data-tags="sea base">
+      <div class="card-header">
+        <div class="card-flag">🇻🇳</div>
+        <div class="card-city">胡志明市</div>
+        <div class="card-region">越南 · 新興活力之城</div>
+        <div class="card-score score-mid">71</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">越南是全球成長最快的經濟體之一。胡志明市的摩托車洪流裡，藏著東南亞最有活力的創業能量。同樣的錢，這裡的咖啡廳比台北還時髦。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:62%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:58%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:78%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：第一郡觀光區計程車拒跳表極普遍，下車前務必確認是 Grab 或議好價。</div>
+        <div class="card-tip">✓ 推薦：第二郡（Thao Dien）服務式公寓，台灣人聚集、咖啡廳林立、月租親民。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(3573); return false;">🔍 搜尋胡志明市住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Ho Chi Minh City'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 台北 -->
+    <div class="city-card" data-tags="taiwan base">
+      <div class="card-header">
+        <div class="card-flag">🇹🇼</div>
+        <div class="card-city">台北</div>
+        <div class="card-region">台灣 · 家的起點</div>
+        <div class="card-score score-mid">65</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">如果你都還沒好好把台灣走透，先把自己的寶島看清楚吧。台北的住宿CP值其實比想像中好。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill" style="width:70%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:96%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:60%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：西門町和寧夏周邊老式旅館隔音極差，半夜常聽到鄰房電視聲。</div>
+        <div class="card-tip">✓ 推薦：大安區或中山區設計旅館，空間大、安靜、步行生活圈完整。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4951); return false;">🔍 搜尋台北住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Taipei'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 台南 -->
+    <div class="city-card" data-tags="taiwan escape luxury">
+      <div class="card-header">
+        <div class="card-flag">🇹🇼</div>
+        <div class="card-city">台南</div>
+        <div class="card-region">台灣 · 美食古都</div>
+        <div class="card-score score-high">82</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">台南是台灣人的精神故鄉。節奏比台北慢三倍，小吃比台北便宜一半，文化底蘊卻是台灣最深厚的城市。如果世界要變，先把台南走一遍。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:86%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:55%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:80%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:65%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：市區無捷運，沒有機車或租車幾乎寸步難行。舊城區停車位稀少。</div>
+        <div class="card-tip">✓ 推薦：中西區老宅改建民宿，走路到赤崁樓，早起在巷弄吃碗肉燥飯才是台南精髓。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4951); return false;">🔍 搜尋台南住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Tainan'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 高雄 -->
+    <div class="city-card" data-tags="taiwan base">
+      <div class="card-header">
+        <div class="card-flag">🇹🇼</div>
+        <div class="card-city">高雄</div>
+        <div class="card-region">台灣南部 · 港都新貌</div>
+        <div class="card-score score-mid">74</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">高雄是台灣被低估最嚴重的城市。捷運串聯、港灣夜景、住宿比台北便宜四成，還有一個在全球出圈的蚵仔煎。這裡的生活，不輸任何地方。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:80%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:78%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:87%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:72%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：鹽埕區部分老旅館隔音差，建議選三多商圈或美術館特區的新型旅館。</div>
+        <div class="card-tip">✓ 推薦：駁二藝術特區附近的設計旅館，步行港灣夜景，住宿 CP 值是台灣大城市最高之一。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4951); return false;">🔍 搜尋高雄住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Kaohsiung'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 台中 -->
+    <div class="city-card" data-tags="taiwan base escape">
+      <div class="card-header">
+        <div class="card-flag">🇹🇼</div>
+        <div class="card-city">台中</div>
+        <div class="card-region">台灣中部 · 宜居之城</div>
+        <div class="card-score score-mid">73</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-base">🏡 長期落腳</div>
+        <div class="card-quote">台中人口連年增加，是台灣最宜居的城市指標之一。氣候溫和、咖啡文化全台第一、美術館密度超高——在台灣慢活首選。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:82%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:68%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill high" style="width:88%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:68%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：台中舊火車站周邊住宿老舊，建議選七期重劃區或審計新村周邊的新型旅館。</div>
+        <div class="card-tip">✓ 推薦：勤美誠品附近設計旅館，步行到草悟道咖啡館、國美館，生活感極佳。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4951); return false;">🔍 搜尋台中住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Taichung'); return false;">Booking</a>
+      </div>
+    </div>
+
+    <!-- 花蓮 -->
+    <div class="city-card" data-tags="taiwan escape">
+      <div class="card-header">
+        <div class="card-flag">🇹🇼</div>
+        <div class="card-city">花蓮</div>
+        <div class="card-region">台灣東部 · 太平洋之門</div>
+        <div class="card-score score-high">80</div>
+      </div>
+      <div class="card-body">
+        <div class="card-intent-tag tag-escape">🌿 與世隔絕</div>
+        <div class="card-quote">太魯閣峽谷是台灣送給自己的奇蹟。花蓮人的生活速度是全台最慢的，面對太平洋的早晨，所有焦慮都會消失。</div>
+        <div class="resilience">
+          <div class="resilience-title">韌性指數</div>
+          <div class="resilience-bars">
+            <div class="r-bar"><span class="r-label">🛡 寧靜度</span><div class="r-track"><div class="r-fill high" style="width:92%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🚇 交通</span><div class="r-track"><div class="r-fill" style="width:58%"></div></div></div>
+            <div class="r-bar"><span class="r-label">🏪 機能</span><div class="r-track"><div class="r-fill" style="width:65%"></div></div></div>
+            <div class="r-bar"><span class="r-label">✈️ 撤離</span><div class="r-track"><div class="r-fill" style="width:55%"></div></div></div>
+          </div>
+        </div>
+        <div class="card-warning">⚠️ 避雷：花蓮地震頻繁，建議選樓層低的旅館。颱風季（7–9月）蘇花公路可能封路，影響行程。</div>
+        <div class="card-tip">✓ 推薦：市區太平洋側一線海景民宿，清晨從房間看日出，再去太魯閣健行，是台灣最值得的一日。</div>
+      </div>
+      <div class="card-footer">
+        <a class="book-btn primary" href="#" onclick="goAgoda(4951); return false;">🔍 搜尋花蓮住宿</a>
+        <a class="book-btn" href="#" onclick="goBooking('Hualien'); return false;">Booking</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="disclaimer">
+    ⚠ 韌性指數為兩隻熊主觀評估，僅供參考。避雷資訊來自台灣旅客實際回報，更新於 2026 年。<br>
+    實際訂房價格以各平台顯示為準。本頁部分連結為聯盟連結，點擊訂房不增加你的費用，但會支持兩隻熊繼續製作內容 🙏
+  </p>
+
+</div>
+
+  <Footer />
+
+<script is:inline>
+// ── 設定 ──────────────────────────────────────────
+const TRACKING_BASE = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d';
+const CID = '1933603';
+
+const INTENT_PARAMS = {
+  all: {
+    extra: '',
+    sort: 'popularity',
+    label: '綜合排序',
+    detail: '顯示所有房型'
+  },
+  luxury: {
+    extra: '&hotelStarRating=5&hotelReviewScore=9&roomAmenities=31&hotelFacility=91&groupedBedTypes=1,5',
+    sort: 'price_desc',
+    label: '✨ 5星・評分9+・特大床・Spa・含網路',
+    detail: '按價格高→低排序'
+  },
+  escape: {
+    extra: '&hotelReviewScore=9&roomAmenities=31&hotelFacility=91',
+    sort: 'rating_desc',
+    label: '🌿 評分9+・Spa・含網路',
+    detail: '按評分高→低排序'
+  },
+  base: {
+    extra: '&hotelReviewScore=8&roomAmenities=31,42',
+    sort: 'price_asc',
+    label: '🏡 評分8+・附廚房・含網路',
+    detail: '按價格低→高排序'
+  },
+};
+
+let currentIntent = 'all';
+
+// ── 日期預設 ─────────────────────────────────────
+function offsetDate(days) {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().split('T')[0];
+}
+document.getElementById('checkIn').value  = offsetDate(30);
+document.getElementById('checkOut').value = offsetDate(33);
+
+// ── Agoda 跳轉（帶意圖篩選參數）────────────────────
+function goAgoda(cityId) {
+  const checkIn  = document.getElementById('checkIn').value  || offsetDate(30);
+  const checkOut = document.getElementById('checkOut').value || offsetDate(33);
+  const adults   = document.getElementById('adults').value;
+  const rooms    = document.getElementById('rooms').value;
+  const params   = INTENT_PARAMS[currentIntent] || INTENT_PARAMS.all;
+
+  const agodaUrl =
+    'https://www.agoda.com/zh-tw/search' +
+    '?city='     + cityId +
+    '&checkIn='  + checkIn +
+    '&checkOut=' + checkOut +
+    '&rooms='    + rooms +
+    '&adults='   + adults +
+    '&locale=zh-tw&currency=TWD' +
+    '&sort='     + params.sort +
+    params.extra +
+    '&cid='      + CID +
+    '&productType=-1';
+
+  const finalUrl = TRACKING_BASE + '?t=' + encodeURIComponent(encodeURIComponent(agodaUrl));
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'agoda_click', {
+      city_id: cityId,
+      intent:  currentIntent,
+      check_in: checkIn
+    });
+  }
+
+  window.open(finalUrl, '_blank', 'noopener');
+}
+
+// ── Booking.com 跳轉（帶意圖篩選參數）──────────────
+const BOOKING_NFLT = {
+  luxury: 'class%3D5%3Breview_score%3D90%3Bhotelfacility%3D433%3Broomfacility%3D5',
+  escape: 'review_score%3D90%3Bhotelfacility%3D433',
+  base:   'review_score%3D80%3Broomfacility%3D999',
+  all:    'review_score%3D80'
+};
+
+function goBooking(ss) {
+  const checkIn  = document.getElementById('checkIn').value  || offsetDate(30);
+  const checkOut = document.getElementById('checkOut').value || offsetDate(33);
+  const adults   = document.getElementById('adults').value;
+  const rooms    = document.getElementById('rooms').value;
+  const nflt     = BOOKING_NFLT[currentIntent] || BOOKING_NFLT.all;
+
+  const url =
+    'https://www.booking.com/searchresults.zh-tw.html' +
+    '?ss='           + encodeURIComponent(ss) +
+    '&aid=304142' +
+    '&checkin='      + checkIn +
+    '&checkout='     + checkOut +
+    '&group_adults=' + adults +
+    '&no_rooms='     + rooms +
+    '&nflt='         + nflt;
+
+  window.open(url, '_blank', 'noopener');
+}
+
+// ── 更新 badge 說明 ───────────────────────────────
+function updateBadge(intent) {
+  const badge  = document.getElementById('intentBadge');
+  const text   = document.getElementById('badgeText');
+  const detail = document.getElementById('badgeDetail');
+  const params = INTENT_PARAMS[intent];
+
+  if (intent === 'all') {
+    badge.classList.add('hidden');
+  } else {
+    badge.classList.remove('hidden');
+    text.textContent   = params.label;
+    detail.textContent = '· ' + params.detail;
+  }
+}
+
+// ── 城市卡片篩選 ─────────────────────────────────
+function filterCards(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.city-card').forEach(card => {
+    const tags = card.dataset.tags || '';
+    card.classList.toggle('hidden', tag !== 'all' && !tags.includes(tag));
+  });
+}
+
+// ── 意圖按鈕 ─────────────────────────────────────
+function setIntent(intent, btn) {
+  currentIntent = intent;
+  document.querySelectorAll('.intent-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateBadge(intent);
+
+  const filterMap = { all:'all', luxury:'luxury', escape:'escape', base:'base' };
+  const filterBtn = document.querySelector('[data-filter="' + (filterMap[intent] || 'all') + '"]');
+  if (filterBtn) filterCards(filterMap[intent] || 'all', filterBtn);
+}
+
+// ── 韌性條動畫 ───────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll('.r-fill').forEach(bar => {
+      const w = bar.style.width;
+      bar.style.width = '0%';
+      requestAnimationFrame(() => setTimeout(() => { bar.style.width = w; }, 80));
+    });
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.city-card').forEach(c => observer.observe(c));
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="zh-TW">
+<head>
+  <BaseHead
+    title="🐻 兩隻熊超省飯店搜尋器 | 三平台同步比價"
+    description="Agoda + Booking + Trip 三平台同步開啟，含稅含APP折扣，找出最便宜飯店住宿方案。"
+  />
+  <style>
+    body { background: #f8fafc; font-family: 'Noto Sans TC', system-ui, sans-serif; }
+    .hotel-wrap { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+    /* Flash deals */
+    .flash-strip {
+      background: linear-gradient(135deg, #8B5A2B, #d97706);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .flash-title {
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 800;
+      margin-bottom: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .flash-hint { margin-left: auto; color: rgba(255,255,255,.55); font-size: .7rem; font-weight: 400; }
+    .city-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .city-btn {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      padding: .45rem .9rem;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .city-btn:hover {
+      background: rgba(255,255,255,.28);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    /* Search card */
+    .search-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .search-card h2 {
+      font-size: .95rem;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 1.25rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: .75rem;
+      margin-bottom: 1rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: .35rem; }
+    .form-label { font-size: .68rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .06em; }
+    .form-input {
+      width: 100%;
+      padding: .65rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: .88rem;
+      color: #1e293b;
+      font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .form-input::placeholder { color: #94a3b8; }
+    .form-input:focus {
+      outline: none;
+      border-color: #8B5A2B;
+      box-shadow: 0 0 0 3px rgba(139,90,43,.1);
+    }
+    .person-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+
+    /* Star checkboxes */
+    .star-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .star-label { display: flex; align-items: center; gap: .4rem; cursor: pointer; font-size: .84rem; color: #475569; }
+    .star-label input { accent-color: #8B5A2B; width: 16px; height: 16px; }
+
+    /* Search button */
+    .search-btn {
+      width: 100%;
+      padding: .95rem;
+      background: linear-gradient(135deg, #8B5A2B, #d97706);
+      color: #fff;
+      font-size: .97rem;
+      font-weight: 900;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: .04em;
+      transition: opacity .15s, transform .1s;
+    }
+    .search-btn:hover { opacity: .92; transform: translateY(-1px); }
+    .search-btn:active { transform: translateY(0); }
+
+    /* Info strip */
+    .platform-strip {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    }
+    .platform-item { text-align: center; }
+    .platform-icon { font-size: 1.6rem; margin-bottom: .3rem; }
+    .platform-name { font-size: .85rem; font-weight: 800; color: #1e293b; }
+    .platform-desc { font-size: .72rem; color: #94a3b8; margin-top: .2rem; }
+
+    /* RWD */
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr 1fr; }
+      .platform-strip { grid-template-columns: 1fr; }
+      .flash-hint { display: none; }
+    }
+    @media (max-width: 400px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <div class="hotel-wrap">
+
+    <!-- ── 閃崩城市 ── -->
+    <div class="flash-strip">
+      <div class="flash-title">
+        🔥 閃崩城市 — 點擊直接開啟三平台比價
+        <span class="flash-hint">Agoda + Booking + Trip 同步開啟</span>
+      </div>
+      <div class="city-grid">
+        <button class="city-btn" data-city="東京">🇯🇵 東京</button>
+        <button class="city-btn" data-city="大阪">🇯🇵 大阪</button>
+        <button class="city-btn" data-city="京都">🇯🇵 京都</button>
+        <button class="city-btn" data-city="沖繩">🇯🇵 沖繩</button>
+        <button class="city-btn" data-city="北海道">🇯🇵 北海道</button>
+        <button class="city-btn" data-city="福岡">🇯🇵 福岡</button>
+        <button class="city-btn" data-city="首爾">🇰🇷 首爾</button>
+        <button class="city-btn" data-city="曼谷">🇹🇭 曼谷</button>
+        <button class="city-btn" data-city="清邁">🇹🇭 清邁</button>
+        <button class="city-btn" data-city="新加坡">🇸🇬 新加坡</button>
+        <button class="city-btn" data-city="吉隆坡">🇲🇾 吉隆坡</button>
+        <button class="city-btn" data-city="峇厘島">🇮🇩 峇厘島</button>
+        <button class="city-btn" data-city="台北">🇹🇼 台北</button>
+        <button class="city-btn" data-city="台南">🇹🇼 台南</button>
+        <button class="city-btn" data-city="高雄">🇹🇼 高雄</button>
+        <button class="city-btn" data-city="花蓮">🇹🇼 花蓮</button>
+        <button class="city-btn" data-city="河口湖">🗻 河口湖</button>
+        <button class="city-btn" data-city="胡志明市">🇻🇳 胡志明市</button>
+      </div>
+    </div>
+
+    <!-- ── 搜尋表單 ── -->
+    <div class="search-card">
+      <h2>🔍 Agoda + Booking + Trip 三平台同步比價</h2>
+
+      <div class="form-grid">
+        <div class="form-group" style="grid-column: 1 / -1">
+          <label class="form-label" for="destination">目的地</label>
+          <input
+            id="destination"
+            class="form-input"
+            type="text"
+            placeholder="東京、大阪、首爾、曼谷…"
+            autocomplete="off"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="checkIn">入住日期</label>
+          <input id="checkIn" class="form-input" type="date" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="checkOut">退房日期</label>
+          <input id="checkOut" class="form-input" type="date" />
+        </div>
+        <div class="form-group person-grid">
+          <div class="form-group">
+            <label class="form-label" for="adults">大人</label>
+            <select id="adults" class="form-input">
+              <option value="1">1 人</option>
+              <option value="2" selected>2 人</option>
+              <option value="3">3 人</option>
+              <option value="4">4 人</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rooms">房間</label>
+            <select id="rooms" class="form-input">
+              <option value="1" selected>1 間</option>
+              <option value="2">2 間</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <label class="form-label" for="hotelName">飯店名稱（選填，用於 Agoda 精確搜尋）</label>
+        <input
+          id="hotelName"
+          class="form-input"
+          type="text"
+          placeholder="輸入特定飯店名稱…"
+        />
+      </div>
+
+      <div class="star-row">
+        <label class="star-label"><input type="checkbox" value="3" /> ⭐⭐⭐ 三星</label>
+        <label class="star-label"><input type="checkbox" value="4" /> ⭐⭐⭐⭐ 四星</label>
+        <label class="star-label"><input type="checkbox" value="5" /> ⭐⭐⭐⭐⭐ 五星</label>
+      </div>
+
+      <button class="search-btn" onclick="doSearch()">
+        🔍 同步比價 — 開啟 Agoda + Booking + Trip
+      </button>
+    </div>
+
+    <!-- ── 平台說明 ── -->
+    <div class="platform-strip">
+      <div class="platform-item">
+        <div class="platform-icon">🏨</div>
+        <div class="platform-name">Agoda</div>
+        <div class="platform-desc">含稅 · APP 折扣 · TWD 計價</div>
+      </div>
+      <div class="platform-item">
+        <div class="platform-icon">🏨</div>
+        <div class="platform-name">Booking.com</div>
+        <div class="platform-desc">免費取消 · Genius 折扣 · 星級篩選</div>
+      </div>
+      <div class="platform-item">
+        <div class="platform-icon">✈️</div>
+        <div class="platform-name">Trip.com</div>
+        <div class="platform-desc">連退高回饋 · 地區隱藏價 · TWD 計價</div>
+      </div>
+    </div>
+
+  </div>
+
+  <Footer />
+
+  <script is:inline>
+// ================================================================
+// 兩隻熊超省飯店搜尋器 — 三平台跳轉邏輯
+// ================================================================
+
+const AGODA_TRACKING = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d'
+const BOOKING_AID   = '304142'
+const TRIP_TRACKING = 'https://afftck.site/track/clicks/3569/c627c2bb990529dffe9cab248d2596412379128f78eee3f20e76f6476a0449a8c23ae5a5112d'
+
+const CITIES = {
+  '東京':    { agoda: 5085,  trip: 228,    booking: 'Tokyo',             tripSearch: 'CT' },
+  '大阪':    { agoda: 9590,  trip: 219,    booking: 'Osaka',             tripSearch: 'CT' },
+  '京都':    { agoda: 1784,  trip: 734,    booking: 'Kyoto',             tripSearch: 'CT' },
+  '首爾':    { agoda: 14690, trip: 274,    booking: 'Seoul',             tripSearch: 'CT' },
+  '曼谷':    { agoda: 9395,  trip: 359,    booking: 'Bangkok',           tripSearch: 'CT' },
+  '新加坡':  { agoda: 4064,  trip: 73,     booking: 'Singapore',         tripSearch: 'CT' },
+  '台北':    { agoda: 4951,  trip: 617,    booking: 'Taipei',            tripSearch: 'CT' },
+  '沖繩':    { agoda: 1706,  trip: -1,     booking: 'Okinawa',           tripSearch: 'P',  tripProvince: 11059 },
+  '北海道':  { agoda: 1706,  trip: -1,     booking: 'Hokkaido',          tripSearch: 'P',  tripProvince: 11055 },
+  '福岡':    { agoda: 1714,  trip: null,   booking: 'Fukuoka',           tripSearch: 'CT' },
+  '峇厘島':  { agoda: 1271,  trip: 723,    booking: 'Bali',              tripSearch: 'CT' },
+  '清邁':    { agoda: 3573,  trip: null,   booking: 'Chiang Mai',        tripSearch: 'CT' },
+  '胡志明市':{ agoda: 3573,  trip: null,   booking: 'Ho Chi Minh City',  tripSearch: 'CT' },
+  '吉隆坡':  { agoda: 3573,  trip: 315,    booking: 'Kuala Lumpur',      tripSearch: 'CT' },
+  '河口湖':  { agoda: 5085,  trip: 50160,  booking: 'Kawaguchiko',       tripSearch: 'LM' },
+  '台南':    { agoda: 4951,  trip: null,   booking: 'Tainan',            tripSearch: 'CT' },
+  '高雄':    { agoda: 4951,  trip: null,   booking: 'Kaohsiung',         tripSearch: 'CT' },
+  '台中':    { agoda: 4951,  trip: null,   booking: 'Taichung',          tripSearch: 'CT' },
+  '花蓮':    { agoda: 4951,  trip: null,   booking: 'Hualien',           tripSearch: 'CT' },
+}
+
+function offsetDate(days) {
+  const d = new Date()
+  d.setDate(d.getDate() + days)
+  return d.toISOString().split('T')[0]
+}
+
+function getFormValues() {
+  const destEl = document.getElementById('destination') ||
+                 document.getElementById('city') ||
+                 document.getElementById('hotel-destination') ||
+                 document.querySelector('input[placeholder*="目的地"]') ||
+                 document.querySelector('input[placeholder*="城市"]') ||
+                 document.querySelector('select[id*="city"]') ||
+                 document.querySelector('select[id*="dest"]')
+  const destination = destEl ? destEl.value.trim() : ''
+
+  const hotelEl = document.getElementById('hotelName') ||
+                  document.getElementById('hotel-name') ||
+                  document.querySelector('input[placeholder*="飯店名稱"]')
+  const hotelName = hotelEl ? hotelEl.value.trim() : ''
+
+  const checkInEl  = document.getElementById('checkIn')  || document.getElementById('check-in')  || document.querySelector('input[type="date"]:first-of-type')
+  const checkOutEl = document.getElementById('checkOut') || document.getElementById('check-out') || document.querySelector('input[type="date"]:last-of-type')
+  const checkIn  = checkInEl?.value  || offsetDate(7)
+  const checkOut = checkOutEl?.value || offsetDate(10)
+
+  const adultsEl = document.getElementById('adults') || document.querySelector('select[id*="adult"]') || document.querySelector('select[id*="guest"]')
+  let adults = adultsEl ? adultsEl.value : '2'
+  if (adults === '家庭（含小孩）' || adults === 'family') adults = '2'
+  adults = parseInt(adults) || 2
+
+  const roomsEl = document.getElementById('rooms') || document.querySelector('select[id*="room"]')
+  const rooms = parseInt(roomsEl?.value) || 1
+
+  const stars = []
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    const val = (cb.value || cb.id || '').replace('★','').replace('*','').trim()
+    if (['3','4','5'].includes(val) && cb.checked) stars.push(val)
+  })
+
+  let budget = null
+  document.querySelectorAll('input[type="radio"], button[data-budget], .budget-btn').forEach(el => {
+    if ((el.checked || el.classList.contains('active')) && el.value) {
+      const v = el.value
+      if (v.includes('1k-3k') || v.includes('1000-3000')) budget = { agodaMin:1000, agodaMax:3000, bookingMin:33,  bookingMax:99  }
+      if (v.includes('3k-5k') || v.includes('3000-5000')) budget = { agodaMin:3000, agodaMax:5000, bookingMin:99,  bookingMax:165 }
+      if (v.includes('5k+')   || v.includes('5000'))      budget = { agodaMin:5000, agodaMax:50000,bookingMin:165, bookingMax:9999}
+    }
+  })
+
+  return { destination, hotelName, checkIn, checkOut, adults, rooms, stars, budget }
+}
+
+function openAgoda(params) {
+  const { destination, hotelName, checkIn, checkOut, adults, rooms, stars, budget } = params
+  const city = CITIES[destination]
+  const cityId = city ? city.agoda : null
+
+  const parts = [
+    cityId ? `city=${cityId}` : `textToSearch=${encodeURIComponent(destination)}`,
+    `checkIn=${checkIn}`,
+    `checkOut=${checkOut}`,
+    `rooms=${rooms}`,
+    `adults=${adults}`,
+    'locale=zh-tw',
+    'currency=TWD',
+    'sort=popularity',
+    'cid=1933603',
+    'productType=-1',
+  ]
+
+  if (hotelName) parts.push(`textToSearch=${encodeURIComponent(hotelName)}`)
+  if (stars.length === 1) parts.push(`hotelStarRating=${stars[0]}`)
+  if (stars.length > 1) parts.push(`hotelStarRating=${stars.join(',')}`)
+  if (budget) { parts.push(`minPrice=${budget.agodaMin}`); parts.push(`maxPrice=${budget.agodaMax}`) }
+
+  const url   = 'https://www.agoda.com/zh-tw/search?' + parts.join('&')
+  const final = `${AGODA_TRACKING}?t=${encodeURIComponent(encodeURIComponent(url))}`
+  window.open(final, '_blank', 'noopener')
+}
+
+function openBooking(params) {
+  const { destination, checkIn, checkOut, adults, rooms, stars, budget } = params
+  const city     = CITIES[destination]
+  const cityName = city ? city.booking : destination
+
+  const nfltParts = []
+  stars.forEach(s => nfltParts.push(`class%3D${s}`))
+  if (budget) nfltParts.push(`price%3DTWD-${budget.bookingMin}-${budget.bookingMax}-1`)
+
+  const url = `https://www.booking.com/searchresults.zh-tw.html` +
+    `?aid=${BOOKING_AID}` +
+    `&ss=${encodeURIComponent(cityName)}` +
+    `&checkin=${checkIn}` +
+    `&checkout=${checkOut}` +
+    `&group_adults=${adults}` +
+    `&no_rooms=${rooms}` +
+    `&lang=zh-tw` +
+    (nfltParts.length > 0 ? `&nflt=${nfltParts.join('%3B')}` : '')
+
+  window.open(url, '_blank', 'noopener')
+}
+
+function openTrip(params) {
+  const { destination, checkIn, checkOut, adults, rooms, stars } = params
+  const city = CITIES[destination]
+  if (!city || !city.trip) return
+
+  const starMap = { '3':'16~3*16*3', '4':'17~2*17*2', '5':'17~1*17*1' }
+  const filters = ['29~1*29*1~2*2', '80~2~1*80*2']
+  stars.forEach(s => { if (starMap[s]) filters.push(starMap[s]) })
+
+  let url = `https://tw.trip.com/hotels/list?flexType=1&fixedDate=0`
+
+  if (city.tripSearch === 'P') {
+    url += `&cityId=-1&provinceId=${city.tripProvince}&searchType=P`
+  } else if (city.tripSearch === 'LM') {
+    url += `&cityId=${city.trip}&searchType=LM`
+  } else {
+    url += `&cityId=${city.trip}&searchType=CT`
+  }
+
+  url += `&cityName=${encodeURIComponent(destination)}`
+  url += `&checkin=${checkIn}`
+  url += `&checkout=${checkOut}`
+  url += `&crn=${rooms}`
+  url += `&adult=${adults}`
+  url += `&listFilters=${encodeURIComponent(filters.join(','))}`
+  url += `&curr=TWD&locale=zh_tw&old=1`
+
+  const final = `${TRIP_TRACKING}?t=${encodeURIComponent(encodeURIComponent(url))}`
+  window.open(final, '_blank', 'noopener')
+}
+
+function doSearch() {
+  const params = getFormValues()
+  if (!params.destination) {
+    alert('請輸入目的地！')
+    return
+  }
+  openAgoda(params)
+  setTimeout(() => openBooking(params), 400)
+  setTimeout(() => openTrip(params), 800)
+}
+
+function quickSearch(cityName) {
+  const params = {
+    destination: cityName,
+    hotelName: '',
+    checkIn:  offsetDate(1),
+    checkOut: offsetDate(4),
+    adults: 2,
+    rooms: 1,
+    stars: [],
+    budget: null
+  }
+  openAgoda(params)
+  setTimeout(() => openBooking(params), 400)
+  setTimeout(() => openTrip(params), 800)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const checkInEl  = document.getElementById('checkIn')  || document.querySelector('input[type="date"]:first-of-type')
+  const checkOutEl = document.getElementById('checkOut') || document.querySelector('input[type="date"]:last-of-type')
+  if (checkInEl  && !checkInEl.value)  checkInEl.value  = offsetDate(7)
+  if (checkOutEl && !checkOutEl.value) checkOutEl.value = offsetDate(10)
+
+  document.querySelectorAll('[data-city]').forEach(el => {
+    el.addEventListener('click', () => quickSearch(el.dataset.city))
+  })
+
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') doSearch()
+    })
+  })
+})
+
+window.doSearch    = doSearch
+window.quickSearch = quickSearch
+window.openAgoda   = openAgoda
+window.openBooking = openBooking
+window.openTrip    = openTrip
+  </script>
+</body>
+</html>

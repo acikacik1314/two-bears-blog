@@ -139,7 +139,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   const keys = getGeminiKeys();
   if (!keys.length) return errRes('服務暫時不可用，請稍後再試', 503);
-  const apiKey = keys[Math.floor(Math.random() * keys.length)];
+
+  // Shuffle keys so different instances don't all hit the same key first
+  const shuffled = [...keys].sort(() => Math.random() - 0.5);
+
   const dim = DIMENSIONS[dimension];
 
   const userPrompt = `請對以下資產進行「${dim.label}」觀測分析：
@@ -148,23 +151,33 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
 請先透過 Google Search 即時檢索該資產的最新公開資訊，然後依據你的角色定位完整輸出交叉觀測報告。`;
 
-  let geminiRes: Response;
-  try {
-    geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: dim.prompt + SYSTEM_SUFFIX }] },
-          contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-          tools: [{ googleSearch: {} }],
-          generationConfig: { maxOutputTokens: 4096, temperature: 0.7 },
-        }),
+  const body = JSON.stringify({
+    systemInstruction: { parts: [{ text: dim.prompt + SYSTEM_SUFFIX }] },
+    contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
+    tools: [{ googleSearch: {} }],
+    generationConfig: { maxOutputTokens: 4096, temperature: 0.7 },
+  });
+
+  let geminiRes: Response | null = null;
+  for (const apiKey of shuffled) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${apiKey}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }
+      );
+      if (res.status === 429 || res.status === 503) {
+        console.warn(`Gemini key rate-limited (${res.status}), trying next key`);
+        continue;
       }
-    );
-  } catch {
-    return errRes('時空訊號中斷，請稍後重試', 502);
+      geminiRes = res;
+      break;
+    } catch {
+      continue;
+    }
+  }
+
+  if (!geminiRes) {
+    return errRes('所有時空通道已滿載，請 1 分鐘後重試', 429);
   }
 
   if (!geminiRes.ok || !geminiRes.body) {

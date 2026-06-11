@@ -21,12 +21,6 @@ type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
 const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions, prophet } = Astro.props;
 const prophetConfig = prophet ? getProphetConfig(prophet) : null;
-const hits    = predictions?.hits    ?? [];
-const misses  = predictions?.misses  ?? [];
-const verdict: 't' | 'f' | null =
-  hits.length > 0 && misses.length === 0 ? 't' :
-  misses.length > 0 && hits.length === 0 ? 'f' :
-  null;
 const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
@@ -448,7 +442,7 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						description={description}
 						tags={tags}
 					/>
-					<ProphecyVote slug={Astro.url.pathname} verdict={verdict} />
+					<ProphecyVote slug={Astro.url.pathname} />
 
 					<CommentSection slug={Astro.url.pathname} />
 

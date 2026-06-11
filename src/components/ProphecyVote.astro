@@ -1,11 +1,12 @@
 ---
 interface Props {
   slug: string;
+  verdict?: 't' | 'f' | null;
 }
-const { slug } = Astro.props;
+const { slug, verdict = null } = Astro.props;
 ---
 
-<div class="pv-wrap" id="pv-wrap" data-slug={slug}>
+<div class="pv-wrap" id="pv-wrap" data-slug={slug} data-verdict={verdict ?? ''}>
   <div class="pv-header">
     <span class="pv-title">🔮 社群驗證</span>
     <span class="pv-sub">這個預言是否成真？</span>
@@ -28,8 +29,9 @@ const { slug } = Astro.props;
 </div>
 
 <script>
-  const wrap   = document.getElementById('pv-wrap')
-  const slug   = wrap?.dataset.slug ?? location.pathname
+  const wrap    = document.getElementById('pv-wrap')
+  const slug    = wrap?.dataset.slug ?? location.pathname
+  const verdict = wrap?.dataset.verdict || null   // 't' | 'f' | null
   const STORE_KEY = `pv_${slug}`
 
   function pct(n: number, total: number) {
@@ -67,7 +69,23 @@ const { slug } = Astro.props;
       }).join('')
     }
     if (tot) tot.textContent = `共 ${total} 人投票`
-    if (msg && myVote) msg.textContent = '感謝你的投票！'
+
+    if (msg && myVote) {
+      if (verdict && verdict !== '') {
+        const correct = myVote === verdict
+        const verdictLabel = verdict === 't' ? '✅ 已成真' : '❌ 未成真'
+        if (correct) {
+          msg.innerHTML = `🎯 <strong>你猜對了！</strong>編輯裁定：${verdictLabel}`
+          msg.className = 'pv-msg pv-correct'
+        } else {
+          msg.innerHTML = `😅 <strong>這次猜錯了</strong>，編輯裁定：${verdictLabel}`
+          msg.className = 'pv-msg pv-wrong'
+        }
+      } else {
+        msg.textContent = '感謝你的投票！結果揭曉時會在這裡顯示。'
+        msg.className = 'pv-msg'
+      }
+    }
   }
 
   async function loadCounts() {
@@ -222,10 +240,26 @@ const { slug } = Astro.props;
   }
 
   .pv-msg {
-    font-size: .78em;
+    font-size: .82em;
     color: #7e22ce;
     font-weight: 600;
-    margin-top: .4em;
+    margin-top: .6em;
+  }
+
+  .pv-correct {
+    color: #15803d;
+    background: rgba(21,128,61,.08);
+    border: 1px solid rgba(21,128,61,.25);
+    border-radius: 8px;
+    padding: .5em .8em;
+  }
+
+  .pv-wrong {
+    color: #6b7280;
+    background: rgba(107,114,128,.07);
+    border: 1px solid rgba(107,114,128,.2);
+    border-radius: 8px;
+    padding: .5em .8em;
   }
 
   @media (max-width: 500px) {

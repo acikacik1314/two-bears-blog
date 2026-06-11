@@ -103,6 +103,8 @@ JSON 格式：
         ?.map((p: { text?: string }) => p.text ?? '')
         .join('') ?? '';
 
+    console.log('[compare] raw text:', text.slice(0, 500));
+
     // Gemini 用了搜尋工具有時會附上 markdown 框，擷取純 JSON 主體
     const stripped = text.replace(/```json|```/g, '').trim();
     const start = stripped.indexOf('{');

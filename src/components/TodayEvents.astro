@@ -65,13 +65,16 @@
     }
 
     const COLOR = { high: '#ef4444', medium: '#f59e0b', low: '#64748b' };
-    body.innerHTML = events.slice(0,8).map(e => `
-      <${e.link ? `a href="${e.link}" target="_blank" rel="noopener"` : 'div'} class="te-item">
-        <span class="te-dot" style="background:${COLOR[e.level]}"></span>
-        <span class="te-text">${e.text}</span>
-        ${e.time ? `<span class="te-time">${e.time}</span>` : ''}
-      </${e.link ? 'a' : 'div'}>
-    `).join('');
+    const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    body.innerHTML = events.slice(0,8).map(e => {
+      const tag = e.link ? `a href="${esc(e.link)}" target="_blank" rel="noopener noreferrer"` : 'div';
+      const close = e.link ? 'a' : 'div';
+      return `<${tag} class="te-item" style="display:flex;align-items:flex-start;gap:.5em;padding:.4em 1em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);">
+        <span style="width:6px;height:6px;border-radius:50%;margin-top:.4em;flex-shrink:0;background:${COLOR[e.level]};display:inline-block"></span>
+        <span style="font-size:.75em;color:#e2e8f0;flex:1;line-height:1.45">${esc(e.text)}</span>
+        ${e.time ? `<span style="font-size:.65em;color:#475569;white-space:nowrap;margin-top:.1em">${esc(e.time)}</span>` : ''}
+      </${close}>`;
+    }).join('');
   }
 
   loadEvents();

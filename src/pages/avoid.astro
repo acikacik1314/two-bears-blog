@@ -1,0 +1,542 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="zh-TW">
+<head>
+  <BaseHead title="不踩雷比便宜更重要 | 兩隻熊出國避痛大腦" description="設定行程、勾選最怕的痛苦，兩隻熊幫你診斷哪些區域要遠離，並搜尋安全替代方案。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1816;--ink2:#4a4540;--ink3:#8a827a;
+  --paper:#f7f4ef;--paper2:#ede9e2;--paper3:#e4dfd6;
+  --gold:#b8960c;--gold2:#d4aa20;
+  --red:#8b2020;--red2:#c0392b;
+  --green:#2a5a3a;
+  --warn:#faeeda;--warn-text:#854f0b;
+  --radius:4px;--shadow:0 1px 8px rgba(26,24,22,.08);
+}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-weight:300;line-height:1.7}
+
+/* HERO */
+.hero{background:var(--ink);color:var(--paper);padding:3.5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 30% 50%,rgba(139,32,32,.15) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 30%,rgba(184,150,12,.10) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:.25em;color:rgba(184,150,12,.8);margin-bottom:1rem;text-transform:uppercase}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:400;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.4;max-width:600px;margin:0 auto .75rem}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero-sub{font-size:13px;color:rgba(247,244,239,.6);max-width:440px;margin:0 auto}
+
+/* MAIN */
+.main{max-width:780px;margin:0 auto;padding:2rem 1.5rem}
+
+/* FORM CARD */
+.form-card{background:var(--paper);border:.5px solid var(--paper3);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.form-card h2{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:400;color:var(--ink3);letter-spacing:.15em;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:.5px solid var(--paper3)}
+
+.form-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:130px}
+.form-group label{font-size:11px;color:var(--ink3)}
+.form-group select,.form-group input{font-size:13px;padding:8px 10px;border:.5px solid var(--paper3);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-weight:300}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--gold)}
+.form-group input[type="date"]{width:100%}
+
+/* PAIN GRID */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:1.25rem}
+.pain-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border:.5px solid var(--paper3);border-radius:var(--radius);cursor:pointer;transition:all .15s;background:var(--paper)}
+.pain-item:hover{border-color:var(--gold);background:#fffbee}
+.pain-item.selected{border-color:var(--red);background:rgba(139,32,32,.05)}
+.pain-item input[type="checkbox"]{width:14px;height:14px;cursor:pointer;accent-color:var(--red2)}
+.pain-label{font-size:12px;color:var(--ink2);line-height:1.3}
+.pain-emoji{font-size:16px;flex-shrink:0}
+
+.analyze-btn{width:100%;padding:13px;background:var(--ink);color:var(--paper);border:none;border-radius:var(--radius);font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.analyze-btn:hover{background:var(--red2)}
+.analyze-btn:active{transform:scale(.99)}
+
+/* RESULTS */
+#resultsSection{display:none;margin-top:2rem}
+.results-title{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:400;color:var(--ink);margin-bottom:.5rem}
+.results-sub{font-size:12px;color:var(--ink3);margin-bottom:1.5rem}
+
+.result-card{background:var(--paper);border:.5px solid var(--paper3);border-radius:var(--radius);overflow:hidden;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.result-card.danger-high{border-left:3px solid var(--red2)}
+.result-card.danger-mid{border-left:3px solid var(--gold)}
+.result-card.danger-low{border-left:3px solid var(--green)}
+
+.card-header{padding:1rem 1.25rem .75rem;border-bottom:.5px solid var(--paper3);background:var(--paper2)}
+.card-zone{font-family:'Noto Serif TC',serif;font-size:16px;font-weight:400;color:var(--ink);margin-bottom:3px}
+.card-tagline{font-size:12px;color:var(--ink2);font-style:italic}
+.danger-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:100px;margin-top:6px;font-weight:500}
+.badge-high{background:rgba(192,57,43,.12);color:#c0392b}
+.badge-mid{background:rgba(184,150,12,.12);color:#7a6008}
+.badge-low{background:rgba(42,90,58,.12);color:#2a5a3a}
+
+.pain-scores-row{padding:.75rem 1.25rem;border-bottom:.5px solid var(--paper3);display:flex;flex-wrap:wrap;gap:6px;background:rgba(139,32,32,.02)}
+.score-chip{display:flex;align-items:center;gap:4px;font-size:11px;padding:3px 8px;border-radius:100px;background:var(--paper);border:.5px solid var(--paper3)}
+.score-chip.score-5{background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.3);color:#c0392b}
+.score-chip.score-4{background:rgba(230,126,34,.1);border-color:rgba(230,126,34,.3);color:#e67e22}
+.score-chip.score-3{background:rgba(184,150,12,.1);border-color:rgba(184,150,12,.3);color:#7a6008}
+.score-chip.score-2,.score-chip.score-1{background:rgba(42,90,58,.08);border-color:rgba(42,90,58,.2);color:#2a5a3a}
+
+.card-body{padding:1rem 1.25rem}
+.verdict-block{margin-bottom:.875rem}
+.verdict-block strong{font-size:11px;color:var(--ink3);letter-spacing:.1em;display:block;margin-bottom:5px}
+.verdict-block p{font-size:13px;color:var(--ink2);line-height:1.7}
+.defense-block{background:rgba(42,90,58,.05);border-left:2px solid var(--green);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:.5rem}
+.defense-block strong{font-size:11px;color:var(--green);letter-spacing:.1em;display:block;margin-bottom:4px}
+.defense-block p{font-size:12px;color:var(--ink2);line-height:1.6}
+
+.card-footer{padding:.875rem 1.25rem;border-top:.5px solid var(--paper3);background:var(--paper2);display:flex;gap:8px;flex-wrap:wrap}
+.book-btn{flex:1;min-width:140px;padding:9px 12px;border-radius:var(--radius);font-size:12px;font-family:'Noto Sans TC',sans-serif;font-weight:400;cursor:pointer;text-decoration:none;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .15s;border:.5px solid var(--paper3)}
+.agoda-btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.agoda-btn:hover{background:var(--red2);border-color:var(--red2)}
+.booking-btn{background:var(--paper);color:var(--ink2)}
+.booking-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.no-result{text-align:center;padding:3rem 1rem;color:var(--ink3);font-size:14px}
+
+@media(max-width:600px){
+  .form-row{flex-direction:column}
+  .pain-grid{grid-template-columns:1fr 1fr}
+  .card-footer{flex-direction:column}
+}
+  </style>
+</head>
+<body>
+  <Header />
+
+<div class="hero">
+  <div class="hero-eyebrow">🐻🐻 兩隻熊出國避痛大腦</div>
+  <h1>不踩雷，<em>比便宜更重要</em>。</h1>
+  <p class="hero-sub">設定行程、勾選最怕的痛苦，兩隻熊幫你診斷哪些區域要遠離，並搜尋安全替代方案。</p>
+</div>
+
+<div class="main">
+
+  <!-- 行程設定 -->
+  <div class="form-card">
+    <h2>行程設定</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>目的地</label>
+        <select id="citySelect">
+          <option value="東京">🇯🇵 東京</option>
+          <option value="大阪">🇯🇵 大阪</option>
+          <option value="京都">🇯🇵 京都</option>
+          <option value="首爾">🇰🇷 首爾</option>
+          <option value="曼谷">🇹🇭 曼谷</option>
+          <option value="新加坡">🇸🇬 新加坡</option>
+          <option value="福岡">🇯🇵 福岡</option>
+          <option value="沖繩">🇯🇵 沖繩</option>
+          <option value="釜山">🇰🇷 釜山</option>
+          <option value="峇厘島">🇮🇩 峇厘島</option>
+          <option value="清邁">🇹🇭 清邁</option>
+          <option value="胡志明市">🇻🇳 胡志明市</option>
+          <option value="台北">🇹🇼 台北</option>
+          <option value="台南">🇹🇼 台南</option>
+          <option value="花蓮">🇹🇼 花蓮</option>
+          <option value="墾丁">🇹🇼 墾丁</option>
+          <option value="高雄">🇹🇼 高雄</option>
+          <option value="台中">🇹🇼 台中</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>入住日期</label>
+        <input type="date" id="checkIn">
+      </div>
+      <div class="form-group">
+        <label>退房日期</label>
+        <input type="date" id="checkOut">
+      </div>
+      <div class="form-group">
+        <label>大人</label>
+        <select id="adults">
+          <option value="1">1人</option>
+          <option value="2" selected>2人</option>
+          <option value="3">3人</option>
+          <option value="4">4人</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>房間</label>
+        <select id="rooms">
+          <option value="1" selected>1間</option>
+          <option value="2">2間</option>
+          <option value="3">3間</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- 痛點選擇 -->
+  <div class="form-card">
+    <h2>這次出國，你最怕遇到什麼痛苦？（可多選）</h2>
+    <div class="pain-grid" id="painGrid">
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="luggage">
+        <span class="pain-emoji">🧳</span>
+        <span class="pain-label">29吋行李箱打不開</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="walking">
+        <span class="pain-emoji">🚶</span>
+        <span class="pain-label">走路比官方說的遠有大坡</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="lateFood">
+        <span class="pain-emoji">🍜</span>
+        <span class="pain-label">晚上10點後沒宵夜</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="noise">
+        <span class="pain-emoji">😴</span>
+        <span class="pain-label">隔音差、隔壁打呼一起參與</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="elderly">
+        <span class="pain-emoji">🧓</span>
+        <span class="pain-label">帶長輩/推車有樓梯地獄</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="rain">
+        <span class="pain-emoji">☔</span>
+        <span class="pain-label">下雨天一出站直接迷航</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="female">
+        <span class="pain-emoji">👩</span>
+        <span class="pain-label">女性獨旅回飯店路段危險</span>
+      </label>
+      <label class="pain-item">
+        <input type="checkbox" class="pain-cb" value="bed">
+        <span class="pain-emoji">🛏️</span>
+        <span class="pain-label">床鋪窄小超難睡</span>
+      </label>
+    </div>
+    <button class="analyze-btn" onclick="analyze()">🔥 開始幫我肉眼避雷 →</button>
+  </div>
+
+  <!-- 結果 -->
+  <div id="resultsSection">
+    <div class="results-title" id="resultsTitle"></div>
+    <div class="results-sub" id="resultsSub"></div>
+    <div id="resultsList"></div>
+  </div>
+
+</div>
+
+  <Footer />
+
+<script is:inline>
+// ── 聯盟設定 ──────────────────────────────────────────────────
+const AGODA_TRACKING = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d'
+const BOOKING_AID = '304142'
+
+const AGODA_IDS = {
+  '東京':5085,'大阪':9590,'京都':1784,'首爾':14690,'曼谷':9395,
+  '新加坡':4064,'台北':4951,'福岡':1714,'沖繩':1706,'釜山':14690,
+  '峇厘島':1271,'清邁':3573,'胡志明市':3573,'台南':18347,'花蓮':23127,
+  '墾丁':18343,'高雄':756,'台中':12080
+}
+const CITY_EN = {
+  '東京':'Tokyo','大阪':'Osaka','京都':'Kyoto','首爾':'Seoul','曼谷':'Bangkok',
+  '新加坡':'Singapore','台北':'Taipei','福岡':'Fukuoka','沖繩':'Okinawa',
+  '釜山':'Busan','峇厘島':'Bali','清邁':'Chiang Mai','胡志明市':'Ho Chi Minh City',
+  '台南':'Tainan','花蓮':'Hualien','墾丁':'Kenting','高雄':'Kaohsiung','台中':'Taichung'
+}
+
+// ── 痛點標籤 ──────────────────────────────────────────────────
+const PAIN_LABELS = {
+  luggage:'🧳 行李箱',walking:'🚶 坡道距離',lateFood:'🍜 宵夜',
+  noise:'😴 隔音',elderly:'🧓 長輩樓梯',rain:'☔ 下雨迷路',
+  female:'👩 女性安全',bed:'🛏️ 床鋪大小'
+}
+
+// ── 避雷資料庫 ────────────────────────────────────────────────
+const AVOID_DATA = [
+  // 東京
+  {city:'東京',zone:'新宿歌舞伎町周邊',tagline:'交通最方便，但夜晚帶家人是場災難',
+   scores:{luggage:4,walking:5,lateFood:1,noise:5,elderly:3,rain:5,female:4,bed:4},
+   verdict:'新宿站是全日本最大的迷宮，官網寫「走路3分鐘」是不帶行李、不迷路、走特戰速度的結果。歌舞伎町晚上滿街是案內人和喝醉的外國人，帶長輩或小孩走這段會非常後悔。預算型商務旅館房間普遍12-14㎡，兩個人加兩個行李箱根本沒有轉身空間。',
+   defense:'指定西口或南口徒步5分鐘內、樓層在4樓以上、房間標示16㎡以上的旅館。或直接往西新宿移動，價格差不多但安靜很多。'},
+  {city:'東京',zone:'池袋北口周邊',tagline:'便宜陷阱，換個出口世界大不同',
+   scores:{luggage:3,walking:2,lateFood:1,noise:4,elderly:2,rain:3,female:4,bed:3},
+   verdict:'池袋東口是陽光城、西口是百貨公司，但「北口」是著名的無國界混亂區。很多比價網站列出的超便宜旅館就在這一帶，省了500元台幣卻換來每晚走夜路的不安。',
+   defense:'池袋住宿請指定「東口徒步5分鐘內」或明確標示「近太陽城」。女性獨旅強烈建議避開北口所有旅館。'},
+  {city:'東京',zone:'淺草藏前老街區',tagline:'江戶風情美，但晚上8點後只剩你和便利商店',
+   scores:{luggage:3,walking:2,lateFood:5,noise:2,elderly:5,rain:2,female:1,bed:2},
+   verdict:'淺草白天非常美，但這區是東京最早關店的觀光區之一。晚上8點後絕大多數餐廳收攤。淺草線部分老舊車站出口完全沒有電梯，29吋行李箱要爬三層樓梯。',
+   defense:'選飯店時確認最近地鐵出口有無電梯，並確認飯店附近有便利商店。宵夜愛好者請改住上野或秋葉原一帶。'},
+  {city:'東京',zone:'上野阿美橫丁周邊',tagline:'超鬧市場旁，白天熱鬧夜晚吵到睡不著',
+   scores:{luggage:4,walking:1,lateFood:2,noise:5,elderly:2,rain:1,female:2,bed:4},
+   verdict:'上野的交通無可挑剔，但阿美橫丁市場一帶的旅館隔音是東京最差之一，早上6點市場就開始搬貨卸貨，你的睡眠從此不完整。',
+   defense:'上野住宿請選遠離阿美橫丁至少200公尺、標示有雙層隔音窗的旅館。或往北走5分鐘選日暮里，同樣方便但便宜又安靜。'},
+  // 大阪
+  {city:'大阪',zone:'新今宮動物園前',tagline:'全日本最便宜，但代價你要想清楚',
+   scores:{luggage:4,walking:2,lateFood:2,noise:4,elderly:3,rain:2,female:5,bed:4},
+   verdict:'NT$600-800的單人房看起來CP值極高，但這裡緊鄰大阪著名的「愛鄰地區」，是日本最密集的遊民聚居區之一。女性獨旅請完全迴避。',
+   defense:'同樣的錢往北移到難波或日本橋，多花NT$300-500可以住到完全不同等級的環境。絕對不要因為「反正只是睡覺」就選這區。'},
+  {city:'大阪',zone:'心齋橋道頓堀核心區',tagline:'下樓就是章魚燒，但你的耳朵和行李箱都會哭',
+   scores:{luggage:5,walking:1,lateFood:1,noise:5,elderly:2,rain:1,female:2,bed:4},
+   verdict:'這一帶的設計感精品旅館幾乎清一色是11-13㎡的「拍照很美、住起來像盒子」類型。大阪必買的藥妝和食品戰利品回來根本沒地方放，只能堆在床上。半夜警車臨檢、路人唱歌的聲音完全擋不住。',
+   defense:'同區旅館請選標示「deluxe double」或房間20㎡以上的類型，或往堀江、美國村方向走。'},
+  {city:'大阪',zone:'新大阪站周邊',tagline:'商務客的天堂，觀光旅客的荒漠',
+   scores:{luggage:2,walking:1,lateFood:4,noise:2,elderly:1,rain:1,female:1,bed:2},
+   verdict:'這裡一到晚上就是死寂的辦公商務區，完全沒有大阪那種熱情、浮誇的夜生活。如果你不去其他城市，只是純大阪玩，住這裡等於每天晚上提早進入退休生活。',
+   defense:'觀光旅客選難波或梅田，新幹線搭JR幾站就到新大阪。'},
+  // 京都
+  {city:'京都',zone:'祇園四条河原町周邊',tagline:'最熱門的地址，行李搬運是場石板路惡夢',
+   scores:{luggage:5,walking:3,lateFood:3,noise:3,elderly:5,rain:4,female:1,bed:4},
+   verdict:'祇園的石板小巷走起來美翻，但拖著29吋行李箱在石板路上走10分鐘你就會開始懷疑人生。這一帶的町家改建旅館普遍沒有電梯，房間日式榻榻米雖然有特色但鋪位窄小。',
+   defense:'選飯店前確認「有電梯」和「行李箱可在室內平放」。帶長輩或推車者請選烏丸御池以北的區域。'},
+  {city:'京都',zone:'嵐山渡月橋周邊',tagline:'景色絕美，但爬坡加塞車讓你崩潰',
+   scores:{luggage:2,walking:4,lateFood:5,noise:1,elderly:4,rain:3,female:1,bed:1},
+   verdict:'嵐山的旅館空間普遍比市區大很多，安靜度也是京都第一。但觀光客下午4點散去後這裡就是個空城——晚上找東西吃幾乎不可能，超商也要走遠。',
+   defense:'嵐山適合「以嵐山為主、其他景點為輔」的慢活行程，不適合以市區為主每天來回的玩法。'},
+  // 首爾
+  {city:'首爾',zone:'明洞核心區',tagline:'藥妝唾手可得，但房間小到讓你站著換衣服',
+   scores:{luggage:5,walking:2,lateFood:1,noise:4,elderly:3,rain:2,female:1,bed:4},
+   verdict:'明洞的地理位置無可挑剔，但這區商務旅館房間15㎡是標配，兩個人加兩個行李箱打開就是在玩俄羅斯方塊。韓國爆買文化讓這問題加倍嚴重。',
+   defense:'明洞住宿請選標示「Standard Double 20㎡以上」或直接選弘大、麻浦區域，地鐵15分鐘可達明洞但空間大一倍。'},
+  {city:'首爾',zone:'弘大入口站周邊',tagline:'年輕人的天堂，週末夜晚的噪音地獄',
+   scores:{luggage:2,walking:2,lateFood:1,noise:5,elderly:2,rain:2,female:2,bed:2},
+   verdict:'弘大空間感比明洞好很多，但週五週六晚上10點到凌晨3點，這裡是首爾最吵的區域之一，街頭表演、夜店人潮、外送機車聲此起彼落。',
+   defense:'弘大住宿指定「高樓層＋隔音窗」，或選主要街道後方的巷弄旅館，遠離街頭表演區至少150公尺。'},
+  {city:'首爾',zone:'東大門周邊',tagline:'24小時購物天堂，凌晨卸貨聲讓你失眠',
+   scores:{luggage:3,walking:2,lateFood:1,noise:5,elderly:3,rain:2,female:2,bed:3},
+   verdict:'東大門是首爾最大的批發市場區，凌晨2點到早上6點是卸貨高峰期，卡車進出、搬運工具碰撞聲不絕於耳。住在批發市場棟正面的旅館幾乎都有這個問題。',
+   defense:'東大門住宿選「DDP（設計廣場）背面」或「新設洞站方向」，遠離批發市場正面街道。'},
+  // 曼谷
+  {city:'曼谷',zone:'考山路周邊',tagline:'背包客聖地，但台灣人住這裡通常會後悔',
+   scores:{luggage:4,walking:3,lateFood:1,noise:5,elderly:4,rain:4,female:3,bed:4},
+   verdict:'考山路是西方背包客文化的產物，跟台灣人的旅遊習慣格格不入。旅館普遍是10-14㎡的小房間、薄牆壁、派對聲到凌晨4點。這裡沒有BTS或MRT，去任何景點都要打車。',
+   defense:'完全迴避考山路作為住宿選擇。同樣的預算選素坤逸或Ari站周邊，有BTS直達、安全、乾淨、選擇多。'},
+  {city:'曼谷',zone:'素坤逸Nana站周邊',tagline:'交通超方便，但某些巷子不適合家庭旅遊',
+   scores:{luggage:2,walking:3,lateFood:1,noise:3,elderly:3,rain:4,female:3,bed:1},
+   verdict:'Nana站周邊的Soi 3-5一帶是曼谷著名的夜生活區，氣氛複雜。比價網站列出的某些「超划算四星旅館」就坐落在這些巷子裡，晚上走回去的路段對家庭旅客和女性獨旅者不太友善。',
+   defense:'素坤逸選Phromphong或Thong Lo站，遠離Nana站Soi 3-5範圍，這兩站周邊有大型商場、超市、安靜的咖啡街。'},
+  // 新加坡
+  {city:'新加坡',zone:'牛車水克拉碼頭周邊',tagline:'觀光客最愛，但夜間噪音和房間大小讓你傻眼',
+   scores:{luggage:4,walking:3,lateFood:1,noise:4,elderly:2,rain:2,female:1,bed:4},
+   verdict:'克拉碼頭的夜生活很精彩，但週末到凌晨2點都是派對人潮。牛車水的老店屋改建旅館很有特色，但房間普遍偏小，部分沒有窗戶或窗戶對著走廊。',
+   defense:'牛車水住宿選有自然採光窗戶、房間標示20㎡以上的旅館。預算有限可選Lavender或Kallang站周邊，MRT幾站可達市中心但便宜30%以上。'},
+  {city:'新加坡',zone:'烏節路周邊',tagline:'新加坡最貴地段，你花的錢大部分是在付地段費',
+   scores:{luggage:2,walking:1,lateFood:2,noise:2,elderly:1,rain:1,female:1,bed:1},
+   verdict:'烏節路的硬體條件幾乎無可挑剔，但這裡的旅館定價是新加坡最高的區域，同樣的錢在其他城市可以住到頂級五星。深夜宵夜選擇其實不如想像中豐富。',
+   defense:'一般觀光旅客選Bugis或Bencoolen街周邊，MRT兩站可達烏節路，但住宿費用省下40-60%。'},
+  // 福岡
+  {city:'福岡',zone:'博多站周邊',tagline:'交通最方便，但商務旅館密度全日本最高',
+   scores:{luggage:4,walking:2,lateFood:1,noise:4,elderly:2,rain:2,female:1,bed:4},
+   verdict:'博多站周邊是福岡住宿密度最高的區域，「便宜旅館」幾乎清一色是12-14㎡的格子間。福岡是購物天堂，買完東西回房間發現行李箱根本開不了是很多台灣人的共同噩夢。',
+   defense:'博多站住宿選標示「16㎡以上」或「Superior Room」等級，或直接往中洲川端站方向找，同樣地鐵一站但安靜很多。'},
+  {city:'福岡',zone:'中洲天神周邊',tagline:'福岡最熱鬧的夜晚在這裡，週末半夜的噪音也在這裡',
+   scores:{luggage:3,walking:2,lateFood:1,noise:4,elderly:2,rain:2,female:2,bed:3},
+   verdict:'中洲是日本三大歡樂街之一，天神是九州最大的購物區。但中洲河邊那幾條街週末夜晚人潮和噪音直到凌晨2點，住在河邊正面的旅館幾乎都受影響。',
+   defense:'中洲住宿選「天神側」而非「中洲河邊正面」，或指定高樓層。'},
+  // 台北
+  {city:'台北',zone:'西門町周邊',tagline:'台北最熱鬧的青少年聖地，但隔音和房間大小讓人崩潰',
+   scores:{luggage:4,walking:1,lateFood:1,noise:5,elderly:2,rain:1,female:1,bed:4},
+   verdict:'西門町是台北最密集的娛樂商業區，但這區的旅館房間普遍偏小，12-15坪是標配，週末的街頭表演和人潮噪音到凌晨都不停歇。很多「超讚評價」的旅館是靠服務態度拉分，實際硬體設施老舊、隔音極差。',
+   defense:'西門町住宿選中華路或漢中街後方的巷弄旅館，遠離電影街主幹道至少一個街區。確認房間標示坪數超過5坪（約16㎡）。'},
+  {city:'台北',zone:'台北車站周邊',tagline:'台北交通樞紐旁，但地下街迷宮讓第一次來的人崩潰',
+   scores:{luggage:3,walking:2,lateFood:2,noise:3,elderly:2,rain:3,female:1,bed:3},
+   verdict:'台北車站是機場捷運、台鐵、高鐵、捷運的交會點，但台北車站地下街是全台灣最複雜的迷宮，第一次來拖著行李找出口可以迷路30分鐘。忠孝西路沿線的旅館部分面對幹道噪音很大。',
+   defense:'台北車站周邊選旅館確認是「地面步行」到車站的距離，而非地下街連接。鄭州路或承德路一帶相對安靜。'},
+  // 台南
+  {city:'台南',zone:'中西區神農街周邊',tagline:'台南最文青的老街，但停車和人潮是噩夢',
+   scores:{luggage:3,walking:2,lateFood:1,noise:4,elderly:3,rain:3,female:1,bed:3},
+   verdict:'神農街假日人潮誇張，停車幾乎不可能，周邊巷道狹窄讓行李箱移動很辛苦。很多「老屋改建旅館」雖然有特色但房間只有8-10坪，沒有電梯，隔音極差。',
+   defense:'台南自駕旅客請選有附停車場的旅館，神農街周邊停車幾乎不可能。搭高鐵來的旅客選台南火車站周邊或東區。'},
+  // 花蓮
+  {city:'花蓮',zone:'東大門夜市周邊',tagline:'花蓮最熱鬧的夜市旁，週末的噪音讓你失眠',
+   scores:{luggage:2,walking:2,lateFood:1,noise:5,elderly:1,rain:1,female:1,bed:2},
+   verdict:'東大門夜市週五到週日的人潮到晚上11點才開始散去，攤販收攤聲和人群喧鬧讓附近旅館完全無法早睡。花蓮很多旅客是為了隔天清早進太魯閣，結果因為噪音睡不好，大好清晨全泡湯。',
+   defense:'計畫清早進太魯閣的旅客請避開東大門夜市正面的旅館，選安靜的住宅區或太魯閣入口附近的民宿。'},
+  // 墾丁
+  {city:'墾丁',zone:'墾丁大街周邊',tagline:'墾丁最熱鬧的一條街，也是全台灣最吵的住宿選擇之一',
+   scores:{luggage:2,walking:1,lateFood:1,noise:5,elderly:2,rain:1,female:1,bed:3},
+   verdict:'墾丁大街週末的派對聲和音樂到凌晨2點才結束，住在大街正面或周邊一個街區的旅館完全無法正常睡覺。墾丁的旅館品質普遍不如同等級的城市旅館，很多老舊民宿照片拍得很美但實際去了大失望。',
+   defense:'墾丁住宿請選大街後方巷子或恆春市區，夜晚安靜很多。或選南灣和白沙灣一帶的度假旅館，有海灘直達、停車方便。'},
+  // 高雄
+  {city:'高雄',zone:'六合夜市周邊',tagline:'高雄最著名的夜市旁，但凌晨的收攤聲讓你睡不著',
+   scores:{luggage:3,walking:1,lateFood:1,noise:5,elderly:2,rain:1,female:1,bed:3},
+   verdict:'六合夜市每天營業到凌晨1點，收攤時攤車移動和清理的聲音再延續一小時，旅館隔音普遍很差。這區的旅館大多是老舊商務旅館，房間12-15坪是標配，設備停留在十年前。',
+   defense:'高雄住宿選中山路或五福路周邊的現代旅館，步行10分鐘可達六合夜市吃東西，但不用忍受噪音。'},
+  // 台中
+  {city:'台中',zone:'逢甲夜市周邊',tagline:'全台灣最大夜市旁，週末的噪音是台灣住宿體驗之最',
+   scores:{luggage:3,walking:1,lateFood:1,noise:5,elderly:2,rain:2,female:1,bed:3},
+   verdict:'逢甲夜市週五到週日的人潮從下午4點開始湧入，夜市攤販的叫賣聲、遊客的嘈雜聲、機車引擎聲到凌晨1點才逐漸平息。很多旅館以「逢甲商圈」為賣點，實際上緊貼夜市主幹道，隔音零分。',
+   defense:'逢甲住宿選福工路或河南路周邊的巷弄旅館，遠離夜市主幹道（文華路）至少兩個街區。'},
+  // 曼谷補充
+  {city:'曼谷',zone:'暹羅Siam周邊',tagline:'購物最爽，節假日人潮讓你寸步難行',
+   scores:{luggage:3,walking:2,lateFood:2,noise:3,elderly:2,rain:1,female:1,bed:2},
+   verdict:'Siam是曼谷最安全的區域之一，但旅館定價在曼谷屬於中等偏高。週末和泰國節假日暹羅廣場人潮誇張，BTS站擠到要排隊等三班車。',
+   defense:'Siam住宿性價比不高，建議選Phromphong或On Nut站，同樣BTS沿線但價格便宜30-50%。'},
+  // 清邁
+  {city:'清邁',zone:'古城區護城河內',tagline:'寺廟就在門口，但計程車拒載是日常',
+   scores:{luggage:3,walking:3,lateFood:4,noise:2,elderly:3,rain:4,female:1,bed:2},
+   verdict:'古城內的寺廟和氛圍是清邁最迷人的部分，但這裡的街道規劃是觀光客的惡夢。大部分巷子是單行道或死巷，Grab司機常常拒絕進古城，你只能在護城河邊下車再走進去。',
+   defense:'古城住宿適合以步行探索寺廟為主的慢旅行者，行李請選小型登機箱。選飯店時確認「有接送服務到護城河邊」。'},
+  {city:'清邁',zone:'Tha Phae門夜市周邊',tagline:'最接近古城入口，週末夜市的人潮和噪音一起送到你房間',
+   scores:{luggage:3,walking:1,lateFood:1,noise:5,elderly:2,rain:2,female:1,bed:3},
+   verdict:'Tha Phae門是清邁古城最熱鬧的入口，週六週日夜市就在門外展開，攤販、人潮、音樂從下午4點到午夜不停歇。即使關窗噪音依然穿透。',
+   defense:'週末旅行避開Tha Phae門正面的旅館，或選評論中明確提到「隔音良好」的旅館並指定高樓層。'},
+  // 胡志明市
+  {city:'胡志明市',zone:'Bùi Viện背包客街周邊',tagline:'東南亞最吵的街道之一，住附近就是在自找苦吃',
+   scores:{luggage:4,walking:1,lateFood:1,noise:5,elderly:3,rain:2,female:3,bed:4},
+   verdict:'Bùi Viện是胡志明市著名的步行街，每晚都是震耳欲聾的音樂和人潮狂歡到凌晨3點以後。這裡的旅館定價反而不便宜，房間小、品質差，是胡志明市性價比最差的住宿選擇。',
+   defense:'完全迴避Bùi Viện街200公尺範圍內的住宿。去Bùi Viện喝一晚上的NT$50啤酒是值得的體驗，但不要住在那裡。'},
+  {city:'胡志明市',zone:'第一郡濱城市場周邊',tagline:'遊客最多的地方，也是詐騙密度最高的地方',
+   scores:{luggage:3,walking:2,lateFood:1,noise:4,elderly:3,rain:3,female:3,bed:3},
+   verdict:'這一帶的旅館品質良莠不齊，比價網站上的「超讚四星旅館」很多是自評，實際去了是老舊的三星水準。門口隨時有xe ôm和黃牛司機糾纏，女性獨旅在夜晚走路要特別注意包包。',
+   defense:'第一郡選旅館請只看有大量真實外國旅客評論（TripAdvisor或Google 4.5分以上）的選項，不要只看Agoda的自評分數。'},
+]
+
+// ── 日期預設 ──────────────────────────────────────────────────
+function offsetDate(days) {
+  const d = new Date()
+  d.setDate(d.getDate() + days)
+  return d.toISOString().split('T')[0]
+}
+document.getElementById('checkIn').value = offsetDate(7)
+document.getElementById('checkOut').value = offsetDate(10)
+
+// ── 痛點 checkbox 樣式 ────────────────────────────────────────
+document.querySelectorAll('.pain-item').forEach(item => {
+  const cb = item.querySelector('input')
+  cb.addEventListener('change', () => {
+    item.classList.toggle('selected', cb.checked)
+  })
+})
+
+// ── 取得 Agoda 篩選參數 ───────────────────────────────────────
+function getAgodaFilter(pains) {
+  const params = ['roomAmenities=31', 'sort=popularity']
+  if (pains.includes('noise') || pains.includes('bed') || pains.includes('female')) {
+    params.push('hotelReviewScore=9')
+  } else {
+    params.push('hotelReviewScore=8')
+  }
+  if (pains.includes('luggage')) {
+    params.push('hotelStarRating=4')
+  }
+  if (pains.includes('elderly')) {
+    params.push('hotelFacility=91')
+  }
+  return '&' + [...new Set(params)].join('&')
+}
+
+function getBookingNflt(pains) {
+  const nflt = []
+  if (pains.includes('noise') || pains.includes('female')) {
+    nflt.push('review_score%3D90')
+  } else {
+    nflt.push('review_score%3D80')
+  }
+  if (pains.includes('luggage')) nflt.push('class%3D4')
+  if (pains.includes('elderly')) nflt.push('hotelfacility%3D433')
+  return nflt.join('%3B')
+}
+
+// ── 主分析函式 ────────────────────────────────────────────────
+function analyze() {
+  const city = document.getElementById('citySelect').value
+  const checkIn = document.getElementById('checkIn').value || offsetDate(7)
+  const checkOut = document.getElementById('checkOut').value || offsetDate(10)
+  const adults = document.getElementById('adults').value
+  const rooms = document.getElementById('rooms').value
+
+  const selectedPains = [...document.querySelectorAll('.pain-cb:checked')].map(cb => cb.value)
+
+  let zones = AVOID_DATA.filter(z => z.city === city)
+
+  if (zones.length === 0) {
+    document.getElementById('resultsList').innerHTML =
+      '<div class="no-result">這個城市的避雷資料正在建置中，敬請期待 🐻</div>'
+    document.getElementById('resultsSection').style.display = 'block'
+    document.getElementById('resultsSection').scrollIntoView({behavior:'smooth'})
+    return
+  }
+
+  zones = zones.map(z => {
+    let score = 0
+    if (selectedPains.length === 0) {
+      score = Object.values(z.scores).reduce((a,b)=>a+b,0) / 8
+    } else {
+      selectedPains.forEach(p => { score += z.scores[p] || 0 })
+      score = score / selectedPains.length
+    }
+    return {...z, score}
+  }).sort((a,b) => b.score - a.score)
+
+  const agodaId = AGODA_IDS[city] || 5085
+  const cityEn = CITY_EN[city] || city
+  const agodaFilter = getAgodaFilter(selectedPains)
+  const bookingNflt = getBookingNflt(selectedPains)
+
+  const html = zones.map((z, i) => {
+    const dangerLevel = z.score >= 3.5 ? 'high' : z.score >= 2.5 ? 'mid' : 'low'
+    const dangerText = dangerLevel === 'high' ? '⚠️ 高危區域' : dangerLevel === 'mid' ? '⚡ 中等風險' : '💡 輕微注意'
+    const badgeClass = `badge-${dangerLevel}`
+
+    const painDisplay = selectedPains.length > 0
+      ? selectedPains.map(p => {
+          const s = z.scores[p]
+          const dots = ['','●','●●','●●●','●●●●','●●●●●'][s]
+          return `<span class="score-chip score-${s}">${PAIN_LABELS[p]} ${dots}</span>`
+        }).join('')
+      : Object.entries(z.scores).map(([p, s]) => {
+          if (s >= 4) return `<span class="score-chip score-${s}">${PAIN_LABELS[p]} ${'●'.repeat(s)}</span>`
+          return ''
+        }).join('')
+
+    const agodaUrl = `https://www.agoda.com/zh-tw/search?city=${agodaId}&checkIn=${checkIn}&checkOut=${checkOut}&rooms=${rooms}&adults=${adults}&locale=zh-tw&currency=TWD${agodaFilter}&cid=1933603&productType=-1`
+    const agodaFinal = `${AGODA_TRACKING}?t=${encodeURIComponent(encodeURIComponent(agodaUrl))}`
+    const bookingUrl = `https://www.booking.com/searchresults.zh-tw.html?aid=${BOOKING_AID}&ss=${encodeURIComponent(cityEn)}&checkin=${checkIn}&checkout=${checkOut}&group_adults=${adults}&no_rooms=${rooms}&nflt=${bookingNflt}`
+
+    return `
+      <div class="result-card danger-${dangerLevel}">
+        <div class="card-header">
+          <div class="card-zone">${i+1}. ${z.zone}</div>
+          <div class="card-tagline">${z.tagline}</div>
+          <span class="danger-badge ${badgeClass}">${dangerText}</span>
+        </div>
+        ${painDisplay ? `<div class="pain-scores-row">${painDisplay}</div>` : ''}
+        <div class="card-body">
+          <div class="verdict-block">
+            <strong>🐻 兩隻熊實判定</strong>
+            <p>${z.verdict}</p>
+          </div>
+          <div class="defense-block">
+            <strong>🛡️ 防禦建議</strong>
+            <p>${z.defense}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="${agodaFinal}" target="_blank" rel="noopener" class="book-btn agoda-btn">
+            🔍 Agoda 搜尋安全替代方案
+          </a>
+          <a href="${bookingUrl}" target="_blank" rel="noopener" class="book-btn booking-btn">
+            🔍 Booking 搜尋安全替代方案
+          </a>
+        </div>
+      </div>
+    `
+  }).join('')
+
+  const painSummary = selectedPains.length > 0
+    ? `依照你選的 ${selectedPains.map(p=>PAIN_LABELS[p]).join('、')} 排序`
+    : '依綜合危險指數排序'
+
+  document.getElementById('resultsTitle').textContent = `🎯 ${city} 的危險區域排行（共 ${zones.length} 個）`
+  document.getElementById('resultsSub').textContent = `${painSummary} · 紅色邊框 = 高危，黃色 = 中等，綠色 = 輕微注意`
+  document.getElementById('resultsList').innerHTML = html
+  document.getElementById('resultsSection').style.display = 'block'
+  document.getElementById('resultsSection').scrollIntoView({behavior:'smooth',block:'start'})
+}
+</script>
+</body>
+</html>

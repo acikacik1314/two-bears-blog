@@ -3,6 +3,8 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { getGeminiKeys } from '../../utils/gemini';
 
+const MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash'];
+
 /* ── Rate limiter (in-memory, per serverless instance) ── */
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 
@@ -159,20 +161,30 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   });
 
   let geminiRes: Response | null = null;
-  for (const apiKey of shuffled) {
-    try {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${apiKey}`,
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }
-      );
-      if (res.status === 429 || res.status === 503) {
-        console.warn(`Gemini key rate-limited (${res.status}), trying next key`);
+  outer: for (const model of MODELS) {
+    for (const apiKey of shuffled) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${apiKey}`,
+          { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }
+        );
+        if (res.status === 429 || res.status === 503) {
+          console.warn(`Gemini ${model} key rate-limited (${res.status}), trying next key`);
+          continue;
+        }
+        if (res.status === 401 || res.status === 403) {
+          console.warn(`Gemini ${model} key auth failed (${res.status}), trying next key`);
+          continue;
+        }
+        if (res.status === 404) {
+          console.warn(`Gemini model ${model} not found, trying next model`);
+          break; // try next model
+        }
+        geminiRes = res;
+        break outer;
+      } catch {
         continue;
       }
-      geminiRes = res;
-      break;
-    } catch {
-      continue;
     }
   }
 

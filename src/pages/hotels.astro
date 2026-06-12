@@ -22,125 +22,365 @@ html body {
   color: #3B2A1E;
   line-height: 1.7;
 }
-.wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 80px; color: #3B2A1E; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; color: #3B2A1E; }
 
-/* hero */
+/* ── Hero ── */
 .hero { text-align: center; padding: 32px 8px 8px; }
 .hero-eyebrow { letter-spacing: .35em; font-size: .8rem; color: #5C4A35; margin: 0 0 8px; }
-.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 14px; font-weight: 900; color: #3B2A1E; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 10px; font-weight: 900; color: #3B2A1E; }
 .amber { color: #E8920A; }
-.hero-sub { color: #5C4B3A; font-size: .95rem; max-width: 600px; margin: 0 auto; }
-.desktop-only { display: none; }
-@media (min-width: 720px) { .desktop-only { display: inline; } }
+.hero-sub { color: #5C4B3A; font-size: .95rem; max-width: 560px; margin: 0 auto 0; }
 
-/* cards */
+/* ── Card ── */
 .card {
   background: #FFFFFF;
   border: 1px solid #EADFC8;
   border-radius: 20px;
   padding: 24px 20px;
   margin-top: 24px;
-  box-shadow: 0 4px 16px rgba(59, 42, 30, .05);
+  box-shadow: 0 4px 16px rgba(59,42,30,.05);
+  color: #3B2A1E;
 }
-.card h2 { font-size: 1.15rem; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: #3B2A1E; }
-.muted { color: #5C4A35; font-size: .88rem; margin-top: -4px; }
+.card h2 { font-size: 1.15rem; margin: 0 0 4px; display: flex; align-items: center; gap: 10px; color: #3B2A1E; }
+.card-sub { color: #5C4A35; font-size: .88rem; margin: 0 0 20px; }
 
-/* search bar */
-.search-row {
-  display: flex; gap: 10px; align-items: stretch;
+/* ── Form ── */
+.field-label {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #3B2A1E;
+  margin: 0 0 8px;
+  display: block;
 }
-.search-input {
-  flex: 1; min-width: 0;
-  border: 2px solid #EADFC8; border-radius: 14px; padding: 13px 16px;
-  font-size: 1rem; background: #FFF8EC; color: #3B2A1E; font-family: inherit;
+.dest-input {
+  width: 100%;
+  border: 2px solid #EADFC8;
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-size: 1rem;
+  background: #FFF8EC;
+  color: #3B2A1E;
+  font-family: inherit;
   transition: border-color .15s;
+  margin-bottom: 20px;
 }
-.search-input:focus { outline: none; border-color: #E8920A; }
-.search-input::placeholder { color: #9C8870; }
-.btn-search {
-  white-space: nowrap; border: none; border-radius: 14px; padding: 13px 22px;
-  font-size: 1rem; font-weight: 900; cursor: pointer; font-family: inherit;
-  background: #E8920A; color: #fff; transition: background .15s, transform .1s;
-}
-.btn-search:hover { background: #C2740A; }
-.btn-search:active { transform: scale(.97); }
+.dest-input:focus { outline: none; border-color: #E8920A; }
+.dest-input::placeholder { color: #9C8870; }
 
-/* date row */
-.date-row {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
-}
-@media (min-width: 560px) { .date-row { grid-template-columns: repeat(4, 1fr); } }
-.date-field { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; font-weight: 700; color: #3B2A1E; }
-.date-field input, .date-field select {
-  border: 1.5px solid #EADFC8; border-radius: 10px; padding: 9px 10px;
-  font-size: .9rem; background: #FFF8EC; color: #3B2A1E; font-family: inherit;
-}
-.date-field input:focus, .date-field select:focus { outline: 2px solid #E8920A; border-color: #E8920A; }
+.radio-group { margin-bottom: 20px; }
+.radio-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
-/* hint */
-.hint { color: #D32F2F; font-size: .85rem; margin: 8px 0 0; }
-
-/* chips */
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-.chip {
-  border: 1px solid #EADFC8; background: #FFF8EC; color: #3B2A1E;
-  border-radius: 999px; padding: 6px 14px; font-size: .85rem; cursor: pointer;
-  transition: all .15s;
+.radio-opt {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border: 1.5px solid #EADFC8;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+  font-size: .88rem;
+  color: #3B2A1E;
+  background: #FFF8EC;
+  user-select: none;
+  font-family: inherit;
 }
-.chip:hover { border-color: #E8920A; }
-.chip.on { background: #E8920A; border-color: #E8920A; color: #fff; font-weight: 700; }
-
-/* picks separator */
-.picks-sep {
-  display: flex; align-items: center; gap: 12px;
-  margin: 24px 0 12px; color: #5C4A35; font-size: .88rem;
+.radio-opt input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
 }
-.picks-sep::before, .picks-sep::after {
-  content: ''; flex: 1; border-top: 1px solid #EADFC8;
+.radio-opt:has(input:checked) {
+  background: #E8920A;
+  border-color: #E8920A;
+  color: #fff;
+  font-weight: 700;
+}
+.radio-opt:hover:not(:has(input:checked)) {
+  border-color: #E8920A;
 }
 
-/* 熊熊精選 cards */
-.picks-grid { display: grid; gap: 14px; margin-top: 14px; }
-@media (min-width: 720px) { .picks-grid { grid-template-columns: 1fr 1fr; } }
-.pick {
-  background: #FFF8EC; border: 1.5px solid #EADFC8; border-radius: 16px;
-  padding: 16px; display: flex; flex-direction: column; gap: 8px;
+.hint-text { color: #D32F2F; font-size: .83rem; margin: -12px 0 16px; }
+
+.btn-ask {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 15px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: inherit;
+  background: #E8920A;
+  color: #fff;
+  transition: background .15s, transform .1s;
+  letter-spacing: .05em;
 }
-.pick:hover { border-color: #E8920A; }
-.pick-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.pick h3 { margin: 0; font-size: 1.02rem; color: #3B2A1E; }
-.pick-area { font-size: .78rem; color: #5C4A35; white-space: nowrap; }
-.pick-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.pick-tags span {
-  background: #FFEFD2; color: #C2740A; border-radius: 999px;
-  font-size: .72rem; padding: 2px 10px; font-weight: 700;
+.btn-ask:hover:not(:disabled) { background: #C2740A; }
+.btn-ask:active:not(:disabled) { transform: scale(.97); }
+.btn-ask:disabled { opacity: .6; cursor: not-allowed; }
+
+/* ── Loading ── */
+.loading-area {
+  text-align: center;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
-.pick-note { margin: 0; font-size: .88rem; color: #5C4B3A; flex: 1; }
-.pick-cta {
-  align-self: flex-start; text-decoration: none; font-weight: 900; font-size: .92rem;
-  background: #E8920A; color: #fff; padding: 8px 16px; border-radius: 10px;
+.loading-bear { font-size: 3rem; animation: bearBounce 1s ease-in-out infinite; }
+@keyframes bearBounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.loading-text { color: #5C4A35; font-size: .95rem; }
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s step-end infinite;
+}
+@keyframes dots {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+}
+
+/* ── Hotel cards grid ── */
+.hotel-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) { .hotel-grid { grid-template-columns: 1fr 1fr; } }
+
+.hotel-card {
+  background: #FFF8EC;
+  border: 1.5px solid #EADFC8;
+  border-radius: 16px;
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .12s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  font-family: inherit;
+  color: #3B2A1E;
+}
+.hotel-card:hover {
+  border-color: #E8920A;
+  box-shadow: 0 4px 20px rgba(232,146,10,.14);
+  transform: translateY(-2px);
+}
+.hotel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.hotel-name { font-size: 1rem; font-weight: 900; margin: 0; color: #3B2A1E; flex: 1; }
+.hotel-city {
+  font-size: .75rem;
+  color: #5C4A35;
+  background: #FFEFD2;
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hotel-reason { font-size: .85rem; color: #5C4A35; margin: 0; line-height: 1.55; flex: 1; }
+.hotel-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.hotel-tags span {
+  background: #FFEFD2;
+  color: #C2740A;
+  border-radius: 999px;
+  font-size: .72rem;
+  padding: 2px 10px;
+  font-weight: 700;
+}
+.hotel-card-cta {
+  align-self: flex-end;
+  font-size: .8rem;
+  color: #E8920A;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ── Results toolbar ── */
+.results-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.btn-more {
+  flex: 1;
+  border: 1.5px solid #EADFC8;
+  border-radius: 14px;
+  padding: 11px 16px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #FFF8EC;
+  color: #3B2A1E;
+  font-family: inherit;
+  transition: border-color .15s;
+  white-space: nowrap;
+}
+.btn-more:hover { border-color: #E8920A; }
+.btn-restart {
+  border: none;
+  border-radius: 14px;
+  padding: 11px 20px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #E8920A;
+  color: #fff;
+  font-family: inherit;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.btn-restart:hover { background: #C2740A; }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+.modal-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 28px 22px 24px;
+  position: relative;
+  color: #3B2A1E;
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #F5F0E8;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #5C4A35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background .15s;
 }
-.pick-cta:hover { background: #C2740A; }
+.modal-close:hover { background: #EADFC8; }
+.modal-hotel-name { font-size: 1.3rem; font-weight: 900; margin: 0 28px 4px 0; color: #3B2A1E; }
+.modal-hotel-en { font-size: .82rem; color: #5C4A35; margin: 0 0 4px; }
+.modal-hotel-city {
+  display: inline-block;
+  font-size: .78rem;
+  color: #C2740A;
+  background: #FFEFD2;
+  border-radius: 999px;
+  padding: 2px 12px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.modal-divider { border: none; border-top: 1px solid #EADFC8; margin: 14px 0; }
+.modal-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.modal-tags span {
+  background: #FFEFD2;
+  color: #C2740A;
+  border-radius: 999px;
+  font-size: .75rem;
+  padding: 3px 12px;
+  font-weight: 700;
+}
+.modal-section-label {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #9C8870;
+  margin: 0 0 6px;
+}
+.modal-list { margin: 0 0 14px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.modal-list li {
+  font-size: .88rem;
+  line-height: 1.5;
+  padding-left: 1.2em;
+  position: relative;
+  color: #3B2A1E;
+}
+.modal-list.pros li::before { content: '✅'; position: absolute; left: 0; font-size: .75em; top: .15em; }
+.modal-list.cons li::before { content: '⚠️'; position: absolute; left: 0; font-size: .75em; top: .15em; }
 
-/* checklist */
+.btn-cta {
+  display: block;
+  width: 100%;
+  background: #E8920A;
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: .04em;
+  transition: background .15s;
+  margin-top: 8px;
+}
+.btn-cta:hover { background: #C2740A; }
+.modal-disclaimer {
+  text-align: center;
+  font-size: .73rem;
+  color: #9C8870;
+  margin: 8px 0 0;
+}
+
+/* ── Error box ── */
+.error-box {
+  background: #FFF0F0;
+  border: 1px solid #FFC5C5;
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #8B1A1A;
+  font-size: .88rem;
+  margin-bottom: 8px;
+}
+
+/* ── Checklist ── */
 .checklist ol { padding-left: 22px; margin: 0; }
 .checklist li { margin-bottom: 8px; font-size: .92rem; color: #3B2A1E; }
 .disclosure {
-  margin-top: 18px; padding: 12px 14px; background: #FFF8EC;
-  border-radius: 12px; font-size: .8rem; color: #5C4A35;
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: #FFF8EC;
+  border-radius: 12px;
+  font-size: .8rem;
+  color: #5C4A35;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 
 <html lang="zh-Hant">
 <head>
   <BaseHead
-    title="🐻 兩隻熊找飯店｜一鍵查 TripAdvisor 最低價"
-    description="輸入飯店名稱或目的地，TripAdvisor 聚合十多家訂房平台，一頁看完所有價格。也有兩隻熊親身挑選的精選飯店推薦。"
+    title="🐻 問兩隻熊｜旅遊住宿顧問"
+    description="不知道住哪？告訴兩隻熊你的目的地、旅伴和預算，熊熊幫你推薦最適合的飯店，再一鍵查 TripAdvisor 最低價。"
   />
 </head>
 <body>
@@ -148,70 +388,82 @@ html body {
 
   <main class="wrap">
 
-    <!-- ============ HERO ============ -->
+    <!-- ── Hero ── -->
     <header class="hero">
-      <p class="hero-eyebrow">兩隻熊的旅遊記事 · 省錢工具</p>
-      <h1>找飯店，<span class="amber">一鍵查最低價</span></h1>
-      <p class="hero-sub">
-        搜尋飯店名稱或目的地，TripAdvisor 幫你把 Agoda、Booking、Trip 等十多家平台的價格<br class="desktop-only" />
-        全部攤開來比，再也不用一個一個開。
-      </p>
+      <p class="hero-eyebrow">兩隻熊旅遊顧問</p>
+      <h1>不知道住哪？<span class="amber">問兩隻熊</span></h1>
+      <p class="hero-sub">告訴我們目的地、旅伴、預算，熊熊幫你篩出最適合的飯店，再一鍵查 TripAdvisor 最低價。</p>
     </header>
 
-    <!-- ============ 搜尋 + 熊熊精選（合併） ============ -->
-    <section class="card">
-      <h2>🔍 查飯店最低價</h2>
+    <!-- ── Advisor section ── -->
+    <section class="card" id="advisor-section">
+      <h2>🐻 問熊熊推薦飯店</h2>
+      <p class="card-sub">AI 顧問 + Google 即時搜尋 · 推薦真實存在的飯店</p>
 
-      <!-- 搜尋列 -->
-      <div class="search-row">
-        <input type="text" id="searchInput" class="search-input"
-               placeholder="飯店名稱或城市，例如：東京、淺草 Richmond Hotel…" autocomplete="off" />
-        <button class="btn-search" id="searchBtn" type="button">查最低價</button>
+      <!-- Form -->
+      <div id="form-area">
+        <label class="field-label" for="dest-input">想去哪裡？</label>
+        <input
+          type="text"
+          id="dest-input"
+          class="dest-input"
+          placeholder="例如：河口湖、大阪心齋橋、京都嵐山、清邁古城…"
+          autocomplete="off"
+        />
+
+        <div class="radio-group">
+          <span class="field-label">旅伴</span>
+          <div class="radio-row" id="companion-row">
+            <label class="radio-opt"><input type="radio" name="companion" value="情侶" />💕 情侶</label>
+            <label class="radio-opt"><input type="radio" name="companion" value="親子" />👶 親子</label>
+            <label class="radio-opt"><input type="radio" name="companion" value="一個人" />🎒 一個人</label>
+            <label class="radio-opt"><input type="radio" name="companion" value="長輩" />👵 長輩</label>
+          </div>
+        </div>
+
+        <div class="radio-group">
+          <span class="field-label">每晚預算（台幣）</span>
+          <div class="radio-row" id="budget-row">
+            <label class="radio-opt"><input type="radio" name="budget" value="5000以下" />5,000 以下</label>
+            <label class="radio-opt"><input type="radio" name="budget" value="5000–10000" />5,000–10,000</label>
+            <label class="radio-opt"><input type="radio" name="budget" value="10000以上" />10,000 以上</label>
+          </div>
+        </div>
+
+        <p class="hint-text" id="form-hint" style="display:none"></p>
+        <button class="btn-ask" id="btn-ask" type="button">🐻 問熊熊</button>
       </div>
-      <p class="hint" id="formHint" hidden>請輸入飯店名稱或目的地！</p>
 
-      <!-- 熱門城市快選 -->
-      <div class="chips" id="hotCities" style="margin-top:12px" aria-label="熱門城市快選"></div>
-
-      <!-- 日期 / 人數列 -->
-      <div class="date-row">
-        <label class="date-field">
-          <span>入住</span>
-          <input type="date" id="ci" />
-        </label>
-        <label class="date-field">
-          <span>退房</span>
-          <input type="date" id="co" />
-        </label>
-        <label class="date-field">
-          <span>大人</span>
-          <select id="adults">
-            <option>1</option><option selected>2</option><option>3</option><option>4</option>
-          </select>
-        </label>
-        <label class="date-field">
-          <span>房間</span>
-          <select id="rooms">
-            <option selected>1</option><option>2</option>
-          </select>
-        </label>
+      <!-- Loading -->
+      <div id="loading-area" class="loading-area" style="display:none">
+        <div class="loading-bear">🐻</div>
+        <div class="loading-text">熊熊正在搜尋資料<span class="loading-dots"></span></div>
+        <div style="font-size:.82rem; color:#9C8870">利用 Google 搜尋驗證飯店真實性</div>
       </div>
 
-      <!-- 熊熊精選 -->
-      <div class="picks-sep">🐻 熊熊精選</div>
-      <p class="muted">不是演算法排序，是兩隻熊一間一間挑出來的。點「查最低價」自動帶入你設的日期。</p>
-      <div class="chips" id="pickCities" aria-label="精選城市" style="margin-top:12px"></div>
-      <div class="picks-grid" id="pickList"></div>
+      <!-- Error -->
+      <div id="error-area" style="display:none">
+        <div class="error-box" id="error-msg"></div>
+        <button class="btn-ask" id="btn-retry" type="button">重新問熊熊</button>
+      </div>
 
+      <!-- Results -->
+      <div id="results-area" style="display:none">
+        <div class="hotel-grid" id="hotel-grid"></div>
+        <div class="results-toolbar">
+          <button class="btn-more" id="btn-more" type="button">😅 都不喜歡？再推薦四間</button>
+          <button class="btn-restart" id="btn-restart" type="button">重新問熊熊</button>
+        </div>
+      </div>
     </section>
 
-    <!-- ============ 省錢檢查清單 ============ -->
+    <!-- ── Checklist ── -->
     <section class="card checklist">
-      <h2>🍯 下訂前的最後檢查</h2>
+      <h2>🍯 查到飯店後的下一步</h2>
       <ol>
+        <li><strong>點「查看 TripAdvisor 價格」</strong>——搜尋框輸入飯店英文名，找到後用 TripAdvisor 聚合十多家平台的報價一次比完。</li>
         <li><strong>比「總價」不要比「每晚價」</strong>——稅、服務費各平台算法不同，總額才是真相。</li>
-        <li><strong>APP 再開一次</strong>——Agoda 和 Trip 的 APP 限定價常常比網頁便宜。</li>
-        <li><strong>查飯店官網</strong>——日本商務旅館（東橫INN、APA）官網會員價有時最低。</li>
+        <li><strong>APP 再確認一次</strong>——Agoda 和 Trip 的 APP 限定價常常比網頁便宜。</li>
         <li><strong>取消條款</strong>——便宜 200 元但不可退，行程一變就虧大了。</li>
         <li><strong>用信用卡海外回饋</strong>——選對卡再省 2–3%。</li>
       </ol>
@@ -220,194 +472,270 @@ html body {
 
   </main>
 
-  <Footer />
-
-  <script is:inline>
-/* ====================================================================
-   ⚙️ 聯盟連結設定
-   ==================================================================== */
-const AFFILIATE = {
-  tripadvisorTracking: 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d',
-};
-
-/* ====================================================================
-   🐻 熊熊精選資料 —— 直接在這裡新增/修改
-   每間飯店：
-     name   飯店名稱
-     area   位置一句話
-     tags   特色標籤（1-3 個）
-     note   熊熊點評（一兩句，最重要！）
-     taUrl  該飯店的 TripAdvisor 頁面網址（強烈建議填，轉換率最高；
-            留空會退而求其次用「飯店名+城市」搜尋）
-   ⚠️ 以下為佔位範例，請換成你們實際住過或研究過的飯店再上線。
-   ==================================================================== */
-const HOTEL_PICKS = {
-  '🇯🇵 東京': [
-    { name: '（範例）上野不忍可可飯店', area: '上野站走 5 分', tags: ['機能型', '近 JR'],
-      note: '佔位點評：寫你們的真實心得，例如「房間小但床超好睡，去成田超方便」。', taUrl: '' },
-    { name: '（範例）淺草雷門景觀旅宿', area: '淺草寺旁', tags: ['景觀', '老街'],
-      note: '佔位點評：頂樓看得到晴空塔，晚上雷門人潮散去超清幽。', taUrl: '' },
-    { name: '（範例）新宿大浴場商旅', area: '新宿東口', tags: ['大浴場', '宵夜方便'],
-      note: '佔位點評：逛完歌舞伎町回來泡湯，熊先生認證。', taUrl: '' },
-    { name: '（範例）東京站日航系飯店', area: '東京站直結', tags: ['家庭', '拖行李神器'],
-      note: '佔位點評：下雨天完全不用出站，帶長輩首選。', taUrl: '' },
-  ],
-  '🗻 河口湖': [
-    { name: '（範例）湖畔逆富士溫泉旅館', area: '河口湖北岸', tags: ['逆富士', '溫泉'],
-      note: '佔位點評：清晨五點半的逆富士，從房間窗戶就拍得到。', taUrl: '' },
-    { name: '(範例)車站前背包客棧', area: '河口湖站走 2 分', tags: ['平價', '巴士方便'],
-      note: '佔位點評:預算有限但想看富士山的最佳解。', taUrl: '' },
-  ],
-};
-
-/* ====================================================================
-   TripAdvisor 城市飯店列表對照
-   ==================================================================== */
-const TA_HOTELS = {
-  '東京': 'https://www.tripadvisor.com.tw/Hotels-g298184-Tokyo_Tokyo_Prefecture_Kanto-Hotels.html',
-};
-
-const HOT_CITIES = [
-  '🇯🇵 東京','🇯🇵 大阪','🇯🇵 京都','🇯🇵 沖繩','🇯🇵 北海道','🇯🇵 福岡','🗻 河口湖',
-  '🇰🇷 首爾','🇹🇭 曼谷','🇹🇭 清邁','🇸🇬 新加坡','🇲🇾 吉隆坡','🇮🇩 峇厘島',
-  '🇹🇼 台北','🇹🇼 台南','🇹🇼 高雄','🇹🇼 花蓮','🇻🇳 胡志明市',
-];
-
-/* ====================================================================
-   工具函式
-   ==================================================================== */
-const $ = (id) => document.getElementById(id);
-
-function wrapTracking(trackingLink, targetUrl) {
-  if (!trackingLink) return targetUrl;
-  const joiner = trackingLink.includes('?') ? '&' : '?';
-  return `${trackingLink}${joiner}t=${encodeURIComponent(encodeURIComponent(targetUrl))}`;
-}
-
-function getDates() {
-  return { ci: $('ci').value, co: $('co').value };
-}
-
-/* ====================================================================
-   TripAdvisor 網址產生器
-   ==================================================================== */
-function buildSearchUrl(query) {
-  const q = query.replace(/^[^一-鿿A-Za-z]+/, '').trim();
-  const { ci, co } = getDates();
-  const adults = $('adults').value;
-
-  // 已知城市 → 直達飯店列表（可帶日期）
-  const cityKey = Object.keys(TA_HOTELS).find(k => q.includes(k));
-  if (cityKey && TA_HOTELS[cityKey]) {
-    const url = new URL(TA_HOTELS[cityKey]);
-    if (ci) url.searchParams.set('checkin', ci.replaceAll('-', '_'));
-    if (co) url.searchParams.set('checkout', co.replaceAll('-', '_'));
-    url.searchParams.set('adults', adults);
-    return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
-  }
-
-  // 一般關鍵字搜尋
-  const url = new URL('https://www.tripadvisor.com.tw/Search');
-  url.searchParams.set('q', q);
-  url.searchParams.set('ssrc', 'h');
-  return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
-}
-
-function buildPickUrl(hotel, city) {
-  const { ci, co } = getDates();
-  const adults = $('adults').value;
-
-  if (hotel.taUrl) {
-    const url = new URL(hotel.taUrl);
-    if (ci) url.searchParams.set('checkin', ci);
-    if (co) url.searchParams.set('checkout', co);
-    url.searchParams.set('adults', adults);
-    return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
-  }
-
-  const cityName = city.replace(/^[^一-鿿A-Za-z]+/, '').trim();
-  const name = hotel.name.replace(/（範例）|\(範例\)/g, '').trim();
-  const target = `https://www.tripadvisor.com.tw/Search?q=${encodeURIComponent(name + ' ' + cityName)}&ssrc=h`;
-  return wrapTracking(AFFILIATE.tripadvisorTracking, target);
-}
-
-/* ====================================================================
-   熊熊精選渲染
-   ==================================================================== */
-function renderPicks(city) {
-  const list = HOTEL_PICKS[city] || [];
-  $('pickList').innerHTML = list.map(h => `
-    <article class="pick">
-      <div class="pick-top">
-        <h3>${h.name}</h3>
-        <span class="pick-area">📍 ${h.area}</span>
-      </div>
-      <div class="pick-tags">${h.tags.map(t => `<span>${t}</span>`).join('')}</div>
-      <p class="pick-note">${h.note}</p>
-      <a class="pick-cta" href="${buildPickUrl(h, city)}" target="_blank" rel="noopener sponsored"
-         data-hotel='${JSON.stringify({name: h.name, area: h.area, taUrl: h.taUrl || ''})}' data-city="${city}">
-        🔎 查最低價 →
+  <!-- ── Modal ── -->
+  <div id="hotel-modal" class="modal-overlay" style="display:none" role="dialog" aria-modal="true">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="關閉">✕</button>
+      <h2 class="modal-hotel-name" id="modal-name"></h2>
+      <p class="modal-hotel-en" id="modal-en"></p>
+      <span class="modal-hotel-city" id="modal-city"></span>
+      <hr class="modal-divider" />
+      <div class="modal-tags" id="modal-tags"></div>
+      <p class="modal-section-label">✅ 優點</p>
+      <ul class="modal-list pros" id="modal-pros"></ul>
+      <p class="modal-section-label">⚠️ 要注意</p>
+      <ul class="modal-list cons" id="modal-cons"></ul>
+      <a id="modal-cta" class="btn-cta" target="_blank" rel="noopener sponsored" href="#">
+        查看 TripAdvisor 價格 →
       </a>
-    </article>
-  `).join('');
-}
+      <p class="modal-disclaimer">價格與房況以訂房平台為準 · 兩隻熊不保證房源可訂</p>
+    </div>
+  </div>
 
-// pick 卡片的連結需在點擊時重新計算日期（用戶可能改過）
-$('pickList').addEventListener('click', e => {
-  const cta = e.target.closest('.pick-cta');
-  if (!cta) return;
-  const hotel = JSON.parse(cta.dataset.hotel);
-  const city = cta.dataset.city;
-  cta.href = buildPickUrl(hotel, city);
-});
-
-/* ====================================================================
-   初始化
-   ==================================================================== */
-// 預設日期：兩週後入住、住兩晚
-(() => {
-  const d = new Date(); d.setDate(d.getDate() + 14);
-  const d2 = new Date(d); d2.setDate(d2.getDate() + 2);
-  const fmt = x => x.toISOString().slice(0, 10);
-  $('ci').value = fmt(d);
-  $('co').value = fmt(d2);
-})();
-
-// 精選城市 chips
-const pickCityNames = Object.keys(HOTEL_PICKS);
-$('pickCities').innerHTML = pickCityNames
-  .map((c, i) => `<button type="button" class="chip${i === 0 ? ' on' : ''}" data-city="${c}">${c}</button>`).join('');
-$('pickCities').addEventListener('click', e => {
-  const btn = e.target.closest('.chip');
-  if (!btn) return;
-  $('pickCities').querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === btn));
-  renderPicks(btn.dataset.city);
-});
-renderPicks(pickCityNames[0]);
-
-// 熱門城市 chips → 填入搜尋欄
-$('hotCities').innerHTML = HOT_CITIES
-  .map(c => `<button type="button" class="chip">${c}</button>`).join('');
-$('hotCities').addEventListener('click', e => {
-  const btn = e.target.closest('.chip');
-  if (!btn) return;
-  $('searchInput').value = btn.textContent.trim();
-  $('hotCities').querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === btn));
-  $('searchInput').focus();
-});
-
-// 搜尋按鈕
-$('searchBtn').addEventListener('click', () => {
-  const q = $('searchInput').value.trim();
-  $('formHint').hidden = !!q;
-  if (!q) return;
-  window.open(buildSearchUrl(q), '_blank', 'noopener');
-});
-
-// Enter 鍵搜尋
-$('searchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') $('searchBtn').click();
-});
-  </script>
+  <Footer />
 </body>
 </html>
+
+<script is:inline>
+/* ===================================================================
+   設定
+   =================================================================== */
+const TA_TRACKING = 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d';
+
+function taLink(enName, city) {
+  const target = 'https://www.tripadvisor.com.tw/Search?q=' +
+    encodeURIComponent(enName + ' ' + city) + '&ssrc=h';
+  return TA_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(target));
+}
+
+/* ===================================================================
+   狀態
+   =================================================================== */
+let askedHotelNames = [];
+let lastRequest = null;   // { destination, companion, budget }
+let currentHotels = [];
+
+/* ===================================================================
+   顯示切換
+   =================================================================== */
+function showArea(id) {
+  ['form-area', 'loading-area', 'error-area', 'results-area'].forEach(a => {
+    const el = document.getElementById(a);
+    if (el) el.style.display = a === id ? '' : 'none';
+  });
+}
+
+/* ===================================================================
+   表單驗證
+   =================================================================== */
+function getFormValues() {
+  const dest = document.getElementById('dest-input').value.trim();
+  const companion = document.querySelector('input[name="companion"]:checked')?.value || '';
+  const budget = document.querySelector('input[name="budget"]:checked')?.value || '';
+  return { dest, companion, budget };
+}
+
+function validateForm(dest, companion, budget) {
+  if (!dest) { showHint('請填寫想去的目的地！'); return false; }
+  if (!companion) { showHint('請選擇旅伴！'); return false; }
+  if (!budget) { showHint('請選擇預算範圍！'); return false; }
+  return true;
+}
+
+function showHint(msg) {
+  const el = document.getElementById('form-hint');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+function clearHint() {
+  const el = document.getElementById('form-hint');
+  if (el) el.style.display = 'none';
+}
+
+/* ===================================================================
+   API 呼叫
+   =================================================================== */
+async function callAdvisor(destination, companion, budget, excludeNames) {
+  const res = await fetch('/api/advisor', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ destination, companion, budget, excludeNames }),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+/* ===================================================================
+   首次問熊熊
+   =================================================================== */
+async function askBear() {
+  const { dest, companion, budget } = getFormValues();
+  clearHint();
+  if (!validateForm(dest, companion, budget)) return;
+
+  lastRequest = { destination: dest, companion, budget };
+  askedHotelNames = [];
+
+  showArea('loading-area');
+  document.getElementById('btn-ask').disabled = true;
+
+  try {
+    const data = await callAdvisor(dest, companion, budget, []);
+    if (!data.ok || !data.hotels?.length) {
+      showError(data.error || '熊熊這次沒找到合適的飯店，請換個關鍵字或稍後再試 🐻');
+      return;
+    }
+    currentHotels = data.hotels;
+    askedHotelNames = data.hotels.map(h => h.name);
+    renderHotels(data.hotels);
+    showArea('results-area');
+  } catch {
+    showError('網路或 AI 暫時有問題，請稍後再試 🐻');
+  } finally {
+    document.getElementById('btn-ask').disabled = false;
+  }
+}
+
+/* ===================================================================
+   再推薦四間
+   =================================================================== */
+async function askMore() {
+  if (!lastRequest) return;
+  document.getElementById('btn-more').disabled = true;
+  document.getElementById('btn-more').textContent = '搜尋中…';
+
+  try {
+    const data = await callAdvisor(
+      lastRequest.destination,
+      lastRequest.companion,
+      lastRequest.budget,
+      askedHotelNames,
+    );
+    if (!data.ok || !data.hotels?.length) {
+      alert('熊熊已推薦完這個地區的飯店了，換個關鍵字試試看？');
+      return;
+    }
+    currentHotels = data.hotels;
+    askedHotelNames.push(...data.hotels.map(h => h.name));
+    renderHotels(data.hotels);
+  } catch {
+    alert('網路暫時有問題，請稍後再試 🐻');
+  } finally {
+    document.getElementById('btn-more').disabled = false;
+    document.getElementById('btn-more').textContent = '😅 都不喜歡？再推薦四間';
+  }
+}
+
+/* ===================================================================
+   渲染飯店卡片
+   =================================================================== */
+function renderHotels(hotels) {
+  const grid = document.getElementById('hotel-grid');
+  grid.innerHTML = hotels.map((h, i) => `
+    <button class="hotel-card" type="button" data-idx="${i}">
+      <div class="hotel-card-header">
+        <h3 class="hotel-name">${escHtml(h.name)}</h3>
+        <span class="hotel-city">${escHtml(h.city)}</span>
+      </div>
+      <p class="hotel-reason">${escHtml(h.reason)}</p>
+      <div class="hotel-tags">${(h.tags||[]).map(t => `<span>${escHtml(t)}</span>`).join('')}</div>
+      <span class="hotel-card-cta">查看詳情 →</span>
+    </button>
+  `).join('');
+
+  grid.addEventListener('click', function handler(e) {
+    const card = e.target.closest('.hotel-card');
+    if (!card) return;
+    const idx = parseInt(card.dataset.idx);
+    openModal(currentHotels[idx]);
+  }, { once: true });
+
+  // Re-bind after each render (the { once } above means we need a separate approach)
+  // Actually, let's use event delegation directly without "once":
+  grid.onclick = (e) => {
+    const card = e.target.closest('.hotel-card');
+    if (!card) return;
+    const idx = parseInt(card.dataset.idx);
+    openModal(currentHotels[idx]);
+  };
+}
+
+function escHtml(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ===================================================================
+   Modal
+   =================================================================== */
+function openModal(h) {
+  document.getElementById('modal-name').textContent = h.name;
+  document.getElementById('modal-en').textContent = h.en;
+  document.getElementById('modal-city').textContent = '📍 ' + h.city;
+
+  const tags = document.getElementById('modal-tags');
+  tags.innerHTML = (h.tags||[]).map(t => `<span>${escHtml(t)}</span>`).join('');
+
+  const pros = document.getElementById('modal-pros');
+  pros.innerHTML = (h.pros||[]).map(p => `<li>${escHtml(p)}</li>`).join('');
+
+  const cons = document.getElementById('modal-cons');
+  cons.innerHTML = (h.cons||[]).map(c => `<li>${escHtml(c)}</li>`).join('');
+
+  const cta = document.getElementById('modal-cta');
+  cta.href = taLink(h.en, h.city);
+
+  const modal = document.getElementById('hotel-modal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('hotel-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('hotel-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('hotel-modal')) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+/* ===================================================================
+   Error + Retry
+   =================================================================== */
+function showError(msg) {
+  document.getElementById('error-msg').textContent = msg;
+  showArea('error-area');
+}
+
+document.getElementById('btn-retry').addEventListener('click', () => {
+  showArea('form-area');
+});
+
+/* ===================================================================
+   Restart
+   =================================================================== */
+function restart() {
+  askedHotelNames = [];
+  lastRequest = null;
+  currentHotels = [];
+  clearHint();
+  showArea('form-area');
+}
+
+/* ===================================================================
+   Event bindings
+   =================================================================== */
+document.getElementById('btn-ask').addEventListener('click', askBear);
+document.getElementById('dest-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') askBear();
+});
+document.getElementById('btn-more').addEventListener('click', askMore);
+document.getElementById('btn-restart').addEventListener('click', restart);
+</script>

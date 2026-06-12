@@ -62,10 +62,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <section class="pick-manual">
-      <h2>想自己翻？一鍵搜尋各大平台</h2>
-      <p>AI 找不到或想要更多選擇時，直接用下面的按鈕開啟各平台搜尋結果。</p>
+      <h2>想自己翻？直接搜尋各大平台</h2>
+      <p>AI 找不到或想要更多選擇時，點下面的按鈕直接開啟該平台的搜尋結果。</p>
       <div class="pick-platforms" id="platforms"></div>
-      <button id="open-all" type="button" class="pick-openall">🐻 全部一鍵開啟（記得允許彈出視窗）</button>
     </section>
   </main>
   <Footer />
@@ -234,19 +233,6 @@ import Footer from '../components/Footer.astro';
     font-family: inherit;
   }
   .pick-platforms button:hover { background: #fdf3e0; }
-  .pick-openall {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #6b5a3e;
-    background: #fdf3e0;
-    border: 2px solid #e3d5bd;
-    border-radius: 12px;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
   @media (max-width: 480px) {
     .pick-input-row { flex-direction: column; }
     .pick-card { flex-wrap: wrap; }
@@ -423,8 +409,4 @@ import Footer from '../components/Footer.astro';
     platformsBox.appendChild(btn);
   });
 
-  $('open-all')!.addEventListener('click', () => {
-    const k = encodeURIComponent(kwInput.value.trim() || '');
-    PLATFORMS.forEach((p) => window.open(p.search(k), '_blank'));
-  });
 </script>

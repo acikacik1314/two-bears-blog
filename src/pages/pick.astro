@@ -167,25 +167,32 @@ import Footer from '../components/Footer.astro';
     margin-left: 0.4rem;
     vertical-align: middle;
   }
+  .name-row { display: flex; align-items: center; gap: 0.2rem; min-width: 0; }
   .pick-card .name {
     font-size: 0.85rem;
     color: #777;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;
+    flex: 1;
   }
   .pick-card .spec { font-size: 0.8rem; color: #9a8a6e; }
   .copy-btn {
-    background: none;
-    border: none;
+    flex-shrink: 0;
+    background: #f0e8d8;
+    border: 1px solid #d9c4a3;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 0.78rem;
-    padding: 0 0.2rem;
-    vertical-align: middle;
-    opacity: 0.5;
-    line-height: 1;
+    font-size: 0.72rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: #7a5c2e;
+    padding: 0.1rem 0.4rem;
+    white-space: nowrap;
+    line-height: 1.4;
   }
-  .copy-btn:hover { opacity: 1; }
+  .copy-btn:hover { background: #e8d8c0; }
   .pick-card .price { font-size: 1.25rem; font-weight: 800; color: #b3541e; white-space: nowrap; }
   .pick-card .price small { font-size: 0.75rem; font-weight: 400; color: #999; }
   .pick-card .buy-btn {
@@ -369,7 +376,7 @@ import Footer from '../components/Footer.astro';
         card.innerHTML = `
           <div class="info">
             <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}${noteBadge}</div>
-            <div class="name">${escapeHtml(r.name)}<button class="copy-btn" data-copy="${escapeHtml(r.name)}" title="複製商品名稱">📋</button></div>
+            <div class="name-row"><span class="name">${escapeHtml(r.name)}</span><button class="copy-btn" data-copy="${escapeHtml(r.name)}" title="複製商品名稱">複製</button></div>
             <div class="spec">${escapeHtml(r.spec)}</div>
           </div>
           <div class="price">NT$${r.price.toLocaleString()}<br /><small>請以商品頁為準</small></div>
@@ -378,8 +385,8 @@ import Footer from '../components/Footer.astro';
           e.stopPropagation();
           const btn = e.currentTarget as HTMLButtonElement;
           navigator.clipboard.writeText(btn.dataset.copy ?? '').then(() => {
-            btn.textContent = '✅';
-            setTimeout(() => { btn.textContent = '📋'; }, 1500);
+            btn.textContent = '✅ 已複製';
+            setTimeout(() => { btn.textContent = '複製'; }, 1500);
           });
         });
         const btnWrap = document.createElement('div');

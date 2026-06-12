@@ -138,7 +138,7 @@ JSON 格式：
             name: String(r.name ?? ''),
             price: Math.round(r.price),
             spec: String(r.spec ?? ''),
-            url: typeof r.url === 'string' && r.url.startsWith('http') ? r.url : '',
+            url: typeof r.url === 'string' && r.url.startsWith('http') ? r.url.replace(/^http:\/\//i, 'https://') : '',
           }))
           .sort((a: any, b: any) => a.price - b.price)
       : [];

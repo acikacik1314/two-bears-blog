@@ -361,7 +361,8 @@ import Footer from '../components/Footer.astro';
         buy.className = 'buy-btn';
         buy.textContent = '去買';
         buy.addEventListener('click', () => {
-          const target = r.url || (p ? p.search(encodeURIComponent(data.keyword)) : '');
+          const raw = r.url || (p ? p.search(encodeURIComponent(data.keyword)) : '');
+          const target = raw.replace(/^http:\/\//i, 'https://');
           dualOpen(p ? p.aff : null, target);
         });
         card.appendChild(buy);

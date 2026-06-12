@@ -283,16 +283,7 @@ function renderBuyLinks(products) {
       btn.textContent = p.icon + ' ' + p.name
       btn.title = p.name + ' 搜尋「' + product + '」'
       btn.addEventListener('click', () => {
-        // 聯盟追蹤：隱藏 iframe 靜默觸發（不會被彈出封鎖器擋）
-        if (p.aff) {
-          const fr = document.createElement('iframe')
-          fr.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;top:-9999px'
-          fr.src = p.aff
-          document.body.appendChild(fr)
-          setTimeout(() => fr.remove(), 8000)
-        }
-        // 搜尋頁正常開新分頁
-        window.open(p.search(kw), '_blank')
+        window.open(p.aff || p.search(kw), '_blank')
       })
       btnRow.appendChild(btn)
     }

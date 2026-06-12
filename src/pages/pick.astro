@@ -349,15 +349,7 @@ import Footer from '../components/Footer.astro';
     return PLATFORMS.find((p) => p.match.test(name)) || null;
   }
 
-  // 聯盟追蹤用隱藏 iframe（不觸發彈出封鎖器），目標頁正常開新分頁
-  function dualOpen(affUrl: string | null, targetUrl: string) {
-    if (affUrl) {
-      const fr = document.createElement('iframe');
-      fr.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;top:-9999px';
-      fr.src = affUrl;
-      document.body.appendChild(fr);
-      setTimeout(() => fr.remove(), 8000);
-    }
+  function dualOpen(_affUrl: string | null, targetUrl: string) {
     if (targetUrl) window.open(targetUrl, '_blank');
   }
 
@@ -476,7 +468,7 @@ import Footer from '../components/Footer.astro';
     `;
     btn.addEventListener('click', () => {
       const k = encodeURIComponent(kwInput.value.trim() || '');
-      dualOpen(p.aff, p.search(k));
+      window.open(p.aff || p.search(k), '_blank');
     });
     platformsBox.appendChild(btn);
   });

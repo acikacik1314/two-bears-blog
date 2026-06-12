@@ -233,6 +233,7 @@ const BUY_PLATFORMS = [
   { name: '酷澎',   icon: '⚡', color: '#1db8c2',
     search: k => `https://www.tw.coupang.com/search?q=${k}` },
   { name: 'Yahoo',  icon: '💜', color: '#7b00d4',
+    aff: 'https://ibanana.biz/3RDip',
     search: k => `https://tw.buy.yahoo.com/search/product?p=${k}` },
   { name: '樂天',   icon: '🌸', color: '#bf0000',
     search: k => `https://www.rakuten.com.tw/search/${k}/` },
@@ -282,7 +283,7 @@ function renderBuyLinks(products) {
       btn.style.setProperty('--pc', p.color)
       btn.textContent = p.icon + ' ' + p.name
       btn.title = p.name + ' 搜尋「' + product + '」'
-      btn.href = p.search(kw)
+      btn.href = p.aff || p.search(kw)
       btn.target = '_blank'
       btn.rel = 'noopener sponsored'
       btnRow.appendChild(btn)

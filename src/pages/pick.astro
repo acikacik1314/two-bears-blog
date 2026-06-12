@@ -322,6 +322,7 @@ import Footer from '../components/Footer.astro';
       promo: '🛒 生鮮超市特價',
       search: (k) => `https://online.carrefour.com.tw/zh/search?q=${k}` },
     { name: 'Yahoo購物中心', match: /yahoo|雅虎/i,
+      aff: 'https://ibanana.biz/3RDip',
       promo: '💰 購物回饋金加碼',
       search: (k) => `https://tw.buy.yahoo.com/search/product?p=${k}` },
     { name: '台灣樂天市場', match: /樂天|rakuten/i,
@@ -469,7 +470,7 @@ import Footer from '../components/Footer.astro';
     `;
     btn.addEventListener('click', () => {
       const k = encodeURIComponent(kwInput.value.trim() || '');
-      window.open(p.search(k), '_blank');
+      window.open(p.aff || p.search(k), '_blank');
     });
     platformsBox.appendChild(btn);
   });

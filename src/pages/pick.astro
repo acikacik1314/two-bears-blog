@@ -55,9 +55,9 @@ import Footer from '../components/Footer.astro';
       <h2 id="results-title"></h2>
       <div id="results-list"></div>
       <p class="pick-disclaimer">
-        ⚠️ 價格由 AI 即時搜尋整理，可能與平台實際定價有時間差，請以商品頁顯示為準。
-        點「去買」會開啟兩個頁面（聯盟入口 + 商品頁），第二個是商品頁。
-        部分連結為聯盟連結，你不會多花一分錢，但會讓兩隻熊獲得一點回饋。
+        ⚠️ 價格由 AI 即時搜尋整理，可能有時間差，請以平台商品頁為準。
+        「搜尋平台」永遠有效；「直連↗」為 AI 找到的商品頁，可能已下架或連結失效。
+        部分連結含聯盟碼，你不會多花一分錢，但有助支持兩隻熊 🐻
       </p>
     </section>
 
@@ -189,6 +189,12 @@ import Footer from '../components/Footer.astro';
     white-space: nowrap;
     font-family: inherit;
     font-size: 0.9rem;
+  }
+  .pick-card .buy-direct {
+    background: #6b6b6b;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem;
+    font-weight: 500;
   }
 
   .pick-disclaimer {
@@ -349,6 +355,8 @@ import Footer from '../components/Footer.astro';
         const card = document.createElement('div');
         card.className = 'pick-card' + (i === 0 ? ' best' : '');
         card.style.borderLeftColor = color;
+        const directUrl = r.url ? r.url.replace(/^http:\/\//i, 'https://') : '';
+        const searchUrl = p ? p.search(encodeURIComponent(data.keyword)) : directUrl;
         card.innerHTML = `
           <div class="info">
             <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}</div>
@@ -357,15 +365,22 @@ import Footer from '../components/Footer.astro';
           </div>
           <div class="price">NT$${r.price.toLocaleString()}<br /><small>請以商品頁為準</small></div>
         `;
+        const btnWrap = document.createElement('div');
+        btnWrap.style.cssText = 'display:flex;flex-direction:column;gap:0.3rem;align-items:stretch';
         const buy = document.createElement('button');
         buy.className = 'buy-btn';
-        buy.textContent = '去買';
-        buy.addEventListener('click', () => {
-          const raw = r.url || (p ? p.search(encodeURIComponent(data.keyword)) : '');
-          const target = raw.replace(/^http:\/\//i, 'https://');
-          dualOpen(p ? p.aff : null, target);
-        });
-        card.appendChild(buy);
+        buy.textContent = '搜尋平台';
+        buy.addEventListener('click', () => dualOpen(p ? p.aff : null, searchUrl));
+        btnWrap.appendChild(buy);
+        if (directUrl) {
+          const direct = document.createElement('button');
+          direct.className = 'buy-btn buy-direct';
+          direct.textContent = '直連↗';
+          direct.title = '直接商品頁（可能已下架）';
+          direct.addEventListener('click', () => dualOpen(p ? p.aff : null, directUrl));
+          btnWrap.appendChild(direct);
+        }
+        card.appendChild(btnWrap);
         resultsList.appendChild(card);
       });
     } catch {

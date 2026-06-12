@@ -285,38 +285,6 @@ import Footer from '../components/Footer.astro';
     .pick-card .buy-btn { width: 100%; }
   }
 
-  .search-toast {
-    position: fixed;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(120%);
-    background: #1e1b18;
-    color: #f0e6d3;
-    border: 1px solid #4a3f2e;
-    border-radius: 12px;
-    padding: 0.7rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.88rem;
-    z-index: 999;
-    transition: transform 0.25s ease;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
-  .search-toast.show { transform: translateX(-50%) translateY(0); }
-  .search-toast button {
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.3rem 0.7rem;
-  }
-  #toast-yes { background: #c47b27; color: #fff; }
-  #toast-yes:hover { background: #a8671e; }
-  #toast-no { background: rgba(255,255,255,0.1); color: #aaa; }
 </style>
 
 <script>
@@ -339,33 +307,33 @@ import Footer from '../components/Footer.astro';
     return '#a0856a';
   }
 
-  // ===== 平台設定（聯盟連結 + 搜尋網址 + 即時優惠）=====
+  // ===== 平台設定（品牌原生搜尋網址，通路王 Deep Link 自動轉換）=====
   const PLATFORMS = [
-    { name: 'momo購物網', match: /momo/i, aff: 'https://adcenter.conn.tw/3Ii4v',
+    { name: 'momo購物網', match: /momo/i,
       promo: '🔥 天天限時秒殺',
       search: (k) => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
-    { name: '蝦皮商城', match: /蝦皮|shopee/i, aff: 'https://product.mchannles.com/3RDin',
+    { name: '蝦皮商城', match: /蝦皮|shopee/i,
       promo: '🎁 每日免運優惠',
       search: (k) => `https://shopee.tw/mall/search?keyword=${k}` },
-    { name: '酷澎', match: /酷澎|coupang/i, aff: 'https://joymall.co/3RDil',
+    { name: '酷澎', match: /酷澎|coupang/i,
       promo: '⚡ 新會員折$100',
       search: (k) => `https://www.tw.coupang.com/search?q=${k}` },
-    { name: '家樂福線上', match: /家樂福|carrefour/i, aff: 'https://wonderfulapple.net/3RDio',
+    { name: '家樂福線上', match: /家樂福|carrefour/i,
       promo: '🛒 生鮮超市特價',
       search: (k) => `https://online.carrefour.com.tw/zh/search?q=${k}` },
-    { name: 'Yahoo購物中心', match: /yahoo|雅虎/i, aff: 'https://affckr.site/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e',
+    { name: 'Yahoo購物中心', match: /yahoo|雅虎/i,
       promo: '💰 購物回饋金加碼',
       search: (k) => `https://tw.buy.yahoo.com/search/product?p=${k}` },
-    { name: '台灣樂天市場', match: /樂天|rakuten/i, aff: 'https://easymall.co/3RDiq',
+    { name: '台灣樂天市場', match: /樂天|rakuten/i,
       promo: '🌟 點數最高10倍回饋',
       search: (k) => `https://www.rakuten.com.tw/search/${k}/` },
-    { name: '小三美日', match: /小三|s3/i, aff: 'https://afflink.one/s/nP5WT',
+    { name: '小三美日', match: /小三|s3/i,
       promo: '💄 美妝保養下殺5折',
       search: (k) => `https://www.s3.com.tw/Search?q=${k}` },
-    { name: 'PChome 24h', match: /pchome/i, aff: null,
+    { name: 'PChome 24h', match: /pchome/i,
       promo: '📦 24小時急速到貨',
       search: (k) => `https://24h.pchome.com.tw/search/?q=${k}` },
-    { name: '飛比價格', match: /飛比|feebee/i, aff: null,
+    { name: '飛比價格', match: /飛比|feebee/i,
       promo: '🔍 全網最低價比較',
       search: (k) => `https://feebee.com.tw/s/?q=${k}` },
   ];
@@ -380,41 +348,6 @@ import Footer from '../components/Footer.astro';
 
   function findPlatform(name: string) {
     return PLATFORMS.find((p) => p.match.test(name)) || null;
-  }
-
-  let _toastTimer: ReturnType<typeof setTimeout> | null = null;
-
-  function dualOpen(affUrl: string | null, targetUrl: string) {
-    if (affUrl) window.open(affUrl, '_blank');
-    if (targetUrl) showSearchToast(targetUrl);
-  }
-
-  function showSearchToast(url: string) {
-    let toast = document.getElementById('search-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'search-toast';
-      document.body.appendChild(toast);
-    }
-    toast.innerHTML = `
-      <span>要同時開啟搜尋頁嗎？</span>
-      <button id="toast-yes">開搜尋 ↗</button>
-      <button id="toast-no">✕</button>
-    `;
-    toast.className = 'search-toast show';
-    document.getElementById('toast-yes')!.onclick = () => {
-      window.open(url, '_blank');
-      dismissToast();
-    };
-    document.getElementById('toast-no')!.onclick = dismissToast;
-    if (_toastTimer) clearTimeout(_toastTimer);
-    _toastTimer = setTimeout(dismissToast, 8000);
-  }
-
-  function dismissToast() {
-    const t = document.getElementById('search-toast');
-    if (t) t.className = 'search-toast';
-    if (_toastTimer) { clearTimeout(_toastTimer); _toastTimer = null; }
   }
 
   function showStatus(msg: string, isError = false) {
@@ -489,17 +422,21 @@ import Footer from '../components/Footer.astro';
         });
         const btnWrap = document.createElement('div');
         btnWrap.style.cssText = 'display:flex;flex-direction:column;gap:0.3rem;align-items:stretch';
-        const buy = document.createElement('button');
+        const buy = document.createElement('a');
         buy.className = 'buy-btn';
         buy.textContent = '搜尋平台';
-        buy.addEventListener('click', () => dualOpen(p ? p.aff : null, searchUrl));
+        buy.href = searchUrl;
+        buy.target = '_blank';
+        buy.rel = 'noopener sponsored';
         btnWrap.appendChild(buy);
         if (directUrl) {
-          const direct = document.createElement('button');
+          const direct = document.createElement('a');
           direct.className = 'buy-btn buy-direct';
           direct.textContent = '直連↗';
           direct.title = '直接商品頁（可能已下架）';
-          direct.addEventListener('click', () => dualOpen(p ? p.aff : null, directUrl));
+          direct.href = directUrl;
+          direct.target = '_blank';
+          direct.rel = 'noopener sponsored';
           btnWrap.appendChild(direct);
         }
         card.appendChild(btnWrap);
@@ -527,12 +464,12 @@ import Footer from '../components/Footer.astro';
     btn.type = 'button';
     btn.className = 'platform-btn';
     btn.innerHTML = `
-      <span class="platform-btn-name">${p.aff ? '❤️ ' : '🔗 '}${p.name}</span>
+      <span class="platform-btn-name">🔗 ${p.name}</span>
       ${p.promo ? `<span class="platform-btn-promo">${p.promo}</span>` : ''}
     `;
     btn.addEventListener('click', () => {
       const k = encodeURIComponent(kwInput.value.trim() || '');
-      window.open(p.aff || p.search(k), '_blank');
+      window.open(p.search(k), '_blank');
     });
     platformsBox.appendChild(btn);
   });

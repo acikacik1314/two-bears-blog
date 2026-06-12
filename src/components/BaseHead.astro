@@ -64,3 +64,20 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Vercel Analytics -->
 <Analytics />
+
+<!-- 通路王 Deep Link 自動轉換器（全站只需一次） -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.oeya_member = '3RE6d';
+    window.oeya_uid1 = 'twobears';
+    window.oeya_uid2 = '';
+    window.oeya_uid3 = '';
+    window.oeya_uid4 = '';
+    window.oeya_uid5 = '';
+    var base = (location.protocol === 'https:') ? 'https://www.conn.tw/' : 'http://crazykiwi.net/';
+    var s = document.createElement('script');
+    s.src = base + 'track/script/oeya_member_url.js';
+    s.async = true;
+    document.body.appendChild(s);
+  });
+</script>

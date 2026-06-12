@@ -224,23 +224,23 @@ let conversationHistory = []
 let lastRawText = ''
 let queryHistory = []
 
-// ===== 平台設定（含聯盟連結）=====
+// ===== 平台設定（品牌原生搜尋網址，通路王 Deep Link 自動轉換）=====
 const BUY_PLATFORMS = [
-  { name: 'momo',   icon: '🛍️', color: '#e94560', aff: 'https://adcenter.conn.tw/3Ii4v',
+  { name: 'momo',   icon: '🛍️', color: '#e94560',
     search: k => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
-  { name: '蝦皮',   icon: '🛒', color: '#f07113', aff: 'https://product.mchannles.com/3RDin',
+  { name: '蝦皮',   icon: '🛒', color: '#f07113',
     search: k => `https://shopee.tw/mall/search?keyword=${k}` },
-  { name: '酷澎',   icon: '⚡', color: '#1db8c2', aff: 'https://joymall.co/3RDil',
+  { name: '酷澎',   icon: '⚡', color: '#1db8c2',
     search: k => `https://www.tw.coupang.com/search?q=${k}` },
-  { name: 'Yahoo',  icon: '💜', color: '#7b00d4', aff: 'https://linkgo.one/s/Agbs4',
+  { name: 'Yahoo',  icon: '💜', color: '#7b00d4',
     search: k => `https://tw.buy.yahoo.com/search/product?p=${k}` },
-  { name: '樂天',   icon: '🌸', color: '#bf0000', aff: 'https://easymall.co/3RDiq',
+  { name: '樂天',   icon: '🌸', color: '#bf0000',
     search: k => `https://www.rakuten.com.tw/search/${k}/` },
-  { name: '家樂福', icon: '🏪', color: '#004fa3', aff: 'https://wonderfulapple.net/3RDio',
+  { name: '家樂福', icon: '🏪', color: '#004fa3',
     search: k => `https://online.carrefour.com.tw/zh/search?q=${k}` },
-  { name: '小三美日',icon:'💄', color: '#1a7f37', aff: 'https://afflink.one/s/nP5WT',
+  { name: '小三美日',icon:'💄', color: '#1a7f37',
     search: k => `https://www.s3.com.tw/Search?q=${k}` },
-  { name: 'PChome', icon: '📦', color: '#005bab', aff: null,
+  { name: 'PChome', icon: '📦', color: '#005bab',
     search: k => `https://24h.pchome.com.tw/search/?q=${k}` },
 ]
 
@@ -277,14 +277,14 @@ function renderBuyLinks(products) {
     btnRow.className = 'buy-btn-row'
     const kw = encodeURIComponent(product)
     for (const p of BUY_PLATFORMS) {
-      const btn = document.createElement('button')
+      const btn = document.createElement('a')
       btn.className = 'buy-platform-btn'
       btn.style.setProperty('--pc', p.color)
       btn.textContent = p.icon + ' ' + p.name
       btn.title = p.name + ' 搜尋「' + product + '」'
-      btn.addEventListener('click', () => {
-        window.open(p.aff || p.search(kw), '_blank')
-      })
+      btn.href = p.search(kw)
+      btn.target = '_blank'
+      btn.rel = 'noopener sponsored'
       btnRow.appendChild(btn)
     }
     row.appendChild(btnRow)

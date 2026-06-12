@@ -1,6 +1,6 @@
 export const prerender = false;
 import type { APIRoute } from 'astro';
-import { callGemini, getGeminiKeys } from '../../utils/gemini';
+import { getGeminiKeys } from '../../utils/gemini';
 import { callGroq, getGroqKeys } from '../../utils/groq';
 
 const FORTUNE_TYPES = [
@@ -118,13 +118,39 @@ ${is7DayHint}
   let text = '';
   let ok = false;
 
+  // Direct fetch with thought filtering + thinkingBudget:0 for reliable 【】format output
   if (hasGemini) {
-    const r = await callGemini({
-      systemInstruction: { parts: [{ text: system }] },
-      contents: [{ role: 'user', parts: [{ text: '請為朋友生成今日未來人訊號卡。' }] }],
-      generationConfig: { maxOutputTokens: 512, temperature: 0.92 },
-    });
-    if (r.ok && r.text) { text = r.text; ok = true; }
+    const keys = getGeminiKeys();
+    const shuffled = [...keys].sort(() => Math.random() - 0.5);
+    for (const key of shuffled) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: system }] },
+              contents: [{ role: 'user', parts: [{ text: '請為朋友生成今日未來人訊號卡。' }] }],
+              generationConfig: {
+                maxOutputTokens: 1024,
+                temperature: 0.88,
+                thinkingConfig: { thinkingBudget: 0 },
+              },
+            }),
+            signal: AbortSignal.timeout(20000),
+          },
+        );
+        if (res.status === 429) continue;
+        if (!res.ok) continue;
+        const data = await res.json();
+        const parts = (data?.candidates?.[0]?.content?.parts ?? []).filter(
+          (p: any) => !p.thought,
+        );
+        const candidate = parts.map((p: any) => p.text ?? '').join('').trim();
+        if (candidate) { text = candidate; ok = true; break; }
+      } catch { continue; }
+    }
   }
 
   if (!ok && hasGroq) {
@@ -133,9 +159,9 @@ ${is7DayHint}
         { role: 'system', content: system },
         { role: 'user', content: '請為朋友生成今日未來人訊號卡。' },
       ],
-      { maxTokens: 512, temperature: 0.92 }
+      { maxTokens: 1024, temperature: 0.88 },
     );
-    if (r.ok) { text = r.text ?? ''; ok = true; }
+    if (r.ok && r.text) { text = r.text; ok = true; }
   }
 
   if (!ok) return json({ ok: false, error: '暫時無法獲得回應，請稍後再試。' });
@@ -147,6 +173,13 @@ ${is7DayHint}
 
   const luckyNum = parseInt(sec('幸運數字')) || (Math.floor(Math.random() * 9) + 1);
 
+  // If core sections are all empty the AI didn't follow the format — signal retry
+  const overall = sec('今日頻率');
+  const tagline = sec('籤詩');
+  if (!overall && !tagline) {
+    return json({ ok: false, error: '訊號接收不穩定，請再試一次 🐻' });
+  }
+
   return json({
     ok: true,
     type: drawn.type,
@@ -154,8 +187,8 @@ ${is7DayHint}
     color: drawn.color,
     glow: drawn.glow,
     ai: {
-      tagline: sec('籤詩') || '時間線訊號已鎖定',
-      overall: sec('今日頻率') || '',
+      tagline: tagline || '時間線訊號已鎖定',
+      overall: overall || '',
       wealth:  sec('財富訊號') || '',
       love:    sec('感情頻率') || '',
       action:  sec('行動指令') || '',

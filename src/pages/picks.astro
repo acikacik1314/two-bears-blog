@@ -94,6 +94,11 @@ import Footer from '../components/Footer.astro';
 /* ===== 去哪買區塊 ===== */
 .buy-links-section{margin-top:1rem;background:var(--paper,#f7f4ef);border:.5px solid var(--paper3,#e4dfd6);border-radius:6px;overflow:hidden}
 .buy-links-header{background:var(--bear,#3d2b1f);color:var(--paper,#f7f4ef);padding:.6rem 1rem;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px}
+.price-loading{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:400;opacity:.7;margin-left:4px}
+.price-loading-dot{width:4px;height:4px;border-radius:50%;background:currentColor;animation:pricePulse 1.2s ease-in-out infinite}
+.price-loading-dot:nth-child(2){animation-delay:.2s}
+.price-loading-dot:nth-child(3){animation-delay:.4s}
+@keyframes pricePulse{0%,80%,100%{opacity:.25;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
 .buy-product-row{padding:.7rem 1rem;border-bottom:.5px solid var(--paper3,#e4dfd6)}
 .buy-product-row:last-child{border-bottom:none}
 .buy-product-name{font-size:12px;font-weight:600;color:var(--ink,#1a1816);margin-bottom:.45rem}
@@ -182,7 +187,7 @@ import Footer from '../components/Footer.astro';
 
       <!-- 去哪買區塊 -->
       <div class="buy-links-section" id="buyLinksSection" style="display:none">
-        <div class="buy-links-header">🛒 去哪買？點平台按鈕直接搜尋</div>
+        <div class="buy-links-header">🛒 去哪買？點平台按鈕直接搜尋<span id="priceLoadingIndicator" style="display:none" class="price-loading">抓價格中<span class="price-loading-dot"></span><span class="price-loading-dot"></span><span class="price-loading-dot"></span></span></div>
       </div>
 
       <div class="followup-section" id="followupSection" style="display:none">
@@ -247,7 +252,15 @@ const BUY_PLATFORMS = [
     search: k => `https://24h.pchome.com.tw/search/?q=${k}` },
 ]
 
+let _priceLoadingCount = 0
+function setPriceLoading(delta) {
+  _priceLoadingCount = Math.max(0, _priceLoadingCount + delta)
+  const el = document.getElementById('priceLoadingIndicator')
+  if (el) el.style.display = _priceLoadingCount > 0 ? 'inline-flex' : 'none'
+}
+
 async function fetchProductPrices(product, priceEls) {
+  setPriceLoading(+1)
   try {
     const res = await fetch('/api/compare', {
       method: 'POST',
@@ -266,6 +279,7 @@ async function fetchProductPrices(product, priceEls) {
       }
     }
   } catch { /* silently fail */ }
+  finally { setPriceLoading(-1) }
 }
 
 // 從 AI 回應標題中抽出推薦產品名稱

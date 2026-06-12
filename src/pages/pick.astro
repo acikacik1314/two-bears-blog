@@ -284,6 +284,39 @@ import Footer from '../components/Footer.astro';
     .pick-card { flex-wrap: wrap; }
     .pick-card .buy-btn { width: 100%; }
   }
+
+  .search-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    background: #1e1b18;
+    color: #f0e6d3;
+    border: 1px solid #4a3f2e;
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    z-index: 999;
+    transition: transform 0.25s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .search-toast.show { transform: translateX(-50%) translateY(0); }
+  .search-toast button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+  }
+  #toast-yes { background: #c47b27; color: #fff; }
+  #toast-yes:hover { background: #a8671e; }
+  #toast-no { background: rgba(255,255,255,0.1); color: #aaa; }
 </style>
 
 <script>
@@ -349,8 +382,39 @@ import Footer from '../components/Footer.astro';
     return PLATFORMS.find((p) => p.match.test(name)) || null;
   }
 
-  function dualOpen(_affUrl: string | null, targetUrl: string) {
-    if (targetUrl) window.open(targetUrl, '_blank');
+  let _toastTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function dualOpen(affUrl: string | null, targetUrl: string) {
+    if (affUrl) window.open(affUrl, '_blank');
+    if (targetUrl) showSearchToast(targetUrl);
+  }
+
+  function showSearchToast(url: string) {
+    let toast = document.getElementById('search-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'search-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `
+      <span>要同時開啟搜尋頁嗎？</span>
+      <button id="toast-yes">開搜尋 ↗</button>
+      <button id="toast-no">✕</button>
+    `;
+    toast.className = 'search-toast show';
+    document.getElementById('toast-yes')!.onclick = () => {
+      window.open(url, '_blank');
+      dismissToast();
+    };
+    document.getElementById('toast-no')!.onclick = dismissToast;
+    if (_toastTimer) clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(dismissToast, 8000);
+  }
+
+  function dismissToast() {
+    const t = document.getElementById('search-toast');
+    if (t) t.className = 'search-toast';
+    if (_toastTimer) { clearTimeout(_toastTimer); _toastTimer = null; }
   }
 
   function showStatus(msg: string, isError = false) {

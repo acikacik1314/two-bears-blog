@@ -10,7 +10,14 @@ export function getGeminiKeys(): string[] {
   return single ? [single] : []
 }
 
-const MODELS = ['gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-3.5-flash']
+const MODELS = [
+  'gemini-2.5-flash',
+  'gemini-2.5-flash-lite',
+  'gemini-2.0-flash',
+  'gemini-2.0-flash-lite',
+  'gemini-1.5-flash',
+  'gemini-1.5-flash-8b',
+]
 
 export function getModel(): string {
   const env = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL

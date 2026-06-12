@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 <html lang="zh-TW">
 <head>
   <BaseHead title="🐻 兩隻熊幫你選 — 選擇困難症終結者" description="告訴兩隻熊你想買什麼，AI 幫你分析最適合的產品。沒有業配，純粹站在你那邊。" />
-<style>
+<style is:global>
 .hero{background:var(--bear,#3d2b1f);color:var(--paper,#f7f4ef);padding:3rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'🐻';position:absolute;left:-20px;bottom:-20px;font-size:130px;opacity:.05;pointer-events:none;transform:scaleX(-1)}
 .hero::after{content:'🐻';position:absolute;right:-10px;bottom:-20px;font-size:120px;opacity:.05;pointer-events:none}

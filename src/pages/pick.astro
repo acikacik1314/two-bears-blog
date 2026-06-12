@@ -151,11 +151,12 @@ import Footer from '../components/Footer.astro';
     gap: 0.8rem;
     padding: 0.9rem 1rem;
     border: 1px solid #eee3cf;
+    border-left: 4px solid #d1c4ae;
     border-radius: 14px;
     margin-bottom: 0.6rem;
     background: #fffefb;
   }
-  .pick-card.best { border: 2px solid #c47b27; background: #fff8ec; }
+  .pick-card.best { border: 1px solid #eee3cf; border-left: 4px solid #c47b27; background: #fff8ec; }
   .pick-card .info { flex: 1; min-width: 0; }
   .pick-card .platform { font-weight: 700; font-size: 0.95rem; }
   .pick-card .best-badge {
@@ -237,6 +238,25 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
+  // ===== 平台顏色 =====
+  const PLATFORM_COLORS: Record<string, string> = {
+    'momo購物網':    '#e94560',
+    '蝦皮商城':      '#f07113',
+    '酷澎':          '#1db8c2',
+    '家樂福線上':    '#004fa3',
+    'Yahoo購物中心': '#7b00d4',
+    '台灣樂天市場':  '#bf0000',
+    '小三美日':      '#1a7f37',
+    'PChome 24h':    '#005bab',
+    '飛比價格':      '#ff6600',
+  };
+  function platformColor(name: string): string {
+    for (const [key, color] of Object.entries(PLATFORM_COLORS)) {
+      if (name.includes(key) || key.includes(name)) return color;
+    }
+    return '#a0856a';
+  }
+
   // ===== 平台設定（聯盟連結 + 搜尋網址）=====
   const PLATFORMS = [
     { name: 'momo購物網', match: /momo/i, aff: 'https://adcenter.conn.tw/3Ii4v',
@@ -325,11 +345,13 @@ import Footer from '../components/Footer.astro';
 
       data.results.forEach((r: any, i: number) => {
         const p = findPlatform(r.platform);
+        const color = platformColor(r.platform);
         const card = document.createElement('div');
         card.className = 'pick-card' + (i === 0 ? ' best' : '');
+        card.style.borderLeftColor = color;
         card.innerHTML = `
           <div class="info">
-            <div class="platform">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}</div>
+            <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}</div>
             <div class="name">${escapeHtml(r.name)}</div>
             <div class="spec">${escapeHtml(r.spec)}</div>
           </div>

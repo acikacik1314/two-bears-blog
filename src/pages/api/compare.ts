@@ -102,7 +102,7 @@ JSON 格式：
       ?.map((p: { text?: string }) => p.text ?? '')
       .join('') ?? '';
 
-  console.log('[compare] raw text:', text.slice(0, 300));
+  console.log('[compare] raw text:', text.slice(0, 800));
 
   if (!text.trim()) {
     return json({ keyword, results: [] });
@@ -118,11 +118,19 @@ JSON 格式：
 
   try {
     const parsed = JSON.parse(stripped.slice(start, end + 1));
+    console.log('[compare] parsed results count:', Array.isArray(parsed.results) ? parsed.results.length : 'not array', '| sample:', JSON.stringify(parsed.results?.[0] ?? null));
     const results = Array.isArray(parsed.results)
       ? parsed.results
+          .map((r: any) => {
+            const rawPrice = r?.price;
+            const price = typeof rawPrice === 'number'
+              ? rawPrice
+              : Number(String(rawPrice ?? '').replace(/[^0-9.]/g, ''));
+            return { ...r, price };
+          })
           .filter(
             (r: any) =>
-              r && r.platform && typeof r.price === 'number' && r.price > 0,
+              r && r.platform && Number.isFinite(r.price) && r.price > 0,
           )
           .map((r: any) => ({
             platform: String(r.platform),
@@ -134,6 +142,7 @@ JSON 格式：
           .sort((a: any, b: any) => a.price - b.price)
       : [];
 
+    console.log('[compare] final results:', results.length);
     return json({ keyword, results });
   } catch (err) {
     console.error('compare API parse error:', err, '| raw:', text.slice(0, 200));

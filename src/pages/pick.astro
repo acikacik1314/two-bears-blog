@@ -175,6 +175,17 @@ import Footer from '../components/Footer.astro';
     text-overflow: ellipsis;
   }
   .pick-card .spec { font-size: 0.8rem; color: #9a8a6e; }
+  .copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.78rem;
+    padding: 0 0.2rem;
+    vertical-align: middle;
+    opacity: 0.5;
+    line-height: 1;
+  }
+  .copy-btn:hover { opacity: 1; }
   .pick-card .price { font-size: 1.25rem; font-weight: 800; color: #b3541e; white-space: nowrap; }
   .pick-card .price small { font-size: 0.75rem; font-weight: 400; color: #999; }
   .pick-card .buy-btn {
@@ -358,11 +369,19 @@ import Footer from '../components/Footer.astro';
         card.innerHTML = `
           <div class="info">
             <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}${noteBadge}</div>
-            <div class="name">${escapeHtml(r.name)}</div>
+            <div class="name">${escapeHtml(r.name)}<button class="copy-btn" data-copy="${escapeHtml(r.name)}" title="複製商品名稱">📋</button></div>
             <div class="spec">${escapeHtml(r.spec)}</div>
           </div>
           <div class="price">NT$${r.price.toLocaleString()}<br /><small>請以商品頁為準</small></div>
         `;
+        card.querySelector('.copy-btn')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const btn = e.currentTarget as HTMLButtonElement;
+          navigator.clipboard.writeText(btn.dataset.copy ?? '').then(() => {
+            btn.textContent = '✅';
+            setTimeout(() => { btn.textContent = '📋'; }, 1500);
+          });
+        });
         const btnWrap = document.createElement('div');
         btnWrap.style.cssText = 'display:flex;flex-direction:column;gap:0.3rem;align-items:stretch';
         const buy = document.createElement('button');

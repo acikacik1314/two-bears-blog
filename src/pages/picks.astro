@@ -91,6 +91,17 @@ import Footer from '../components/Footer.astro';
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--ink,#1a1816);color:var(--paper,#f7f4ef);font-size:13px;padding:10px 20px;border-radius:100px;opacity:0;transition:all .3s;pointer-events:none;z-index:999;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+/* ===== 去哪買區塊 ===== */
+.buy-links-section{margin-top:1rem;background:var(--paper,#f7f4ef);border:.5px solid var(--paper3,#e4dfd6);border-radius:6px;overflow:hidden}
+.buy-links-header{background:var(--bear,#3d2b1f);color:var(--paper,#f7f4ef);padding:.6rem 1rem;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px}
+.buy-product-row{padding:.7rem 1rem;border-bottom:.5px solid var(--paper3,#e4dfd6)}
+.buy-product-row:last-child{border-bottom:none}
+.buy-product-name{font-size:12px;font-weight:600;color:var(--ink,#1a1816);margin-bottom:.45rem}
+.buy-btn-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.buy-platform-btn{font-size:11px;padding:4px 10px;border-radius:100px;border:1.5px solid var(--pc,#999);background:transparent;color:var(--pc,#999);cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap;font-weight:500}
+.buy-platform-btn:hover{background:var(--pc,#999);color:#fff;transform:translateY(-1px)}
+@media(max-width:600px){.buy-btn-row{gap:.3rem}.buy-platform-btn{font-size:10px;padding:3px 8px}}
+
 .history-section{margin-top:2rem;border-top:.5px solid var(--paper3,#e4dfd6);padding-top:1.5rem}
 .history-label{font-size:11px;color:var(--ink3,#8a827a);margin-bottom:.75rem;letter-spacing:.1em}
 .history-list{display:flex;flex-direction:column;gap:6px}
@@ -168,6 +179,11 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
 
+      <!-- 去哪買區塊 -->
+      <div class="buy-links-section" id="buyLinksSection" style="display:none">
+        <div class="buy-links-header">🛒 去哪買？點平台按鈕直接搜尋</div>
+      </div>
+
       <div class="followup-section" id="followupSection" style="display:none">
         <div class="followup-label"> 還有問題？繼續追問熊</div>
         <div class="followup-chips">
@@ -207,6 +223,75 @@ const API_URL = '/api/bear-picks'
 let conversationHistory = []
 let lastRawText = ''
 let queryHistory = []
+
+// ===== 平台設定（含聯盟連結）=====
+const BUY_PLATFORMS = [
+  { name: 'momo',   icon: '🛍️', color: '#e94560', aff: 'https://adcenter.conn.tw/3Ii4v',
+    search: k => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
+  { name: '蝦皮',   icon: '🛒', color: '#f07113', aff: 'https://product.mchannles.com/3RDin',
+    search: k => `https://shopee.tw/mall/search?keyword=${k}` },
+  { name: '酷澎',   icon: '⚡', color: '#1db8c2', aff: 'https://joymall.co/3RDil',
+    search: k => `https://www.tw.coupang.com/search?q=${k}` },
+  { name: 'Yahoo',  icon: '💜', color: '#7b00d4', aff: 'https://linkgo.one/s/Agbs4',
+    search: k => `https://tw.buy.yahoo.com/search/product?p=${k}` },
+  { name: '樂天',   icon: '🌸', color: '#bf0000', aff: 'https://easymall.co/3RDiq',
+    search: k => `https://www.rakuten.com.tw/search/${k}/` },
+  { name: '家樂福', icon: '🏪', color: '#004fa3', aff: 'https://wonderfulapple.net/3RDio',
+    search: k => `https://online.carrefour.com.tw/zh/search?q=${k}` },
+  { name: '小三美日',icon:'💄', color: '#1a7f37', aff: 'https://afflink.one/s/nP5WT',
+    search: k => `https://www.s3.com.tw/Search?q=${k}` },
+  { name: 'PChome', icon: '📦', color: '#005bab', aff: null,
+    search: k => `https://24h.pchome.com.tw/search/?q=${k}` },
+]
+
+// 從 AI 回應標題中抽出推薦產品名稱
+function extractProducts(text) {
+  const patterns = [
+    /##\s+🏆[^：:]*[：:]\s*(.+)/,
+    /##\s+💰[^：:]*[：:]\s*(.+)/,
+    /##\s+⬆[^：:]*[：:]\s*(.+)/,
+  ]
+  return patterns
+    .map(pat => { const m = text.match(pat); return m ? m[1].replace(/\*+/g,'').trim() : null })
+    .filter(n => n && n.length > 1 && n.length < 60)
+    .filter((v, i, a) => a.indexOf(v) === i) // 去重
+}
+
+function renderBuyLinks(products) {
+  const section = document.getElementById('buyLinksSection')
+  if (!products.length) { section.style.display = 'none'; return }
+  // 保留 header，清空舊的產品行
+  const header = section.querySelector('.buy-links-header')
+  section.innerHTML = ''
+  section.appendChild(header)
+  section.style.display = 'block'
+
+  for (const product of products) {
+    const row = document.createElement('div')
+    row.className = 'buy-product-row'
+    const nameEl = document.createElement('div')
+    nameEl.className = 'buy-product-name'
+    nameEl.textContent = '📦 ' + product
+    row.appendChild(nameEl)
+    const btnRow = document.createElement('div')
+    btnRow.className = 'buy-btn-row'
+    const kw = encodeURIComponent(product)
+    for (const p of BUY_PLATFORMS) {
+      const btn = document.createElement('button')
+      btn.className = 'buy-platform-btn'
+      btn.style.setProperty('--pc', p.color)
+      btn.textContent = p.icon + ' ' + p.name
+      btn.title = p.name + ' 搜尋「' + product + '」'
+      btn.addEventListener('click', () => {
+        if (p.aff) window.open(p.aff, '_blank')
+        window.open(p.search(kw), '_blank')
+      })
+      btnRow.appendChild(btn)
+    }
+    row.appendChild(btnRow)
+    section.appendChild(row)
+  }
+}
 
 window.addEventListener('load', () => {
   const hist = localStorage.getItem('bear_history')
@@ -296,6 +381,8 @@ async function fetchAndRender() {
         verdictText.innerHTML = inlineFormat(verdict)
         bearVerdict.style.display = 'flex'
       }
+      // 抽取產品名稱並渲染購買連結
+      renderBuyLinks(extractProducts(mainText))
       document.getElementById('followupSection').style.display = 'block'
     } else if (data.error) {
       resultBody.innerHTML = `<p style="color:#8b2020">⚠ ${data.error}</p>`

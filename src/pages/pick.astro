@@ -242,8 +242,8 @@ import Footer from '../components/Footer.astro';
     gap: 0.5rem;
     margin: 1rem 0;
   }
-  .pick-platforms button {
-    padding: 0.7rem 0.5rem;
+  .pick-platforms button, .platform-btn {
+    padding: 0.65rem 0.6rem;
     border: 1px solid #e3d5bd;
     background: #fffdf8;
     border-radius: 10px;
@@ -251,8 +251,34 @@ import Footer from '../components/Footer.astro';
     font-size: 0.9rem;
     font-family: inherit;
     color: #4a3a2a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
   }
-  .pick-platforms button:hover { background: #fdf3e0; color: #4a3a2a; }
+  .pick-platforms button:hover, .platform-btn:hover {
+    background: #fdf3e0;
+    border-color: #c47b27;
+    color: #4a3a2a;
+    transform: translateY(-2px);
+  }
+  .platform-btn-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #4a3a2a;
+  }
+  .platform-btn-promo {
+    font-size: 0.72rem;
+    color: #c47b27;
+    font-weight: 700;
+    background: #fef3e0;
+    border: 1px solid #f5d8a0;
+    border-radius: 4px;
+    padding: 0.05rem 0.35rem;
+    letter-spacing: 0.01em;
+  }
   @media (max-width: 480px) {
     .pick-input-row { flex-direction: column; }
     .pick-card { flex-wrap: wrap; }
@@ -280,25 +306,34 @@ import Footer from '../components/Footer.astro';
     return '#a0856a';
   }
 
-  // ===== 平台設定（聯盟連結 + 搜尋網址）=====
+  // ===== 平台設定（聯盟連結 + 搜尋網址 + 即時優惠）=====
   const PLATFORMS = [
     { name: 'momo購物網', match: /momo/i, aff: 'https://adcenter.conn.tw/3Ii4v',
+      promo: '🔥 天天限時秒殺',
       search: (k) => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
     { name: '蝦皮商城', match: /蝦皮|shopee/i, aff: 'https://product.mchannles.com/3RDin',
+      promo: '🎁 每日免運優惠',
       search: (k) => `https://shopee.tw/mall/search?keyword=${k}` },
     { name: '酷澎', match: /酷澎|coupang/i, aff: 'https://joymall.co/3RDil',
+      promo: '⚡ 新會員折$100',
       search: (k) => `https://www.tw.coupang.com/search?q=${k}` },
     { name: '家樂福線上', match: /家樂福|carrefour/i, aff: 'https://wonderfulapple.net/3RDio',
+      promo: '🛒 生鮮超市特價',
       search: (k) => `https://online.carrefour.com.tw/zh/search?q=${k}` },
     { name: 'Yahoo購物中心', match: /yahoo|雅虎/i, aff: 'https://affckr.site/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e',
+      promo: '💰 購物回饋金加碼',
       search: (k) => `https://tw.buy.yahoo.com/search/product?p=${k}` },
     { name: '台灣樂天市場', match: /樂天|rakuten/i, aff: 'https://easymall.co/3RDiq',
+      promo: '🌟 點數最高10倍回饋',
       search: (k) => `https://www.rakuten.com.tw/search/${k}/` },
     { name: '小三美日', match: /小三|s3/i, aff: 'https://afflink.one/s/nP5WT',
+      promo: '💄 美妝保養下殺5折',
       search: (k) => `https://www.s3.com.tw/Search?q=${k}` },
     { name: 'PChome 24h', match: /pchome/i, aff: null,
+      promo: '📦 24小時急速到貨',
       search: (k) => `https://24h.pchome.com.tw/search/?q=${k}` },
     { name: '飛比價格', match: /飛比|feebee/i, aff: null,
+      promo: '🔍 全網最低價比較',
       search: (k) => `https://feebee.com.tw/s/?q=${k}` },
   ];
 
@@ -429,7 +464,11 @@ import Footer from '../components/Footer.astro';
   PLATFORMS.forEach((p) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.textContent = (p.aff ? '❤️ ' : '🔗 ') + p.name;
+    btn.className = 'platform-btn';
+    btn.innerHTML = `
+      <span class="platform-btn-name">${p.aff ? '❤️ ' : '🔗 '}${p.name}</span>
+      ${p.promo ? `<span class="platform-btn-promo">${p.promo}</span>` : ''}
+    `;
     btn.addEventListener('click', () => {
       const k = encodeURIComponent(kwInput.value.trim() || '');
       dualOpen(p.aff, p.search(k));

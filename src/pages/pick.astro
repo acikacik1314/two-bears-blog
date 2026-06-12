@@ -196,6 +196,17 @@ import Footer from '../components/Footer.astro';
     padding: 0.35rem 0.6rem;
     font-weight: 500;
   }
+  .promo-badge {
+    font-size: 0.68rem;
+    color: #b45309;
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-weight: 600;
+  }
 
   .pick-disclaimer {
     font-size: 0.8rem;
@@ -357,9 +368,10 @@ import Footer from '../components/Footer.astro';
         card.style.borderLeftColor = color;
         const directUrl = r.url ? r.url.replace(/^http:\/\//i, 'https://') : '';
         const searchUrl = p ? p.search(encodeURIComponent(data.keyword)) : directUrl;
+        const noteBadge = r.note ? `<span class="promo-badge">⚠️ ${escapeHtml(r.note)}</span>` : '';
         card.innerHTML = `
           <div class="info">
-            <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}</div>
+            <div class="platform" style="color:${color}">${escapeHtml(r.platform)}${i === 0 ? '<span class="best-badge">🏆 最便宜</span>' : ''}${noteBadge}</div>
             <div class="name">${escapeHtml(r.name)}</div>
             <div class="spec">${escapeHtml(r.spec)}</div>
           </div>

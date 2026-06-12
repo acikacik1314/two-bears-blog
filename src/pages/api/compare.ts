@@ -46,13 +46,14 @@ momo購物網、蝦皮商城、酷澎(Coupang台灣)、家樂福線上購物、Y
 嚴格遵守以下規則：
 1. 只回報實際搜尋到的結果，找不到的平台直接略過，絕對不可以捏造價格或網址
 2. price 必須是新台幣的純數字，不含符號、不含逗號
-3. spec 必須標示規格與包裝（例如：650ml 單罐、24入箱購、3入組），讓不同包裝可以個別比較，避免單罐和箱購直接比較產生誤導
-4. url 必須是搜尋結果中該商品頁的完整網址
-5. 每個平台最多回報 1 筆最相關、最便宜的結果
-6. 你的回覆只能是 JSON，不要任何說明文字，不要 markdown 程式碼框
+3. price 應為一般售價（非首次會員優惠、非新會員折扣、非限時秒殺）；若頁面只顯示促銷/首購優惠價，請在 note 欄位標注（例如："新會員首購優惠" 或 "限時促銷"），一般定價 note 留空字串
+4. spec 必須標示規格與包裝（例如：650ml 單罐、24入箱購、3入組），讓不同包裝可以個別比較，避免單罐和箱購直接比較產生誤導
+5. url 必須是搜尋結果中該商品頁的完整網址
+6. 每個平台最多回報 1 筆最相關的結果
+7. 你的回覆只能是 JSON，不要任何說明文字，不要 markdown 程式碼框
 
 JSON 格式：
-{"results":[{"platform":"momo購物網","name":"商品完整名稱","price":299,"spec":"24入箱購","url":"https://..."}]}`;
+{"results":[{"platform":"momo購物網","name":"商品完整名稱","price":299,"spec":"24入箱購","url":"https://...","note":""}]}`;
 
   const shuffled = [...keys].sort(() => Math.random() - 0.5);
   let lastErr = '';
@@ -139,6 +140,7 @@ JSON 格式：
             price: Math.round(r.price),
             spec: String(r.spec ?? ''),
             url: typeof r.url === 'string' && r.url.startsWith('http') ? r.url.replace(/^http:\/\//i, 'https://') : '',
+            note: String(r.note ?? ''),
           }))
           .sort((a: any, b: any) => a.price - b.price)
       : [];

@@ -97,22 +97,26 @@ JSON 格式：
     return json({ error: 'AI 搜尋服務暫時無法使用，請稍後再試' }, 502);
   }
 
+  const text: string =
+    geminiData?.candidates?.[0]?.content?.parts
+      ?.map((p: { text?: string }) => p.text ?? '')
+      .join('') ?? '';
+
+  console.log('[compare] raw text:', text.slice(0, 300));
+
+  if (!text.trim()) {
+    return json({ keyword, results: [] });
+  }
+
+  // Gemini 用了搜尋工具有時會附上 markdown 框，擷取純 JSON 主體
+  const stripped = text.replace(/```json\s*/g, '').replace(/```/g, '').trim();
+  const start = stripped.indexOf('{');
+  const end = stripped.lastIndexOf('}');
+  if (start === -1 || end === -1) {
+    return json({ keyword, results: [] });
+  }
+
   try {
-    const text: string =
-      geminiData?.candidates?.[0]?.content?.parts
-        ?.map((p: { text?: string }) => p.text ?? '')
-        .join('') ?? '';
-
-    console.log('[compare] raw text:', text.slice(0, 500));
-
-    // Gemini 用了搜尋工具有時會附上 markdown 框，擷取純 JSON 主體
-    const stripped = text.replace(/```json|```/g, '').trim();
-    const start = stripped.indexOf('{');
-    const end = stripped.lastIndexOf('}');
-    if (start === -1 || end === -1) {
-      return json({ error: 'AI 回傳格式異常，請換個關鍵字再試一次', keyword }, 200);
-    }
-
     const parsed = JSON.parse(stripped.slice(start, end + 1));
     const results = Array.isArray(parsed.results)
       ? parsed.results
@@ -132,7 +136,7 @@ JSON 格式：
 
     return json({ keyword, results });
   } catch (err) {
-    console.error('compare API parse error:', err);
-    return json({ error: '比價失敗，請稍後再試' }, 500);
+    console.error('compare API parse error:', err, '| raw:', text.slice(0, 200));
+    return json({ keyword, results: [] });
   }
 };

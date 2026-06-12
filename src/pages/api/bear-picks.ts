@@ -110,20 +110,24 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     generationConfig: { maxOutputTokens: max_tokens, temperature },
   });
 
-  outer: for (const model of MODELS) {
+  for (const model of MODELS) {
     for (const apiKey of shuffled) {
       try {
         const res = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
           { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: reqBody }
         );
-        if (res.status === 429 || res.status === 503) continue;
-        if (res.status === 401 || res.status === 403) continue;
-        if (res.status === 404) break; // try next model
+        if (res.status === 429 || res.status === 503) continue; // rate limited → try next key
+        if (res.status === 401 || res.status === 403) continue; // auth error → try next key
+        if (res.status === 404) break;                          // model not found → try next model
         if (!res.ok) continue;
 
-        const data = await res.json() as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> };
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        const data = await res.json() as { candidates?: Array<{ content?: { parts?: Array<{ thought?: boolean; text?: string }> } }> };
+        const text = (data?.candidates?.[0]?.content?.parts ?? [])
+          .filter((p) => !p.thought)
+          .map((p) => p.text ?? '')
+          .join('')
+          .trim();
         if (text) {
           return new Response(JSON.stringify({ text }), {
             headers: { 'Content-Type': 'application/json' },
@@ -133,7 +137,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         continue;
       }
     }
-    break outer;
+    // inner loop ended (404 or all keys tried) → outer loop naturally continues to next model
   }
 
   return new Response(JSON.stringify({ error: '所有 API 通道忙碌，請稍後再試' }), {

@@ -67,7 +67,7 @@ JSON 格式：
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           tools: [{ google_search: {} }],
-          generationConfig: { temperature: 0.1, maxOutputTokens: 4096 },
+          generationConfig: { temperature: 0.1, maxOutputTokens: 4096, thinkingConfig: { thinkingBudget: 0 } },
         }),
         signal: AbortSignal.timeout(50000),
       });
@@ -98,8 +98,9 @@ JSON 格式：
   }
 
   const text: string =
-    geminiData?.candidates?.[0]?.content?.parts
-      ?.map((p: { text?: string }) => p.text ?? '')
+    (geminiData?.candidates?.[0]?.content?.parts ?? [])
+      .filter((p: any) => !p.thought)
+      .map((p: any) => p.text ?? '')
       .join('') ?? '';
 
   console.log('[compare] raw text:', text.slice(0, 800));

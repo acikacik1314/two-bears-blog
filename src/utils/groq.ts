@@ -50,12 +50,9 @@ export async function callGroq(
         continue
       }
 
-      if (res.status === 429 || res.status === 401 || res.status === 403) continue
-      if (res.status === 404) break  // model not found → try next
-
-      if (!res.ok) {
-        return { ok: false, status: res.status, text: `AI連線失敗 (${res.status})，請稍後再試。` }
-      }
+      if (res.status === 429 || res.status === 401 || res.status === 403) continue  // rate limit / bad key → try next key
+      if (res.status === 404) break  // model not found → try next model
+      if (res.status === 500 || res.status === 502 || res.status === 503 || res.status === 529) continue  // server error → try next key/model
 
       const data = await res.json()
       const text = (data?.choices?.[0]?.message?.content ?? '').trim()

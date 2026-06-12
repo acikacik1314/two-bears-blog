@@ -4,24 +4,387 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<!doctype html>
+<style is:global>
+html body {
+  background: #0f0a1e;
+  color: #e2e8f0;
+}
+
+.fp-main {
+  max-width: 720px;
+  margin: auto;
+  padding: 2em 1.2em 5em;
+}
+
+/* Hero */
+.fp-hero {
+  text-align: center;
+  padding: 2.5em 0 2em;
+}
+.fp-badge {
+  display: inline-block;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a78bfa;
+  background: rgba(167,139,250,.1);
+  border: 1px solid rgba(167,139,250,.25);
+  border-radius: 20px;
+  padding: 0.3em 1.1em;
+  margin-bottom: 0.8em;
+}
+.fp-hero h1 {
+  font-size: 2.2em;
+  margin: 0 0 0.3em;
+  background: linear-gradient(135deg, #a78bfa, #e879f9, #E8920A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+.fp-sub {
+  color: #94a3b8;
+  font-size: 0.9em;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Sections */
+.ft-section {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(167,139,250,.2);
+  border-left: 4px solid #7e22ce;
+  border-radius: 16px;
+  padding: 1.8em 2em;
+  margin-bottom: 2em;
+}
+.ft-section-iching { border-left-color: #0ea5e9; }
+
+.ft-sec-title {
+  font-size: 1.1em;
+  font-weight: 800;
+  color: #e2e8f0;
+  margin-bottom: 0.3em;
+}
+.ft-sec-sub {
+  font-size: 0.82em;
+  color: #64748b;
+  margin: 0 0 1.2em;
+}
+
+/* Form */
+.ft-form { margin-top: 1.2em; }
+.ft-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.8em;
+  margin-bottom: 1em;
+}
+.ft-field { display: flex; flex-direction: column; gap: 0.3em; }
+.ft-field-full { margin-bottom: 1em; }
+.ft-field label {
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #94a3b8;
+}
+.ft-field input,
+.ft-field select {
+  padding: 0.55em 0.75em;
+  border: 1.5px solid rgba(167,139,250,.25);
+  border-radius: 8px;
+  font-size: 0.88em;
+  font-family: inherit;
+  background: rgba(255,255,255,.06);
+  color: #e2e8f0;
+  transition: border-color .15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ft-field input:focus,
+.ft-field select:focus {
+  outline: none;
+  border-color: #a78bfa;
+}
+.ft-field select option { background: #1e1b4b; color: #e2e8f0; }
+
+.ft-btn {
+  padding: 0.75em 2em;
+  background: linear-gradient(135deg, #7e22ce, #a855f7);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95em;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity .15s;
+}
+.ft-btn-iching { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+.ft-btn:hover { opacity: 0.88; }
+.ft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ft-note {
+  font-size: 0.72em;
+  color: #475569;
+  margin-top: 1em;
+}
+
+/* Loading */
+.ft-loading {
+  text-align: center;
+  padding: 2em 1em;
+  color: #a78bfa;
+}
+.ft-loading-main {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0.5em 0 0.2em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.ft-loading-year {
+  font-size: 0.8em;
+  color: #64748b;
+  letter-spacing: 0.2em;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Result */
+.ft-result { margin-top: 1.5em; }
+
+/* 開場白 */
+.ft-opening {
+  font-style: italic;
+  color: #c4b5fd;
+  font-size: 0.95em;
+  line-height: 1.8;
+  padding: 0.8em 1em;
+  border-left: 3px solid #7e22ce;
+  margin-bottom: 1.2em;
+  background: rgba(126,34,206,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Three timelines grid */
+.timelines-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8em;
+  margin-bottom: 1.2em;
+}
+@media (min-width: 560px) {
+  .timelines-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.timeline-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(167,139,250,.15);
+  border-radius: 12px;
+  padding: 1em 0.9em;
+}
+.tl-icon { font-size: 1.3em; margin-bottom: 0.3em; }
+.tl-label {
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #a78bfa;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+.tl-text {
+  font-size: 0.85em;
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+
+/* Cross reference */
+.ft-cross {
+  background: linear-gradient(135deg, rgba(126,34,206,.12), rgba(232,146,10,.08));
+  border: 1px solid rgba(232,146,10,.3);
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  margin-bottom: 1.2em;
+}
+.cross-label {
+  font-size: 0.75em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #E8920A;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+}
+.cross-text {
+  font-size: 0.92em;
+  color: #e2e8f0;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+/* Energy bars */
+.ft-energy {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(167,139,250,.15);
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  margin-bottom: 1.2em;
+}
+.energy-title {
+  font-size: 0.75em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #a78bfa;
+  margin-bottom: 0.8em;
+  text-transform: uppercase;
+}
+.energy-item { margin-bottom: 0.75em; }
+.energy-item:last-child { margin-bottom: 0; }
+.energy-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82em;
+  color: #94a3b8;
+  margin-bottom: 0.3em;
+}
+.energy-score { color: #e2e8f0; font-weight: 700; }
+.energy-track {
+  height: 7px;
+  background: rgba(255,255,255,.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.energy-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7e22ce, #a855f7, #E8920A);
+  width: 0%;
+  transition: width 1s cubic-bezier(.4,0,.2,1);
+}
+
+/* Key reminder */
+.ft-remind {
+  background: rgba(232,146,10,.08);
+  border: 1px solid rgba(232,146,10,.3);
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  margin-bottom: 1.2em;
+}
+.remind-label {
+  font-size: 0.75em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #E8920A;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+}
+.remind-text {
+  font-size: 0.9em;
+  color: #fde68a;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+/* Closing */
+.ft-closing {
+  text-align: center;
+  font-size: 0.85em;
+  color: #64748b;
+  font-style: italic;
+  padding: 0.5em 0 1em;
+}
+
+/* CTA */
+.ft-cta {
+  text-align: center;
+  padding: 1.2em;
+  border-top: 1px solid rgba(167,139,250,.15);
+  margin-top: 0.5em;
+}
+.ft-cta p {
+  font-size: 0.82em;
+  color: #64748b;
+  margin: 0 0 0.7em;
+}
+.ft-oracle-btn {
+  display: inline-block;
+  padding: 0.6em 1.6em;
+  background: rgba(126,34,206,.2);
+  border: 1px solid rgba(167,139,250,.35);
+  border-radius: 999px;
+  color: #c4b5fd;
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 700;
+  transition: background .15s;
+}
+.ft-oracle-btn:hover { background: rgba(126,34,206,.35); }
+
+/* Fallback plain result */
+.ft-result-plain {
+  font-size: 0.9em;
+  line-height: 1.85;
+  color: #cbd5e1;
+}
+.ft-result-plain p { margin: 0 0 0.7em; }
+
+/* iching result */
+.ic-result-body {
+  font-size: 0.9em;
+  line-height: 1.85;
+  color: #cbd5e1;
+}
+.ic-result-body p { margin: 0 0 0.7em; }
+.ic-dice {
+  font-size: 1.5em;
+  display: inline-block;
+}
+.ft-result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+.ft-result-label {
+  font-size: 0.9em;
+  font-weight: 800;
+  color: #e2e8f0;
+}
+
+/* Reveal animation */
+.tl-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.tl-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .ft-section { padding: 1.2em 1.1em; }
+  .ft-row { grid-template-columns: 1fr; }
+  .fp-hero h1 { font-size: 1.7em; }
+}
+</style>
+
 <html lang="zh-TW">
 <head>
-  <BaseHead title="命理分析中心 — 兩隻熊" description="AI驅動的西洋星座、紫微斗數、卜卦易經綜合命理分析" />
+  <BaseHead title="🔮 未來人預言家 — 兩隻熊時間線直斷" description="從 2055 年回來的未來人，交叉比對星座、紫微、易經三條時間線，找出最可能成真的未來。兩隻熊頻道獨家 AI 命理體驗。" />
 </head>
 <body>
 <Header />
 <main class="fp-main">
 
   <div class="fp-hero">
-    <div class="fp-badge">✦ AI 命理分析中心</div>
-    <h1>🔮 命理分析中心</h1>
-    <p class="fp-sub">整合西洋星座・紫微斗數・卜卦易經<br/>輸入資料即獲 AI 量身直斷</p>
+    <div class="fp-badge">✦ 未來人預言家 · 兩隻熊獨家</div>
+    <h1>🔮 時間線直斷</h1>
+    <p class="fp-sub">我從 2055 年翻閱了你的三條時間線殘影<br/>星座 × 紫微 × 易經，交叉比對，找出最可能成真的未來</p>
   </div>
 
   <!-- ══════════════ 綜合命理分析 ══════════════ -->
   <section class="ft-section">
-    <div class="ft-sec-title">✨ 綜合命理分析</div>
+    <div class="ft-sec-title">🌌 翻閱我的時間線</div>
 
     <div class="ft-form">
       <div class="ft-row">
@@ -52,24 +415,79 @@ import Footer from '../components/Footer.astro';
           </select>
         </div>
       </div>
-      <button class="ft-btn" id="ft-submit">✨ 開始分析</button>
+      <button class="ft-btn" id="ft-submit">🔮 翻閱我的時間線</button>
     </div>
 
+    <!-- Loading -->
+    <div class="ft-loading" id="ft-loading" style="display:none">
+      <div style="font-size:2em">⏳</div>
+      <p class="ft-loading-main">未來人正在翻閱你的時間線殘影…</p>
+      <p class="ft-loading-year">2055 → 2026</p>
+    </div>
+
+    <!-- Result -->
     <div class="ft-result" id="ft-result" style="display:none">
-      <div class="ft-result-header">
-        <span class="ft-result-icon">🔮</span>
-        <span class="ft-result-label" id="ft-result-label">專屬你的亂世流年直斷</span>
+
+      <!-- 開場白 -->
+      <div class="ft-opening tl-reveal" id="ft-opening"></div>
+
+      <!-- 三條時間線 -->
+      <div class="timelines-grid tl-reveal" id="ft-timelines">
+        <div class="timeline-card">
+          <div class="tl-icon">⭐</div>
+          <div class="tl-label">星座時間線</div>
+          <div class="tl-text" id="tl-zodiac"></div>
+        </div>
+        <div class="timeline-card">
+          <div class="tl-icon">☯</div>
+          <div class="tl-label">紫微時間線</div>
+          <div class="tl-text" id="tl-ziwei"></div>
+        </div>
+        <div class="timeline-card">
+          <div class="tl-icon">🎯</div>
+          <div class="tl-label">易經時間線</div>
+          <div class="tl-text" id="tl-iching-tl"></div>
+        </div>
       </div>
-      <div class="ft-result-body" id="ft-result-body"></div>
+
+      <!-- 交叉指向 -->
+      <div class="ft-cross tl-reveal" id="ft-cross">
+        <div class="cross-label">🔗 交叉指向</div>
+        <div class="cross-text" id="ft-cross-text"></div>
+      </div>
+
+      <!-- 四維能量 -->
+      <div class="ft-energy tl-reveal" id="ft-energy">
+        <div class="energy-title">⚡ 四維能量</div>
+        <div id="ft-energy-bars"></div>
+      </div>
+
+      <!-- 關鍵提醒 -->
+      <div class="ft-remind tl-reveal" id="ft-remind">
+        <div class="remind-label">⚠️ 關鍵提醒</div>
+        <div class="remind-text" id="ft-remind-text"></div>
+      </div>
+
+      <!-- 結語 -->
+      <div class="ft-closing tl-reveal" id="ft-closing">
+        這是其中一條時間線，未來仍在你手上。
+      </div>
+
+      <!-- CTA -->
+      <div class="ft-cta tl-reveal" id="ft-cta">
+        <p>想看整個世界的時間線？</p>
+        <a href="/oracle" class="ft-oracle-btn">🔮 兩隻熊末日觀測站 →</a>
+      </div>
+
     </div>
 
-    <p class="ft-note">✦ 本工具僅供娛樂參考，不代表真實命理占卜</p>
+    <p class="ft-note">✦ 本工具僅供娛樂參考，不代表真實命理占卜。未來人不對健康、財務、法律給予專業建議。</p>
   </section>
 
   <!-- ══════════════ 卜卦易經 ══════════════ -->
   <section class="ft-section ft-section-iching">
     <div class="ft-sec-title">🔯 卜卦易經</div>
-    <p class="ft-sec-sub">心誠則靈，靜心一問，AI 以易經智慧直接指點迷津</p>
+    <p class="ft-sec-sub">心誠則靈，靜心一問，未來人在時間線上為你擲出卦象指引</p>
 
     <div class="ft-form">
       <div class="ft-field ft-field-full">
@@ -79,12 +497,12 @@ import Footer from '../components/Footer.astro';
       <button class="ft-btn ft-btn-iching" id="ic-cast">🎲 擲卦</button>
     </div>
 
-    <div class="ft-result" id="ic-result" style="display:none">
+    <div id="ic-result" style="display:none; margin-top:1.5em;">
       <div class="ft-result-header">
         <span class="ic-dice" id="ic-dice">🎲</span>
-        <span class="ft-result-label">易經直斷</span>
+        <span class="ft-result-label">未來人的卦象指引</span>
       </div>
-      <div class="ft-result-body" id="ic-result-body"></div>
+      <div class="ic-result-body" id="ic-result-body"></div>
     </div>
   </section>
 
@@ -94,280 +512,182 @@ import Footer from '../components/Footer.astro';
 </html>
 
 <script>
-  /* ── 綜合命理分析 ── */
-  document.getElementById('ft-submit')?.addEventListener('click', async () => {
-    const bdate = (document.getElementById('ft-bdate') as HTMLInputElement).value
-    if (!bdate) { alert('請輸入出生年月日'); return }
+/* ── 工具 ── */
+function parseSection(text: string, label: string): string {
+  const re = new RegExp(`【${label}】([\\s\\S]*?)(?=【|$)`)
+  const m = text.match(re)
+  return m ? m[1].trim() : ''
+}
 
-    const name  = (document.getElementById('ft-name') as HTMLInputElement).value
-    const hour  = parseInt((document.getElementById('ft-hour') as HTMLSelectElement).value)
-    const btn   = document.getElementById('ft-submit') as HTMLButtonElement
-    const res   = document.getElementById('ft-result')!
-    const body  = document.getElementById('ft-result-body')!
-    const label = document.getElementById('ft-result-label')!
+function parseScores(energyText: string): Array<{label: string; score: number}> {
+  return energyText
+    .split('\n')
+    .map(line => {
+      const m = line.trim().match(/^([^:：]+)[：:](\d+)/)
+      if (!m) return null
+      return { label: m[1].trim(), score: Math.min(10, Math.max(1, parseInt(m[2]))) }
+    })
+    .filter(Boolean) as Array<{label: string; score: number}>
+}
 
-    btn.disabled = true
-    btn.textContent = '⏳ AI 解析中…'
-    res.style.display = 'none'
+function renderBars(scores: Array<{label: string; score: number}>): string {
+  const icons: Record<string, string> = { 事業: '💼', 財富: '💰', 感情: '💕', 健康: '🌱' }
+  return scores.map(({ label, score }) => `
+    <div class="energy-item">
+      <div class="energy-meta">
+        <span>${icons[label] || '✦'} ${label}</span>
+        <span class="energy-score">${score} / 10</span>
+      </div>
+      <div class="energy-track">
+        <div class="energy-fill" data-w="${score * 10}"></div>
+      </div>
+    </div>
+  `).join('')
+}
 
-    try {
-      const r = await fetch('/api/fortune-analysis', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, birthday: bdate, hour }),
-      })
-      const d = await r.json()
+function setText(id: string, text: string) {
+  const el = document.getElementById(id)
+  if (el) el.textContent = text
+}
 
-      const nameStr = name.trim() || '你'
-      label.textContent = `🔮 ${nameStr} 的專屬命理直斷`
-      body.innerHTML = formatText(d.answer ?? '無法獲得回應，請稍後再試。')
-      res.style.display = 'block'
-      res.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } catch {
-      body.innerHTML = '<p style="color:#991b1b">⚠️ 連線失敗，請稍後再試。</p>'
-      res.style.display = 'block'
-    } finally {
-      btn.disabled = false
-      btn.textContent = '✨ 開始分析'
-    }
+function reveal(ids: string[]) {
+  ids.forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (!el) return
+      el.classList.add('visible')
+      if (id === 'ft-energy') {
+        el.querySelectorAll<HTMLElement>('.energy-fill').forEach(bar => {
+          bar.style.width = (bar.dataset.w ?? '0') + '%'
+        })
+      }
+    }, i * 180)
   })
+}
 
-  /* ── 卜卦易經 ── */
-  document.getElementById('ic-cast')?.addEventListener('click', async () => {
-    const question = (document.getElementById('ic-question') as HTMLInputElement).value
-    const btn      = document.getElementById('ic-cast') as HTMLButtonElement
-    const res      = document.getElementById('ic-result')!
-    const body     = document.getElementById('ic-result-body')!
-    const dice     = document.getElementById('ic-dice')!
+function formatText(text: string): string {
+  return text.split('\n').map(l => l.trim()).filter(Boolean).map(l => `<p>${l}</p>`).join('')
+}
 
-    btn.disabled = true
-    btn.textContent = '🎲 擲卦中…'
-    res.style.display = 'none'
+/* ── 綜合命理分析 ── */
+document.getElementById('ft-submit')?.addEventListener('click', async () => {
+  const bdate = (document.getElementById('ft-bdate') as HTMLInputElement).value
+  if (!bdate) { alert('請輸入出生年月日'); return }
 
-    // Dice rolling animation
-    const DICE_FRAMES = ['⚀','⚁','⚂','⚃','⚄','⚅']
-    let frame = 0
-    const anim = setInterval(() => {
-      dice.textContent = DICE_FRAMES[frame % DICE_FRAMES.length]
-      frame++
-    }, 100)
+  const name  = (document.getElementById('ft-name') as HTMLInputElement).value
+  const hour  = parseInt((document.getElementById('ft-hour') as HTMLSelectElement).value)
+  const btn   = document.getElementById('ft-submit') as HTMLButtonElement
+  const loading = document.getElementById('ft-loading')!
+  const result  = document.getElementById('ft-result')!
 
-    try {
-      const r = await fetch('/api/iching-cast', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
-      })
-      const d = await r.json()
+  btn.disabled = true
+  btn.textContent = '⏳ 翻閱中…'
+  result.style.display = 'none'
+  loading.style.display = 'block'
 
-      clearInterval(anim)
-      dice.textContent = '☯'
-      body.innerHTML = formatText(d.answer ?? '無法獲得回應，請稍後再試。')
-      res.style.display = 'block'
-      res.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } catch {
-      clearInterval(anim)
-      dice.textContent = '🎲'
-      body.innerHTML = '<p style="color:#991b1b">⚠️ 連線失敗，請稍後再試。</p>'
-      res.style.display = 'block'
-    } finally {
-      btn.disabled = false
-      btn.textContent = '🎲 擲卦'
+  // Reset reveal states
+  document.querySelectorAll('.tl-reveal').forEach(el => el.classList.remove('visible'))
+
+  try {
+    const r = await fetch('/api/fortune-analysis', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, birthday: bdate, hour }),
+    })
+    const d = await r.json()
+    const answer: string = d.answer ?? ''
+
+    loading.style.display = 'none'
+    result.style.display = 'block'
+
+    const opening  = parseSection(answer, '未來人開場')
+    const zodiac   = parseSection(answer, '星座時間線')
+    const ziwei    = parseSection(answer, '紫微時間線')
+    const ichingTl = parseSection(answer, '易經時間線')
+    const cross    = parseSection(answer, '交叉指向')
+    const energy   = parseSection(answer, '四維能量')
+    const remind   = parseSection(answer, '關鍵提醒')
+
+    const hasSections = opening || zodiac || cross || energy
+
+    if (!hasSections) {
+      // Fallback: plain text
+      const body = document.getElementById('ft-opening')!
+      body.className = 'ft-result-plain tl-reveal'
+      body.innerHTML = formatText(answer)
+      document.getElementById('ft-timelines')!.style.display = 'none'
+      document.getElementById('ft-cross')!.style.display = 'none'
+      document.getElementById('ft-energy')!.style.display = 'none'
+      document.getElementById('ft-remind')!.style.display = 'none'
+    } else {
+      const openEl = document.getElementById('ft-opening')!
+      openEl.className = 'ft-opening tl-reveal'
+      openEl.textContent = opening
+      setText('tl-zodiac', zodiac)
+      setText('tl-ziwei', ziwei)
+      setText('tl-iching-tl', ichingTl)
+      setText('ft-cross-text', cross)
+      document.getElementById('ft-energy-bars')!.innerHTML = renderBars(parseScores(energy))
+      setText('ft-remind-text', remind)
+
+      document.getElementById('ft-timelines')!.style.display = ''
+      document.getElementById('ft-cross')!.style.display = ''
+      document.getElementById('ft-energy')!.style.display = ''
+      document.getElementById('ft-remind')!.style.display = ''
     }
-  })
 
-  function formatText(text: string): string {
-    return text
-      .split('\n')
-      .map(line => line.trim())
-      .filter(Boolean)
-      .map(line => `<p>${line}</p>`)
-      .join('')
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    reveal(['ft-opening', 'ft-timelines', 'ft-cross', 'ft-energy', 'ft-remind', 'ft-closing', 'ft-cta'])
+
+  } catch {
+    loading.style.display = 'none'
+    result.style.display = 'block'
+    const body = document.getElementById('ft-opening')!
+    body.className = 'ft-result-plain tl-reveal'
+    body.innerHTML = '<p style="color:#991b1b">⚠️ 連線失敗，請稍後再試。</p>'
+    reveal(['ft-opening'])
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🔮 翻閱我的時間線'
   }
+})
+
+/* ── 卜卦易經 ── */
+document.getElementById('ic-cast')?.addEventListener('click', async () => {
+  const question = (document.getElementById('ic-question') as HTMLInputElement).value
+  const btn  = document.getElementById('ic-cast') as HTMLButtonElement
+  const res  = document.getElementById('ic-result')!
+  const body = document.getElementById('ic-result-body')!
+  const dice = document.getElementById('ic-dice')!
+
+  btn.disabled = true
+  btn.textContent = '🎲 擲卦中…'
+  res.style.display = 'none'
+
+  const FRAMES = ['⚀','⚁','⚂','⚃','⚄','⚅']
+  let frame = 0
+  const anim = setInterval(() => { dice.textContent = FRAMES[frame++ % FRAMES.length] }, 100)
+
+  try {
+    const r = await fetch('/api/iching-cast', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question }),
+    })
+    const d = await r.json()
+    clearInterval(anim)
+    dice.textContent = '☯'
+    body.innerHTML = formatText(d.answer ?? '無法獲得回應，請稍後再試。')
+    res.style.display = 'block'
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  } catch {
+    clearInterval(anim)
+    dice.textContent = '🎲'
+    body.innerHTML = '<p style="color:#991b1b">⚠️ 連線失敗，請稍後再試。</p>'
+    res.style.display = 'block'
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🎲 擲卦'
+  }
+})
 </script>
-
-<style>
-  .fp-main {
-    max-width: 720px;
-    margin: auto;
-    padding: 2em 1.2em 5em;
-  }
-
-  .fp-hero {
-    text-align: center;
-    padding: 2.5em 0 2em;
-  }
-
-  .fp-badge {
-    display: inline-block;
-    font-size: 0.72em;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #7e22ce;
-    background: rgba(126,34,206,.08);
-    border: 1px solid rgba(126,34,206,.2);
-    border-radius: 20px;
-    padding: 0.3em 1em;
-    margin-bottom: 0.8em;
-  }
-
-  .fp-hero h1 {
-    font-size: 2em;
-    margin: 0 0 0.3em;
-    background: linear-gradient(135deg, #7e22ce, #db2777);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .fp-sub {
-    color: #64748b;
-    font-size: 0.9em;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* Sections */
-  .ft-section {
-    background: #fff;
-    border: 1px solid rgba(126,34,206,.15);
-    border-left: 4px solid #7e22ce;
-    border-radius: 14px;
-    padding: 1.8em 2em;
-    margin-bottom: 2em;
-  }
-
-  .ft-section-iching {
-    border-left-color: #0ea5e9;
-  }
-
-  .ft-sec-title {
-    font-size: 1.1em;
-    font-weight: 800;
-    color: #1e1b4b;
-    margin-bottom: 0.3em;
-  }
-
-  .ft-sec-sub {
-    font-size: 0.82em;
-    color: #64748b;
-    margin: 0 0 1.2em;
-  }
-
-  /* Form */
-  .ft-form { margin-top: 1.2em; }
-
-  .ft-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.8em;
-    margin-bottom: 1em;
-  }
-
-  .ft-field { display: flex; flex-direction: column; gap: 0.3em; }
-  .ft-field-full { margin-bottom: 1em; }
-
-  .ft-field label {
-    font-size: 0.78em;
-    font-weight: 600;
-    color: #374151;
-  }
-
-  .ft-field input,
-  .ft-field select {
-    padding: 0.55em 0.75em;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 8px;
-    font-size: 0.88em;
-    font-family: inherit;
-    background: #f9fafb;
-    color: #111827;
-    transition: border-color .15s;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .ft-field input:focus,
-  .ft-field select:focus {
-    outline: none;
-    border-color: #7e22ce;
-    background: #fff;
-  }
-
-  .ft-btn {
-    padding: 0.7em 2em;
-    background: linear-gradient(135deg, #7e22ce, #a855f7);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.95em;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: inherit;
-    transition: opacity .15s;
-  }
-
-  .ft-btn-iching {
-    background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-  }
-
-  .ft-btn:hover { opacity: 0.88; }
-  .ft-btn:disabled { opacity: 0.55; cursor: not-allowed; }
-
-  .ft-note {
-    font-size: 0.72em;
-    color: #9ca3af;
-    margin-top: 1em;
-  }
-
-  /* Result */
-  .ft-result {
-    margin-top: 1.5em;
-    background: linear-gradient(135deg, rgba(88,28,135,.05), rgba(219,39,119,.03));
-    border: 1px solid rgba(126,34,206,.18);
-    border-radius: 12px;
-    padding: 1.4em 1.6em;
-    animation: fadeIn .4s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .ft-result-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    margin-bottom: 1em;
-  }
-
-  .ft-result-icon { font-size: 1.3em; }
-
-  .ic-dice {
-    font-size: 1.5em;
-    display: inline-block;
-    transition: transform .1s;
-  }
-
-  .ft-result-label {
-    font-size: 0.9em;
-    font-weight: 800;
-    color: #1e1b4b;
-  }
-
-  .ft-result-body {
-    font-size: 0.9em;
-    line-height: 1.85;
-    color: #1e293b;
-  }
-
-  .ft-result-body :global(p) {
-    margin: 0 0 0.7em;
-  }
-
-  @media (max-width: 600px) {
-    .ft-section { padding: 1.2em 1.1em; }
-    .ft-row { grid-template-columns: 1fr; }
-  }
-</style>

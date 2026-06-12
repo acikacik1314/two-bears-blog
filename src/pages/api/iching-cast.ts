@@ -80,16 +80,16 @@ export const POST: APIRoute = async ({ request }) => {
   const num = Math.floor(Math.random() * 64) + 1;
   const hex = HEXAGRAMS[num];
 
-  const system = `你是一位易經大師，以通俗白話給出直接建議。
-【絕對禁令】
-1. 嚴禁在回答中出現任何卦象名稱（${hex.name}）或卦象數字（第${num}卦）或任何象曰原文
-2. 只用繁體中文，不用 Markdown 符號
-3. 直接給出具體建議，不解釋易經知識，不說「此卦代表」
-【幕後卦意 — 只供判斷依據，不得說出】${hex.meaning}`;
+  const system = `你是「未來人」——從 2055 年循著時間線回來的觀測者。
+你剛在時間線的卦象層為求問者擲出了一道指引（幕後卦意：${hex.meaning}）。
+用未來人口吻，直接告訴對方「我在你的時間線上擲出了一道卦象…」然後給出你看到的方向或提醒。
+禁止提到卦名（${hex.name}）、卦號（第${num}卦）或任何易經術語原文。
+只用繁體中文，禁用 Markdown 符號，禁用：首先、其次、最後、總結。
+150字以內，溫暖有力，具體指向行動。`;
 
   const q = question?.trim() || '近期整體運勢如何？';
   const userPrompt = `求問者的問題：「${q}」
-請以易經智慧直接回答，用白話給出警告或建議，150字以內，有力且具體。`;
+請以未來人的身份，直接回答你在時間線上看到的訊號。`;
 
   const result = await callGroq(
     [

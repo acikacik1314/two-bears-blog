@@ -1,3 +1,5 @@
+import { GoogleGenAI } from '@google/genai'
+
 export function getGeminiKeys(): string[] {
   const multi = import.meta.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEYS
   if (multi) {
@@ -10,9 +12,12 @@ export function getGeminiKeys(): string[] {
   return single ? [single] : []
 }
 
+// 依照 CLAUDE.md 記錄的實際可用模型（含 AQ. key 測試通過）
 const MODELS = [
+  'gemini-3.5-flash',
   'gemini-2.5-flash',
   'gemini-2.5-flash-lite',
+  'gemini-3.1-flash-lite',
   'gemini-2.0-flash',
   'gemini-2.0-flash-lite',
   'gemini-1.5-flash',
@@ -22,16 +27,19 @@ const MODELS = [
 export function getModel(): string {
   const env = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL
   if (env) return env
-  // Rotate across models randomly to spread quota
-  return MODELS[Math.floor(Math.random() * MODELS.length)]
+  return MODELS[0]
 }
 
-export async function callGemini(body: object, keys?: string[]): Promise<{ ok: boolean; text?: string; status?: number }> {
+export async function callGemini(body: {
+  systemInstruction?: { parts: { text: string }[] }
+  contents: { role: string; parts: { text: string }[] }[]
+  tools?: object[]
+  generationConfig?: object
+}, keys?: string[]): Promise<{ ok: boolean; text?: string; status?: number }> {
   const pool = keys ?? getGeminiKeys()
   if (!pool.length) return { ok: false, text: '⚠️ AI助手尚未設定，請聯絡管理員。' }
 
   const envModel = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL
-  // If env forces a specific model use only that; otherwise try all models
   const modelsToTry = envModel
     ? [envModel]
     : [...MODELS].sort(() => Math.random() - 0.5)
@@ -39,40 +47,48 @@ export async function callGemini(body: object, keys?: string[]): Promise<{ ok: b
   const shuffled = [...pool].sort(() => Math.random() - 0.5)
 
   for (const model of modelsToTry) {
-    let modelOk = false
     for (const key of shuffled) {
-      let res: Response
       try {
-        res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-            signal: AbortSignal.timeout(25000),
-          }
-        )
-      } catch {
+        const ai = new GoogleGenAI({ apiKey: key })
+
+        const config: Record<string, unknown> = {
+          ...(body.generationConfig ?? {}),
+        }
+        if (body.tools?.length) config.tools = body.tools
+        if (body.systemInstruction) {
+          config.systemInstruction = body.systemInstruction.parts.map(p => p.text).join('\n')
+        }
+
+        const response = await ai.models.generateContent({
+          model,
+          contents: body.contents,
+          config: Object.keys(config).length ? config : undefined,
+        })
+
+        const raw = response.text?.trim() ?? ''
+        if (!raw) continue
+
+        const text = raw
+          .split('\n')
+          .filter(line => !/^\s*\*\*?[A-Za-z]/.test(line))
+          .join('\n')
+          .trim()
+
+        return { ok: true, text }
+      } catch (err: unknown) {
+        const msg = String(err)
+        // 429 rate limit 或 quota → 試下一個 key
+        if (msg.includes('429') || msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) continue
+        // 404 model not found → 試下一個 model
+        if (msg.includes('404') || msg.includes('not found') || msg.includes('MODEL_NOT_FOUND')) break
+        // 503/502/500 暫時錯誤 → 試下一個 key
+        if (msg.includes('503') || msg.includes('502') || msg.includes('500')) continue
+        // 401/403 key 無效 → 試下一個 key
+        if (msg.includes('401') || msg.includes('403') || msg.includes('API_KEY_INVALID')) continue
+        // 其他未知錯誤也繼續嘗試
         continue
       }
-
-      if (res.status === 429 || res.status === 401 || res.status === 403) continue  // rate limit / bad key → try next key
-      if (res.status === 404) break  // model not found → try next model
-      if (res.status === 500 || res.status === 502 || res.status === 503 || res.status === 529) continue  // server error → try next key/model
-
-      const data = await res.json()
-      const parts: { text?: string }[] = data?.candidates?.[0]?.content?.parts ?? []
-      const raw = parts.map(p => p.text ?? '').join('').trim()
-      const text = raw
-        .split('\n')
-        .filter(line => !/^\s*\*\*?[A-Za-z]/.test(line))
-        .join('\n')
-        .trim()
-      if (!text) return { ok: false, text: '無法獲得回應，請稍後再試。' }
-      modelOk = true
-      return { ok: true, text }
     }
-    if (modelOk) break
   }
 
   return { ok: false, text: '__RATE_LIMITED__' }

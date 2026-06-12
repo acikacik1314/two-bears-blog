@@ -13,9 +13,6 @@ import Footer from '../components/Footer.astro';
   --paper: #FFFFFF;
   --line: #EADFC8;
   --muted: #5C4A35;
-  --agoda: #D32F2F;
-  --booking: #0D47A1;
-  --trip: #1565C0;
 }
 * { box-sizing: border-box; }
 html body {
@@ -31,29 +28,60 @@ html body {
 .hero { text-align: center; padding: 32px 8px 8px; }
 .hero-eyebrow { letter-spacing: .35em; font-size: .8rem; color: #5C4A35; margin: 0 0 8px; }
 .hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 14px; font-weight: 900; color: #3B2A1E; }
-.amber { color: var(--honey); }
-.hero-sub { color: #5C4B3A; font-size: .95rem; max-width: 640px; margin: 0 auto; }
+.amber { color: #E8920A; }
+.hero-sub { color: #5C4B3A; font-size: .95rem; max-width: 600px; margin: 0 auto; }
 .desktop-only { display: none; }
 @media (min-width: 720px) { .desktop-only { display: inline; } }
 
 /* cards */
 .card {
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: #FFFFFF;
+  border: 1px solid #EADFC8;
   border-radius: 20px;
   padding: 24px 20px;
   margin-top: 24px;
   box-shadow: 0 4px 16px rgba(59, 42, 30, .05);
 }
 .card h2 { font-size: 1.15rem; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: #3B2A1E; }
-.step-tag {
-  background: #3B2A1E; color: #FFF8EC;
-  font-size: .72rem; padding: 3px 10px; border-radius: 999px; letter-spacing: .1em;
-}
 .muted { color: #5C4A35; font-size: .88rem; margin-top: -4px; }
 
+/* search bar */
+.search-row {
+  display: flex; gap: 10px; align-items: stretch;
+}
+.search-input {
+  flex: 1; min-width: 0;
+  border: 2px solid #EADFC8; border-radius: 14px; padding: 13px 16px;
+  font-size: 1rem; background: #FFF8EC; color: #3B2A1E; font-family: inherit;
+  transition: border-color .15s;
+}
+.search-input:focus { outline: none; border-color: #E8920A; }
+.search-input::placeholder { color: #9C8870; }
+.btn-search {
+  white-space: nowrap; border: none; border-radius: 14px; padding: 13px 22px;
+  font-size: 1rem; font-weight: 900; cursor: pointer; font-family: inherit;
+  background: #E8920A; color: #fff; transition: background .15s, transform .1s;
+}
+.btn-search:hover { background: #C2740A; }
+.btn-search:active { transform: scale(.97); }
+
+/* date row */
+.date-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+}
+@media (min-width: 560px) { .date-row { grid-template-columns: repeat(4, 1fr); } }
+.date-field { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; font-weight: 700; color: #3B2A1E; }
+.date-field input, .date-field select {
+  border: 1.5px solid #EADFC8; border-radius: 10px; padding: 9px 10px;
+  font-size: .9rem; background: #FFF8EC; color: #3B2A1E; font-family: inherit;
+}
+.date-field input:focus, .date-field select:focus { outline: 2px solid #E8920A; border-color: #E8920A; }
+
+/* hint */
+.hint { color: #D32F2F; font-size: .85rem; margin: 8px 0 0; }
+
 /* chips */
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
 .chip {
   border: 1px solid #EADFC8; background: #FFF8EC; color: #3B2A1E;
   border-radius: 999px; padding: 6px 14px; font-size: .85rem; cursor: pointer;
@@ -62,40 +90,23 @@ html body {
 .chip:hover { border-color: #E8920A; }
 .chip.on { background: #E8920A; border-color: #E8920A; color: #fff; font-weight: 700; }
 
-/* form */
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.field { display: flex; flex-direction: column; gap: 6px; font-size: .85rem; font-weight: 700; color: #3B2A1E; }
-.field-wide { grid-column: 1 / -1; }
-.field input, .field select {
-  border: 1.5px solid #EADFC8; border-radius: 12px; padding: 11px 12px;
-  font-size: 1rem; background: #FFF8EC; color: #3B2A1E; font-family: inherit;
+/* picks separator */
+.picks-sep {
+  display: flex; align-items: center; gap: 12px;
+  margin: 24px 0 12px; color: #5C4A35; font-size: .88rem;
 }
-.field input:focus, .field select:focus { outline: 2px solid var(--honey); border-color: var(--honey); }
-.stars { border: 1.5px dashed var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap; }
-.stars legend { padding: 0 6px; font-size: .85rem; }
-.stars label { font-weight: 400; display: flex; align-items: center; gap: 6px; }
-.stars input { accent-color: var(--honey); width: 18px; height: 18px; }
-
-/* buttons */
-.btn-primary, .btn-secondary {
-  width: 100%; margin-top: 18px; border: none; border-radius: 14px;
-  padding: 15px; font-size: 1.05rem; font-weight: 900; cursor: pointer;
-  font-family: inherit; transition: transform .1s;
+.picks-sep::before, .picks-sep::after {
+  content: ''; flex: 1; border-top: 1px solid #EADFC8;
 }
-.btn-primary { background: var(--honey); color: #fff; }
-.btn-primary:hover { background: var(--honey-deep); }
-.btn-secondary { background: var(--cream); color: var(--bear); border: 1.5px solid var(--line); font-size: .92rem; }
-.btn-primary:active, .btn-secondary:active { transform: scale(.98); }
-.hint { color: var(--agoda); font-size: .85rem; margin: 10px 0 0; }
 
-/* 熊熊精選 */
-.picks-card { border: 2px solid var(--honey); }
+/* 熊熊精選 cards */
 .picks-grid { display: grid; gap: 14px; margin-top: 14px; }
 @media (min-width: 720px) { .picks-grid { grid-template-columns: 1fr 1fr; } }
 .pick {
-  background: var(--cream); border: 1.5px solid var(--line); border-radius: 16px;
+  background: #FFF8EC; border: 1.5px solid #EADFC8; border-radius: 16px;
   padding: 16px; display: flex; flex-direction: column; gap: 8px;
 }
+.pick:hover { border-color: #E8920A; }
 .pick-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .pick h3 { margin: 0; font-size: 1.02rem; color: #3B2A1E; }
 .pick-area { font-size: .78rem; color: #5C4A35; white-space: nowrap; }
@@ -107,64 +118,10 @@ html body {
 .pick-note { margin: 0; font-size: .88rem; color: #5C4B3A; flex: 1; }
 .pick-cta {
   align-self: flex-start; text-decoration: none; font-weight: 900; font-size: .92rem;
-  background: var(--honey); color: #fff; padding: 8px 16px; border-radius: 10px;
+  background: #E8920A; color: #fff; padding: 8px 16px; border-radius: 10px;
   transition: background .15s;
 }
-.pick-cta:hover { background: var(--honey-deep); }
-
-/* tripadvisor featured */
-.ta-featured {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  margin-top: 16px; padding: 18px 20px; text-decoration: none;
-  background: linear-gradient(135deg, #00424A, #00606B);
-  border-radius: 16px; color: #fff;
-  transition: transform .15s, box-shadow .15s;
-}
-.ta-featured:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 66, 74, .3); }
-.ta-left { display: flex; align-items: center; gap: 14px; }
-.ta-logo { font-size: 2rem; }
-.ta-name { display: block; font-weight: 900; font-size: 1.15rem; }
-.ta-desc { display: block; font-size: .82rem; opacity: .85; }
-.ta-cta { font-weight: 900; white-space: nowrap; color: #8AE8D2; }
-.sub-title { font-size: .95rem; margin: 26px 0 4px; color: #5C4A35; }
-
-/* platform cards */
-.platforms { display: grid; gap: 14px; margin-top: 16px; }
-@media (min-width: 720px) { .platforms { grid-template-columns: repeat(3, 1fr); } }
-.platform {
-  display: flex; flex-direction: column; gap: 10px;
-  border: 1.5px solid #EADFC8; border-radius: 16px; padding: 16px;
-  text-decoration: none; color: #3B2A1E; background: #FFF8EC;
-  transition: border-color .15s, transform .15s;
-}
-.platform:hover { transform: translateY(-2px); }
-.platform.agoda:hover { border-color: #D32F2F; }
-.platform.booking:hover { border-color: #0D47A1; }
-.platform.trip:hover { border-color: #1565C0; }
-.p-head { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.05rem; }
-.p-logo { font-size: 1.3rem; }
-.p-tips { margin: 0; padding-left: 18px; font-size: .82rem; color: #5C4B3A; flex: 1; }
-.p-tips li + li { margin-top: 4px; }
-.p-cta { font-weight: 900; font-size: .95rem; }
-.platform.agoda .p-cta { color: var(--agoda); }
-.platform.booking .p-cta { color: var(--booking); }
-.platform.trip .p-cta { color: var(--trip); }
-
-/* compare */
-.compare-grid { display: grid; gap: 14px; margin-top: 14px; }
-@media (min-width: 720px) { .compare-grid { grid-template-columns: repeat(3, 1fr); } }
-.result {
-  position: relative; margin-top: 20px; padding: 22px 18px 18px;
-  background: linear-gradient(135deg, #FFF3DC, #FFE9C2);
-  border: 2px solid var(--honey); border-radius: 16px; text-align: center;
-}
-.result-stamp {
-  position: absolute; top: -14px; left: 50%; transform: translateX(-50%) rotate(-3deg);
-  background: #3B2A1E; color: #FFF8EC; font-weight: 900;
-  padding: 4px 16px; border-radius: 999px; font-size: .85rem;
-}
-.result-winner { font-size: 1.25rem; font-weight: 900; margin: 6px 0 4px; color: #3B2A1E; }
-.result-detail { font-size: .9rem; color: #5C4B3A; margin: 0; }
+.pick-cta:hover { background: #C2740A; }
 
 /* checklist */
 .checklist ol { padding-left: 22px; margin: 0; }
@@ -182,8 +139,8 @@ html body {
 <html lang="zh-Hant">
 <head>
   <BaseHead
-    title="🐻 兩隻熊超省飯店比價器｜同條件三平台查價"
-    description="一鍵產生 Agoda、Booking.com、Trip.com 三平台「完全相同條件」的搜尋連結，自己看價、回填比價，找出真正最便宜的住宿。"
+    title="🐻 兩隻熊找飯店｜一鍵查 TripAdvisor 最低價"
+    description="輸入飯店名稱或目的地，TripAdvisor 聚合十多家訂房平台，一頁看完所有價格。也有兩隻熊親身挑選的精選飯店推薦。"
   />
 </head>
 <body>
@@ -194,159 +151,65 @@ html body {
     <!-- ============ HERO ============ -->
     <header class="hero">
       <p class="hero-eyebrow">兩隻熊的旅遊記事 · 省錢工具</p>
-      <h1>同條件 <span class="amber">三平台</span> 查價</h1>
+      <h1>找飯店，<span class="amber">一鍵查最低價</span></h1>
       <p class="hero-sub">
-        朋友，比價網站常常「比個寂寞」——日期不同、稅費不同、房型不同，根本沒得比。<br />
-        這裡幫你把<strong>同一個目的地、同一組日期、同樣人數和星級</strong>，一次帶到三個平台，<br class="desktop-only" />
-        打開就是公平對照，再用下面的比價器算出誰最便宜。
+        搜尋飯店名稱或目的地，TripAdvisor 幫你把 Agoda、Booking、Trip 等十多家平台的價格<br class="desktop-only" />
+        全部攤開來比，再也不用一個一個開。
       </p>
     </header>
 
-    <!-- ============ 熊熊精選 ============ -->
-    <section class="card picks-card" id="picks">
-      <h2>🐻 熊熊精選</h2>
-      <p class="muted">不是演算法排序，是兩隻熊一間一間挑出來的。點「比最低價」直接看這間在各平台的房價對照。</p>
+    <!-- ============ 搜尋 + 熊熊精選（合併） ============ -->
+    <section class="card">
+      <h2>🔍 查飯店最低價</h2>
 
-      <div class="chips" id="pickCities" aria-label="精選城市"></div>
-      <div class="picks-grid" id="pickList"></div>
-    </section>
-
-    <!-- ============ STEP 1 搜尋條件 ============ -->
-    <section class="card" id="step1">
-      <h2><span class="step-tag">步驟 1</span>設定你的旅程</h2>
-
-      <div class="chips" id="hotCities" aria-label="熱門城市快選">
-        <!-- JS 產生城市 chips -->
+      <!-- 搜尋列 -->
+      <div class="search-row">
+        <input type="text" id="searchInput" class="search-input"
+               placeholder="飯店名稱或城市，例如：東京、淺草 Richmond Hotel…" autocomplete="off" />
+        <button class="btn-search" id="searchBtn" type="button">查最低價</button>
       </div>
+      <p class="hint" id="formHint" hidden>請輸入飯店名稱或目的地！</p>
 
-      <div class="form-grid">
-        <label class="field field-wide">
-          <span>目的地</span>
-          <input type="text" id="dest" placeholder="例如：東京、曼谷、台南…" autocomplete="off" />
+      <!-- 熱門城市快選 -->
+      <div class="chips" id="hotCities" style="margin-top:12px" aria-label="熱門城市快選"></div>
+
+      <!-- 日期 / 人數列 -->
+      <div class="date-row">
+        <label class="date-field">
+          <span>入住</span>
+          <input type="date" id="ci" />
         </label>
-
-        <label class="field">
-          <span>入住日期</span>
-          <input type="date" id="checkin" />
+        <label class="date-field">
+          <span>退房</span>
+          <input type="date" id="co" />
         </label>
-
-        <label class="field">
-          <span>退房日期</span>
-          <input type="date" id="checkout" />
-        </label>
-
-        <label class="field">
+        <label class="date-field">
           <span>大人</span>
           <select id="adults">
             <option>1</option><option selected>2</option><option>3</option><option>4</option>
           </select>
         </label>
-
-        <label class="field">
+        <label class="date-field">
           <span>房間</span>
           <select id="rooms">
             <option selected>1</option><option>2</option>
           </select>
         </label>
-
-        <fieldset class="field field-wide stars">
-          <legend>星級（可複選）</legend>
-          <label><input type="checkbox" value="3" checked /> ⭐⭐⭐ 三星</label>
-          <label><input type="checkbox" value="4" checked /> ⭐⭐⭐⭐ 四星</label>
-          <label><input type="checkbox" value="5" /> ⭐⭐⭐⭐⭐ 五星</label>
-        </fieldset>
       </div>
 
-      <button class="btn-primary" id="buildBtn" type="button">🔍 產生三平台查價連結</button>
-      <p class="hint" id="formHint" hidden>請先填目的地和日期喔！</p>
-    </section>
+      <!-- 熊熊精選 -->
+      <div class="picks-sep">🐻 熊熊精選</div>
+      <p class="muted">不是演算法排序，是兩隻熊一間一間挑出來的。點「查最低價」自動帶入你設的日期。</p>
+      <div class="chips" id="pickCities" aria-label="精選城市" style="margin-top:12px"></div>
+      <div class="picks-grid" id="pickList"></div>
 
-    <!-- ============ STEP 2 三平台連結 ============ -->
-    <section class="card" id="step2" hidden>
-      <h2><span class="step-tag">步驟 2</span>懶人比價：一頁看完各平台價格</h2>
-      <p class="muted">點下面這張大卡片，在 TripAdvisor 搜到你的飯店後，<strong>同一頁就會列出 Agoda、Booking、Trip 等各家的房價對照</strong>，直接點最便宜的過去訂。</p>
-
-      <a class="ta-featured" id="linkTa" target="_blank" rel="noopener sponsored">
-        <div class="ta-left">
-          <span class="ta-logo">🦉</span>
-          <div>
-            <span class="ta-name">TripAdvisor 比價</span>
-            <span class="ta-desc">十多家訂房平台的價格，一頁比完</span>
-          </div>
-        </div>
-        <span class="ta-cta">開始比價 →</span>
-      </a>
-
-      <h3 class="sub-title">或直接到偏好的平台（條件已幫你帶好）</h3>
-      <p class="muted">三個連結帶<strong>完全相同的搜尋條件</strong>，都已按「價格由低到高」排序。Agoda 鐵粉直衝 Agoda 領 APP 價也完全 OK。</p>
-
-      <div class="platforms">
-        <a class="platform agoda" id="linkAgoda" target="_blank" rel="noopener sponsored">
-          <div class="p-head"><span class="p-logo">🏨</span><span class="p-name">Agoda</span></div>
-          <ul class="p-tips">
-            <li>看到喜歡的，再用 <strong>APP 開同一間</strong>，常有 APP 限定價再省 3–10%</li>
-            <li>顯示 TWD 含稅價，最後結帳前確認「總額」</li>
-          </ul>
-          <span class="p-cta">在 Agoda 查價 →</span>
-        </a>
-
-        <a class="platform booking" id="linkBooking" target="_blank" rel="noopener sponsored">
-          <div class="p-head"><span class="p-logo">🛏️</span><span class="p-name">Booking.com</span></div>
-          <ul class="p-tips">
-            <li><strong>先登入</strong>再看價，Genius 等級折扣 10–20%</li>
-            <li>行程還沒確定？認明「免費取消」再下訂</li>
-          </ul>
-          <span class="p-cta">在 Booking 查價 →</span>
-        </a>
-
-        <a class="platform trip" id="linkTrip" target="_blank" rel="noopener sponsored">
-          <div class="p-head"><span class="p-logo">✈️</span><span class="p-name">Trip.com</span></div>
-          <ul class="p-tips">
-            <li>連住多晚、機+酒組合常有隱藏優惠</li>
-            <li>注意部分低價房「不可退」，下訂前看清楚</li>
-          </ul>
-          <span class="p-cta">在 Trip 查價 →</span>
-        </a>
-      </div>
-
-      <button class="btn-secondary" id="openAllBtn" type="button">⚡ 嘗試一鍵全開（瀏覽器可能擋彈窗）</button>
-      <p class="hint" id="popupHint" hidden>有分頁被瀏覽器擋下來了——直接點上面三張卡片就一定打得開！</p>
-    </section>
-
-    <!-- ============ STEP 3 回填比價器 ============ -->
-    <section class="card" id="step3" hidden>
-      <h2><span class="step-tag">步驟 3</span>把看到的「總價」填回來，熊熊幫你算</h2>
-      <p class="muted">填同一間飯店、同一種房型在三個平台的<strong>含稅總價（TWD）</strong>。沒查的平台留空就好。</p>
-
-      <div class="compare-grid">
-        <label class="field">
-          <span>🏨 Agoda 總價</span>
-          <input type="number" inputmode="numeric" min="0" id="priceAgoda" placeholder="例如 8800" />
-        </label>
-        <label class="field">
-          <span>🛏️ Booking 總價</span>
-          <input type="number" inputmode="numeric" min="0" id="priceBooking" placeholder="例如 9200" />
-        </label>
-        <label class="field">
-          <span>✈️ Trip 總價</span>
-          <input type="number" inputmode="numeric" min="0" id="priceTrip" placeholder="例如 8650" />
-        </label>
-      </div>
-
-      <button class="btn-primary" id="compareBtn" type="button">🧮 算出最便宜的平台</button>
-
-      <div class="result" id="result" hidden>
-        <div class="result-stamp">🐻 最低價</div>
-        <p class="result-winner" id="resultWinner"></p>
-        <p class="result-detail" id="resultDetail"></p>
-      </div>
     </section>
 
     <!-- ============ 省錢檢查清單 ============ -->
     <section class="card checklist">
       <h2>🍯 下訂前的最後檢查</h2>
       <ol>
-        <li><strong>比「總價」不要比「每晚價」</strong>——稅、服務費、清潔費各平台算法不同，總額才是真相。</li>
+        <li><strong>比「總價」不要比「每晚價」</strong>——稅、服務費各平台算法不同，總額才是真相。</li>
         <li><strong>APP 再開一次</strong>——Agoda 和 Trip 的 APP 限定價常常比網頁便宜。</li>
         <li><strong>查飯店官網</strong>——日本商務旅館（東橫INN、APA）官網會員價有時最低。</li>
         <li><strong>取消條款</strong>——便宜 200 元但不可退，行程一變就虧大了。</li>
@@ -361,22 +224,10 @@ html body {
 
   <script is:inline>
 /* ====================================================================
-   ⚙️ 設定區 —— 只需要改這裡
+   ⚙️ 聯盟連結設定
    ==================================================================== */
 const AFFILIATE = {
-  // Involve Asia 追蹤連結。深連結格式：追蹤連結 + ?t=<雙重編碼的目標網址>
-  // （格式依據你後台產出的 TripAdvisor 深連結樣本：?t=https%253A%252F...）
-  // ⚠️ 上線前每條都點一次，確認落地頁正確且網址帶有追蹤參數。
-
-  // TripAdvisor（offer 2070）— 本頁的「真比價」主引擎
   tripadvisorTracking: 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d',
-
-  // Agoda（offer 3408）
-  agodaTracking: 'https://affsrc.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d',
-
-  // Booking / Trip 如果也有追蹤連結就填進來；留空 = 直接開官網（沒佣金但功能正常）。
-  bookingTracking: '',
-  tripTracking: '',
 };
 
 /* ====================================================================
@@ -406,24 +257,14 @@ const HOTEL_PICKS = {
       note: '佔位點評：清晨五點半的逆富士，從房間窗戶就拍得到。', taUrl: '' },
     { name: '(範例)車站前背包客棧', area: '河口湖站走 2 分', tags: ['平價', '巴士方便'],
       note: '佔位點評:預算有限但想看富士山的最佳解。', taUrl: '' },
-    { name: '(範例)天上山纜車旁旅宿', area: '近纜車站', tags: ['視野', '安靜'],
-      note: '佔位點評:避開湖畔一排觀光團,晚上星空很猛。', taUrl: '' },
   ],
 };
 
 /* ====================================================================
-   TripAdvisor 城市「飯店專頁」對照表
-   有填的城市 → 直達該城市飯店列表（有各平台比價）
-   沒填的城市 → 退回關鍵字搜尋（可能混到活動，建議補齊）
-   ✏️ 補齊方法超簡單：去 tripadvisor.com.tw 搜城市 → 點「飯店」分頁
-      → 把網址貼進來（長得像 /Hotels-gXXXXXX-城市名-Hotels.html）
+   TripAdvisor 城市飯店列表對照
    ==================================================================== */
 const TA_HOTELS = {
   '東京': 'https://www.tripadvisor.com.tw/Hotels-g298184-Tokyo_Tokyo_Prefecture_Kanto-Hotels.html',
-  // '大阪': '',
-  // '京都': '',
-  // '曼谷': '',
-  // ...其他城市照上面的方法補
 };
 
 const HOT_CITIES = [
@@ -440,98 +281,59 @@ const $ = (id) => document.getElementById(id);
 function wrapTracking(trackingLink, targetUrl) {
   if (!trackingLink) return targetUrl;
   const joiner = trackingLink.includes('?') ? '&' : '?';
-  // Involve Asia 格式：?t= + 雙重 URL 編碼（依後台深連結樣本）
   return `${trackingLink}${joiner}t=${encodeURIComponent(encodeURIComponent(targetUrl))}`;
 }
 
-function getStars() {
-  return [...document.querySelectorAll('.stars input:checked')].map(c => c.value);
-}
-
-function nightsBetween(d1, d2) {
-  const ms = new Date(d2) - new Date(d1);
-  return Math.max(1, Math.round(ms / 86400000));
+function getDates() {
+  return { ci: $('ci').value, co: $('co').value };
 }
 
 /* ====================================================================
-   三平台網址產生器（條件完全一致 + 價格低到高排序）
-   ⚠️ 平台參數偶爾會改版，上線前每個都實際點開驗證一次。
+   TripAdvisor 網址產生器
    ==================================================================== */
-function buildUrls() {
-  const dest = $('dest').value.replace(/^[^一-鿿A-Za-z]+/, '').trim(); // 去掉開頭國旗 emoji
-  const ci = $('checkin').value;   // YYYY-MM-DD
-  const co = $('checkout').value;
+function buildSearchUrl(query) {
+  const q = query.replace(/^[^一-鿿A-Za-z]+/, '').trim();
+  const { ci, co } = getDates();
   const adults = $('adults').value;
-  const rooms = $('rooms').value;
-  const stars = getStars();        // e.g. ['3','4']
 
-  // --- Agoda：textToSearch 文字搜尋，免維護城市 ID ---
-  const agoda = new URL('https://www.agoda.com/zh-tw/search');
-  agoda.searchParams.set('textToSearch', dest);
-  agoda.searchParams.set('checkIn', ci);
-  agoda.searchParams.set('checkOut', co);
-  agoda.searchParams.set('adults', adults);
-  agoda.searchParams.set('rooms', rooms);
-  agoda.searchParams.set('children', '0');
-  agoda.searchParams.set('currency', 'TWD');
-  agoda.searchParams.set('locale', 'zh-tw');
-  agoda.searchParams.set('sort', 'priceLowToHigh');
-  if (stars.length) agoda.searchParams.set('hotelStarRating', stars.join(','));
-
-  // --- Booking.com ---
-  const booking = new URL('https://www.booking.com/searchresults.zh-tw.html');
-  booking.searchParams.set('ss', dest);
-  booking.searchParams.set('checkin', ci);
-  booking.searchParams.set('checkout', co);
-  booking.searchParams.set('group_adults', adults);
-  booking.searchParams.set('no_rooms', rooms);
-  booking.searchParams.set('group_children', '0');
-  booking.searchParams.set('order', 'price');
-  if (stars.length) booking.searchParams.set('nflt', stars.map(s => `class=${s}`).join(';'));
-
-  // --- Trip.com ---
-  const trip = new URL('https://tw.trip.com/hotels/list');
-  trip.searchParams.set('searchword', dest);
-  trip.searchParams.set('checkin', ci.replaceAll('-', '/'));
-  trip.searchParams.set('checkout', co.replaceAll('-', '/'));
-  trip.searchParams.set('adult', adults);
-  trip.searchParams.set('crn', rooms);
-  trip.searchParams.set('curr', 'TWD');
-  if (stars.length) trip.searchParams.set('star', stars.join(','));
-
-  // --- TripAdvisor：優先直達城市飯店專頁（有比價），否則退回搜尋 ---
-  let taTarget;
-  if (TA_HOTELS[dest]) {
-    taTarget = TA_HOTELS[dest];
-  } else {
-    const ta = new URL('https://www.tripadvisor.com.tw/Search');
-    ta.searchParams.set('q', dest + ' 飯店');
-    ta.searchParams.set('ssrc', 'h');
-    taTarget = ta.toString();
+  // 已知城市 → 直達飯店列表（可帶日期）
+  const cityKey = Object.keys(TA_HOTELS).find(k => q.includes(k));
+  if (cityKey && TA_HOTELS[cityKey]) {
+    const url = new URL(TA_HOTELS[cityKey]);
+    if (ci) url.searchParams.set('checkin', ci.replaceAll('-', '_'));
+    if (co) url.searchParams.set('checkout', co.replaceAll('-', '_'));
+    url.searchParams.set('adults', adults);
+    return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
   }
 
-  return {
-    tripadvisor: wrapTracking(AFFILIATE.tripadvisorTracking, taTarget),
-    agoda: wrapTracking(AFFILIATE.agodaTracking, agoda.toString()),
-    booking: wrapTracking(AFFILIATE.bookingTracking, booking.toString()),
-    trip: wrapTracking(AFFILIATE.tripTracking, trip.toString()),
-  };
+  // 一般關鍵字搜尋
+  const url = new URL('https://www.tripadvisor.com.tw/Search');
+  url.searchParams.set('q', q);
+  url.searchParams.set('ssrc', 'h');
+  return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
 }
 
-/* ====================================================================
-   互動
-   ==================================================================== */
-/* ====================================================================
-   熊熊精選渲染
-   ==================================================================== */
-function pickLink(hotel, city) {
+function buildPickUrl(hotel, city) {
+  const { ci, co } = getDates();
+  const adults = $('adults').value;
+
+  if (hotel.taUrl) {
+    const url = new URL(hotel.taUrl);
+    if (ci) url.searchParams.set('checkin', ci);
+    if (co) url.searchParams.set('checkout', co);
+    url.searchParams.set('adults', adults);
+    return wrapTracking(AFFILIATE.tripadvisorTracking, url.toString());
+  }
+
   const cityName = city.replace(/^[^一-鿿A-Za-z]+/, '').trim();
-  const target = hotel.taUrl
-    ? hotel.taUrl
-    : `https://www.tripadvisor.com.tw/Search?q=${encodeURIComponent(hotel.name.replace(/（範例）|\(範例\)/g, '') + ' ' + cityName)}&ssrc=h`;
+  const name = hotel.name.replace(/（範例）|\(範例\)/g, '').trim();
+  const target = `https://www.tripadvisor.com.tw/Search?q=${encodeURIComponent(name + ' ' + cityName)}&ssrc=h`;
   return wrapTracking(AFFILIATE.tripadvisorTracking, target);
 }
 
+/* ====================================================================
+   熊熊精選渲染
+   ==================================================================== */
 function renderPicks(city) {
   const list = HOTEL_PICKS[city] || [];
   $('pickList').innerHTML = list.map(h => `
@@ -542,15 +344,40 @@ function renderPicks(city) {
       </div>
       <div class="pick-tags">${h.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <p class="pick-note">${h.note}</p>
-      <a class="pick-cta" href="${pickLink(h, city)}" target="_blank" rel="noopener sponsored">🔎 比最低價 →</a>
+      <a class="pick-cta" href="${buildPickUrl(h, city)}" target="_blank" rel="noopener sponsored"
+         data-hotel='${JSON.stringify({name: h.name, area: h.area, taUrl: h.taUrl || ''})}' data-city="${city}">
+        🔎 查最低價 →
+      </a>
     </article>
   `).join('');
 }
 
+// pick 卡片的連結需在點擊時重新計算日期（用戶可能改過）
+$('pickList').addEventListener('click', e => {
+  const cta = e.target.closest('.pick-cta');
+  if (!cta) return;
+  const hotel = JSON.parse(cta.dataset.hotel);
+  const city = cta.dataset.city;
+  cta.href = buildPickUrl(hotel, city);
+});
+
+/* ====================================================================
+   初始化
+   ==================================================================== */
+// 預設日期：兩週後入住、住兩晚
+(() => {
+  const d = new Date(); d.setDate(d.getDate() + 14);
+  const d2 = new Date(d); d2.setDate(d2.getDate() + 2);
+  const fmt = x => x.toISOString().slice(0, 10);
+  $('ci').value = fmt(d);
+  $('co').value = fmt(d2);
+})();
+
+// 精選城市 chips
 const pickCityNames = Object.keys(HOTEL_PICKS);
 $('pickCities').innerHTML = pickCityNames
   .map((c, i) => `<button type="button" class="chip${i === 0 ? ' on' : ''}" data-city="${c}">${c}</button>`).join('');
-$('pickCities').addEventListener('click', (e) => {
+$('pickCities').addEventListener('click', e => {
   const btn = e.target.closest('.chip');
   if (!btn) return;
   $('pickCities').querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === btn));
@@ -558,77 +385,28 @@ $('pickCities').addEventListener('click', (e) => {
 });
 renderPicks(pickCityNames[0]);
 
-// 城市 chips
+// 熱門城市 chips → 填入搜尋欄
 $('hotCities').innerHTML = HOT_CITIES
   .map(c => `<button type="button" class="chip">${c}</button>`).join('');
-$('hotCities').addEventListener('click', (e) => {
+$('hotCities').addEventListener('click', e => {
   const btn = e.target.closest('.chip');
   if (!btn) return;
-  $('dest').value = btn.textContent.trim();
-  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === btn));
+  $('searchInput').value = btn.textContent.trim();
+  $('hotCities').querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === btn));
+  $('searchInput').focus();
 });
 
-// 預設日期：兩週後入住、住兩晚
-(() => {
-  const d = new Date(); d.setDate(d.getDate() + 14);
-  const d2 = new Date(d); d2.setDate(d2.getDate() + 2);
-  const fmt = (x) => x.toISOString().slice(0, 10);
-  $('checkin').value = fmt(d);
-  $('checkout').value = fmt(d2);
-})();
-
-// 產生連結
-$('buildBtn').addEventListener('click', () => {
-  const ok = $('dest').value.trim() && $('checkin').value && $('checkout').value;
-  $('formHint').hidden = ok;
-  if (!ok) return;
-
-  const urls = buildUrls();
-  $('linkTa').href = urls.tripadvisor;
-  $('linkAgoda').href = urls.agoda;
-  $('linkBooking').href = urls.booking;
-  $('linkTrip').href = urls.trip;
-
-  $('step2').hidden = false;
-  $('step3').hidden = false;
-  $('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+// 搜尋按鈕
+$('searchBtn').addEventListener('click', () => {
+  const q = $('searchInput').value.trim();
+  $('formHint').hidden = !!q;
+  if (!q) return;
+  window.open(buildSearchUrl(q), '_blank', 'noopener');
 });
 
-// 一鍵全開（誠實版：開不了就提示改點卡片）
-$('openAllBtn').addEventListener('click', () => {
-  const wins = ['linkAgoda', 'linkBooking', 'linkTrip']
-    .map(id => window.open($(id).href, '_blank'));
-  $('popupHint').hidden = !wins.some(w => !w);
-});
-
-// 回填比價
-$('compareBtn').addEventListener('click', () => {
-  const entries = [
-    { name: 'Agoda',       icon: '🏨', val: parseFloat($('priceAgoda').value) },
-    { name: 'Booking.com', icon: '🛏️', val: parseFloat($('priceBooking').value) },
-    { name: 'Trip.com',    icon: '✈️', val: parseFloat($('priceTrip').value) },
-  ].filter(e => !isNaN(e.val) && e.val > 0);
-
-  if (entries.length < 2) {
-    $('result').hidden = false;
-    $('resultWinner').textContent = '至少要填兩個平台的價格才有得比喔！';
-    $('resultDetail').textContent = '';
-    return;
-  }
-
-  entries.sort((a, b) => a.val - b.val);
-  const win = entries[0];
-  const worst = entries[entries.length - 1];
-  const diff = worst.val - win.val;
-  const nights = nightsBetween($('checkin').value, $('checkout').value);
-  const perNight = Math.round(win.val / nights);
-
-  $('result').hidden = false;
-  $('resultWinner').textContent = `${win.icon} ${win.name} 最便宜：NT$ ${win.val.toLocaleString()}`;
-  $('resultDetail').textContent =
-    diff > 0
-      ? `比最貴的 ${worst.name} 省下 NT$ ${diff.toLocaleString()}（${nights} 晚，平均每晚約 NT$ ${perNight.toLocaleString()}）。記得再用 APP 開一次確認有沒有更低！`
-      : `兩邊價格一樣，這時候比取消條款和點數回饋就好。`;
+// Enter 鍵搜尋
+$('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') $('searchBtn').click();
 });
   </script>
 </body>

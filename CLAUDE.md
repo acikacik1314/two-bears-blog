@@ -90,6 +90,75 @@ html body { color: #3B2A1E; }
 
 ---
 
+## 🔐 API Key 安全規範
+
+### 絕對禁止
+
+- **API key 的值絕對不能出現在對話輸出、終端機畫面、或任何可見位置**
+- 曾因 key 值洩漏，所有 key 都必須重新申請過一次
+- `.env.local`、`.env.production.local` 已在 `.gitignore`（`.env*` 規則），永遠不要 commit
+
+### Key 的來源（開發機）
+
+本機 API key 儲存在：`~/.claude/api_keys.json`
+
+結構：
+```json
+{
+  "gemini": ["...", "..."],   // 12 組輪替 key
+  "groq":   ["...", "..."],   // 4 組輪替 key
+  "tavily": ["...", "..."]    // 2 組輪替 key
+}
+```
+
+### 本機 `.env.local` 所需的 key 清單
+
+```
+GEMINI_API_KEY=          # 單一 key（備用）
+GEMINI_API_KEYS=         # JSON 陣列字串，如 ["key1","key2"]
+GROQ_API_KEYS=           # JSON 陣列字串
+TAVILY_API_KEY=          # 單一 key
+RESEND_API_KEY=          # 信件發送
+BLOB_READ_WRITE_TOKEN=   # Vercel Blob 儲存
+GOOGLE_CLIENT_ID=        # Google OAuth 登入
+GOOGLE_CLIENT_SECRET=
+KEYSTATIC_GITHUB_CLIENT_ID=   # Keystatic CMS
+KEYSTATIC_GITHUB_CLIENT_SECRET=
+KEYSTATIC_SECRET=
+GITHUB_REPO_OWNER=       # acikacik1314
+GITHUB_REPO_NAME=        # two-bears-blog
+ADMIN_EMAIL=             # acikacik@gmail.com
+```
+
+### 更新 `.env.local`（Claude 操作原則）
+
+從 `~/.claude/api_keys.json` 讀取並寫入 `.env.local` 時，必須用**不輸出值到畫面**的方式：
+
+```bash
+# ✅ 正確：值不顯示在畫面
+python3 -c "
+import json, re, sys
+d = json.load(open('/Users/user/.claude/api_keys.json'))
+env = open('.env.local').read()
+env = re.sub(r'^GEMINI_API_KEYS=.*$', 'GEMINI_API_KEYS=' + json.dumps(d['gemini']), env, flags=re.MULTILINE)
+open('.env.local', 'w').write(env)
+print('done')
+"
+
+# ❌ 絕對不行：cat / echo / print 出 key 值
+cat .env.local
+python3 -c "print(keys)"
+```
+
+### Vercel 生產環境
+
+- 在 **Vercel Dashboard → Project → Settings → Environment Variables** 設定
+- `GEMINI_API_KEYS` 填 JSON 陣列字串：`["key1","key2","key3"]`
+- 不需要 `KEYSTATIC_*`（僅本機 CMS 需要）
+- 修改後需要重新部署才會生效
+
+---
+
 ## Gemini API 設定
 
 ### 環境變數（Vercel / .env）

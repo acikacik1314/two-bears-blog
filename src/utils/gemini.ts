@@ -14,12 +14,10 @@ export function getGeminiKeys(): string[] {
 
 // 依照 CLAUDE.md 記錄 + 本地實測可用的模型（AQ. key + google-genai SDK）
 const MODELS = [
-  'gemini-3.5-flash',       // ✅ CLAUDE.md 最新最快
-  'gemini-3.1-flash-lite',  // ✅ CLAUDE.md 備用
-  'gemini-2.5-flash',       // ✅ 備用（quota 較快用完）
-  'gemini-2.5-flash-lite',  // ✅ 備用
-  'gemini-2.0-flash',       // ✅ 備用
-  'gemini-2.0-flash-lite',  // ✅ 備用
+  'gemini-3.5-flash',
+  'gemini-3.1-flash-lite',
+  'gemini-2.5-flash',
+  'gemini-2.5-flash-lite',
 ]
 
 export function getModel(): string {

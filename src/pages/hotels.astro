@@ -397,6 +397,37 @@ html body {
    =================================================================== */
 const TA_TRACKING = 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d';
 
+// 從中文/數字日期描述解析出 checkin/checkout（備援用）
+function parseDateRange(dateStr) {
+  if (!dateStr || dateStr === '未指定') return { checkin: '', checkout: '' };
+  function pad(n) { return String(n).padStart(2, '0'); }
+  var yr = new Date().getFullYear();
+
+  // 完整日期：2026/6/20 到 2026/6/22
+  var full = dateStr.match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/g);
+  if (full && full.length >= 2) {
+    var a = full[0].match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
+    var b = full[1].match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
+    if (a && b) return {
+      checkin:  a[1]+'-'+pad(+a[2])+'-'+pad(+a[3]),
+      checkout: b[1]+'-'+pad(+b[2])+'-'+pad(+b[3])
+    };
+  }
+  // M/D 到 M/D 或 M月D日 到 M月D日
+  var r = dateStr.match(/(\d{1,2})[\/月](\d{1,2})[日号]?\s*[到至~～\-]\s*(\d{1,2})[\/月](\d{1,2})[日号]?/);
+  if (r) return {
+    checkin:  yr+'-'+pad(+r[1])+'-'+pad(+r[2]),
+    checkout: yr+'-'+pad(+r[3])+'-'+pad(+r[4])
+  };
+  // M/D 到 D（同月）
+  var r2 = dateStr.match(/(\d{1,2})[\/月](\d{1,2})[日号]?\s*[到至~～\-]\s*(\d{1,2})[日号]?/);
+  if (r2) return {
+    checkin:  yr+'-'+pad(+r2[1])+'-'+pad(+r2[2]),
+    checkout: yr+'-'+pad(+r2[1])+'-'+pad(+r2[3])
+  };
+  return { checkin: '', checkout: '' };
+}
+
 function taLink(enName, city, checkin, checkout, adults) {
   var q = encodeURIComponent(enName + ' ' + city);
   var target = 'https://www.tripadvisor.com.tw/Search?q=' + q + '&ssrc=h';
@@ -684,6 +715,12 @@ function openModal(h) {
     (h.cons || []).map(function(c) { return '<li>' + escHtml(c) + '</li>'; }).join('');
   var checkin  = lastSummary ? (lastSummary.checkin  || '') : '';
   var checkout = lastSummary ? (lastSummary.checkout || '') : '';
+  // 備援：AI 未輸出結構化日期時，嘗試從文字描述解析
+  if ((!checkin || !checkout) && lastSummary && lastSummary.dates) {
+    var parsed = parseDateRange(lastSummary.dates);
+    if (!checkin)  checkin  = parsed.checkin;
+    if (!checkout) checkout = parsed.checkout;
+  }
   var adults   = lastSummary ? (parseInt(lastSummary.adults) || 0) : 0;
   document.getElementById('modal-cta').href = taLink(h.en, h.city, checkin, checkout, adults);
   document.getElementById('hotel-modal').style.display = 'flex';

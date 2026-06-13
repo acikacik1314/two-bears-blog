@@ -12,8 +12,6 @@ import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
 import NewsletterSubscribe from '../components/NewsletterSubscribe.astro';
 import AffiliateLinks from '../components/AffiliateLinks.astro';
 import PredictionCheck from '../components/PredictionCheck.astro';
-import ProphecyVote from '../components/ProphecyVote.astro';
-import ProphecyAutoCheck from '../components/ProphecyAutoCheck.astro';
 import CommentSection from '../components/CommentSection.astro';
 import { getProphetConfig } from '../utils/prophets';
 
@@ -435,14 +433,6 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 							<button class="share-btn share-copy" id="copy-link-btn" data-url={pageUrl}>🔗 複製連結</button>
 						</div>
 					</div>
-
-					<ProphecyAutoCheck
-						slug={Astro.url.pathname}
-						title={title}
-						description={description}
-						tags={tags}
-					/>
-					<ProphecyVote slug={Astro.url.pathname} />
 
 					<CommentSection slug={Astro.url.pathname} />
 

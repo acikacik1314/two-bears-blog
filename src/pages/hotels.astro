@@ -285,6 +285,13 @@ html body {
 }
 .btn-cta:hover { background: #C2740A; }
 .modal-disclaimer { text-align: center; font-size: .7rem; color: #9C8870; margin: 7px 0 0; }
+.modal-dates-row {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: #FFF8EC; border: 1px solid #EADFC8; border-radius: 10px;
+  padding: 9px 13px; margin-bottom: 12px; font-size: .82rem; color: #5C4A35;
+}
+.modal-dates-row .mdr-label { font-weight: 700; color: #E8920A; flex-shrink: 0; }
+.modal-dates-row .mdr-sep { color: #EADFC8; }
 
 /* ── Checklist ── */
 .card {
@@ -380,10 +387,18 @@ html body {
       <ul class="modal-list pros" id="modal-pros"></ul>
       <p class="modal-section-label">⚠️ 要注意</p>
       <ul class="modal-list cons" id="modal-cons"></ul>
+      <div class="modal-dates-row" id="modal-dates-row" style="display:none">
+        <span class="mdr-label">📅</span>
+        <span id="modal-checkin-text"></span>
+        <span class="mdr-sep">→</span>
+        <span id="modal-checkout-text"></span>
+        <span class="mdr-sep">·</span>
+        <span id="modal-adults-text"></span>
+      </div>
       <a id="modal-cta" class="btn-cta" target="_blank" rel="noopener sponsored" href="#">
         查看 TripAdvisor 價格 →
       </a>
-      <p class="modal-disclaimer">價格與房況以訂房平台為準 · 兩隻熊不保證房源可訂</p>
+      <p class="modal-disclaimer">開啟 TripAdvisor 後請輸入上方日期查詢房況 · 價格以訂房平台為準</p>
     </div>
   </div>
 
@@ -721,7 +736,19 @@ function openModal(h) {
     if (!checkin)  checkin  = parsed.checkin;
     if (!checkout) checkout = parsed.checkout;
   }
-  var adults   = lastSummary ? (parseInt(lastSummary.adults) || 0) : 0;
+  var adults = lastSummary ? (parseInt(lastSummary.adults) || 0) : 0;
+
+  // 在 modal 顯示日期提示（TripAdvisor 搜尋頁不支援 URL 帶入日期，請手動輸入）
+  var datesRow = document.getElementById('modal-dates-row');
+  if ((checkin || checkout || adults > 0) && datesRow) {
+    document.getElementById('modal-checkin-text').textContent = checkin ? '入住 ' + checkin : '';
+    document.getElementById('modal-checkout-text').textContent = checkout ? '退房 ' + checkout : '';
+    document.getElementById('modal-adults-text').textContent = adults > 0 ? adults + ' 人' : '';
+    datesRow.style.display = (checkin || checkout || adults > 0) ? 'flex' : 'none';
+  } else if (datesRow) {
+    datesRow.style.display = 'none';
+  }
+
   document.getElementById('modal-cta').href = taLink(h.en, h.city, checkin, checkout, adults);
   document.getElementById('hotel-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden';

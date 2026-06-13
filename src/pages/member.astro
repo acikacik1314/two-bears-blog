@@ -35,7 +35,7 @@ if (user) {
 <!doctype html>
 <html lang="zh-TW">
 <head>
-  <BaseHead title="會員中心 — 兩隻熊末日觀測站" description="熊族會員專屬：預言實驗室・積分等級・AI助手・生存工具" />
+  <BaseHead title="會員中心 — 兩隻熊末日觀測站" description="熊族會員專屬：積分等級・每日簽到・AI助手" />
 </head>
 <body>
 <Header />
@@ -56,7 +56,7 @@ if (user) {
       </div>
       <div class="lock-icon">🐻🔐🐻</div>
       <h1 class="lock-title">建立你的避難所通行證</h1>
-      <p class="lock-desc">用 Google 帳號登入，免費解鎖所有會員功能。<br/>積分・等級・預言投票・AI助手・社群論壇，一次解鎖。</p>
+      <p class="lock-desc">用 Google 帳號登入，免費解鎖所有會員功能。<br/>積分等級・每日簽到・徽章・AI助手，一次解鎖。</p>
       <a href="/api/auth/google" class="login-google-btn">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
           <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -66,17 +66,16 @@ if (user) {
         </svg>
         用 Google 帳號免費加入
       </a>
+      <a href="/privacy" class="lock-privacy">隱私政策</a>
     </div>
     <div class="lock-features">
       <div class="lf-grid">
-        <div class="lf-item"><span class="lf-icon">🎯</span><strong>預言投票</strong><br/>為社群預言評分命中/未命中，獲得積分</div>
-        <div class="lf-item"><span class="lf-icon">🎲</span><strong>虛擬下注</strong><br/>用積分押注預言結果，挑戰預言勝率</div>
-        <div class="lf-item"><span class="lf-icon">📊</span><strong>進階指數</strong><br/>解鎖底層數據，查看詳細生存風險分析</div>
-        <div class="lf-item"><span class="lf-icon">🤖</span><strong>AI預言助手</strong><br/>輸入問題，AI分析預言家觀點與走勢</div>
-        <div class="lf-item"><span class="lf-icon">🛠️</span><strong>生存工具箱</strong><br/>倉位計算機・備災清單・地緣風險儀板</div>
-        <div class="lf-item"><span class="lf-icon">💬</span><strong>深夜論壇</strong><br/>五個分類討論版・每日許願牆・熊族社群</div>
-        <div class="lf-item"><span class="lf-icon">⭐</span><strong>積分等級</strong><br/>Lv1 旅人 → Lv50 時間旅者，50個等級</div>
-        <div class="lf-item"><span class="lf-icon">🏅</span><strong>連勝徽章</strong><br/>7/30/100天連續登入，解鎖專屬稱號</div>
+        <div class="lf-item lf-active"><span class="lf-icon">⭐</span><strong>積分等級</strong><br/>Lv1 旅人 → Lv50 時間旅者，50個等級</div>
+        <div class="lf-item lf-active"><span class="lf-icon">🏅</span><strong>連勝徽章</strong><br/>7/30/100天連續登入，解鎖專屬稱號</div>
+        <div class="lf-item lf-active"><span class="lf-icon">🤖</span><strong>AI預言助手</strong><br/>每日5次，分析預言家觀點與走勢</div>
+        <div class="lf-item lf-soon"><span class="lf-icon">🎯</span><strong>預言投票</strong><span class="lf-coming-tag">即將推出</span><br/>為社群預言評分，命中獲積分</div>
+        <div class="lf-item lf-soon"><span class="lf-icon">💬</span><strong>深夜論壇</strong><span class="lf-coming-tag">即將推出</span><br/>五個分類討論版・末日議題社群</div>
+        <div class="lf-item lf-soon"><span class="lf-icon">📊</span><strong>進階指數</strong><span class="lf-coming-tag">即將推出</span><br/>解鎖底層數據，查看生存風險分析</div>
       </div>
     </div>
     <div class="lock-levels">
@@ -108,18 +107,15 @@ if (user) {
       <div class="bp-scan-line"></div>
       <div class="bp-header-label">◈ BUNKER PASS · OBSERVER CLEARANCE ◈</div>
       <div class="bp-body">
-        <!-- Identity -->
         <div class="bp-identity">
           {uPic && <img src={uPic} alt={uName} class="mc-avatar bp-avatar" referrerpolicy="no-referrer" />}
           <div class="mc-username" style="font-size:.95em">{uName} <span class="mc-bear-title" id="bear-title">🐻 青熊</span></div>
           <div class="mc-email">{uEmail}</div>
           <div class="bp-quota-row">
             <span class="bp-quota-chip">🤖 AI額度 <strong id="ai-quota">5</strong>/5</span>
-            <span class="bp-quota-chip">📍 <span id="bp-location">台灣</span></span>
           </div>
           <div class="mc-badges-row" id="badges-row"></div>
         </div>
-        <!-- Level -->
         <div class="bp-level">
           <div class="mc-lv-row">
             <span class="mc-lv-badge" id="lv-badge">Lv 1</span>
@@ -133,7 +129,6 @@ if (user) {
             <span class="bp-streak-label"> 天連勝</span>
           </div>
         </div>
-        <!-- Chip visual -->
         <div class="bp-chip">
           <div class="bp-chip-inner">
             <div class="bp-chip-lines">
@@ -150,294 +145,88 @@ if (user) {
 
     <!-- Tab nav -->
     <div class="mc-tabs">
-      <button class="mc-tab active" data-tab="dashboard">📊 儀表板</button>
-      <button class="mc-tab" data-tab="secret">🔐 秘密情報</button>
-      <button class="mc-tab" data-tab="prophecy">🔮 預言實驗室</button>
-      <button class="mc-tab" data-tab="tools">🛠️ 生存工具</button>
-      <button class="mc-tab" data-tab="community">💬 社群</button>
+      <button class="mc-tab active" data-tab="pass">🏅 熊族通行證</button>
+      <button class="mc-tab" data-tab="daily">📅 每日任務</button>
       <button class="mc-tab" data-tab="ai">🤖 AI助手</button>
-      <button class="mc-tab" data-tab="settings">⚙️ 設定</button>
+      <button class="mc-tab" data-tab="coming">🔮 即將推出</button>
     </div>
 
     <!-- ══════════════════════════════════════ -->
-    <!-- TAB 1: 儀表板                          -->
+    <!-- TAB 1: 熊族通行證                      -->
     <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel active" id="tab-dashboard">
-      <div class="dash-grid">
+    <div class="mc-panel active" id="tab-pass">
+      <div class="pass-grid">
 
-        <!-- Quick stats row -->
-        <div class="dash-stats-row">
-          <div class="dash-stat">
-            <div class="ds-val" id="ds-points">0</div>
-            <div class="ds-label">總積分</div>
-          </div>
-          <div class="dash-stat">
-            <div class="ds-val" id="ds-prophecies">0</div>
-            <div class="ds-label">我的預言</div>
-          </div>
-          <div class="dash-stat">
-            <div class="ds-val" id="ds-votes">0</div>
-            <div class="ds-label">已投票</div>
-          </div>
-          <div class="dash-stat">
-            <div class="ds-val" id="ds-streak">0天</div>
-            <div class="ds-label">連續登入</div>
-          </div>
+        <!-- Stats row -->
+        <div class="pass-stats-row">
+          <div class="pass-stat"><div class="ps-val" id="ps-points">0</div><div class="ps-label">總積分</div></div>
+          <div class="pass-stat"><div class="ps-val" id="ps-streak">0天</div><div class="ps-label">連續登入</div></div>
+          <div class="pass-stat"><div class="ps-val" id="ps-logins">0</div><div class="ps-label">累計天數</div></div>
         </div>
 
-        <!-- Survival index card -->
+        <!-- Level map -->
         <div class="mc-card wide">
-          <div class="mc-card-head"><span>📊</span><h3>進階生存指數 <span class="member-tag">會員解鎖</span></h3></div>
-          <div id="adv-survival-wrap">
-            <div class="mc-loading">載入中…</div>
+          <div class="mc-card-head"><span>📊</span><h3>等級地圖</h3><span class="member-tag" id="cur-lv-tag">Lv 1 旅人</span></div>
+          <div class="level-map" id="level-map"></div>
+        </div>
+
+        <!-- Badge showcase -->
+        <div class="mc-card wide">
+          <div class="mc-card-head"><span>🏅</span><h3>獲得的徽章</h3></div>
+          <div class="badge-showcase" id="badge-showcase">
+            <div class="mc-empty">繼續登入累積連勝，解鎖專屬徽章！</div>
           </div>
         </div>
 
-        <!-- Market snapshot -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>💹</span><h3>即時市場快照</h3></div>
-          <div class="mkt-grid" id="mkt-snap">
-            <div class="mkt-item"><div class="mkt-name">₿ BTC</div><div class="mkt-val" id="mkt-btc">—</div></div>
-            <div class="mkt-item"><div class="mkt-name">XRP</div><div class="mkt-val" id="mkt-xrp">—</div></div>
-            <div class="mkt-item"><div class="mkt-name">🏅 黃金</div><div class="mkt-val" id="mkt-gold">—</div></div>
-            <div class="mkt-item"><div class="mkt-name">😱 恐慌</div><div class="mkt-val" id="mkt-fng">—</div></div>
-            <div class="mkt-item"><div class="mkt-name">💱 USD/TWD</div><div class="mkt-val" id="mkt-twd">—</div></div>
-            <div class="mkt-item"><div class="mkt-name">⚡ VIX</div><div class="mkt-val" id="mkt-vix">—</div></div>
+        <!-- Recent posts -->
+        {recentPosts.length > 0 && (
+          <div class="mc-card wide">
+            <div class="mc-card-head"><span>📰</span><h3>最新文章</h3><span class="member-tag">熊族精選</span></div>
+            <div class="sec-posts">
+              {recentPosts.map(p => (
+                <a href={p.href} class="sec-post-row" target="_blank" rel="noopener">
+                  <span class="sp-date">{p.date}</span>
+                  <span class="sp-title">{p.title}</span>
+                  <span class="sp-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Data management -->
+        <div class="mc-card wide">
+          <div class="mc-card-head"><span>💾</span><h3>資料管理</h3></div>
+          <button class="data-btn" onclick="exportData()">📤 匯出我的資料（JSON）</button>
+          <div class="settings-hint" style="margin-top:.6em">
+            所有積分・願望紀錄均儲存於本機 localStorage。
+            <a href="/privacy" style="color:#a855f7;text-decoration:none">隱私政策</a>
           </div>
         </div>
 
-        <!-- Monthly leaderboard -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🏆</span><h3>本月預言排行</h3></div>
-          <div id="month-lb">
-            <div class="mc-loading">載入中…</div>
-          </div>
-        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- TAB 2: 每日任務                        -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="mc-panel" id="tab-daily">
+      <div class="daily-grid">
 
         <!-- Today's tasks -->
         <div class="mc-card">
           <div class="mc-card-head"><span>✅</span><h3>今日任務</h3></div>
           <div class="todo-list">
-            <div class="todo-item" id="todo-login">
+            <div class="todo-item">
               <span class="todo-icon" id="todo-login-icon">⬜</span>
               <span class="todo-text">今日登入 <span class="todo-pts">+10 pts</span></span>
-            </div>
-            <div class="todo-item">
-              <span class="todo-icon" id="todo-vote-icon">⬜</span>
-              <span class="todo-text">投票一則預言 <span class="todo-pts">+5 pts</span></span>
             </div>
             <div class="todo-item">
               <span class="todo-icon" id="todo-wish-icon">⬜</span>
               <span class="todo-text">發送今日願望 <span class="todo-pts">+3 pts</span></span>
             </div>
-            <div class="todo-item">
-              <span class="todo-icon" id="todo-forum-icon">⬜</span>
-              <span class="todo-text">發表論壇回應 <span class="todo-pts">+5 pts</span></span>
-            </div>
           </div>
-          <div class="todo-total">今日可獲得：<strong>23 pts</strong></div>
-        </div>
-
-        <!-- Community poll -->
-        <div class="mc-card wide">
-          <div class="mc-card-head"><span>🗳️</span><h3>本週社群民調</h3><span class="member-tag">即時結果</span></div>
-          <div id="poll-wrap">
-            <div class="mc-loading">載入中…</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════ -->
-    <!-- TAB 2: 預言實驗室                      -->
-    <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel" id="tab-prophecy">
-      <!-- Famous prophets section -->
-      <div class="mc-card wide prophet-db-card">
-        <div class="mc-card-head">
-          <span>🏛️</span><h3>已知預言家資料庫</h3>
-          <span class="member-tag">會員可投票評分</span>
-        </div>
-        <div class="prophet-tabs">
-          <button class="pt-btn active" data-prophet="kunikire">🔮 國分玲</button>
-          <button class="pt-btn" data-prophet="parker">₿ Parker</button>
-          <button class="pt-btn" data-prophet="biggs">🐻 比格斯</button>
-        </div>
-        <div id="prophet-panel" class="prophet-panel">
-          <div class="mc-loading">載入中…</div>
-        </div>
-      </div>
-
-      <div class="proph-grid">
-
-        <!-- Left: submit + my history -->
-        <div class="proph-left">
-          <div class="mc-card">
-            <div class="mc-card-head"><span>✍️</span><h3>發表預言</h3></div>
-            <form id="prophecy-form" class="proph-form">
-              <textarea id="proph-content" placeholder="你的預言…（最少20字）" rows="4" maxlength="500"></textarea>
-              <div class="proph-row">
-                <select id="proph-cat">
-                  <option value="地緣政治">🌍 地緣政治</option>
-                  <option value="加密貨幣">₿ 加密貨幣</option>
-                  <option value="自然災害">🌋 自然災害</option>
-                  <option value="台灣">🇹🇼 台灣</option>
-                  <option value="靈性預言">🔮 靈性預言</option>
-                  <option value="其他">📝 其他</option>
-                </select>
-                <input id="proph-deadline" type="month" placeholder="預言截止" />
-              </div>
-              <button type="submit" class="proph-submit-btn">發表預言 <span class="btn-pts">+20 pts</span></button>
-              <div id="proph-msg" class="proph-msg"></div>
-            </form>
-          </div>
-
-          <div class="mc-card">
-            <div class="mc-card-head"><span>📋</span><h3>我的預言紀錄</h3></div>
-            <div id="my-prophecies">
-              <div class="mc-empty">尚未發表預言</div>
-            </div>
-          </div>
-
-          <!-- Virtual betting info -->
-          <div class="mc-card">
-            <div class="mc-card-head"><span>🎲</span><h3>我的下注紀錄</h3></div>
-            <div id="my-bets">
-              <div class="mc-empty">尚未下注</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: community prophecies with voting -->
-        <div class="proph-right">
-          <div class="mc-card tall">
-            <div class="mc-card-head">
-              <span>🌐</span><h3>社群預言牆</h3>
-              <span class="member-tag">投票可獲積分</span>
-            </div>
-            <div id="community-prophecies">
-              <div class="mc-loading">載入預言中…</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════ -->
-    <!-- TAB 3: 生存工具                        -->
-    <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel" id="tab-tools">
-      <div class="tools-grid">
-
-        <!-- Position calculator -->
-        <div class="mc-card wide">
-          <div class="mc-card-head"><span>💹</span><h3>倉位損益計算機</h3></div>
-          <div class="calc-tabs">
-            <button class="calc-tab active" data-asset="xrp">XRP</button>
-            <button class="calc-tab" data-asset="gold">黃金</button>
-            <button class="calc-tab" data-asset="btc">BTC</button>
-          </div>
-          <div class="calc-form">
-            <div class="calc-row">
-              <div class="calc-field">
-                <label>成本價 (USD)</label>
-                <input type="number" id="calc-entry" placeholder="0.00" step="0.0001" />
-              </div>
-              <div class="calc-field">
-                <label id="calc-qty-label">持有數量</label>
-                <input type="number" id="calc-qty" placeholder="0" step="0.01" />
-              </div>
-            </div>
-            <button class="calc-btn" onclick="calcPnL()">計算損益</button>
-          </div>
-          <div id="calc-result" class="calc-result"></div>
-        </div>
-
-        <!-- Survival checklist -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🎒</span><h3>末日備災清單</h3><span id="checklist-pct" class="member-tag">0%</span></div>
-          <div class="checklist-cats" id="checklist-wrap">
-            <div class="cl-cat">
-              <div class="cl-cat-title">💧 飲水儲備</div>
-              <label class="cl-item"><input type="checkbox" data-key="water1" onchange="clCheck(this)"> 儲水桶 × 2（每人7天）</label>
-              <label class="cl-item"><input type="checkbox" data-key="water2" onchange="clCheck(this)"> 濾水器 / 淨水錠</label>
-              <label class="cl-item"><input type="checkbox" data-key="water3" onchange="clCheck(this)"> 礦泉水備料（3箱以上）</label>
-            </div>
-            <div class="cl-cat">
-              <div class="cl-cat-title">🍱 糧食儲備</div>
-              <label class="cl-item"><input type="checkbox" data-key="food1" onchange="clCheck(this)"> 乾糧/罐頭（7天份）</label>
-              <label class="cl-item"><input type="checkbox" data-key="food2" onchange="clCheck(this)"> 免煮食品/能量棒</label>
-              <label class="cl-item"><input type="checkbox" data-key="food3" onchange="clCheck(this)"> 瓦斯爐 + 備用氣罐</label>
-            </div>
-            <div class="cl-cat">
-              <div class="cl-cat-title">🏥 醫療急救</div>
-              <label class="cl-item"><input type="checkbox" data-key="med1" onchange="clCheck(this)"> 基本急救包</label>
-              <label class="cl-item"><input type="checkbox" data-key="med2" onchange="clCheck(this)"> 常用藥品（退燒/止痛/抗生素）</label>
-              <label class="cl-item"><input type="checkbox" data-key="med3" onchange="clCheck(this)"> 血壓計 / 血糖機</label>
-            </div>
-            <div class="cl-cat">
-              <div class="cl-cat-title">🔦 緊急設備</div>
-              <label class="cl-item"><input type="checkbox" data-key="gear1" onchange="clCheck(this)"> 手電筒 + 備用電池</label>
-              <label class="cl-item"><input type="checkbox" data-key="gear2" onchange="clCheck(this)"> 行動電源（大容量）</label>
-              <label class="cl-item"><input type="checkbox" data-key="gear3" onchange="clCheck(this)"> 收音機（電池/手搖）</label>
-            </div>
-            <div class="cl-cat">
-              <div class="cl-cat-title">💰 財務準備</div>
-              <label class="cl-item"><input type="checkbox" data-key="fin1" onchange="clCheck(this)"> 備用現金（至少5000元）</label>
-              <label class="cl-item"><input type="checkbox" data-key="fin2" onchange="clCheck(this)"> 黃金/白銀少量持有</label>
-              <label class="cl-item"><input type="checkbox" data-key="fin3" onchange="clCheck(this)"> 加密貨幣冷錢包備份</label>
-            </div>
-            <div class="cl-cat">
-              <div class="cl-cat-title">📋 文件備份</div>
-              <label class="cl-item"><input type="checkbox" data-key="doc1" onchange="clCheck(this)"> 重要證件掃描存雲端</label>
-              <label class="cl-item"><input type="checkbox" data-key="doc2" onchange="clCheck(this)"> 家庭聯絡計畫書面化</label>
-              <label class="cl-item"><input type="checkbox" data-key="doc3" onchange="clCheck(this)"> 疏散路線規劃完成</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Geopolitical risk -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🌍</span><h3>地緣風險雷達</h3><span class="member-tag">每日更新</span></div>
-          <div class="geo-grid">
-            <div class="geo-item"><div class="geo-name">🇹🇼 台海情勢</div><div class="geo-bar red" style="width:72%"></div><div class="geo-val">72%</div></div>
-            <div class="geo-item"><div class="geo-name">🇷🇺 俄烏衝突</div><div class="geo-bar orange" style="width:58%"></div><div class="geo-val">58%</div></div>
-            <div class="geo-item"><div class="geo-name">🇮🇱 中東局勢</div><div class="geo-bar red" style="width:65%"></div><div class="geo-val">65%</div></div>
-            <div class="geo-item"><div class="geo-name">🇺🇸 美中貿易戰</div><div class="geo-bar orange" style="width:55%"></div><div class="geo-val">55%</div></div>
-            <div class="geo-item"><div class="geo-name">🌋 地質活動</div><div class="geo-bar yellow" style="width:38%"></div><div class="geo-val">38%</div></div>
-            <div class="geo-item"><div class="geo-name">💹 全球金融</div><div class="geo-bar orange" style="width:51%"></div><div class="geo-val">51%</div></div>
-          </div>
-          <div class="geo-note">風險指數由新聞情緒模型計算，僅供參考</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════ -->
-    <!-- TAB 4: 社群                            -->
-    <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel" id="tab-community">
-      <div class="comm-grid">
-
-        <!-- Forum -->
-        <div class="mc-card wide">
-          <div class="mc-card-head"><span>💬</span><h3>深夜末日論壇</h3></div>
-          <div class="forum-cats">
-            <button class="forum-cat-btn active" data-fcat="prophecy">🔮 預言</button>
-            <button class="forum-cat-btn" data-fcat="geo">🌎 國際</button>
-            <button class="forum-cat-btn" data-fcat="crypto">₿ 加密</button>
-            <button class="forum-cat-btn" data-fcat="survival">⚠️ 生存</button>
-            <button class="forum-cat-btn" data-fcat="spirit">🙏 心靈</button>
-          </div>
-          <form id="forum-form" class="forum-form">
-            <textarea id="forum-content" placeholder="分享你的觀察或問題…" rows="3" maxlength="300"></textarea>
-            <button type="submit" class="forum-post-btn">發表 <span class="btn-pts">+5 pts</span></button>
-          </form>
-          <div id="forum-posts" class="forum-posts">
-            <div class="mc-empty">論壇貼文儲存於本機。來發第一則吧！</div>
-          </div>
+          <div class="todo-total">今日可獲得：<strong>13 pts</strong></div>
         </div>
 
         <!-- Wish wall -->
@@ -453,129 +242,37 @@ if (user) {
           <div id="wish-history" class="wish-history"></div>
         </div>
 
-        <!-- Member stats -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>📈</span><h3>熊族統計</h3></div>
-          <div class="tribe-stats">
-            <div class="ts-item">
-              <div class="ts-icon">🐻</div>
-              <div class="ts-val" id="tribe-prophecies">—</div>
-              <div class="ts-label">社群預言總數</div>
-            </div>
-            <div class="ts-item">
-              <div class="ts-icon">📅</div>
-              <div class="ts-val" id="tribe-days">—</div>
-              <div class="ts-label">我的登入天數</div>
-            </div>
-            <div class="ts-item">
-              <div class="ts-icon">🏆</div>
-              <div class="ts-val" id="tribe-rank">—</div>
-              <div class="ts-label">積分等級</div>
-            </div>
-          </div>
-          <div class="tribe-note">資料來源：本機記錄・Vercel Blob</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════ -->
-    <!-- TAB: 秘密情報                          -->
-    <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel" id="tab-secret">
-      <div class="sec-wrap">
-
-        <!-- Intelligence briefings -->
+        <!-- Streak + badge progress -->
         <div class="mc-card wide">
-          <div class="mc-card-head">
-            <span>🔐</span><h3>兩隻熊獨家情報站</h3>
-            <span class="member-tag">🔒 會員限定</span>
-          </div>
-          <div class="intel-grid">
-            <div class="intel-card">
-              <div class="intel-head">
-                <span class="intel-cat xrp">₿ 加密情報</span>
-                <span class="intel-date">本週更新</span>
-              </div>
-              <h4 class="intel-title">XRP 機構積累信號偵測</h4>
-              <p class="intel-body">鏈上數據顯示過去14天巨鯨地址（持有超過100萬 XRP）淨增加 4.2 億顆。結合 Ripple 與多家央行的 CBDC 合作進度，我們評估 Q3 前出現重大催化事件的機率為 67%。重點觀察：ODL 交易量突破前高。</p>
-              <div class="intel-foot"><span class="intel-signal up">📈 看多訊號</span><span class="intel-conf">信心度 67%</span></div>
+          <div class="mc-card-head"><span>🔥</span><h3>連勝紀錄</h3></div>
+          <div class="streak-display">
+            <div class="streak-big">
+              <span id="streak-big-num">0</span>
+              <span class="streak-unit">天</span>
             </div>
-            <div class="intel-card">
-              <div class="intel-head">
-                <span class="intel-cat geo">🌍 地緣情報</span>
-                <span class="intel-date">本週更新</span>
-              </div>
-              <h4 class="intel-title">台海情勢：2026下半年警戒窗口</h4>
-              <p class="intel-body">綜合衛星圖像分析、解放軍調度模式與過往演習週期，我們識別出 9–10 月為潛在高風險窗口。建議會員此期間確保備災清單完成度達 80% 以上，並預備 2 週以上的糧食水源儲備。</p>
-              <div class="intel-foot"><span class="intel-signal warn">⚠️ 中等警戒</span><span class="intel-conf">信心度 54%</span></div>
-            </div>
-            <div class="intel-card">
-              <div class="intel-head">
-                <span class="intel-cat gold">🏅 黃金情報</span>
-                <span class="intel-date">本週更新</span>
-              </div>
-              <h4 class="intel-title">黃金衝破 3500 的五個條件</h4>
-              <p class="intel-body">Fed 降息預期升溫、中東情勢持續緊張、全球央行持續增持黃金、美元指數走弱趨勢、以及通膨數據反彈——這五個條件目前已滿足三個。若年底前再達成一個，我們預估黃金有70% 機率挑戰 $3500。</p>
-              <div class="intel-foot"><span class="intel-signal up">📈 看多訊號</span><span class="intel-conf">信心度 70%</span></div>
-            </div>
-            <div class="intel-card">
-              <div class="intel-head">
-                <span class="intel-cat spirit">🔮 靈性情報</span>
-                <span class="intel-date">本週更新</span>
-              </div>
-              <h4 class="intel-title">Baba Vanga 2026 預言交叉比對</h4>
-              <p class="intel-body">Baba Vanga 曾預言「2026年，歐亞大陸將出現前所未有的能源危機，促使一個意想不到的新聯盟誕生」。對照當前俄烏停火談判、歐盟能源重組、以及中東新格局，這個預言的完成度評分為 4.2/10，持續追蹤中。</p>
-              <div class="intel-foot"><span class="intel-signal neutral">🔮 持續追蹤</span><span class="intel-conf">完成度 42%</span></div>
+            <div class="streak-info">
+              <div class="streak-best">目前連勝</div>
+              <div class="streak-sub">累計登入 <span id="streak-total">0</span> 天</div>
             </div>
           </div>
-        </div>
-
-        <!-- Hot articles from blog -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>📰</span><h3>熊族精選文章</h3><span class="member-tag">最新發布</span></div>
-          {recentPosts.length > 0 ? (
-            <div class="sec-posts">
-              {recentPosts.map(p => (
-                <a href={p.href} class="sec-post-row" target="_blank" rel="noopener">
-                  <span class="sp-date">{p.date}</span>
-                  <span class="sp-title">{p.title}</span>
-                  <span class="sp-arrow">→</span>
-                </a>
-              ))}
+          <div class="badge-progress">
+            <div class="bpi-row">
+              <div class="bpi-icon">🌟</div>
+              <div class="bpi-info"><div class="bpi-name">週連勝</div><div class="bpi-desc">連續登入 7 天</div></div>
+              <div class="bpi-bar-wrap"><div class="bpi-bar" id="bpi-week-bar"></div></div>
+              <div class="bpi-status" id="bpi-week-status">0/7</div>
             </div>
-          ) : (
-            <div class="mc-empty">尚無文章</div>
-          )}
-        </div>
-
-        <!-- Upcoming exclusive content -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🔮</span><h3>即將解鎖</h3><span class="member-tag">敬請期待</span></div>
-          <div class="upcoming-list">
-            <div class="up-item">
-              <div class="up-lock">🔒</div>
-              <div class="up-info">
-                <div class="up-title">末日倒數：完整時間線分析 2026–2030</div>
-                <div class="up-desc">兩隻熊歷時三個月整理的末日預言交叉比對報告，涵蓋 Nostradamus、Baba Vanga、聖經密碼與現代量子力學預言</div>
-              </div>
-              <div class="up-tag coming">製作中</div>
+            <div class="bpi-row">
+              <div class="bpi-icon">🥈</div>
+              <div class="bpi-info"><div class="bpi-name">月度使徒</div><div class="bpi-desc">連續登入 30 天</div></div>
+              <div class="bpi-bar-wrap"><div class="bpi-bar" id="bpi-month-bar"></div></div>
+              <div class="bpi-status" id="bpi-month-status">0/30</div>
             </div>
-            <div class="up-item">
-              <div class="up-lock">🔒</div>
-              <div class="up-info">
-                <div class="up-title">XRP 100 倍計劃：完整倉位策略</div>
-                <div class="up-desc">從零開始建立 XRP 倉位的完整指南，含停損設定、分批買入策略與最壞情境應對計畫</div>
-              </div>
-              <div class="up-tag coming">製作中</div>
-            </div>
-            <div class="up-item">
-              <div class="up-lock">🔒</div>
-              <div class="up-info">
-                <div class="up-title">台灣版末日生存手冊（完整版）</div>
-                <div class="up-desc">針對台灣特定情境（地震、颱風、戰爭、停電）設計的完整生存指南，附物資採購清單與疏散路線</div>
-              </div>
-              <div class="up-tag soon">即將發布</div>
+            <div class="bpi-row">
+              <div class="bpi-icon">👑</div>
+              <div class="bpi-info"><div class="bpi-name">百日鐵粉</div><div class="bpi-desc">連續登入 100 天</div></div>
+              <div class="bpi-bar-wrap"><div class="bpi-bar" id="bpi-century-bar"></div></div>
+              <div class="bpi-status" id="bpi-century-status">0/100</div>
             </div>
           </div>
         </div>
@@ -584,7 +281,7 @@ if (user) {
     </div>
 
     <!-- ══════════════════════════════════════ -->
-    <!-- TAB 5: AI助手                          -->
+    <!-- TAB 3: AI助手                          -->
     <!-- ══════════════════════════════════════ -->
     <div class="mc-panel" id="tab-ai">
       {!hasAI ? (
@@ -615,7 +312,7 @@ if (user) {
           </div>
           <div id="ai-messages" class="ai-messages"></div>
           <form id="ai-form" class="ai-input-row">
-            <input id="ai-input" type="text" placeholder="輸入你想問的預言問題…" maxlength="200" />
+            <input id="ai-input" type="text" placeholder="輸入你想問的預言問題…（每日限5次）" maxlength="200" />
             <button type="submit" class="ai-send-btn">送出</button>
           </form>
         </div>
@@ -623,71 +320,41 @@ if (user) {
     </div>
 
     <!-- ══════════════════════════════════════ -->
-    <!-- TAB: 設定                              -->
+    <!-- TAB 4: 即將推出                        -->
     <!-- ══════════════════════════════════════ -->
-    <div class="mc-panel" id="tab-settings">
-      <div class="settings-grid">
-
-        <!-- Module Toggles -->
-        <div class="mc-card wide">
-          <div class="mc-card-head"><span>🔧</span><h3>首頁模組控制</h3><span class="member-tag">個人化</span></div>
-          <p class="settings-hint">勾選要在首頁顯示的區塊（儲存於本機）</p>
-          <div class="module-toggles" id="module-toggles">
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">📊 即時行情跑馬燈</div><div class="mt-desc">黃金、BTC、XRP 等即時市場數據</div></div><label class="mt-switch"><input type="checkbox" data-mod="ticker" id="mod-ticker" onchange="saveMods()"><span class="mt-slider"></span></label></div>
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">🔮 今日預言大輪播</div><div class="mt-desc">自動輪播近期重要預言摘要</div></div><label class="mt-switch"><input type="checkbox" data-mod="prophecy" id="mod-prophecy" onchange="saveMods()"><span class="mt-slider"></span></label></div>
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">📖 白話文命理分析</div><div class="mt-desc">每日易經與命理綜合分析</div></div><label class="mt-switch"><input type="checkbox" data-mod="fortune" id="mod-fortune" onchange="saveMods()"><span class="mt-slider"></span></label></div>
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">⏳ 全球倒數計時器</div><div class="mt-desc">重大時間節點倒數提醒</div></div><label class="mt-switch"><input type="checkbox" data-mod="countdown" id="mod-countdown" onchange="saveMods()"><span class="mt-slider"></span></label></div>
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">🌍 地緣政治風險雷達</div><div class="mt-desc">各地區緊張局勢即時指數</div></div><label class="mt-switch"><input type="checkbox" data-mod="geopolitical" id="mod-geopolitical" onchange="saveMods()"><span class="mt-slider"></span></label></div>
-            <div class="mt-row"><div class="mt-info"><div class="mt-name">🏆 社群預言排行榜</div><div class="mt-desc">本月最活躍的社群預言家</div></div><label class="mt-switch"><input type="checkbox" data-mod="leaderboard" id="mod-leaderboard" onchange="saveMods()"><span class="mt-slider"></span></label></div>
+    <div class="mc-panel" id="tab-coming">
+      <div class="coming-wrap">
+        <div class="coming-header">
+          <div class="coming-hero-icon">🔮</div>
+          <h2 class="coming-title">更多功能即將上線</h2>
+          <p class="coming-desc">我們正在打造更多令人期待的功能，熊族夥伴們請期待！</p>
+        </div>
+        <div class="coming-grid">
+          <div class="coming-card">
+            <div class="cc-icon">🗳️</div>
+            <h3>預言投票</h3>
+            <p>為社群預言評分命中/未命中，積分獎勵等你來拿</p>
+            <div class="cc-tag">即將推出</div>
+          </div>
+          <div class="coming-card">
+            <div class="cc-icon">💬</div>
+            <h3>深夜論壇</h3>
+            <p>五個分類討論版，末日議題深夜互動交流</p>
+            <div class="cc-tag">即將推出</div>
+          </div>
+          <div class="coming-card">
+            <div class="cc-icon">🎯</div>
+            <h3>積分競猜</h3>
+            <p>對決預言走勢，挑戰最強預言眼光，積分爭奪</p>
+            <div class="cc-tag">即將推出</div>
+          </div>
+          <div class="coming-card">
+            <div class="cc-icon">📊</div>
+            <h3>進階生存指數</h3>
+            <p>解鎖底層數據，查看詳細生存風險分析報告</p>
+            <div class="cc-tag">即將推出</div>
           </div>
         </div>
-
-        <!-- Theme -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🎨</span><h3>視覺主題</h3></div>
-          <div class="theme-options">
-            <div class="theme-opt" id="theme-cyber" onclick="setTheme('cyber')">
-              <div class="theme-preview" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)"></div>
-              <div class="theme-name">賽博深藍</div>
-              <div class="theme-desc">預設・穩定・專業</div>
-            </div>
-            <div class="theme-opt" id="theme-neon" onclick="setTheme('neon')">
-              <div class="theme-preview" style="background:linear-gradient(135deg,#1a0020,#4a003a)"></div>
-              <div class="theme-name">末日霓虹</div>
-              <div class="theme-desc">高強度視覺衝擊</div>
-            </div>
-          </div>
-          <div id="theme-msg" class="settings-hint" style="margin-top:.8em;color:#86efac;display:none">✅ 主題已套用</div>
-        </div>
-
-        <!-- Alert Webhooks -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>🔔</span><h3>警報通知設定</h3></div>
-          <div class="alert-webhooks">
-            <div class="awh-row"><span class="awh-label">Discord</span><input id="wh-discord" type="url" placeholder="https://discord.com/api/webhooks/…" class="wh-input" /></div>
-            <div class="awh-row"><span class="awh-label">Telegram</span><input id="wh-telegram" type="text" placeholder="Bot Token:ChatID" class="wh-input" /></div>
-            <div class="awh-row"><span class="awh-label">LINE Notify</span><input id="wh-line" type="text" placeholder="LINE Notify Token" class="wh-input" /></div>
-          </div>
-          <div class="alert-triggers">
-            <div class="at-title">觸發條件</div>
-            <label class="at-item"><input type="checkbox" id="at-fng" onchange="saveAlerts()"> 😱 恐慌貪婪指數跌破 20（極度恐懼）</label>
-            <label class="at-item"><input type="checkbox" id="at-quake" onchange="saveAlerts()"> 🌋 台灣周邊 M6.0 以上地震</label>
-            <label class="at-item"><input type="checkbox" id="at-gold" onchange="saveAlerts()"> 🏅 黃金漲跌幅超過 10%</label>
-            <label class="at-item"><input type="checkbox" id="at-xrp" onchange="saveAlerts()"> 💜 XRP 漲跌幅超過 15%</label>
-          </div>
-          <button class="alert-save-btn" onclick="saveAlerts()">儲存設定</button>
-          <div id="alert-save-msg" class="settings-hint" style="color:#86efac;margin-top:.5em;display:none">✅ 設定已儲存（通知功能開發中）</div>
-        </div>
-
-        <!-- Data management -->
-        <div class="mc-card">
-          <div class="mc-card-head"><span>💾</span><h3>資料管理</h3></div>
-          <div style="display:flex;flex-direction:column;gap:.8em">
-            <button class="data-btn" onclick="exportData()">📤 匯出我的資料（JSON）</button>
-            <div class="settings-hint">所有積分・願望・預言紀錄均儲存於本機 localStorage，清除瀏覽器快取會重置資料</div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -704,9 +371,7 @@ if (user) {
 // ── DATA STORE ──────────────────────────────────────────────────
 const DATA_KEY = 'tb_v3_data'
 const DFLT = {
-  points: 0, streak: 0, lastLogin: null, totalLogins: 0, badges: [],
-  votes: {}, bets: [], wishes: [], checklist: {}, forum: { prophecy:[], geo:[], crypto:[], survival:[], spirit:[] },
-  aiHistory: [], myProphecies: [], todayVoted: false, todayForum: false,
+  points: 0, streak: 0, lastLogin: null, totalLogins: 0, badges: [], wishes: [],
 }
 function load() {
   try { const r = localStorage.getItem(DATA_KEY); return r ? { ...DFLT, ...JSON.parse(r) } : { ...DFLT } }
@@ -744,7 +409,7 @@ function bearTitle(badges) {
   return '🐻 青熊'
 }
 const BADGE_INFO = {
-  week:    { icon:'🌟', name:'週連勝', desc:'連續登入7天' },
+  week:    { icon:'🌟', name:'週連勝',   desc:'連續登入7天' },
   month:   { icon:'🥈', name:'月度使徒', desc:'連續登入30天' },
   century: { icon:'👑', name:'百日鐵粉', desc:'連續登入100天' },
 }
@@ -760,616 +425,103 @@ function checkLogin(data) {
   if (streak >= 7   && !newBadges.includes('week'))    { newBadges.push('week');    bonus += 50  }
   if (streak >= 30  && !newBadges.includes('month'))   { newBadges.push('month');   bonus += 200 }
   if (streak >= 100 && !newBadges.includes('century')) { newBadges.push('century'); bonus += 1000 }
-  const nd = { ...data, points: data.points + bonus, streak, lastLogin: today, totalLogins: (data.totalLogins||0)+1, badges: newBadges, todayVoted: false, todayForum: false }
+  const nd = { ...data, points: data.points + bonus, streak, lastLogin: today, totalLogins: (data.totalLogins||0)+1, badges: newBadges }
   return { data: nd, bonus }
 }
 
-// ── UPDATE TOPBAR UI ─────────────────────────────────────────────
+// ── HELPERS ──────────────────────────────────────────────────────
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+function set(id, v) { const el = document.getElementById(id); if (el) el.textContent = v }
+
+// ── UPDATE BUNKER PASS UI ────────────────────────────────────────
 function updateTopbar(data) {
   const lv = getLevel(data.points)
-  document.getElementById('lv-badge').textContent  = `Lv ${lv.lv}`
-  document.getElementById('lv-name').textContent   = lv.name
-  document.getElementById('pts-display').textContent = `${data.points.toLocaleString()} pts`
-  document.getElementById('lv-fill').style.width   = `${lv.pct}%`
-  document.getElementById('lv-next').textContent   = lv.next ? `下一級：${lv.next.min.toLocaleString()} pts (${lv.next.name})` : '🎉 已達最高等級！'
-  document.getElementById('streak-num').textContent = data.streak
-  document.getElementById('bear-title').textContent = bearTitle(data.badges)
-  // Badges row
+  set('lv-badge', `Lv ${lv.lv}`)
+  set('lv-name', lv.name)
+  set('pts-display', `${data.points.toLocaleString()} pts`)
+  const fill = document.getElementById('lv-fill')
+  if (fill) fill.style.width = `${lv.pct}%`
+  set('lv-next', lv.next ? `下一級：${lv.next.min.toLocaleString()} pts (${lv.next.name})` : '🎉 已達最高等級！')
+  set('streak-num', data.streak)
+  set('bear-title', bearTitle(data.badges))
+  // Badges row in pass card
   const br = document.getElementById('badges-row')
-  br.innerHTML = ''
-  for (const b of (data.badges||[])) {
-    if (BADGE_INFO[b]) {
-      const sp = document.createElement('span')
-      sp.className = 'badge-chip'
-      sp.title = BADGE_INFO[b].desc
-      sp.textContent = `${BADGE_INFO[b].icon} ${BADGE_INFO[b].name}`
-      br.appendChild(sp)
+  if (br) {
+    br.innerHTML = ''
+    for (const b of (data.badges||[])) {
+      if (BADGE_INFO[b]) {
+        const sp = document.createElement('span')
+        sp.className = 'badge-chip'
+        sp.title = BADGE_INFO[b].desc
+        sp.textContent = `${BADGE_INFO[b].icon} ${BADGE_INFO[b].name}`
+        br.appendChild(sp)
+      }
     }
   }
-  // Dashboard stats
-  const ds = document.getElementById('ds-points')
-  if (ds) ds.textContent = data.points.toLocaleString()
-  const dp = document.getElementById('ds-prophecies')
-  if (dp) dp.textContent = (data.myProphecies||[]).length
-  const dv = document.getElementById('ds-votes')
-  if (dv) dv.textContent = Object.keys(data.votes||{}).length
-  const ds2 = document.getElementById('ds-streak')
-  if (ds2) ds2.textContent = `${data.streak}天`
-  // Tasks
-  const tl = document.getElementById('todo-login-icon')
-  if (tl) tl.textContent = data.lastLogin === new Date().toISOString().slice(0,10) ? '✅' : '⬜'
-  const tv = document.getElementById('todo-vote-icon')
-  if (tv) tv.textContent = data.todayVoted ? '✅' : '⬜'
-  const tw = document.getElementById('todo-wish-icon')
-  if (tw) { const today = new Date().toISOString().slice(0,10); tw.textContent = (data.wishes||[]).some(w=>w.date===today) ? '✅' : '⬜' }
-  const tf = document.getElementById('todo-forum-icon')
-  if (tf) tf.textContent = data.todayForum ? '✅' : '⬜'
-  // Tribe stats
-  const td = document.getElementById('tribe-days')
-  if (td) td.textContent = data.totalLogins || 1
-  const tr = document.getElementById('tribe-rank')
-  if (tr) tr.textContent = `Lv ${lv.lv} ${lv.name}`
+  // Pass tab stats
+  set('ps-points', data.points.toLocaleString())
+  set('ps-streak', `${data.streak}天`)
+  set('ps-logins', data.totalLogins || 1)
+  set('cur-lv-tag', `Lv ${lv.lv} ${lv.name}`)
+  renderLevelMap(data.points)
+  renderBadgeShowcase(data.badges)
+  updateDailyTab(data)
 }
 
-// ── PROPHETS DATABASE ────────────────────────────────────────────
-const PROPHETS = {
-  kunikire: {
-    name: '國分玲', origin: '日本', avatar: '🔮',
-    desc: '日本知名靈媒，擅長預測東亞政治走向及天災，命中率在圈內備受討論',
-    verified: 26, total: 83,
-    predictions: [
-      { id:'kn1', text:'2026年台灣海峽緊張局勢升至歷史新高，但不爆發全面戰爭', year:2026, cat:'台灣', status:'pending' },
-      { id:'kn2', text:'日本2025年底至2026年初將發生規模7以上強震', year:2026, cat:'自然災害', status:'hit' },
-      { id:'kn3', text:'美國2024年大選後出現嚴重社會分裂，引發城市騷亂', year:2025, cat:'美國', status:'hit' },
-      { id:'kn4', text:'2025年全球將出現未知病毒引發新健康危機', year:2025, cat:'疾病', status:'miss' },
-      { id:'kn5', text:'2026年黃金將突破每盎司3500美元', year:2026, cat:'黃金', status:'pending' },
-      { id:'kn6', text:'中東2026年前將出現短暫停火但隨後再度激烈衝突', year:2026, cat:'地緣政治', status:'pending' },
-    ]
-  },
-  parker: {
-    name: 'Parker', origin: '美國', avatar: '₿',
-    desc: 'XRP深度研究者，以加密貨幣末日預言著稱，長期追蹤 Ripple/SEC 案件進展',
-    verified: 31, total: 58,
-    predictions: [
-      { id:'pk1', text:'XRP將在Ripple勝訴後觸及27美元，成為機構結算標準', year:2026, cat:'加密貨幣', status:'pending' },
-      { id:'pk2', text:'比特幣2024-2025年牛市將觸及100,000美元', year:2025, cat:'比特幣', status:'hit' },
-      { id:'pk3', text:'美聯準會2025年至少降息三次以上', year:2025, cat:'經濟', status:'miss' },
-      { id:'pk4', text:'Ripple與SEC和解將催生新一波機構採用浪潮', year:2025, cat:'加密貨幣', status:'hit' },
-      { id:'pk5', text:'2026年全球央行CBDC將大規模推行，XRP成主要橋接貨幣', year:2026, cat:'加密貨幣', status:'pending' },
-      { id:'pk6', text:'以太坊2025年將被超越，XRP市值排名進入前三', year:2025, cat:'加密貨幣', status:'pending' },
-    ]
-  },
-  biggs: {
-    name: '比格斯', origin: '台灣', avatar: '🐻',
-    desc: '末日研究YouTuber，綜合分析全球預言家觀點、地緣政治與加密貨幣，粉絲遍及兩岸三地',
-    verified: 18, total: 45,
-    predictions: [
-      { id:'bg1', text:'2025年台灣將進入備戰心理高峰期，政府啟動相關應急預案', year:2025, cat:'台灣', status:'hit' },
-      { id:'bg2', text:'黃金2026年前成為最強抗風險資產，年化報酬超越比特幣', year:2026, cat:'黃金', status:'pending' },
-      { id:'bg3', text:'2024美國大選結果震撼全球，引發外交格局重組', year:2024, cat:'美國', status:'hit' },
-      { id:'bg4', text:'台灣西部海岸2025年內將發生規模6.5以上地震', year:2025, cat:'自然災害', status:'miss' },
-      { id:'bg5', text:'XRP 2026年底前將觸及$10以上，成為一般散戶資產配置標配', year:2026, cat:'加密貨幣', status:'pending' },
-    ]
-  },
-}
-const CAT_COLORS = { '台灣':'#3b82f6','自然災害':'#f97316','美國':'#ef4444','疾病':'#a855f7','黃金':'#eab308','加密貨幣':'#8b5cf6','比特幣':'#f59e0b','經濟':'#22c55e','地緣政治':'#ef4444' }
-const STATUS_INFO = {
-  hit:     { label:'✅ 命中', cls:'st-hit' },
-  miss:    { label:'❌ 未命中', cls:'st-miss' },
-  pending: { label:'⏳ 驗證中', cls:'st-pend' },
-}
-
-let currentProphet = 'kunikire'
-let prophetVotes: Record<string, { hit:number; miss:number; pend:number }> = {}
-
-async function loadProphetVotes() {
-  try {
-    const r = await fetch('/api/prophet-vote')
-    prophetVotes = await r.json()
-  } catch {}
-  renderProphetPanel()
-}
-
-function renderProphetPanel() {
-  const panel = document.getElementById('prophet-panel')
-  if (!panel) return
-  const p = PROPHETS[currentProphet]
-  const data = load()
-  const myProphVotes = data.prophetVotes || {}
-  const hitRate = p.total ? Math.round(p.verified / p.total * 100) : 0
-  const hrColor = hitRate >= 70 ? '#86efac' : hitRate >= 50 ? '#fde68a' : '#fca5a5'
-
-  let html = `<div class="prophet-profile">
-    <div class="pp-avatar">${p.avatar}</div>
-    <div class="pp-info">
-      <div class="pp-name">${p.name} <span class="pp-origin">${p.origin}</span></div>
-      <div class="pp-desc">${p.desc}</div>
-      <div class="pp-stats">
-        <div class="pp-stat"><span class="pp-stat-v" style="color:${hrColor}">${hitRate}%</span><span class="pp-stat-l">已驗證命中率</span></div>
-        <div class="pp-stat"><span class="pp-stat-v">${p.verified}</span><span class="pp-stat-l">已驗證預言</span></div>
-        <div class="pp-stat"><span class="pp-stat-v">${p.total}</span><span class="pp-stat-l">預言總數</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="pred-list">`
-
-  for (const pred of p.predictions) {
-    const st = STATUS_INFO[pred.status]
-    const cv = prophetVotes[pred.id] || { hit:0, miss:0, pend:0 }
-    const cvTotal = cv.hit + cv.miss + cv.pend
-    const myV = myProphVotes[pred.id]
-    const catClr = CAT_COLORS[pred.cat] || '#64748b'
-    const cvBar = cvTotal > 0 ? `<div class="cv-bar">
-      <div class="cv-hit"  style="width:${Math.round(cv.hit/cvTotal*100)}%"></div>
-      <div class="cv-miss" style="width:${Math.round(cv.miss/cvTotal*100)}%"></div>
-      <div class="cv-pend" style="width:${100-Math.round(cv.hit/cvTotal*100)-Math.round(cv.miss/cvTotal*100)}%"></div>
-    </div><div class="cv-counts">社群：👍${cv.hit} 👎${cv.miss} ⏳${cv.pend}</div>` : '<div class="cv-counts no-votes">尚無社群投票</div>'
-    html += `<div class="pred-card">
-      <div class="pred-head">
-        <span class="pred-cat" style="background:${catClr}">${pred.cat}</span>
-        <span class="${st.cls} pred-status">${st.label}</span>
-        <span class="pred-year">${pred.year}</span>
-      </div>
-      <div class="pred-text">${escHtml(pred.text)}</div>
-      ${cvBar}
-      <div class="pred-vote-row">
-        <span class="pred-vote-label">你的評分：</span>
-        <button class="pv-btn hit${myV==='hit'?' pv-voted':''}" data-pid="${pred.id}" data-pv="hit" onclick="castProphetVote(this)">👍 命中</button>
-        <button class="pv-btn miss${myV==='miss'?' pv-voted':''}" data-pid="${pred.id}" data-pv="miss" onclick="castProphetVote(this)">👎 未命中</button>
-        <button class="pv-btn pend${myV==='pend'?' pv-voted':''}" data-pid="${pred.id}" data-pv="pend" onclick="castProphetVote(this)">⏳ 待觀察</button>
-      </div>
+function renderLevelMap(pts) {
+  const map = document.getElementById('level-map')
+  if (!map) return
+  const curLv = getLevel(pts)
+  map.innerHTML = LEVELS.map(lvl => {
+    const done = pts >= lvl.min
+    const isCur = lvl.lv === curLv.lv
+    return `<div class="lm-item${done?' done':''}${isCur?' current':''}">
+      <div class="lm-lv">Lv ${lvl.lv}</div>
+      <div class="lm-name">${lvl.name}</div>
+      <div class="lm-pts">${lvl.min.toLocaleString()}</div>
     </div>`
-  }
-  html += '</div>'
-  panel.innerHTML = html
-}
-
-window.castProphetVote = async function(btn) {
-  const pid = btn.dataset.pid
-  const pv  = btn.dataset.pv
-  let data = load()
-  if (!data.prophetVotes) data.prophetVotes = {}
-  const prev = data.prophetVotes[pid]
-  if (prev === pv) return
-  data.prophetVotes[pid] = pv
-  // Award points for first-time vote on this prediction
-  if (!prev) { data.points += 5; data.todayVoted = true }
-  save(data)
-  // Update UI optimistically
-  const card = btn.closest('.pred-card')
-  if (card) { card.querySelectorAll('.pv-btn').forEach(b => b.classList.remove('pv-voted')); btn.classList.add('pv-voted') }
-  updateTopbar(data)
-  // POST to API
-  try {
-    const r = await fetch('/api/prophet-vote', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ predictionId: pid, vote: pv }) })
-    if (r.ok) { prophetVotes[pid] = await r.json(); renderProphetPanel() }
-  } catch {}
-  if (!prev) showToast('✅ 投票成功 +5 pts')
-}
-
-// Prophet tabs
-document.querySelectorAll('.pt-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.pt-btn').forEach(b => b.classList.remove('active'))
-    btn.classList.add('active')
-    currentProphet = btn.dataset.prophet
-    renderProphetPanel()
-  })
-})
-
-// ── COMMUNITY POLL ────────────────────────────────────────────────
-let currentPollIndex = 0
-let pollData: any[] = []
-
-async function loadPoll() {
-  const wrap = document.getElementById('poll-wrap')
-  if (!wrap) return
-  try {
-    const r = await fetch('/api/poll')
-    pollData = await r.json()
-    if (!pollData.length) { wrap.innerHTML = '<div class="mc-empty">本週民調載入中</div>'; return }
-    renderPoll()
-  } catch { wrap.innerHTML = '<div class="mc-empty">民調暫時無法載入</div>' }
-}
-
-function renderPoll() {
-  const wrap = document.getElementById('poll-wrap')
-  if (!wrap || !pollData.length) return
-  const data = load()
-  const poll = pollData[currentPollIndex] || pollData[0]
-  const myVoted = (data.pollVotes || {})[poll.id]
-  const totalVotes = (poll.votes || []).reduce((a: number, b: number) => a + b, 0)
-  const paginationHtml = pollData.length > 1 ? `<div class="poll-pagination">
-    ${pollData.map((p,i) => `<button class="pp-dot${i===currentPollIndex?' active':''}" onclick="switchPoll(${i})">${i+1}</button>`).join('')}
-  </div>` : ''
-  let optionsHtml = ''
-  for (let i = 0; i < poll.options.length; i++) {
-    const cnt = poll.votes?.[i] || 0
-    const pct = totalVotes > 0 ? Math.round(cnt / totalVotes * 100) : 0
-    const voted = myVoted === i
-    optionsHtml += `<div class="poll-option ${voted?'voted':''}" onclick="${myVoted==null?`votePoll('${poll.id}',${i})`:''}">
-      <div class="po-label">${poll.options[i]}</div>
-      <div class="po-bar-wrap">
-        <div class="po-bar" style="width:${myVoted!=null?pct:0}%"></div>
-      </div>
-      <div class="po-pct">${myVoted!=null?pct+'%':''}</div>
-    </div>`
-  }
-  wrap.innerHTML = `<div class="poll-q">${escHtml(poll.question)}</div>${optionsHtml}
-    <div class="poll-footer">${totalVotes} 票・${myVoted==null?'點選投票 <span class="todo-pts">+3 pts</span>':'已投票'}</div>
-    ${paginationHtml}`
-}
-
-window.votePoll = async function(pollId, optionIndex) {
-  let data = load()
-  if (!data.pollVotes) data.pollVotes = {}
-  if (data.pollVotes[pollId] != null) return
-  data.pollVotes[pollId] = optionIndex
-  data.points += 3
-  save(data)
-  updateTopbar(data)
-  // POST
-  try {
-    const r = await fetch('/api/poll', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ option: optionIndex }) })
-    if (r.ok) { const updated = await r.json(); const p = pollData.find(p => p.id === pollId); if (p && updated.votes) p.votes = updated.votes }
-  } catch {}
-  renderPoll()
-  showToast('🗳️ 投票成功 +3 pts')
-}
-
-window.switchPoll = function(idx) {
-  currentPollIndex = idx
-  renderPoll()
-}
-
-// ── MARKET SNAPSHOT ─────────────────────────────────────────────
-async function loadMarketSnapshot() {
-  try {
-    const [mktRes, fngRes, fxRes] = await Promise.allSettled([
-      fetch('/api/market'),
-      fetch('https://api.alternative.me/fng/?limit=1', { signal: AbortSignal.timeout(5000) }),
-      fetch('https://open.er-api.com/v6/latest/USD', { signal: AbortSignal.timeout(5000) }),
-    ])
-    const set = (id, val, cls) => { const el = document.getElementById(id); if (el) { el.textContent = val; if (cls) el.className = `mkt-val ${cls}`; } }
-    const fmt = (n, dec) => n == null ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: dec ?? (n >= 100 ? 0 : 4) })
-    const chg = (p) => p == null ? '' : ` ${p >= 0 ? '▲' : '▼'}${Math.abs(p).toFixed(1)}%`
-    if (mktRes.status === 'fulfilled' && mktRes.value.ok) {
-      const d = await mktRes.value.json()
-      const qs = {}; for (const q of (d.quotes ?? [])) qs[q.symbol] = q
-      const btc = d.crypto?.bitcoin; const xrp = d.crypto?.ripple
-      if (btc) set('mkt-btc', `$${fmt(btc.usd)}${chg(btc.usd_24h_change)}`, btc.usd_24h_change >= 0 ? 'up' : 'dn')
-      if (xrp) set('mkt-xrp', `$${fmt(xrp.usd, 4)}${chg(xrp.usd_24h_change)}`, xrp.usd_24h_change >= 0 ? 'up' : 'dn')
-      if (qs['GC=F']) set('mkt-gold', `$${fmt(qs['GC=F'].price)}${chg(qs['GC=F'].change)}`, (qs['GC=F'].change ?? 0) >= 0 ? 'up' : 'dn')
-      if (qs['^VIX']) { const v = qs['^VIX'].price; set('mkt-vix', fmt(v,1), v >= 30 ? 'dn' : v >= 20 ? 'warn' : 'up') }
-    }
-    if (fngRes.status === 'fulfilled' && fngRes.value.ok) {
-      const j = await fngRes.value.json(); const val = parseInt(j?.data?.[0]?.value)
-      const label = val >= 75 ? '極貪婪' : val >= 55 ? '貪婪' : val >= 45 ? '中立' : val >= 25 ? '恐懼' : '極恐懼'
-      set('mkt-fng', `${val} ${label}`, val >= 55 ? 'dn' : val <= 35 ? 'up' : 'warn')
-    }
-    if (fxRes.status === 'fulfilled' && fxRes.value.ok) {
-      const j = await fxRes.value.json(); const twd = j?.rates?.TWD
-      if (twd) set('mkt-twd', twd.toFixed(2), null)
-    }
-  } catch {}
-}
-
-// ── SURVIVAL INDEX ───────────────────────────────────────────────
-async function loadSurvival() {
-  const wrap = document.getElementById('adv-survival-wrap')
-  if (!wrap) return
-  try {
-    const r = await fetch('/api/survival')
-    const d = await r.json()
-    const score = d.score ?? 65
-    const cats = d.categories ?? []
-    const color = score >= 80 ? '#ef4444' : score >= 60 ? '#f97316' : score >= 40 ? '#eab308' : '#22c55e'
-    let html = `<div class="adv-score-row"><div class="adv-big-score" style="color:${color}">${score}</div><div class="adv-score-label">今日生存指數<br/><span style="font-size:.8em;color:#94a3b8">${d.label??''}</span></div></div>`
-    html += '<div class="adv-cats">'
-    for (const c of cats) {
-      const cclr = c.score>=70?'#ef4444':c.score>=50?'#f97316':'#22c55e'
-      html += `<div class="adv-cat"><div class="adv-cat-name">${c.name}</div><div class="adv-cat-bar"><div class="adv-cat-fill" style="width:${c.score}%;background:${cclr}"></div></div><div class="adv-cat-score" style="color:${cclr}">${c.score}</div></div>`
-    }
-    html += '</div>'
-    wrap.innerHTML = html
-  } catch {
-    wrap.innerHTML = '<div class="mc-empty">生存指數暫時無法載入</div>'
-  }
-}
-
-// ── COMMUNITY PROPHECIES ─────────────────────────────────────────
-async function loadCommunityProphecies() {
-  const wrap = document.getElementById('community-prophecies')
-  const tbWrap = document.getElementById('tribe-prophecies')
-  if (!wrap) return
-  try {
-    const r = await fetch('/api/prophecy-submit')
-    const list = await r.json()
-    if (tbWrap) tbWrap.textContent = list.length
-    if (!list.length) { wrap.innerHTML = '<div class="mc-empty">尚無社群預言，來發第一則！</div>'; return }
-    const data = load()
-    // Vote stats summary
-    const allVotes = Object.values(data.votes || {})
-    const hitCnt  = allVotes.filter(v => v === 'hit').length
-    const missCnt = allVotes.filter(v => v === 'miss').length
-    const pendCnt = allVotes.filter(v => v === 'pend').length
-    const total   = hitCnt + missCnt + pendCnt
-    let statsHtml = ''
-    if (total > 0) {
-      const hPct = Math.round(hitCnt / total * 100)
-      const mPct = Math.round(missCnt / total * 100)
-      const pPct = 100 - hPct - mPct
-      statsHtml = `<div class="vote-stats-bar">
-        <div class="vsb-label">你的投票分布 (共 ${total} 票)</div>
-        <div class="vsb-track">
-          <div class="vsb-hit"  style="width:${hPct}%" title="命中 ${hitCnt}">👍 ${hPct}%</div>
-          <div class="vsb-miss" style="width:${mPct}%" title="未命中 ${missCnt}">👎 ${mPct}%</div>
-          <div class="vsb-pend" style="width:${pPct}%" title="待觀察 ${pendCnt}">⏳ ${pPct}%</div>
-        </div>
-      </div>`
-    }
-    let html = statsHtml
-    for (const p of list.slice(0,20)) {
-      const myVote = data.votes?.[p.id]
-      const catClrs = { '地緣政治':'#ef4444','加密貨幣':'#a855f7','自然災害':'#f97316','台灣':'#3b82f6','靈性預言':'#8b5cf6','其他':'#64748b' }
-      const clr = catClrs[p.category] ?? '#64748b'
-      const dl = p.deadline ? `<span class="proph-dl">截止 ${p.deadline}</span>` : ''
-      const isMe = p.email === uEmail
-      const daysAgo = Math.floor((Date.now() - p.submittedAt) / 86400000)
-      const timeStr = daysAgo === 0 ? '今天' : daysAgo === 1 ? '昨天' : `${daysAgo}天前`
-      html += `<div class="proph-card" data-id="${p.id}">
-        <div class="proph-card-head">
-          <span class="proph-cat-tag" style="background:${clr}">${p.category}</span>
-          ${dl}
-          ${isMe ? '<span class="proph-mine">我的</span>' : ''}
-          <span class="proph-time">${timeStr}</span>
-          <span class="proph-author">${p.author}</span>
-        </div>
-        <div class="proph-card-text">${escHtml(p.content)}</div>
-        <div class="proph-card-foot">
-          <div class="proph-vote-row">
-            <button class="vote-btn hit${myVote==='hit'?' voted':''}" data-id="${p.id}" data-v="hit" onclick="castVote(this)">👍 命中</button>
-            <button class="vote-btn miss${myVote==='miss'?' voted':''}" data-id="${p.id}" data-v="miss" onclick="castVote(this)">👎 未命中</button>
-            <button class="vote-btn pend${myVote==='pend'?' voted':''}" data-id="${p.id}" data-v="pend" onclick="castVote(this)">⏳ 待觀察</button>
-          </div>
-          <button class="bet-open-btn" data-id="${p.id}" data-txt="${escHtml(p.content.slice(0,40))}" onclick="openBet(this)">🎲 下注</button>
-        </div>
-      </div>`
-    }
-    wrap.innerHTML = html
-  } catch {
-    wrap.innerHTML = '<div class="mc-empty">載入失敗，請稍後再試</div>'
-  }
-}
-
-function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
-
-function castVote(btn) {
-  const id = btn.dataset.id
-  const v  = btn.dataset.v
-  let data = load()
-  const already = data.votes?.[id]
-  if (already === v) return
-  if (!data.votes) data.votes = {}
-  data.votes[id] = v
-  let bonus = 0
-  if (!data.todayVoted) { data.points += 5; data.todayVoted = true; bonus = 5 }
-  save(data)
-  // Update UI
-  const card = btn.closest('.proph-card')
-  if (card) {
-    card.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('voted'))
-    btn.classList.add('voted')
-  }
-  updateTopbar(data)
-  if (bonus) showToast(`✅ 投票成功！+${bonus} 積分`)
-}
-
-// Virtual bet modal
-function openBet(btn) {
-  const id  = btn.dataset.id
-  const txt = btn.dataset.txt
-  const data = load()
-  const existing = (data.bets||[]).find(b => b.id === id)
-  if (existing) { showToast('你已對此預言下注'); return }
-  const side = prompt(`下注「${txt}…」\n\n1 = 命中  2 = 未命中\n輸入1或2：`)
-  if (!side) return
-  const sideName = side === '1' ? 'hit' : side === '2' ? 'miss' : null
-  if (!sideName) return
-  const amtStr = prompt(`下注多少積分？（現有 ${data.points} pts，最多投入 ${Math.floor(data.points*0.5)||10}）`)
-  const amt = parseInt(amtStr)
-  if (!amt || amt <= 0) return
-  if (amt > data.points) { showToast('積分不足！'); return }
-  data.points -= amt
-  if (!data.bets) data.bets = []
-  data.bets.push({ id, prophecy: txt, amount: amt, side: sideName, resolved: false, won: false, time: Date.now() })
-  save(data)
-  updateTopbar(data)
-  renderMyBets(data)
-  showToast(`🎲 已下注 ${amt} pts，押「${sideName==='hit'?'命中':'未命中'}」！`)
-}
-
-function renderMyBets(data) {
-  const wrap = document.getElementById('my-bets')
-  if (!wrap) return
-  const bets = (data.bets||[]).slice().reverse().slice(0,10)
-  if (!bets.length) { wrap.innerHTML = '<div class="mc-empty">尚未下注</div>'; return }
-  wrap.innerHTML = bets.map(b => `
-    <div class="bet-row ${b.resolved?(b.won?'won':'lost'):'pending'}">
-      <div class="bet-proph">${escHtml(b.prophecy)}…</div>
-      <div class="bet-meta">押 <strong>${b.side==='hit'?'命中':'未命中'}</strong> | ${b.amount} pts | ${b.resolved?(b.won?'✅贏':'❌輸'):'⏳未結算'}</div>
-    </div>`).join('')
-}
-
-// ── MY PROPHECIES ────────────────────────────────────────────────
-function renderMyProphecies(data) {
-  const wrap = document.getElementById('my-prophecies')
-  if (!wrap) return
-  const list = (data.myProphecies||[]).slice().reverse().slice(0,5)
-  if (!list.length) { wrap.innerHTML = '<div class="mc-empty">尚未發表預言</div>'; return }
-  wrap.innerHTML = list.map(p => `
-    <div class="my-proph-row">
-      <span class="my-proph-cat">${p.category}</span>
-      <span class="my-proph-txt">${escHtml(p.content.slice(0,60))}…</span>
-      <span class="my-proph-date">${new Date(p.submittedAt).toLocaleDateString('zh-TW')}</span>
-    </div>`).join('')
-}
-
-// Prophecy submit
-document.getElementById('prophecy-form')?.addEventListener('submit', async e => {
-  e.preventDefault()
-  const content  = document.getElementById('proph-content').value.trim()
-  const category = document.getElementById('proph-cat').value
-  const deadline = document.getElementById('proph-deadline').value
-  const msg = document.getElementById('proph-msg')
-  if (content.length < 20) { msg.textContent = '預言至少需要20個字'; msg.className='proph-msg error'; return }
-  msg.textContent = '發表中…'; msg.className = 'proph-msg'
-  try {
-    const r = await fetch('/api/prophecy-submit', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ content, category, deadline })
-    })
-    if (!r.ok) throw new Error(await r.text())
-    const p = await r.json()
-    let data = load()
-    data.points += 20
-    if (!data.myProphecies) data.myProphecies = []
-    data.myProphecies.push({ ...p })
-    save(data)
-    updateTopbar(data)
-    renderMyProphecies(data)
-    msg.textContent = '✅ 預言發表成功！+20 pts'
-    msg.className = 'proph-msg success'
-    document.getElementById('proph-content').value = ''
-    loadCommunityProphecies()
-  } catch(err) {
-    msg.textContent = `發表失敗：${err.message}`
-    msg.className = 'proph-msg error'
-  }
-})
-
-// ── MONTHLY LEADERBOARD ──────────────────────────────────────────
-async function loadLeaderboard() {
-  const wrap = document.getElementById('month-lb')
-  if (!wrap) return
-  try {
-    const r = await fetch('/api/prophecy-submit')
-    const list = await r.json()
-    const counts = {}
-    for (const p of list) counts[p.author] = (counts[p.author]||0) + 1
-    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8)
-    const medals = ['🥇','🥈','🥉','4','5','6','7','8']
-    if (!sorted.length) { wrap.innerHTML = '<div class="mc-empty">尚無排行資料</div>'; return }
-    wrap.innerHTML = `<div class="lb-list">${sorted.map(([name,cnt],i) => `
-      <div class="lb-row">
-        <span class="lb-rank">${medals[i]}</span>
-        <span class="lb-name">${escHtml(name)}</span>
-        <span class="lb-cnt">${cnt} 則</span>
-      </div>`).join('')}</div>`
-  } catch {
-    wrap.innerHTML = '<div class="mc-empty">排行榜暫時無法載入</div>'
-  }
-}
-
-// ── POSITION CALCULATOR ──────────────────────────────────────────
-const ASSETS = {
-  xrp:  { targets: [3, 5, 10, 27, 100, 589], unit: 'XRP', label: '數量（XRP）', dec: 4 },
-  gold: { targets: [2800, 3000, 3500, 4000, 5000, 10000], unit: '盎司', label: '數量（盎司）', dec: 2 },
-  btc:  { targets: [80000, 100000, 150000, 200000, 500000, 1000000], unit: 'BTC', label: '數量（BTC）', dec: 8 },
-}
-let currentAsset = 'xrp'
-
-document.querySelectorAll('.calc-tab').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.calc-tab').forEach(b => b.classList.remove('active'))
-    btn.classList.add('active')
-    currentAsset = btn.dataset.asset
-    document.getElementById('calc-qty-label').textContent = ASSETS[currentAsset].label
-    document.getElementById('calc-result').innerHTML = ''
-  })
-})
-
-window.calcPnL = function() {
-  const entry = parseFloat(document.getElementById('calc-entry').value)
-  const qty   = parseFloat(document.getElementById('calc-qty').value)
-  if (!entry || !qty) return
-  const a = ASSETS[currentAsset]
-  const cost = entry * qty
-  const rows = a.targets.map(t => {
-    const val  = t * qty
-    const pnl  = val - cost
-    const pct  = ((t - entry) / entry * 100)
-    const cls  = pnl >= 0 ? 'pos' : 'neg'
-    return `<tr class="${cls}">
-      <td>$${t.toLocaleString()}</td>
-      <td>$${val.toLocaleString('en-US',{maximumFractionDigits:0})}</td>
-      <td>${pnl>=0?'+':''}$${pnl.toLocaleString('en-US',{maximumFractionDigits:0})}</td>
-      <td>${pct>=0?'+':''}${pct.toFixed(1)}%</td>
-    </tr>`
   }).join('')
-  document.getElementById('calc-result').innerHTML = `
-    <div class="calc-cost">成本：$${cost.toLocaleString('en-US',{maximumFractionDigits:2})}</div>
-    <table class="calc-table"><thead><tr><th>目標價</th><th>總值</th><th>損益</th><th>漲跌</th></tr></thead><tbody>${rows}</tbody></table>`
 }
 
-// ── SURVIVAL CHECKLIST ───────────────────────────────────────────
-window.clCheck = function(el) {
-  const data = load()
-  if (!data.checklist) data.checklist = {}
-  data.checklist[el.dataset.key] = el.checked
-  save(data)
-  updateChecklistPct(data)
-}
-function updateChecklistPct(data) {
-  const keys = ['water1','water2','water3','food1','food2','food3','med1','med2','med3','gear1','gear2','gear3','fin1','fin2','fin3','doc1','doc2','doc3']
-  const done = keys.filter(k => data.checklist?.[k]).length
-  const pct  = Math.round(done / keys.length * 100)
-  const el   = document.getElementById('checklist-pct')
-  if (el) el.textContent = `${pct}%`
-  keys.forEach(k => {
-    const cb = document.querySelector(`[data-key="${k}"]`)
-    if (cb) cb.checked = !!data.checklist?.[k]
-  })
-}
-
-// ── FORUM ────────────────────────────────────────────────────────
-let currentForumCat = 'prophecy'
-document.querySelectorAll('.forum-cat-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.forum-cat-btn').forEach(b => b.classList.remove('active'))
-    btn.classList.add('active')
-    currentForumCat = btn.dataset.fcat
-    renderForum(load())
-  })
-})
-document.getElementById('forum-form')?.addEventListener('submit', e => {
-  e.preventDefault()
-  const content = document.getElementById('forum-content').value.trim()
-  if (!content) return
-  let data = load()
-  if (!data.forum) data.forum = { prophecy:[], geo:[], crypto:[], survival:[], spirit:[] }
-  if (!data.forum[currentForumCat]) data.forum[currentForumCat] = []
-  data.forum[currentForumCat].unshift({ id: Date.now(), text: content, author: uName, time: Date.now() })
-  if (!data.todayForum) { data.points += 5; data.todayForum = true }
-  save(data)
-  document.getElementById('forum-content').value = ''
-  updateTopbar(data)
-  renderForum(data)
-  showToast('💬 已發表 +5 pts')
-})
-function renderForum(data) {
-  const wrap = document.getElementById('forum-posts')
+function renderBadgeShowcase(badges) {
+  const wrap = document.getElementById('badge-showcase')
   if (!wrap) return
-  const posts = (data.forum?.[currentForumCat]||[]).slice(0,30)
-  if (!posts.length) { wrap.innerHTML = '<div class="mc-empty">此分類尚無討論，來開啟第一則！</div>'; return }
-  wrap.innerHTML = posts.map(p => `
-    <div class="forum-post">
-      <div class="fp-head"><span class="fp-author">${escHtml(p.author)}</span><span class="fp-time">${new Date(p.time).toLocaleString('zh-TW')}</span></div>
-      <div class="fp-text">${escHtml(p.text)}</div>
-    </div>`).join('')
+  const earned = (badges||[]).filter(b => BADGE_INFO[b])
+  if (!earned.length) {
+    wrap.innerHTML = '<div class="mc-empty">繼續登入累積連勝，解鎖專屬徽章！</div>'
+    return
+  }
+  wrap.innerHTML = earned.map(b => {
+    const info = BADGE_INFO[b]
+    return `<div class="badge-full">
+      <div class="bf-icon">${info.icon}</div>
+      <div class="bf-name">${info.name}</div>
+      <div class="bf-desc">${info.desc}</div>
+    </div>`
+  }).join('')
 }
 
-// ── WISH WALL ───────────────────────────────────────────────────
+function updateDailyTab(data) {
+  const today = new Date().toISOString().slice(0,10)
+  set('todo-login-icon', data.lastLogin === today ? '✅' : '⬜')
+  set('todo-wish-icon', (data.wishes||[]).some(w=>w.date===today) ? '✅' : '⬜')
+  set('streak-big-num', data.streak)
+  set('streak-total', data.totalLogins || 1)
+  updateBadgeProgress('week', data.streak, 7, data.badges)
+  updateBadgeProgress('month', data.streak, 30, data.badges)
+  updateBadgeProgress('century', data.streak, 100, data.badges)
+}
+
+function updateBadgeProgress(key, streak, target, badges) {
+  const bar = document.getElementById(`bpi-${key}-bar`)
+  const status = document.getElementById(`bpi-${key}-status`)
+  const earned = (badges||[]).includes(key)
+  const pct = earned ? 100 : Math.min(100, Math.round(streak / target * 100))
+  if (bar) { bar.style.width = `${pct}%`; bar.style.background = earned ? '#86efac' : '#a855f7' }
+  if (status) status.textContent = earned ? '✅ 已獲得' : `${streak}/${target}`
+}
+
+// ── WISH WALL ────────────────────────────────────────────────────
 function initWish(data) {
   const today = new Date().toISOString().slice(0,10)
   const el = document.getElementById('wish-date')
@@ -1378,7 +530,7 @@ function initWish(data) {
   const disp = document.getElementById('wish-today')
   if (disp) {
     if (todayWish) { disp.textContent = `🕯️ "${todayWish.text}"`; disp.classList.add('has-wish') }
-    else disp.textContent = ''
+    else { disp.textContent = ''; disp.classList.remove('has-wish') }
   }
   const hist = document.getElementById('wish-history')
   if (hist) {
@@ -1388,49 +540,79 @@ function initWish(data) {
 }
 document.getElementById('wish-form')?.addEventListener('submit', e => {
   e.preventDefault()
-  const text = document.getElementById('wish-input').value.trim()
+  const text = (document.getElementById('wish-input') as HTMLInputElement).value.trim()
   if (!text) return
   const today = new Date().toISOString().slice(0,10)
   let data = load()
   if (!data.wishes) data.wishes = []
-  if (data.wishes.some(w=>w.date===today)) { showToast('今天已許過願望了 🕯️'); return }
+  if (data.wishes.some((w: any) => w.date === today)) { showToast('今天已許過願望了 🕯️'); return }
   data.wishes.unshift({ date: today, text })
   data.wishes = data.wishes.slice(0,30)
   data.points += 3
   save(data)
-  document.getElementById('wish-input').value = ''
+  ;(document.getElementById('wish-input') as HTMLInputElement).value = ''
   updateTopbar(data)
   initWish(data)
   showToast('🕯️ 願望已發送 +3 pts')
 })
 
 // ── AI ASSISTANT ─────────────────────────────────────────────────
+const AI_QUOTA_KEY = 'tb_ai_quota'
+function getAIQuota() {
+  const today = new Date().toISOString().slice(0,10)
+  try {
+    const raw = localStorage.getItem(AI_QUOTA_KEY)
+    if (!raw) return 5
+    const d = JSON.parse(raw)
+    if (d.date !== today) return 5
+    return Math.max(0, 5 - (d.used || 0))
+  } catch { return 5 }
+}
+function useAIQuota() {
+  const today = new Date().toISOString().slice(0,10)
+  try {
+    const raw = localStorage.getItem(AI_QUOTA_KEY)
+    const d = raw ? JSON.parse(raw) : { date: today, used: 0 }
+    if (d.date !== today) { localStorage.setItem(AI_QUOTA_KEY, JSON.stringify({ date: today, used: 1 })); return 4 }
+    d.used = (d.used || 0) + 1
+    localStorage.setItem(AI_QUOTA_KEY, JSON.stringify(d))
+    return Math.max(0, 5 - d.used)
+  } catch { return 5 }
+}
+function updateQuotaDisplay() {
+  const el = document.getElementById('ai-quota')
+  if (el) el.textContent = String(getAIQuota())
+}
+
 if (hasAI) {
   const aiForm = document.getElementById('ai-form')
-  const aiInput = document.getElementById('ai-input')
-  const aiMsgs = document.getElementById('ai-messages')
+  const aiInput = document.getElementById('ai-input') as HTMLInputElement
 
   aiForm?.addEventListener('submit', async e => {
     e.preventDefault()
     const q = aiInput.value.trim()
     if (!q) return
+    if (getAIQuota() <= 0) { showToast('今日 AI 使用額度已達上限（5次/天）'); return }
     aiInput.value = ''
     appendAIMsg('user', q)
     const loadEl = appendAIMsg('ai', '⏳ 分析中…')
+    const remaining = useAIQuota()
+    updateQuotaDisplay()
     try {
       const r = await fetch('/api/ai-prophecy', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ question: q }) })
       const d = await r.json()
-      loadEl.querySelector('.ai-bubble').textContent = d.answer || '無法獲得回應'
+      if (loadEl) loadEl.querySelector('.ai-bubble')!.textContent = d.answer || '無法獲得回應'
     } catch {
-      loadEl.querySelector('.ai-bubble').textContent = '連線失敗，請稍後再試'
+      if (loadEl) loadEl.querySelector('.ai-bubble')!.textContent = '連線失敗，請稍後再試'
     }
+    if (remaining === 0) showToast('今日 AI 額度已用完，明日再來 🤖')
   })
 }
-window.aiQuick = function(btn) {
-  const inp = document.getElementById('ai-input')
-  if (inp) { inp.value = btn.textContent; document.getElementById('ai-form')?.dispatchEvent(new Event('submit')) }
+window.aiQuick = function(btn: HTMLElement) {
+  const inp = document.getElementById('ai-input') as HTMLInputElement
+  if (inp) { inp.value = btn.textContent || ''; document.getElementById('ai-form')?.dispatchEvent(new Event('submit')) }
 }
-function appendAIMsg(role, text) {
+function appendAIMsg(role: string, text: string) {
   const msgs = document.getElementById('ai-messages')
   if (!msgs) return null
   const div = document.createElement('div')
@@ -1441,8 +623,8 @@ function appendAIMsg(role, text) {
   return div
 }
 
-// ── TOAST ────────────────────────────────────────────────────────
-function showToast(msg) {
+// ── TOAST ─────────────────────────────────────────────────────────
+function showToast(msg: string) {
   const t = document.getElementById('bonus-toast')
   const m = document.getElementById('bonus-msg')
   if (!t||!m) return
@@ -1451,13 +633,13 @@ function showToast(msg) {
   setTimeout(() => { t.style.display = 'none' }, 4000)
 }
 
-// ── TAB SWITCHING ────────────────────────────────────────────────
+// ── TAB SWITCHING ─────────────────────────────────────────────────
 document.querySelectorAll('.mc-tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.mc-tab').forEach(b=>b.classList.remove('active'))
     document.querySelectorAll('.mc-panel').forEach(p=>p.classList.remove('active'))
     btn.classList.add('active')
-    document.getElementById(`tab-${btn.dataset.tab}`)?.classList.add('active')
+    document.getElementById(`tab-${(btn as HTMLElement).dataset.tab}`)?.classList.add('active')
   })
 })
 
@@ -1492,108 +674,7 @@ document.querySelectorAll('.mc-tab').forEach(btn => {
   setTimeout(tick, 600)
 })()
 
-// ── AI QUOTA ─────────────────────────────────────────────────────
-function getAIQuota() {
-  const today = new Date().toISOString().slice(0,10)
-  try {
-    const raw = localStorage.getItem('tb_ai_quota')
-    if (!raw) return 5
-    const d = JSON.parse(raw)
-    if (d.date !== today) return 5
-    return Math.max(0, 5 - (d.used || 0))
-  } catch { return 5 }
-}
-function useAIQuota() {
-  const today = new Date().toISOString().slice(0,10)
-  try {
-    const raw = localStorage.getItem('tb_ai_quota')
-    const d = raw ? JSON.parse(raw) : { date: today, used: 0 }
-    if (d.date !== today) { localStorage.setItem('tb_ai_quota', JSON.stringify({ date: today, used: 1 })); return 4 }
-    d.used = (d.used || 0) + 1
-    localStorage.setItem('tb_ai_quota', JSON.stringify(d))
-    return Math.max(0, 5 - d.used)
-  } catch { return 5 }
-}
-function updateQuotaDisplay() {
-  const el = document.getElementById('ai-quota')
-  if (el) el.textContent = getAIQuota()
-}
-
-// ── MODULE TOGGLES ───────────────────────────────────────────────
-const MOD_KEY = 'tb_modules'
-const DEFAULT_MODS = { ticker:true, prophecy:true, fortune:true, countdown:true, geopolitical:true, leaderboard:true }
-function loadMods() {
-  try { const r = localStorage.getItem(MOD_KEY); return r ? { ...DEFAULT_MODS, ...JSON.parse(r) } : { ...DEFAULT_MODS } }
-  catch { return { ...DEFAULT_MODS } }
-}
-window.saveMods = function() {
-  const mods = {}
-  document.querySelectorAll('#module-toggles input[data-mod]').forEach(cb => { mods[cb.dataset.mod] = cb.checked })
-  try { localStorage.setItem(MOD_KEY, JSON.stringify(mods)) } catch {}
-  showToast('✅ 模組設定已儲存')
-}
-function initModToggles() {
-  const mods = loadMods()
-  Object.entries(mods).forEach(([k, v]) => {
-    const cb = document.getElementById(`mod-${k}`)
-    if (cb) cb.checked = v
-  })
-}
-
-// ── THEME ─────────────────────────────────────────────────────────
-window.setTheme = function(name) {
-  localStorage.setItem('tb_theme', name)
-  document.querySelectorAll('.theme-opt').forEach(el => el.classList.remove('active'))
-  const el = document.getElementById(`theme-${name}`)
-  if (el) el.classList.add('active')
-  const msg = document.getElementById('theme-msg')
-  if (msg) { msg.style.display = 'block'; setTimeout(() => { msg.style.display = 'none' }, 2000) }
-  applyTheme(name)
-}
-function applyTheme(name) {
-  if (name === 'neon') {
-    document.documentElement.style.setProperty('--accent', '#ff00aa')
-    document.body.style.background = '#0d001a'
-  } else {
-    document.documentElement.style.setProperty('--accent', '#a855f7')
-    document.body.style.background = '#0f172a'
-  }
-}
-function initTheme() {
-  const t = localStorage.getItem('tb_theme') || 'cyber'
-  applyTheme(t)
-  const el = document.getElementById(`theme-${t}`)
-  if (el) el.classList.add('active')
-}
-
-// ── ALERT SETTINGS ───────────────────────────────────────────────
-const ALERT_KEY = 'tb_alerts'
-window.saveAlerts = function() {
-  const cfg = {
-    discord: document.getElementById('wh-discord')?.value || '',
-    telegram: document.getElementById('wh-telegram')?.value || '',
-    line: document.getElementById('wh-line')?.value || '',
-    fng: document.getElementById('at-fng')?.checked || false,
-    quake: document.getElementById('at-quake')?.checked || false,
-    gold: document.getElementById('at-gold')?.checked || false,
-    xrp: document.getElementById('at-xrp')?.checked || false,
-  }
-  try { localStorage.setItem(ALERT_KEY, JSON.stringify(cfg)) } catch {}
-  const msg = document.getElementById('alert-save-msg')
-  if (msg) { msg.style.display = 'block'; setTimeout(() => { msg.style.display = 'none' }, 2000) }
-}
-function initAlerts() {
-  try {
-    const raw = localStorage.getItem(ALERT_KEY)
-    if (!raw) return
-    const cfg = JSON.parse(raw)
-    const set = (id, val) => { const el = document.getElementById(id); if (el) el[typeof val === 'boolean' ? 'checked' : 'value'] = val }
-    set('wh-discord', cfg.discord||''); set('wh-telegram', cfg.telegram||''); set('wh-line', cfg.line||'')
-    set('at-fng', cfg.fng); set('at-quake', cfg.quake); set('at-gold', cfg.gold); set('at-xrp', cfg.xrp)
-  } catch {}
-}
-
-// ── DATA EXPORT ──────────────────────────────────────────────────
+// ── DATA EXPORT ───────────────────────────────────────────────────
 window.exportData = function() {
   const data = load()
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
@@ -1603,20 +684,7 @@ window.exportData = function() {
   a.click()
 }
 
-// ── GEOLOCATION ──────────────────────────────────────────────────
-function detectLocation() {
-  const el = document.getElementById('bp-location')
-  if (!el) return
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&localityLanguage=zh`)
-        .then(r => r.json()).then(d => { if (d.city) el.textContent = `${d.countryName || ''} · ${d.city}` })
-        .catch(() => {})
-    }, () => {}, { timeout: 5000 })
-  }
-}
-
-// ── INIT ─────────────────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────
 ;(function init() {
   let data = load()
   const { data: nd, bonus } = checkLogin(data)
@@ -1630,30 +698,16 @@ function detectLocation() {
     showToast(msg)
   }
   updateTopbar(data)
-  renderMyProphecies(data)
-  renderMyBets(data)
-  updateChecklistPct(data)
-  renderForum(data)
   initWish(data)
   updateQuotaDisplay()
-  initModToggles()
-  initTheme()
-  initAlerts()
-  detectLocation()
-  loadMarketSnapshot()
-  loadPoll()
-  loadProphetVotes()
-  loadSurvival()
-  loadCommunityProphecies()
-  loadLeaderboard()
 })()
 </script>
 
 <style>
-/* ── BASE ────────────────────────────────────── */
+/* ── BASE ─────────────────────────────────────────────────────── */
 .mc-main { max-width: 1100px; margin: 0 auto; padding: 0 1.2em 4em; }
 
-/* ── LOCKED STATE ──────────────────────────── */
+/* ── LOCKED STATE ─────────────────────────────────────────────── */
 .mc-locked { max-width: 860px; margin: 3em auto; }
 .lock-hero {
   text-align: center;
@@ -1676,14 +730,23 @@ function detectLocation() {
   box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform .15s, box-shadow .15s;
 }
 .login-google-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); color: #1e293b; }
+.lock-privacy { display: block; margin-top: 1em; font-size: .75em; color: #475569; text-decoration: none; }
+.lock-privacy:hover { color: #94a3b8; }
 .lock-features { margin-bottom: 2em; }
-.lf-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1em; }
+.lf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1em; }
 .lf-item {
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  border-radius: 12px; padding: 1.2em; font-size: .82em; color: #94a3b8; line-height: 1.6;
+  border-radius: 12px; padding: 1.2em; font-size: .82em; color: #94a3b8; line-height: 1.6; position: relative;
 }
 .lf-item strong { display: block; color: #e2e8f0; margin: .3em 0 .2em; }
 .lf-icon { font-size: 1.5em; }
+.lf-active { border-color: rgba(168,85,247,.15); }
+.lf-soon { opacity: .65; }
+.lf-coming-tag {
+  font-size: .6em; background: rgba(168,85,247,.2); color: #c084fc;
+  padding: .1em .5em; border-radius: 20px; margin-left: .4em;
+  vertical-align: middle;
+}
 .lock-levels { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 1.5em; text-align: center; }
 .ll-title { font-size: .8em; color: #64748b; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1em; }
 .ll-row { display: flex; align-items: center; justify-content: center; gap: 1em; flex-wrap: wrap; }
@@ -1693,7 +756,7 @@ function detectLocation() {
 .ll-name { display: block; font-size: .85em; color: #e2e8f0; font-weight: 700; }
 .ll-arrow { color: #475569; }
 
-/* ── BONUS TOAST ─────────────────────────── */
+/* ── BONUS TOAST ─────────────────────────────────────────────── */
 .mc-bonus-toast {
   position: fixed; top: 100px; right: 1.5em; z-index: 999;
   background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -1703,18 +766,58 @@ function detectLocation() {
 }
 .mc-bonus-toast button { background: none; border: none; color: #64748b; cursor: pointer; font-size: 1em; }
 
-/* ── TOPBAR ──────────────────────────────── */
-.mc-topbar {
-  display: grid; grid-template-columns: 1fr auto auto; gap: 1.5em; align-items: center;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px; padding: 1.2em 1.5em; margin: 1.5em 0 1em;
+/* ── BUNKER PASS ─────────────────────────────────────────────── */
+.bunker-pass {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #020d1a 0%, #0a1628 50%, #010a14 100%);
+  border: 1px solid rgba(0,245,255,.25);
+  border-radius: 16px; margin: 1.5em 0 1em;
+  box-shadow: 0 0 30px rgba(0,245,255,.06), inset 0 1px 0 rgba(0,245,255,.1);
 }
-.mc-user-info { display: flex; align-items: center; gap: 1em; }
+.bp-scan-line {
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,245,255,.04), transparent);
+  animation: bp-scan 4s linear infinite; pointer-events: none;
+}
+@keyframes bp-scan { to { left: 140%; } }
+.bp-header-label {
+  font-size: .6em; letter-spacing: .25em; color: rgba(0,245,255,.5);
+  text-align: center; padding: .5em 1em;
+  border-bottom: 1px solid rgba(0,245,255,.08);
+}
+.bp-body {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 1.5em; padding: 1.2em 1.5em; align-items: center;
+}
+.bp-identity { display: flex; flex-direction: column; gap: .4em; min-width: 0; }
+.bp-avatar { border: 2px solid rgba(0,245,255,.35) !important; box-shadow: 0 0 10px rgba(0,245,255,.15); }
+.bp-quota-row { display: flex; gap: .4em; flex-wrap: wrap; margin-top: .2em; }
+.bp-quota-chip {
+  font-size: .68em; padding: .2em .65em; border-radius: 20px;
+  background: rgba(0,245,255,.08); border: 1px solid rgba(0,245,255,.2); color: #00f5ff;
+}
+.bp-quota-chip strong { color: #fff; }
+.bp-level { min-width: 0; }
+.bp-streak-inline { margin-top: .6em; font-size: .85em; }
+.bp-streak-num { font-size: 1.5em; font-weight: 900; color: #f97316; }
+.bp-streak-label { color: #64748b; font-size: .8em; }
+.bp-chip { display: flex; flex-direction: column; align-items: center; gap: .6em; opacity: .7; }
+.bp-chip-inner {
+  width: 52px; height: 40px; background: linear-gradient(135deg, #c0a060, #e8d080, #c0a060);
+  border-radius: 4px; padding: 4px; display: flex; flex-direction: column;
+  justify-content: space-between; gap: 2px;
+}
+.bp-chip-lines { display: flex; flex-direction: column; gap: 2px; }
+.bp-chip-line { height: 3px; background: rgba(0,0,0,.3); border-radius: 1px; }
+.bp-chip-label { font-size: 5px; color: rgba(0,0,0,.5); text-align: center; letter-spacing: .05em; margin-top: auto; }
+.bp-barcode { display: flex; align-items: flex-end; gap: 1.5px; }
+.bp-bar { width: 2px; background: rgba(0,245,255,.4); border-radius: 1px; min-height: 12px; }
+
+/* ── IDENTITY ────────────────────────────────────────────────── */
 .mc-avatar { width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(168,85,247,.4); }
 .mc-username { font-size: 1em; font-weight: 700; color: #e2e8f0; }
 .mc-bear-title { font-size: .78em; background: rgba(168,85,247,.2); color: #c084fc; padding: .15em .6em; border-radius: 20px; margin-left: .4em; }
 .mc-email { font-size: .75em; color: #64748b; margin-top: .15em; }
-.mc-level-block { min-width: 200px; }
 .mc-lv-row { display: flex; align-items: center; gap: .5em; margin-bottom: .4em; }
 .mc-lv-badge { background: linear-gradient(135deg,#7e22ce,#6b21a8); color: white; font-size: .7em; font-weight: 800; padding: .2em .7em; border-radius: 20px; }
 .mc-lv-name { font-size: .88em; font-weight: 700; color: #e2e8f0; }
@@ -1722,55 +825,70 @@ function detectLocation() {
 .mc-lv-bar { height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; margin-bottom: .3em; }
 .mc-lv-fill { height: 100%; background: linear-gradient(90deg,#7e22ce,#a855f7); border-radius: 3px; transition: width .4s; }
 .mc-lv-next { font-size: .68em; color: #64748b; }
-.mc-streak-block { text-align: center; min-width: 100px; }
-.mc-streak-num { font-size: 2em; font-weight: 900; color: #f97316; line-height: 1; }
-.mc-streak-label { font-size: .68em; color: #64748b; margin-bottom: .3em; }
-.mc-badges-row { display: flex; gap: .3em; flex-wrap: wrap; justify-content: center; }
+.mc-badges-row { display: flex; gap: .3em; flex-wrap: wrap; }
 .badge-chip { font-size: .65em; background: rgba(234,179,8,.15); color: #fbbf24; border: 1px solid rgba(234,179,8,.3); padding: .2em .5em; border-radius: 20px; cursor: default; }
 
-/* ── TABS ────────────────────────────────── */
+/* ── TABS ────────────────────────────────────────────────────── */
 .mc-tabs { display: flex; gap: .3em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: .35em; margin-bottom: 1.2em; }
-.mc-tab { flex: 1; background: transparent; border: none; color: #94a3b8; font-size: .78em; font-weight: 600; padding: .55em .3em; border-radius: 8px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+.mc-tab { flex: 1; background: transparent; border: none; color: #94a3b8; font-size: .8em; font-weight: 600; padding: .55em .3em; border-radius: 8px; cursor: pointer; transition: all .15s; white-space: nowrap; }
 .mc-tab.active { background: rgba(168,85,247,.2); color: #c084fc; }
 .mc-tab:hover:not(.active) { color: #e2e8f0; background: rgba(255,255,255,.04); }
 .mc-panel { display: none; }
 .mc-panel.active { display: block; }
 
-/* ── CARDS ───────────────────────────────── */
+/* ── CARDS ───────────────────────────────────────────────────── */
 .mc-card {
   background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
   border-radius: 14px; padding: 1.2em; margin-bottom: 1em;
 }
 .mc-card.wide { grid-column: 1/-1; }
-.mc-card.tall { height: fit-content; }
 .mc-card-head { display: flex; align-items: center; gap: .5em; margin-bottom: 1em; padding-bottom: .6em; border-bottom: 1px solid rgba(255,255,255,.06); }
 .mc-card-head h3 { font-size: .88em; font-weight: 700; color: #e2e8f0; margin: 0; }
 .member-tag { font-size: .65em; background: rgba(168,85,247,.2); color: #c084fc; padding: .15em .6em; border-radius: 20px; margin-left: auto; }
 .mc-loading { color: #64748b; font-size: .85em; padding: 1em; text-align: center; }
 .mc-empty { color: #475569; font-size: .82em; padding: .8em; text-align: center; border: 1px dashed rgba(255,255,255,.1); border-radius: 8px; }
 
-/* ── DASHBOARD ────────────────────────────── */
-.dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
-.dash-stats-row { grid-column: 1/-1; display: grid; grid-template-columns: repeat(4,1fr); gap: .8em; }
-.dash-stat { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: 1em; text-align: center; }
-.ds-val { font-size: 1.4em; font-weight: 800; color: #a855f7; }
-.ds-label { font-size: .7em; color: #64748b; margin-top: .2em; }
-/* Advanced survival */
-.adv-score-row { display: flex; align-items: center; gap: 1.5em; margin-bottom: 1em; }
-.adv-big-score { font-size: 3em; font-weight: 900; line-height: 1; }
-.adv-score-label { font-size: .85em; font-weight: 700; color: #e2e8f0; }
-.adv-cats { display: flex; flex-direction: column; gap: .5em; }
-.adv-cat { display: grid; grid-template-columns: 100px 1fr 40px; align-items: center; gap: .8em; }
-.adv-cat-name { font-size: .78em; color: #94a3b8; }
-.adv-cat-bar { height: 8px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; }
-.adv-cat-fill { height: 100%; border-radius: 4px; transition: width .4s; }
-.adv-cat-score { font-size: .78em; font-weight: 700; text-align: right; }
-/* Leaderboard */
-.lb-list { display: flex; flex-direction: column; gap: .4em; }
-.lb-row { display: flex; align-items: center; gap: .6em; padding: .4em; border-radius: 8px; background: rgba(255,255,255,.02); }
-.lb-rank { font-size: .9em; width: 24px; text-align: center; }
-.lb-name { flex: 1; font-size: .82em; color: #e2e8f0; }
-.lb-cnt { font-size: .75em; color: #94a3b8; }
+/* ── PASS TAB ────────────────────────────────────────────────── */
+.pass-grid { display: flex; flex-direction: column; gap: 0; }
+.pass-stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: .8em; margin-bottom: 1em; }
+.pass-stat { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: 1em; text-align: center; }
+.ps-val { font-size: 1.4em; font-weight: 800; color: #a855f7; }
+.ps-label { font-size: .7em; color: #64748b; margin-top: .2em; }
+/* Level map */
+.level-map { display: grid; grid-template-columns: repeat(5,1fr); gap: .5em; }
+.lm-item {
+  background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06);
+  border-radius: 8px; padding: .6em .4em; text-align: center; transition: all .2s;
+}
+.lm-item.done { background: rgba(168,85,247,.08); border-color: rgba(168,85,247,.2); }
+.lm-item.current { background: rgba(168,85,247,.2); border-color: rgba(168,85,247,.5); box-shadow: 0 0 10px rgba(168,85,247,.2); }
+.lm-lv { font-size: .62em; color: #a855f7; font-weight: 800; margin-bottom: .15em; }
+.lm-name { font-size: .72em; color: #e2e8f0; font-weight: 700; }
+.lm-pts { font-size: .6em; color: #475569; margin-top: .1em; }
+/* Badge showcase */
+.badge-showcase { display: flex; gap: 1em; flex-wrap: wrap; }
+.badge-full { background: rgba(234,179,8,.08); border: 1px solid rgba(234,179,8,.2); border-radius: 12px; padding: 1em 1.2em; text-align: center; min-width: 100px; }
+.bf-icon { font-size: 2em; margin-bottom: .3em; }
+.bf-name { font-size: .82em; font-weight: 700; color: #fbbf24; margin-bottom: .2em; }
+.bf-desc { font-size: .68em; color: #64748b; }
+/* Recent posts */
+.sec-posts { display: flex; flex-direction: column; gap: .3em; }
+.sec-post-row { display: flex; align-items: center; gap: .6em; padding: .55em .6em; border-radius: 8px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.04); transition: background .12s; }
+.sec-post-row:hover { background: rgba(168,85,247,.08); }
+.sp-date { font-size: .68em; color: #475569; white-space: nowrap; min-width: 80px; }
+.sp-title { flex: 1; font-size: .82em; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-arrow { font-size: .75em; color: #64748b; }
+/* Data */
+.settings-hint { font-size: .78em; color: #64748b; margin-bottom: .8em; }
+.data-btn {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  color: #94a3b8; border-radius: 8px; padding: .6em 1.2em; font-size: .82em;
+  font-weight: 600; cursor: pointer; transition: background .15s; text-align: left;
+}
+.data-btn:hover { background: rgba(255,255,255,.1); color: #e2e8f0; }
+
+/* ── DAILY TAB ───────────────────────────────────────────────── */
+.daily-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
 /* Tasks */
 .todo-list { display: flex; flex-direction: column; gap: .5em; }
 .todo-item { display: flex; align-items: center; gap: .6em; font-size: .83em; color: #94a3b8; }
@@ -1778,101 +896,7 @@ function detectLocation() {
 .todo-pts { font-size: .7em; background: rgba(168,85,247,.2); color: #c084fc; padding: .1em .4em; border-radius: 20px; margin-left: .3em; }
 .todo-total { margin-top: .8em; padding-top: .6em; border-top: 1px solid rgba(255,255,255,.06); font-size: .78em; color: #94a3b8; text-align: right; }
 .todo-total strong { color: #a855f7; }
-
-/* ── PROPHECY LAB ─────────────────────────── */
-.proph-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1em; }
-.proph-form { display: flex; flex-direction: column; gap: .6em; }
-.proph-form textarea { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: #e2e8f0; padding: .8em; font-size: .85em; resize: vertical; font-family: inherit; }
-.proph-form textarea:focus { outline: none; border-color: rgba(168,85,247,.5); }
-.proph-row { display: grid; grid-template-columns: 1fr 1fr; gap: .5em; }
-.proph-form select, .proph-form input[type=month] {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px; color: #e2e8f0; padding: .6em .8em; font-size: .82em;
-}
-.proph-submit-btn { background: linear-gradient(135deg,#7e22ce,#6b21a8); color: white; border: none; border-radius: 8px; padding: .7em; font-size: .85em; font-weight: 700; cursor: pointer; transition: transform .15s; }
-.proph-submit-btn:hover { transform: translateY(-1px); }
 .btn-pts { font-size: .72em; background: rgba(255,255,255,.15); padding: .1em .4em; border-radius: 10px; margin-left: .3em; }
-.proph-msg { font-size: .78em; padding: .3em; border-radius: 6px; }
-.proph-msg.success { color: #86efac; background: rgba(34,197,94,.1); }
-.proph-msg.error   { color: #fca5a5; background: rgba(239,68,68,.1); }
-/* Community prophecy cards */
-.proph-card { border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: .9em; margin-bottom: .7em; background: rgba(255,255,255,.02); }
-.proph-card-head { display: flex; align-items: center; gap: .4em; margin-bottom: .5em; flex-wrap: wrap; }
-.proph-cat-tag { font-size: .65em; font-weight: 700; color: white; padding: .15em .5em; border-radius: 20px; }
-.proph-dl { font-size: .65em; color: #94a3b8; }
-.proph-mine { font-size: .65em; background: rgba(59,130,246,.2); color: #93c5fd; padding: .15em .5em; border-radius: 20px; }
-.proph-author { margin-left: auto; font-size: .7em; color: #64748b; }
-.proph-card-text { font-size: .82em; color: #cbd5e1; line-height: 1.6; margin-bottom: .7em; }
-.proph-card-foot { display: flex; align-items: center; gap: .5em; flex-wrap: wrap; }
-.proph-vote-row { display: flex; gap: .3em; }
-.vote-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: .25em .7em; font-size: .7em; cursor: pointer; color: #94a3b8; transition: all .15s; }
-.vote-btn.voted { border-color: rgba(168,85,247,.5); background: rgba(168,85,247,.2); color: #c084fc; font-weight: 700; }
-.vote-btn.hit.voted   { border-color: rgba(34,197,94,.5);  background: rgba(34,197,94,.15);  color: #86efac; }
-.vote-btn.miss.voted  { border-color: rgba(239,68,68,.5);  background: rgba(239,68,68,.15);  color: #fca5a5; }
-.vote-btn.pend.voted  { border-color: rgba(234,179,8,.5);  background: rgba(234,179,8,.15);  color: #fde68a; }
-.bet-open-btn { margin-left: auto; background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.2); color: #fbbf24; border-radius: 20px; padding: .25em .8em; font-size: .7em; cursor: pointer; transition: all .15s; }
-.bet-open-btn:hover { background: rgba(251,191,36,.2); }
-/* My records */
-.my-proph-row { display: flex; align-items: center; gap: .5em; padding: .4em; border-radius: 8px; font-size: .78em; border-bottom: 1px solid rgba(255,255,255,.05); }
-.my-proph-cat { font-size: .65em; background: rgba(168,85,247,.2); color: #c084fc; padding: .1em .4em; border-radius: 20px; white-space: nowrap; }
-.my-proph-txt { flex: 1; color: #94a3b8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.my-proph-date { color: #475569; white-space: nowrap; }
-.bet-row { padding: .5em; border-radius: 8px; margin-bottom: .4em; font-size: .8em; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); }
-.bet-row.won  { border-color: rgba(34,197,94,.3); background: rgba(34,197,94,.05); }
-.bet-row.lost { border-color: rgba(239,68,68,.3); background: rgba(239,68,68,.05); }
-.bet-proph { color: #94a3b8; margin-bottom: .2em; }
-.bet-meta { color: #64748b; font-size: .88em; }
-
-/* ── TOOLS ───────────────────────────────── */
-.tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
-/* Calc */
-.calc-tabs { display: flex; gap: .3em; margin-bottom: 1em; }
-.calc-tab { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #94a3b8; border-radius: 8px; padding: .4em 1.2em; font-size: .82em; font-weight: 600; cursor: pointer; transition: all .15s; }
-.calc-tab.active { background: rgba(168,85,247,.2); color: #c084fc; border-color: rgba(168,85,247,.4); }
-.calc-form { display: flex; flex-direction: column; gap: .7em; margin-bottom: 1em; }
-.calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: .6em; }
-.calc-field { display: flex; flex-direction: column; gap: .3em; }
-.calc-field label { font-size: .75em; color: #94a3b8; }
-.calc-field input { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: #e2e8f0; padding: .6em .8em; font-size: .85em; }
-.calc-btn { background: linear-gradient(135deg,#1e40af,#1d4ed8); color: white; border: none; border-radius: 8px; padding: .65em; font-size: .85em; font-weight: 700; cursor: pointer; }
-.calc-cost { font-size: .8em; color: #94a3b8; margin-bottom: .6em; }
-.calc-table { width: 100%; border-collapse: collapse; font-size: .8em; }
-.calc-table th { color: #64748b; font-size: .8em; text-align: left; padding: .3em .5em; border-bottom: 1px solid rgba(255,255,255,.08); }
-.calc-table td { padding: .35em .5em; border-bottom: 1px solid rgba(255,255,255,.04); color: #94a3b8; }
-.calc-table tr.pos td:last-child, .calc-table tr.pos td:nth-child(3) { color: #86efac; }
-.calc-table tr.neg td:last-child, .calc-table tr.neg td:nth-child(3) { color: #fca5a5; }
-/* Checklist */
-.checklist-cats { display: flex; flex-direction: column; gap: .6em; }
-.cl-cat { background: rgba(255,255,255,.02); border-radius: 8px; padding: .7em; }
-.cl-cat-title { font-size: .78em; font-weight: 700; color: #e2e8f0; margin-bottom: .5em; }
-.cl-item { display: flex; align-items: center; gap: .5em; font-size: .78em; color: #94a3b8; margin-bottom: .3em; cursor: pointer; }
-.cl-item input[type=checkbox] { accent-color: #a855f7; }
-/* Geopolitical */
-.geo-grid { display: flex; flex-direction: column; gap: .6em; }
-.geo-item { display: grid; grid-template-columns: 120px 1fr 36px; align-items: center; gap: .6em; }
-.geo-name { font-size: .78em; color: #94a3b8; }
-.geo-bar { height: 8px; border-radius: 4px; transition: width .5s; }
-.geo-bar.red    { background: #ef4444; }
-.geo-bar.orange { background: #f97316; }
-.geo-bar.yellow { background: #eab308; }
-.geo-val { font-size: .75em; font-weight: 700; color: #94a3b8; text-align: right; }
-.geo-note { font-size: .68em; color: #475569; margin-top: .8em; }
-
-/* ── COMMUNITY ────────────────────────────── */
-.comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
-/* Forum */
-.forum-cats { display: flex; gap: .3em; margin-bottom: .8em; flex-wrap: wrap; }
-.forum-cat-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #94a3b8; border-radius: 20px; padding: .3em .9em; font-size: .75em; font-weight: 600; cursor: pointer; transition: all .15s; }
-.forum-cat-btn.active { background: rgba(168,85,247,.2); color: #c084fc; border-color: rgba(168,85,247,.4); }
-.forum-form { display: flex; flex-direction: column; gap: .5em; margin-bottom: .8em; }
-.forum-form textarea { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: #e2e8f0; padding: .7em; font-size: .82em; resize: none; font-family: inherit; }
-.forum-post-btn { background: rgba(168,85,247,.2); border: 1px solid rgba(168,85,247,.3); color: #c084fc; border-radius: 8px; padding: .5em; font-size: .82em; font-weight: 700; cursor: pointer; }
-.forum-posts { max-height: 400px; overflow-y: auto; }
-.forum-post { border-bottom: 1px solid rgba(255,255,255,.05); padding: .6em 0; }
-.fp-head { display: flex; align-items: center; gap: .5em; margin-bottom: .3em; }
-.fp-author { font-size: .75em; color: #a855f7; font-weight: 700; }
-.fp-time { font-size: .68em; color: #475569; margin-left: auto; }
-.fp-text { font-size: .8em; color: #cbd5e1; line-height: 1.5; }
 /* Wish wall */
 .wish-date { font-size: .8em; color: #64748b; margin-bottom: .5em; }
 .wish-today-display { min-height: 2.5em; background: rgba(255,255,255,.03); border: 1px dashed rgba(255,255,255,.1); border-radius: 8px; padding: .7em; font-size: .85em; color: #fde68a; margin-bottom: .8em; line-height: 1.5; font-style: italic; }
@@ -1884,15 +908,24 @@ function detectLocation() {
 .wish-row { display: flex; gap: .5em; padding: .3em 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: .78em; }
 .wish-d { color: #475569; white-space: nowrap; }
 .wish-t { color: #94a3b8; font-style: italic; }
-/* Tribe stats */
-.tribe-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: .8em; margin-bottom: .8em; }
-.ts-item { text-align: center; background: rgba(255,255,255,.03); border-radius: 10px; padding: .8em; }
-.ts-icon { font-size: 1.3em; margin-bottom: .3em; }
-.ts-val { font-size: 1.1em; font-weight: 800; color: #a855f7; }
-.ts-label { font-size: .7em; color: #64748b; margin-top: .2em; }
-.tribe-note { font-size: .68em; color: #475569; text-align: center; }
+/* Streak */
+.streak-display { display: flex; align-items: center; gap: 1.5em; margin-bottom: 1.2em; }
+.streak-big { line-height: 1; }
+.streak-big span:first-child { font-size: 3em; font-weight: 900; color: #f97316; }
+.streak-unit { font-size: 1em; color: #f97316; font-weight: 700; margin-left: .2em; }
+.streak-best { font-size: .88em; font-weight: 700; color: #e2e8f0; margin-bottom: .2em; }
+.streak-sub { font-size: .75em; color: #64748b; }
+/* Badge progress */
+.badge-progress { display: flex; flex-direction: column; gap: .8em; }
+.bpi-row { display: grid; grid-template-columns: 2em 1fr 1fr auto; align-items: center; gap: .8em; }
+.bpi-icon { font-size: 1.3em; text-align: center; }
+.bpi-name { font-size: .82em; font-weight: 700; color: #e2e8f0; }
+.bpi-desc { font-size: .68em; color: #64748b; }
+.bpi-bar-wrap { height: 8px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; }
+.bpi-bar { height: 100%; border-radius: 4px; background: #a855f7; transition: width .4s; width: 0%; }
+.bpi-status { font-size: .72em; color: #94a3b8; white-space: nowrap; text-align: right; }
 
-/* ── AI ASSISTANT ─────────────────────────── */
+/* ── AI ASSISTANT ────────────────────────────────────────────── */
 .ai-setup { max-width: 500px; margin: 3em auto; text-align: center; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 2em; }
 .ai-setup-icon { font-size: 3em; margin-bottom: .5em; }
 .ai-setup h3 { color: #e2e8f0; margin: 0 0 .5em; }
@@ -1918,140 +951,25 @@ function detectLocation() {
 .ai-input-row input:focus { outline: none; border-color: rgba(168,85,247,.5); }
 .ai-send-btn { background: linear-gradient(135deg,#7e22ce,#6b21a8); color: white; border: none; border-radius: 10px; padding: .7em 1.5em; font-size: .88em; font-weight: 700; cursor: pointer; }
 
-/* ── MARKET SNAPSHOT ──────────────────────── */
-.mkt-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6em; }
-.mkt-item { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; padding: .7em .8em; }
-.mkt-name { font-size: .7em; color: #64748b; margin-bottom: .2em; }
-.mkt-val { font-size: .9em; font-weight: 700; color: #94a3b8; }
-.mkt-val.up   { color: #86efac; }
-.mkt-val.dn   { color: #fca5a5; }
-.mkt-val.warn { color: #fde68a; }
-
-/* ── VOTE STATS BAR ───────────────────────── */
-.vote-stats-bar { margin-bottom: 1em; padding: .7em; background: rgba(255,255,255,.03); border-radius: 8px; }
-.vsb-label { font-size: .7em; color: #64748b; margin-bottom: .4em; }
-.vsb-track { display: flex; height: 20px; border-radius: 10px; overflow: hidden; }
-.vsb-hit  { background: rgba(34,197,94,.4);  display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
-.vsb-miss { background: rgba(239,68,68,.4);  display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
-.vsb-pend { background: rgba(234,179,8,.35); display: flex; align-items: center; justify-content: center; font-size: .62em; color: white; min-width: 2em; }
-.proph-time { font-size: .65em; color: #475569; }
-
-/* ── SECRET ARTICLES ──────────────────────── */
-.sec-wrap { display: flex; flex-direction: column; gap: 1em; }
-.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
-.intel-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 1.1em; display: flex; flex-direction: column; gap: .5em; }
-.intel-head { display: flex; align-items: center; gap: .5em; }
-.intel-cat { font-size: .65em; font-weight: 800; color: white; padding: .2em .6em; border-radius: 20px; }
-.intel-cat.xrp    { background: linear-gradient(135deg,#7e22ce,#a855f7); }
-.intel-cat.geo    { background: linear-gradient(135deg,#991b1b,#ef4444); }
-.intel-cat.gold   { background: linear-gradient(135deg,#92400e,#f59e0b); }
-.intel-cat.spirit { background: linear-gradient(135deg,#1e3a5f,#3b82f6); }
-.intel-date { font-size: .65em; color: #475569; margin-left: auto; }
-.intel-title { font-size: .88em; font-weight: 700; color: #e2e8f0; margin: 0; }
-.intel-body { font-size: .78em; color: #94a3b8; line-height: 1.7; flex: 1; }
-.intel-foot { display: flex; align-items: center; gap: .6em; margin-top: auto; }
-.intel-signal { font-size: .7em; padding: .2em .6em; border-radius: 20px; font-weight: 700; }
-.intel-signal.up      { background: rgba(34,197,94,.15);  color: #86efac; }
-.intel-signal.warn    { background: rgba(239,68,68,.15);  color: #fca5a5; }
-.intel-signal.neutral { background: rgba(168,85,247,.15); color: #c084fc; }
-.intel-conf { font-size: .7em; color: #64748b; margin-left: auto; }
-/* Recent posts */
-.sec-posts { display: flex; flex-direction: column; gap: .3em; }
-.sec-post-row { display: flex; align-items: center; gap: .6em; padding: .55em .6em; border-radius: 8px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.04); transition: background .12s; }
-.sec-post-row:hover { background: rgba(168,85,247,.08); }
-.sp-date { font-size: .68em; color: #475569; white-space: nowrap; min-width: 80px; }
-.sp-title { flex: 1; font-size: .82em; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sp-arrow { font-size: .75em; color: #64748b; }
-/* Upcoming */
-.upcoming-list { display: flex; flex-direction: column; gap: .8em; }
-.up-item { display: flex; align-items: flex-start; gap: .8em; padding: .8em; background: rgba(255,255,255,.02); border-radius: 10px; border: 1px solid rgba(255,255,255,.06); }
-.up-lock { font-size: 1.2em; flex-shrink: 0; margin-top: .1em; }
-.up-info { flex: 1; }
-.up-title { font-size: .85em; font-weight: 700; color: #e2e8f0; margin-bottom: .3em; }
-.up-desc { font-size: .75em; color: #64748b; line-height: 1.6; }
-.up-tag { font-size: .65em; font-weight: 700; padding: .2em .6em; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: .2em; }
-.up-tag.coming { background: rgba(168,85,247,.2); color: #c084fc; }
-.up-tag.soon   { background: rgba(34,197,94,.2); color: #86efac; }
-
-/* ── PROPHET DATABASE ─────────────────────── */
-.prophet-db-card { margin-bottom: 1em; }
-.prophet-tabs { display: flex; gap: .4em; margin-bottom: 1em; }
-.pt-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #94a3b8; border-radius: 8px; padding: .45em 1.2em; font-size: .82em; font-weight: 700; cursor: pointer; transition: all .15s; }
-.pt-btn.active { background: rgba(168,85,247,.2); color: #c084fc; border-color: rgba(168,85,247,.4); }
-.prophet-panel { min-height: 200px; }
-.prophet-profile { display: flex; gap: 1.2em; margin-bottom: 1.2em; background: rgba(255,255,255,.03); border-radius: 12px; padding: 1em; }
-.pp-avatar { font-size: 2.5em; flex-shrink: 0; }
-.pp-info { flex: 1; }
-.pp-name { font-size: 1em; font-weight: 800; color: #e2e8f0; margin-bottom: .2em; }
-.pp-origin { font-size: .7em; background: rgba(255,255,255,.1); padding: .1em .5em; border-radius: 20px; margin-left: .5em; color: #94a3b8; font-weight: 400; }
-.pp-desc { font-size: .78em; color: #64748b; margin-bottom: .7em; line-height: 1.5; }
-.pp-stats { display: flex; gap: 1.5em; }
-.pp-stat { text-align: center; }
-.pp-stat-v { display: block; font-size: 1.1em; font-weight: 800; color: #a855f7; }
-.pp-stat-l { font-size: .65em; color: #64748b; }
-.pred-list { display: flex; flex-direction: column; gap: .7em; }
-.pred-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .9em; }
-.pred-head { display: flex; align-items: center; gap: .5em; margin-bottom: .5em; }
-.pred-cat { font-size: .65em; font-weight: 700; color: white; padding: .15em .5em; border-radius: 20px; }
-.pred-year { font-size: .65em; color: #475569; margin-left: auto; }
-.pred-status { font-size: .7em; font-weight: 700; padding: .15em .5em; border-radius: 20px; }
-.st-hit  { background: rgba(34,197,94,.15);  color: #86efac; }
-.st-miss { background: rgba(239,68,68,.15);  color: #fca5a5; }
-.st-pend { background: rgba(234,179,8,.15);  color: #fde68a; }
-.pred-text { font-size: .82em; color: #cbd5e1; line-height: 1.6; margin-bottom: .6em; }
-.cv-bar { height: 8px; border-radius: 4px; overflow: hidden; display: flex; margin-bottom: .3em; }
-.cv-hit  { background: rgba(34,197,94,.5); }
-.cv-miss { background: rgba(239,68,68,.5); }
-.cv-pend { background: rgba(234,179,8,.4); }
-.cv-counts { font-size: .68em; color: #64748b; margin-bottom: .5em; }
-.cv-counts.no-votes { font-style: italic; }
-.pred-vote-row { display: flex; align-items: center; gap: .3em; flex-wrap: wrap; }
-.pred-vote-label { font-size: .7em; color: #475569; }
-.pv-btn { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: .2em .65em; font-size: .7em; cursor: pointer; color: #94a3b8; transition: all .15s; }
-.pv-btn.pv-voted { font-weight: 700; }
-.pv-btn.hit.pv-voted  { background: rgba(34,197,94,.15);  border-color: rgba(34,197,94,.4);  color: #86efac; }
-.pv-btn.miss.pv-voted { background: rgba(239,68,68,.15);  border-color: rgba(239,68,68,.4);  color: #fca5a5; }
-.pv-btn.pend.pv-voted { background: rgba(234,179,8,.15);  border-color: rgba(234,179,8,.4);  color: #fde68a; }
-
-/* ── COMMUNITY POLL ───────────────────────── */
-.poll-q { font-size: .92em; font-weight: 700; color: #e2e8f0; margin-bottom: .8em; }
-.poll-option { display: flex; align-items: center; gap: .6em; padding: .5em .7em; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; margin-bottom: .4em; cursor: pointer; transition: background .15s; }
-.poll-option:hover:not(.voted) { background: rgba(168,85,247,.08); }
-.poll-option.voted { border-color: rgba(168,85,247,.3); background: rgba(168,85,247,.06); cursor: default; }
-.po-label { font-size: .82em; color: #e2e8f0; min-width: 120px; }
-.po-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,.06); border-radius: 4px; overflow: hidden; }
-.po-bar { height: 100%; background: linear-gradient(90deg,#7e22ce,#a855f7); border-radius: 4px; transition: width .5s; }
-.po-pct { font-size: .75em; font-weight: 700; color: #a855f7; min-width: 35px; text-align: right; }
-.poll-footer { font-size: .72em; color: #64748b; text-align: right; margin-top: .4em; }
-.poll-pagination { display: flex; gap: .3em; justify-content: center; margin-top: .6em; }
-.pp-dot { background: rgba(255,255,255,.1); border: none; width: 24px; height: 24px; border-radius: 50%; cursor: pointer; color: #64748b; font-size: .72em; }
-.pp-dot.active { background: rgba(168,85,247,.3); color: #c084fc; }
-
-/* ── RESPONSIVE ───────────────────────────── */
-@media (max-width: 900px) {
-  .mc-topbar { grid-template-columns: 1fr auto; }
-  .mc-streak-block { display: none; }
-  .dash-grid { grid-template-columns: 1fr; }
-  .dash-stats-row { grid-template-columns: repeat(2,1fr); }
-  .proph-grid { grid-template-columns: 1fr; }
-  .tools-grid { grid-template-columns: 1fr; }
-  .comm-grid { grid-template-columns: 1fr; }
-  .lf-grid { grid-template-columns: repeat(2,1fr); }
+/* ── COMING SOON ─────────────────────────────────────────────── */
+.coming-wrap { padding: 1em 0; }
+.coming-header { text-align: center; margin-bottom: 2em; }
+.coming-hero-icon { font-size: 3em; margin-bottom: .5em; }
+.coming-title { font-size: 1.6em; font-weight: 900; color: #e2e8f0; margin: 0 0 .5em; }
+.coming-desc { color: #64748b; font-size: .88em; }
+.coming-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1em; }
+.coming-card {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(168,85,247,.15);
+  border-radius: 16px; padding: 1.5em; text-align: center;
+  transition: border-color .2s, transform .2s;
 }
-@media (max-width: 600px) {
-  .mc-topbar { grid-template-columns: 1fr; }
-  .mc-tabs { overflow-x: auto; padding-bottom: .3em; }
-  .mc-tab { flex: 0 0 auto; font-size: .7em; padding: .5em .7em; }
-  .dash-stats-row { grid-template-columns: repeat(2,1fr); }
-  .lf-grid { grid-template-columns: 1fr 1fr; }
-  .mkt-grid { grid-template-columns: 1fr 1fr; }
-  .intel-grid { grid-template-columns: 1fr; }
-  .tribe-stats { grid-template-columns: repeat(3,1fr); font-size: .85em; }
-  .geo-item { grid-template-columns: 90px 1fr 32px; gap: .4em; }
-  .adv-cat { grid-template-columns: 80px 1fr 36px; gap: .5em; }
-}
+.coming-card:hover { border-color: rgba(168,85,247,.35); transform: translateY(-2px); }
+.cc-icon { font-size: 2.5em; margin-bottom: .5em; }
+.coming-card h3 { color: #e2e8f0; margin: 0 0 .5em; font-size: .95em; }
+.coming-card p { color: #64748b; font-size: .8em; line-height: 1.6; margin: 0 0 1em; }
+.cc-tag { display: inline-block; font-size: .7em; font-weight: 700; background: rgba(168,85,247,.2); color: #c084fc; padding: .25em .8em; border-radius: 20px; }
 
-/* ── TERMINAL (GUEST) ─────────────────────── */
+/* ── TERMINAL (GUEST) ────────────────────────────────────────── */
 .terminal-box {
   width: 100%; max-width: 620px; margin: 0 auto 2em;
   background: rgba(0,0,0,.7); border: 1px solid rgba(0,245,255,.2);
@@ -2072,133 +990,25 @@ function detectLocation() {
 .term-cursor { animation: blink .8s step-end infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* ── BUNKER PASS ──────────────────────────── */
-.bunker-pass {
-  position: relative; overflow: hidden;
-  background: linear-gradient(135deg, #020d1a 0%, #0a1628 50%, #010a14 100%);
-  border: 1px solid rgba(0,245,255,.25);
-  border-radius: 16px; margin: 1.5em 0 1em;
-  box-shadow: 0 0 30px rgba(0,245,255,.06), inset 0 1px 0 rgba(0,245,255,.1);
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .level-map { grid-template-columns: repeat(4,1fr); }
+  .coming-grid { grid-template-columns: 1fr 1fr; }
+  .lf-grid { grid-template-columns: repeat(2,1fr); }
 }
-.bp-scan-line {
-  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0,245,255,.04), transparent);
-  animation: bp-scan 4s linear infinite;
-  pointer-events: none;
-}
-@keyframes bp-scan { to { left: 140%; } }
-.bp-header-label {
-  font-size: .6em; letter-spacing: .25em; color: rgba(0,245,255,.5);
-  text-align: center; padding: .5em 1em;
-  border-bottom: 1px solid rgba(0,245,255,.08);
-}
-.bp-body {
-  display: grid; grid-template-columns: auto 1fr auto;
-  gap: 1.5em; padding: 1.2em 1.5em; align-items: center;
-}
-/* Identity column */
-.bp-identity { display: flex; flex-direction: column; gap: .4em; min-width: 0; }
-.bp-avatar { border: 2px solid rgba(0,245,255,.35) !important; box-shadow: 0 0 10px rgba(0,245,255,.15); }
-.bp-quota-row { display: flex; gap: .4em; flex-wrap: wrap; margin-top: .2em; }
-.bp-quota-chip {
-  font-size: .68em; padding: .2em .65em; border-radius: 20px;
-  background: rgba(0,245,255,.08); border: 1px solid rgba(0,245,255,.2); color: #00f5ff;
-}
-.bp-quota-chip strong { color: #fff; }
-/* Level column */
-.bp-level { min-width: 0; }
-.bp-streak-inline {
-  margin-top: .6em; font-size: .85em;
-}
-.bp-streak-num { font-size: 1.5em; font-weight: 900; color: #f97316; }
-.bp-streak-label { color: #64748b; font-size: .8em; }
-/* Chip column */
-.bp-chip {
-  display: flex; flex-direction: column; align-items: center; gap: .6em;
-  opacity: .7;
-}
-.bp-chip-inner {
-  width: 52px; height: 40px; background: linear-gradient(135deg, #c0a060, #e8d080, #c0a060);
-  border-radius: 4px; padding: 4px; display: flex; flex-direction: column;
-  justify-content: space-between; gap: 2px;
-}
-.bp-chip-lines { display: flex; flex-direction: column; gap: 2px; }
-.bp-chip-line { height: 3px; background: rgba(0,0,0,.3); border-radius: 1px; }
-.bp-chip-label { font-size: 5px; color: rgba(0,0,0,.5); text-align: center; letter-spacing: .05em; margin-top: auto; }
-.bp-barcode { display: flex; align-items: flex-end; gap: 1.5px; }
-.bp-bar { width: 2px; background: rgba(0,245,255,.4); border-radius: 1px; min-height: 12px; }
-
 @media (max-width: 700px) {
-  .bp-body { grid-template-columns: auto 1fr; gap: 1em; }
+  .bp-body { grid-template-columns: auto 1fr; gap: 1em; padding: 1em; }
   .bp-chip { display: none; }
-  .bp-body { padding: 1em; }
+  .daily-grid { grid-template-columns: 1fr; }
+  .bpi-row { grid-template-columns: 2em 1fr 1fr auto; gap: .5em; }
+  .level-map { grid-template-columns: repeat(3,1fr); }
 }
-
-/* ── SETTINGS TAB ─────────────────────────── */
-.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
-.settings-hint { font-size: .78em; color: #64748b; margin-bottom: .8em; }
-/* Module toggles */
-.module-toggles { display: flex; flex-direction: column; gap: 0; }
-.mt-row {
-  display: flex; align-items: center; gap: 1em; padding: .8em 0;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-.mt-row:last-child { border-bottom: none; }
-.mt-info { flex: 1; }
-.mt-name { font-size: .88em; font-weight: 600; color: #e2e8f0; margin-bottom: .15em; }
-.mt-desc { font-size: .72em; color: #475569; }
-.mt-switch { position: relative; display: inline-block; width: 42px; height: 22px; flex-shrink: 0; cursor: pointer; }
-.mt-switch input { opacity: 0; width: 0; height: 0; }
-.mt-slider {
-  position: absolute; inset: 0; background: rgba(255,255,255,.1);
-  border-radius: 22px; transition: background .2s;
-  border: 1px solid rgba(255,255,255,.15);
-}
-.mt-slider::before {
-  content: ''; position: absolute; height: 16px; width: 16px;
-  left: 2px; top: 2px; background: #64748b;
-  border-radius: 50%; transition: transform .2s, background .2s;
-}
-.mt-switch input:checked + .mt-slider { background: rgba(0,245,255,.2); border-color: rgba(0,245,255,.4); }
-.mt-switch input:checked + .mt-slider::before { transform: translateX(20px); background: #00f5ff; }
-/* Theme options */
-.theme-options { display: flex; gap: .8em; }
-.theme-opt {
-  flex: 1; border: 1px solid rgba(255,255,255,.1); border-radius: 10px;
-  padding: .8em; cursor: pointer; text-align: center; transition: border-color .2s;
-}
-.theme-opt:hover { border-color: rgba(0,245,255,.3); }
-.theme-opt.active { border-color: rgba(0,245,255,.5); background: rgba(0,245,255,.05); }
-.theme-preview { height: 40px; border-radius: 6px; margin-bottom: .5em; border: 1px solid rgba(255,255,255,.1); }
-.theme-name { font-size: .82em; font-weight: 700; color: #e2e8f0; margin-bottom: .2em; }
-.theme-desc { font-size: .7em; color: #64748b; }
-/* Webhooks */
-.alert-webhooks { display: flex; flex-direction: column; gap: .6em; margin-bottom: 1em; }
-.awh-row { display: flex; align-items: center; gap: .7em; }
-.awh-label { font-size: .75em; color: #94a3b8; white-space: nowrap; min-width: 80px; }
-.wh-input {
-  flex: 1; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 8px; color: #e2e8f0; padding: .5em .8em; font-size: .78em;
-}
-.wh-input:focus { outline: none; border-color: rgba(0,245,255,.4); }
-.alert-triggers { margin-bottom: 1em; }
-.at-title { font-size: .75em; color: #64748b; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6em; }
-.at-item { display: flex; align-items: center; gap: .5em; font-size: .82em; color: #94a3b8; margin-bottom: .4em; cursor: pointer; }
-.at-item input { accent-color: #00f5ff; cursor: pointer; }
-.alert-save-btn {
-  background: rgba(0,245,255,.1); border: 1px solid rgba(0,245,255,.3);
-  color: #00f5ff; border-radius: 8px; padding: .5em 1.2em; font-size: .82em;
-  font-weight: 700; cursor: pointer; transition: background .15s;
-}
-.alert-save-btn:hover { background: rgba(0,245,255,.2); }
-.data-btn {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-  color: #94a3b8; border-radius: 8px; padding: .6em 1.2em; font-size: .82em;
-  font-weight: 600; cursor: pointer; transition: background .15s; text-align: left;
-}
-.data-btn:hover { background: rgba(255,255,255,.1); color: #e2e8f0; }
-
-@media (max-width: 700px) {
-  .settings-grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .mc-tabs { overflow-x: auto; padding-bottom: .3em; }
+  .mc-tab { flex: 0 0 auto; font-size: .72em; padding: .5em .7em; }
+  .pass-stats-row { grid-template-columns: repeat(3,1fr); }
+  .coming-grid { grid-template-columns: 1fr; }
+  .lf-grid { grid-template-columns: 1fr 1fr; }
+  .level-map { grid-template-columns: repeat(2,1fr); }
 }
 </style>

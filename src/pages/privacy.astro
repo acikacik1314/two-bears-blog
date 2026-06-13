@@ -1,0 +1,103 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<style is:global>
+html body { background: #FFF8EC; color: #3B2A1E; }
+</style>
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead title="隱私政策 — 兩隻熊末日觀測站" description="兩隻熊末日觀測站隱私政策" />
+</head>
+<body>
+<Header />
+<main class="priv-main">
+  <div class="priv-wrap">
+    <h1 class="priv-title">隱私政策</h1>
+    <p class="priv-date">最後更新：2026 年 6 月</p>
+
+    <section class="priv-section">
+      <h2>1. 我們收集哪些資料</h2>
+      <p>當您使用 Google 帳號登入時，我們會從 Google 取得以下資料：</p>
+      <ul>
+        <li><strong>姓名</strong>（Google 帳號顯示名稱）</li>
+        <li><strong>電子郵件地址</strong></li>
+        <li><strong>大頭貼照片網址</strong>（由 Google 提供）</li>
+      </ul>
+      <p>我們不會收集您的密碼或其他 Google 帳號敏感資訊。</p>
+    </section>
+
+    <section class="priv-section">
+      <h2>2. 資料的使用方式</h2>
+      <p>您的資料僅用於以下目的：</p>
+      <ul>
+        <li>在會員中心顯示您的姓名與頭像</li>
+        <li>識別您的登入身份，維持登入狀態</li>
+      </ul>
+      <p>我們不會將您的個人資料出售、出租或分享給第三方。</p>
+    </section>
+
+    <section class="priv-section">
+      <h2>3. 資料儲存方式</h2>
+      <p><strong>伺服器端：</strong>登入 session 儲存於 Vercel Blob，包含您的姓名、Email、頭像 URL，以及 session 有效期（30 天）。</p>
+      <p><strong>本機端：</strong>積分、連勝紀錄、願望紀錄等遊戲數據，儲存於您瀏覽器的 localStorage（key: <code>tb_v3_data</code>）。這些資料不會上傳至伺服器，清除瀏覽器資料即可刪除。</p>
+    </section>
+
+    <section class="priv-section">
+      <h2>4. 第三方服務</h2>
+      <p>本網站使用以下第三方服務：</p>
+      <ul>
+        <li><strong>Google OAuth 2.0</strong>：用於會員登入，適用 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私政策</a></li>
+        <li><strong>Vercel</strong>：網站託管與邊緣運算，適用 <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel 隱私政策</a></li>
+        <li><strong>Groq AI</strong>：AI 助手功能（您的問題會傳送至 Groq），適用 <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener">Groq 隱私政策</a></li>
+      </ul>
+    </section>
+
+    <section class="priv-section">
+      <h2>5. 如何刪除您的資料</h2>
+      <ul>
+        <li><strong>登出：</strong>點選右上角選單中的「登出」，即會清除伺服器端的 session。</li>
+        <li><strong>本機資料：</strong>清除瀏覽器的 localStorage（或使用會員中心的「匯出/清除」功能）。</li>
+        <li><strong>聯絡刪除：</strong>如需完全刪除帳號資料，請寄信至 <a href="mailto:acikacik@gmail.com">acikacik@gmail.com</a>。</li>
+      </ul>
+    </section>
+
+    <section class="priv-section">
+      <h2>6. Cookie</h2>
+      <p>本網站使用一個 <code>sb_session</code> cookie 來維持您的登入狀態（30 天有效），不包含任何追蹤用途的 cookie。</p>
+    </section>
+
+    <section class="priv-section">
+      <h2>7. 聯絡我們</h2>
+      <p>如有任何隱私相關問題，請聯絡：<a href="mailto:acikacik@gmail.com">acikacik@gmail.com</a></p>
+    </section>
+
+    <div class="priv-back">
+      <a href="/member">← 返回會員中心</a>
+    </div>
+  </div>
+</main>
+<Footer />
+</body>
+</html>
+
+<style>
+.priv-main { max-width: 760px; margin: 0 auto; padding: 2em 1.2em 4em; }
+.priv-wrap {}
+.priv-title { font-size: 2em; font-weight: 900; color: #3B2A1E; margin: 0 0 .3em; }
+.priv-date { font-size: .82em; color: #8B6A4A; margin-bottom: 2.5em; }
+.priv-section { margin-bottom: 2em; border-bottom: 1px solid #EADFC8; padding-bottom: 2em; }
+.priv-section h2 { font-size: 1.1em; font-weight: 800; color: #3B2A1E; margin: 0 0 .8em; }
+.priv-section p { color: #5C4A35; line-height: 1.8; margin: 0 0 .8em; font-size: .92em; }
+.priv-section ul { color: #5C4A35; line-height: 1.8; font-size: .92em; padding-left: 1.5em; margin: 0 0 .8em; }
+.priv-section li { margin-bottom: .3em; }
+.priv-section a { color: #E8920A; text-decoration: underline; }
+.priv-section code { background: #F5EDD8; padding: .1em .4em; border-radius: 4px; font-size: .88em; color: #3B2A1E; }
+.priv-back { margin-top: 2em; }
+.priv-back a { color: #E8920A; text-decoration: none; font-size: .88em; font-weight: 700; }
+.priv-back a:hover { text-decoration: underline; }
+</style>

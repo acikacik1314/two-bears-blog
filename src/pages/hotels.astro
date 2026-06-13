@@ -285,13 +285,6 @@ html body {
 }
 .btn-cta:hover { background: #C2740A; }
 .modal-disclaimer { text-align: center; font-size: .7rem; color: #9C8870; margin: 7px 0 0; }
-.modal-dates-row {
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  background: #FFF8EC; border: 1px solid #EADFC8; border-radius: 10px;
-  padding: 9px 13px; margin-bottom: 12px; font-size: .82rem; color: #5C4A35;
-}
-.modal-dates-row .mdr-label { font-weight: 700; color: #E8920A; flex-shrink: 0; }
-.modal-dates-row .mdr-sep { color: #EADFC8; }
 
 /* ── Checklist ── */
 .card {
@@ -387,18 +380,10 @@ html body {
       <ul class="modal-list pros" id="modal-pros"></ul>
       <p class="modal-section-label">⚠️ 要注意</p>
       <ul class="modal-list cons" id="modal-cons"></ul>
-      <div class="modal-dates-row" id="modal-dates-row" style="display:none">
-        <span class="mdr-label">📅</span>
-        <span id="modal-checkin-text"></span>
-        <span class="mdr-sep">→</span>
-        <span id="modal-checkout-text"></span>
-        <span class="mdr-sep">·</span>
-        <span id="modal-adults-text"></span>
-      </div>
       <a id="modal-cta" class="btn-cta" target="_blank" rel="noopener sponsored" href="#">
         查看 TripAdvisor 價格 →
       </a>
-      <p class="modal-disclaimer">開啟 TripAdvisor 後請輸入上方日期查詢房況 · 價格以訂房平台為準</p>
+      <p class="modal-disclaimer">價格與房況以訂房平台為準 · 兩隻熊不保證房源可訂</p>
     </div>
   </div>
 
@@ -412,43 +397,9 @@ html body {
    =================================================================== */
 const TA_TRACKING = 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d';
 
-// 從中文/數字日期描述解析出 checkin/checkout（備援用）
-function parseDateRange(dateStr) {
-  if (!dateStr || dateStr === '未指定') return { checkin: '', checkout: '' };
-  function pad(n) { return String(n).padStart(2, '0'); }
-  var yr = new Date().getFullYear();
-
-  // 完整日期：2026/6/20 到 2026/6/22
-  var full = dateStr.match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/g);
-  if (full && full.length >= 2) {
-    var a = full[0].match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
-    var b = full[1].match(/(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
-    if (a && b) return {
-      checkin:  a[1]+'-'+pad(+a[2])+'-'+pad(+a[3]),
-      checkout: b[1]+'-'+pad(+b[2])+'-'+pad(+b[3])
-    };
-  }
-  // M/D 到 M/D 或 M月D日 到 M月D日
-  var r = dateStr.match(/(\d{1,2})[\/月](\d{1,2})[日号]?\s*[到至~～\-]\s*(\d{1,2})[\/月](\d{1,2})[日号]?/);
-  if (r) return {
-    checkin:  yr+'-'+pad(+r[1])+'-'+pad(+r[2]),
-    checkout: yr+'-'+pad(+r[3])+'-'+pad(+r[4])
-  };
-  // M/D 到 D（同月）
-  var r2 = dateStr.match(/(\d{1,2})[\/月](\d{1,2})[日号]?\s*[到至~～\-]\s*(\d{1,2})[日号]?/);
-  if (r2) return {
-    checkin:  yr+'-'+pad(+r2[1])+'-'+pad(+r2[2]),
-    checkout: yr+'-'+pad(+r2[1])+'-'+pad(+r2[3])
-  };
-  return { checkin: '', checkout: '' };
-}
-
-function taLink(enName, city, checkin, checkout, adults) {
+function taLink(enName, city) {
   var q = encodeURIComponent(enName + ' ' + city);
   var target = 'https://www.tripadvisor.com.tw/Search?q=' + q + '&ssrc=h';
-  if (checkin)          target += '&checkin='  + encodeURIComponent(checkin);
-  if (checkout)         target += '&checkout=' + encodeURIComponent(checkout);
-  if (adults && adults > 0) target += '&adults=' + String(adults);
   return TA_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(target));
 }
 
@@ -728,28 +679,7 @@ function openModal(h) {
     (h.pros || []).map(function(p) { return '<li>' + escHtml(p) + '</li>'; }).join('');
   document.getElementById('modal-cons').innerHTML =
     (h.cons || []).map(function(c) { return '<li>' + escHtml(c) + '</li>'; }).join('');
-  var checkin  = lastSummary ? (lastSummary.checkin  || '') : '';
-  var checkout = lastSummary ? (lastSummary.checkout || '') : '';
-  // 備援：AI 未輸出結構化日期時，嘗試從文字描述解析
-  if ((!checkin || !checkout) && lastSummary && lastSummary.dates) {
-    var parsed = parseDateRange(lastSummary.dates);
-    if (!checkin)  checkin  = parsed.checkin;
-    if (!checkout) checkout = parsed.checkout;
-  }
-  var adults = lastSummary ? (parseInt(lastSummary.adults) || 0) : 0;
-
-  // 在 modal 顯示日期提示（TripAdvisor 搜尋頁不支援 URL 帶入日期，請手動輸入）
-  var datesRow = document.getElementById('modal-dates-row');
-  if ((checkin || checkout || adults > 0) && datesRow) {
-    document.getElementById('modal-checkin-text').textContent = checkin ? '入住 ' + checkin : '';
-    document.getElementById('modal-checkout-text').textContent = checkout ? '退房 ' + checkout : '';
-    document.getElementById('modal-adults-text').textContent = adults > 0 ? adults + ' 人' : '';
-    datesRow.style.display = (checkin || checkout || adults > 0) ? 'flex' : 'none';
-  } else if (datesRow) {
-    datesRow.style.display = 'none';
-  }
-
-  document.getElementById('modal-cta').href = taLink(h.en, h.city, checkin, checkout, adults);
+  document.getElementById('modal-cta').href = taLink(h.en, h.city);
   document.getElementById('hotel-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }

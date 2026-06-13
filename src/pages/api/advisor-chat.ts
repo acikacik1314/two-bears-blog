@@ -4,19 +4,15 @@ import { getGeminiKeys } from '../../utils/gemini';
 
 // ── System prompts ────────────────────────────────────────────────────────────
 
-function buildChatSystem(today: string): string {
-  return `你是「兩隻熊」旅遊顧問——像朋友一樣的熊，正在幫使用者找飯店。
+const CHAT_SYSTEM = `你是「兩隻熊」旅遊顧問——像朋友一樣的熊，正在幫使用者找飯店。
 你要透過「一問一答」收集以下資訊，但要像聊天一樣自然，不要像問卷：
-
-今天日期：${today}（請用此日期推算入住/退房的完整年份）
 
 【必須收集的資訊】
 1. 目的地（城市）
 2. 幾個人、什麼關係（情侶/家庭/朋友/獨自/長輩）
 3. 想住舒適型還是經濟落腳型
 4. 每晚預算
-5. 入住與退房日期
-6. 特殊偏好（想要或不要的，例如浴缸、大床、近市區、安靜…）
+5. 特殊偏好（想要或不要的，例如浴缸、大床、近市區、安靜…）
 
 【對話規則】
 - 一次只問一個問題，口吻溫暖像朋友，稱對方「朋友」
@@ -35,16 +31,11 @@ function buildChatSystem(today: string): string {
     "children": 0,
     "comfort": "舒適型或經濟型",
     "budget": "每晚預算（只填數字，例如 3000）",
-    "checkin": "入住日期 YYYY-MM-DD，沒有則填空字串",
-    "checkout": "退房日期 YYYY-MM-DD，沒有則填空字串",
-    "dates": "日期描述（若無填未指定）",
     "preferences": "偏好（若無填無）"
   }
 }
 
 adults 填成人人數整數（不確定填 1），children 填兒童數整數（通常填 0）。
-checkin / checkout 必須輸出完整 YYYY-MM-DD 格式，以今天日期 ${today} 為基準計算年份。
-例如今天是 2026-06-13，使用者說「6/20 到 6/22」→ "checkin":"2026-06-20","checkout":"2026-06-22"。
 
 【還要繼續問的時候】
 嚴格只輸出以下 JSON，無其他文字：
@@ -54,7 +45,6 @@ checkin / checkout 必須輸出完整 YYYY-MM-DD 格式，以今天日期 ${toda
 }
 
 務必嚴格只輸出 JSON，不要 markdown 程式碼框、不要多餘說明。`;
-}
 
 const RECOMMEND_SYSTEM = `你是「兩隻熊」旅遊顧問——一位懂旅遊、像朋友一樣的熊。
 使用者會告訴你目的地、旅伴、預算，你要推薦 4 間真實存在的飯店。
@@ -158,12 +148,10 @@ export const POST: APIRoute = async ({ request }) => {
 
   const shuffled = [...keys].sort(() => Math.random() - 0.5);
 
-  const today = new Date().toISOString().slice(0, 10);
-
   // ── Chat phase (no grounding) ─────────────────────────────────────────────
   if (body.type === 'chat') {
     for (const key of shuffled) {
-      const r = await callGemini(key, buildChatSystem(today), body.messages ?? [], false);
+      const r = await callGemini(key, CHAT_SYSTEM, body.messages ?? [], false);
       if (!r.ok || !r.text) continue;
 
       const parsed = parseJSON(r.text) as any;

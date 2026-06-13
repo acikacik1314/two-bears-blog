@@ -44,8 +44,8 @@ export async function GET({ url, cookies, redirect }: APIContext) {
     if (!user.email) return redirect('/?error=auth_failed')
 
     const token = await createSession(user)
-    await addSubscriber(user)
 
+    // Set cookie immediately so login works even if subscriber update fails
     cookies.set('sb_session', token, {
       httpOnly: true,
       path: '/',
@@ -54,7 +54,10 @@ export async function GET({ url, cookies, redirect }: APIContext) {
       secure: import.meta.env.PROD,
     })
 
-    return redirect('/')
+    // Non-blocking — don't let this failure break login
+    addSubscriber(user).catch(() => {})
+
+    return redirect('/member')
   } catch {
     return redirect('/?error=auth_failed')
   }

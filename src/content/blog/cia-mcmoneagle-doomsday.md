@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/UgkxHPICWEp3em_LcVR0xW3edyfyjcbN92O2'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '全球緊張局勢持續升溫，末日時鐘維持史上最接近午夜位置'
     - '多個核大國（俄、中、北韓）同時進入高度備戰狀態'
   misses: []

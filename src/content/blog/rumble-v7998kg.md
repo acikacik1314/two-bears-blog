@@ -8,6 +8,8 @@ rumbleId: 'v772kk8'
 rumblePage: 'https://rumble.com/v7998kg-20263.html'
 predictions:
   hits:
+---
+
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
     - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
   misses:

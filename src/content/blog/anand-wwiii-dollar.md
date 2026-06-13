@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/UgkxMpH0xbFNunmQyuy7dwDViohAeiRAffzE'
 heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '第三次世界大戰以「非傳統形式」展開（代理人戰爭、資訊戰持續）'
     - '美元作為全球儲備貨幣地位受挑戰（BRICS去美元化推進）'
     - 'AI技術快速滲透各行業，對就業市場造成衝擊'

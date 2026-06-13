@@ -7,6 +7,8 @@ heroImage: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&h
 prophet: '比格斯'
 predictions:
   hits:
+---
+
     - '川普執政後美國政治持續動盪，保護孩子的安全受到威脅的言論升溫'
     - '美國國債逼近40兆美元，年利息超過1兆美元，引發經濟警報'
     - '以色列與伊朗緊張局勢持續，北以色列遭受攻擊威脅'

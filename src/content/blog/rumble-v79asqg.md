@@ -8,6 +8,8 @@ rumbleId: 'v7744q8'
 rumblePage: 'https://rumble.com/v79asqg-202630.html'
 predictions:
   pending:
+---
+
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/02/s8/1/4/t/n/k/4tnkA.qR4e-small-202630..jpg'
 ---

@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/UgkxH0eGpNFBC7vhtgwOPoqYRdBBBmsCM3OF'
 heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '台灣在全球局勢中的關鍵地位持續受到關注'
     - '台海緊張情勢升溫，帕克建議備災具有現實參考意義'
   misses: []

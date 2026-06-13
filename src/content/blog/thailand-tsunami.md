@@ -8,6 +8,8 @@ heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h
 predictions:
   hits: []
   misses:
+---
+
     - '2025年五至八月連環海底爆發引發毀滅性大海嘯（截至2026年6月未發生）'
   pending:
     - '台灣與T開頭國家（泰國）沿海遭受大規模海嘯衝擊'

@@ -7,6 +7,8 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069366968'
 category: '預言'
 predictions:
   hits:
+---
+
     - '川普彈劾程序失敗，未遭撤職（2020年2月參議院宣判無罪）'
     - '英國於2020年1月31日正式脫歐，強森如期完成'
     - '強森婚姻出現重大轉變（2020年離婚、2021年再婚）'

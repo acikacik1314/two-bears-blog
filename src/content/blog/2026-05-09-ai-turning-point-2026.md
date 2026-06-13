@@ -7,6 +7,8 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/893818893051617491'
 category: '預言'
 predictions:
   hits:
+---
+
     - 'AI技術在2025-2026年出現重大突破，社會衝擊持續擴大'
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'

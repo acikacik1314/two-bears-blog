@@ -7,6 +7,8 @@ heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h
 prophet: '薩洛梅'
 predictions:
   hits:
+---
+
     - '南海成為全球地緣政治衝突的核心焦點'
     - '全球通貨膨脹與經濟衰退威脅持續加劇'
     - 'AI 發展速度超越預期，各領域面臨根本性變革'

@@ -6,6 +6,8 @@ tags: ['預言', '比格斯', '台海', '三戰', '末日', 'AI', '金融']
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '以色列與伊朗持續衝突，以色列採取軍事行動'
     - '中國入侵台灣的威脅持續，台海緊張升溫'
     - 'AI技術快速發展，深偽技術與AI詐騙案例大增'

@@ -7,6 +7,8 @@ heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h
 prophet: '帕克'
 predictions:
   hits:
+---
+
     - '川普執政引發巨大社會震盪與政治革命氛圍'
     - '全球政府重稅政策引發民怨，農民與小商家生存困難'
     - '美國UFO檔案陸續解密，外星議題受到更多關注'

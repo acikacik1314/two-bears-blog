@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/UgkxFJLm4VUch1P5dlIrDzdLVTtGoLVa8TxH'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '2026年全球衝突背後存在超國家層級的系統性操控力量'
   misses: []
   pending:

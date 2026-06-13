@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/UgkxgE0576l8VFeKxSRjMjlWfbZJoskn4xzC'
 heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '盟友互相拋棄的格局應驗（年初預言已確認）'
     - '台海緊張局勢持續，軍購案與軍事鎖定信號不斷'
     - '台北車站隨機傷人案（2025年12月19日）應驗血光之災預言'

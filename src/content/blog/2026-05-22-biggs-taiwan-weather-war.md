@@ -7,6 +7,8 @@ heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h
 prophet: '比格斯'
 predictions:
   hits:
+---
+
     - '台海緊張情勢持續升溫，中國對台威脅未減'
   misses:
     - '中國使用氣象控制技術製造人造洪水攻擊台灣（未發生）'

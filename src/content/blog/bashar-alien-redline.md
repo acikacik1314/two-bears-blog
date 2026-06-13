@@ -7,6 +7,8 @@ youtubePost: 'https://www.youtube.com/post/Ugkx3hvDGAaGULJ5bxQKraK7qPabgfBXP4Nj'
 heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
 predictions:
   hits:
+---
+
     - '台灣被視為美中談判籌碼，地緣政治快速變化中'
     - 'AI技術快速演進，深偽與仿冒問題日益嚴峻'
   misses:

@@ -7,6 +7,8 @@ heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h
 prophet: '麥克蒙尼格'
 predictions:
   hits:
+---
+
     - '2024年11月美以對伊朗核設施採取聯合行動的威脅持續存在'
     - '全球經濟因地緣政治不穩而受衝擊，貪婪與不穩定加劇'
     - 'AI被引入代理人戰爭，引發倫理與失控風險討論'

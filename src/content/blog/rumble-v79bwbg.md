@@ -9,6 +9,8 @@ rumblePage: 'https://rumble.com/v79bwbg-2025.html'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/df/s8/1/C/1/z/k/C1zkA.qR4e-small-2025..jpg'
 predictions:
   hits:
+---
+
     - '泰柬邊境2025年爆發軍事衝突，成為被忽視的戰爭警訊'
     - '台海緊張持續，各方關注台灣是否成為下一個引爆點'
   misses: []

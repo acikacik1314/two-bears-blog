@@ -8,6 +8,8 @@ rumbleId: 'v773qr4'
 rumblePage: 'https://rumble.com/v79aerc-....html'
 predictions:
   pending:
+---
+
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/0e/s8/1/4/4/i/k/44ikA.qR4e-small-.....jpg'
 ---

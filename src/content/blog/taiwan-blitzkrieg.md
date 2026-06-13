@@ -6,6 +6,8 @@ tags: ['台灣', '預言', '地緣政治', '半導體']
 youtubePost: 'https://www.youtube.com/post/UgkxT19XX9-dDubQOiH6pMQL5F1Rwe3SKdXx'
 predictions:
   hits:
+---
+
     - '川普表示「不需要台灣」的言論引發外交爭議（2025年川普多次質疑台灣防衛承諾）'
     - '台海軍事緊張持續升溫，解放軍演習頻率增加'
   misses:

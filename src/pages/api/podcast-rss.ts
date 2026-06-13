@@ -56,7 +56,7 @@ export const GET: APIRoute = async () => {
     return new Response(JSON.stringify({ coverImage, podcastTitle, podcastDesc, episodes }), {
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=1800, stale-while-revalidate=3600',
+        'Cache-Control': 's-maxage=120, stale-while-revalidate=60',
       },
     });
   } catch (e) {

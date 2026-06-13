@@ -189,7 +189,7 @@ import { SITE_TITLE } from '../consts';
     const contentEl = document.getElementById('pod-content')!;
 
     try {
-      const r = await fetch('/api/podcast-rss');
+      const r = await fetch('/api/podcast-rss', { cache: 'no-store' });
       if (!r.ok) throw new Error('fetch');
       const d = await r.json();
       if (d.error) throw new Error(d.error);

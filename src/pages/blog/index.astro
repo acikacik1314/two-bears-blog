@@ -217,7 +217,14 @@ const CATEGORY_ICONS: Record<string, string> = {
 							<a href={`/blog/${post.id}/`}>
 								<div class="card-thumb">
 									{thumb ? (
-										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
+										<>
+											<img src={thumb} alt={post.data.title} loading="lazy" decoding="async"
+												onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+											<div class="card-thumb-placeholder" style={`background: ${gradient}; display:none`}>
+												<span class="placeholder-icon">{icon}</span>
+												<span class="placeholder-cat">{cat}</span>
+											</div>
+										</>
 									) : (
 										<div class="card-thumb-placeholder" style={`background: ${gradient}`}>
 											<span class="placeholder-icon">{icon}</span>

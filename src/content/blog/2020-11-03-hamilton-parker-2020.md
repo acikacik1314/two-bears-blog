@@ -13,7 +13,6 @@ predictions:
     - 'COVID-19引發全球股市劇烈震盪，醫療股大幅上漲'
   misses:
     - '部分中東戰爭規模預測偏大，未達全面衝突'
-heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h=450&fit=crop'
 ---
 ![1604392658098.jpg](https://pic.pimg.tw/acikacik/1604392690-971234972-g_l.jpg)
 

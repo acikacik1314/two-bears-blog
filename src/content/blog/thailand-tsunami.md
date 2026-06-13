@@ -4,7 +4,6 @@ description: '泰國知名靈媒在靈視中目睹「水下巨神」覺醒，預
 pubDate: '2026-05-22'
 tags: ['預言', '海嘯', '台灣', '泰國', '天災']
 youtubePost: 'https://www.youtube.com/post/UgkxhGBx7O9QXuBIKh90V7OMaQLPV34t-YHH'
-heroImage: 'https://images.unsplash.com/photo-1462524500090-89b35d895cf6?w=800&h=450&fit=crop'
 predictions:
   hits: []
   misses:

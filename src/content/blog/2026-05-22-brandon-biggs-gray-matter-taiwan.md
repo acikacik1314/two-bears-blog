@@ -3,7 +3,6 @@ title: '「灰色物質」降臨美東！這就是美國無法救台灣的真相
 description: 'Brandon Biggs 預言美國東海岸將被神秘「灰色物質」覆蓋，就在此時中國發動台海閃電戰——晶片產業崩盤、全球大蕭條倒數開始。'
 pubDate: '2026-05-22'
 tags: ['Brandon Biggs', '預言', '台灣', '台海', '晶片', '美國']
-heroImage: 'https://images.unsplash.com/photo-1534447677793-b5ab6b0a0a12?w=800&h=450&fit=crop'
 ---
 
 ## 台海危機爆發點

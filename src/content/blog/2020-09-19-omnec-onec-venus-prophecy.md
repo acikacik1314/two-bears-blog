@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069302300'
 category: '預言'
 predictions:
   misses:
----
-
     - '金星有物質文明的說法與現代天文探測結果不符'
   pending:
     - '地球頻率提升與維度轉換過程'

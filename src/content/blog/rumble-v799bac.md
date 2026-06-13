@@ -8,8 +8,6 @@ rumbleId: 'v772na4'
 rumblePage: 'https://rumble.com/v799bac-2028.html'
 predictions:
   hits:
----
-
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   misses:
     - '第三次世界大戰全面爆發（截至2026年5月尚未發生）'

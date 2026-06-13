@@ -7,8 +7,6 @@ heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h
 prophet: '比格斯'
 predictions:
   hits:
----
-
     - '川普2024年當選總統，持續強勢執政'
     - '以色列面臨更嚴峻攻擊威脅，以伊衝突持續'
     - '全球食物與肉類價格飛漲，民眾生活壓力大增'

@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069086580'
 category: '預言'
 predictions:
   hits:
----
-
     - '數位貨幣趨勢持續，多國積極推進CBDC（央行數位貨幣）'
     - '結婚率在多數已開發國家持續下降'
     - '3D列印建築技術逐步商業化'

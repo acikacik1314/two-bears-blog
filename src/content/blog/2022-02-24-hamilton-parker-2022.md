@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069982464'
 category: '預言'
 predictions:
   hits:
----
-
     - '伊麗莎白二世女王於2022年9月8日逝世，查爾斯加冕為王'
     - '民主黨在2022年期中選舉損失眾議院多數席位'
     - '全球通貨膨脹持續攀升，能源短缺問題嚴峻'

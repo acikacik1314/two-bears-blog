@@ -8,8 +8,6 @@ rumbleId: 'v773zfw'
 rumblePage: 'https://rumble.com/v79ang4-kfk204832030.html'
 predictions:
   pending:
----
-
     - '2030年預言事件（尚未到驗證期）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/d6/s8/1/0/O/l/k/0OlkA.qR4e-small-KFK204832030..jpg'
 ---

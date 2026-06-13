@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069335754'
 category: '預言'
 predictions:
   hits:
----
-
     - '老齡化確實是台灣最主要問題之一（已是現實）'
     - '俄羅斯太空技術持續發展'
   pending:

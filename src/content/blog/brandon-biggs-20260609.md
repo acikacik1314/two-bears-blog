@@ -7,8 +7,6 @@ heroImage: 'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&h
 prophet: '比格斯'
 predictions:
   hits:
----
-
     - '川普執政後美國持續社會動盪，出現類似 COVID 時期的騷亂跡象'
     - '古巴外海發生6.1級地震，震動佛羅里達、邁阿密和坦帕（已應驗）'
     - '全球糧食安全與食物供應鏈受到政治力量干預的威脅升高'

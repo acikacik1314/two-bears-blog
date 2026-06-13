@@ -8,8 +8,6 @@ rumbleId: 'v7744eo'
 rumblePage: 'https://rumble.com/v79asew-2026.html'
 predictions:
   hits:
----
-
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
   pending:

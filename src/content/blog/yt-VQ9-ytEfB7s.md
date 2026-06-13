@@ -6,8 +6,6 @@ tags: ['預言', '旅遊']
 youtubeId: 'VQ9-ytEfB7s'
 predictions:
   hits:
----
-
     - '台灣局勢持續緊張，各方預言家對台灣命運看法分歧'
     - '台海局勢成為全球關注的核心焦點'
   misses: []

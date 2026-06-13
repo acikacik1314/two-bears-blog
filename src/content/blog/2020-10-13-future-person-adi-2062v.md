@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069338654'
 category: '預言'
 predictions:
   hits:
----
-
     - '「信用值」概念興起，社會信用與ESG評分系統在多國推進'
     - '2020年7月出現重大洪災與野火（中國洪水、美西野火同期）'
   misses:

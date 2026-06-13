@@ -7,8 +7,6 @@ pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069225900'
 category: '預言'
 predictions:
   hits:
----
-
     - '預警2011年3月11日東日本大地震（躲到山上），事後被對照驗證'
     - '預測2016年熊本大地震，事後被部分網友認為命中'
     - '日本人口持續減少的趨勢（現實中已在發生）'

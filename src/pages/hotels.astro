@@ -397,9 +397,12 @@ html body {
    =================================================================== */
 const TA_TRACKING = 'https://aftck.com/track/clicks/2070/c627c2bb980727dcff9cab248d2596412379128f78efe6f30776f6476a0449a8c23ae5a5112d';
 
-function taLink(enName, city) {
-  const q = encodeURIComponent(enName + ' ' + city);
-  const target = 'https://www.tripadvisor.com.tw/Search?q=' + q + '&ssrc=h';
+function taLink(enName, city, checkin, checkout, adults) {
+  var q = encodeURIComponent(enName + ' ' + city);
+  var target = 'https://www.tripadvisor.com.tw/Search?q=' + q + '&ssrc=h';
+  if (checkin)          target += '&checkin='  + encodeURIComponent(checkin);
+  if (checkout)         target += '&checkout=' + encodeURIComponent(checkout);
+  if (adults && adults > 0) target += '&adults=' + String(adults);
   return TA_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(target));
 }
 
@@ -679,7 +682,10 @@ function openModal(h) {
     (h.pros || []).map(function(p) { return '<li>' + escHtml(p) + '</li>'; }).join('');
   document.getElementById('modal-cons').innerHTML =
     (h.cons || []).map(function(c) { return '<li>' + escHtml(c) + '</li>'; }).join('');
-  document.getElementById('modal-cta').href = taLink(h.en, h.city);
+  var checkin  = lastSummary ? (lastSummary.checkin  || '') : '';
+  var checkout = lastSummary ? (lastSummary.checkout || '') : '';
+  var adults   = lastSummary ? (parseInt(lastSummary.adults) || 0) : 0;
+  document.getElementById('modal-cta').href = taLink(h.en, h.city, checkin, checkout, adults);
   document.getElementById('hotel-modal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }

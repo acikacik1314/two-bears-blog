@@ -42,14 +42,21 @@ html body { background: #0f172a; color: #e2e8f0; }
 }
 .preview-thumb {
   position: relative; width: 80px; height: 80px; border-radius: 10px;
-  overflow: hidden; border: 1px solid #334155; flex-shrink: 0;
+  overflow: hidden; border: 2px solid #334155; flex-shrink: 0; cursor: pointer;
 }
+.preview-thumb.is-primary { border-color: #a855f7; }
 .preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .preview-thumb .thumb-remove {
   position: absolute; top: 2px; right: 2px;
   width: 18px; height: 18px; border-radius: 50%; background: rgba(0,0,0,.7);
   border: none; color: #fff; font-size: .65rem; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
+}
+.thumb-badge {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(168,85,247,.85); color: #fff;
+  font-size: .55rem; font-weight: 700; text-align: center; padding: 2px 0;
+  pointer-events: none;
 }
 
 /* Identify result */
@@ -173,7 +180,8 @@ html body { background: #0f172a; color: #e2e8f0; }
         <div class="preview-strip" id="preview-strip"></div>
       </div>
       <input type="file" id="file-input" accept="image/*" multiple />
-      <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
+      <p id="hint-primary" style="display:none;font-size:.75rem;color:#64748b;margin:.5rem 0 0;text-align:center">點縮圖可設為主圖（AI 辨識用）</p>
+      <button class="btn-primary" id="btn-identify" style="margin-top:1rem;display:none">🔍 讓 AI 辨識主圖</button>
       <div class="status-msg" id="status-0"></div>
     </div>
 
@@ -250,13 +258,55 @@ html body { background: #0f172a; color: #e2e8f0; }
   // Same click pattern as original (proven on iOS): zone click → input.click()
   uploadZone.addEventListener('click', () => fileInput.click())
 
+  function renderThumbs() {
+    previewStrip.innerHTML = ''
+    previewSrcs.forEach((src, i) => {
+      if (!src) return
+      const thumb = document.createElement('div')
+      thumb.className = 'preview-thumb' + (i === 0 ? ' is-primary' : '')
+
+      const img = document.createElement('img')
+      img.src = src
+
+      const removeBtn = document.createElement('button')
+      removeBtn.className = 'thumb-remove'
+      removeBtn.textContent = '✕'
+      removeBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation()
+        previewSrcs.splice(i, 1)
+        imageBase64s.splice(i, 1)
+        renderThumbs()
+        if (!imageBase64s[0]) btnIdentify.style.display = 'none'
+      })
+
+      // tap to set as primary (move to front)
+      thumb.addEventListener('click', () => {
+        if (i === 0) return
+        const [src0, b64] = [previewSrcs.splice(i, 1)[0], imageBase64s.splice(i, 1)[0]]
+        previewSrcs.unshift(src0)
+        imageBase64s.unshift(b64)
+        renderThumbs()
+      })
+
+      if (i === 0) {
+        const badge = document.createElement('div')
+        badge.className = 'thumb-badge'
+        badge.textContent = '主圖 ★'
+        thumb.appendChild(badge)
+      }
+
+      thumb.appendChild(img)
+      thumb.appendChild(removeBtn)
+      previewStrip.appendChild(thumb)
+    })
+  }
+
   fileInput.addEventListener('change', () => {
     const files = Array.from(fileInput.files || []).slice(0, 3)
     if (!files.length) return
 
     imageBase64s = []
     previewSrcs = []
-    previewStrip.innerHTML = ''
 
     let loaded = 0
     files.forEach((file, i) => {
@@ -265,28 +315,14 @@ html body { background: #0f172a; color: #e2e8f0; }
         const dataUrl = e.target.result as string
         previewSrcs[i] = dataUrl
         imageBase64s[i] = dataUrl.split(',')[1]
-
-        const thumb = document.createElement('div')
-        thumb.className = 'preview-thumb'
-        const img = document.createElement('img')
-        img.src = dataUrl
-        const removeBtn = document.createElement('button')
-        removeBtn.className = 'thumb-remove'
-        removeBtn.textContent = '✕'
-        removeBtn.addEventListener('click', (ev) => {
-          ev.stopPropagation()
-          thumb.remove()
-          previewSrcs[i] = undefined
-          imageBase64s[i] = undefined
-          if (!imageBase64s[0]) btnIdentify.style.display = 'none'
-        })
-        thumb.appendChild(img)
-        thumb.appendChild(removeBtn)
-        previewStrip.appendChild(thumb)
-
         loaded++
-        if (loaded === files.length && imageBase64s[0]) {
-          btnIdentify.style.display = 'block'
+        if (loaded === files.length) {
+          renderThumbs()
+          if (imageBase64s[0]) {
+            btnIdentify.style.display = 'block'
+            const hint = document.getElementById('hint-primary')
+            if (hint) hint.style.display = files.length > 1 ? 'block' : 'none'
+          }
         }
       }
       reader.readAsDataURL(file)
@@ -294,14 +330,18 @@ html body { background: #0f172a; color: #e2e8f0; }
   })
 
   btnIdentify.addEventListener('click', async () => {
-    if (!imageBase64s[0] || !fileInput.files?.[0]) return
+    if (!imageBase64s[0]) return
     btnIdentify.disabled = true
     btnIdentify.textContent = '🔍 AI 辨識中...'
     setStatus(0, '')
     try {
+      const raw = atob(imageBase64s[0])
+      const bytes = new Uint8Array(raw.length)
+      for (let j = 0; j < raw.length; j++) bytes[j] = raw.charCodeAt(j)
+      const blob = new Blob([bytes], { type: 'image/jpeg' })
       const formData = new FormData()
       formData.append('action', 'identify_image')
-      formData.append('image', fileInput.files[0])
+      formData.append('image', blob, 'photo.jpg')
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       const data = await res.json()

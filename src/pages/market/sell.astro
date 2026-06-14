@@ -252,7 +252,7 @@ html body { background: #0f172a; color: #e2e8f0; }
 
   const btnIdentify = document.getElementById('btn-identify')
   const uploadZone = document.getElementById('upload-zone')
-  const fileInput = document.getElementById('file-input') as HTMLInputElement
+  const fileInput = document.getElementById('file-input')
   const previewStrip = document.getElementById('preview-strip')
 
   // Same click pattern as original (proven on iOS): zone click → input.click()
@@ -312,7 +312,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     files.forEach((file, i) => {
       const reader = new FileReader()
       reader.onload = (e) => {
-        const dataUrl = e.target.result as string
+        const dataUrl = e.target.result
         previewSrcs[i] = dataUrl
         imageBase64s[i] = dataUrl.split(',')[1]
         loaded++

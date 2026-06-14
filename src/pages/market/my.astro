@@ -211,8 +211,12 @@ html body { background: #0f172a; color: #e2e8f0; }
       if (data.success) {
         document.getElementById(`row-${pendingId}`)?.remove()
         document.getElementById('confirm-overlay')!.classList.add('hidden')
+      } else {
+        alert('下架失敗：' + (data.error || '未知錯誤') + `（HTTP ${res.status}）`)
       }
-    } catch {}
+    } catch (e: any) {
+      alert('下架失敗：' + e.message)
+    }
     btn.disabled = false
     btn.textContent = '確定下架'
     pendingId = ''

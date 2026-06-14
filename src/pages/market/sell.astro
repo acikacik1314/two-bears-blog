@@ -524,12 +524,11 @@ html body { background: #0f172a; color: #e2e8f0; }
     btn.textContent = '上架中...'
     setStatus(3, '')
 
-    extractSessionFromHistory()
-
     try {
       const formData = new FormData()
       formData.append('action', 'finalize')
       formData.append('session', JSON.stringify(sellerSession))
+      formData.append('chatHistory', JSON.stringify(chatHistory))
       formData.append('imageBase64s', JSON.stringify(imageBase64s.filter(Boolean)))
 
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })

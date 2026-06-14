@@ -94,6 +94,46 @@ export async function generateItemDescription(info: {
   }
 }
 
+export async function extractSessionFromChat(
+  chatHistory: { role: string; content: string }[],
+  identified: any,
+): Promise<any> {
+  const historyText = chatHistory.map(h =>
+    `${h.role === 'user' ? '賣家' : '小熊'}：${h.content}`
+  ).join('\n')
+
+  const prompt = `以下是賣家和小熊的上架對話記錄。請從對話中提取所有商品資訊，回傳 JSON（只回傳 JSON，不要其他文字）：
+
+對話：
+${historyText}
+
+回傳格式：
+{
+  "name": "最終確認的商品名稱（若賣家有修改就用修改後的，否則用「${identified?.name || ''}」）",
+  "yearsUsed": 使用年數（數字，沒提到填 0）,
+  "condition": "like_new 或 good 或 fair",
+  "conditionNotes": "外觀/功能瑕疵說明，沒有填空字串",
+  "originalPrice": 賣家說的購入原價（數字，沒提到填 null）,
+  "dealType": "sell 或 free 或 trade",
+  "price": 賣家希望的售價（數字，免費或換物填 null）,
+  "tradeWant": "換物想要什麼（不是換物填 null）",
+  "locationCity": "縣市名稱",
+  "locationNote": "面交地點細節",
+  "deliveryMethods": ["面交", "超商取貨付款", "宅配貨到付款"] 中賣家接受的方式（陣列）,
+  "contactType": "line 或 phone 或 form",
+  "contactLineId": "LINE ID（沒有填 null）",
+  "contactPhone": "電話（沒有填 null）"
+}`
+
+  try {
+    const result = await callGeminiRaw(prompt)
+    const clean = result.replace(/```json|```/g, '').trim()
+    return JSON.parse(clean)
+  } catch {
+    return {}
+  }
+}
+
 export async function findMatchingItems(
   query: string,
   items: any[],

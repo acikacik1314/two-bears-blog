@@ -50,26 +50,23 @@ import UserMenu from './UserMenu.astro';
       <span class="logo-bears">🐻🐻</span>
       <span class="logo-title">{SITE_TITLE}</span>
     </a>
-    <div class="header-right">
-      <nav class="site-nav">
-        <HeaderLink href="/">首頁</HeaderLink>
-        <HeaderLink href="/blog">文章</HeaderLink>
-        <HeaderLink href="/podcast">播客</HeaderLink>
-
-        <HeaderLink href="/travel">✈️ 人生清單</HeaderLink>
-        <HeaderLink href="/avoid">🚨 避雷</HeaderLink>
-        <HeaderLink href="/picks">🐻 幫你選</HeaderLink>
-        <HeaderLink href="/pick">💰 比價</HeaderLink>
-        <HeaderLink href="/oracle">🔮 觀測站</HeaderLink>
-        <HeaderLink href="/fortune">命理</HeaderLink>
-        <HeaderLink href="/omikuji">命運籤</HeaderLink>
-        <HeaderLink href="/market">🛍️ 二手</HeaderLink>
-        <HeaderLink href="/friends">交友</HeaderLink>
-        <HeaderLink href="/member">會員</HeaderLink>
-        <HeaderLink href="/about">關於</HeaderLink>
-      </nav>
-      <UserMenu />
-    </div>
+    <nav class="site-nav">
+      <HeaderLink href="/">首頁</HeaderLink>
+      <HeaderLink href="/blog">文章</HeaderLink>
+      <HeaderLink href="/podcast">播客</HeaderLink>
+      <HeaderLink href="/travel">✈️ 人生清單</HeaderLink>
+      <HeaderLink href="/avoid">🚨 避雷</HeaderLink>
+      <HeaderLink href="/picks">🐻 幫你選</HeaderLink>
+      <HeaderLink href="/pick">💰 比價</HeaderLink>
+      <HeaderLink href="/oracle">🔮 觀測站</HeaderLink>
+      <HeaderLink href="/fortune">命理</HeaderLink>
+      <HeaderLink href="/omikuji">命運籤</HeaderLink>
+      <HeaderLink href="/market">🛍️ 二手</HeaderLink>
+      <HeaderLink href="/friends">交友</HeaderLink>
+      <HeaderLink href="/member">會員</HeaderLink>
+      <HeaderLink href="/about">關於</HeaderLink>
+    </nav>
+    <UserMenu />
   </div>
 </header>
 
@@ -232,7 +229,7 @@ import UserMenu from './UserMenu.astro';
     padding: 0 1.5em;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.4em;
     height: 56px;
   }
 
@@ -241,6 +238,7 @@ import UserMenu from './UserMenu.astro';
     align-items: center;
     gap: 0.5em;
     text-decoration: none;
+    flex-shrink: 0;
   }
 
   .logo-bears { font-size: 1.3em; }
@@ -255,17 +253,12 @@ import UserMenu from './UserMenu.astro';
     white-space: nowrap;
   }
 
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 0.8em;
-  }
-
   .site-nav {
     display: flex;
     gap: 0.05em;
     align-items: center;
     flex-wrap: nowrap;
+    flex: 1;
     overflow: visible;
   }
 
@@ -287,47 +280,60 @@ import UserMenu from './UserMenu.astro';
     background: rgba(168, 85, 247, 0.12);
   }
 
-  .site-nav :global(a.active) {
-    color: #a855f7;
-  }
-
-  /* 訂房 highlight */
-  .site-nav :global(a[href="/hotels"]) {
-    color: #f59e0b;
-    font-weight: 700;
-  }
-  .site-nav :global(a[href="/hotels"]:hover) {
-    background: rgba(245, 158, 11, 0.15);
-    color: #fbbf24;
-  }
+  .site-nav :global(a.active) { color: #a855f7; }
 
   /* 避雷 highlight */
-  .site-nav :global(a[href="/avoid"]) {
-    color: #e11d48;
-    font-weight: 700;
-  }
-  .site-nav :global(a[href="/avoid"]:hover) {
-    background: rgba(225, 29, 72, 0.1);
-    color: #fb7185;
-  }
+  .site-nav :global(a[href="/avoid"]) { color: #e11d48; font-weight: 700; }
+  .site-nav :global(a[href="/avoid"]:hover) { background: rgba(225,29,72,.1); color: #fb7185; }
 
   /* 觀測站 highlight */
-  .site-nav :global(a[href="/oracle"]) {
-    color: #14b8a6;
-    font-weight: 700;
-  }
-  .site-nav :global(a[href="/oracle"]:hover) {
-    background: rgba(20, 184, 166, 0.1);
-    color: #2dd4bf;
-  }
+  .site-nav :global(a[href="/oracle"]) { color: #14b8a6; font-weight: 700; }
+  .site-nav :global(a[href="/oracle"]:hover) { background: rgba(20,184,166,.1); color: #2dd4bf; }
 
   @media (max-width: 900px) {
-    .site-nav :global(a) { padding: 0.4em 0.4em; font-size: 0.78em; }
+    .site-nav :global(a) { padding: 0.35em 0.4em; font-size: 0.78em; }
   }
 
-  @media (max-width: 600px) {
-    .logo-title { display: none; }
-    .site-nav :global(a) { padding: 0.35em 0.35em; font-size: 0.72em; }
-    .header-inner { padding: 0 0.5em; }
+  /* ── 手機：兩行導覽 ── */
+  @media (max-width: 700px) {
+    .site-header { top: 32px; }
+
+    .header-inner {
+      height: auto;
+      flex-wrap: wrap;
+      padding: 0.35em 0.6em 0;
+      gap: 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Row 1：logo 靠左，UserMenu 靠右 */
+    .site-logo {
+      order: 1;
+      padding: 0.25em 0;
+    }
+    .site-logo .logo-title { display: none; }
+
+    /* UserMenu 跳到第一行右側 */
+    :global(.um-root) {
+      order: 2;
+      flex-shrink: 0;
+    }
+
+    /* Row 2：nav 佔整行，允許換行 */
+    .site-nav {
+      order: 3;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      gap: 0.1em;
+      padding: 0.2em 0 0.35em;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 0.2em;
+    }
+
+    .site-nav :global(a) {
+      font-size: 0.72em;
+      padding: 0.3em 0.45em;
+    }
   }
 </style>

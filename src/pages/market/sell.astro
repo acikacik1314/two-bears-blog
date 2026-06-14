@@ -391,7 +391,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     sellerSession = { identified }
     const chatBox = document.getElementById('chat-box')
     chatBox.innerHTML = ''
-    addBubble('assistant', `你好 ${uName}！我是小熊 🐻 我來幫你把這件「${identified.name || '商品'}」上架。\n\n先問你，這個東西你用了幾年了？`)
+    addBubble('assistant', `你好 ${uName}！我是小熊 🐻 我來幫你上架二手商品。\n\nAI 幫我辨識出這件是「${identified.name || '商品'}」，這樣寫對嗎？有需要修改的話直接說～`)
     setStep(2)
   })
 

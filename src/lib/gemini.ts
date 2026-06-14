@@ -132,45 +132,62 @@ export async function chatWithSeller(
   chatHistory: { role: string; content: string }[],
   session: any,
 ): Promise<{ reply: string; isComplete: boolean }> {
-  const systemPrompt = `你是「兩隻熊二手市集」的 AI 攤主，名叫小熊。
+  const keys = getGeminiKeys()
+  if (!keys.length) return { reply: '抱歉，我暫時連不上，請稍後再試。', isComplete: false }
 
-你的任務是透過自然對話，收集上架二手商品所需的資訊。
+  const systemInstruction = `你是「兩隻熊二手市集」的 AI 攤主，名叫小熊。
 說話風格：溫暖、口語、像朋友，用繁體中文，偶爾用台灣語氣詞。
-不要一次問太多問題，一次只問一件事。
+一次只問一件事，不要同時問多個問題。
 
-目前已收集到的資訊：
-${JSON.stringify(session, null, 2)}
+商品 AI 辨識結果：${JSON.stringify(session.identified || {})}
 
-需要收集的資訊（依序收集尚未取得的）：
-1. 商品名稱確認：把 AI 辨識到的名稱「${session.identified?.name || ''}」告訴賣家，問他這樣寫對嗎？需不需要修改？
-2. 這個商品當初購入的價格大約多少（原價，用來計算合理售價）
-3. 使用年數
-4. 功能狀況（正常/有問題，是什麼問題）
-5. 外觀狀況（有無刮傷/損壞）
-6. 期望定價（或想換什麼，或免費）
+請依序收集以下資訊（已在對話中確認過的就跳過，不要重複問）：
+1. 商品名稱確認（已在開場說明，若賣家沒有異議就視為確認，直接進入下一步）
+2. 當初購入的原價大約多少（不要自己猜，一定要問）
+3. 使用幾年
+4. 功能狀況是否正常
+5. 外觀有無刮傷損壞
+6. 期望售價（或換物、或免費）
 7. 所在縣市
-8. 面交方式（面交/宅配/超商）
-9. 聯絡方式（LINE ID / 電話 / 表單）
+8. 面交方式
+9. 聯絡方式（LINE ID 或電話）
 
-定價規則：售價不能超過原價的30%。
-- 如果賣家已告知原價（originalPrice），用那個數字計算：最高只能賣 originalPrice × 0.3 元。
-- 如果賣家說「免費」或「換物」，不需要問價格。
-- 如果賣家出的價格超過上限，要溫和提醒並建議調整到上限以下。
-- 不要自己猜原價，一定要問賣家。
+定價規則：售價不能超過賣家告知原價的 30%。若超過要溫和提醒。
 
 當所有資訊收集完畢，在回覆最後加上 [READY_TO_LIST]`
 
-  const historyText = chatHistory.slice(-10).map(h =>
-    `${h.role === 'user' ? '賣家' : '小熊'}：${h.content}`
-  ).join('\n')
+  // Build proper multi-turn contents
+  const contents: object[] = chatHistory.slice(-14).map(h => ({
+    role: h.role === 'user' ? 'user' : 'model',
+    parts: [{ text: h.content }],
+  }))
+  contents.push({ role: 'user', parts: [{ text: userMessage }] })
 
-  const fullPrompt = `${systemPrompt}\n\n對話歷史：\n${historyText}\n\n賣家說：${userMessage}\n\n小熊回覆：`
+  const body = JSON.stringify({
+    systemInstruction: { parts: [{ text: systemInstruction }] },
+    contents,
+    generationConfig: { temperature: 0.7, maxOutputTokens: 600, thinkingConfig: { thinkingBudget: 0 } },
+  })
 
-  try {
-    const reply = await callGeminiRaw(fullPrompt)
-    const isComplete = reply.includes('[READY_TO_LIST]')
-    return { reply: reply.replace('[READY_TO_LIST]', '').trim(), isComplete }
-  } catch {
-    return { reply: '抱歉，我暫時連不上，請稍後再試。', isComplete: false }
+  for (const key of keys) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${key}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body },
+      )
+      if (!res.ok) continue
+      const data = await res.json()
+      const reply = (data?.candidates?.[0]?.content?.parts ?? [])
+        .filter((p: any) => !p.thought)
+        .map((p: any) => p.text ?? '')
+        .join('')
+        .trim()
+      if (!reply) continue
+      const isComplete = reply.includes('[READY_TO_LIST]')
+      return { reply: reply.replace('[READY_TO_LIST]', '').trim(), isComplete }
+    } catch {
+      continue
+    }
   }
+  return { reply: '抱歉，我暫時連不上，請稍後再試。', isComplete: false }
 }

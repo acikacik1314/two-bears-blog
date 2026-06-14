@@ -153,8 +153,8 @@ ${JSON.stringify(session, null, 2)}
 7. 面交方式（面交/宅配/超商）
 8. 聯絡方式（LINE ID / 電話 / 表單）
 
-定價規則：必須低於市價30%，市價約 ${session.identified?.estimatedMarketPrice || 0} 元，所以建議上限是 ${Math.floor((session.identified?.estimatedMarketPrice || 0) * 0.3)} 元。
-如果出價超過30%，要溫和提醒並建議調整。
+定價規則：售價不能超過市價的30%。市價約 ${session.identified?.estimatedMarketPrice || 0} 元，所以這件商品最高只能賣 ${Math.floor((session.identified?.estimatedMarketPrice || 0) * 0.3)} 元。
+如果賣家出的價格超過這個上限，要溫和提醒並建議調整到上限以下。
 
 當所有資訊收集完畢，在回覆最後加上 [READY_TO_LIST]`
 

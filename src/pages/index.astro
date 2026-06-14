@@ -15,7 +15,6 @@ import TodayEvents from '../components/TodayEvents.astro';
 import DailyQuote from '../components/DailyQuote.astro';
 import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
-import ProphecyPoll from '../components/ProphecyPoll.astro';
 
 let viewCounts: Record<string, number> = {};
 try {
@@ -197,11 +196,6 @@ const CATEGORY_ICONS: Record<string, string> = {
 			</div>
 
 		</aside>
-	</div>
-
-	<!-- ── Poll row ── -->
-	<div class="below-grid-single">
-		<ProphecyPoll />
 	</div>
 
 	<!-- ── Food Delivery Promos ── -->
@@ -504,8 +498,6 @@ const CATEGORY_ICONS: Record<string, string> = {
 /* ── Content grid ── */
 .content-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1.5em; align-items: start; }
 
-/* ── Poll row ── */
-.below-grid-single { margin-top: 1.5em; }
 
 /* ── Section heading ── */
 .section-heading { display: flex; align-items: center; gap: .5em; margin-bottom: 1em; padding-bottom: .6em; border-bottom: 1px solid rgba(255,255,255,.07); }

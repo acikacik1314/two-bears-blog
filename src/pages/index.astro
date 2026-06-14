@@ -134,6 +134,92 @@ const CATEGORY_ICONS: Record<string, string> = {
 		<div class="hotel-banner-cta">立即找最低價 →</div>
 	</a>
 
+	<!-- ── Main grid: articles + sidebar ── -->
+	<div class="content-grid">
+
+		<!-- Articles -->
+		<section class="articles-section">
+			<div class="section-heading">
+				<span class="sh-icon">✨</span>
+				<h2 class="sh-title">最新文章與趨勢觀測</h2>
+				<span class="sh-sub">今天發生什麼事</span>
+			</div>
+			<ul class="posts-grid">
+				{posts.slice(0, 9).map((post) => {
+					const cat = getPostCategory(post);
+					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
+					const thumb = getThumbnail(post);
+					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
+					const icon = CATEGORY_ICONS[cat] ?? '📝';
+					return (
+						<li class="post-card">
+							<a href={`/blog/${post.id}/`}>
+								<div class="post-thumb">
+									{thumb ? (
+										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
+									) : (
+										<div class="post-placeholder" style={`background:${gradient}`}>
+											<span class="ph-icon">{icon}</span>
+											<span class="ph-cat">{cat}</span>
+										</div>
+									)}
+									<span class="cat-tag" style={`background:${color}`}>{cat}</span>
+								</div>
+								<div class="post-body">
+									<h4 class="post-title">{post.data.title}</h4>
+									<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
+								</div>
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+			<div class="more-posts-row">
+				<a href="/blog" class="btn-more-posts">查看全部 {posts.length} 篇文章 →</a>
+			</div>
+		</section>
+
+		<!-- Sidebar tools -->
+		<aside class="tools-sidebar">
+
+			<!-- Survival + countdown section -->
+			<div class="section-heading">
+				<span class="sh-icon">🔴</span>
+				<h2 class="sh-title">全球倒數計時 & 今日生存指數</h2>
+			</div>
+
+			<div class="tab-bar">
+				<button class="tab-btn active" data-tab="guide">📅 今日指引</button>
+				<button class="tab-btn" data-tab="survival">🛡 生存防災</button>
+				<button class="tab-btn" data-tab="soul">🕯 心靈互動</button>
+				<button class="tab-btn" data-tab="gpt">🤖 AI問熊</button>
+			</div>
+			<div class="tab-content active" id="tab-guide">
+				<GlobalCountdown />
+				<SurvivalIndex />
+			</div>
+			<div class="tab-content" id="tab-survival">
+				<SurvivalIndex />
+			</div>
+			<div class="tab-content" id="tab-soul">
+				<MessageWall />
+			</div>
+			<div class="tab-content" id="tab-gpt">
+				<iframe
+					src="/biggsgpt"
+					width="100%"
+					height="520"
+					style="border:none;border-radius:12px;display:block;"
+					title="比格斯 GPT"
+					loading="lazy"
+				></iframe>
+			</div>
+
+			<ProphecyPoll />
+			<NewsWidget />
+		</aside>
+	</div>
+
 	<!-- ── Food Delivery Promos ── -->
 	<section class="food-section">
 		<div class="food-header">
@@ -198,89 +284,6 @@ const CATEGORY_ICONS: Record<string, string> = {
 		</div>
 		<p class="food-update-note" id="food-update-note">📌 每月1日自動從全網更新最新有效代碼</p>
 	</section>
-
-	<!-- ── Main grid: articles + sidebar ── -->
-	<div class="content-grid">
-
-		<!-- Articles -->
-		<section class="articles-section">
-			<div class="section-heading">
-				<span class="sh-icon">✨</span>
-				<h2 class="sh-title">最新文章與趨勢觀測</h2>
-				<span class="sh-sub">今天發生什麼事</span>
-			</div>
-			<ul class="posts-grid">
-				{posts.map((post) => {
-					const cat = getPostCategory(post);
-					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
-					const thumb = getThumbnail(post);
-					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
-					const icon = CATEGORY_ICONS[cat] ?? '📝';
-					return (
-						<li class="post-card">
-							<a href={`/blog/${post.id}/`}>
-								<div class="post-thumb">
-									{thumb ? (
-										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async" />
-									) : (
-										<div class="post-placeholder" style={`background:${gradient}`}>
-											<span class="ph-icon">{icon}</span>
-											<span class="ph-cat">{cat}</span>
-										</div>
-									)}
-									<span class="cat-tag" style={`background:${color}`}>{cat}</span>
-								</div>
-								<div class="post-body">
-									<h4 class="post-title">{post.data.title}</h4>
-									<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
-								</div>
-							</a>
-						</li>
-					);
-				})}
-			</ul>
-		</section>
-
-		<!-- Sidebar tools -->
-		<aside class="tools-sidebar">
-
-			<!-- Survival + countdown section -->
-			<div class="section-heading">
-				<span class="sh-icon">🔴</span>
-				<h2 class="sh-title">全球倒數計時 & 今日生存指數</h2>
-			</div>
-
-			<div class="tab-bar">
-				<button class="tab-btn active" data-tab="guide">📅 今日指引</button>
-				<button class="tab-btn" data-tab="survival">🛡 生存防災</button>
-				<button class="tab-btn" data-tab="soul">🕯 心靈互動</button>
-				<button class="tab-btn" data-tab="gpt">🤖 AI問熊</button>
-			</div>
-			<div class="tab-content active" id="tab-guide">
-				<GlobalCountdown />
-				<SurvivalIndex />
-			</div>
-			<div class="tab-content" id="tab-survival">
-				<SurvivalIndex />
-			</div>
-			<div class="tab-content" id="tab-soul">
-				<MessageWall />
-			</div>
-			<div class="tab-content" id="tab-gpt">
-				<iframe
-					src="/biggsgpt"
-					width="100%"
-					height="520"
-					style="border:none;border-radius:12px;display:block;"
-					title="比格斯 GPT"
-					loading="lazy"
-				></iframe>
-			</div>
-
-			<ProphecyPoll />
-			<NewsWidget />
-		</aside>
-	</div>
 
 	<!-- ── Daily Quote ── -->
 	<DailyQuote />
@@ -527,6 +530,16 @@ const CATEGORY_ICONS: Record<string, string> = {
 .post-card a:hover .post-title { color: #c084fc; }
 .post-date { margin: 0; font-size: .7em; color: #94a3b8; }
 
+/* ── More posts button ── */
+.more-posts-row { text-align: center; margin-top: 1.2em; }
+.btn-more-posts {
+	display: inline-block; padding: .55em 1.6em; border-radius: 10px;
+	border: 1px solid rgba(168,85,247,.35); color: #a855f7;
+	font-size: .82em; font-weight: 700; text-decoration: none;
+	transition: background .15s, border-color .15s;
+}
+.btn-more-posts:hover { background: rgba(168,85,247,.1); border-color: rgba(168,85,247,.6); color: #c084fc; }
+
 /* ── Sidebar ── */
 .tools-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1em; }
 .tab-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: .3em; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .3em; }
@@ -537,7 +550,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 .tab-content.active { display: flex; flex-direction: column; gap: .8em; }
 
 /* ── Food Delivery ── */
-.food-section { margin-bottom: 1.2em; }
+.food-section { margin-top: 2em; margin-bottom: 1.2em; }
 .food-header {
 	display: flex; align-items: center; gap: .5em;
 	margin-bottom: .85em;

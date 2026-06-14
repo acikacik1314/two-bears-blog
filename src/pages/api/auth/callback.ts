@@ -9,7 +9,13 @@ export async function GET({ url, cookies, redirect }: APIContext) {
   const storedState = cookies.get('oauth_state')?.value
 
   if (!code || !state || state !== storedState) {
-    return redirect('/?error=auth_failed')
+    console.error('[auth/callback] state check failed', {
+      hasCode: !!code,
+      hasState: !!state,
+      hasStoredState: !!storedState,
+      stateMatch: state === storedState,
+    })
+    return redirect('/?error=state_mismatch')
   }
 
   cookies.delete('oauth_state', { path: '/' })
@@ -28,7 +34,10 @@ export async function GET({ url, cookies, redirect }: APIContext) {
     })
 
     const tokens = await tokenRes.json()
-    if (!tokens.access_token) return redirect('/?error=auth_failed')
+    if (!tokens.access_token) {
+      console.error('[auth/callback] token exchange failed', { error: tokens.error, desc: tokens.error_description })
+      return redirect('/?error=token_failed')
+    }
 
     const userRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
       headers: { Authorization: `Bearer ${tokens.access_token}` },
@@ -41,11 +50,13 @@ export async function GET({ url, cookies, redirect }: APIContext) {
       picture: String(gu.picture ?? ''),
     }
 
-    if (!user.email) return redirect('/?error=auth_failed')
+    if (!user.email) {
+      console.error('[auth/callback] no email in userinfo')
+      return redirect('/?error=no_email')
+    }
 
     const token = await createSession(user)
 
-    // Set cookie immediately so login works even if subscriber update fails
     cookies.set('sb_session', token, {
       httpOnly: true,
       path: '/',
@@ -54,11 +65,11 @@ export async function GET({ url, cookies, redirect }: APIContext) {
       secure: import.meta.env.PROD,
     })
 
-    // Non-blocking — don't let this failure break login
     addSubscriber(user).catch(() => {})
 
     return redirect('/member')
-  } catch {
+  } catch (e) {
+    console.error('[auth/callback] unexpected error', e)
     return redirect('/?error=auth_failed')
   }
 }

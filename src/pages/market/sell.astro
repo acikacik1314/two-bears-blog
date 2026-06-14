@@ -25,14 +25,16 @@ html body { background: #0f172a; color: #e2e8f0; }
 .step { display: none; }
 .step.active { display: block; }
 
-/* Off-screen hidden — works in iOS Safari unlike display:none or clip */
+/* Visually hidden but physically present — required for iOS Safari label activation */
 .file-hidden {
-  position: fixed;
-  left: -9999px;
-  top: -9999px;
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
   opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 /* Photo slots */
@@ -172,19 +174,19 @@ html body { background: #0f172a; color: #e2e8f0; }
     <!-- Step 0: Upload -->
     <div class="step active" id="step-0">
       <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .75rem;">第一張用來 AI 辨識，建議：正面、背面、尺寸標籤</p>
-      <input type="file" id="file-input-0" accept="image/*" class="file-hidden" />
-      <input type="file" id="file-input-1" accept="image/*" class="file-hidden" />
-      <input type="file" id="file-input-2" accept="image/*" class="file-hidden" />
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
-        <div class="photo-slot" id="slot-0" onclick="document.getElementById('file-input-0').click()">
+        <label class="photo-slot" id="slot-0">
+          <input type="file" id="file-input-0" accept="image/*" class="file-hidden" />
           <span class="slot-label">第一張<br><small>正面（必填）</small></span>
-        </div>
-        <div class="photo-slot" id="slot-1" onclick="document.getElementById('file-input-1').click()">
+        </label>
+        <label class="photo-slot" id="slot-1">
+          <input type="file" id="file-input-1" accept="image/*" class="file-hidden" />
           <span class="slot-label">第二張<br><small>背面（選填）</small></span>
-        </div>
-        <div class="photo-slot" id="slot-2" onclick="document.getElementById('file-input-2').click()">
+        </label>
+        <label class="photo-slot" id="slot-2">
+          <input type="file" id="file-input-2" accept="image/*" class="file-hidden" />
           <span class="slot-label">第三張<br><small>尺寸標籤（選填）</small></span>
-        </div>
+        </label>
       </div>
       <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>

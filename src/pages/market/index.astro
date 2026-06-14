@@ -1,0 +1,361 @@
+---
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+
+.mkt-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 1px solid rgba(168,85,247,.2);
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+.mkt-hero h1 { font-size: clamp(1.5rem,4vw,2rem); color: #f1f5f9; margin-bottom:.5rem; }
+.mkt-hero p { color: #94a3b8; font-size:.9rem; margin:0; }
+.mkt-hero-actions { display:flex; gap:1rem; justify-content:center; margin-top:1.5rem; flex-wrap:wrap; }
+.btn-sell {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: #fff; border: none; padding: .7rem 1.6rem;
+  border-radius: 12px; font-size: .9rem; font-weight: 700;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: opacity .15s;
+}
+.btn-sell:hover { opacity: .85; color: #fff; }
+.btn-buy {
+  background: transparent;
+  color: #a855f7; border: 1.5px solid #a855f7; padding: .7rem 1.6rem;
+  border-radius: 12px; font-size: .9rem; font-weight: 700;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: background .15s;
+}
+.btn-buy:hover { background: rgba(168,85,247,.1); color: #c084fc; }
+
+.mkt-main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+.filter-bar {
+  display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-btn {
+  padding: .35rem .9rem; border-radius: 100px; border: 1px solid #334155;
+  background: #1e293b; color: #94a3b8; font-size: .8rem; cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn.active, .filter-btn:hover { border-color: #a855f7; color: #a855f7; background: rgba(168,85,247,.08); }
+.filter-sep { width: 1px; height: 20px; background: #334155; margin: 0 .3rem; }
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.item-card {
+  background: #1e293b; border: 1px solid #334155; border-radius: 16px;
+  overflow: hidden; cursor: pointer; transition: border-color .15s, transform .15s;
+}
+.item-card:hover { border-color: #a855f7; transform: translateY(-2px); }
+.item-img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  background: #0f172a;
+}
+.item-img-placeholder {
+  width: 100%; aspect-ratio: 4/3; background: #0f172a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; color: #334155;
+}
+.item-body { padding: 1rem; }
+.item-title { font-size: .9rem; font-weight: 700; color: #f1f5f9; margin-bottom:.4rem; line-height:1.4; }
+.item-meta { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin-bottom:.6rem; }
+.tag {
+  font-size: .7rem; padding: .15rem .5rem; border-radius: 100px; font-weight: 600;
+}
+.tag-cat { background: rgba(99,102,241,.15); color: #a5b4fc; }
+.tag-cond-like_new { background: rgba(34,197,94,.12); color: #86efac; }
+.tag-cond-good { background: rgba(251,191,36,.1); color: #fcd34d; }
+.tag-cond-fair { background: rgba(148,163,184,.1); color: #94a3b8; }
+.item-price { font-size: 1rem; font-weight: 800; color: #a855f7; }
+.item-price-free { color: #34d399; }
+.item-price-trade { color: #60a5fa; }
+.item-footer { padding: .75rem 1rem 1rem; border-top: 1px solid #1e293b; display:flex; justify-content:space-between; align-items:center; }
+.item-city { font-size: .75rem; color: #64748b; }
+.btn-inquire {
+  font-size: .75rem; padding: .3rem .8rem; border-radius: 8px;
+  background: rgba(168,85,247,.12); border: 1px solid rgba(168,85,247,.3);
+  color: #a855f7; cursor: pointer; transition: background .15s;
+}
+.btn-inquire:hover { background: rgba(168,85,247,.25); }
+
+.empty-state { text-align: center; padding: 4rem 1rem; color: #64748b; }
+.empty-state .emoji { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+.loading-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.skeleton-card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; overflow: hidden; }
+.skeleton-img { width: 100%; aspect-ratio: 4/3; background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+.skeleton-body { padding: 1rem; }
+.skeleton-line { height: .8rem; border-radius: 4px; background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; margin-bottom:.5rem; }
+.skeleton-line.short { width: 60%; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* Inquire modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999; padding: 1rem;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+  background: #1e293b; border: 1px solid #334155; border-radius: 20px;
+  padding: 1.5rem; max-width: 480px; width: 100%;
+}
+.modal h3 { color: #f1f5f9; margin-bottom: 1rem; font-size: 1rem; }
+.modal input, .modal textarea {
+  width: 100%; background: #0f172a; border: 1px solid #334155;
+  border-radius: 10px; padding: .65rem .9rem; color: #e2e8f0; font-size: .85rem;
+  margin-bottom: .75rem; box-sizing: border-box; font-family: inherit;
+}
+.modal input:focus, .modal textarea:focus { outline: none; border-color: #a855f7; }
+.modal textarea { min-height: 80px; resize: vertical; }
+.modal-actions { display: flex; gap: .75rem; justify-content: flex-end; margin-top:.5rem; }
+.btn-cancel {
+  padding: .55rem 1.2rem; border-radius: 10px; background: transparent;
+  border: 1px solid #334155; color: #94a3b8; cursor: pointer; font-size: .85rem;
+}
+.btn-send {
+  padding: .55rem 1.2rem; border-radius: 10px;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  border: none; color: #fff; cursor: pointer; font-size: .85rem; font-weight: 600;
+}
+.modal-msg { font-size: .8rem; color: #64748b; margin-top: .5rem; }
+.modal-msg.success { color: #34d399; }
+.modal-msg.error { color: #f87171; }
+
+@media (max-width: 600px) {
+  .mkt-hero { padding: 2rem 1rem 1.5rem; }
+  .mkt-main { padding: 1.5rem 1rem; }
+  .items-grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .item-body { padding: .75rem; }
+}
+</style>
+
+<html lang="zh-TW">
+<head>
+  <BaseHead title="🛍️ 兩隻熊二手路邊攤 — 好物找新家" description="AI 攤主幫你上架、幫你找貨，溫暖的二手交易小市集。" />
+</head>
+<body>
+  <Header />
+  <div class="mkt-hero">
+    <h1>🛍️ 兩隻熊路邊攤</h1>
+    <p>好物不浪費，AI 幫你找到最適合的人</p>
+    <div class="mkt-hero-actions">
+      <a href="/market/sell" class="btn-sell">📦 我要賣東西</a>
+      <a href="/market/buy" class="btn-buy">🤖 AI 幫我找</a>
+    </div>
+  </div>
+
+  <div class="mkt-main">
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-type="category" data-val="all">全部</button>
+      <button class="filter-btn" data-type="category" data-val="電器">電器</button>
+      <button class="filter-btn" data-type="category" data-val="3C">3C</button>
+      <button class="filter-btn" data-type="category" data-val="衣物">衣物</button>
+      <button class="filter-btn" data-type="category" data-val="書籍">書籍</button>
+      <button class="filter-btn" data-type="category" data-val="傢俱">傢俱</button>
+      <button class="filter-btn" data-type="category" data-val="其他">其他</button>
+      <div class="filter-sep"></div>
+      <button class="filter-btn active2" data-type="deal" data-val="all">全部交易</button>
+      <button class="filter-btn" data-type="deal" data-val="sell">出售</button>
+      <button class="filter-btn" data-type="deal" data-val="trade">換物</button>
+      <button class="filter-btn" data-type="deal" data-val="free">免費</button>
+    </div>
+
+    <div id="items-container">
+      <div class="loading-grid" id="loading-skeleton">
+        {Array.from({length: 6}).map(() => (
+          <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line short"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="items-grid" id="items-grid" style="display:none"></div>
+      <div class="empty-state" id="empty-state" style="display:none">
+        <span class="emoji">🧺</span>
+        <p>攤位上還沒有商品</p>
+        <a href="/market/sell" class="btn-sell">成為第一個上架的攤主</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquire modal -->
+  <div class="modal-overlay hidden" id="inquire-modal">
+    <div class="modal">
+      <h3 id="modal-item-title">聯絡賣家</h3>
+      <input type="text" id="modal-buyer-name" placeholder="你的名字" />
+      <input type="email" id="modal-buyer-email" placeholder="你的 Email（賣家會回覆你）" />
+      <textarea id="modal-message" placeholder="想問賣家什麼？（想了解狀況、交易方式、能否議價等）"></textarea>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="modal-cancel">取消</button>
+        <button class="btn-send" id="modal-send">送出詢問</button>
+      </div>
+      <p class="modal-msg" id="modal-msg"></p>
+    </div>
+  </div>
+
+  <Footer />
+</body>
+</html>
+
+<script>
+  const COND_LABEL: Record<string, string> = { like_new: '近全新', good: '良好', fair: '普通' }
+  const COND_CLS: Record<string, string> = { like_new: 'tag-cond-like_new', good: 'tag-cond-good', fair: 'tag-cond-fair' }
+
+  let activeCategory = 'all'
+  let activeDeal = 'all'
+  let currentItemId = ''
+  let allItems: any[] = []
+
+  function renderItems(items: any[]) {
+    const grid = document.getElementById('items-grid')!
+    const empty = document.getElementById('empty-state')!
+    const skeleton = document.getElementById('loading-skeleton')!
+    skeleton.style.display = 'none'
+
+    if (!items.length) {
+      grid.style.display = 'none'
+      empty.style.display = 'block'
+      return
+    }
+    empty.style.display = 'none'
+    grid.style.display = 'grid'
+    grid.innerHTML = items.map(item => {
+      const img = item.image_urls?.[0]
+        ? `<img class="item-img" src="${item.image_urls[0]}" alt="${item.title}" loading="lazy"/>`
+        : `<div class="item-img-placeholder">📦</div>`
+      const priceHtml = item.deal_type === 'free'
+        ? '<span class="item-price item-price-free">免費</span>'
+        : item.deal_type === 'trade'
+        ? '<span class="item-price item-price-trade">換物</span>'
+        : `<span class="item-price">NT$ ${Number(item.price || 0).toLocaleString()}</span>`
+      const condCls = COND_CLS[item.condition] || 'tag-cond-fair'
+      const condLabel = COND_LABEL[item.condition] || item.condition
+      return `
+        <div class="item-card" data-id="${item.id}">
+          ${img}
+          <div class="item-body">
+            <div class="item-title">${item.title}</div>
+            <div class="item-meta">
+              <span class="tag tag-cat">${item.category}</span>
+              <span class="tag ${condCls}">${condLabel}</span>
+            </div>
+            ${priceHtml}
+          </div>
+          <div class="item-footer">
+            <span class="item-city">${item.location_city || ''}</span>
+            <button class="btn-inquire" data-id="${item.id}" data-title="${item.title}">聯絡賣家</button>
+          </div>
+        </div>`
+    }).join('')
+
+    grid.querySelectorAll('.btn-inquire').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const b = e.currentTarget as HTMLElement
+        openModal(b.dataset.id!, b.dataset.title!)
+      })
+    })
+  }
+
+  async function loadItems() {
+    const params = new URLSearchParams()
+    if (activeCategory !== 'all') params.set('category', activeCategory)
+    if (activeDeal !== 'all') params.set('deal_type', activeDeal)
+    params.set('limit', '40')
+    try {
+      const res = await fetch(`/api/market/items?${params}`)
+      const data = await res.json()
+      allItems = data.items || []
+      renderItems(allItems)
+    } catch {
+      document.getElementById('loading-skeleton')!.style.display = 'none'
+      document.getElementById('empty-state')!.style.display = 'block'
+    }
+  }
+
+  document.getElementById('filter-bar')!.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLElement
+    if (!btn) return
+    const type = btn.dataset.type!
+    const val = btn.dataset.val!
+
+    if (type === 'category') {
+      document.querySelectorAll('[data-type="category"]').forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+      activeCategory = val
+    } else {
+      document.querySelectorAll('[data-type="deal"]').forEach(b => b.classList.remove('active2', 'active'))
+      btn.classList.add('active')
+      activeDeal = val
+    }
+    loadItems()
+  })
+
+  function openModal(itemId: string, title: string) {
+    currentItemId = itemId
+    ;(document.getElementById('modal-item-title') as HTMLElement).textContent = `聯絡賣家：${title}`
+    ;(document.getElementById('modal-msg') as HTMLElement).textContent = ''
+    ;(document.getElementById('modal-msg') as HTMLElement).className = 'modal-msg'
+    document.getElementById('inquire-modal')!.classList.remove('hidden')
+  }
+
+  document.getElementById('modal-cancel')!.addEventListener('click', () => {
+    document.getElementById('inquire-modal')!.classList.add('hidden')
+  })
+
+  document.getElementById('modal-send')!.addEventListener('click', async () => {
+    const name = (document.getElementById('modal-buyer-name') as HTMLInputElement).value.trim()
+    const email = (document.getElementById('modal-buyer-email') as HTMLInputElement).value.trim()
+    const message = (document.getElementById('modal-message') as HTMLTextAreaElement).value.trim()
+    const msgEl = document.getElementById('modal-msg')!
+    if (!name || !email || !message) {
+      msgEl.textContent = '請填寫所有欄位'
+      msgEl.className = 'modal-msg error'
+      return
+    }
+    const btn = document.getElementById('modal-send') as HTMLButtonElement
+    btn.disabled = true
+    btn.textContent = '送出中...'
+    try {
+      const res = await fetch('/api/market/inquire', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ item_id: currentItemId, buyer_name: name, buyer_email: email, message }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        msgEl.textContent = '✓ 已送出！賣家會用 Email 聯絡你。'
+        msgEl.className = 'modal-msg success'
+        setTimeout(() => document.getElementById('inquire-modal')!.classList.add('hidden'), 2000)
+      } else {
+        msgEl.textContent = data.error || '送出失敗，請稍後再試'
+        msgEl.className = 'modal-msg error'
+      }
+    } catch {
+      msgEl.textContent = '網路錯誤，請稍後再試'
+      msgEl.className = 'modal-msg error'
+    }
+    btn.disabled = false
+    btn.textContent = '送出詢問'
+  })
+
+  document.getElementById('inquire-modal')!.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) document.getElementById('inquire-modal')!.classList.add('hidden')
+  })
+
+  loadItems()
+</script>

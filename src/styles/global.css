@@ -10,6 +10,17 @@
 	--gray-dark: 226, 232, 240;
 	--gray-gradient: #0f172a, #0f172a;
 	--box-shadow: 0 4px 24px rgba(168, 85, 247, 0.15), 0 2px 8px rgba(0,0,0,0.4);
+
+	/* semantic color tokens (dark theme) */
+	--color-text-primary: #e2e8f0;
+	--color-text-secondary: #94a3b8;
+	--color-text-tertiary: #64748b;
+	--color-background-primary: #0f172a;
+	--color-background-secondary: #1e293b;
+	--color-background-tertiary: #334155;
+	--color-border-primary: #334155;
+	--color-border-secondary: #1e293b;
+	--color-border-tertiary: rgba(255,255,255,.08);
 }
 
 body {

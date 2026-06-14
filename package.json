@@ -21,6 +21,8 @@
     "@google/genai": "^2.8.0",
     "@keystatic/astro": "^5.1.0",
     "@keystatic/core": "^0.5.50",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.1",
     "@tailwindcss/vite": "^4.3.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.4.0",

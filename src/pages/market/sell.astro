@@ -221,7 +221,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div class="step" id="step-2">
       <div class="chat-box" id="chat-box"></div>
       <div class="chat-input-row">
-        <textarea class="chat-input" id="chat-input" placeholder="輸入回覆..." rows="1"></textarea>
+        <textarea class="chat-input" id="chat-input" placeholder="輸入回覆..." rows="1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
         <button class="btn-send-msg" id="btn-chat-send">送出</button>
       </div>
       <div class="status-msg" id="status-2"></div>
@@ -425,6 +425,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     addBubble('user', msg)
     chatHistory.push({ role: 'user', content: msg })
     chatInput.value = ''
+    setTimeout(function() { chatInput.value = '' }, 0)
     btnChatSend.disabled = true
     setStatus(2, '小熊思考中...')
 

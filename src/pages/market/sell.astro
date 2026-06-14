@@ -25,6 +25,15 @@ html body { background: #0f172a; color: #e2e8f0; }
 .step { display: none; }
 .step.active { display: block; }
 
+/* Visually hidden but still browser-accessible (works on iOS Safari) */
+.file-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0; overflow: hidden;
+  clip: rect(0,0,0,0);
+  pointer-events: none;
+}
+
 /* Photo slots */
 .photo-slot {
   border: 2px dashed #334155; border-radius: 14px;
@@ -162,9 +171,9 @@ html body { background: #0f172a; color: #e2e8f0; }
     <!-- Step 0: Upload -->
     <div class="step active" id="step-0">
       <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .75rem;">第一張用來 AI 辨識，建議：正面、背面、尺寸標籤</p>
-      <input type="file" id="file-input-0" accept="image/*" style="display:none" />
-      <input type="file" id="file-input-1" accept="image/*" style="display:none" />
-      <input type="file" id="file-input-2" accept="image/*" style="display:none" />
+      <input type="file" id="file-input-0" accept="image/*" class="file-hidden" />
+      <input type="file" id="file-input-1" accept="image/*" class="file-hidden" />
+      <input type="file" id="file-input-2" accept="image/*" class="file-hidden" />
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
         <label class="photo-slot" id="slot-0" for="file-input-0">
           <span class="slot-label">第一張<br><small>正面（必填）</small></span>

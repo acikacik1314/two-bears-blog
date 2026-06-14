@@ -45,8 +45,9 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
   if (action === 'finalize') {
     const sessionJson = formData.get('session') as string
-    const imageBase64 = formData.get('imageBase64') as string
+    const imageBase64sJson = formData.get('imageBase64s') as string
     const session = JSON.parse(sessionJson || '{}')
+    const imageBase64s: string[] = JSON.parse(imageBase64sJson || '[]')
 
     const desc = await generateItemDescription({
       name: session.identified?.name || session.name || '商品',
@@ -58,19 +59,21 @@ export const POST: APIRoute = async ({ request, cookies }) => {
       locationNote: session.locationCity || '',
     })
 
-    let imageUrl = ''
-    if (imageBase64) {
+    const imageUrls: string[] = []
+    for (let i = 0; i < imageBase64s.length; i++) {
+      const b64 = imageBase64s[i]
+      if (!b64) continue
       try {
-        const raw = atob(imageBase64)
+        const raw = atob(b64)
         const imgBytes = new Uint8Array(raw.length)
-        for (let i = 0; i < raw.length; i++) imgBytes[i] = raw.charCodeAt(i)
-        const fileName = `${Date.now()}_${user.email.replace(/[@.]/g, '_')}.jpg`
+        for (let j = 0; j < raw.length; j++) imgBytes[j] = raw.charCodeAt(j)
+        const fileName = `${Date.now()}_${i}_${user.email.replace(/[@.]/g, '_')}.jpg`
         const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
           .from('market-images')
           .upload(fileName, imgBytes, { contentType: 'image/jpeg' })
         if (!uploadError && uploadData) {
           const { data: urlData } = supabaseAdmin.storage.from('market-images').getPublicUrl(uploadData.path)
-          imageUrl = urlData.publicUrl
+          imageUrls.push(urlData.publicUrl)
         }
       } catch {}
     }
@@ -97,7 +100,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         trade_want: session.tradeWant || null,
         location_city: session.locationCity || null,
         location_note: session.locationNote || null,
-        image_urls: imageUrl ? [imageUrl] : [],
+        image_urls: imageUrls,
         status: 'active',
         view_count: 0,
         inquiry_count: 0,

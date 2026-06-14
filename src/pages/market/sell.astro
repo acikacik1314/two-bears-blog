@@ -154,14 +154,12 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div class="step active" id="step-0">
       <div class="upload-zone" id="upload-zone">
         <span class="emoji">📸</span>
-        <p>點擊或拖曳照片上傳</p>
-        <p style="font-size:.78rem;margin-top:.4rem;color:#475569">建議正面清晰，AI 辨識更準確</p>
-        <div class="upload-preview" id="upload-preview" style="display:none">
-          <img id="preview-img" src="" alt="預覽" />
-        </div>
+        <p>點擊或拖曳照片上傳（最多 3 張）</p>
+        <p style="font-size:.78rem;margin-top:.4rem;color:#475569">建議：正面、背面、尺寸標籤，第一張用來 AI 辨識</p>
       </div>
-      <input type="file" id="file-input" accept="image/*" />
-      <button class="btn-primary" id="btn-identify" style="margin-top:1rem;display:none">🔍 讓 AI 辨識這個商品</button>
+      <input type="file" id="file-input" accept="image/*" multiple />
+      <div id="preview-grid" style="display:none;display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1rem;"></div>
+      <button class="btn-primary" id="btn-identify" style="margin-top:1rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>
     </div>
 
@@ -207,11 +205,11 @@ html body { background: #0f172a; color: #e2e8f0; }
 
 <script define:vars={{ uName, uEmail }}>
   let currentStep = 0
-  let imageBase64 = ''
+  let imageBase64s = []   // array of base64 strings, up to 3
   let identified = {}
   let chatHistory = []
   let sellerSession = {}
-  let previewSrc = ''
+  let previewSrcs = []    // array of data URLs for preview
 
   function setStep(n) {
     document.querySelectorAll('.step').forEach((el, i) => el.classList.toggle('active', i === n))
@@ -239,49 +237,72 @@ html body { background: #0f172a; color: #e2e8f0; }
   uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'))
   uploadZone.addEventListener('drop', (e) => {
     e.preventDefault(); uploadZone.classList.remove('drag')
-    const file = e.dataTransfer?.files[0]
-    if (file && file.type.startsWith('image/')) handleFile(file)
+    const files = Array.from(e.dataTransfer?.files || []).filter(f => f.type.startsWith('image/')).slice(0, 3)
+    if (files.length) handleFiles(files)
   })
   fileInput.addEventListener('change', () => {
-    if (fileInput.files[0]) handleFile(fileInput.files[0])
+    const files = Array.from(fileInput.files || []).slice(0, 3)
+    if (files.length) handleFiles(files)
   })
 
-  function handleFile(file) {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      previewSrc = e.target.result
-      const img = document.getElementById('preview-img')
-      img.src = previewSrc
-      document.getElementById('upload-preview').style.display = 'block'
-      btnIdentify.style.display = 'block'
-    }
-    reader.readAsDataURL(file)
+  function handleFiles(files) {
+    imageBase64s = []
+    previewSrcs = []
+    const grid = document.getElementById('preview-grid')
+    grid.innerHTML = ''
+    grid.style.display = 'grid'
+
+    const labels = ['第一張（正面）', '第二張（背面）', '第三張（尺寸）']
+    let loaded = 0
+    files.forEach((file, i) => {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const dataUrl = e.target.result
+        previewSrcs[i] = dataUrl
+        // strip data URL header to get base64
+        imageBase64s[i] = dataUrl.split(',')[1]
+
+        const slot = document.createElement('div')
+        slot.style.cssText = 'position:relative;'
+        slot.innerHTML = `
+          <img src="${dataUrl}" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid #334155;" />
+          <span style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:.65rem;color:#94a3b8;background:rgba(0,0,0,.5);padding:2px 0;border-radius:0 0 10px 10px;">${labels[i] || ''}</span>
+        `
+        grid.appendChild(slot)
+
+        loaded++
+        if (loaded === files.length) btnIdentify.style.display = 'block'
+      }
+      reader.readAsDataURL(file)
+    })
   }
 
   btnIdentify.addEventListener('click', async () => {
-    if (!fileInput.files[0]) return
+    if (!imageBase64s[0] || !fileInput.files[0]) return
     btnIdentify.disabled = true
     btnIdentify.textContent = '🔍 AI 辨識中...'
     setStatus(0, '')
     try {
       const formData = new FormData()
       formData.append('action', 'identify_image')
-      formData.append('image', fileInput.files[0])
+      formData.append('image', fileInput.files[0])  // use first image for AI
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       const data = await res.json()
       if (data.error) throw new Error(data.error)
 
       identified = data.identified
-      imageBase64 = data.imageBase64
       sellerSession = { identified }
 
       const conf = identified.confidence || 'low'
       const confCls = conf === 'high' ? 'confidence-high' : conf === 'medium' ? 'confidence-medium' : 'confidence-low'
       const confLabel = conf === 'high' ? '高' : conf === 'medium' ? '中' : '低'
+      const previewImgs = previewSrcs.map(src =>
+        `<img src="${src}" style="max-height:120px;border-radius:8px;border:1px solid #334155;" />`
+      ).join('')
       document.getElementById('identify-result').innerHTML = `
         <h3>AI 辨識結果</h3>
-        ${previewSrc ? `<img src="${previewSrc}" style="max-height:160px;border-radius:10px;margin-bottom:1rem;" />` : ''}
+        <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">${previewImgs}</div>
         <div class="identify-row"><span class="identify-label">商品名稱</span><span class="identify-val">${identified.name || '—'}</span></div>
         <div class="identify-row"><span class="identify-label">分類</span><span class="identify-val">${identified.category || '—'}</span></div>
         <div class="identify-row"><span class="identify-label">市場新品價格</span><span class="identify-val">NT$ ${Number(identified.estimatedMarketPrice || 0).toLocaleString()}</span></div>
@@ -292,14 +313,16 @@ html body { background: #0f172a; color: #e2e8f0; }
       setStatus(0, '辨識失敗：' + e.message, true)
     }
     btnIdentify.disabled = false
-    btnIdentify.textContent = '🔍 讓 AI 辨識這個商品'
+    btnIdentify.textContent = '🔍 讓 AI 辨識第一張照片'
   })
 
   document.getElementById('btn-reupload').addEventListener('click', () => {
     fileInput.value = ''
-    document.getElementById('upload-preview').style.display = 'none'
+    document.getElementById('preview-grid').innerHTML = ''
+    document.getElementById('preview-grid').style.display = 'none'
     btnIdentify.style.display = 'none'
-    imageBase64 = ''
+    imageBase64s = []
+    previewSrcs = []
     identified = {}
     setStep(0)
   })
@@ -381,9 +404,12 @@ html body { background: #0f172a; color: #e2e8f0; }
     extractSessionFromHistory()
 
     const preview = document.getElementById('final-preview')
+    const previewImgHtml = previewSrcs.map(src =>
+      `<img src="${src}" style="max-height:140px;border-radius:10px;border:1px solid #334155;" />`
+    ).join('')
     preview.innerHTML = `
       <h3>上架預覽</h3>
-      ${previewSrc ? `<img class="final-img" src="${previewSrc}" />` : ''}
+      ${previewSrcs.length ? `<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;">${previewImgHtml}</div>` : ''}
       <div class="identify-row"><span class="identify-label">商品</span><span class="identify-val">${identified.name || '商品'}</span></div>
       <div class="identify-row"><span class="identify-label">分類</span><span class="identify-val">${identified.category || '其他'}</span></div>
       <p style="color:#64748b;font-size:.8rem;margin:.75rem 0 .4rem">文案由 AI 生成，上架後可在市集查看。</p>
@@ -438,7 +464,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       const formData = new FormData()
       formData.append('action', 'finalize')
       formData.append('session', JSON.stringify(sellerSession))
-      formData.append('imageBase64', imageBase64)
+      formData.append('imageBase64s', JSON.stringify(imageBase64s))
 
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       const data = await res.json()

@@ -6,7 +6,7 @@ import { identifyProduct, generateItemDescription, chatWithSeller } from '../../
 import { getSession } from '../../../utils/session'
 
 export const POST: APIRoute = async ({ request, cookies }) => {
-  const token = cookies.get('session')?.value || ''
+  const token = cookies.get('sb_session')?.value || ''
   const user = await getSession(token)
   if (!user) return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
 

@@ -3,6 +3,7 @@ export const prerender = false;
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CTACard from '../components/CTACard.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -68,6 +69,28 @@ import { SITE_TITLE } from '../consts';
         <div class="pod-list" id="pod-list"></div>
 
       </div>
+
+    <!-- CTA pool：隱藏在此，JS cloneNode 插入清單 -->
+    <div id="cta-pool" style="display:none" aria-hidden="true">
+      <CTACard
+        emoji="🔮"
+        text="預言說 2026 財富要大洗牌——那你手上那支股票呢？輸入代號，讓 AI 把未來人的預言疊在它的財報上，算給你看"
+        href="/oracle"
+        btnText="啟動時空觀測 →"
+      />
+      <CTACard
+        emoji="🎋"
+        text="看完世界的命運，要不要看你自己的？賽博神社每日御神籤——今天你的財運、行動指令，一抽就知道"
+        href="/omikuji"
+        btnText="抽今天這支籤 →"
+      />
+      <CTACard
+        emoji="🔮"
+        text="不想只信一個人？比格斯、帕克、未來人，同一件事我們攤開比對給你看"
+        href="/category/預言"
+        btnText="看交叉比對 →"
+      />
+    </div>
 
     </main>
     <Footer />
@@ -181,6 +204,27 @@ import { SITE_TITLE } from '../consts';
 
       list.appendChild(card);
     });
+
+    // 插入 CTA 引導卡片（從 cta-pool clone，不改原始節點）
+    const pool = document.getElementById('cta-pool');
+    if (pool && eps.length > 0) {
+      const ctas = Array.from(pool.children) as HTMLElement[];
+      const podCards = Array.from(list.querySelectorAll<HTMLElement>('.pod-card'));
+      const N = podCards.length;
+
+      // ① 第 2 集之後（最多人看到，放最強的）
+      if (N >= 2) podCards[1].after(ctas[0].cloneNode(true));
+
+      // ② 中段（重新抓清單，避免 ① 插入後 index 錯位）
+      if (N >= 4) {
+        const mid = Math.floor(N / 2);
+        const updated = Array.from(list.querySelectorAll<HTMLElement>('.pod-card'));
+        if (updated[mid]) updated[mid].after(ctas[1].cloneNode(true));
+      }
+
+      // ③ 清單結尾
+      list.appendChild(ctas[2].cloneNode(true));
+    }
   }
 
   async function init() {

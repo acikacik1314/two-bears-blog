@@ -1,0 +1,81 @@
+---
+interface Props {
+  emoji: string;
+  text: string;
+  href: string;
+  btnText: string;
+}
+const { emoji, text, href, btnText } = Astro.props;
+---
+<a href={href} class="cta-card">
+  <div class="cta-emoji-wrap">{emoji}</div>
+  <div class="cta-body">
+    <p class="cta-text">{text}</p>
+    <span class="cta-btn">{btnText}</span>
+  </div>
+  <svg class="cta-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+    <polyline points="9 18 15 12 9 6"/>
+  </svg>
+</a>
+
+<style>
+  .cta-card {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1.25em 1.3em;
+    margin-bottom: 1.6em;
+    border-radius: 14px;
+    border: 1px solid rgba(168, 85, 247, 0.45);
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.22) 0%, rgba(15, 23, 42, 0.4) 100%);
+    box-shadow: 0 0 22px rgba(168, 85, 247, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cta-card:hover {
+    border-color: rgba(168, 85, 247, 0.75);
+    box-shadow: 0 0 36px rgba(168, 85, 247, 0.22);
+    transform: translateY(-2px);
+    color: inherit;
+  }
+  .cta-emoji-wrap {
+    font-size: 2.2em;
+    flex-shrink: 0;
+    line-height: 1;
+    filter: drop-shadow(0 0 8px rgba(168,85,247,0.5));
+  }
+  .cta-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .cta-text {
+    font-size: 0.88em;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin: 0 0 0.55em;
+  }
+  .cta-btn {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #c084fc;
+    letter-spacing: 0.02em;
+  }
+  .cta-chevron {
+    flex-shrink: 0;
+    color: rgba(168, 85, 247, 0.45);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .cta-card:hover .cta-chevron {
+    color: rgba(168, 85, 247, 0.9);
+    transform: translateX(3px);
+  }
+  @media (max-width: 520px) {
+    .cta-card { padding: 1.1em 1em; gap: 0.8em; }
+    .cta-emoji-wrap { font-size: 1.9em; }
+    .cta-text { font-size: 0.85em; }
+  }
+</style>

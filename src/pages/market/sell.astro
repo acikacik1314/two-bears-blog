@@ -40,6 +40,10 @@ html body { background: #0f172a; color: #e2e8f0; }
 }
 .slot-label { color: #64748b; font-size: .75rem; line-height: 1.5; pointer-events: none; z-index: 1; }
 .slot-label small { color: #475569; font-size: .65rem; }
+.slot-file-input {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0; cursor: pointer; z-index: 2;
+}
 .slot-remove {
   position: absolute; top: 4px; right: 4px; z-index: 2;
   width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.6);
@@ -163,19 +167,19 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div class="step active" id="step-0">
       <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .75rem;">第一張用來 AI 辨識，建議：正面、背面、尺寸標籤</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
-        <div class="photo-slot" id="slot-0" data-idx="0">
+        <div class="photo-slot" id="slot-0">
+          <input type="file" id="file-input-0" accept="image/*" class="slot-file-input" />
           <span class="slot-label">第一張<br><small>正面（必填）</small></span>
         </div>
-        <div class="photo-slot" id="slot-1" data-idx="1">
+        <div class="photo-slot" id="slot-1">
+          <input type="file" id="file-input-1" accept="image/*" class="slot-file-input" />
           <span class="slot-label">第二張<br><small>背面（選填）</small></span>
         </div>
-        <div class="photo-slot" id="slot-2" data-idx="2">
+        <div class="photo-slot" id="slot-2">
+          <input type="file" id="file-input-2" accept="image/*" class="slot-file-input" />
           <span class="slot-label">第三張<br><small>尺寸標籤（選填）</small></span>
         </div>
       </div>
-      <input type="file" id="file-input-0" accept="image/*" style="display:none" />
-      <input type="file" id="file-input-1" accept="image/*" style="display:none" />
-      <input type="file" id="file-input-2" accept="image/*" style="display:none" />
       <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>
     </div>
@@ -245,17 +249,12 @@ html body { background: #0f172a; color: #e2e8f0; }
     el.className = `status-msg${isError ? ' error' : ''}`
   }
 
-  // Upload zone
-  const uploadZone = document.getElementById('upload-zone')
-  const fileInput = document.getElementById('file-input')
   const btnIdentify = document.getElementById('btn-identify')
 
   // 3 independent photo slots
   for (let i = 0; i < 3; i++) {
     const slot = document.getElementById(`slot-${i}`)
     const input = document.getElementById(`file-input-${i}`)
-
-    slot.addEventListener('click', () => input.click())
 
     input.addEventListener('change', () => {
       const file = input.files[0]
@@ -280,15 +279,18 @@ html body { background: #0f172a; color: #e2e8f0; }
         removeBtn.textContent = '✕'
         removeBtn.addEventListener('click', (ev) => {
           ev.stopPropagation()
+          ev.preventDefault()
           img.remove()
           removeBtn.remove()
           slot.classList.remove('has-photo')
+          input.style.zIndex = '2'  // restore file input on top
           previewSrcs[i] = undefined
           imageBase64s[i] = undefined
           input.value = ''
           if (!imageBase64s[0]) btnIdentify.style.display = 'none'
         })
         slot.appendChild(removeBtn)
+        input.style.zIndex = '0'  // hide behind image and remove btn
 
         if (imageBase64s[0]) btnIdentify.style.display = 'block'
       }
@@ -342,7 +344,9 @@ html body { background: #0f172a; color: #e2e8f0; }
       slot.querySelector('img')?.remove()
       slot.querySelector('.slot-remove')?.remove()
       slot.classList.remove('has-photo')
-      ;(document.getElementById(`file-input-${i}`) as HTMLInputElement).value = ''
+      const inp = document.getElementById(`file-input-${i}`) as HTMLInputElement
+      inp.style.zIndex = '2'
+      inp.value = ''
     }
     btnIdentify.style.display = 'none'
     imageBase64s = []

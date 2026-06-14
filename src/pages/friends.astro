@@ -1029,17 +1029,26 @@ loadProfiles();
 
   /* ── Responsive ── */
   @media (max-width: 640px) {
+    .alliance-main { padding: 0 0.7em 3em; }
+    .al-hero { padding: 2em 0.3em 1.5em; }
+    .al-hero-title { font-size: clamp(1.4em, 7vw, 2em); }
+    .al-hero-stats { gap: .6em; }
+    .al-stat-div { display: none; }
     .al-topics { grid-template-columns: 1fr; }
     .al-vote-options { grid-template-columns: 1fr 1fr; }
     .al-form-grid { grid-template-columns: 1fr; }
-    .al-checkin-inner { flex-direction: column; text-align: center; }
-    .al-checkin-right { width: 100%; }
-    .al-hero-stats { gap: .8em; }
-    .al-stat-div { display: none; }
+    .al-checkin-inner { flex-direction: column; gap: 1em; text-align: center; }
+    .al-checkin-left { min-width: 0; width: 100%; }
+    .al-checkin-right { min-width: 0; width: 100%; }
     .al-form-footer { flex-direction: column; align-items: flex-start; }
+    .al-profiles { gap: .5em; }
+    .al-profile-hd { padding: .7em .8em; }
+    .al-profile-bd { padding: .7em .8em; }
+    .al-section-card { padding: 1em .8em; }
   }
   @media (max-width: 420px) {
-    .al-hero { padding: 2.5em .5em 2em; }
-    .al-form-card { padding: 1.2em 1em; }
+    .al-form-card { padding: 1em .8em; }
+    .al-hero-cta { flex-direction: column; align-items: stretch; }
+    .al-hero-cta a, .al-hero-cta button { text-align: center; }
   }
 </style>

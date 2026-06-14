@@ -280,10 +280,16 @@ import Footer from '../components/Footer.astro';
     padding: 0.05rem 0.35rem;
     letter-spacing: 0.01em;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
+    .pick-page { padding: 1rem .7rem 3rem; }
     .pick-input-row { flex-direction: column; }
-    .pick-card { flex-wrap: wrap; }
-    .pick-card .buy-btn { width: 100%; }
+    .pick-input-row input, .pick-input-row button { width: 100%; }
+    .pick-card { flex-wrap: wrap; gap: .5rem; padding: .8rem .8rem; }
+    .pick-card .info { flex: 1 1 100%; min-width: 0; }
+    .pick-card .price { font-size: 1.1rem; }
+    .pick-card .buy-btn, .pick-card .buy-direct { width: 100%; text-align: center; display: block; }
+    .pick-platforms { grid-template-columns: repeat(2, 1fr); }
+    .pick-hero h1 { font-size: 1.5rem; }
   }
 
 </style>

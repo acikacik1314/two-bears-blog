@@ -1001,15 +1001,24 @@ window.exportData = function() {
   .bp-body { grid-template-columns: auto 1fr; gap: 1em; padding: 1em; }
   .bp-chip { display: none; }
   .daily-grid { grid-template-columns: 1fr; }
-  .bpi-row { grid-template-columns: 2em 1fr 1fr auto; gap: .5em; }
+  .bpi-row { grid-template-columns: 2em 1fr auto; gap: .5em; }
   .level-map { grid-template-columns: repeat(3,1fr); }
 }
 @media (max-width: 600px) {
+  .mc-main { padding: 0 .7em 3em; }
   .mc-tabs { overflow-x: auto; padding-bottom: .3em; }
-  .mc-tab { flex: 0 0 auto; font-size: .72em; padding: .5em .7em; }
-  .pass-stats-row { grid-template-columns: repeat(3,1fr); }
+  .mc-tab { flex: 0 0 auto; font-size: .72em; padding: .5em .7em; white-space: nowrap; }
+  .pass-stats-row { grid-template-columns: 1fr 1fr; }
   .coming-grid { grid-template-columns: 1fr; }
-  .lf-grid { grid-template-columns: 1fr 1fr; }
+  .lf-grid { grid-template-columns: 1fr; }
   .level-map { grid-template-columns: repeat(2,1fr); }
+  .badge-full { min-width: 0; flex: 1 1 calc(50% - .5em); }
+  .badge-showcase { gap: .5em; }
+  .sp-date { min-width: 60px; font-size: .65em; }
+  .mc-bonus-toast { right: .5em; left: .5em; font-size: .8em; }
+  .bp-body { grid-template-columns: 1fr; }
+  .bpi-row { grid-template-columns: 1.8em 1fr auto; gap: .4em; }
+  .lock-title { font-size: 1.6em; }
+  .lf-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>

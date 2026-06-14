@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, YOUTUBE_CHANNEL } from '../consts';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -75,9 +75,14 @@ const CATEGORY_ICONS: Record<string, string> = {
 		<div class="hero-inner">
 			<div class="hero-badge">🔥 今日世界異象觀測站</div>
 			<h1 class="hero-title">每天追蹤全球預言<br/><span class="hero-accent">國際局勢・虛擬貨幣・生存資訊</span></h1>
+			<a href={YOUTUBE_CHANNEL || 'https://www.youtube.com/@twobears'} target="_blank" rel="noopener noreferrer" class="hero-yt-btn">
+				<svg class="yt-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+				訂閱 YouTube 頻道
+				<span class="yt-sub-hint">免費獲得最新預言影片通知</span>
+			</a>
 			<div class="hero-btns">
-				<a href="/category/預言" class="hero-btn btn-prophecy">🔮 今日預言</a>
 				<a href="/category/影片" class="hero-btn btn-video">📺 最新影片</a>
+				<a href="/category/預言" class="hero-btn btn-prophecy">🔮 今日預言</a>
 				<a href="/blog" class="hero-btn btn-news">🚨 全球異常事件</a>
 				<a href="/hotels" class="hero-btn btn-hotels">🏨 超省訂房</a>
 			</div>
@@ -425,18 +430,45 @@ const CATEGORY_ICONS: Record<string, string> = {
 	background: linear-gradient(135deg, #a855f7, #ec4899);
 	-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
+/* YouTube primary CTA */
+.hero-yt-btn {
+	display: inline-flex; align-items: center; gap: .65em;
+	background: #ff0000; color: #fff;
+	padding: .75em 1.6em; border-radius: 14px;
+	font-size: 1.05em; font-weight: 800;
+	text-decoration: none; margin-bottom: .85em;
+	box-shadow: 0 4px 20px rgba(255,0,0,.45);
+	transition: transform .15s, box-shadow .15s;
+	position: relative;
+}
+.hero-yt-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,0,0,.6); color: #fff; }
+.yt-icon { width: 1.3em; height: 1.3em; flex-shrink: 0; }
+.yt-sub-hint {
+	font-size: .6em; font-weight: 400; opacity: .85;
+	position: absolute; bottom: -.05em; right: .8em;
+	background: rgba(0,0,0,.35); padding: .1em .5em; border-radius: 0 0 10px 10px;
+	display: none;
+}
+.hero-yt-btn:hover .yt-sub-hint { display: block; }
+
 .hero-btns { display: flex; flex-wrap: wrap; gap: .6em; }
 .hero-btn {
 	display: inline-flex; align-items: center; gap: .3em;
-	font-size: .85em; font-weight: 700; padding: .55em 1.2em;
-	border-radius: 10px; text-decoration: none; transition: transform .15s, box-shadow .15s;
+	font-size: .82em; font-weight: 600; padding: .45em 1em;
+	border-radius: 10px; text-decoration: none;
+	border: 1px solid rgba(255,255,255,.18);
+	background: rgba(255,255,255,.06); color: #cbd5e1;
+	transition: background .15s, border-color .15s, color .15s;
 }
-.hero-btn:hover { transform: translateY(-2px); }
-.btn-prophecy { background: linear-gradient(135deg,#7e22ce,#6b21a8); color:white; box-shadow:0 4px 16px rgba(126,34,206,.4); }
-.btn-video    { background: linear-gradient(135deg,#1e40af,#1d4ed8); color:white; box-shadow:0 4px 16px rgba(30,64,175,.4); }
-.btn-news     { background: linear-gradient(135deg,#9f1239,#be185d); color:white; box-shadow:0 4px 16px rgba(159,18,57,.4); }
-.btn-hotels   { background: linear-gradient(135deg,#92400e,#d97706); color:white; box-shadow:0 4px 16px rgba(217,119,6,.4); }
-.hero-btn:hover { color: white; }
+.hero-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.35); color: #f1f5f9; }
+.btn-prophecy { border-color: rgba(168,85,247,.4); color: #c084fc; }
+.btn-prophecy:hover { background: rgba(168,85,247,.12); border-color: rgba(168,85,247,.7); color: #d8b4fe; }
+.btn-video    { border-color: rgba(59,130,246,.4); color: #93c5fd; }
+.btn-video:hover { background: rgba(59,130,246,.12); border-color: rgba(59,130,246,.7); color: #bfdbfe; }
+.btn-news     { border-color: rgba(239,68,68,.4); color: #fca5a5; }
+.btn-news:hover { background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.6); color: #fecaca; }
+.btn-hotels   { border-color: rgba(245,158,11,.4); color: #fcd34d; }
+.btn-hotels:hover { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.6); color: #fde68a; }
 
 /* ── Hotel Banner ── */
 .hotel-banner {

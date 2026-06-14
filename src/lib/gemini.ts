@@ -41,14 +41,12 @@ async function callGeminiRaw(prompt: string, imageBase64?: string): Promise<stri
 export async function identifyProduct(imageBase64: string): Promise<{
   name: string
   category: string
-  estimatedMarketPrice: number
   confidence: string
 }> {
   const prompt = `你是一個二手商品鑑定專家。請分析這張商品圖片，回傳 JSON 格式（只回傳 JSON，不要其他文字）：
 {
-  "name": "商品名稱（品牌+型號，盡量完整）",
+  "name": "商品名稱，用繁體中文描述（例：優衣庫印花短袖T恤、Apple AirPods Pro 第二代），品牌可保留英文",
   "category": "分類（從以下選一個：電器/衣物/書籍/傢俱/3C/其他）",
-  "estimatedMarketPrice": 台灣市場新品大約售價（數字，台幣）,
   "confidence": "high/medium/low（辨識信心度）"
 }`
   try {
@@ -56,7 +54,7 @@ export async function identifyProduct(imageBase64: string): Promise<{
     const clean = result.replace(/```json|```/g, '').trim()
     return JSON.parse(clean)
   } catch {
-    return { name: '無法辨識', category: '其他', estimatedMarketPrice: 0, confidence: 'low' }
+    return { name: '無法辨識', category: '其他', confidence: 'low' }
   }
 }
 
@@ -144,17 +142,21 @@ export async function chatWithSeller(
 ${JSON.stringify(session, null, 2)}
 
 需要收集的資訊（依序收集尚未取得的）：
-1. 商品名稱確認
-2. 使用年數
-3. 功能狀況（正常/有問題，是什麼問題）
-4. 外觀狀況（有無刮傷/損壞）
-5. 期望定價（或想換什麼，或免費）
-6. 所在縣市
-7. 面交方式（面交/宅配/超商）
-8. 聯絡方式（LINE ID / 電話 / 表單）
+1. 商品名稱確認：把 AI 辨識到的名稱「${session.identified?.name || ''}」告訴賣家，問他這樣寫對嗎？需不需要修改？
+2. 這個商品當初購入的價格大約多少（原價，用來計算合理售價）
+3. 使用年數
+4. 功能狀況（正常/有問題，是什麼問題）
+5. 外觀狀況（有無刮傷/損壞）
+6. 期望定價（或想換什麼，或免費）
+7. 所在縣市
+8. 面交方式（面交/宅配/超商）
+9. 聯絡方式（LINE ID / 電話 / 表單）
 
-定價規則：售價不能超過市價的30%。市價約 ${session.identified?.estimatedMarketPrice || 0} 元，所以這件商品最高只能賣 ${Math.floor((session.identified?.estimatedMarketPrice || 0) * 0.3)} 元。
-如果賣家出的價格超過這個上限，要溫和提醒並建議調整到上限以下。
+定價規則：售價不能超過原價的30%。
+- 如果賣家已告知原價（originalPrice），用那個數字計算：最高只能賣 originalPrice × 0.3 元。
+- 如果賣家說「免費」或「換物」，不需要問價格。
+- 如果賣家出的價格超過上限，要溫和提醒並建議調整到上限以下。
+- 不要自己猜原價，一定要問賣家。
 
 當所有資訊收集完畢，在回覆最後加上 [READY_TO_LIST]`
 

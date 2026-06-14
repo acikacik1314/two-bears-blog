@@ -355,7 +355,6 @@ html body { background: #0f172a; color: #e2e8f0; }
         <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">${previewImgs}</div>
         <div class="identify-row"><span class="identify-label">商品名稱</span><span class="identify-val">${identified.name || '—'}</span></div>
         <div class="identify-row"><span class="identify-label">分類</span><span class="identify-val">${identified.category || '—'}</span></div>
-        <div class="identify-row"><span class="identify-label">市場新品價格</span><span class="identify-val">NT$ ${Number(identified.estimatedMarketPrice || 0).toLocaleString()}</span></div>
         <div class="identify-row"><span class="identify-label">辨識信心</span><span class="identify-val ${confCls}">${confLabel}</span></div>
       `
       setStep(1)
@@ -486,6 +485,12 @@ html body { background: #0f172a; color: #e2e8f0; }
     if (/近全新|幾乎沒用|全新/.test(lastFew)) sellerSession.condition = 'like_new'
     else if (/良好|正常|沒什麼/.test(lastFew)) sellerSession.condition = 'good'
     else sellerSession.condition = 'fair'
+
+    // Extract all prices mentioned; first occurrence likely the original price
+    const allPrices = lastFew.match(/(\d{2,6})\s*元/g)
+    if (allPrices && allPrices.length >= 1) {
+      sellerSession.originalPrice = parseInt(allPrices[0])
+    }
 
     const priceMatch = lastFew.match(/(\d{2,6})\s*元|NT?\$?\s*(\d{2,6})/)
     if (priceMatch) sellerSession.price = parseInt(priceMatch[1] || priceMatch[2])

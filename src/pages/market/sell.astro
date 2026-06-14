@@ -25,36 +25,31 @@ html body { background: #0f172a; color: #e2e8f0; }
 .step { display: none; }
 .step.active { display: block; }
 
-/* Transparent overlay — direct tap on iOS, no JS/label indirection needed */
-.file-over {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 1;
-}
+/* Upload zone — same pattern as original single-photo (proven to work) */
+#file-input { display: none; }
 
-/* Photo slots */
-.photo-slot {
-  border: 2px dashed #334155; border-radius: 14px;
-  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: border-color .2s; background: #1e293b;
-  position: relative; overflow: hidden; text-align: center;
+.upload-zone {
+  border: 2px dashed #334155; border-radius: 20px;
+  padding: 2rem 1.5rem; text-align: center; cursor: pointer;
+  transition: border-color .2s; background: #1e293b;
 }
-.photo-slot:hover { border-color: #a855f7; }
-.photo-slot.has-photo { border-style: solid; border-color: #334155; }
-.photo-slot img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  border-radius: 12px; z-index: 2;
+.upload-zone:hover { border-color: #a855f7; }
+.upload-zone .zone-emoji { font-size: 2.5rem; display: block; margin-bottom: .75rem; }
+.upload-zone p { color: #94a3b8; margin: 0; font-size: .88rem; }
+
+.preview-strip {
+  display: flex; gap: .6rem; margin-top: 1rem; flex-wrap: wrap;
 }
-.slot-label { color: #64748b; font-size: .75rem; line-height: 1.5; pointer-events: none; z-index: 1; }
-.slot-label small { color: #475569; font-size: .65rem; }
-.slot-remove {
-  position: absolute; top: 4px; right: 4px; z-index: 3;
-  width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.6);
-  border: none; color: #fff; font-size: .7rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; line-height: 1;
+.preview-thumb {
+  position: relative; width: 80px; height: 80px; border-radius: 10px;
+  overflow: hidden; border: 1px solid #334155; flex-shrink: 0;
+}
+.preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.preview-thumb .thumb-remove {
+  position: absolute; top: 2px; right: 2px;
+  width: 18px; height: 18px; border-radius: 50%; background: rgba(0,0,0,.7);
+  border: none; color: #fff; font-size: .65rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
 }
 
 /* Identify result */
@@ -171,21 +166,13 @@ html body { background: #0f172a; color: #e2e8f0; }
 
     <!-- Step 0: Upload -->
     <div class="step active" id="step-0">
-      <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .75rem;">第一張用來 AI 辨識，建議：正面、背面、尺寸標籤</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
-        <div class="photo-slot" id="slot-0">
-          <input type="file" id="file-input-0" accept="image/*" class="file-over" />
-          <span class="slot-label">第一張<br><small>正面（必填）</small></span>
-        </div>
-        <div class="photo-slot" id="slot-1">
-          <input type="file" id="file-input-1" accept="image/*" class="file-over" />
-          <span class="slot-label">第二張<br><small>背面（選填）</small></span>
-        </div>
-        <div class="photo-slot" id="slot-2">
-          <input type="file" id="file-input-2" accept="image/*" class="file-over" />
-          <span class="slot-label">第三張<br><small>尺寸標籤（選填）</small></span>
-        </div>
+      <div class="upload-zone" id="upload-zone">
+        <span class="zone-emoji">📷</span>
+        <p>點我選照片（最多 3 張）</p>
+        <p style="font-size:.75rem;margin-top:.3rem;color:#475569">正面＋背面＋尺寸標籤，AI 辨識更準</p>
+        <div class="preview-strip" id="preview-strip"></div>
       </div>
+      <input type="file" id="file-input" accept="image/*" multiple />
       <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>
     </div>
@@ -256,62 +243,65 @@ html body { background: #0f172a; color: #e2e8f0; }
   }
 
   const btnIdentify = document.getElementById('btn-identify')
+  const uploadZone = document.getElementById('upload-zone')
+  const fileInput = document.getElementById('file-input') as HTMLInputElement
+  const previewStrip = document.getElementById('preview-strip')
 
-  // 3 independent photo slots
-  for (let i = 0; i < 3; i++) {
-    const slot = document.getElementById(`slot-${i}`)
-    const input = document.getElementById(`file-input-${i}`)
+  // Same click pattern as original (proven on iOS): zone click → input.click()
+  uploadZone.addEventListener('click', () => fileInput.click())
 
-    input.addEventListener('change', () => {
-      const file = input.files[0]
-      if (!file) return
+  fileInput.addEventListener('change', () => {
+    const files = Array.from(fileInput.files || []).slice(0, 3)
+    if (!files.length) return
+
+    imageBase64s = []
+    previewSrcs = []
+    previewStrip.innerHTML = ''
+
+    let loaded = 0
+    files.forEach((file, i) => {
       const reader = new FileReader()
       reader.onload = (e) => {
-        const dataUrl = e.target.result
+        const dataUrl = e.target.result as string
         previewSrcs[i] = dataUrl
         imageBase64s[i] = dataUrl.split(',')[1]
 
-        // remove old img if any
-        slot.querySelector('img')?.remove()
-        slot.querySelector('.slot-remove')?.remove()
-
+        const thumb = document.createElement('div')
+        thumb.className = 'preview-thumb'
         const img = document.createElement('img')
         img.src = dataUrl
-        slot.appendChild(img)
-        slot.classList.add('has-photo')
-
         const removeBtn = document.createElement('button')
-        removeBtn.className = 'slot-remove'
+        removeBtn.className = 'thumb-remove'
         removeBtn.textContent = '✕'
         removeBtn.addEventListener('click', (ev) => {
           ev.stopPropagation()
-          ev.preventDefault()
-          img.remove()
-          removeBtn.remove()
-          slot.classList.remove('has-photo')
+          thumb.remove()
           previewSrcs[i] = undefined
           imageBase64s[i] = undefined
-          input.value = ''
           if (!imageBase64s[0]) btnIdentify.style.display = 'none'
         })
-        slot.appendChild(removeBtn)
+        thumb.appendChild(img)
+        thumb.appendChild(removeBtn)
+        previewStrip.appendChild(thumb)
 
-        if (imageBase64s[0]) btnIdentify.style.display = 'block'
+        loaded++
+        if (loaded === files.length && imageBase64s[0]) {
+          btnIdentify.style.display = 'block'
+        }
       }
       reader.readAsDataURL(file)
     })
-  }
+  })
 
   btnIdentify.addEventListener('click', async () => {
-    const firstInput = document.getElementById('file-input-0') as HTMLInputElement
-    if (!imageBase64s[0] || !firstInput.files?.[0]) return
+    if (!imageBase64s[0] || !fileInput.files?.[0]) return
     btnIdentify.disabled = true
     btnIdentify.textContent = '🔍 AI 辨識中...'
     setStatus(0, '')
     try {
       const formData = new FormData()
       formData.append('action', 'identify_image')
-      formData.append('image', firstInput.files[0])  // use first image for AI
+      formData.append('image', fileInput.files[0])
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       const data = await res.json()
@@ -343,14 +333,8 @@ html body { background: #0f172a; color: #e2e8f0; }
   })
 
   document.getElementById('btn-reupload').addEventListener('click', () => {
-    for (let i = 0; i < 3; i++) {
-      const slot = document.getElementById(`slot-${i}`)
-      slot.querySelector('img')?.remove()
-      slot.querySelector('.slot-remove')?.remove()
-      slot.classList.remove('has-photo')
-      const inp = document.getElementById(`file-input-${i}`) as HTMLInputElement
-      inp.value = ''
-    }
+    fileInput.value = ''
+    previewStrip.innerHTML = ''
     btnIdentify.style.display = 'none'
     imageBase64s = []
     previewSrcs = []

@@ -25,16 +25,14 @@ html body { background: #0f172a; color: #e2e8f0; }
 .step { display: none; }
 .step.active { display: block; }
 
-/* Visually hidden but physically present — required for iOS Safari label activation */
-.file-hidden {
+/* Transparent overlay — direct tap on iOS, no JS/label indirection needed */
+.file-over {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
+  cursor: pointer;
+  z-index: 1;
 }
 
 /* Photo slots */
@@ -48,12 +46,12 @@ html body { background: #0f172a; color: #e2e8f0; }
 .photo-slot.has-photo { border-style: solid; border-color: #334155; }
 .photo-slot img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  border-radius: 12px;
+  border-radius: 12px; z-index: 2;
 }
 .slot-label { color: #64748b; font-size: .75rem; line-height: 1.5; pointer-events: none; z-index: 1; }
 .slot-label small { color: #475569; font-size: .65rem; }
 .slot-remove {
-  position: absolute; top: 4px; right: 4px; z-index: 2;
+  position: absolute; top: 4px; right: 4px; z-index: 3;
   width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.6);
   border: none; color: #fff; font-size: .7rem; cursor: pointer;
   display: flex; align-items: center; justify-content: center; line-height: 1;
@@ -175,18 +173,18 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div class="step active" id="step-0">
       <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .75rem;">第一張用來 AI 辨識，建議：正面、背面、尺寸標籤</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
-        <label class="photo-slot" id="slot-0">
-          <input type="file" id="file-input-0" accept="image/*" class="file-hidden" />
+        <div class="photo-slot" id="slot-0">
+          <input type="file" id="file-input-0" accept="image/*" class="file-over" />
           <span class="slot-label">第一張<br><small>正面（必填）</small></span>
-        </label>
-        <label class="photo-slot" id="slot-1">
-          <input type="file" id="file-input-1" accept="image/*" class="file-hidden" />
+        </div>
+        <div class="photo-slot" id="slot-1">
+          <input type="file" id="file-input-1" accept="image/*" class="file-over" />
           <span class="slot-label">第二張<br><small>背面（選填）</small></span>
-        </label>
-        <label class="photo-slot" id="slot-2">
-          <input type="file" id="file-input-2" accept="image/*" class="file-hidden" />
+        </div>
+        <div class="photo-slot" id="slot-2">
+          <input type="file" id="file-input-2" accept="image/*" class="file-over" />
           <span class="slot-label">第三張<br><small>尺寸標籤（選填）</small></span>
-        </label>
+        </div>
       </div>
       <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>

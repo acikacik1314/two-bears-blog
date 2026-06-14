@@ -1,8 +1,8 @@
 ---
 ---
-<div class="si-wrap" id="survival-index">
+<div class="si-wrap">
   <div class="si-title">🚨 今日生存指數 <span class="si-ai">AI 計算</span></div>
-  <div id="si-body" class="si-body">
+  <div class="si-body">
     <div class="si-loading">AI 分析中…</div>
   </div>
 </div>
@@ -20,29 +20,41 @@
     '偏低': '#22c55e', '中等': '#f59e0b', '偏高': '#ef4444', '極高': '#dc2626',
   };
 
-  async function load() {
-    const body = document.getElementById('si-body')!;
-    try {
-      const r = await fetch('/api/survival');
-      if (!r.ok) throw new Error();
-      const d: SurvivalData = await r.json();
-      body.innerHTML = (Object.entries(d) as [string, RiskItem][]).map(([k, v]) => `
-        <div class="si-row">
-          <div class="si-meta">
-            <span class="si-label">${LABELS[k] ?? k}</span>
-            <span class="si-level" style="color:${LEVEL_COLOR[v.level] ?? '#94a3b8'}">${v.level}</span>
-          </div>
-          <div class="si-bar-wrap">
-            <div class="si-bar" style="width:${v.score}%;background:${LEVEL_COLOR[v.level] ?? '#a855f7'}"></div>
-          </div>
-          <div class="si-note">${v.note} <span class="si-score">${v.score}/100</span></div>
+  let cachedData: SurvivalData | null = null;
+
+  async function getData(): Promise<SurvivalData> {
+    if (cachedData) return cachedData;
+    const r = await fetch('/api/survival');
+    if (!r.ok) throw new Error();
+    cachedData = await r.json();
+    return cachedData!;
+  }
+
+  function renderInto(body: Element, d: SurvivalData) {
+    body.innerHTML = (Object.entries(d) as [string, RiskItem][]).map(([k, v]) => `
+      <div class="si-row">
+        <div class="si-meta">
+          <span class="si-label">${LABELS[k] ?? k}</span>
+          <span class="si-level" style="color:${LEVEL_COLOR[v.level] ?? '#94a3b8'}">${v.level}</span>
         </div>
-      `).join('');
+        <div class="si-bar-wrap">
+          <div class="si-bar" style="width:${v.score}%;background:${LEVEL_COLOR[v.level] ?? '#a855f7'}"></div>
+        </div>
+        <div class="si-note">${v.note} <span class="si-score">${v.score}/100</span></div>
+      </div>
+    `).join('');
+  }
+
+  async function loadAll() {
+    const bodies = document.querySelectorAll<HTMLElement>('.si-wrap .si-body');
+    try {
+      const d = await getData();
+      bodies.forEach(body => renderInto(body, d));
     } catch {
-      body.innerHTML = '<div class="si-loading">暫時無法取得數據</div>';
+      bodies.forEach(body => { body.innerHTML = '<div class="si-loading">暫時無法取得數據</div>'; });
     }
   }
-  load();
+  loadAll();
 </script>
 
 <style>

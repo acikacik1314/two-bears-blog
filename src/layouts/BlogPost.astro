@@ -23,16 +23,14 @@ const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
 
-// Related posts: same tags or same category, exclude current page
+// Related posts: shared tags only (same prophet/topic), exclude current page
 const currentSlug = Astro.url.pathname;
 const allPosts = await getCollection('blog');
 const related = allPosts
 	.filter(p => {
 		const slug = `/blog/${p.id.replace(/\.mdx?$/, '')}/`;
 		if (slug === currentSlug) return false;
-		const sameCat = category && getPostCategory(p) === category;
-		const sharedTag = tags?.some(t => p.data.tags?.includes(t));
-		return sameCat || sharedTag;
+		return tags?.some(t => p.data.tags?.includes(t));
 	})
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 4);

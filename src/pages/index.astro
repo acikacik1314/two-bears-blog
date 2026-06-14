@@ -215,9 +215,13 @@ const CATEGORY_ICONS: Record<string, string> = {
 				></iframe>
 			</div>
 
-			<ProphecyPoll />
-			<NewsWidget />
 		</aside>
+	</div>
+
+	<!-- ── Poll + News row (full width) ── -->
+	<div class="below-grid">
+		<ProphecyPoll />
+		<NewsWidget />
 	</div>
 
 	<!-- ── Food Delivery Promos ── -->
@@ -502,6 +506,10 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 /* ── Content grid ── */
 .content-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1.5em; align-items: start; }
+
+/* ── Below-grid row (poll + news, full width) ── */
+.below-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; margin-top: 1.5em; }
+@media (max-width: 700px) { .below-grid { grid-template-columns: 1fr; } }
 
 /* ── Section heading ── */
 .section-heading { display: flex; align-items: center; gap: .5em; margin-bottom: 1em; padding-bottom: .6em; border-bottom: 1px solid rgba(255,255,255,.07); }

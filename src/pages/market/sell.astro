@@ -25,13 +25,14 @@ html body { background: #0f172a; color: #e2e8f0; }
 .step { display: none; }
 .step.active { display: block; }
 
-/* Visually hidden but still browser-accessible (works on iOS Safari) */
+/* Off-screen hidden — works in iOS Safari unlike display:none or clip */
 .file-hidden {
-  position: absolute;
-  width: 1px; height: 1px;
-  opacity: 0; overflow: hidden;
-  clip: rect(0,0,0,0);
-  pointer-events: none;
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
+  width: 0;
+  height: 0;
+  opacity: 0;
 }
 
 /* Photo slots */
@@ -175,15 +176,15 @@ html body { background: #0f172a; color: #e2e8f0; }
       <input type="file" id="file-input-1" accept="image/*" class="file-hidden" />
       <input type="file" id="file-input-2" accept="image/*" class="file-hidden" />
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
-        <label class="photo-slot" id="slot-0" for="file-input-0">
+        <div class="photo-slot" id="slot-0" onclick="document.getElementById('file-input-0').click()">
           <span class="slot-label">第一張<br><small>正面（必填）</small></span>
-        </label>
-        <label class="photo-slot" id="slot-1" for="file-input-1">
+        </div>
+        <div class="photo-slot" id="slot-1" onclick="document.getElementById('file-input-1').click()">
           <span class="slot-label">第二張<br><small>背面（選填）</small></span>
-        </label>
-        <label class="photo-slot" id="slot-2" for="file-input-2">
+        </div>
+        <div class="photo-slot" id="slot-2" onclick="document.getElementById('file-input-2').click()">
           <span class="slot-label">第三張<br><small>尺寸標籤（選填）</small></span>
-        </label>
+        </div>
       </div>
       <button class="btn-primary" id="btn-identify" style="margin-top:1.25rem;display:none">🔍 讓 AI 辨識第一張照片</button>
       <div class="status-msg" id="status-0"></div>

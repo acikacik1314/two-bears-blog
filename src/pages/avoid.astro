@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
 <head>
   <BaseHead title="不踩雷比便宜更重要 | 兩隻熊出國避痛大腦" description="設定行程、勾選最怕的痛苦，兩隻熊幫你診斷哪些區域要遠離，並搜尋安全替代方案。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+  <style is:global>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#1a1816;--ink2:#4a4540;--ink3:#8a827a;
@@ -98,25 +98,29 @@ body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-se
 
 .no-result{text-align:center;padding:3rem 1rem;color:var(--ink3);font-size:14px}
 
-@media(max-width:600px){
+@media(max-width:640px){
+  html{font-size:22px}
   .form-row{flex-direction:column}
   .pain-grid{grid-template-columns:1fr 1fr}
   .card-footer{flex-direction:column}
-  body{font-size:16px}
-  .hero-eyebrow{font-size:13px}
-  .hero-sub{font-size:15px}
-  .form-card h2{font-size:15px}
-  .form-group label{font-size:14px}
-  .form-group select,.form-group input{font-size:16px}
-  .pain-label{font-size:14px}
-  .analyze-btn{font-size:16px}
-  .results-title{font-size:17px}
-  .results-sub{font-size:14px}
-  .card-zone{font-size:17px}
-  .card-tagline{font-size:14px}
-  .verdict-block p{font-size:15px}
-  .defense-block p{font-size:14px}
-  .book-btn{font-size:14px}
+  .hero-eyebrow{font-size:16px}
+  .hero-sub{font-size:20px}
+  .form-card h2{font-size:20px}
+  .form-group label{font-size:18px}
+  .form-group select,.form-group input{font-size:20px}
+  .pain-label{font-size:18px}
+  .pain-emoji{font-size:20px}
+  .analyze-btn{font-size:22px}
+  .results-title{font-size:22px}
+  .results-sub{font-size:18px}
+  .card-zone{font-size:22px}
+  .card-tagline{font-size:18px}
+  .verdict-block strong{font-size:16px}
+  .verdict-block p{font-size:20px}
+  .defense-block strong{font-size:16px}
+  .defense-block p{font-size:18px}
+  .book-btn{font-size:18px}
+  .no-result{font-size:20px}
 }
   </style>
 </head>

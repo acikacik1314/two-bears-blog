@@ -12,7 +12,7 @@ import Footer from '../components/Footer.astro';
   />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+  <style is:global>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#1a1816;--ink2:#4a4540;--ink3:#8a827a;
@@ -128,26 +128,29 @@ body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-se
 
 .disclaimer{font-size:11px;color:var(--ink3);text-align:center;padding:1rem 0 2rem;line-height:1.8}
 
-@media(max-width:600px){
+@media(max-width:640px){
+  html{font-size:22px}
   .search-inner{gap:6px}
   .intent-row{flex-direction:column}
   .prophet-strip{flex-direction:column}
   .city-grid{grid-template-columns:1fr}
   .search-inner input[type="date"]{width:130px}
-  body{font-size:16px}
-  .hero-eyebrow{font-size:13px}
-  .hero-sub{font-size:15px}
-  .intent-title{font-size:14px}
-  .intent-desc{font-size:13px}
-  .section-title{font-size:14px}
-  .card-city{font-size:16px}
-  .card-region{font-size:13px}
-  .card-quote{font-size:14px}
-  .card-warning,.card-tip{font-size:13px}
-  .prophet-quote{font-size:14px}
-  .disclaimer{font-size:13px}
-  .book-btn{font-size:13px}
-  .filter-btn{font-size:13px}
+  .hero-eyebrow{font-size:16px}
+  .hero-sub{font-size:20px}
+  .search-inner label{font-size:16px}
+  .search-inner input,.search-inner select{font-size:20px}
+  .intent-title{font-size:20px}
+  .intent-desc{font-size:18px}
+  .section-title{font-size:18px}
+  .filter-btn{font-size:18px}
+  .card-city{font-size:22px}
+  .card-region{font-size:16px}
+  .card-quote{font-size:18px}
+  .card-warning,.card-tip{font-size:18px}
+  .book-btn{font-size:18px}
+  .prophet-name{font-size:16px}
+  .prophet-quote{font-size:18px}
+  .disclaimer{font-size:16px}
 }
   </style>
 </head>

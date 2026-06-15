@@ -281,15 +281,24 @@ import Footer from '../components/Footer.astro';
     letter-spacing: 0.01em;
   }
   @media (max-width: 640px) {
-    .pick-page { padding: 1rem .7rem 3rem; }
+    html { font-size: 22px; }
+    .pick-page { padding: 1rem 8px 3rem; }
     .pick-input-row { flex-direction: column; }
-    .pick-input-row input, .pick-input-row button { width: 100%; }
+    .pick-input-row input, .pick-input-row button { width: 100%; font-size: 1rem; }
     .pick-card { flex-wrap: wrap; gap: .5rem; padding: .8rem .8rem; }
     .pick-card .info { flex: 1 1 100%; min-width: 0; }
-    .pick-card .price { font-size: 1.1rem; }
-    .pick-card .buy-btn, .pick-card .buy-direct { width: 100%; text-align: center; display: block; }
+    .pick-card .platform { font-size: 1rem; }
+    .pick-card .price { font-size: 1.2rem; }
+    .pick-card .spec { font-size: .85rem; }
+    .pick-card .name { font-size: 1rem; }
+    .pick-card .buy-btn, .pick-card .buy-direct { width: 100%; text-align: center; display: block; font-size: 1rem; }
     .pick-platforms { grid-template-columns: repeat(2, 1fr); }
     .pick-hero h1 { font-size: 1.5rem; }
+    .pick-eyebrow { font-size: .8rem; }
+    .pick-sub { font-size: 1rem; }
+    .pick-results h2 { font-size: 1.2rem; }
+    .pick-manual h2 { font-size: 1.1rem; }
+    .pick-manual p { font-size: 1rem; }
   }
 
 </style>

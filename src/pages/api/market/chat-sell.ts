@@ -74,9 +74,7 @@ export const POST: APIRoute = async ({ request }) => {
   // finalize: trust the pre-extracted session, no re-extraction needed
   if (action === 'finalize') {
     const sessionJson = formData.get('session') as string
-    const imageBase64sJson = formData.get('imageBase64s') as string
     const session = JSON.parse(sessionJson || '{}')
-    const imageBase64s: string[] = JSON.parse(imageBase64sJson || '[]')
 
     const name = session.name || session.identified?.name || '商品'
     const desc = await generateItemDescription({
@@ -89,14 +87,14 @@ export const POST: APIRoute = async ({ request }) => {
       locationNote:   session.locationCity   || '',
     })
 
+    // Receive photos as individual Blob fields (photo_0, photo_1, photo_2...)
     const imageUrls: string[] = []
-    for (let i = 0; i < imageBase64s.length; i++) {
-      const b64 = imageBase64s[i]
-      if (!b64) continue
+    for (let i = 0; i < 3; i++) {
+      const photoFile = formData.get(`photo_${i}`) as File | null
+      if (!photoFile) continue
       try {
-        const raw = atob(b64)
-        const imgBytes = new Uint8Array(raw.length)
-        for (let j = 0; j < raw.length; j++) imgBytes[j] = raw.charCodeAt(j)
+        const arrayBuffer = await photoFile.arrayBuffer()
+        const imgBytes = new Uint8Array(arrayBuffer)
         const fileName = `${Date.now()}_${i}.jpg`
         const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
           .from('market-images')
@@ -104,8 +102,12 @@ export const POST: APIRoute = async ({ request }) => {
         if (!uploadError && uploadData) {
           const { data: urlData } = supabaseAdmin.storage.from('market-images').getPublicUrl(uploadData.path)
           imageUrls.push(urlData.publicUrl)
+        } else if (uploadError) {
+          console.error(`Photo ${i} upload error:`, uploadError.message)
         }
-      } catch {}
+      } catch (e) {
+        console.error(`Photo ${i} exception:`, e)
+      }
     }
 
     const sellerName = session.contactLineId || session.contactPhone || '匿名賣家'

@@ -504,9 +504,11 @@ html body { background: #0f172a; color: #e2e8f0; }
         if (m.conditionNotes) confirmedSession.conditionNotes = m.conditionNotes
         if (m.dealType)       confirmedSession.dealType       = m.dealType
         if (m.price != null)  confirmedSession.price          = m.price
-        if (m.tradeWant)      confirmedSession.tradeWant      = m.tradeWant
-        if (m.locationCity)   confirmedSession.locationCity   = m.locationCity
-        if (m.contactType)    confirmedSession.contactType    = m.contactType
+        if (m.tradeWant)         confirmedSession.tradeWant       = m.tradeWant
+        if (m.locationCity)      confirmedSession.locationCity    = m.locationCity
+        if (m.locationNote)      confirmedSession.locationNote    = m.locationNote
+        if (m.deliveryMethods?.length) confirmedSession.deliveryMethods = m.deliveryMethods
+        if (m.contactType)       confirmedSession.contactType     = m.contactType
         if (m.contactLineId)  confirmedSession.contactLineId  = m.contactLineId
         if (m.contactPhone)   confirmedSession.contactPhone   = m.contactPhone
       }
@@ -532,6 +534,11 @@ html body { background: #0f172a; color: #e2e8f0; }
       <div class="identify-row"><span class="identify-label">使用年數</span><span class="identify-val">${s.yearsUsed || 0} 年</span></div>
       <div class="identify-row"><span class="identify-label">商品狀況</span><span class="identify-val">${condLabel}</span></div>
       ${s.conditionNotes ? `<div class="identify-row"><span class="identify-label">瑕疵說明</span><span class="identify-val">${s.conditionNotes}</span></div>` : ''}
+      ${s.locationNote ? `<div class="identify-row"><span class="identify-label">面交地點</span><span class="identify-val">${s.locationNote}</span></div>` : ''}
+      <div class="identify-row">
+        <span class="identify-label">交貨方式</span>
+        <span class="identify-val">${Array.isArray(s.deliveryMethods) && s.deliveryMethods.length ? s.deliveryMethods.join('、') : '未填'}</span>
+      </div>
       <div class="identify-row">
         <span class="identify-label">售價</span>
         <span class="identify-val">

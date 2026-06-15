@@ -705,16 +705,18 @@ html body { background: #0f172a; color: #e2e8f0; }
       return
     }
 
-    // Require contact info if type is line or phone
-    if (confirmedSession.contactType !== 'form') {
-      const contactVal = confirmedSession.contactType === 'line'
-        ? confirmedSession.contactLineId
-        : confirmedSession.contactPhone
-      if (!contactVal || !(contactVal as string).trim()) {
-        setStatus(3, '請填寫 LINE ID 或電話號碼，讓買家可以聯絡你', true)
-        ;(document.getElementById('edit-contact-val') as HTMLInputElement)?.focus()
-        return
-      }
+    // Require contact info — LINE or phone must be filled
+    const contactType = confirmedSession.contactType
+    const contactVal = contactType === 'line'
+      ? confirmedSession.contactLineId
+      : contactType === 'phone'
+      ? confirmedSession.contactPhone
+      : ''
+    if (contactType === 'form' || !contactVal || !(contactVal as string).trim()) {
+      setStatus(3, '請填寫 LINE ID 或電話號碼（選「LINE」或「電話」並輸入），讓買家可以聯絡你', true)
+      ;(document.getElementById('edit-contact-val') as HTMLInputElement)?.focus()
+      btn.disabled = false; btn.textContent = '🎉 確認上架！'
+      return
     }
 
     btn.disabled = true

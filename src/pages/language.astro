@@ -272,6 +272,14 @@ const description = '選好目的地和情境，AI 立刻扮演當地人陪你�
           </div>
         </div>
 
+        <div class="field" id="tbVoiceField">
+          <label>朗讀聲音</label>
+          <div class="seg" id="tbVoice">
+            <div class="opt"><input type="radio" name="tbvc" id="tbvc1" value="female" checked><label for="tbvc1">女聲</label></div>
+            <div class="opt"><input type="radio" name="tbvc" id="tbvc2" value="male"><label for="tbvc2">男聲</label></div>
+          </div>
+        </div>
+
         <button class="startbtn" id="tbStart">開始陪練 →</button>
         <p class="hint">AI 會用你選的語言互動，並附中文說明，初學者也跟得上。</p>
       </div>
@@ -346,24 +354,35 @@ const description = '選好目的地和情境，AI 立刻扮演當地人陪你�
   if('speechSynthesis' in window){
     _loadVoices();
     window.speechSynthesis.onvoiceschanged = _loadVoices;
+  } else {
+    var vf = document.getElementById('tbVoiceField');
+    if(vf) vf.style.display = 'none';
   }
 
-  function getBestVoice(langCode: string): SpeechSynthesisVoice | null {
+  var MALE_RE   = /\bMale\b|Keita|InJoon|Henri|Conrad|Stefan|Alvaro|Jorge|Diego|Cosimo|Niwat|NamMinh|Ardi|Ahmet|WanLung|David|George|Ryan|Guy|Eric|Liam|Brian|Mark|Reed/i;
+  var FEMALE_RE = /\bFemale\b|Nanami|SunHi|Julie|Katja|Elvira|Dalia|Elsa|Isabella|Premwadee|HoaiMy|Gadis|Emel|HiuMaan|HiuGaai|Zira|Hazel|Susan|Jenny|Aria|Sonia|Google/i;
+
+  function getBestVoice(langCode: string, gender: string): SpeechSynthesisVoice | null {
     var list = _voices.length ? _voices : window.speechSynthesis.getVoices();
     var primary = langCode.split('-')[0].toLowerCase();
     var matching = list.filter(function(v){ return v.lang.toLowerCase().startsWith(primary); });
     if(!matching.length) return null;
-    return matching.find(function(v){ return /Google|Microsoft|Premium|Enhanced|Natural/i.test(v.name); })
-      || matching[0];
+    var re = gender === 'male' ? MALE_RE : FEMALE_RE;
+    var gFiltered = matching.filter(function(v){ return re.test(v.name); });
+    var premiumG = gFiltered.find(function(v){ return /Google|Microsoft|Premium|Enhanced|Natural/i.test(v.name); });
+    if(premiumG) return premiumG;
+    if(gFiltered.length) return gFiltered[0];
+    // fallback: best voice ignoring gender
+    return matching.find(function(v){ return /Google|Microsoft|Premium|Enhanced|Natural/i.test(v.name); }) || matching[0];
   }
 
-  function speak(text: string, langCode: string, btn: HTMLButtonElement){
+  function speak(text: string, langCode: string, gender: string, btn: HTMLButtonElement){
     if(window.speechSynthesis.speaking){ window.speechSynthesis.cancel(); }
     if(btn.classList.contains('speaking')){ btn.classList.remove('speaking'); return; }
     var utt = new SpeechSynthesisUtterance(text);
     utt.lang = langCode;
     utt.rate = 0.85;
-    var v = getBestVoice(langCode);
+    var v = getBestVoice(langCode, gender);
     if(v) utt.voice = v;
     btn.classList.add('speaking');
     utt.onend = function(){ btn.classList.remove('speaking'); };
@@ -385,6 +404,7 @@ const description = '選好目的地和情境，AI 立刻扮演當地人陪你�
       scenario: (document.getElementById('tbScn') as HTMLSelectElement).value,
       level: (document.querySelector('input[name="tblv"]:checked') as HTMLInputElement).value,
       mode: (document.querySelector('input[name="tbmd"]:checked') as HTMLInputElement).value,
+      voicePref: ((document.querySelector('input[name="tbvc"]:checked') as HTMLInputElement)?.value) || 'female',
     };
   }
 
@@ -400,7 +420,8 @@ const description = '選好目的地和情境，AI 立刻扮演當地人陪你�
       btn.className = 'speakbtn';
       btn.textContent = '🔊 聽發音';
       var langCode = (cfg && LANG_CODE[cfg.lang]) || 'ja-JP';
-      btn.addEventListener('click', function(){ speak(text, langCode, btn); });
+      var voicePref = (cfg && cfg.voicePref) || 'female';
+      btn.addEventListener('click', function(){ speak(text, langCode, voicePref, btn); });
       el.appendChild(btn);
     } else {
       el.textContent = text;

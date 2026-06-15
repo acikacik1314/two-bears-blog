@@ -76,7 +76,7 @@ ${PROPHET_FALLBACK(symbol)}
 1. 使用 Google Search 即時檢索「${symbol}」的競爭優勢相關資料，以 Morningstar 四大護城河框架各打 1–10 分，並附評分依據（需引用可查證的資料）：
    - 無形資產（品牌力、專利、監管許可）
    - 轉換成本（客戶黏著度與遷移障礙）
-   - 網絡效應（平台規模與正回饋效應）
+   - 網路效應（平台規模與正回饋效應）
    - 成本優勢（規模效益或獨特資源）
 2. 使用 Google Search 搜尋各預言家對「${symbol}」的公開記錄（YouTube 影片標題、部落格、社群媒體均為有效來源）：
    - 比格斯（Brandon Biggs）：**必須用英語搜尋** "Brandon Biggs ${symbol}"、"Brandon Biggs prophecy 2025 2026"；找不到直接記錄則依備用規則

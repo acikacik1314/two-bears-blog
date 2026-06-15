@@ -205,23 +205,32 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? ''
     .no-ai code { background: rgba(255,255,255,.1); padding: .1em .4em; border-radius: 4px; }
 
     @media (max-width: 640px) {
-      body { font-size: 20px; }
-      .gpt-header { padding: .6em .9em; }
-      .gpt-title { font-size: 1em; }
-      .gpt-sub { font-size: .8em; }
-      .gpt-status { font-size: .8em; }
-      .gpt-messages { padding: .7em .9em; gap: 1em; }
-      .msg-bubble { font-size: 1em; line-height: 1.7; }
-      .msg-av { width: 32px; height: 32px; font-size: 1em; }
-      .quick-btns { padding: 0 .9em .5em; gap: .5em; }
-      .q-btn { font-size: .85em; padding: .5em 1em; }
-      .wc-title { font-size: 1em; }
-      .wc-desc { font-size: .9em; }
-      .gpt-input-area { padding: .6em .9em .8em; }
-      #user-input { font-size: 1em; }
-      .input-hint { font-size: .75em; }
-      .rate-notice { font-size: .9em; }
-      .rn-retry { font-size: .85em; }
+      body { font-size: 22px; }
+      .gpt-header { padding: .5em .8em; }
+      .gpt-title { font-size: .95em; }
+      .gpt-sub { font-size: .72em; }
+      .gpt-status { font-size: .72em; }
+      .gpt-messages { padding: .6em .8em; gap: .8em; }
+      .msg-bubble { font-size: .9em; line-height: 1.65; }
+      .msg-av { width: 28px; height: 28px; font-size: .85em; }
+      /* 快問按鈕改橫向捲動，不換行 */
+      .quick-btns {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0 .8em .5em;
+        gap: .4em;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .quick-btns::-webkit-scrollbar { display: none; }
+      .q-btn { flex-shrink: 0; font-size: .78em; padding: .4em .85em; }
+      .wc-title { font-size: .95em; }
+      .wc-desc { font-size: .82em; }
+      .gpt-input-area { padding: .5em .8em .7em; }
+      #user-input { font-size: .95em; }
+      .input-hint { font-size: .7em; }
+      .rate-notice { font-size: .85em; }
+      .rn-retry { font-size: .8em; }
     }
   </style>
 </head>

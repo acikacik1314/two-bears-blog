@@ -3,6 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { supabaseAdmin } from '../../../lib/supabase'
 import { identifyProduct, generateItemDescription, chatWithSeller, extractSessionFromChat } from '../../../lib/gemini'
+
 export const POST: APIRoute = async ({ request }) => {
 
   const formData = await request.formData()
@@ -38,28 +39,54 @@ export const POST: APIRoute = async ({ request }) => {
     })
   }
 
-  if (action === 'finalize') {
+  // Called when chat completes — AI extracts structured data from conversation
+  if (action === 'extract') {
     const sessionJson = formData.get('session') as string
     const chatHistoryJson = formData.get('chatHistory') as string
-    const imageBase64sJson = formData.get('imageBase64s') as string
     const session = JSON.parse(sessionJson || '{}')
     const chatHistoryArr = JSON.parse(chatHistoryJson || '[]')
-    const imageBase64s: string[] = JSON.parse(imageBase64sJson || '[]')
 
-    // Extract structured data from the full conversation
     const extracted = chatHistoryArr.length > 0
       ? await extractSessionFromChat(chatHistoryArr, session.identified)
-      : session
+      : {}
 
-    const name = extracted.name || session.identified?.name || session.name || '商品'
+    const merged = {
+      name:           extracted.name           || session.identified?.name || session.name || '',
+      yearsUsed:      extracted.yearsUsed      ?? session.yearsUsed ?? 0,
+      condition:      extracted.condition      || session.condition      || 'good',
+      conditionNotes: extracted.conditionNotes || session.conditionNotes || '',
+      dealType:       extracted.dealType       || session.dealType       || 'sell',
+      price:          extracted.price          ?? session.price          ?? null,
+      tradeWant:      extracted.tradeWant      || session.tradeWant      || '',
+      locationCity:   extracted.locationCity   || session.locationCity   || '',
+      locationNote:   extracted.locationNote   || session.locationNote   || '',
+      contactType:    extracted.contactType    || session.contactType    || 'form',
+      contactLineId:  extracted.contactLineId  || session.contactLineId  || '',
+      contactPhone:   extracted.contactPhone   || session.contactPhone   || '',
+      identified:     session.identified       || {},
+    }
+
+    return new Response(JSON.stringify({ merged }), {
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  // finalize: trust the pre-extracted session, no re-extraction needed
+  if (action === 'finalize') {
+    const sessionJson = formData.get('session') as string
+    const imageBase64sJson = formData.get('imageBase64s') as string
+    const session = JSON.parse(sessionJson || '{}')
+    const imageBase64s: string[] = JSON.parse(imageBase64sJson || '[]')
+
+    const name = session.name || session.identified?.name || '商品'
     const desc = await generateItemDescription({
       name,
-      yearsUsed: Number(extracted.yearsUsed ?? session.yearsUsed) || 0,
-      condition: extracted.condition || session.condition || 'good',
-      conditionNotes: extracted.conditionNotes || session.conditionNotes || '',
-      dealType: extracted.dealType || session.dealType || 'sell',
-      price: extracted.price ? Number(extracted.price) : (session.price ? Number(session.price) : undefined),
-      locationNote: extracted.locationCity || session.locationCity || '',
+      yearsUsed:      Number(session.yearsUsed) || 0,
+      condition:      session.condition      || 'good',
+      conditionNotes: session.conditionNotes || '',
+      dealType:       session.dealType       || 'sell',
+      price:          session.price ? Number(session.price) : undefined,
+      locationNote:   session.locationCity   || '',
     })
 
     const imageUrls: string[] = []
@@ -81,32 +108,34 @@ export const POST: APIRoute = async ({ request }) => {
       } catch {}
     }
 
+    const sellerName = session.contactLineId || session.contactPhone || '匿名賣家'
+
     const { data, error } = await supabaseAdmin
       .from('market_items')
       .insert({
-        seller_id: extracted.contactLineId || extracted.contactPhone || `anon_${Date.now()}`,
-        seller_name: extracted.contactLineId || extracted.contactPhone || '匿名賣家',
-        seller_email: null,
-        contact_type: extracted.contactType || session.contactType || 'form',
-        contact_line_id: extracted.contactLineId || session.contactLineId || null,
-        contact_phone: extracted.contactPhone || session.contactPhone || null,
-        title: name,
-        category: session.identified?.category || '其他',
+        seller_id:         sellerName,
+        seller_name:       sellerName,
+        seller_email:      null,
+        contact_type:      session.contactType    || 'form',
+        contact_line_id:   session.contactLineId  || null,
+        contact_phone:     session.contactPhone   || null,
+        title:             name,
+        category:          session.identified?.category || '其他',
         description_story: desc.story,
         description_plain: desc.plain,
-        condition: extracted.condition || session.condition || 'good',
-        condition_notes: extracted.conditionNotes || session.conditionNotes || null,
-        years_used: Number(extracted.yearsUsed ?? session.yearsUsed) || 0,
-        deal_type: extracted.dealType || session.dealType || 'sell',
-        price: extracted.price ? Number(extracted.price) : (session.price ? Number(session.price) : null),
-        market_price: null,
-        trade_want: extracted.tradeWant || session.tradeWant || null,
-        location_city: extracted.locationCity || session.locationCity || null,
-        location_note: extracted.locationNote || session.locationNote || null,
-        image_urls: imageUrls,
-        status: 'active',
-        view_count: 0,
-        inquiry_count: 0,
+        condition:         session.condition      || 'good',
+        condition_notes:   session.conditionNotes || null,
+        years_used:        Number(session.yearsUsed) || 0,
+        deal_type:         session.dealType       || 'sell',
+        price:             session.price ? Number(session.price) : null,
+        market_price:      null,
+        trade_want:        session.tradeWant      || null,
+        location_city:     session.locationCity   || null,
+        location_note:     session.locationNote   || null,
+        image_urls:        imageUrls,
+        status:            'active',
+        view_count:        0,
+        inquiry_count:     0,
       })
       .select()
       .single()

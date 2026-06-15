@@ -115,7 +115,7 @@ export const POST: APIRoute = async ({ request }) => {
       .insert({
         seller_id:         sellerName,
         seller_name:       sellerName,
-        seller_email:      null,
+        seller_email:      '',
         contact_type:      session.contactType    || 'form',
         contact_line_id:   session.contactLineId  || null,
         contact_phone:     session.contactPhone   || null,

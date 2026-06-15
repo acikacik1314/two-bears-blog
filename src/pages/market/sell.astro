@@ -453,18 +453,32 @@ html body { background: #0f172a; color: #e2e8f0; }
     formData.append('session', JSON.stringify(sellerSession))
     formData.append('chatHistory', JSON.stringify(chatHistory))
 
+    // Regex fallback — runs before backend so backend can override
+    const regexExtracted = extractFromHistory()
+    confirmedSession = { ...sellerSession, ...regexExtracted }
+
     try {
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       const data = await res.json()
       if (data.merged) {
-        confirmedSession = { ...data.merged }
-      } else {
-        // fallback: use sellerSession
-        confirmedSession = { ...sellerSession }
+        // backend AI extraction wins for non-empty fields
+        const m = data.merged
+        if (m.name)           confirmedSession.name           = m.name
+        if (m.yearsUsed)      confirmedSession.yearsUsed      = m.yearsUsed
+        if (m.condition)      confirmedSession.condition      = m.condition
+        if (m.conditionNotes) confirmedSession.conditionNotes = m.conditionNotes
+        if (m.dealType)       confirmedSession.dealType       = m.dealType
+        if (m.price != null)  confirmedSession.price          = m.price
+        if (m.tradeWant)      confirmedSession.tradeWant      = m.tradeWant
+        if (m.locationCity)   confirmedSession.locationCity   = m.locationCity
+        if (m.contactType)    confirmedSession.contactType    = m.contactType
+        if (m.contactLineId)  confirmedSession.contactLineId  = m.contactLineId
+        if (m.contactPhone)   confirmedSession.contactPhone   = m.contactPhone
       }
-    } catch {
-      confirmedSession = { ...sellerSession }
-    }
+    } catch {}
+
+    // always keep identified
+    confirmedSession.identified = sellerSession.identified || identified
 
     const s = confirmedSession
     const condLabel = s.condition === 'like_new' ? '近全新' : s.condition === 'good' ? '良好' : '普通'
@@ -532,6 +546,47 @@ html body { background: #0f172a; color: #e2e8f0; }
 
     setStep(3)
     setStatus(2, '')
+  }
+
+  function extractFromHistory() {
+    const text = chatHistory.slice(-30).map(h => h.content).join('\n')
+    const out: any = {}
+
+    const yearMatch = text.match(/(\d+)\s*年/)
+    if (yearMatch) out.yearsUsed = parseInt(yearMatch[1])
+
+    if (/近全新|幾乎沒用|全新/.test(text)) out.condition = 'like_new'
+    else if (/良好|正常|沒什麼/.test(text)) out.condition = 'good'
+    else if (/普通|一般|還好/.test(text)) out.condition = 'fair'
+
+    if (/免費|送出|送人|不要錢/.test(text)) { out.dealType = 'free'; out.price = null }
+    else if (/換物|換換看|交換/.test(text)) out.dealType = 'trade'
+    else {
+      out.dealType = 'sell'
+      const prices = text.match(/(\d{2,6})\s*元/g)
+      if (prices && prices.length >= 1) {
+        const nums = prices.map(p => parseInt(p))
+        out.price = nums[nums.length - 1] // last price mentioned = asking price
+      }
+    }
+
+    const cityMatch = text.match(/(台北|新北|桃園|台中|台南|高雄|基隆|新竹|苗栗|彰化|南投|雲林|嘉義|屏東|宜蘭|花蓮|台東|澎湖|金門|連江)/)
+    if (cityMatch) out.locationCity = cityMatch[1]
+
+    // LINE ID: handle various formats incl. fullwidth colon, 是, spaces
+    const lineMatch = text.match(/\bLINE\b[^a-zA-Z0-9]{0,8}([a-zA-Z0-9_\-\.]{3,30})/i)
+    if (lineMatch && !/^(id|ID|Id)$/.test(lineMatch[1])) {
+      out.contactType = 'line'
+      out.contactLineId = lineMatch[1]
+    } else {
+      const phoneMatch = text.match(/\b(09\d{8})\b/)
+      if (phoneMatch) {
+        out.contactType = 'phone'
+        out.contactPhone = phoneMatch[1]
+      }
+    }
+
+    return out
   }
 
   document.getElementById('btn-back-chat').addEventListener('click', () => setStep(2))

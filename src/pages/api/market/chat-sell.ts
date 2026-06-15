@@ -87,28 +87,10 @@ export const POST: APIRoute = async ({ request }) => {
       locationNote:   session.locationCity   || '',
     })
 
-    // Receive photos as individual Blob fields (photo_0, photo_1, photo_2...)
-    const imageUrls: string[] = []
-    for (let i = 0; i < 3; i++) {
-      const photoFile = formData.get(`photo_${i}`) as File | null
-      if (!photoFile) continue
-      try {
-        const arrayBuffer = await photoFile.arrayBuffer()
-        const imgBytes = new Uint8Array(arrayBuffer)
-        const fileName = `${Date.now()}_${i}.jpg`
-        const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
-          .from('market-images')
-          .upload(fileName, imgBytes, { contentType: 'image/jpeg' })
-        if (!uploadError && uploadData) {
-          const { data: urlData } = supabaseAdmin.storage.from('market-images').getPublicUrl(uploadData.path)
-          imageUrls.push(urlData.publicUrl)
-        } else if (uploadError) {
-          console.error(`Photo ${i} upload error:`, uploadError.message)
-        }
-      } catch (e) {
-        console.error(`Photo ${i} exception:`, e)
-      }
-    }
+    // Photos are pre-uploaded; URLs come in session.imageUrls
+    const imageUrls: string[] = Array.isArray(session.imageUrls)
+      ? (session.imageUrls as string[]).filter(Boolean)
+      : []
 
     const sellerName = session.contactLineId || session.contactPhone || '匿名賣家'
 

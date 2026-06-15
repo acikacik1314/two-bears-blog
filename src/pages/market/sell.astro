@@ -245,12 +245,14 @@ html body { background: #0f172a; color: #e2e8f0; }
 
 <script>
   let currentStep = 0
-  let imageBase64s = []   // array of base64 strings, up to 3
-  let identified = {}
-  let chatHistory = []
-  let sellerSession = {}   // raw identified + chat state
-  let confirmedSession = {} // extracted & verified before finalize
-  let previewSrcs = []    // array of data URLs for preview
+  let imageBase64s: Array<string | undefined> = []
+  let identified: any = {}
+  let chatHistory: Array<{role: string, content: string}> = []
+  let sellerSession: any = {}
+  let confirmedSession: any = {}
+  let previewSrcs: Array<string | undefined> = []
+  const uploadedUrls: Array<string | undefined> = []  // url when uploaded, undefined when not
+  let uploadingCount = 0
 
   function setStep(n) {
     document.querySelectorAll('.step').forEach((el, i) => el.classList.toggle('active', i === n))
@@ -280,11 +282,11 @@ html body { background: #0f172a; color: #e2e8f0; }
     zone.addEventListener('click', function() { input.click() })
 
     input.addEventListener('change', function() {
-      const file = input.files[0]
+      const file = input.files![0]
       if (!file) return
       const reader = new FileReader()
       reader.onload = function(e) {
-        const dataUrl = e.target.result
+        const dataUrl = (e.target as FileReader).result as string
         previewSrcs[n] = dataUrl
         imageBase64s[n] = dataUrl.split(',')[1]
         previewImg.src = dataUrl
@@ -293,11 +295,44 @@ html body { background: #0f172a; color: #e2e8f0; }
 
         if (n === 0) {
           btnIdentify.style.display = 'block'
-          document.getElementById('add-more-1').style.display = 'flex'
+          ;(document.getElementById('add-more-1') as HTMLElement).style.display = 'flex'
         }
         if (n === 1) {
-          document.getElementById('add-more-2').style.display = 'flex'
+          ;(document.getElementById('add-more-2') as HTMLElement).style.display = 'flex'
         }
+
+        // Upload immediately so finalize can just reference the URL
+        uploadedUrls[n] = undefined
+        uploadingCount++
+        let statusEl = previewWrap.querySelector('.upload-status') as HTMLElement | null
+        if (!statusEl) {
+          statusEl = document.createElement('p')
+          statusEl.className = 'upload-status'
+          statusEl.style.cssText = 'font-size:.75rem;color:#94a3b8;margin:.3rem 0 0;padding:0 .5rem;text-align:center;background:#1e293b;'
+          previewWrap.appendChild(statusEl)
+        }
+        statusEl.textContent = '📤 上傳中...'
+        statusEl.style.color = '#94a3b8'
+
+        const fd = new FormData()
+        fd.append('photo', file, file.name || `photo_${n}.jpg`)
+        fetch('/api/market/upload-photo', { method: 'POST', body: fd })
+          .then(r => r.json())
+          .then((data: any) => {
+            if (data.url) {
+              uploadedUrls[n] = data.url
+              statusEl!.textContent = '✓ 上傳成功'
+              statusEl!.style.color = '#34d399'
+            } else {
+              statusEl!.textContent = '⚠ 上傳失敗，請重新選圖'
+              statusEl!.style.color = '#f87171'
+            }
+          })
+          .catch(() => {
+            statusEl!.textContent = '⚠ 上傳失敗，請重新選圖'
+            statusEl!.style.color = '#f87171'
+          })
+          .finally(() => { uploadingCount-- })
       }
       reader.readAsDataURL(file)
     })
@@ -543,6 +578,10 @@ html body { background: #0f172a; color: #e2e8f0; }
       syncContact()
     })
     if (contactValEl) contactValEl.addEventListener('input', syncContact)
+    syncContact()  // initialize confirmedSession from current form values
+
+    // Sync uploaded photo URLs into session
+    confirmedSession.imageUrls = uploadedUrls.filter((u): u is string => !!u)
 
     setStep(3)
     setStatus(2, '')
@@ -591,8 +630,27 @@ html body { background: #0f172a; color: #e2e8f0; }
 
   document.getElementById('btn-back-chat').addEventListener('click', () => setStep(2))
 
-  document.getElementById('btn-finalize').addEventListener('click', async () => {
-    const btn = document.getElementById('btn-finalize')
+  document.getElementById('btn-finalize')!.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-finalize') as HTMLButtonElement
+
+    // Wait for any in-progress uploads
+    if (uploadingCount > 0) {
+      setStatus(3, '照片還在上傳中，請稍候…', false)
+      return
+    }
+
+    // Require contact info if type is line or phone
+    if (confirmedSession.contactType !== 'form') {
+      const contactVal = confirmedSession.contactType === 'line'
+        ? confirmedSession.contactLineId
+        : confirmedSession.contactPhone
+      if (!contactVal || !(contactVal as string).trim()) {
+        setStatus(3, '請填寫 LINE ID 或電話號碼，讓買家可以聯絡你', true)
+        ;(document.getElementById('edit-contact-val') as HTMLInputElement)?.focus()
+        return
+      }
+    }
+
     btn.disabled = true
     btn.textContent = '上架中...'
     setStatus(3, '')
@@ -600,23 +658,17 @@ html body { background: #0f172a; color: #e2e8f0; }
     try {
       const formData = new FormData()
       formData.append('action', 'finalize')
+      // Refresh imageUrls in case uploads finished after preview generated
+      confirmedSession.imageUrls = uploadedUrls.filter((u): u is string => !!u)
       formData.append('session', JSON.stringify(confirmedSession))
-      // Send each photo as a Blob — avoids JSON size limits
-      imageBase64s.filter(Boolean).forEach((b64, i) => {
-        try {
-          const raw = atob(b64)
-          const bytes = new Uint8Array(raw.length)
-          for (let j = 0; j < raw.length; j++) bytes[j] = raw.charCodeAt(j)
-          formData.append(`photo_${i}`, new Blob([bytes], { type: 'image/jpeg' }), `photo_${i}.jpg`)
-        } catch {}
-      })
+      // Photos already uploaded — no blobs needed
 
       const res = await fetch('/api/market/chat-sell', { method: 'POST', body: formData })
       const data = await res.json()
       if (data.error) throw new Error(data.error)
 
       setStep(4)
-    } catch (e) {
+    } catch (e: any) {
       setStatus(3, '上架失敗：' + e.message, true)
       btn.disabled = false
       btn.textContent = '🎉 確認上架！'

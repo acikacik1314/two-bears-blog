@@ -33,13 +33,13 @@ export const POST: APIRoute = async ({ request }) => {
 
     const tts = new MsEdgeTTS();
     await tts.setMetadata(voice, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3);
-    const stream = tts.toStream(text);
+    const { audioStream } = await tts.toStream(text);
 
     const audio = await new Promise<Buffer>((resolve, reject) => {
       const chunks: Buffer[] = [];
-      stream.on('data', (chunk: Buffer) => chunks.push(Buffer.from(chunk)));
-      stream.on('end', () => resolve(Buffer.concat(chunks)));
-      stream.on('error', reject);
+      audioStream.on('data', (chunk: Buffer) => chunks.push(Buffer.from(chunk)));
+      audioStream.on('end', () => resolve(Buffer.concat(chunks)));
+      audioStream.on('error', reject);
     });
 
     return new Response(audio, {

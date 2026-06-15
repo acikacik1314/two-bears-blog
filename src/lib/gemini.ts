@@ -150,28 +150,33 @@ export async function findMatchingItems(
     return { matches: [], reply: '目前攤位上還沒有商品，你可以先逛逛或等等再來～' }
   }
 
-  const itemsSummary = items.slice(0, 50).map(item =>
-    `ID:${item.id} | ${item.title} | ${item.deal_type === 'sell' ? item.price + '元' : item.deal_type === 'trade' ? '換物' : '免費'} | ${item.location_city || ''}`
+  const pool = items.slice(0, 50)
+  const itemsSummary = pool.map((item, i) =>
+    `${i + 1}. ${item.title} | ${item.deal_type === 'sell' ? item.price + '元' : item.deal_type === 'trade' ? '換物' : '免費'} | ${item.location_city || ''} | ${item.condition === 'like_new' ? '近全新' : item.condition === 'good' ? '良好' : '普通'}`
   ).join('\n')
 
   const prompt = `你是「兩隻熊二手市集」的 AI 攤主，溫暖口語，像朋友推薦東西。
 
 買家說：「${query}」
 
-目前攤位商品：
+目前攤位商品（序號 | 名稱 | 價格 | 地點 | 狀況）：
 ${itemsSummary}
 
-請回傳 JSON（只回傳 JSON）：
+請回傳 JSON（只回傳 JSON，matches 填序號數字，最多 4 個，沒有符合的填空陣列）：
 {
-  "matches": ["商品ID1", "商品ID2", "商品ID3"],
-  "reply": "用口語化方式回覆買家，說你幫他找到了什麼，最多推薦4件，如果沒有符合的就坦白說，語氣像攤主在推薦，不超過80字"
+  "matches": [1, 3],
+  "reply": "用口語化方式回覆買家，說你幫他找到了什麼，如果沒有符合的就坦白說，語氣像攤主在推薦，不超過 80 字"
 }`
   try {
     const result = await callGeminiRaw(prompt)
     const clean = result.replace(/```json|```/g, '').trim()
-    return JSON.parse(clean)
+    const parsed = JSON.parse(clean)
+    const matchIds = (parsed.matches as number[])
+      .map(n => pool[n - 1]?.id)
+      .filter(Boolean) as string[]
+    return { matches: matchIds, reply: parsed.reply || '' }
   } catch {
-    return { matches: [], reply: '讓我幫你找找看～目前攤位上的東西我整理一下給你。' }
+    return { matches: [], reply: '抱歉，我找一下攤位上的商品，請再說一次你想找什麼？' }
   }
 }
 

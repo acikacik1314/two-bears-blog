@@ -111,8 +111,11 @@ html body { background: #0f172a; color: #e2e8f0; }
 
   <div class="confirm-overlay hidden" id="confirm-overlay">
     <div class="confirm-box">
-      <h3>確定要下架嗎？</h3>
+      <h3 id="confirm-heading">確定要下架嗎？</h3>
       <p id="confirm-title">商品將從市集移除。</p>
+      <input type="number" id="confirm-pin" placeholder="輸入上架時設的 4 位數密碼" maxlength="4"
+        style="width:100%;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:.55rem .9rem;color:#e2e8f0;font-size:.88rem;box-sizing:border-box;margin-bottom:.5rem;font-family:inherit;" />
+      <p id="confirm-pin-error" style="color:#f87171;font-size:.78rem;margin:0 0 .75rem;display:none;"></p>
       <div class="confirm-actions">
         <button class="btn-cancel-sm" id="confirm-cancel">取消</button>
         <button class="btn-confirm-remove" id="confirm-ok">確定下架</button>
@@ -126,6 +129,7 @@ html body { background: #0f172a; color: #e2e8f0; }
 
 <script>
   let pendingId = ''
+  let pendingAction = 'remove'
 
   const lookupInput = document.getElementById('lookup-input') as HTMLInputElement
   const lookupStatus = document.getElementById('lookup-status')!
@@ -183,28 +187,32 @@ html body { background: #0f172a; color: #e2e8f0; }
     }
   }
 
+  function openConfirm(id: string, action: 'remove' | 'sold', title: string) {
+    pendingId = id
+    pendingAction = action
+    ;(document.getElementById('confirm-heading') as HTMLElement).textContent =
+      action === 'remove' ? '確定要下架嗎？' : '確定標記為已售出嗎？'
+    ;(document.getElementById('confirm-title') as HTMLElement).textContent = title
+    ;(document.getElementById('confirm-ok') as HTMLButtonElement).textContent =
+      action === 'remove' ? '確定下架' : '確定售出'
+    ;(document.getElementById('confirm-pin') as HTMLInputElement).value = ''
+    ;(document.getElementById('confirm-pin-error') as HTMLElement).style.display = 'none'
+    document.getElementById('confirm-overlay')!.classList.remove('hidden')
+    ;(document.getElementById('confirm-pin') as HTMLInputElement).focus()
+  }
+
   function bindActions() {
     document.querySelectorAll('.btn-remove').forEach(btn => {
       btn.addEventListener('click', () => {
         const b = btn as HTMLElement
-        pendingId = b.dataset.id!
-        ;(document.getElementById('confirm-title') as HTMLElement).textContent = `「${b.dataset.title}」將從市集移除，確定嗎？`
-        document.getElementById('confirm-overlay')!.classList.remove('hidden')
+        openConfirm(b.dataset.id!, 'remove', `「${b.dataset.title}」將從市集移除，確定嗎？`)
       })
     })
 
     document.querySelectorAll('.btn-mark-sold').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const id = (btn as HTMLElement).dataset.id!
-        await fetch('/api/market/remove', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ item_id: id, action: 'sold' }),
-        })
-        const row = document.getElementById(`row-${id}`)
-        const statusEl = row?.querySelector('.tag-status-active')
-        if (statusEl) { statusEl.textContent = '已售出'; statusEl.className = 'tag-status-sold' }
-        ;(btn as HTMLElement).remove()
+      btn.addEventListener('click', () => {
+        const b = btn as HTMLElement
+        openConfirm(b.dataset.id!, 'sold', `「${b.dataset.title}」將標記為已售出。`)
       })
     })
   }
@@ -216,21 +224,42 @@ html body { background: #0f172a; color: #e2e8f0; }
 
   document.getElementById('confirm-ok')!.addEventListener('click', async () => {
     if (!pendingId) return
+    const pin = (document.getElementById('confirm-pin') as HTMLInputElement).value.trim()
+    const errEl = document.getElementById('confirm-pin-error') as HTMLElement
+    if (!pin || !/^\d{4}$/.test(pin)) {
+      errEl.textContent = '請輸入上架時設的 4 位數密碼'
+      errEl.style.display = 'block'
+      return
+    }
+    errEl.style.display = 'none'
+
     const btn = document.getElementById('confirm-ok') as HTMLButtonElement
     btn.disabled = true; btn.textContent = '處理中...'
+
     const res = await fetch('/api/market/remove', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item_id: pendingId }),
+      body: JSON.stringify({ item_id: pendingId, action: pendingAction, pin }),
     })
     const data = await res.json()
+
     if (data.success) {
-      document.getElementById(`row-${pendingId}`)?.remove()
+      if (pendingAction === 'remove') {
+        document.getElementById(`row-${pendingId}`)?.remove()
+      } else {
+        const row = document.getElementById(`row-${pendingId}`)
+        const statusEl = row?.querySelector('.tag-status-active')
+        if (statusEl) { statusEl.textContent = '已售出'; statusEl.className = 'tag-status-sold' }
+        row?.querySelector('.btn-mark-sold')?.remove()
+      }
       document.getElementById('confirm-overlay')!.classList.add('hidden')
+      pendingId = ''
     } else {
-      alert('下架失敗：' + (data.error || '未知錯誤'))
+      errEl.textContent = data.error || '操作失敗，請再試一次'
+      errEl.style.display = 'block'
     }
-    btn.disabled = false; btn.textContent = '確定下架'
-    pendingId = ''
+
+    btn.disabled = false
+    btn.textContent = pendingAction === 'remove' ? '確定下架' : '確定售出'
   })
 </script>

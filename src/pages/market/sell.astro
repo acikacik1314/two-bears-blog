@@ -554,7 +554,14 @@ html body { background: #0f172a; color: #e2e8f0; }
           <input id="edit-contact-val" type="text" value="${s.contactType === 'line' ? (s.contactLineId || '') : s.contactType === 'phone' ? (s.contactPhone || '') : ''}" placeholder="${s.contactType === 'form' ? '（不需填）' : '請填寫'}" style="background:#0f172a;border:1px solid #334155;border-radius:6px;padding:.2rem .5rem;color:#e2e8f0;font-size:.88rem;width:130px;" />
         </span>
       </div>
-      <p style="color:#64748b;font-size:.78rem;margin:.75rem 0 .4rem">✓ 文案由 AI 生成，上架後可在市集查看。</p>
+      <div class="identify-row" style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid #334155;">
+        <span class="identify-label" style="color:#f1f5f9;font-weight:700;">刪除密碼</span>
+        <span class="identify-val">
+          <input id="edit-pin" type="number" min="1000" max="9999" placeholder="設 4 位數字" maxlength="4"
+            style="width:110px;background:#0f172a;border:1px solid #a855f7;border-radius:6px;padding:.2rem .5rem;color:#e2e8f0;font-size:.88rem;" />
+        </span>
+      </div>
+      <p style="color:#64748b;font-size:.75rem;margin:.4rem 0 .75rem;">之後刪除或標記售出時需要輸入這組密碼</p>
     `
 
     // wire edit fields → update confirmedSession live
@@ -578,7 +585,10 @@ html body { background: #0f172a; color: #e2e8f0; }
       syncContact()
     })
     if (contactValEl) contactValEl.addEventListener('input', syncContact)
-    syncContact()  // initialize confirmedSession from current form values
+    syncContact()
+
+    const pinEl = document.getElementById('edit-pin') as HTMLInputElement
+    if (pinEl) pinEl.addEventListener('input', () => { confirmedSession.deletePin = pinEl.value })
 
     // Sync uploaded photo URLs into session
     confirmedSession.imageUrls = uploadedUrls.filter((u): u is string => !!u)
@@ -636,6 +646,15 @@ html body { background: #0f172a; color: #e2e8f0; }
     // Wait for any in-progress uploads
     if (uploadingCount > 0) {
       setStatus(3, '照片還在上傳中，請稍候…', false)
+      return
+    }
+
+    // Require 4-digit PIN
+    const pin = String(confirmedSession.deletePin || '')
+    if (!/^\d{4}$/.test(pin)) {
+      setStatus(3, '請設定 4 位數字密碼（用於之後刪除商品）', true)
+      ;(document.getElementById('edit-pin') as HTMLInputElement)?.focus()
+      btn.disabled = false; btn.textContent = '🎉 確認上架！'
       return
     }
 

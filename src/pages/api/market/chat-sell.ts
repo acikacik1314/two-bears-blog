@@ -117,6 +117,7 @@ export const POST: APIRoute = async ({ request }) => {
         location_city:     session.locationCity   || null,
         location_note:     session.locationNote   || null,
         image_urls:        imageUrls,
+        delete_pin:        session.deletePin ? String(session.deletePin) : null,
         status:            'active',
         view_count:        0,
         inquiry_count:     0,

@@ -350,47 +350,50 @@ const description = '選好目的地和情境，AI 立刻扮演當地人陪你�
     英語:'en-US', 印尼語:'id-ID', 土耳其語:'tr-TR', 粵語:'zh-HK',
   };
 
-  var _voices: SpeechSynthesisVoice[] = [];
-  function _loadVoices(){ _voices = window.speechSynthesis.getVoices(); }
-  if('speechSynthesis' in window){
-    _loadVoices();
-    window.speechSynthesis.onvoiceschanged = _loadVoices;
-  } else {
-    var vf = document.getElementById('tbVoiceField');
-    if(vf) vf.style.display = 'none';
-  }
+  var currentAudio: HTMLAudioElement | null = null;
 
-  var MALE_RE   = /\bMale\b|Keita|InJoon|Henri|Conrad|Stefan|Alvaro|Jorge|Diego|Cosimo|Niwat|NamMinh|Ardi|Ahmet|WanLung|David|George|Ryan|Guy|Eric|Liam|Brian|Mark|Reed/i;
-  var FEMALE_RE = /\bFemale\b|Nanami|SunHi|Julie|Katja|Elvira|Dalia|Elsa|Isabella|Premwadee|HoaiMy|Gadis|Emel|HiuMaan|HiuGaai|Zira|Hazel|Susan|Jenny|Aria|Sonia|Google/i;
-
-  function getBestVoice(langCode: string, gender: string): SpeechSynthesisVoice | null {
-    var list = _voices.length ? _voices : window.speechSynthesis.getVoices();
+  function speakFallback(text: string, langCode: string, btn: HTMLButtonElement){
+    if(!('speechSynthesis' in window)) return;
+    if(window.speechSynthesis.speaking) window.speechSynthesis.cancel();
+    var utt = new SpeechSynthesisUtterance(text);
+    utt.lang = langCode; utt.rate = 0.85;
+    var list = window.speechSynthesis.getVoices();
     var primary = langCode.split('-')[0].toLowerCase();
-    var matching = list.filter(function(v){ return v.lang.toLowerCase().startsWith(primary); });
-    if(!matching.length) return null;
-    var re = gender === 'male' ? MALE_RE : FEMALE_RE;
-    var gFiltered = matching.filter(function(v){ return re.test(v.name); });
-    var premiumG = gFiltered.find(function(v){ return /Google|Microsoft|Premium|Enhanced|Natural/i.test(v.name); });
-    if(premiumG) return premiumG;
-    if(gFiltered.length) return gFiltered[0];
-    // fallback: best voice ignoring gender
-    return matching.find(function(v){ return /Google|Microsoft|Premium|Enhanced|Natural/i.test(v.name); }) || matching[0];
+    var match = list.filter(function(v){ return v.lang.toLowerCase().startsWith(primary); });
+    var best = match.find(function(v){ return /Google|Microsoft|Premium|Enhanced/i.test(v.name); }) || match[0];
+    if(best) utt.voice = best;
+    btn.classList.add('speaking'); btn.textContent = '⏹ 停止';
+    utt.onend = function(){ btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; };
+    utt.onerror = function(){ btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; };
+    window.speechSynthesis.speak(utt);
   }
 
-  function speak(text: string, langCode: string, gender: string, btn: HTMLButtonElement){
-    if(window.speechSynthesis.speaking){ window.speechSynthesis.cancel(); }
-    if(btn.classList.contains('speaking')){ btn.classList.remove('speaking'); return; }
-    // strip Chinese parenthetical translations before speaking
+  async function speak(text: string, langCode: string, gender: string, btn: HTMLButtonElement){
+    // stop if already playing
+    if(currentAudio){ currentAudio.pause(); currentAudio = null; btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; return; }
+    if(btn.classList.contains('speaking')){ btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; return; }
+
     var speakText = text.replace(/（[^）]*）/g, ' ').replace(/\s+/g, ' ').trim();
-    var utt = new SpeechSynthesisUtterance(speakText);
-    utt.lang = langCode;
-    utt.rate = 0.85;
-    var v = getBestVoice(langCode, gender);
-    if(v) utt.voice = v;
-    btn.classList.add('speaking');
-    utt.onend = function(){ btn.classList.remove('speaking'); };
-    utt.onerror = function(){ btn.classList.remove('speaking'); };
-    window.speechSynthesis.speak(utt);
+    btn.textContent = '⏳ 載入…'; btn.classList.add('speaking');
+
+    try {
+      var res = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: speakText, lang: langCode, gender }),
+      });
+      if(!res.ok) throw new Error('api error');
+      var blob = await res.blob();
+      var url = URL.createObjectURL(blob);
+      currentAudio = new Audio(url);
+      btn.textContent = '⏹ 停止';
+      currentAudio.onended = function(){ btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; URL.revokeObjectURL(url); currentAudio = null; };
+      currentAudio.onerror = function(){ btn.classList.remove('speaking'); btn.textContent = '🔊 聽發音'; currentAudio = null; };
+      currentAudio.play();
+    } catch(_){
+      btn.textContent = '🔊 聽發音'; btn.classList.remove('speaking');
+      speakFallback(speakText, langCode, btn);
+    }
   }
 
   function kickoff(c: Record<string,string>): string {

@@ -28,6 +28,7 @@
     "@vercel/blob": "^2.4.0",
     "astro": "^6.3.7",
     "cloudinary": "^2.10.0",
+    "msedge-tts": "^2.0.5",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-markdown": "^10.1.0",

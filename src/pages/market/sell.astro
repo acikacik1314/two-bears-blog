@@ -161,6 +161,25 @@ html body { background: #0f172a; color: #e2e8f0; }
 
     <!-- Step 0: Upload -->
     <div class="step active" id="step-0">
+      <!-- Shopee import option -->
+      <div style="margin-bottom:1.5rem;padding:1rem 1.1rem;background:#1e293b;border:1px solid #334155;border-radius:16px;">
+        <p style="color:#f1f5f9;font-size:.88rem;font-weight:600;margin:0 0 .25rem;">🛒 從蝦皮匯入商品</p>
+        <p style="color:#64748b;font-size:.76rem;margin:0 0 .65rem;">把蝦皮商品網址貼過來，自動帶入照片和資訊</p>
+        <div style="display:flex;gap:.5rem;">
+          <input id="shopee-url-input" type="url" placeholder="https://shopee.tw/product/..." autocomplete="off" autocorrect="off"
+            style="flex:1;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:.5rem .75rem;color:#e2e8f0;font-size:.82rem;font-family:inherit;min-width:0;" />
+          <button id="btn-shopee-import"
+            style="padding:.5rem 1rem;border-radius:10px;background:linear-gradient(135deg,#f97316,#ea580c);border:none;color:#fff;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+            📥 匯入
+          </button>
+        </div>
+        <p id="shopee-status" style="margin:.4rem 0 0;font-size:.76rem;color:#94a3b8;min-height:1em;"></p>
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
+        <div style="flex:1;height:1px;background:#1e293b;"></div>
+        <span style="color:#475569;font-size:.78rem;white-space:nowrap;">或是自己拍照上傳</span>
+        <div style="flex:1;height:1px;background:#1e293b;"></div>
+      </div>
       <!-- Zone 0: main photo (required, used for AI) -->
       <p style="color:#94a3b8;font-size:.82rem;margin:0 0 .6rem;">第一張是主圖，AI 用這張辨識商品</p>
       <div class="upload-zone" id="zone-0">
@@ -337,6 +356,82 @@ html body { background: #0f172a; color: #e2e8f0; }
       reader.readAsDataURL(file)
     })
   }
+
+  // ── Shopee import ──────────────────────────────────────────────
+  async function importFromShopee(url: string) {
+    const btn = document.getElementById('btn-shopee-import') as HTMLButtonElement
+    const statusEl = document.getElementById('shopee-status') as HTMLElement
+    btn.disabled = true
+    btn.textContent = '⏳ 匯入中...'
+    statusEl.textContent = '正在抓取商品資料...'
+    statusEl.style.color = '#94a3b8'
+
+    try {
+      const res = await fetch('/api/market/shopee-import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url }),
+      })
+      const data = await res.json()
+      if (!res.ok || data.error) throw new Error(data.error || '匯入失敗')
+
+      // Set state
+      identified = { name: data.name, category: '其他', confidence: 'high' }
+      sellerSession = { identified }
+
+      // Images: use Supabase URLs for upload tracking, same for preview
+      uploadedUrls.length = 0
+      previewSrcs = []
+      ;(data.imageUrls as string[]).forEach((u: string, i: number) => {
+        uploadedUrls[i] = u
+        previewSrcs[i] = u
+      })
+
+      confirmedSession = {
+        identified,
+        name: data.name,
+        price: data.price,
+        dealType: 'sell',
+        yearsUsed: 0,
+        condition: 'good',
+        conditionNotes: '',
+        locationCity: '',
+        locationNote: '',
+        deliveryMethods: [],
+        imageUrls: data.imageUrls,
+      }
+
+      statusEl.textContent = `✓ 匯入成功：${data.name}`
+      statusEl.style.color = '#34d399'
+
+      // Jump straight to Step 3 preview
+      await generatePreview()
+    } catch (e: any) {
+      statusEl.textContent = '匯入失敗：' + (e.message || '請確認網址是否正確')
+      statusEl.style.color = '#f87171'
+    }
+    btn.disabled = false
+    btn.textContent = '📥 匯入'
+  }
+
+  document.getElementById('btn-shopee-import')!.addEventListener('click', () => {
+    const url = (document.getElementById('shopee-url-input') as HTMLInputElement).value.trim()
+    if (!url) {
+      const s = document.getElementById('shopee-status')!
+      s.textContent = '請先貼上蝦皮網址'
+      s.style.color = '#f87171'
+      return
+    }
+    importFromShopee(url)
+  })
+
+  document.getElementById('shopee-url-input')!.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const url = (e.target as HTMLInputElement).value.trim()
+      if (url) importFromShopee(url)
+    }
+  })
+  // ── end Shopee import ───────────────────────────────────────────
 
   setupZone(0)
   setupZone(1)
@@ -532,8 +627,23 @@ html body { background: #0f172a; color: #e2e8f0; }
       ${previewSrcs.length ? `<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;">${previewImgHtml}</div>` : ''}
       <div class="identify-row"><span class="identify-label">商品名稱</span><span class="identify-val">${s.name || identified.name || '—'}</span></div>
       <div class="identify-row"><span class="identify-label">分類</span><span class="identify-val">${s.identified?.category || identified.category || '其他'}</span></div>
-      <div class="identify-row"><span class="identify-label">使用年數</span><span class="identify-val">${s.yearsUsed || 0} 年</span></div>
-      <div class="identify-row"><span class="identify-label">商品狀況</span><span class="identify-val">${condLabel}</span></div>
+      <div class="identify-row">
+        <span class="identify-label">使用年數</span>
+        <span class="identify-val" style="display:flex;align-items:center;gap:.3rem;">
+          <input id="edit-years" type="number" value="${s.yearsUsed ?? 0}" min="0" max="30"
+            style="width:55px;background:#0f172a;border:1px solid #334155;border-radius:6px;padding:.2rem .5rem;color:#e2e8f0;font-size:.88rem;" /> 年
+        </span>
+      </div>
+      <div class="identify-row">
+        <span class="identify-label">商品狀況</span>
+        <span class="identify-val">
+          <select id="edit-condition" style="background:#0f172a;border:1px solid #334155;border-radius:6px;padding:.2rem .4rem;color:#e2e8f0;font-size:.82rem;">
+            <option value="like_new" ${s.condition === 'like_new' ? 'selected' : ''}>近全新</option>
+            <option value="good" ${s.condition === 'good' || !s.condition ? 'selected' : ''}>良好</option>
+            <option value="fair" ${s.condition === 'fair' ? 'selected' : ''}>普通</option>
+          </select>
+        </span>
+      </div>
       ${s.conditionNotes ? `<div class="identify-row"><span class="identify-label">瑕疵說明</span><span class="identify-val">${s.conditionNotes}</span></div>` : ''}
       ${s.locationNote ? `<div class="identify-row"><span class="identify-label">面交地點</span><span class="identify-val">${s.locationNote}</span></div>` : ''}
       <div class="identify-row">
@@ -586,6 +696,11 @@ html body { background: #0f172a; color: #e2e8f0; }
     `
 
     // wire edit fields → update confirmedSession live
+    const yearsEl = document.getElementById('edit-years') as HTMLInputElement
+    if (yearsEl) yearsEl.addEventListener('input', () => { confirmedSession.yearsUsed = parseInt(yearsEl.value) || 0 })
+    const condEl = document.getElementById('edit-condition') as HTMLSelectElement
+    if (condEl) condEl.addEventListener('change', () => { confirmedSession.condition = condEl.value })
+
     const priceEl = document.getElementById('edit-price')
     if (priceEl) priceEl.addEventListener('input', (e) => { confirmedSession.price = (e.target as HTMLInputElement).value })
 

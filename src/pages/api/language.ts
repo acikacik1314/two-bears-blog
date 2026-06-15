@@ -68,7 +68,7 @@ export const POST: APIRoute = async ({ request }) => {
     const reqBody = JSON.stringify({
       system_instruction: { parts: [{ text: sys }] },
       contents,
-      generationConfig: { temperature: 0.8, maxOutputTokens: 700, topP: 0.95 },
+      generationConfig: { temperature: 0.8, maxOutputTokens: 1400, topP: 0.95 },
     });
 
     // 多 key 輪替

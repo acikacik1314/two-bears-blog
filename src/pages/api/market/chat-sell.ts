@@ -3,12 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { supabaseAdmin } from '../../../lib/supabase'
 import { identifyProduct, generateItemDescription, chatWithSeller, extractSessionFromChat } from '../../../lib/gemini'
-import { getSession } from '../../../utils/session'
-
-export const POST: APIRoute = async ({ request, cookies }) => {
-  const token = cookies.get('sb_session')?.value || ''
-  const user = await getSession(token)
-  if (!user) return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
+export const POST: APIRoute = async ({ request }) => {
 
   const formData = await request.formData()
   const action = formData.get('action') as string
@@ -75,7 +70,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         const raw = atob(b64)
         const imgBytes = new Uint8Array(raw.length)
         for (let j = 0; j < raw.length; j++) imgBytes[j] = raw.charCodeAt(j)
-        const fileName = `${Date.now()}_${i}_${user.email.replace(/[@.]/g, '_')}.jpg`
+        const fileName = `${Date.now()}_${i}.jpg`
         const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
           .from('market-images')
           .upload(fileName, imgBytes, { contentType: 'image/jpeg' })
@@ -89,9 +84,9 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     const { data, error } = await supabaseAdmin
       .from('market_items')
       .insert({
-        seller_id: user.email,
-        seller_name: user.name,
-        seller_email: user.email,
+        seller_id: extracted.contactLineId || extracted.contactPhone || `anon_${Date.now()}`,
+        seller_name: null,
+        seller_email: null,
         contact_type: extracted.contactType || session.contactType || 'form',
         contact_line_id: extracted.contactLineId || session.contactLineId || null,
         contact_phone: extracted.contactPhone || session.contactPhone || null,

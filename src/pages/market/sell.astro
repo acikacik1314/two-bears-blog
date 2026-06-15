@@ -3,14 +3,6 @@ export const prerender = false
 import BaseHead from '../../components/BaseHead.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
-import { getSession } from '../../utils/session'
-
-const token = Astro.cookies.get('sb_session')?.value || ''
-const user = await getSession(token)
-if (!user) return Astro.redirect('/api/auth/google')
-
-const uName = user.name
-const uEmail = user.email
 ---
 
 <style is:global>
@@ -251,7 +243,7 @@ html body { background: #0f172a; color: #e2e8f0; }
 </body>
 </html>
 
-<script define:vars={{ uName, uEmail }}>
+<script>
   let currentStep = 0
   let imageBase64s = []   // array of base64 strings, up to 3
   let identified = {}
@@ -391,7 +383,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     sellerSession = { identified }
     const chatBox = document.getElementById('chat-box')
     chatBox.innerHTML = ''
-    addBubble('assistant', `你好 ${uName}！我是小熊 🐻 我來幫你上架二手商品。\n\nAI 幫我辨識出這件是「${identified.name || '商品'}」，這樣寫對嗎？有需要修改的話直接說～`)
+    addBubble('assistant', `你好！我是小熊 🐻 我來幫你上架二手商品。\n\nAI 幫我辨識出這件是「${identified.name || '商品'}」，這樣寫對嗎？有需要修改的話直接說～`)
     setStep(2)
   })
 

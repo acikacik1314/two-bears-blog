@@ -503,7 +503,11 @@ html body {
     </div>
 
     <div id="ic-result" style="display:none; margin-top:1.5em;">
-      <div class="ft-result-header">
+      <!-- Coin throws process -->
+      <div id="ic-throws" style="background:rgba(255,255,255,.03);border:1px solid rgba(14,165,233,.15);border-radius:12px;padding:.9rem 1rem;margin-bottom:1rem;"></div>
+      <!-- Hexagram visual -->
+      <div id="ic-hexagram" style="margin-bottom:1rem;"></div>
+      <div class="ft-result-header" style="margin-top:.5rem;">
         <span class="ic-dice" id="ic-dice">🎲</span>
         <span class="ft-result-label">未來人的卦象指引</span>
       </div>
@@ -657,39 +661,110 @@ document.getElementById('ft-submit')?.addEventListener('click', async () => {
   }
 })
 
-/* ── 卜卦易經 ── */
+/* ── 卜卦易經（三錢六爻法） ── */
+const TRIGRAM_TABLE = [
+  [ 2, 23,  8, 20, 16, 35, 45, 12],
+  [15, 52, 39, 53, 62, 56, 31, 33],
+  [ 7,  4, 29, 59, 40, 64, 47,  6],
+  [46, 18, 48, 57, 32, 50, 28, 44],
+  [24, 27,  3, 42, 51, 21, 17, 25],
+  [36, 22, 63, 37, 55, 30, 49, 13],
+  [19, 41, 60, 61, 54, 38, 58, 10],
+  [11, 26,  5,  9, 34, 14, 43,  1],
+]
+
+function calcHexNum(lines: number[]): number {
+  const y = lines.map(v => v % 2 === 1 ? 1 : 0)
+  const lower = y[0]*4 + y[1]*2 + y[2]
+  const upper = y[3]*4 + y[4]*2 + y[5]
+  return TRIGRAM_TABLE[lower][upper]
+}
+
+function wait(ms: number) { return new Promise(r => setTimeout(r, ms)) }
+
 document.getElementById('ic-cast')?.addEventListener('click', async () => {
   const question = (document.getElementById('ic-question') as HTMLInputElement).value
-  const btn  = document.getElementById('ic-cast') as HTMLButtonElement
-  const res  = document.getElementById('ic-result')!
-  const body = document.getElementById('ic-result-body')!
-  const dice = document.getElementById('ic-dice')!
+  const btn     = document.getElementById('ic-cast') as HTMLButtonElement
+  const res     = document.getElementById('ic-result')!
+  const throwsEl = document.getElementById('ic-throws')!
+  const hexEl   = document.getElementById('ic-hexagram')!
+  const body    = document.getElementById('ic-result-body')!
+  const dice    = document.getElementById('ic-dice')!
 
   btn.disabled = true
   btn.textContent = '🎲 擲卦中…'
-  res.style.display = 'none'
+  res.style.display = 'block'
+  throwsEl.innerHTML = '<p style="color:#64748b;font-size:.78rem;margin:0 0 .5rem;">三錢六爻 · ⊙正面=3 ○反面=2 · 奇數=陽 偶數=陰</p>'
+  hexEl.innerHTML = ''
+  body.innerHTML = ''
+  dice.textContent = '🎲'
 
-  const FRAMES = ['⚀','⚁','⚂','⚃','⚄','⚅']
-  let frame = 0
-  const anim = setInterval(() => { dice.textContent = FRAMES[frame++ % FRAMES.length] }, 100)
+  const LINE_NAMES = ['初爻','二爻','三爻','四爻','五爻','上爻']
+  const lines: number[] = []
 
+  // 六次擲三枚錢幣
+  for (let i = 0; i < 6; i++) {
+    await wait(380)
+    const coins = [
+      Math.random() < 0.5 ? 3 : 2,
+      Math.random() < 0.5 ? 3 : 2,
+      Math.random() < 0.5 ? 3 : 2,
+    ]
+    const sum = coins[0] + coins[1] + coins[2]  // 6/7/8/9
+    lines.push(sum)
+    const isYang = sum % 2 === 1
+    const isChanging = sum === 6 || sum === 9
+    const coinStr = coins.map(c => c === 3 ? '⊙' : '○').join(' ')
+    const lineType = isChanging
+      ? (isYang ? '老陽→' : '老陰→')
+      : (isYang ? '少陽' : '少陰')
+    const lineSymbol = isYang
+      ? `<span style="color:#fcd34d;font-family:monospace;letter-spacing:.05em">━━━━━</span>`
+      : `<span style="color:#94a3b8;font-family:monospace;letter-spacing:.05em">━━ ━━</span>`
+    const row = document.createElement('div')
+    row.style.cssText = 'display:flex;align-items:center;gap:.6rem;padding:.18rem 0;font-size:.82rem;'
+    row.innerHTML = `
+      <span style="color:#475569;min-width:2.4em">${LINE_NAMES[i]}</span>
+      <span style="letter-spacing:.2em;color:#64748b;min-width:5em">${coinStr}</span>
+      <span style="color:#475569;min-width:1.2em">${sum}</span>
+      <span style="min-width:5em">${lineSymbol}</span>
+      <span style="color:#64748b;font-size:.75em">${lineType}</span>
+    `
+    throwsEl.appendChild(row)
+  }
+
+  // 算出卦號，顯示六爻圖
+  const hexNum = calcHexNum(lines)
+  const yang = lines.map(v => v % 2 === 1 ? 1 : 0)
+  const linesHtml = [5,4,3,2,1,0]
+    .map(i => yang[i]
+      ? `<div style="color:#fcd34d;font-family:monospace;letter-spacing:.05em;font-size:1.1rem;">━━━━━</div>`
+      : `<div style="color:#94a3b8;font-family:monospace;letter-spacing:.05em;font-size:1.1rem;">━━ ━━</div>`)
+    .join('')
+  hexEl.innerHTML = `
+    <div style="display:flex;align-items:center;gap:1.5rem;padding:.75rem 1rem;background:rgba(255,255,255,.04);border:1px solid rgba(14,165,233,.2);border-radius:10px;">
+      <div style="line-height:1.55;">${linesHtml}</div>
+      <div>
+        <div style="color:#0ea5e9;font-size:.72rem;font-weight:800;letter-spacing:.1em;margin-bottom:.2rem;">第 ${hexNum} 卦</div>
+        <div style="color:#64748b;font-size:.72rem;">由三錢六爻推算</div>
+      </div>
+    </div>
+  `
+
+  // 取得 AI 指引
   try {
     const r = await fetch('/api/iching-cast', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question }),
+      body: JSON.stringify({ question, lines }),
     })
     const d = await r.json()
-    clearInterval(anim)
     dice.textContent = '☯'
     body.innerHTML = formatText(d.answer ?? '無法獲得回應，請稍後再試。')
-    res.style.display = 'block'
     res.scrollIntoView({ behavior: 'smooth', block: 'start' })
   } catch {
-    clearInterval(anim)
     dice.textContent = '🎲'
     body.innerHTML = '<p style="color:#991b1b">⚠️ 連線失敗，請稍後再試。</p>'
-    res.style.display = 'block'
   } finally {
     btn.disabled = false
     btn.textContent = '🎲 擲卦'

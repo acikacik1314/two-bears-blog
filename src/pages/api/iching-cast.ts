@@ -69,15 +69,43 @@ const HEXAGRAMS: Record<number, { name: string; meaning: string }> = {
   64: { name: '火水未濟', meaning: '事猶未竟，尚未完成，距離成功還差一步，需再接再厲繼續努力' },
 };
 
+// TABLE[lowerTrigram][upperTrigram] = hexagram number (King Wen sequence)
+// Trigram index: 0=坤 1=艮 2=坎 3=巽 4=震 5=離 6=兌 7=乾
+// Bit encoding: bottom-line*4 + middle-line*2 + top-line*1 (1=yang, 0=yin)
+const TRIGRAM_TABLE: number[][] = [
+  //         坤   艮   坎   巽   震    離   兌   乾
+  /* 坤 */ [ 2,  23,   8,  20,  16,  35,  45,  12],
+  /* 艮 */ [15,  52,  39,  53,  62,  56,  31,  33],
+  /* 坎 */ [ 7,   4,  29,  59,  40,  64,  47,   6],
+  /* 巽 */ [46,  18,  48,  57,  32,  50,  28,  44],
+  /* 震 */ [24,  27,   3,  42,  51,  21,  17,  25],
+  /* 離 */ [36,  22,  63,  37,  55,  30,  49,  13],
+  /* 兌 */ [19,  41,  60,  61,  54,  38,  58,  10],
+  /* 乾 */ [11,  26,   5,   9,  34,  14,  43,   1],
+]
+
+function linesToHexagram(lines: number[]): number {
+  // lines[0]=bottom, lines[5]=top; value 7/9=yang, 6/8=yin
+  const y = lines.map(v => v % 2 === 1 ? 1 : 0)
+  const lower = y[0]*4 + y[1]*2 + y[2]
+  const upper = y[3]*4 + y[4]*2 + y[5]
+  return TRIGRAM_TABLE[lower][upper]
+}
+
 export const POST: APIRoute = async ({ request }) => {
   if (!getGroqKeys().length) {
     return json({ ok: false, answer: '⚠️ AI 尚未啟用，請稍後再試。' });
   }
 
-  const { question } = await request.json() as { question?: string };
+  const { question, lines } = await request.json() as { question?: string; lines?: number[] };
 
-  // Server-side random hexagram (1–64)
-  const num = Math.floor(Math.random() * 64) + 1;
+  // Use coin-toss lines from frontend if provided, else fallback to random
+  let num: number;
+  if (Array.isArray(lines) && lines.length === 6 && lines.every(v => v >= 6 && v <= 9)) {
+    num = linesToHexagram(lines);
+  } else {
+    num = Math.floor(Math.random() * 64) + 1;
+  }
   const hex = HEXAGRAMS[num];
 
   const system = `你是「未來人」——從 2055 年循著時間線回來的觀測者。

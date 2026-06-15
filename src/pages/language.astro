@@ -1,0 +1,534 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '出國前 7 天，把 AI 變成你的隨身語言教練｜兩隻熊旅遊筆記';
+const description = '把實測好用的 4 組 AI 提示詞整理成旅遊語言學習指南，還附上一鍵生成專屬語言行前包的小工具。';
+---
+
+<style is:global>
+  .tb-lang{
+    --paper:#F4EFE3;
+    --paper-2:#FBF8F0;
+    --ink:#173A37;
+    --ink-soft:#3C605B;
+    --coral:#E0603C;
+    --coral-deep:#C24A2C;
+    --gold:#C2933A;
+    --line:rgba(23,58,55,.18);
+    --line-strong:rgba(23,58,55,.4);
+    --shadow:0 18px 40px -22px rgba(23,58,55,.45);
+  }
+  .tb-lang{
+    font-family:"Noto Sans TC",system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(120% 60% at 100% 0%, rgba(224,96,60,.06), transparent 60%),
+      radial-gradient(100% 50% at 0% 100%, rgba(194,147,58,.07), transparent 55%),
+      var(--paper);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding:0 20px 90px;
+    overflow-x:hidden;
+  }
+  .tb-lang .wrap{max-width:760px;margin:0 auto}
+
+  /* ---------- HERO ---------- */
+  .tb-lang .hero{padding:64px 0 28px;position:relative}
+  .tb-lang .eyebrow{
+    font-family:"Space Mono",monospace;
+    letter-spacing:.22em;font-size:12px;text-transform:uppercase;
+    color:var(--coral-deep);display:flex;align-items:center;gap:10px;
+  }
+  .tb-lang .eyebrow::before{content:"";width:26px;height:1px;background:var(--coral)}
+  .tb-lang h1{
+    font-family:"Noto Serif TC",serif;font-weight:900;
+    font-size:clamp(30px,6.2vw,50px);line-height:1.25;
+    margin:18px 0 0;letter-spacing:-.01em;
+  }
+  .tb-lang h1 .hl{color:var(--coral-deep);position:relative;white-space:nowrap}
+  .tb-lang .lede{font-size:18px;color:var(--ink-soft);margin:22px 0 0;max-width:60ch}
+
+  /* boarding-pass strip */
+  .tb-lang .pass{
+    margin:38px 0 8px;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:14px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .tb-lang .pass::after{
+    content:"";position:absolute;top:0;bottom:0;left:74%;width:1px;
+    background-image:linear-gradient(var(--line-strong) 55%, transparent 0);
+    background-size:1px 9px;background-repeat:repeat-y;
+  }
+  .tb-lang .pass-notch{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--paper);left:calc(74% - 9px)}
+  .tb-lang .pass-notch.t{top:-9px}
+  .tb-lang .pass-notch.b{bottom:-9px}
+  .tb-lang .pass-row{display:flex}
+  .tb-lang .pass-main{flex:0 0 74%;padding:22px 26px;display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}
+  .tb-lang .pass-stub{flex:1;padding:22px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+  .tb-lang .pf-k{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase}
+  .tb-lang .pf-v{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-top:2px}
+  .tb-lang .pf-v.route{display:flex;align-items:center;gap:8px}
+  .tb-lang .pf-v.route span.dots{flex:1;border-top:2px dotted var(--line-strong);height:1px;margin-top:9px}
+  .tb-lang .stamp{
+    align-self:flex-end;border:2px solid var(--coral);color:var(--coral-deep);
+    font-family:"Space Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.12em;
+    padding:6px 9px;border-radius:6px;transform:rotate(-7deg);opacity:.85;line-height:1.3;text-align:center;
+  }
+
+  /* ---------- PROSE ---------- */
+  .tb-lang .prose{padding:30px 0 6px}
+  .tb-lang .prose p{margin:0 0 18px;font-size:17px}
+  .tb-lang .prose strong{color:var(--ink);font-weight:700;box-shadow:inset 0 -.5em 0 rgba(194,147,58,.18)}
+
+  /* ---------- SECTION HEAD ---------- */
+  .tb-lang .sec-head{margin:54px 0 26px;text-align:center}
+  .tb-lang .sec-head .kbar{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.2em;color:var(--coral-deep);text-transform:uppercase}
+  .tb-lang .sec-head h2{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(24px,4.8vw,33px);margin:10px 0 0}
+  .tb-lang .sec-head p{color:var(--ink-soft);margin:10px auto 0;max-width:48ch}
+
+  /* ---------- METHOD CARDS ---------- */
+  .tb-lang .card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:16px;
+    padding:26px 26px 24px;margin:0 0 22px;box-shadow:var(--shadow);position:relative;
+  }
+  .tb-lang .card .num{
+    position:absolute;top:-16px;left:24px;width:38px;height:38px;border-radius:50%;
+    background:var(--ink);color:var(--paper-2);display:grid;place-items:center;
+    font-family:"Space Mono",monospace;font-weight:700;font-size:15px;box-shadow:var(--shadow);
+  }
+  .tb-lang .card h3{font-family:"Noto Serif TC",serif;font-weight:700;font-size:21px;margin:8px 0 0;padding-left:2px}
+  .tb-lang .card .when{display:inline-block;margin:10px 0 4px;font-size:13px;font-family:"Space Mono",monospace;letter-spacing:.06em;color:var(--coral-deep);background:rgba(224,96,60,.09);padding:3px 9px;border-radius:20px}
+  .tb-lang .card .desc{font-size:16px;color:var(--ink-soft);margin:8px 0 16px}
+
+  .tb-lang .promptbox{
+    position:relative;background:var(--ink);color:#EBE7DA;border-radius:12px;
+    padding:18px 18px 18px;font-size:14.5px;line-height:1.8;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .tb-lang .promptbox .tag{
+    position:absolute;top:-9px;left:14px;font-family:"Space Mono",monospace;font-size:10px;
+    letter-spacing:.14em;background:var(--coral);color:#fff;padding:2px 8px;border-radius:5px;text-transform:uppercase;
+  }
+  .tb-lang .copybtn{
+    position:absolute;top:12px;right:12px;background:rgba(255,255,255,.1);color:#EBE7DA;
+    border:1px solid rgba(255,255,255,.22);border-radius:8px;font-family:"Space Mono",monospace;
+    font-size:11px;letter-spacing:.08em;padding:6px 11px;cursor:pointer;transition:.18s;
+  }
+  .tb-lang .copybtn:hover{background:var(--coral);border-color:var(--coral)}
+  .tb-lang .copybtn.done{background:var(--gold);border-color:var(--gold);color:#fff}
+  .tb-lang .tip{
+    margin:16px 0 0;font-size:14.5px;color:var(--ink-soft);
+    border-left:3px solid var(--gold);padding:2px 0 2px 14px;
+  }
+  .tb-lang .tip b{color:var(--ink);font-weight:700}
+
+  /* ---------- GENERATOR ---------- */
+  .tb-lang .gen{
+    background:linear-gradient(180deg, #16332F, #173A37);color:#EFEADC;
+    border-radius:20px;padding:34px 26px 30px;margin-top:30px;box-shadow:var(--shadow);
+  }
+  .tb-lang .gen .ghead{text-align:center;margin-bottom:24px}
+  .tb-lang .gen .ghead .kbar{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+  .tb-lang .gen .ghead h2{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(23px,4.6vw,30px);margin:9px 0 0;color:#fff}
+  .tb-lang .gen .ghead p{color:#C4C2B2;margin:9px auto 0;max-width:42ch;font-size:15px}
+
+  .tb-lang .field{margin-bottom:18px}
+  .tb-lang .field > label{display:block;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:9px}
+  .tb-lang select, .tb-lang .seg{width:100%}
+  .tb-lang select{
+    appearance:none;background:#0F2623 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C2933A' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;
+    color:#EFEADC;border:1px solid rgba(255,255,255,.16);border-radius:10px;
+    padding:13px 38px 13px 14px;font-size:15px;font-family:inherit;cursor:pointer;
+  }
+  .tb-lang select:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .tb-lang .seg{display:flex;gap:8px;flex-wrap:wrap}
+  .tb-lang .seg .opt{flex:1;min-width:90px}
+  .tb-lang .seg input{position:absolute;opacity:0;pointer-events:none}
+  .tb-lang .seg label{
+    display:block;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:10px;
+    padding:11px 6px;font-size:14px;cursor:pointer;transition:.16s;color:#D9D6C7;background:rgba(255,255,255,.02);
+  }
+  .tb-lang .seg input:checked + label{background:var(--coral);border-color:var(--coral);color:#fff;font-weight:500}
+  .tb-lang .seg input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
+  .tb-lang .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .tb-lang .chips .opt{flex:0 1 auto}
+  .tb-lang .chips label{padding:9px 14px;border-radius:30px}
+
+  .tb-lang .genbtn{
+    width:100%;margin-top:8px;background:var(--coral);color:#fff;border:none;border-radius:12px;
+    padding:16px;font-family:"Noto Serif TC",serif;font-weight:700;font-size:18px;cursor:pointer;
+    transition:.18s;box-shadow:0 10px 24px -10px rgba(224,96,60,.7);
+  }
+  .tb-lang .genbtn:hover{background:var(--coral-deep)}
+  .tb-lang .hint{text-align:center;font-size:12.5px;color:#9FA292;margin-top:12px}
+
+  /* output */
+  .tb-lang .out{margin-top:26px;display:none}
+  .tb-lang .out.show{display:block;animation:tblFade .4s ease}
+  @keyframes tblFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tb-lang .out .obar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    border-bottom:1px dashed rgba(255,255,255,.2);padding-bottom:14px;margin-bottom:18px;
+  }
+  .tb-lang .out .obar h4{font-family:"Noto Serif TC",serif;font-size:18px;margin:0;color:#fff}
+  .tb-lang .out .obar h4 small{display:block;font-family:"Space Mono",monospace;font-size:11px;color:var(--gold);letter-spacing:.1em;font-weight:400;margin-top:3px}
+  .tb-lang .copyall{
+    background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:9px;
+    font-family:"Space Mono",monospace;font-size:12px;padding:9px 14px;cursor:pointer;transition:.16s;letter-spacing:.06em;
+  }
+  .tb-lang .copyall:hover{background:var(--gold);border-color:var(--gold)}
+  .tb-lang .ocard{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 16px 14px;margin-bottom:14px;position:relative}
+  .tb-lang .ocard .oh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .tb-lang .ocard .oh .dot{width:24px;height:24px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-family:"Space Mono",monospace;font-size:12px;font-weight:700;color:#fff;flex:none}
+  .tb-lang .ocard .oh .ot{font-family:"Noto Serif TC",serif;font-weight:700;font-size:15.5px;color:#fff}
+  .tb-lang .ocard .obody{font-size:14px;line-height:1.78;color:#DcD9CB;white-space:pre-wrap;word-break:break-word}
+  .tb-lang .ocard .mini{position:absolute;top:13px;right:13px;background:rgba(255,255,255,.08);color:#EBE7DA;border:1px solid rgba(255,255,255,.2);border-radius:7px;font-family:"Space Mono",monospace;font-size:10px;padding:5px 9px;cursor:pointer;transition:.16s}
+  .tb-lang .ocard .mini:hover{background:var(--coral);border-color:var(--coral)}
+  .tb-lang .ocard .mini.done{background:var(--gold);border-color:var(--gold)}
+
+  /* ---------- SCHEDULE ---------- */
+  .tb-lang .sched{margin-top:14px}
+  .tb-lang .day{display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .tb-lang .day:last-child{border-bottom:none}
+  .tb-lang .day .d{flex:none;width:60px;font-family:"Space Mono",monospace;font-weight:700;color:var(--coral-deep);font-size:13px;padding-top:2px}
+  .tb-lang .day .t{font-size:15.5px;color:var(--ink-soft)}
+  .tb-lang .day .t b{color:var(--ink)}
+
+  /* ---------- OUTRO ---------- */
+  .tb-lang .outro{margin-top:46px;text-align:center;background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:34px 26px;box-shadow:var(--shadow)}
+  .tb-lang .outro .bears{font-size:30px;letter-spacing:4px}
+  .tb-lang .outro h3{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;margin:8px 0 10px}
+  .tb-lang .outro p{color:var(--ink-soft);font-size:16px;margin:0 auto;max-width:46ch}
+
+  @media (max-width:560px){
+    .tb-lang .lede{font-size:22px}
+    .tb-lang .prose p{font-size:22px;line-height:1.9}
+    .tb-lang .card .desc{font-size:19px}
+    .tb-lang .card h3{font-size:22px}
+    .tb-lang .tip{font-size:16px}
+    .tb-lang .day .t{font-size:17px}
+    .tb-lang .outro p{font-size:18px}
+    .tb-lang .pass-row{flex-direction:column}
+    .tb-lang .pass-main{flex:none;grid-template-columns:1fr 1fr}
+    .tb-lang .pass::after{left:0;right:0;top:auto;bottom:auto;width:auto;height:1px;
+      background-image:linear-gradient(90deg,var(--line-strong) 55%, transparent 0);background-size:9px 1px;
+      top:calc(100% - 86px)}
+    .tb-lang .pass-notch{left:auto}
+    .tb-lang .pass-notch.t{top:auto;bottom:78px;left:-9px}
+    .tb-lang .pass-notch.b{bottom:78px;left:auto;right:-9px;top:auto}
+    .tb-lang .seg .opt{min-width:calc(50% - 4px)}
+  }
+  @media (prefers-reduced-motion:reduce){.tb-lang .out.show{animation:none}}
+</style>
+
+<html lang="zh-TW">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <Header />
+
+  <div class="tb-lang">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow">兩隻熊 ✦ 旅遊筆記</div>
+      <h1>出國前 7 天，<br>把 AI 變成你的<span class="hl">隨身語言教練</span></h1>
+      <p class="lede">不用變成語言高手，只要在出發前準備好「臨場那幾句」。我們把實測好用的 4 組 AI 提示詞整理成這篇，最後還做了一個小工具，幫你一鍵生成屬於你這趟旅程的語言行前包。</p>
+
+      <div class="pass">
+        <span class="pass-notch t"></span><span class="pass-notch b"></span>
+        <div class="pass-row">
+          <div class="pass-main">
+            <div><div class="pf-k">Passenger</div><div class="pf-v">愛旅行的你</div></div>
+            <div><div class="pf-k">Coach</div><div class="pf-v">AI 語言教練</div></div>
+            <div style="grid-column:1/-1"><div class="pf-k">Route</div><div class="pf-v route">不會講<span class="dots"></span>會臨場應變</div></div>
+          </div>
+          <div class="pass-stub">
+            <div class="pf-k">Prep</div>
+            <div class="pf-v">7 天</div>
+            <div class="stamp">PHRASE<br>BOOK</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <section class="prose">
+      <p>每次出國，最讓人緊張的往往不是迷路，而是<strong>開口的那一瞬間</strong>。明明在手機裡打好了 Google 翻譯，真的要講出來卻卡住；或者背了一堆單字 app 的進度，到了現場一句也想不起來。</p>
+      <p>AI 厲害的地方，不在於它知道得多，而在於它<strong>願意陪你練</strong>——它會跟你來回對話、即時糾正、還能照著你這趟的行程量身設計。下面這 4 組提示詞，你可以直接複製貼到 Claude 或 Gemini 裡用，把它當成一個不會不耐煩的當地朋友。</p>
+    </section>
+
+    <!-- METHODS -->
+    <div class="sec-head">
+      <div class="kbar">4 Ways · 四個方法</div>
+      <h2>把 AI 變教練的 4 組提示詞</h2>
+      <p>每一組都有適合用的時機，按右上角的鈕就能複製。</p>
+    </div>
+
+    <!-- 1 -->
+    <article class="card">
+      <div class="num">01</div>
+      <h3>7 天語言沉浸計畫</h3>
+      <span class="when">出發前一週開始</span>
+      <p class="desc">給你一份完整的學習地圖：常用句、分主題單字、關鍵文法、每日朗讀練習，到第七天還幫你出小測驗驗收。一次把整週要練的東西排好。</p>
+      <div class="promptbox" data-prompt>
+        <span class="tag">Prompt 01</span>
+        <button class="copybtn" data-copy>複製</button>
+你是我的【目標語言】個人語言教練，我即將出國旅行，目前是初學程度。請幫我設計一份 7 天旅遊語言沉浸計畫，內容包含：
+1）20 句旅遊現場最常用的對話短句
+2）15 個依主題分組的單字（工作、社交、旅行）
+3）5 個最關鍵的文法點，每個附 3 個自然例句
+4）一段我每天可以朗讀練習的短對話
+5）第 7 天用一個小測驗驗收所有內容
+請用真人聊天的口吻，不要像教科書。</div>
+      <p class="tip"><b>兩隻熊的提醒：</b>把「目標語言」換成你要去的國家的語言，再補一句「我這趟主要會去吃東西跟逛街」，AI 給的內容會更貼近你真的用得到的。</p>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <div class="num">02</div>
+      <h3>跟「在地人」練對話</h3>
+      <span class="when">想練臨場反應時</span>
+      <p class="desc">讓 AI 扮演當地母語朋友，跟你進行一場自然的對話。它會溫柔地糾正你、建議更道地的說法，還會一直丟問題讓對話延續下去。</p>
+      <div class="promptbox" data-prompt>
+        <span class="tag">Prompt 02</span>
+        <button class="copybtn" data-copy>複製</button>
+請扮演來自當地的母語朋友，我們用【目標語言】進行一場關於「點餐」的自然對話。請：保持真實、輕鬆；溫柔糾正我的錯誤；遇到我講得卡時，建議聽起來更自然的說法；用後續問題讓對話延續下去。
+
+如果我講錯了，請先說「講得不錯！只是有個小地方……」再糾正。我的母語是中文，程度還是初學，請從簡單一點開始。我們至少聊 10 個來回。</div>
+      <p class="tip"><b>兩隻熊的提醒：</b>把情境換成你最容易遇到的場面（問路、結帳），練到不用想就講得出來，現場就不會慌。</p>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <div class="num">03</div>
+      <h3>記得住的單字術</h3>
+      <span class="when">通勤、睡前零碎時間</span>
+      <p class="desc">不只給你單字，還會附真實例句跟好記的聯想法，每教 5 個就考你一次——答對才往下走，逼自己真的記起來。</p>
+      <div class="promptbox" data-prompt>
+        <span class="tag">Prompt 03</span>
+        <button class="copybtn" data-copy>複製</button>
+請教我 20 個旅行最實用的【目標語言】單字／短句。每一個請給我：
+1）一個簡單的定義
+2）2 句真實情境的例句
+3）一個好記又有趣的聯想記憶法
+每教 5 個就考我一次，我答對才繼續，全部都記熟之前不要往下教。我的母語是中文。</div>
+      <p class="tip"><b>兩隻熊的提醒：</b>聯想記憶法很適合中文母語者，像把外語發音連到一個好笑的中文諧音，記得超牢，現場想得起來才是真的會。</p>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <div class="num">04</div>
+      <h3>真實情境角色扮演</h3>
+      <span class="when">行前最後彩排</span>
+      <p class="desc">直接演一遍真實場景：點餐、辦理入住、跟人交朋友。AI 是當地人，會用道地口語回應、即時糾正，演到你能自信完成為止。</p>
+      <div class="promptbox" data-prompt>
+        <span class="tag">Prompt 04</span>
+        <button class="copybtn" data-copy>複製</button>
+我們用【目標語言】來角色扮演這個情境：在餐廳點餐。你是當地的母語人士，請：自然地說（包含當地常用的口語跟語氣）、像真實情況一樣回應、即時糾正我。
+
+如果我說了不自然的話，請先正常回覆，再補一句「不錯的嘗試！更自然的說法是……，因為……」。請一直演到我可以自信地處理好這個狀況為止。我的母語是中文，程度是初學。</div>
+      <p class="tip"><b>兩隻熊的提醒：</b>這招最適合出發前一兩天做總彩排，把整趟最常碰到的三個情境各演一次，臨場就有種「啊我練過」的安心感。</p>
+    </article>
+
+    <!-- GENERATOR -->
+    <div class="gen">
+      <div class="ghead">
+        <div class="kbar">Generator · 行前包生成器</div>
+        <h2>幫你客製這趟的語言行前包</h2>
+        <p>選一選你的行程，我們把上面 4 組提示詞自動填好你的語言、情境跟程度，複製就能用。</p>
+      </div>
+
+      <div class="field">
+        <label for="tb-dest">你要去哪裡？</label>
+        <select id="tb-dest">
+          <option value="日本|日語|日本">日本 · 日語</option>
+          <option value="韓國|韓語|韓國">韓國 · 韓語</option>
+          <option value="泰國|泰語|泰國">泰國 · 泰語</option>
+          <option value="越南|越南語|越南">越南 · 越南語</option>
+          <option value="法國|法語|法國">法國 · 法語</option>
+          <option value="義大利|義大利語|義大利">義大利 · 義大利語</option>
+          <option value="西班牙|西班牙語|西班牙">西班牙 · 西班牙語</option>
+          <option value="德國|德語|德國">德國 · 德語</option>
+          <option value="美國／英國|英語|當地">美國／英國 · 英語</option>
+          <option value="印尼|印尼語|印尼">印尼 · 印尼語</option>
+          <option value="土耳其|土耳其語|土耳其">土耳其 · 土耳其語</option>
+          <option value="香港／澳門|粵語|當地">香港／澳門 · 粵語</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>你的程度</label>
+        <div class="seg" id="tb-level">
+          <div class="opt"><input type="radio" name="lv" id="lv1" value="完全新手，幾乎不會" checked><label for="lv1">完全新手</label></div>
+          <div class="opt"><input type="radio" name="lv" id="lv2" value="會一點點，能講幾句"><label for="lv2">會一點點</label></div>
+          <div class="opt"><input type="radio" name="lv" id="lv3" value="有基礎，想加強臨場應變"><label for="lv3">有基礎</label></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>這趟最常遇到的情境（可複選）</label>
+        <div class="chips" id="tb-scn">
+          <div class="opt"><input type="checkbox" id="s1" value="在餐廳點餐" checked><label for="s1">點餐美食</label></div>
+          <div class="opt"><input type="checkbox" id="s2" value="問路與搭乘交通"><label for="s2">問路交通</label></div>
+          <div class="opt"><input type="checkbox" id="s3" value="逛街購物與結帳"><label for="s3">購物結帳</label></div>
+          <div class="opt"><input type="checkbox" id="s4" value="飯店入住與提出需求"><label for="s4">飯店入住</label></div>
+          <div class="opt"><input type="checkbox" id="s5" value="跟當地人閒聊交朋友"><label for="s5">交朋友閒聊</label></div>
+          <div class="opt"><input type="checkbox" id="s6" value="求助與緊急狀況"><label for="s6">緊急求助</label></div>
+        </div>
+      </div>
+
+      <button class="genbtn" id="tb-gen">生成我的語言行前包 →</button>
+      <p class="hint">純前端生成，不會用到任何 API 額度，貼到 AI 對話框就能開始練。</p>
+
+      <div class="out" id="tb-out">
+        <div class="obar">
+          <h4>你的行前包<small id="tb-outmeta"></small></h4>
+          <button class="copyall" id="tb-copyall">一鍵複製全部</button>
+        </div>
+        <div id="tb-cards"></div>
+      </div>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="sec-head">
+      <div class="kbar">7-Day Plan · 出發前怎麼排</div>
+      <h2>把這 7 天輕鬆排好</h2>
+    </div>
+    <div class="card sched">
+      <div class="day"><div class="d">Day 1</div><div class="t">用 <b>提示詞 01</b> 生出你的 7 天計畫，先看過一遍有哪些常用句。</div></div>
+      <div class="day"><div class="d">Day 2–3</div><div class="t">用 <b>提示詞 03</b> 背單字，通勤或睡前各記 5 個，答對再往下。</div></div>
+      <div class="day"><div class="d">Day 4–5</div><div class="t">用 <b>提示詞 02</b> 開始對話練習，挑你最常遇到的兩個情境各聊一次。</div></div>
+      <div class="day"><div class="d">Day 6</div><div class="t">用 <b>提示詞 04</b> 做情境彩排，把點餐、問路、結帳各演一遍。</div></div>
+      <div class="day"><div class="d">Day 7</div><div class="t">回到 <b>提示詞 01</b> 的小測驗驗收，記不熟的隔天補練一次就出發。</div></div>
+    </div>
+
+    <!-- OUTRO -->
+    <div class="outro">
+      <div class="bears">🐻🐻</div>
+      <h3>會講不會講，差的就是那幾句</h3>
+      <p>語言不是要你變流利，是讓你在點到一碗道地的麵、問到對的月台時，多一點點底氣。祝你這趟玩得開心，遇到好人、好風景，也遇到聽得懂你那幾句的當地朋友。</p>
+    </div>
+
+  </div>
+  </div>
+
+  <Footer />
+</body>
+</html>
+
+<script>
+(function(){
+  var root = document.querySelector('.tb-lang');
+  if(!root) return;
+
+  function flash(btn: HTMLButtonElement, label?: string){
+    var old = btn.textContent;
+    btn.textContent = label || '已複製 ✓';
+    btn.classList.add('done');
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1600);
+  }
+  function copyText(text: string, btn?: HTMLButtonElement, label?: string){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ if(btn) flash(btn, label); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); if(btn) flash(btn, label); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  }
+
+  // copy buttons on static prompt cards
+  root.querySelectorAll<HTMLElement>('[data-prompt]').forEach(function(box){
+    var btn = box.querySelector<HTMLButtonElement>('[data-copy]');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var clone = box.cloneNode(true) as HTMLElement;
+      clone.querySelectorAll('.tag,.copybtn').forEach(function(n){ n.remove(); });
+      copyText(clone.textContent?.trim() || '', btn!);
+    });
+  });
+
+  // ---------- generator ----------
+  interface PromptOpts { lang: string; place: string; level: string; scns: string[]; }
+  interface Prompt { no: string; title: string; body: string; }
+
+  function buildPrompts(opts: PromptOpts): Prompt[] {
+    var lang = opts.lang, place = opts.place, level = opts.level;
+    var scns = opts.scns;
+    var main = scns[0] || '在餐廳點餐';
+    var list = scns.join('、');
+
+    return [
+      {
+        no:'01', title:'7 天語言沉浸計畫',
+        body:'你是我的【'+lang+'】個人語言教練，我即將去'+place+'旅行，母語是中文，目前程度是'+level+'。請幫我設計一份 7 天旅遊語言沉浸計畫，內容包含：\n1）20 句旅遊現場最常用的對話短句\n2）15 個依主題分組的單字，重點放在：'+list+'\n3）5 個最關鍵的文法點，每個附 3 個自然例句\n4）一段我每天可以朗讀練習的短對話\n5）第 7 天用一個小測驗驗收所有內容\n請用真人聊天的口吻，不要像教科書。'
+      },
+      {
+        no:'02', title:'跟在地人練對話',
+        body:'請扮演來自'+place+'的'+lang+'母語朋友，我們用'+lang+'進行一場關於「'+main+'」的自然對話。請：保持真實、輕鬆；溫柔糾正我的錯誤；遇到我講得卡時，建議聽起來更自然的說法；用後續問題讓對話延續下去。\n\n如果我講錯了，請先說「講得不錯！只是有個小地方……」再糾正。我的母語是中文，程度是'+level+'，請從簡單一點開始。我們至少聊 10 個來回。'
+      },
+      {
+        no:'03', title:'記得住的單字術',
+        body:'請教我 20 個去'+place+'旅行最實用的'+lang+'單字／短句，重點放在：'+list+'。每一個請給我：\n1）一個簡單的定義\n2）2 句真實情境的例句\n3）一個好記又有趣的聯想記憶法（可以用中文諧音）\n每教 5 個就考我一次，我答對才繼續，全部記熟之前不要往下教。我的母語是中文。'
+      },
+      {
+        no:'04', title:'真實情境角色扮演',
+        body:'我們用'+lang+'來角色扮演這個情境：'+main+'。你是'+place+'當地的母語人士，請：自然地說（包含當地常用的口語跟語氣）、像真實情況一樣回應、即時糾正我。\n\n如果我說了不自然的話，請先正常回覆，再補一句「不錯的嘗試！更自然的說法是……，因為……」。請一直演到我可以自信地處理好這個狀況為止。我的母語是中文，程度是'+level+'。'
+      }
+    ];
+  }
+
+  var genBtn = document.getElementById('tb-gen') as HTMLButtonElement;
+  var out = document.getElementById('tb-out')!;
+  var cardsWrap = document.getElementById('tb-cards')!;
+  var meta = document.getElementById('tb-outmeta')!;
+  var current: Prompt[] = [];
+
+  genBtn.addEventListener('click', function(){
+    var destParts = (document.getElementById('tb-dest') as HTMLSelectElement).value.split('|');
+    var place = destParts[0], lang = destParts[1];
+    var level = (document.querySelector('input[name="lv"]:checked') as HTMLInputElement).value;
+    var scns: string[] = [];
+    document.querySelectorAll<HTMLInputElement>('#tb-scn input:checked').forEach(function(c){ scns.push(c.value); });
+    if(scns.length === 0) scns = ['在餐廳點餐'];
+
+    current = buildPrompts({lang, place, level, scns});
+    meta.textContent = place + ' · ' + lang;
+
+    cardsWrap.innerHTML = '';
+    current.forEach(function(p){
+      var card = document.createElement('div');
+      card.className = 'ocard';
+      var safe = p.body.replace(/</g, '&lt;');
+      card.innerHTML =
+        '<button class="mini">複製</button>'+
+        '<div class="oh"><div class="dot">'+p.no+'</div><div class="ot">'+p.title+'</div></div>'+
+        '<div class="obody">'+safe+'</div>';
+      card.querySelector<HTMLButtonElement>('.mini')!.addEventListener('click', function(){
+        copyText(p.body, this as HTMLButtonElement);
+      });
+      cardsWrap.appendChild(card);
+    });
+
+    out.classList.add('show');
+    out.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('tb-copyall')!.addEventListener('click', function(){
+    if(current.length === 0) return;
+    var all = current.map(function(p){ return '【'+p.no+'｜'+p.title+'】\n'+p.body; }).join('\n\n──────────\n\n');
+    copyText(all, this as HTMLButtonElement, '全部複製 ✓');
+  });
+})();
+</script>

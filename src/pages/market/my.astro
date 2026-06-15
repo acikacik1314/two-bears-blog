@@ -59,6 +59,26 @@ html body { background: #0f172a; color: #e2e8f0; }
 .btn-remove:hover { background: rgba(248,113,113,.2); }
 .btn-mark-sold { padding: .4rem .9rem; border-radius: 8px; border: 1px solid #334155; background: transparent; color: #94a3b8; font-size: .78rem; cursor: pointer; white-space: nowrap; }
 .btn-mark-sold:hover { background: rgba(255,255,255,.05); }
+.btn-edit { padding: .4rem .9rem; border-radius: 8px; border: 1px solid rgba(168,85,247,.3); background: rgba(168,85,247,.08); color: #a855f7; font-size: .78rem; cursor: pointer; white-space: nowrap; }
+.btn-edit:hover { background: rgba(168,85,247,.2); }
+
+/* Edit modal */
+.edit-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: flex; align-items: flex-start; justify-content: center; z-index: 1000; padding: 1rem; overflow-y: auto; }
+.edit-overlay.hidden { display: none; }
+.edit-box { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 1.5rem; max-width: 500px; width: 100%; margin: auto; }
+.edit-box h3 { color: #f1f5f9; font-size: 1rem; margin-bottom: 1.25rem; }
+.edit-field { margin-bottom: 1rem; }
+.edit-label { display: block; font-size: .78rem; color: #64748b; margin-bottom: .3rem; }
+.edit-input, .edit-textarea, .edit-select {
+  width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  padding: .55rem .9rem; color: #e2e8f0; font-size: .85rem; font-family: inherit; box-sizing: border-box;
+}
+.edit-input:focus, .edit-textarea:focus, .edit-select:focus { outline: none; border-color: #a855f7; }
+.edit-textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+.edit-pin-row { border-top: 1px solid #334155; padding-top: 1rem; margin-top: .5rem; }
+.edit-actions { display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.25rem; }
+.btn-edit-save { padding: .55rem 1.4rem; border-radius: 10px; background: linear-gradient(135deg,#a855f7,#7c3aed); border: none; color: #fff; font-size: .88rem; font-weight: 700; cursor: pointer; }
+.edit-err { color: #f87171; font-size: .78rem; margin-top: .5rem; display: none; }
 
 .empty-state { text-align: center; padding: 3rem 1rem; color: #64748b; }
 .status-msg { color: #64748b; font-size: .85rem; margin-top: .75rem; }
@@ -122,6 +142,81 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div id="inquiries-container"></div>
   </div>
 
+  <!-- Edit modal -->
+  <div class="edit-overlay hidden" id="edit-overlay">
+    <div class="edit-box">
+      <h3>✏️ 編輯商品</h3>
+      <div class="edit-field">
+        <label class="edit-label">商品名稱</label>
+        <input class="edit-input" id="ef-title" type="text" />
+      </div>
+      <div class="edit-field" style="display:flex;gap:.75rem;">
+        <div style="flex:1">
+          <label class="edit-label">交易方式</label>
+          <select class="edit-select" id="ef-deal-type">
+            <option value="sell">出售</option>
+            <option value="trade">換物</option>
+            <option value="free">免費</option>
+          </select>
+        </div>
+        <div style="flex:1" id="ef-price-wrap">
+          <label class="edit-label">售價（NT$）</label>
+          <input class="edit-input" id="ef-price" type="number" min="0" />
+        </div>
+      </div>
+      <div class="edit-field" style="display:flex;gap:.75rem;">
+        <div style="flex:1">
+          <label class="edit-label">商品狀況</label>
+          <select class="edit-select" id="ef-condition">
+            <option value="like_new">近全新</option>
+            <option value="good">良好</option>
+            <option value="fair">普通</option>
+          </select>
+        </div>
+        <div style="flex:1">
+          <label class="edit-label">縣市</label>
+          <input class="edit-input" id="ef-city" type="text" />
+        </div>
+      </div>
+      <div class="edit-field">
+        <label class="edit-label">瑕疵說明</label>
+        <input class="edit-input" id="ef-condition-notes" type="text" placeholder="無則留空" />
+      </div>
+      <div class="edit-field">
+        <label class="edit-label">面交地點</label>
+        <input class="edit-input" id="ef-location-note" type="text" placeholder="例：桃園車站附近" />
+      </div>
+      <div class="edit-field">
+        <label class="edit-label">故事文案</label>
+        <textarea class="edit-textarea" id="ef-story" rows="4"></textarea>
+      </div>
+      <div class="edit-field">
+        <label class="edit-label">詳細資訊</label>
+        <textarea class="edit-textarea" id="ef-plain" rows="4"></textarea>
+      </div>
+      <div class="edit-field">
+        <label class="edit-label">聯絡方式</label>
+        <div style="display:flex;gap:.5rem;">
+          <select class="edit-select" id="ef-contact-type" style="width:100px;flex-shrink:0;">
+            <option value="line">LINE</option>
+            <option value="phone">電話</option>
+            <option value="form">站內</option>
+          </select>
+          <input class="edit-input" id="ef-contact-val" type="text" placeholder="LINE ID 或電話" />
+        </div>
+      </div>
+      <div class="edit-pin-row">
+        <label class="edit-label">輸入刪除密碼確認身份</label>
+        <input class="edit-input" id="ef-pin" type="number" placeholder="4 位數密碼" maxlength="4" />
+        <p class="edit-err" id="ef-err"></p>
+      </div>
+      <div class="edit-actions">
+        <button class="btn-cancel-sm" id="edit-cancel">取消</button>
+        <button class="btn-edit-save" id="edit-save">儲存</button>
+      </div>
+    </div>
+  </div>
+
   <div class="confirm-overlay hidden" id="confirm-overlay">
     <div class="confirm-box">
       <h3 id="confirm-heading">確定要下架嗎？</h3>
@@ -143,6 +238,8 @@ html body { background: #0f172a; color: #e2e8f0; }
 <script>
   let pendingId = ''
   let pendingAction = 'remove'
+  let allMyItems: any[] = []
+  let editingId = ''
 
   const lookupInput = document.getElementById('lookup-input') as HTMLInputElement
   const lookupStatus = document.getElementById('lookup-status')!
@@ -165,6 +262,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       if (data.error) throw new Error(data.error)
 
       const items = data.items || []
+      allMyItems = items
       lookupStatus.textContent = items.length ? `找到 ${items.length} 件商品` : '查無商品'
       loadInquiries(contact)
 
@@ -188,7 +286,8 @@ html body { background: #0f172a; color: #e2e8f0; }
               <div class="item-price ${priceClass}">${priceLabel}</div>
             </div>
             <div class="item-actions">
-              ${item.status !== 'sold' ? `<button class="btn-mark-sold" data-id="${item.id}">標記已售出</button>` : ''}
+              <button class="btn-edit" data-id="${item.id}">編輯</button>
+              ${item.status !== 'sold' ? `<button class="btn-mark-sold" data-id="${item.id}" data-title="${item.title}">標記已售出</button>` : ''}
               <button class="btn-remove" data-id="${item.id}" data-title="${item.title}">下架刪除</button>
             </div>
           </div>`
@@ -247,6 +346,15 @@ html body { background: #0f172a; color: #e2e8f0; }
   }
 
   function bindActions() {
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = (btn as HTMLElement).dataset.id!
+        const item = allMyItems.find(i => i.id === id)
+        if (!item) return
+        openEdit(item)
+      })
+    })
+
     document.querySelectorAll('.btn-remove').forEach(btn => {
       btn.addEventListener('click', () => {
         const b = btn as HTMLElement
@@ -261,6 +369,91 @@ html body { background: #0f172a; color: #e2e8f0; }
       })
     })
   }
+
+  function openEdit(item: any) {
+    editingId = item.id
+    ;(document.getElementById('ef-title') as HTMLInputElement).value = item.title || ''
+    ;(document.getElementById('ef-deal-type') as HTMLSelectElement).value = item.deal_type || 'sell'
+    ;(document.getElementById('ef-price') as HTMLInputElement).value = item.price || ''
+    ;(document.getElementById('ef-price-wrap') as HTMLElement).style.display = item.deal_type === 'sell' ? '' : 'none'
+    ;(document.getElementById('ef-condition') as HTMLSelectElement).value = item.condition || 'good'
+    ;(document.getElementById('ef-city') as HTMLInputElement).value = item.location_city || ''
+    ;(document.getElementById('ef-condition-notes') as HTMLInputElement).value = item.condition_notes || ''
+    ;(document.getElementById('ef-location-note') as HTMLInputElement).value = item.location_note || ''
+    ;(document.getElementById('ef-story') as HTMLTextAreaElement).value = item.description_story || ''
+    ;(document.getElementById('ef-plain') as HTMLTextAreaElement).value = item.description_plain || ''
+    ;(document.getElementById('ef-contact-type') as HTMLSelectElement).value = item.contact_type || 'form'
+    const contactVal = item.contact_line_id || item.contact_phone || ''
+    ;(document.getElementById('ef-contact-val') as HTMLInputElement).value = contactVal
+    ;(document.getElementById('ef-pin') as HTMLInputElement).value = ''
+    ;(document.getElementById('ef-err') as HTMLElement).style.display = 'none'
+    document.getElementById('edit-overlay')!.classList.remove('hidden')
+  }
+
+  document.getElementById('ef-deal-type')!.addEventListener('change', () => {
+    const type = (document.getElementById('ef-deal-type') as HTMLSelectElement).value
+    ;(document.getElementById('ef-price-wrap') as HTMLElement).style.display = type === 'sell' ? '' : 'none'
+  })
+
+  document.getElementById('edit-cancel')!.addEventListener('click', () => {
+    document.getElementById('edit-overlay')!.classList.add('hidden')
+  })
+  document.getElementById('edit-overlay')!.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) document.getElementById('edit-overlay')!.classList.add('hidden')
+  })
+
+  document.getElementById('edit-save')!.addEventListener('click', async () => {
+    const pin = (document.getElementById('ef-pin') as HTMLInputElement).value.trim()
+    const errEl = document.getElementById('ef-err') as HTMLElement
+    const dealType = (document.getElementById('ef-deal-type') as HTMLSelectElement).value
+    const contactType = (document.getElementById('ef-contact-type') as HTMLSelectElement).value
+    const contactVal = (document.getElementById('ef-contact-val') as HTMLInputElement).value.trim()
+    const btn = document.getElementById('edit-save') as HTMLButtonElement
+
+    errEl.style.display = 'none'
+    btn.disabled = true; btn.textContent = '儲存中...'
+
+    const payload: any = {
+      item_id: editingId,
+      pin,
+      title:            (document.getElementById('ef-title') as HTMLInputElement).value.trim(),
+      deal_type:        dealType,
+      price:            dealType === 'sell' ? Number((document.getElementById('ef-price') as HTMLInputElement).value) || null : null,
+      condition:        (document.getElementById('ef-condition') as HTMLSelectElement).value,
+      location_city:    (document.getElementById('ef-city') as HTMLInputElement).value.trim(),
+      condition_notes:  (document.getElementById('ef-condition-notes') as HTMLInputElement).value.trim() || null,
+      location_note:    (document.getElementById('ef-location-note') as HTMLInputElement).value.trim() || null,
+      description_story: (document.getElementById('ef-story') as HTMLTextAreaElement).value.trim(),
+      description_plain: (document.getElementById('ef-plain') as HTMLTextAreaElement).value.trim(),
+      contact_type:     contactType,
+      contact_line_id:  contactType === 'line' ? contactVal : null,
+      contact_phone:    contactType === 'phone' ? contactVal : null,
+    }
+
+    const res = await fetch('/api/market/edit-item', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    const data = await res.json()
+
+    if (data.success) {
+      // Update local cache
+      const idx = allMyItems.findIndex(i => i.id === editingId)
+      if (idx !== -1) Object.assign(allMyItems[idx], payload)
+      document.getElementById('edit-overlay')!.classList.add('hidden')
+      // Refresh row title if changed
+      const row = document.getElementById(`row-${editingId}`)
+      if (row) {
+        const titleEl = row.querySelector('.item-title')
+        if (titleEl) titleEl.textContent = payload.title
+      }
+    } else {
+      errEl.textContent = data.error || '儲存失敗'
+      errEl.style.display = 'block'
+    }
+    btn.disabled = false; btn.textContent = '儲存'
+  })
 
   document.getElementById('confirm-cancel')!.addEventListener('click', () => {
     document.getElementById('confirm-overlay')!.classList.add('hidden')

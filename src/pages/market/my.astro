@@ -64,6 +64,18 @@ html body { background: #0f172a; color: #e2e8f0; }
 .status-msg { color: #64748b; font-size: .85rem; margin-top: .75rem; }
 .status-msg.error { color: #f87171; }
 
+.section-title { font-size: .78rem; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin: 2rem 0 1rem; }
+.inq-list { display: flex; flex-direction: column; gap: .75rem; }
+.inq-card {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 1rem;
+}
+.inq-item-name { font-size: .72rem; color: #a855f7; margin-bottom: .4rem; }
+.inq-buyer { font-size: .82rem; font-weight: 700; color: #f1f5f9; margin-bottom: .25rem; }
+.inq-email { font-size: .75rem; color: #64748b; margin-bottom: .5rem; }
+.inq-msg { font-size: .85rem; color: #cbd5e1; line-height: 1.65; white-space: pre-wrap; }
+.inq-date { font-size: .72rem; color: #475569; margin-top: .5rem; }
+.inq-empty { color: #64748b; font-size: .85rem; padding: 1rem 0; }
+
 .confirm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 1rem; }
 .confirm-overlay.hidden { display: none; }
 .confirm-box { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 1.75rem; max-width: 360px; width: 100%; text-align: center; }
@@ -107,6 +119,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     </div>
 
     <div id="items-container"></div>
+    <div id="inquiries-container"></div>
   </div>
 
   <div class="confirm-overlay hidden" id="confirm-overlay">
@@ -152,7 +165,8 @@ html body { background: #0f172a; color: #e2e8f0; }
       if (data.error) throw new Error(data.error)
 
       const items = data.items || []
-      lookupStatus.textContent = items.length ? `找到 ${items.length} 件商品` : ''
+      lookupStatus.textContent = items.length ? `找到 ${items.length} 件商品` : '查無商品'
+      loadInquiries(contact)
 
       if (!items.length) {
         itemsContainer.innerHTML = `<div class="empty-state"><p>查無商品，請確認 LINE ID 或電話是否輸入正確</p></div>`
@@ -184,6 +198,37 @@ html body { background: #0f172a; color: #e2e8f0; }
     } catch (e: any) {
       lookupStatus.textContent = '查詢失敗：' + e.message
       lookupStatus.className = 'status-msg error'
+    }
+  }
+
+  async function loadInquiries(contact: string) {
+    const container = document.getElementById('inquiries-container')!
+    container.innerHTML = ''
+    try {
+      const res = await fetch(`/api/market/my-inquiries?contact=${encodeURIComponent(contact)}`)
+      const data = await res.json()
+      const inquiries = data.inquiries || []
+
+      container.innerHTML = `<p class="section-title">買家留言（${inquiries.length} 則）</p>`
+
+      if (!inquiries.length) {
+        container.innerHTML += `<p class="inq-empty">目前還沒有買家留言</p>`
+        return
+      }
+
+      container.innerHTML += `<div class="inq-list">${inquiries.map((inq: any) => {
+        const date = new Date(inq.created_at).toLocaleString('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+        return `
+          <div class="inq-card">
+            <div class="inq-item-name">關於：${inq.item_title}</div>
+            <div class="inq-buyer">${inq.buyer_name}</div>
+            <div class="inq-email"><a href="mailto:${inq.buyer_email}" style="color:#64748b;">${inq.buyer_email}</a></div>
+            <div class="inq-msg">${inq.message}</div>
+            <div class="inq-date">${date}</div>
+          </div>`
+      }).join('')}</div>`
+    } catch {
+      // silently fail — inquiries are optional
     }
   }
 

@@ -85,7 +85,7 @@ export const POST: APIRoute = async ({ request }) => {
       .from('market_items')
       .insert({
         seller_id: extracted.contactLineId || extracted.contactPhone || `anon_${Date.now()}`,
-        seller_name: null,
+        seller_name: extracted.contactLineId || extracted.contactPhone || '匿名賣家',
         seller_email: null,
         contact_type: extracted.contactType || session.contactType || 'form',
         contact_line_id: extracted.contactLineId || session.contactLineId || null,

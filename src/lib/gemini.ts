@@ -67,6 +67,7 @@ export async function generateItemDescription(info: {
   price?: number
   locationNote?: string
   deliveryMethods?: string[]
+  size?: string
 }): Promise<{ story: string; plain: string }> {
   const deliveryText = info.deliveryMethods?.length
     ? info.deliveryMethods.join('、')
@@ -76,7 +77,7 @@ export async function generateItemDescription(info: {
 
 根據以下商品資訊，生成兩個版本的商品說明，回傳 JSON（只回傳 JSON）：
 
-商品：${info.name}
+商品：${info.name}${info.size ? `（尺寸：${info.size}）` : ''}
 使用年數：${info.yearsUsed} 年
 狀況：${info.condition === 'like_new' ? '近全新' : info.condition === 'good' ? '良好' : '普通'}
 瑕疵：${info.conditionNotes || '無明顯瑕疵'}
@@ -125,6 +126,7 @@ ${historyText}
   "tradeWant": "換物想要什麼（不是換物填 null）",
   "locationCity": "縣市名稱",
   "locationNote": "面交地點細節",
+  "size": "衣物尺寸（例：M、L、XL、腰圍28英寸），非衣物填 null",
   "deliveryMethods": ["面交", "超商取貨付款", "宅配貨到付款"] 中賣家接受的方式（陣列）,
   "contactType": "line 或 phone 或 form",
   "contactLineId": "LINE ID（沒有填 null）",
@@ -181,6 +183,9 @@ export async function chatWithSeller(
   const keys = getGeminiKeys()
   if (!keys.length) return { reply: '抱歉，我暫時連不上，請稍後再試。', isComplete: false }
 
+  const category = session.identified?.category || ''
+  const isClothing = category === '衣物'
+
   const systemInstruction = `你是「兩隻熊二手市集」的 AI 攤主，名叫小熊。
 說話風格：溫暖、口語、像朋友，用繁體中文，偶爾用台灣語氣詞。
 一次只問一件事，不要同時問多個問題。
@@ -190,17 +195,17 @@ export async function chatWithSeller(
 你必須依序收集以下所有資訊，每一項都要問到才能結束：
 1. 商品名稱確認（若賣家沒有異議就視為確認，直接進入下一步）
 2. 當初購入的原價大約多少（不要自己猜，一定要問）
-3. 使用幾年
+3. 使用幾年${isClothing ? '\n3b. 衣物尺寸（S/M/L/XL 或實際數字，例如腰圍、胸圍等）' : ''}
 4. 功能狀況是否正常
-5. 外觀有無刮傷損壞
+5. 外觀有無刮傷損壞或瑕疵
 6. 期望售價（或換物、或免費）
-7. 所在縣市
+7. 所在縣市，以及面交的話大概在哪裡（捷運站、區域等）
 8. 交貨方式（面交、超商取貨付款、宅配貨到付款，可以多選）
 9. 聯絡方式（LINE ID 或電話，二擇一，這項一定要問，是買家聯絡賣家的唯一方式）
 
 定價規則：售價不能超過賣家告知原價的 30%。若超過要溫和提醒。
 
-【重要】只有在 1–9 全部收集完畢後，才能在回覆最後加上 [READY_TO_LIST]。
+【重要】只有在以上全部問完後，才能在回覆最後加上 [READY_TO_LIST]。
 缺少任何一項（尤其是第 9 項聯絡方式）都不能加 [READY_TO_LIST]。`
 
   // Build proper multi-turn contents

@@ -60,6 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
       tradeWant:      extracted.tradeWant      || session.tradeWant      || '',
       locationCity:    extracted.locationCity   || session.locationCity   || '',
       locationNote:    extracted.locationNote   || session.locationNote   || '',
+      size:            extracted.size           || session.size           || '',
       deliveryMethods: Array.isArray(extracted.deliveryMethods) ? extracted.deliveryMethods : (session.deliveryMethods || []),
       contactType:     extracted.contactType    || session.contactType    || 'form',
       contactLineId:   extracted.contactLineId  || session.contactLineId  || '',
@@ -86,6 +87,7 @@ export const POST: APIRoute = async ({ request }) => {
       price:           session.price ? Number(session.price) : undefined,
       locationNote:    session.locationNote   || session.locationCity || '',
       deliveryMethods: Array.isArray(session.deliveryMethods) ? session.deliveryMethods : [],
+      size:            session.size || '',
     })
     return new Response(JSON.stringify({ story: desc.story, plain: desc.plain }), {
       headers: { 'Content-Type': 'application/json' },
@@ -115,6 +117,7 @@ export const POST: APIRoute = async ({ request }) => {
         price:           session.price ? Number(session.price) : undefined,
         locationNote:    session.locationNote   || session.locationCity || '',
         deliveryMethods: Array.isArray(session.deliveryMethods) ? session.deliveryMethods : [],
+        size:            session.size || '',
       })
     }
 

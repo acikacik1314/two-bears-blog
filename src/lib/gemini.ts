@@ -169,13 +169,19 @@ ${itemsSummary}
 }`
   try {
     const result = await callGeminiRaw(prompt)
-    const clean = result.replace(/```json|```/g, '').trim()
-    const parsed = JSON.parse(clean)
-    const matchIds = (parsed.matches as number[])
-      .map(n => pool[n - 1]?.id)
+    // Extract JSON object even if model adds extra text around it
+    const jsonMatch = result.match(/\{[\s\S]*\}/)
+    if (!jsonMatch) {
+      console.error('findMatchingItems: no JSON in response:', result.slice(0, 200))
+      throw new Error('No JSON')
+    }
+    const parsed = JSON.parse(jsonMatch[0])
+    const matchIds = ((parsed.matches as any[]) || [])
+      .map(n => pool[Number(n) - 1]?.id)
       .filter(Boolean) as string[]
-    return { matches: matchIds, reply: parsed.reply || '' }
-  } catch {
+    return { matches: matchIds, reply: parsed.reply || '我找到一些可能符合的商品～' }
+  } catch (e) {
+    console.error('findMatchingItems error:', e)
     return { matches: [], reply: '抱歉，我找一下攤位上的商品，請再說一次你想找什麼？' }
   }
 }

@@ -17,12 +17,15 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'No message' }), { status: 400 })
   }
 
-  const { data: items } = await supabase
+  const { data: items, error: itemsError } = await supabase
     .from('market_items')
     .select('*')
     .eq('status', 'active')
     .order('created_at', { ascending: false })
     .limit(50)
+
+  if (itemsError) console.error('chat-buy items fetch error:', itemsError.message)
+  console.log('chat-buy: fetched', items?.length ?? 0, 'items')
 
   const result = await findMatchingItems(message, items || [])
 

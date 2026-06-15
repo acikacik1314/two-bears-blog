@@ -61,16 +61,14 @@ export async function callGemini(body: {
           config: Object.keys(config).length ? config : undefined,
         })
 
-        const raw = response.text?.trim() ?? ''
+        // Filter out thinking parts (gemini-2.5-* returns thought tokens we don't want)
+        const parts = (response as any).candidates?.[0]?.content?.parts
+        const raw = Array.isArray(parts)
+          ? parts.filter((p: any) => !p.thought).map((p: any) => p.text ?? '').join('').trim()
+          : (response.text?.trim() ?? '')
         if (!raw) continue
 
-        const text = raw
-          .split('\n')
-          .filter(line => !/^\s*\*\*?[A-Za-z]/.test(line))
-          .join('\n')
-          .trim()
-
-        return { ok: true, text }
+        return { ok: true, text: raw }
       } catch (err: unknown) {
         const msg = String(err)
         // 429 rate limit 或 quota → 試下一個 key

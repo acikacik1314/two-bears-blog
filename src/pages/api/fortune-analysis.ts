@@ -137,7 +137,7 @@ export const POST: APIRoute = async ({ request }) => {
     const result = await callGemini({
       systemInstruction: { parts: [{ text: SYSTEM }] },
       contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-      generationConfig: { maxOutputTokens: 1024, temperature: 0.85 },
+      generationConfig: { maxOutputTokens: 1024, temperature: 0.85, thinkingConfig: { thinkingBudget: 0 } },
     });
     if (result.ok && result.text) {
       return json({ ok: true, answer: result.text, zodiac });

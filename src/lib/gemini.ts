@@ -181,8 +181,8 @@ export async function chatWithSeller(
 
 商品 AI 辨識結果：${JSON.stringify(session.identified || {})}
 
-請依序收集以下資訊（已在對話中確認過的就跳過，不要重複問）：
-1. 商品名稱確認（已在開場說明，若賣家沒有異議就視為確認，直接進入下一步）
+你必須依序收集以下所有資訊，每一項都要問到才能結束：
+1. 商品名稱確認（若賣家沒有異議就視為確認，直接進入下一步）
 2. 當初購入的原價大約多少（不要自己猜，一定要問）
 3. 使用幾年
 4. 功能狀況是否正常
@@ -190,11 +190,12 @@ export async function chatWithSeller(
 6. 期望售價（或換物、或免費）
 7. 所在縣市
 8. 交貨方式（面交、超商取貨付款、宅配貨到付款，可以多選）
-9. 聯絡方式（LINE ID 或電話）
+9. 聯絡方式（LINE ID 或電話，二擇一，這項一定要問，是買家聯絡賣家的唯一方式）
 
 定價規則：售價不能超過賣家告知原價的 30%。若超過要溫和提醒。
 
-當所有資訊收集完畢，在回覆最後加上 [READY_TO_LIST]`
+【重要】只有在 1–9 全部收集完畢後，才能在回覆最後加上 [READY_TO_LIST]。
+缺少任何一項（尤其是第 9 項聯絡方式）都不能加 [READY_TO_LIST]。`
 
   // Build proper multi-turn contents
   const contents: object[] = chatHistory.slice(-14).map(h => ({

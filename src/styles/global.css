@@ -100,6 +100,7 @@ hr {
 }
 
 @media (max-width: 720px) {
+	html { font-size: 20px; }
 	body { font-size: 30px; }
 	main { padding: 1em 8px; }
 	h1, h2, h3 { line-height: 1.35; }

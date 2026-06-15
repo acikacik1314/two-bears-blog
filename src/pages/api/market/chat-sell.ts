@@ -58,12 +58,13 @@ export const POST: APIRoute = async ({ request }) => {
       dealType:       extracted.dealType       || session.dealType       || 'sell',
       price:          extracted.price          ?? session.price          ?? null,
       tradeWant:      extracted.tradeWant      || session.tradeWant      || '',
-      locationCity:   extracted.locationCity   || session.locationCity   || '',
-      locationNote:   extracted.locationNote   || session.locationNote   || '',
-      contactType:    extracted.contactType    || session.contactType    || 'form',
-      contactLineId:  extracted.contactLineId  || session.contactLineId  || '',
-      contactPhone:   extracted.contactPhone   || session.contactPhone   || '',
-      identified:     session.identified       || {},
+      locationCity:    extracted.locationCity   || session.locationCity   || '',
+      locationNote:    extracted.locationNote   || session.locationNote   || '',
+      deliveryMethods: Array.isArray(extracted.deliveryMethods) ? extracted.deliveryMethods : (session.deliveryMethods || []),
+      contactType:     extracted.contactType    || session.contactType    || 'form',
+      contactLineId:   extracted.contactLineId  || session.contactLineId  || '',
+      contactPhone:    extracted.contactPhone   || session.contactPhone   || '',
+      identified:      session.identified       || {},
     }
 
     return new Response(JSON.stringify({ merged }), {
@@ -79,12 +80,13 @@ export const POST: APIRoute = async ({ request }) => {
     const name = session.name || session.identified?.name || '商品'
     const desc = await generateItemDescription({
       name,
-      yearsUsed:      Number(session.yearsUsed) || 0,
-      condition:      session.condition      || 'good',
-      conditionNotes: session.conditionNotes || '',
-      dealType:       session.dealType       || 'sell',
-      price:          session.price ? Number(session.price) : undefined,
-      locationNote:   session.locationCity   || '',
+      yearsUsed:       Number(session.yearsUsed) || 0,
+      condition:       session.condition      || 'good',
+      conditionNotes:  session.conditionNotes || '',
+      dealType:        session.dealType       || 'sell',
+      price:           session.price ? Number(session.price) : undefined,
+      locationNote:    session.locationNote   || session.locationCity || '',
+      deliveryMethods: Array.isArray(session.deliveryMethods) ? session.deliveryMethods : [],
     })
 
     // Photos are pre-uploaded; URLs come in session.imageUrls

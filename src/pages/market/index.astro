@@ -132,6 +132,63 @@ html body { background: #0f172a; color: #e2e8f0; }
 .modal-msg.success { color: #34d399; }
 .modal-msg.error { color: #f87171; }
 
+/* Detail modal */
+.detail-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.8);
+  display: flex; align-items: flex-start; justify-content: center;
+  z-index: 998; padding: 1rem; overflow-y: auto;
+}
+.detail-overlay.hidden { display: none; }
+.detail-modal {
+  background: #1e293b; border: 1px solid #334155; border-radius: 20px;
+  max-width: 560px; width: 100%; margin: auto; position: relative;
+}
+.detail-close-bar {
+  position: sticky; top: 0; z-index: 1; display: flex; justify-content: flex-end;
+  padding: .6rem .75rem; background: #1e293b; border-radius: 20px 20px 0 0;
+}
+.btn-close-detail {
+  background: #334155; border: none; color: #94a3b8; width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; font-size: 1rem; line-height: 32px; text-align: center;
+}
+.detail-photos-row {
+  display: flex; gap: .5rem; overflow-x: auto; padding: 0 1rem 1rem;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+}
+.detail-photos-row img {
+  min-width: min(280px, 80vw); max-width: min(280px, 80vw);
+  height: 210px; object-fit: cover; border-radius: 12px;
+  scroll-snap-align: start; flex-shrink: 0; border: 1px solid #334155;
+}
+.detail-photos-row.solo img { min-width: 100%; max-width: 100%; height: auto; max-height: 260px; }
+.detail-body { padding: 0 1.25rem 1.5rem; }
+.detail-title-text { font-size: 1.1rem; font-weight: 800; color: #f1f5f9; margin-bottom: .6rem; }
+.detail-tags-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+.detail-big-price { font-size: 1.5rem; font-weight: 800; color: #a855f7; margin-bottom: .6rem; }
+.detail-big-price.free { color: #34d399; }
+.detail-big-price.trade { color: #60a5fa; }
+.detail-loc { font-size: .82rem; color: #64748b; margin-bottom: 1rem; }
+.detail-divider { border: none; border-top: 1px solid #334155; margin: .9rem 0; }
+.detail-sec-label { font-size: .72rem; color: #64748b; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .4rem; }
+.detail-story-text { color: #cbd5e1; font-size: .88rem; line-height: 1.75; }
+.detail-plain-text { color: #94a3b8; font-size: .82rem; line-height: 1.9; white-space: pre-wrap; }
+.detail-contact-area { margin-top: 1rem; display: flex; flex-direction: column; gap: .65rem; }
+.btn-line-contact {
+  display: block; padding: .75rem; border-radius: 12px; text-align: center;
+  background: #06C755; color: #fff; font-weight: 700; font-size: .9rem;
+  text-decoration: none; cursor: pointer; border: none;
+}
+.btn-phone-contact {
+  display: block; padding: .75rem; border-radius: 12px; text-align: center;
+  background: #1e3a5f; color: #93c5fd; font-weight: 700; font-size: .9rem;
+  text-decoration: none; cursor: pointer; border: 1px solid #3b82f6;
+}
+.btn-form-contact {
+  display: block; padding: .75rem; border-radius: 12px; text-align: center;
+  background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.3);
+  color: #a855f7; font-weight: 700; font-size: .9rem; cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .mkt-hero { padding: 2rem 1rem 1.5rem; }
   .mkt-main { padding: 1.5rem 1rem; }
@@ -189,6 +246,29 @@ html body { background: #0f172a; color: #e2e8f0; }
         <span class="emoji">🧺</span>
         <p>攤位上還沒有商品</p>
         <a href="/market/sell" class="btn-sell">成為第一個上架的攤主</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail modal -->
+  <div class="detail-overlay hidden" id="detail-overlay">
+    <div class="detail-modal">
+      <div class="detail-close-bar">
+        <button class="btn-close-detail" id="detail-close">✕</button>
+      </div>
+      <div class="detail-photos-row" id="detail-photos"></div>
+      <div class="detail-body">
+        <div class="detail-title-text" id="detail-title"></div>
+        <div class="detail-tags-row" id="detail-tags"></div>
+        <div class="detail-big-price" id="detail-price"></div>
+        <div class="detail-loc" id="detail-loc"></div>
+        <hr class="detail-divider" />
+        <div class="detail-sec-label">商品說明</div>
+        <div class="detail-story-text" id="detail-story"></div>
+        <hr class="detail-divider" />
+        <div class="detail-sec-label">詳細資訊</div>
+        <div class="detail-plain-text" id="detail-plain"></div>
+        <div class="detail-contact-area" id="detail-contact"></div>
       </div>
     </div>
   </div>
@@ -270,6 +350,81 @@ html body { background: #0f172a; color: #e2e8f0; }
         openModal(b.dataset.id!, b.dataset.title!)
       })
     })
+
+    grid.querySelectorAll('.item-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('.btn-inquire')) return
+        const id = (card as HTMLElement).dataset.id!
+        const item = allItems.find(i => i.id === id)
+        if (item) openDetail(item)
+      })
+    })
+  }
+
+  function openDetail(item: any) {
+    // Photos
+    const photosEl = document.getElementById('detail-photos')!
+    const photos: string[] = item.image_urls || []
+    if (photos.length) {
+      photosEl.innerHTML = photos.map(url =>
+        `<img src="${url}" alt="${item.title}" loading="lazy" />`
+      ).join('')
+      photosEl.className = `detail-photos-row${photos.length === 1 ? ' solo' : ''}`
+    } else {
+      photosEl.innerHTML = '<div style="width:100%;height:200px;background:#0f172a;display:flex;align-items:center;justify-content:center;font-size:4rem;color:#334155;border-radius:12px;margin:0 1rem 1rem;">📦</div>'
+      photosEl.className = 'detail-photos-row'
+    }
+
+    // Title & tags
+    ;(document.getElementById('detail-title') as HTMLElement).textContent = item.title
+    const condLabel = COND_LABEL[item.condition] || item.condition
+    const condCls = COND_CLS[item.condition] || 'tag-cond-fair'
+    ;(document.getElementById('detail-tags') as HTMLElement).innerHTML =
+      `<span class="tag tag-cat">${item.category}</span><span class="tag ${condCls}">${condLabel}</span>`
+
+    // Price
+    const priceEl = document.getElementById('detail-price')!
+    if (item.deal_type === 'free') {
+      priceEl.textContent = '免費'; priceEl.className = 'detail-big-price free'
+    } else if (item.deal_type === 'trade') {
+      priceEl.textContent = '以物換物'; priceEl.className = 'detail-big-price trade'
+    } else {
+      priceEl.textContent = `NT$ ${Number(item.price || 0).toLocaleString()}`
+      priceEl.className = 'detail-big-price'
+    }
+
+    // Location
+    const loc = [item.location_city, item.location_note].filter(Boolean).join(' · ')
+    ;(document.getElementById('detail-loc') as HTMLElement).textContent = loc ? '📍 ' + loc : ''
+
+    // Description
+    ;(document.getElementById('detail-story') as HTMLElement).textContent = item.description_story || ''
+    ;(document.getElementById('detail-plain') as HTMLElement).textContent = item.description_plain || ''
+
+    // Contact
+    const contactEl = document.getElementById('detail-contact')!
+    let html = ''
+    if (item.contact_line_id) {
+      html += `<button class="btn-line-contact">💬 LINE：${item.contact_line_id}</button>`
+    }
+    if (item.contact_phone) {
+      html += `<a class="btn-phone-contact" href="tel:${item.contact_phone}">📞 電話：${item.contact_phone}</a>`
+    }
+    html += `<button class="btn-form-contact" id="detail-form-btn" data-id="${item.id}" data-title="${item.title}">✉ 站內留言詢問</button>`
+    contactEl.innerHTML = html
+
+    if (item.contact_line_id) {
+      contactEl.querySelector('.btn-line-contact')!.addEventListener('click', () => {
+        navigator.clipboard?.writeText(item.contact_line_id).catch(() => {})
+        alert(`LINE ID 已複製：${item.contact_line_id}\n請開啟 LINE App 搜尋此帳號`)
+      })
+    }
+    document.getElementById('detail-form-btn')?.addEventListener('click', () => {
+      document.getElementById('detail-overlay')!.classList.add('hidden')
+      openModal(item.id, item.title)
+    })
+
+    document.getElementById('detail-overlay')!.classList.remove('hidden')
   }
 
   async function loadItems() {
@@ -313,6 +468,13 @@ html body { background: #0f172a; color: #e2e8f0; }
     ;(document.getElementById('modal-msg') as HTMLElement).className = 'modal-msg'
     document.getElementById('inquire-modal')!.classList.remove('hidden')
   }
+
+  document.getElementById('detail-close')!.addEventListener('click', () => {
+    document.getElementById('detail-overlay')!.classList.add('hidden')
+  })
+  document.getElementById('detail-overlay')!.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) document.getElementById('detail-overlay')!.classList.add('hidden')
+  })
 
   document.getElementById('modal-cancel')!.addEventListener('click', () => {
     document.getElementById('inquire-modal')!.classList.add('hidden')

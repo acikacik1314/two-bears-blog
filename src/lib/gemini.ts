@@ -66,7 +66,12 @@ export async function generateItemDescription(info: {
   dealType: string
   price?: number
   locationNote?: string
+  deliveryMethods?: string[]
 }): Promise<{ story: string; plain: string }> {
+  const deliveryText = info.deliveryMethods?.length
+    ? info.deliveryMethods.join('、')
+    : '請洽賣家'
+
   const prompt = `你是「兩隻熊二手市集」的 AI 攤主，語氣溫暖口語，像朋友在說話。
 
 根據以下商品資訊，生成兩個版本的商品說明，回傳 JSON（只回傳 JSON）：
@@ -76,11 +81,12 @@ export async function generateItemDescription(info: {
 狀況：${info.condition === 'like_new' ? '近全新' : info.condition === 'good' ? '良好' : '普通'}
 瑕疵：${info.conditionNotes || '無明顯瑕疵'}
 交易方式：${info.dealType === 'sell' ? `賣 ${info.price} 元` : info.dealType === 'trade' ? '以物換物' : '免費送出'}
-地點備註：${info.locationNote || ''}
+交貨方式：${deliveryText}
+地點：${info.locationNote || ''}
 
 {
   "story": "口語化版本，100-150字，有溫度有故事感，說明這個東西的來歷和為什麼要出清，結尾說明適合誰",
-  "plain": "條列式版本，包含：品項、使用年數、功能狀況、外觀描述、交易方式、面交地點，每項用換行分隔，不用 bullet point，純文字"
+  "plain": "條列式版本，包含：品項、使用年數、功能狀況、外觀描述、售價/交易方式、交貨方式（面交/超商/宅配等）、地點，每項用換行分隔，不用 bullet point，純文字"
 }`
   try {
     const result = await callGeminiRaw(prompt)

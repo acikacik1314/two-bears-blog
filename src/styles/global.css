@@ -101,7 +101,7 @@ hr {
 
 @media (max-width: 720px) {
 	body { font-size: 30px; }
-	main { padding: 1em; }
+	main { padding: 1em 8px; }
 	h1, h2, h3 { line-height: 1.35; }
 }
 

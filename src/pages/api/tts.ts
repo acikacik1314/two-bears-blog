@@ -49,6 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
       },
     });
   } catch (e) {
+    console.error('[tts] error:', e);
     return new Response(JSON.stringify({ error: String(e) }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },

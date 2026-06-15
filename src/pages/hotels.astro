@@ -31,6 +31,65 @@ html body {
 .amber { color: #E8920A; }
 .hero-sub { color: #5C4B3A; font-size: .9rem; max-width: 520px; margin: 0 auto; }
 
+/* ── Direct hotel search ── */
+.direct-card {
+  background: #fff;
+  border: 1px solid #EADFC8;
+  border-radius: 16px;
+  padding: 13px 16px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(59,42,30,.04);
+}
+.direct-label {
+  font-size: .82rem;
+  color: #5C4A35;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.direct-input {
+  flex: 1;
+  min-width: 140px;
+  border: 1.5px solid #EADFC8;
+  border-radius: 12px;
+  padding: 8px 13px;
+  font-size: .88rem;
+  background: #FFF8EC;
+  color: #3B2A1E;
+  font-family: inherit;
+  transition: border-color .15s;
+}
+.direct-input:focus { outline: none; border-color: #E8920A; }
+.direct-input::placeholder { color: #B0977A; }
+.btn-direct {
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  background: #E8920A;
+  color: #fff;
+  font-weight: 900;
+  font-size: .88rem;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.btn-direct:hover:not(:disabled) { background: #C2740A; }
+.btn-direct:disabled { opacity: .55; cursor: not-allowed; }
+.direct-msg {
+  font-size: .79rem;
+  width: 100%;
+  padding: 0 2px;
+  margin: 0;
+}
+.direct-msg.ok  { color: #4A7A28; }
+.direct-msg.err { color: #C2400A; }
+
 /* ── Chat card ── */
 .chat-card {
   background: #FFFFFF;
@@ -317,6 +376,14 @@ html body {
       <h1>不知道住哪？<span class="amber">問兩隻熊</span></h1>
       <p class="hero-sub">跟熊熊聊一聊你的需求，熊熊幫你找最適合的飯店，再一鍵查 TripAdvisor 最低價。</p>
     </header>
+
+    <!-- ── Direct hotel search ── -->
+    <div class="direct-card">
+      <span class="direct-label">🔍 已知飯店名稱？直接比價：</span>
+      <input id="direct-input" class="direct-input" type="text" placeholder="例：台北晶華、東京半島飯店" maxlength="100" autocomplete="off" />
+      <button id="btn-direct" class="btn-direct" type="button">比價 →</button>
+      <p class="direct-msg" id="direct-msg" style="display:none"></p>
+    </div>
 
     <!-- ── Chat card ── -->
     <div class="chat-card">
@@ -712,6 +779,49 @@ function resetChat() {
 }
 
 /* ===================================================================
+   直接比價
+   =================================================================== */
+async function directSearch() {
+  var inp = document.getElementById('direct-input');
+  var btn = document.getElementById('btn-direct');
+  var msg = document.getElementById('direct-msg');
+  var name = inp.value.trim();
+  if (!name) { inp.focus(); return; }
+
+  btn.disabled = true;
+  btn.textContent = '查詢中…';
+  msg.className = 'direct-msg';
+  msg.textContent = '熊熊正在找飯店英文名…';
+  msg.style.display = '';
+
+  try {
+    var res = await fetch('/api/advisor-chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'direct', hotelName: name }),
+    });
+    var data = await res.json();
+
+    if (data.ok && data.hotel) {
+      msg.className = 'direct-msg ok';
+      msg.textContent = '✅ 找到「' + data.hotel.name + '」，正在開啟比價頁面…';
+      window.open(taLink(data.hotel.en, data.hotel.city), '_blank');
+      inp.value = '';
+      setTimeout(function() { msg.style.display = 'none'; }, 3500);
+    } else {
+      msg.className = 'direct-msg err';
+      msg.textContent = '❌ ' + (data.error || '找不到這間飯店，請試試英文名稱');
+    }
+  } catch (e) {
+    msg.className = 'direct-msg err';
+    msg.textContent = '❌ 網路有點問題，請再試一次';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '比價 →';
+  }
+}
+
+/* ===================================================================
    事件綁定
    =================================================================== */
 document.getElementById('btn-send').addEventListener('click', sendMessage);
@@ -720,6 +830,10 @@ document.getElementById('chat-input').addEventListener('keydown', function(e) {
 });
 document.getElementById('btn-more').addEventListener('click', askMore);
 document.getElementById('btn-restart').addEventListener('click', resetChat);
+document.getElementById('btn-direct').addEventListener('click', directSearch);
+document.getElementById('direct-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); directSearch(); }
+});
 
 /* ===================================================================
    初始化

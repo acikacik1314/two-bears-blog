@@ -562,6 +562,19 @@ html body { background: #0f172a; color: #e2e8f0; }
         </span>
       </div>
       <p style="color:#64748b;font-size:.75rem;margin:.4rem 0 .75rem;">之後刪除或標記售出時需要輸入這組密碼</p>
+      <hr style="border:none;border-top:1px solid #334155;margin:.75rem 0;" />
+      <div style="margin-bottom:.75rem;">
+        <p style="color:#94a3b8;font-size:.78rem;margin:0 0 .4rem;">📝 AI 寫的故事文案（可以自己改成更真實的說法）</p>
+        <textarea id="edit-story" rows="6"
+          style="width:100%;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:.65rem .9rem;color:#e2e8f0;font-size:.82rem;line-height:1.7;resize:vertical;font-family:inherit;box-sizing:border-box;"
+          placeholder="文案生成中..."></textarea>
+      </div>
+      <div>
+        <p style="color:#94a3b8;font-size:.78rem;margin:0 0 .4rem;">📋 詳細資訊（可以自己改）</p>
+        <textarea id="edit-plain" rows="5"
+          style="width:100%;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:.65rem .9rem;color:#e2e8f0;font-size:.82rem;line-height:1.7;resize:vertical;font-family:inherit;box-sizing:border-box;"
+          placeholder="詳細資訊生成中..."></textarea>
+      </div>
     `
 
     // wire edit fields → update confirmedSession live
@@ -590,11 +603,37 @@ html body { background: #0f172a; color: #e2e8f0; }
     const pinEl = document.getElementById('edit-pin') as HTMLInputElement
     if (pinEl) pinEl.addEventListener('input', () => { confirmedSession.deletePin = pinEl.value })
 
+    const storyEl = document.getElementById('edit-story') as HTMLTextAreaElement
+    if (storyEl) storyEl.addEventListener('input', () => { confirmedSession.descriptionStory = storyEl.value })
+    const plainEl = document.getElementById('edit-plain') as HTMLTextAreaElement
+    if (plainEl) plainEl.addEventListener('input', () => { confirmedSession.descriptionPlain = plainEl.value })
+
     // Sync uploaded photo URLs into session
     confirmedSession.imageUrls = uploadedUrls.filter((u): u is string => !!u)
 
     setStep(3)
     setStatus(2, '')
+
+    // Load description async — show step 3 immediately, fill in text when ready
+    setStatus(3, '🐻 小熊正在撰寫文案...')
+    try {
+      const descFd = new FormData()
+      descFd.append('action', 'preview_desc')
+      descFd.append('session', JSON.stringify(confirmedSession))
+      const descRes = await fetch('/api/market/chat-sell', { method: 'POST', body: descFd })
+      const descData = await descRes.json()
+      if (descData.story && storyEl) {
+        storyEl.value = descData.story
+        confirmedSession.descriptionStory = descData.story
+      }
+      if (descData.plain && plainEl) {
+        plainEl.value = descData.plain
+        confirmedSession.descriptionPlain = descData.plain
+      }
+      setStatus(3, '')
+    } catch {
+      setStatus(3, '文案生成失敗，可以自己填寫後再送出')
+    }
   }
 
   function extractFromHistory() {

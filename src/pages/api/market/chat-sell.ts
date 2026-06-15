@@ -72,11 +72,10 @@ export const POST: APIRoute = async ({ request }) => {
     })
   }
 
-  // finalize: trust the pre-extracted session, no re-extraction needed
-  if (action === 'finalize') {
+  // preview_desc: generate description for seller to review/edit before finalizing
+  if (action === 'preview_desc') {
     const sessionJson = formData.get('session') as string
     const session = JSON.parse(sessionJson || '{}')
-
     const name = session.name || session.identified?.name || '商品'
     const desc = await generateItemDescription({
       name,
@@ -88,6 +87,36 @@ export const POST: APIRoute = async ({ request }) => {
       locationNote:    session.locationNote   || session.locationCity || '',
       deliveryMethods: Array.isArray(session.deliveryMethods) ? session.deliveryMethods : [],
     })
+    return new Response(JSON.stringify({ story: desc.story, plain: desc.plain }), {
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  // finalize: use seller-edited descriptions, no re-generation needed
+  if (action === 'finalize') {
+    const sessionJson = formData.get('session') as string
+    const session = JSON.parse(sessionJson || '{}')
+
+    const name = session.name || session.identified?.name || '商品'
+    // Use seller-edited text if provided; otherwise generate fresh
+    let desc: { story: string; plain: string }
+    if (session.descriptionStory || session.descriptionPlain) {
+      desc = {
+        story: session.descriptionStory || '',
+        plain: session.descriptionPlain || '',
+      }
+    } else {
+      desc = await generateItemDescription({
+        name,
+        yearsUsed:       Number(session.yearsUsed) || 0,
+        condition:       session.condition      || 'good',
+        conditionNotes:  session.conditionNotes || '',
+        dealType:        session.dealType       || 'sell',
+        price:           session.price ? Number(session.price) : undefined,
+        locationNote:    session.locationNote   || session.locationCity || '',
+        deliveryMethods: Array.isArray(session.deliveryMethods) ? session.deliveryMethods : [],
+      })
+    }
 
     // Photos are pre-uploaded; URLs come in session.imageUrls
     const imageUrls: string[] = Array.isArray(session.imageUrls)

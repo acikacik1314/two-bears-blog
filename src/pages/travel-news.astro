@@ -205,7 +205,7 @@ html body { background: #0f172a; color: #e2e8f0; }
         </div>
 
         <!-- 載入中 -->
-        <div class="advisor-loading" id="rq-loading" hidden>
+        <div class="advisor-loading" id="rq-loading">
           <div class="spinner"></div>
           <p>AI 正在搜尋各城市最新租屋行情，請稍候…</p>
         </div>
@@ -1235,7 +1235,7 @@ function rqUpdateProgress(step: number) {
   const loadingEl = document.getElementById('rq-loading')!;
   const errorEl   = document.getElementById('rq-error')!;
   const resultEl  = document.getElementById('rq-result')!;
-  loadingEl.hidden = false;
+  loadingEl.classList.add('show');
   errorEl.hidden   = true;
   resultEl.hidden  = true;
 
@@ -1246,7 +1246,7 @@ function rqUpdateProgress(step: number) {
       body: JSON.stringify({ budget_twd, duration, preferred_countries: countries, city_preference: '大城市', must_have, travel_purpose: '旅遊或生活' }),
     });
     const data = await res.json();
-    loadingEl.hidden = true;
+    loadingEl.classList.remove('show');
     if (!res.ok || data.error) {
       errorEl.hidden = false;
       errorEl.textContent = '⚠️ ' + (data.error ?? '發生錯誤，請稍後再試');
@@ -1254,7 +1254,7 @@ function rqUpdateProgress(step: number) {
     }
     renderRentResult(data);
   } catch {
-    loadingEl.hidden = true;
+    loadingEl.classList.remove('show');
     errorEl.hidden = false;
     errorEl.textContent = '⚠️ 網路錯誤，請稍後再試';
   }
@@ -1315,7 +1315,7 @@ function renderRentResult(data: any) {
   document.querySelectorAll<HTMLInputElement>('input[name="rq-duration"]').forEach(e => e.checked = false);
   document.querySelectorAll<HTMLInputElement>('input[name="rq-countries"]').forEach(e => e.checked = e.value === '日本' || e.value === '泰國' || e.value === '韓國');
   document.querySelectorAll<HTMLInputElement>('input[name="rq-must"]').forEach(e => e.checked = false);
-  (document.getElementById('rq-loading') as HTMLElement).hidden = true;
+  (document.getElementById('rq-loading') as HTMLElement).classList.remove('show');
   (document.getElementById('rq-error') as HTMLElement).hidden = true;
   (document.getElementById('rq-result') as HTMLElement).hidden = true;
 };

@@ -533,6 +533,7 @@ html body { background: #0f172a; color: #e2e8f0; }
   const sibBtn = document.getElementById('sib-btn') as HTMLButtonElement
   const sibStatus = document.getElementById('sib-status') as HTMLElement
   let shopeeImportData: any = null
+  let modalImageUrls: string[] = []
 
   sibBtn.addEventListener('click', () => {
     const url = sibUrl.value.trim()
@@ -571,23 +572,34 @@ html body { background: #0f172a; color: #e2e8f0; }
   function showShopeeModal(data: any, suggestedPrice: number) {
     const overlay = document.getElementById('sim-overlay')!
     const content = document.getElementById('sim-content')!
-    const imgsHtml = (data.imageUrls as string[] || []).slice(0, 4).map((u: string) =>
-      `<img src="${u}" alt="" loading="lazy" />`
-    ).join('')
+    modalImageUrls = [...((data.imageUrls as string[]) || [])]
     const nameEscaped = (data.name as string).replace(/"/g, '&quot;').replace(/</g, '&lt;')
     const descEscaped = (data.description as string || '').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+    const hasPrice = (data.price as number) > 0
     content.innerHTML = `
       <h3>🛒 確認商品資訊後上架</h3>
-      ${imgsHtml ? `<div class="sim-imgs">${imgsHtml}</div>` : ''}
       <div class="sim-field">
         <label class="sim-label">商品名稱</label>
         <input id="sim-title" class="sim-input" type="text" value="${nameEscaped}" />
       </div>
       <div class="sim-2col">
         <div class="sim-field">
-          <label class="sim-label">售價 NT$（原價 ${data.price} 的三折）</label>
-          <input id="sim-price" class="sim-input" type="number" value="${suggestedPrice}" min="0" />
+          <label class="sim-label">蝦皮定價（原價）NT$</label>
+          <input id="sim-orig-price" class="sim-input" type="number"
+            value="${hasPrice ? data.price : ''}"
+            placeholder="${hasPrice ? '' : '看蝦皮後輸入'}" min="0" />
         </div>
+        <div class="sim-field">
+          <label class="sim-label">你的售價（三折，可改）</label>
+          <input id="sim-price" class="sim-input" type="number"
+            value="${suggestedPrice > 0 ? suggestedPrice : ''}"
+            placeholder="輸入原價後自動填入" min="0" />
+        </div>
+      </div>
+      <p id="sim-calc-note" style="font-size:.73rem;color:#64748b;margin:-.3rem 0 .7rem;">
+        ${hasPrice ? `原價 ${data.price} ÷ 3 ≈ NT$ ${suggestedPrice}` : '輸入蝦皮定價後，售價自動計算三折'}
+      </p>
+      <div class="sim-2col">
         <div class="sim-field">
           <label class="sim-label">商品狀況</label>
           <select id="sim-condition" class="sim-select">
@@ -596,8 +608,6 @@ html body { background: #0f172a; color: #e2e8f0; }
             <option value="fair">普通</option>
           </select>
         </div>
-      </div>
-      <div class="sim-2col">
         <div class="sim-field">
           <label class="sim-label">商品分類</label>
           <select id="sim-category" class="sim-select">
@@ -611,13 +621,23 @@ html body { background: #0f172a; color: #e2e8f0; }
             <option value="其他" selected>其他</option>
           </select>
         </div>
+      </div>
+      <div class="sim-field">
+        <label class="sim-label">商品照片 <span style="color:#475569;font-weight:400;">（可從蝦皮截圖或直接拍）</span></label>
+        <div id="sim-photo-area" style="border:2px dashed #334155;border-radius:12px;padding:.9rem;text-align:center;cursor:pointer;background:#0f172a;transition:border-color .15s;">
+          <p id="sim-photo-hint" style="color:#64748b;font-size:.8rem;margin:0;">📷 點此選擇照片，或直接拖放（最多3張）</p>
+          <div id="sim-photo-preview" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;justify-content:center;">${modalImageUrls.map(u => `<img src="${u}" style="width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #334155;" />`).join('')}</div>
+        </div>
+        <input id="sim-photo-input" type="file" accept="image/*" multiple style="display:none;" />
+      </div>
+      <div class="sim-2col">
         <div class="sim-field">
           <label class="sim-label">所在縣市</label>
           <input id="sim-city" class="sim-input" type="text" placeholder="台北、新北…" />
         </div>
       </div>
       <div class="sim-field">
-        <label class="sim-label">商品說明（自動帶入，可修改）</label>
+        <label class="sim-label">商品說明（可修改）</label>
         <textarea id="sim-desc" class="sim-textarea">${descEscaped}</textarea>
       </div>
       <div class="sim-2col">
@@ -645,6 +665,60 @@ html body { background: #0f172a; color: #e2e8f0; }
       </div>
     `
     overlay.classList.remove('hidden')
+
+    // 原價 → 售價 auto-calculation
+    const origPriceEl = document.getElementById('sim-orig-price') as HTMLInputElement
+    const sellPriceEl = document.getElementById('sim-price') as HTMLInputElement
+    const calcNoteEl = document.getElementById('sim-calc-note') as HTMLElement
+    origPriceEl.addEventListener('input', () => {
+      const orig = parseInt(origPriceEl.value) || 0
+      const sell = orig > 0 ? Math.ceil(orig / 3) : 0
+      sellPriceEl.value = sell > 0 ? String(sell) : ''
+      calcNoteEl.textContent = orig > 0
+        ? `原價 ${orig} ÷ 3 ≈ NT$ ${sell}（三折）`
+        : '輸入蝦皮定價後，售價自動計算三折'
+    })
+
+    // Photo upload
+    const photoArea = document.getElementById('sim-photo-area') as HTMLElement
+    const photoInput = document.getElementById('sim-photo-input') as HTMLInputElement
+    const photoPreview = document.getElementById('sim-photo-preview') as HTMLElement
+    const photoHint = document.getElementById('sim-photo-hint') as HTMLElement
+
+    async function handlePhotoFiles(files: FileList) {
+      for (const file of Array.from(files).slice(0, 3 - modalImageUrls.length)) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          const img = document.createElement('img')
+          img.src = (e.target as FileReader).result as string
+          img.style.cssText = 'width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #334155;'
+          photoPreview.appendChild(img)
+          photoHint.textContent = '繼續拖放可再加照片'
+        }
+        reader.readAsDataURL(file)
+
+        const fd = new FormData()
+        fd.append('photo', file, file.name || 'photo.jpg')
+        try {
+          const res = await fetch('/api/market/upload-photo', { method: 'POST', body: fd })
+          const d = await res.json()
+          if (d.url) modalImageUrls.push(d.url)
+        } catch {}
+      }
+    }
+
+    photoArea.addEventListener('click', () => photoInput.click())
+    photoArea.addEventListener('dragover', (e: DragEvent) => {
+      e.preventDefault(); photoArea.style.borderColor = '#a855f7'
+    })
+    photoArea.addEventListener('dragleave', () => { photoArea.style.borderColor = '#334155' })
+    photoArea.addEventListener('drop', (e: DragEvent) => {
+      e.preventDefault(); photoArea.style.borderColor = '#334155'
+      if (e.dataTransfer?.files) handlePhotoFiles(e.dataTransfer.files)
+    })
+    photoInput.addEventListener('change', () => {
+      if (photoInput.files) handlePhotoFiles(photoInput.files)
+    })
 
     const ctEl = document.getElementById('sim-contact-type') as HTMLSelectElement
     const clEl = document.getElementById('sim-contact-label') as HTMLElement
@@ -693,7 +767,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       locationCity: city,
       locationNote: '',
       deliveryMethods: [] as string[],
-      imageUrls: (shopeeImportData?.imageUrls as string[]) || [],
+      imageUrls: modalImageUrls,
       contactType,
       contactLineId: contactType === 'line' ? contactVal : '',
       contactPhone: contactType === 'phone' ? contactVal : '',

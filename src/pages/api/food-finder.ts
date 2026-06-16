@@ -14,6 +14,7 @@ export interface Restaurant {
   trust_reasons: string[];
   has_beef: boolean;
   is_vegetarian: boolean;
+  confirmed_open: boolean;
   tags: string[];
 }
 
@@ -65,8 +66,14 @@ function buildPrompt(city: string, context: string): string {
 - 負評集中在排隊久、停車難 → 不扣分；負評集中在食物本身或服務態度 → 扣分
 - 長期穩定好評 → 加分；短期爆紅 → 保持觀望
 
-【停業排除規則】
-搜尋時必須確認每家餐廳目前仍在正常營業。凡是 Google Maps 顯示「已永久歇業」「暫停營業」「Permanently closed」「Temporarily closed」，或近期評論、新聞提到已停業、搬遷、結束營業，一律不得列入任何區塊（包含 must_eat、hidden_gems、omakase）。寧可少推薦，不要推薦已關門的餐廳。
+【停業確認規則（每家必填）】
+每家餐廳必須填入 confirmed_open 欄位：
+- Google Maps 確認目前正常營業中 → confirmed_open: true
+- Google Maps 顯示「已永久歇業」「Permanently closed」→ confirmed_open: false
+- Google Maps 顯示「暫停營業」「Temporarily closed」→ confirmed_open: false
+- 近期評論或新聞提到已停業、搬遷、結束營業 → confirmed_open: false
+- 無法確認是否正常營業 → confirmed_open: false
+confirmed_open: false 的餐廳仍可填入 JSON（讓系統自動過濾），但請優先只收錄確定營業的店家。寧可少推薦，不要推薦已關門的餐廳。
 
 【has_beef 規則】
 菜單含有牛肉、牛排、牛腩、牛骨湯、牛雜、牛油等牛相關食材 → has_beef: true，否則 false。
@@ -83,6 +90,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_reasons": ["在地人評論占多數", "負評只集中在排隊"],
       "has_beef": false,
       "is_vegetarian": false,
+      "confirmed_open": true,
       "tags": ["在地人", "平價"]
     }
   ],
@@ -94,6 +102,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_reasons": ["當地部落格才提到", "Google Maps 評論數少但質量高"],
       "has_beef": false,
       "is_vegetarian": false,
+      "confirmed_open": true,
       "tags": ["當地人才知道", "不需排隊"]
     }
   ],
@@ -105,6 +114,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_reasons": ["理由"],
       "has_beef": false,
       "is_vegetarian": false,
+      "confirmed_open": true,
       "tags": ["需預約", "主廚推薦"],
       "price_range": "1000-3000"
     }
@@ -139,6 +149,7 @@ function sanitizeRestaurant(r: any): Restaurant {
       : [],
     has_beef: Boolean(r?.has_beef),
     is_vegetarian: Boolean(r?.is_vegetarian),
+    confirmed_open: r?.confirmed_open !== false,
     tags: Array.isArray(r?.tags)
       ? r.tags.map((s: any) => String(s).slice(0, 20)).slice(0, 5)
       : [],
@@ -243,12 +254,13 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const parsed = JSON.parse(stripped.slice(start, end + 1));
 
+    const filterOpen = (r: Restaurant) => r.confirmed_open;
     const result: FoodResult = {
       city,
       context,
-      must_eat: Array.isArray(parsed.must_eat) ? parsed.must_eat.map(sanitizeRestaurant) : [],
-      hidden_gems: Array.isArray(parsed.hidden_gems) ? parsed.hidden_gems.map(sanitizeRestaurant) : [],
-      omakase: Array.isArray(parsed.omakase) ? parsed.omakase.map(sanitizeOmakase) : [],
+      must_eat: Array.isArray(parsed.must_eat) ? parsed.must_eat.map(sanitizeRestaurant).filter(filterOpen) : [],
+      hidden_gems: Array.isArray(parsed.hidden_gems) ? parsed.hidden_gems.map(sanitizeRestaurant).filter(filterOpen) : [],
+      omakase: Array.isArray(parsed.omakase) ? parsed.omakase.map(sanitizeOmakase).filter(filterOpen) : [],
       souvenirs: Array.isArray(parsed.souvenirs)
         ? parsed.souvenirs.map((s: any) => ({
             name: String(s?.name ?? '').slice(0, 60),

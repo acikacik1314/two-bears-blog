@@ -343,7 +343,7 @@ html body { background: #0f172a; color: #e2e8f0; }
         </div>
 
         <!-- 載入中 -->
-        <div class="advisor-loading" id="advisor-loading" hidden>
+        <div class="advisor-loading" id="advisor-loading">
           <div class="spinner"></div>
           <p>AI 正在分析你的條件並搜尋最新方案，請稍候…</p>
         </div>
@@ -352,7 +352,7 @@ html body { background: #0f172a; color: #e2e8f0; }
         <div class="advisor-error" id="advisor-error" hidden></div>
 
         <!-- 結果 -->
-        <div class="advisor-result" id="advisor-result" hidden>
+        <div class="advisor-result" id="advisor-result">
           <div id="advisor-best"></div>
           <div id="advisor-alts"></div>
           <div id="advisor-steps"></div>
@@ -1246,6 +1246,7 @@ function renderRentResult(data: any) {
   (document.getElementById('q-work-ok') as HTMLInputElement).checked = true;
   (document.getElementById('q-study-ok') as HTMLInputElement).checked = true;
 
+  document.getElementById('advisor-loading')!.classList.remove('show');
   document.getElementById('advisor-result')!.classList.remove('show');
   document.getElementById('advisor-error')!.hidden = true;
 };

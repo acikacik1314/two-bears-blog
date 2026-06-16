@@ -1,0 +1,573 @@
+---
+export const prerender = false;
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead
+    title="兩隻熊幫你找好料｜AI 美食顧問"
+    description="輸入城市名稱，AI 幫你找出必吃清單、隱藏版好料、無菜單料理、伴手禮，還有避雷名單。"
+  />
+</head>
+<body>
+  <Header />
+  <main class="food-page">
+
+    <header class="food-hero">
+      <p class="food-eyebrow">兩隻熊 × AI 美食顧問</p>
+      <h1>去哪裡，<span class="food-accent">吃什麼最值得？</span></h1>
+      <p class="food-sub">輸入城市，AI 幫你找必吃、隱藏版、避雷，還有無菜單料理一日行程 🍜</p>
+    </header>
+
+    <section class="food-search">
+      <div class="food-input-row">
+        <input
+          id="city"
+          type="text"
+          placeholder="例如：京都、台南、曼谷、首爾…"
+          maxlength="30"
+          autocomplete="off"
+        />
+        <button id="go" type="button">找好料</button>
+      </div>
+
+      <div class="food-contexts">
+        <span class="ctx-label">情境：</span>
+        <button class="ctx-btn active" data-ctx="">全部</button>
+        <button class="ctx-btn" data-ctx="第一次來">第一次來</button>
+        <button class="ctx-btn" data-ctx="在地人口味">在地人口味</button>
+        <button class="ctx-btn" data-ctx="約會">約會</button>
+        <button class="ctx-btn" data-ctx="親子友善">親子友善</button>
+      </div>
+
+      <div class="food-quick">
+        <button type="button" data-city="京都">京都</button>
+        <button type="button" data-city="台南">台南</button>
+        <button type="button" data-city="曼谷">曼谷</button>
+        <button type="button" data-city="首爾">首爾</button>
+        <button type="button" data-city="東京">東京</button>
+        <button type="button" data-city="大阪">大阪</button>
+        <button type="button" data-city="台中">台中</button>
+        <button type="button" data-city="沖繩">沖繩</button>
+        <button type="button" data-city="新加坡">新加坡</button>
+        <button type="button" data-city="花蓮">花蓮</button>
+      </div>
+    </section>
+
+    <section id="status" class="food-status" hidden></section>
+
+    <section id="results" class="food-results" hidden>
+
+      <div class="result-section" id="sec-must">
+        <h2 class="sec-title">🏆 必吃清單</h2>
+        <div class="card-grid" id="list-must"></div>
+      </div>
+
+      <div class="result-section" id="sec-hidden">
+        <h2 class="sec-title">🔍 隱藏版好料</h2>
+        <div class="card-grid" id="list-hidden"></div>
+      </div>
+
+      <div class="result-section" id="sec-omakase">
+        <h2 class="sec-title">🍣 無菜單料理</h2>
+        <div class="omakase-groups" id="list-omakase"></div>
+      </div>
+
+      <div class="result-section" id="sec-souvenirs">
+        <h2 class="sec-title">🎁 必買伴手禮</h2>
+        <div class="card-grid" id="list-souvenirs"></div>
+      </div>
+
+      <div class="result-section" id="sec-avoid">
+        <h2 class="sec-title">🚫 避雷名單</h2>
+        <div class="card-grid" id="list-avoid"></div>
+      </div>
+
+      <div class="result-section itinerary-section" id="sec-itinerary">
+        <h2 class="sec-title">🗺️ 一日行程建議</h2>
+        <p class="itinerary-text" id="itinerary-text"></p>
+      </div>
+
+    </section>
+
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+.food-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ── hero ── */
+.food-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+.food-eyebrow {
+  font-size: .85rem;
+  letter-spacing: .08em;
+  color: #f59e0b;
+  text-transform: uppercase;
+  margin: 0 0 .75rem;
+}
+.food-hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 .75rem;
+  line-height: 1.2;
+}
+.food-accent { color: #f59e0b; }
+.food-sub {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* ── search ── */
+.food-search { max-width: 640px; margin: 0 auto 2.5rem; }
+
+.food-input-row {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.food-input-row input {
+  flex: 1;
+  padding: .75rem 1rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.food-input-row input::placeholder { color: #64748b; }
+.food-input-row input:focus { border-color: #f59e0b; }
+
+#go {
+  padding: .75rem 1.4rem;
+  background: #f59e0b;
+  color: #0f172a;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .2s, transform .1s;
+  white-space: nowrap;
+}
+#go:hover { background: #d97706; }
+#go:active { transform: scale(.97); }
+#go:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ── context buttons ── */
+.food-contexts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.ctx-label { color: #64748b; font-size: .85rem; white-space: nowrap; }
+.ctx-btn {
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  font-size: .85rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+.ctx-btn:hover { border-color: #f59e0b; color: #f59e0b; }
+.ctx-btn.active { background: #f59e0b; border-color: #f59e0b; color: #0f172a; font-weight: 600; }
+
+/* ── quick city buttons ── */
+.food-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.food-quick button {
+  padding: .3rem .7rem;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: .8rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+.food-quick button:hover { border-color: #f59e0b; color: #f59e0b; }
+
+/* ── status ── */
+.food-status {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+/* ── results ── */
+.food-results { margin-top: 1.5rem; }
+
+.result-section {
+  margin-bottom: 3rem;
+}
+.sec-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid #1e293b;
+}
+
+/* ── card grid ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ── restaurant card ── */
+.rest-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid #334155;
+  transition: border-color .2s;
+}
+.rest-card:hover { border-color: #475569; }
+
+.rest-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+.rest-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+.trust-badge {
+  flex-shrink: 0;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .2rem .5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.trust-green  { background: rgba(34,197,94,.15);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+.trust-yellow { background: rgba(234,179,8,.15);  color: #facc15; border: 1px solid rgba(234,179,8,.3); }
+.trust-red    { background: rgba(239,68,68,.15);  color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+
+.beef-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+  font-size: .72rem;
+  background: rgba(251,146,60,.15);
+  color: #fb923c;
+  border: 1px solid rgba(251,146,60,.3);
+  border-radius: 5px;
+  padding: .15rem .45rem;
+  margin-bottom: .4rem;
+}
+
+.rest-reason {
+  font-size: .875rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: .4rem 0 .6rem;
+}
+
+.rest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin-bottom: .5rem;
+}
+.tag {
+  font-size: .72rem;
+  padding: .15rem .45rem;
+  background: #0f172a;
+  border-radius: 5px;
+  color: #64748b;
+}
+
+.trust-reasons {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: .78rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ── omakase price groups ── */
+.omakase-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 700px) { .omakase-groups { grid-template-columns: 1fr; } }
+
+.price-group { }
+.price-group-title {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 0 0 .75rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #1e293b;
+}
+.price-label-low  { color: #4ade80; }
+.price-label-mid  { color: #facc15; }
+.price-label-high { color: #c084fc; }
+
+.price-group .rest-card { margin-bottom: .75rem; }
+.price-group .rest-card:last-child { margin-bottom: 0; }
+
+.price-range-badge {
+  display: inline-block;
+  font-size: .72rem;
+  padding: .15rem .5rem;
+  border-radius: 5px;
+  margin-bottom: .4rem;
+  font-weight: 600;
+}
+.price-low  { background: rgba(74,222,128,.1);  color: #4ade80; }
+.price-mid  { background: rgba(250,204,21,.1);  color: #facc15; }
+.price-high { background: rgba(192,132,252,.1); color: #c084fc; }
+
+/* ── souvenir card ── */
+.souvenir-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 1px solid #334155;
+}
+.souvenir-name {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: .35rem;
+}
+.souvenir-reason { font-size: .85rem; color: #94a3b8; line-height: 1.5; }
+.souvenir-where {
+  margin-top: .4rem;
+  font-size: .78rem;
+  color: #64748b;
+}
+.souvenir-where::before { content: "📍 "; }
+
+/* ── avoid card ── */
+.avoid-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(239,68,68,.2);
+}
+.avoid-name {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #f87171;
+  margin-bottom: .3rem;
+}
+.avoid-reason { font-size: .85rem; color: #94a3b8; margin-bottom: .5rem; line-height: 1.5; }
+.avoid-complaints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+}
+.complaint-tag {
+  font-size: .72rem;
+  padding: .15rem .45rem;
+  background: rgba(239,68,68,.1);
+  color: #f87171;
+  border-radius: 5px;
+}
+
+/* ── itinerary ── */
+.itinerary-section {
+  background: #1e293b;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid #334155;
+}
+.itinerary-text {
+  color: #cbd5e1;
+  font-size: .95rem;
+  line-height: 1.8;
+  margin: 0;
+  white-space: pre-line;
+}
+</style>
+
+<script>
+const cityInput = document.getElementById('city') as HTMLInputElement;
+const goBtn     = document.getElementById('go') as HTMLButtonElement;
+const statusEl  = document.getElementById('status')!;
+const resultsEl = document.getElementById('results')!;
+const ctxBtns   = document.querySelectorAll<HTMLButtonElement>('.ctx-btn');
+const quickBtns = document.querySelectorAll<HTMLButtonElement>('.food-quick button');
+
+let activeCtx = '';
+
+ctxBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    ctxBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCtx = btn.dataset.ctx ?? '';
+  });
+});
+
+quickBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    cityInput.value = btn.dataset.city ?? '';
+    search();
+  });
+});
+
+cityInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') search();
+});
+goBtn.addEventListener('click', search);
+
+function trustClass(score: number): string {
+  if (score >= 90) return 'trust-green';
+  if (score >= 70) return 'trust-yellow';
+  return 'trust-red';
+}
+
+function renderRestaurant(r: any, showPrice?: string): string {
+  const trust = trustClass(r.trust_score ?? 70);
+  const beefBadge = r.has_beef ? '<span class="beef-badge">⚠️ 含牛</span>' : '';
+  const priceBadge = showPrice
+    ? `<span class="price-range-badge ${showPrice === '1000以下' ? 'price-low' : showPrice === '3000以上' ? 'price-high' : 'price-mid'}">${showPrice}</span>`
+    : '';
+  const tags = (r.tags ?? []).map((t: string) => `<span class="tag">${t}</span>`).join('');
+  const reasons = (r.trust_reasons ?? []).map((t: string) => `<li>${t}</li>`).join('');
+
+  return `
+    <div class="rest-card">
+      <div class="rest-card-top">
+        <span class="rest-name">${r.name ?? ''}</span>
+        <span class="trust-badge ${trust}">${r.trust_score ?? 70}</span>
+      </div>
+      ${beefBadge}${priceBadge}
+      <p class="rest-reason">${r.reason ?? ''}</p>
+      ${tags ? `<div class="rest-tags">${tags}</div>` : ''}
+      ${reasons ? `<ul class="trust-reasons">${reasons}</ul>` : ''}
+    </div>`;
+}
+
+function renderOmakase(list: any[]): string {
+  const groups: Record<string, any[]> = {
+    '1000以下': [],
+    '1000-3000': [],
+    '3000以上': [],
+  };
+  list.forEach(r => {
+    const key = r.price_range in groups ? r.price_range : '1000-3000';
+    groups[key].push(r);
+  });
+
+  return `
+    <div class="price-group">
+      <div class="price-group-title price-label-low">1000以下 / 人</div>
+      ${groups['1000以下'].length ? groups['1000以下'].map(r => renderRestaurant(r, r.price_range)).join('') : '<p style="color:#475569;font-size:.85rem">無資料</p>'}
+    </div>
+    <div class="price-group">
+      <div class="price-group-title price-label-mid">1000–3000 / 人</div>
+      ${groups['1000-3000'].length ? groups['1000-3000'].map(r => renderRestaurant(r, r.price_range)).join('') : '<p style="color:#475569;font-size:.85rem">無資料</p>'}
+    </div>
+    <div class="price-group">
+      <div class="price-group-title price-label-high">3000以上 / 人</div>
+      ${groups['3000以上'].length ? groups['3000以上'].map(r => renderRestaurant(r, r.price_range)).join('') : '<p style="color:#475569;font-size:.85rem">無資料</p>'}
+    </div>`;
+}
+
+function renderSouvenir(s: any): string {
+  return `
+    <div class="souvenir-card">
+      <div class="souvenir-name">${s.name ?? ''}</div>
+      <div class="souvenir-reason">${s.reason ?? ''}</div>
+      ${s.where_to_buy ? `<div class="souvenir-where">${s.where_to_buy}</div>` : ''}
+    </div>`;
+}
+
+function renderAvoid(a: any): string {
+  const complaints = (a.complaints ?? []).map((c: string) => `<span class="complaint-tag">${c}</span>`).join('');
+  return `
+    <div class="avoid-card">
+      <div class="avoid-name">🚫 ${a.name ?? ''}</div>
+      <div class="avoid-reason">${a.reason ?? ''}</div>
+      ${complaints ? `<div class="avoid-complaints">${complaints}</div>` : ''}
+    </div>`;
+}
+
+function setEl(id: string, html: string) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
+async function search() {
+  const city = cityInput.value.trim();
+  if (!city) { cityInput.focus(); return; }
+
+  goBtn.disabled = true;
+  resultsEl.hidden = true;
+  statusEl.hidden = false;
+  statusEl.innerHTML = `<p>🍜 正在搜尋「${city}」的美食情報，請稍候（約 20–40 秒）…</p>`;
+
+  try {
+    const res = await fetch('/api/food-finder', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city, context: activeCtx }),
+    });
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      statusEl.innerHTML = `<p>⚠️ ${data.error ?? '發生錯誤，請稍後再試'}</p>`;
+      return;
+    }
+
+    setEl('list-must',      (data.must_eat ?? []).map((r: any) => renderRestaurant(r)).join(''));
+    setEl('list-hidden',    (data.hidden_gems ?? []).map((r: any) => renderRestaurant(r)).join(''));
+    setEl('list-omakase',   renderOmakase(data.omakase ?? []));
+    setEl('list-souvenirs', (data.souvenirs ?? []).map(renderSouvenir).join(''));
+    setEl('list-avoid',     (data.avoid ?? []).map(renderAvoid).join(''));
+    const itinerary = document.getElementById('itinerary-text');
+    if (itinerary) itinerary.textContent = data.itinerary_hint ?? '';
+
+    statusEl.hidden = true;
+    resultsEl.hidden = false;
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch {
+    statusEl.innerHTML = '<p>⚠️ 網路錯誤，請稍後再試</p>';
+  } finally {
+    goBtn.disabled = false;
+  }
+}
+</script>

@@ -32,6 +32,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       <button class="section-btn active" data-section="travel"     role="tab" aria-selected="true">✈️ 旅遊資訊</button>
       <button class="section-btn"        data-section="immigration" role="tab" aria-selected="false">🏠 移民資訊</button>
       <button class="section-btn"        data-section="lifestyle"   role="tab" aria-selected="false">📚 海外生活</button>
+      <button class="section-btn"        data-section="rent"        role="tab" aria-selected="false">🏠 海外租屋</button>
       <button class="section-btn"        data-section="advisor"     role="tab" aria-selected="false">🤖 AI 顧問</button>
     </div>
 
@@ -90,6 +91,131 @@ html body { background: #0f172a; color: #e2e8f0; }
           <div class="tn-items life-items"></div>
           <div class="tn-tips"></div>
           <p class="tn-disclaimer">⚠️ 資料由 AI 即時搜尋整理，申請前請再次確認官方最新規定。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: 海外租屋 -->
+    <div id="section-rent" class="section-panel" hidden>
+      <div class="sub-tabs" role="tablist">
+        <button class="tab-btn active" data-cat="korea-rent-short" role="tab">🇰🇷 韓國短期租屋</button>
+        <button class="tab-btn"        data-cat="korea-rent-long"  role="tab">🇰🇷 韓國長期租屋</button>
+      </div>
+      <div id="panel-rent" class="news-panel">
+        <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
+        <div class="tn-error" hidden></div>
+        <div class="tn-content" hidden>
+          <div class="tn-summary"></div>
+          <div class="tn-items rent-items"></div>
+          <div class="tn-tips"></div>
+          <p class="tn-disclaimer">⚠️ 資料由 AI 即時搜尋整理，租屋前請在 Zigbang、Dabang 等平台確認實際行情。</p>
+        </div>
+      </div>
+
+      <!-- 🧮 預算租屋問卷 -->
+      <div class="rent-quiz-box">
+        <div class="rent-quiz-intro">
+          <p class="rent-quiz-title">🧮 我的預算能租到什麼？</p>
+          <p class="rent-quiz-sub">4 個問題，AI 即時比較各國租屋行情</p>
+        </div>
+
+        <div class="quiz-progress" id="rq-progress">
+          <div class="progress-bar"><div class="progress-fill" id="rq-progress-fill" style="width:25%"></div></div>
+          <p class="progress-label" id="rq-progress-label">第 1 步，共 4 步</p>
+        </div>
+
+        <!-- RQ Step 1: 預算滑桿 -->
+        <div class="rq-step active" id="rq-step-1">
+          <p class="step-q">每月租屋預算？</p>
+          <div class="slider-wrap">
+            <input type="range" id="rq-budget" class="budget-slider"
+              min="5000" max="80000" step="5000" value="20000"
+              oninput="updateSlider(this.value)" />
+            <div class="slider-value-row">
+              <span class="slider-min">NT$5,000</span>
+              <span class="slider-current" id="rq-budget-display">NT$20,000 / 月</span>
+              <span class="slider-max">NT$80,000</span>
+            </div>
+          </div>
+          <button class="quiz-next-btn" onclick="rqNextStep(1)">下一步 →</button>
+        </div>
+
+        <!-- RQ Step 2: 時長 -->
+        <div class="rq-step" id="rq-step-2">
+          <p class="step-q">預計租多久？</p>
+          <div class="option-cards">
+            <label class="opt-card">
+              <input type="radio" name="rq-duration" value="1個月以內">
+              <span class="opt-title">超短期</span>
+              <span class="opt-desc">1 個月以內<br>需找短租平台</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="rq-duration" value="1-3個月">
+              <span class="opt-title">短期</span>
+              <span class="opt-desc">1-3 個月<br>月租或轉租</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="rq-duration" value="3-6個月">
+              <span class="opt-title">中期</span>
+              <span class="opt-desc">3-6 個月<br>正規月租</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="rq-duration" value="6個月以上">
+              <span class="opt-title">長期</span>
+              <span class="opt-desc">6 個月以上<br>可考慮全稅</span>
+            </label>
+          </div>
+          <button class="quiz-back-btn" onclick="rqPrevStep(2)">← 上一步</button>
+          <button class="quiz-next-btn" onclick="rqNextStep(2)">下一步 →</button>
+        </div>
+
+        <!-- RQ Step 3: 國家 -->
+        <div class="rq-step" id="rq-step-3">
+          <p class="step-q">想去哪些國家？（可多選）</p>
+          <div class="checkbox-grid">
+            <label class="check-item"><input type="checkbox" name="rq-countries" value="日本" checked> 🇯🇵 日本</label>
+            <label class="check-item"><input type="checkbox" name="rq-countries" value="泰國" checked> 🇹🇭 泰國</label>
+            <label class="check-item"><input type="checkbox" name="rq-countries" value="韓國" checked> 🇰🇷 韓國</label>
+          </div>
+          <button class="quiz-back-btn" onclick="rqPrevStep(3)">← 上一步</button>
+          <button class="quiz-next-btn" onclick="rqNextStep(3)">下一步 →</button>
+        </div>
+
+        <!-- RQ Step 4: 必備條件 -->
+        <div class="rq-step" id="rq-step-4">
+          <p class="step-q">必備條件？（可多選）</p>
+          <div class="checkbox-grid">
+            <label class="check-item"><input type="checkbox" name="rq-must" value="附家具"> 🛋️ 附家具</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="近捷運"> 🚇 近捷運</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="含網路"> 📶 含網路</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="含水電"> 💡 含水電</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="獨立衛浴"> 🚿 獨立衛浴</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="外國人友善"> 🌏 外國人友善</label>
+            <label class="check-item"><input type="checkbox" name="rq-must" value="允許短租"> 📅 允許短租</label>
+          </div>
+          <button class="quiz-back-btn" onclick="rqPrevStep(4)">← 上一步</button>
+          <button class="quiz-submit-btn" id="rq-submit" onclick="submitRentQuiz()">🔍 AI 幫我比較行情</button>
+        </div>
+
+        <!-- 載入中 -->
+        <div class="advisor-loading" id="rq-loading" hidden>
+          <div class="spinner"></div>
+          <p>AI 正在搜尋各城市最新租屋行情，請稍候…</p>
+        </div>
+
+        <!-- 錯誤 -->
+        <div class="advisor-error" id="rq-error" hidden></div>
+
+        <!-- 結果 -->
+        <div class="rent-result" id="rq-result" hidden>
+          <div id="rq-best"></div>
+          <div id="rq-comparisons"></div>
+          <div id="rq-tips"></div>
+          <div id="rq-warns"></div>
+          <p class="tn-disclaimer" style="margin-top:1rem">
+            💡 租金行情為 AI 即時分析，實際價格以 Zigbang、Airbnb、591 等平台為準。
+          </p>
+          <button class="quiz-reset-btn" onclick="resetRentQuiz()">🔄 重新查詢</button>
         </div>
       </div>
     </div>
@@ -522,6 +648,84 @@ html body { background: #0f172a; color: #e2e8f0; }
 .steps-list li, .warns-list li { font-size: .875rem; color: #cbd5e1; line-height: 1.55; padding-left: 1.5rem; position: relative; }
 .steps-list li::before { content: "✅"; position: absolute; left: 0; font-size: .78rem; }
 .warns-list li::before { content: "⚠️"; position: absolute; left: 0; font-size: .78rem; }
+
+/* ── unique_system 制度說明框 ── */
+.unique-system-box {
+  background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.25);
+  border-radius: 8px; padding: .75rem 1rem; margin-top: .6rem;
+}
+.unique-system-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .06em;
+  color: #a5b4fc; text-transform: uppercase; margin: 0 0 .3rem;
+}
+.unique-system-text { font-size: .82rem; color: #c7d2fe; line-height: 1.6; margin: 0; }
+
+/* ── 海外租屋問卷 ── */
+.rent-quiz-box {
+  background: #1e293b; border: 1px solid #334155; border-radius: 16px;
+  padding: 1.75rem; margin-top: 2rem;
+}
+.rent-quiz-intro { text-align: center; margin-bottom: 1.5rem; }
+.rent-quiz-title { font-size: 1.1rem; font-weight: 800; color: #f1f5f9; margin: 0 0 .35rem; }
+.rent-quiz-sub   { font-size: .875rem; color: #64748b; margin: 0; }
+
+/* slider */
+.slider-wrap { margin-bottom: 1.5rem; }
+.budget-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px;
+  background: linear-gradient(to right, #38bdf8 0%, #38bdf8 25%, #1e3a5f 25%);
+  border-radius: 3px; outline: none; cursor: pointer;
+}
+.budget-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #38bdf8; cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(56,189,248,.2);
+}
+.budget-slider::-moz-range-thumb {
+  width: 20px; height: 20px; border: none; border-radius: 50%;
+  background: #38bdf8; cursor: pointer;
+}
+.slider-value-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: .6rem;
+}
+.slider-min, .slider-max { font-size: .72rem; color: #475569; }
+.slider-current {
+  font-size: 1.05rem; font-weight: 800; color: #38bdf8;
+}
+
+/* rent steps */
+.rq-step { display: none; }
+.rq-step.active { display: block; }
+
+/* ── 租屋比較結果 ── */
+.rent-result { display: block; }
+
+.rent-best-card {
+  background: linear-gradient(135deg, #0c4a6e 0%, #1e293b 100%);
+  border: 1px solid #0369a1; border-radius: 14px; padding: 1.4rem; margin-bottom: 1.25rem;
+}
+.rent-best-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; color: #38bdf8; text-transform: uppercase; margin: 0 0 .5rem; }
+.rent-best-location { font-size: 1.2rem; font-weight: 800; color: #f1f5f9; margin: 0 0 .15rem; }
+.rent-best-area { font-size: .9rem; color: #7dd3fc; margin: 0 0 .5rem; }
+.rent-best-price {
+  font-size: 1.05rem; font-weight: 700; color: #a3e635;
+  background: rgba(163,230,53,.1); border: 1px solid rgba(163,230,53,.2);
+  display: inline-block; padding: .25rem .7rem; border-radius: 6px; margin-bottom: .6rem;
+}
+.rent-best-reason { font-size: .875rem; color: #bae6fd; line-height: 1.65; margin: 0; }
+
+.rent-comp-title { font-size: .85rem; font-weight: 700; color: #94a3b8; margin: 0 0 .75rem; }
+.rent-comp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .6rem; margin-bottom: 1.25rem; }
+.rent-comp-card {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; padding: .9rem;
+}
+.rcc-location { font-size: .88rem; font-weight: 700; color: #e2e8f0; margin-bottom: .2rem; }
+.rcc-area     { font-size: .75rem; color: #475569; margin-bottom: .4rem; }
+.rcc-price    { font-size: .85rem; font-weight: 700; color: #a3e635; margin-bottom: .35rem; }
+.rcc-verdict  { font-size: .78rem; color: #64748b; line-height: 1.4; margin-bottom: .35rem; }
 </style>
 
 <script>
@@ -533,9 +737,10 @@ type TravelCategory =
   | 'thailand-visa' | 'thailand-news'
   | 'korea-news' | 'europe-news'
   | 'immigration-easy' | 'immigration-country'
-  | 'working-holiday' | 'study-abroad' | 'study-holiday';
+  | 'working-holiday' | 'study-abroad' | 'study-holiday'
+  | 'korea-rent-short' | 'korea-rent-long';
 
-type SectionId = 'travel' | 'immigration' | 'lifestyle' | 'advisor';
+type SectionId = 'travel' | 'immigration' | 'lifestyle' | 'rent' | 'advisor';
 
 interface NewsItem {
   title: string;
@@ -545,6 +750,7 @@ interface NewsItem {
   difficulty?: '容易' | '中等' | '困難';
   age_limit?: string;
   deadline?: string;
+  unique_system?: string;
   source?: string;
 }
 
@@ -564,6 +770,7 @@ const sectionPanelOf: Record<SectionId, string> = {
   travel: 'panel-travel',
   immigration: 'panel-immigration',
   lifestyle: 'panel-lifestyle',
+  rent: 'panel-rent',
   advisor: '',
 };
 
@@ -571,6 +778,7 @@ const sectionDefaultCat: Record<SectionId, TravelCategory | null> = {
   travel: 'japan-tax',
   immigration: 'immigration-easy',
   lifestyle: 'working-holiday',
+  rent: 'korea-rent-short',
   advisor: null,
 };
 
@@ -616,7 +824,7 @@ function attachSubTabs(sectionEl: HTMLElement, panelId: string) {
   });
 }
 
-(['travel', 'immigration', 'lifestyle'] as SectionId[]).forEach(sid => {
+(['travel', 'immigration', 'lifestyle', 'rent'] as SectionId[]).forEach(sid => {
   const sectionEl = document.getElementById(`section-${sid}`)!;
   const panelId = sectionPanelOf[sid];
   attachSubTabs(sectionEl, panelId);
@@ -653,6 +861,7 @@ function showContent(panelId: string) {
 // ─────────────────────────────
 const IMMIG_CATS = new Set(['immigration-easy', 'immigration-country']);
 const LIFE_CATS  = new Set(['working-holiday', 'study-abroad', 'study-holiday']);
+const RENT_CATS  = new Set(['korea-rent-short', 'korea-rent-long']);
 
 function difficultyClass(d?: string) {
   if (d === '容易') return 'badge-easy';
@@ -664,6 +873,7 @@ function difficultyClass(d?: string) {
 function renderNewsItem(item: NewsItem, cat: TravelCategory): string {
   const isImmig = IMMIG_CATS.has(cat);
   const isLife  = LIFE_CATS.has(cat);
+  const isRent  = RENT_CATS.has(cat);
 
   const badges: string[] = [];
   if (item.country) badges.push(`<span class="badge badge-country">${item.country}</span>`);
@@ -674,8 +884,13 @@ function renderNewsItem(item: NewsItem, cat: TravelCategory): string {
   if (item.deadline)  badges.push(`<span class="badge badge-deadline">⏰ ${item.deadline}</span>`);
 
   const badgeRow = badges.length ? `<div class="badge-row">${badges.join('')}</div>` : '';
-  const dateTag  = (!isImmig && !isLife && item.effective_date)
+  const dateTag  = (!isImmig && !isLife && !isRent && item.effective_date)
     ? `<span class="news-date">${item.effective_date}</span>` : '';
+  const uniqueBox = (isRent && item.unique_system) ? `
+    <div class="unique-system-box">
+      <p class="unique-system-label">📋 制度說明</p>
+      <p class="unique-system-text">${item.unique_system}</p>
+    </div>` : '';
 
   return `<div class="news-card">
     <div class="news-card-top">
@@ -684,6 +899,7 @@ function renderNewsItem(item: NewsItem, cat: TravelCategory): string {
     </div>
     ${badgeRow}
     <p class="news-content">${item.content ?? ''}</p>
+    ${uniqueBox}
     ${item.source ? `<p class="news-source">${item.source}</p>` : ''}
   </div>`;
 }
@@ -874,6 +1090,145 @@ function renderAdvisorResult(data: any) {
 
   document.getElementById('advisor-result')!.classList.add('show');
 }
+
+// ─────────────────────────────
+// Rent Quiz
+// ─────────────────────────────
+let rqStep = 1;
+const RQ_TOTAL = 4;
+
+function rqUpdateProgress(step: number) {
+  const pct = Math.round((step / RQ_TOTAL) * 100);
+  (document.getElementById('rq-progress-fill') as HTMLElement).style.width = pct + '%';
+  (document.getElementById('rq-progress-label') as HTMLElement).textContent = `第 ${step} 步，共 ${RQ_TOTAL} 步`;
+}
+
+(window as any).updateSlider = function(val: string) {
+  const n = parseInt(val);
+  const pct = ((n - 5000) / (80000 - 5000)) * 100;
+  const slider = document.getElementById('rq-budget') as HTMLInputElement;
+  slider.style.background = `linear-gradient(to right, #38bdf8 0%, #38bdf8 ${pct}%, #1e3a5f ${pct}%)`;
+  (document.getElementById('rq-budget-display') as HTMLElement).textContent =
+    `NT$${Number(val).toLocaleString()} / 月`;
+};
+
+(window as any).rqNextStep = function(step: number) {
+  if (step === 2 && !document.querySelector<HTMLInputElement>('input[name="rq-duration"]:checked')) {
+    alert('請選擇租賃時長'); return;
+  }
+  if (step === 3) {
+    const checked = document.querySelectorAll<HTMLInputElement>('input[name="rq-countries"]:checked');
+    if (!checked.length) { alert('請至少選擇一個國家'); return; }
+  }
+  document.getElementById(`rq-step-${step}`)!.classList.remove('active');
+  rqStep = step + 1;
+  document.getElementById(`rq-step-${rqStep}`)!.classList.add('active');
+  rqUpdateProgress(rqStep);
+};
+
+(window as any).rqPrevStep = function(step: number) {
+  document.getElementById(`rq-step-${step}`)!.classList.remove('active');
+  rqStep = step - 1;
+  document.getElementById(`rq-step-${rqStep}`)!.classList.add('active');
+  rqUpdateProgress(rqStep);
+};
+
+(window as any).submitRentQuiz = async function() {
+  const budget_twd = parseInt((document.getElementById('rq-budget') as HTMLInputElement).value);
+  const duration   = document.querySelector<HTMLInputElement>('input[name="rq-duration"]:checked')?.value ?? '';
+  const countries  = [...document.querySelectorAll<HTMLInputElement>('input[name="rq-countries"]:checked')].map(e => e.value);
+  const must_have  = [...document.querySelectorAll<HTMLInputElement>('input[name="rq-must"]:checked')].map(e => e.value);
+
+  document.getElementById(`rq-step-${rqStep}`)!.classList.remove('active');
+  (document.getElementById('rq-progress') as HTMLElement).style.display = 'none';
+
+  const loadingEl = document.getElementById('rq-loading')!;
+  const errorEl   = document.getElementById('rq-error')!;
+  const resultEl  = document.getElementById('rq-result')!;
+  loadingEl.hidden = false;
+  errorEl.hidden   = true;
+  resultEl.hidden  = true;
+
+  try {
+    const res  = await fetch('/api/rent-advisor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ budget_twd, duration, preferred_countries: countries, city_preference: '大城市', must_have, travel_purpose: '旅遊或生活' }),
+    });
+    const data = await res.json();
+    loadingEl.hidden = true;
+    if (!res.ok || data.error) {
+      errorEl.hidden = false;
+      errorEl.textContent = '⚠️ ' + (data.error ?? '發生錯誤，請稍後再試');
+      return;
+    }
+    renderRentResult(data);
+  } catch {
+    loadingEl.hidden = true;
+    errorEl.hidden = false;
+    errorEl.textContent = '⚠️ 網路錯誤，請稍後再試';
+  }
+};
+
+function renderRentResult(data: any) {
+  const bm = data.best_match ?? {};
+  document.getElementById('rq-best')!.innerHTML = `
+    <div class="rent-best-card">
+      <p class="rent-best-label">🏆 最推薦選項</p>
+      <p class="rent-best-location">${bm.country ?? ''} · ${bm.city ?? ''}</p>
+      <p class="rent-best-area">📍 ${bm.area ?? ''}</p>
+      <p class="rent-best-price">${bm.estimated_rent ?? ''}</p>
+      <p class="rent-best-reason">${bm.reason ?? ''}</p>
+    </div>`;
+
+  const comps = data.comparisons ?? [];
+  document.getElementById('rq-comparisons')!.innerHTML = comps.length ? `
+    <p class="rent-comp-title">📊 其他國家比較</p>
+    <div class="rent-comp-cards">
+      ${comps.map((c: any) => {
+        const diffCls = c.foreigner_difficulty === '容易' ? 'badge-easy' : c.foreigner_difficulty === '困難' ? 'badge-hard' : 'badge-medium';
+        return `<div class="rent-comp-card">
+          <p class="rcc-location">${c.country ?? ''} · ${c.city ?? ''}</p>
+          <p class="rcc-area">📍 ${c.area ?? ''}</p>
+          <p class="rcc-price">${c.estimated_rent ?? ''}</p>
+          <p class="rcc-verdict">${c.verdict ?? ''}</p>
+          <span class="badge ${diffCls}">外國人 ${c.foreigner_difficulty ?? ''}</span>
+        </div>`;
+      }).join('')}
+    </div>` : '';
+
+  const tips = data.budget_tips ?? [];
+  document.getElementById('rq-tips')!.innerHTML = tips.length ? `
+    <div class="tn-tips" style="margin-bottom:.75rem">
+      <div class="tn-tips-title">💰 省錢技巧</div>
+      <ul class="tips-list">${tips.map((t: string) => `<li>${t}</li>`).join('')}</ul>
+    </div>` : '';
+
+  const warns = data.warnings ?? [];
+  document.getElementById('rq-warns')!.innerHTML = warns.length ? `
+    <div class="warns-box">
+      <p class="warns-title">⚠️ 注意事項</p>
+      <ul class="warns-list">${warns.map((w: string) => `<li>${w}</li>`).join('')}</ul>
+    </div>` : '';
+
+  (document.getElementById('rq-result') as HTMLElement).hidden = false;
+}
+
+(window as any).resetRentQuiz = function() {
+  rqStep = 1;
+  document.querySelectorAll('.rq-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('rq-step-1')!.classList.add('active');
+  (document.getElementById('rq-progress') as HTMLElement).style.display = '';
+  rqUpdateProgress(1);
+  (document.getElementById('rq-budget') as HTMLInputElement).value = '20000';
+  (window as any).updateSlider('20000');
+  document.querySelectorAll<HTMLInputElement>('input[name="rq-duration"]').forEach(e => e.checked = false);
+  document.querySelectorAll<HTMLInputElement>('input[name="rq-countries"]').forEach(e => e.checked = e.value === '日本' || e.value === '泰國' || e.value === '韓國');
+  document.querySelectorAll<HTMLInputElement>('input[name="rq-must"]').forEach(e => e.checked = false);
+  (document.getElementById('rq-loading') as HTMLElement).hidden = true;
+  (document.getElementById('rq-error') as HTMLElement).hidden = true;
+  (document.getElementById('rq-result') as HTMLElement).hidden = true;
+};
 
 (window as any).resetQuiz = function() {
   currentStep = 1;

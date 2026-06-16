@@ -18,7 +18,9 @@ export type TravelCategory =
   | 'immigration-country'
   | 'working-holiday'
   | 'study-abroad'
-  | 'study-holiday';
+  | 'study-holiday'
+  | 'korea-rent-short'
+  | 'korea-rent-long';
 
 export interface NewsItem {
   title: string;
@@ -28,6 +30,7 @@ export interface NewsItem {
   difficulty?: '容易' | '中等' | '困難';
   age_limit?: string;
   deadline?: string;
+  unique_system?: string;
   source: string;
 }
 
@@ -101,6 +104,33 @@ country 欄位填國家名稱。
 請用 Google 搜尋「數位遊牧簽 台灣 2026」「Digital Nomad Visa Taiwan」「讀書度假簽 台灣」「葡萄牙 D8 簽證」「泰國 LTR Visa」「印尼 Bali 數位遊牧」。
 整理目前台灣護照可申請的數位遊牧簽、讀書度假簽、慢生活簽等方式，包含葡萄牙D8、泰國LTR、印尼特殊簽、馬來西亞DE Rantau等。
 每個項目需包含：country 欄位（國家）、age_limit 欄位（若有年齡限制）、主要條件（如最低收入要求）、費用。
+以台灣人角度，繁體中文。`,
+
+  'korea-rent-short': `你是專為台灣人服務的韓國租屋專家。
+請用 Google 搜尋「首爾短期月租 台灣人 2026」「弘大新村短期租屋 外國人」「首爾弘大 공유주택 月租」「韓國月租房 外國人申辦」。
+整理首爾短期租屋（月租 월세）最新行情，重點區域：弘大、新村、梨泰院、江南、麻浦。
+每個項目需包含：
+- title：區域名稱和房型（如「弘大單人套房」）
+- content：詳細說明（月租行情、面積、設施）
+- country 欄位填「韓國」
+- unique_system 欄位：說明該區域或房型的特殊租屋制度（如月租押金慣例、중개비 仲介費標準、보증금 保證金計算方式）
+- source：資料來源
+台灣人注意事項：外國人辦理所需文件（護照、登錄外國人）、短租平台推薦（Zigbang、Dabang、Airbnb、KV Stays）。
+以台灣人角度，繁體中文。`,
+
+  'korea-rent-long': `你是專為台灣人服務的韓國租屋專家，熟悉全稅制度。
+請用 Google 搜尋「韓國全稅 Jeonse 台灣人 外國人 2026」「韓國全稅制度 설명」「全稅 外國人 ARC 辦理」「韓國長期租屋 台灣人注意」。
+詳細整理韓國長期租屋制度，重點說明：
+1. 全稅（전세 Jeonse）制度：押金通常為房屋市值 50-80%，租期 2 年，到期拿回全額，中間不用付月租。台灣人需要 ARC（外國人登錄）才能辦理。
+2. 月租（월세）長租：押金較低但每月需付租金，外國人較容易申辦。
+3. 半月租（반전세）：介於全稅與月租之間的混合制度。
+每個項目需包含：
+- title：制度名稱或注意重點
+- content：詳細說明（適合台灣人的情況、資金需求、風險提醒）
+- unique_system 欄位：深度說明該制度的核心機制和台灣人特別要注意的事項
+- country 欄位填「韓國」
+- source：資料來源
+特別提醒：全稅詐欺案（깡통전세）風險、確認登記簿謄本（등기부등본）的重要性、需要韓國擔保人的情況。
 以台灣人角度，繁體中文。`,
 };
 
@@ -209,6 +239,7 @@ export const POST: APIRoute = async ({ request }) => {
             difficulty: ['容易', '中等', '困難'].includes(item?.difficulty) ? item.difficulty : undefined,
             age_limit: item?.age_limit || undefined,
             deadline: item?.deadline || undefined,
+            unique_system: item?.unique_system ? String(item.unique_system).slice(0, 400) : undefined,
             source: String(item?.source ?? '').slice(0, 60),
           }))
         : [],

@@ -451,7 +451,6 @@ html body { background: #0f172a; color: #e2e8f0; }
     if (!msg || btnChatSend.disabled) return
 
     addBubble('user', msg)
-    chatHistory.push({ role: 'user', content: msg })
     chatInput.value = ''
     setTimeout(function() { chatInput.value = '' }, 0)
     btnChatSend.disabled = true
@@ -468,6 +467,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       const data = await res.json()
       if (data.error) throw new Error(data.error)
 
+      chatHistory.push({ role: 'user', content: msg })
       addBubble('assistant', data.reply)
       setStatus(2, '')
 

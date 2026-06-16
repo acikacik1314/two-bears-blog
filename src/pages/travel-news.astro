@@ -1,0 +1,369 @@
+---
+export const prerender = false;
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead
+    title="旅遊最新報｜日本泰國最新政策"
+    description="兩隻熊幫你追蹤日本退稅制度、泰國免簽政策、最新旅遊消息，出發前必看。"
+  />
+</head>
+<body>
+  <Header />
+  <main class="tn-page">
+
+    <header class="tn-hero">
+      <p class="tn-eyebrow">兩隻熊 × 即時情報</p>
+      <h1>✈️ 旅遊最新報</h1>
+      <p class="tn-sub">出發前必看，AI 幫你追蹤最新政策與旅遊新聞 🐻</p>
+    </header>
+
+    <div class="tn-tabs" role="tablist">
+      <button class="tab-btn active" data-cat="japan-tax"    role="tab" aria-selected="true">🇯🇵 日本退稅</button>
+      <button class="tab-btn"        data-cat="japan-news"   role="tab" aria-selected="false">🇯🇵 日本旅遊</button>
+      <button class="tab-btn"        data-cat="thailand-visa" role="tab" aria-selected="false">🇹🇭 泰國免簽</button>
+      <button class="tab-btn"        data-cat="thailand-news" role="tab" aria-selected="false">🇹🇭 泰國旅遊</button>
+    </div>
+
+    <section id="tn-panel" class="tn-panel">
+      <div id="tn-loading" class="tn-loading" hidden>
+        <div class="spinner"></div>
+        <p>AI 正在搜尋最新資訊，請稍候…</p>
+      </div>
+      <div id="tn-error" class="tn-error" hidden></div>
+      <div id="tn-content" hidden>
+        <div class="tn-summary" id="tn-summary"></div>
+        <div class="tn-items" id="tn-items"></div>
+        <div class="tn-tips" id="tn-tips"></div>
+        <p class="tn-disclaimer">
+          ⚠️ 資料由 AI 即時搜尋整理，可能有時間差，建議出發前再次確認官方資訊。
+        </p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+.tn-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1rem 5rem;
+}
+
+/* ── hero ── */
+.tn-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+.tn-eyebrow {
+  font-size: .82rem;
+  letter-spacing: .08em;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin: 0 0 .6rem;
+}
+.tn-hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 .6rem;
+}
+.tn-sub {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ── tabs ── */
+.tn-tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #1e293b;
+  padding-bottom: 0;
+}
+.tab-btn {
+  padding: .6rem 1.1rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #64748b;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: -2px;
+  border-radius: 6px 6px 0 0;
+  transition: color .2s, border-color .2s, background .2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: #cbd5e1; background: rgba(255,255,255,.04); }
+.tab-btn.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  background: rgba(56,189,248,.06);
+}
+
+/* ── panel ── */
+.tn-panel { min-height: 300px; }
+
+/* ── loading ── */
+.tn-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  color: #64748b;
+  font-size: .95rem;
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #1e293b;
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── error ── */
+.tn-error {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #f87171;
+  font-size: .95rem;
+}
+
+/* ── summary ── */
+.tn-summary {
+  background: linear-gradient(135deg, #0c4a6e 0%, #1e293b 100%);
+  border: 1px solid #0369a1;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.tn-summary-label {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin: 0 0 .4rem;
+}
+.tn-summary-text {
+  color: #e0f2fe;
+  font-size: .95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.tn-updated {
+  font-size: .75rem;
+  color: #475569;
+  margin-top: .5rem;
+}
+
+/* ── items ── */
+.tn-items {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+
+.news-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  transition: border-color .2s;
+}
+.news-card:hover { border-color: #475569; }
+
+.news-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .4rem;
+}
+.news-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.35;
+}
+.news-date {
+  flex-shrink: 0;
+  font-size: .72rem;
+  padding: .2rem .55rem;
+  background: rgba(56,189,248,.1);
+  color: #38bdf8;
+  border-radius: 5px;
+  border: 1px solid rgba(56,189,248,.2);
+  white-space: nowrap;
+}
+.news-content {
+  font-size: .875rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 .5rem;
+}
+.news-source {
+  font-size: .75rem;
+  color: #475569;
+}
+.news-source::before { content: "📌 來源："; }
+
+/* ── tips ── */
+.tn-tips {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+.tn-tips-title {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 0 0 .75rem;
+  letter-spacing: .04em;
+}
+.tips-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.tips-list li {
+  font-size: .875rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  padding-left: 1.4rem;
+  position: relative;
+}
+.tips-list li::before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+  font-size: .8rem;
+}
+
+/* ── disclaimer ── */
+.tn-disclaimer {
+  font-size: .78rem;
+  color: #475569;
+  text-align: center;
+  padding-top: .5rem;
+}
+</style>
+
+<script>
+type TravelCategory = 'japan-tax' | 'japan-news' | 'thailand-visa' | 'thailand-news';
+
+const cache = new Map<TravelCategory, any>();
+const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+const loadingEl = document.getElementById('tn-loading')!;
+const errorEl   = document.getElementById('tn-error')!;
+const contentEl = document.getElementById('tn-content')!;
+
+function showLoading() {
+  loadingEl.hidden = false;
+  errorEl.hidden   = true;
+  contentEl.hidden = true;
+}
+function showError(msg: string) {
+  loadingEl.hidden = true;
+  errorEl.hidden   = false;
+  contentEl.hidden = true;
+  errorEl.textContent = '⚠️ ' + msg;
+}
+function showContent() {
+  loadingEl.hidden = true;
+  errorEl.hidden   = true;
+  contentEl.hidden = false;
+}
+
+function renderContent(data: any) {
+  const summaryEl = document.getElementById('tn-summary')!;
+  summaryEl.innerHTML = `
+    <p class="tn-summary-label">📋 重點摘要</p>
+    <p class="tn-summary-text">${data.summary ?? ''}</p>
+    <p class="tn-updated">AI 搜尋日期：${data.updated_at ?? ''}</p>`;
+
+  const itemsEl = document.getElementById('tn-items')!;
+  const items: any[] = data.items ?? [];
+  itemsEl.innerHTML = items.map(item => `
+    <div class="news-card">
+      <div class="news-card-top">
+        <span class="news-title">${item.title ?? ''}</span>
+        ${item.effective_date ? `<span class="news-date">${item.effective_date}</span>` : ''}
+      </div>
+      <p class="news-content">${item.content ?? ''}</p>
+      ${item.source ? `<p class="news-source">${item.source}</p>` : ''}
+    </div>`).join('');
+
+  const tipsEl = document.getElementById('tn-tips')!;
+  const tips: string[] = data.tips ?? [];
+  tipsEl.innerHTML = tips.length ? `
+    <div class="tn-tips-title">🧳 台灣旅客實用提醒</div>
+    <ul class="tips-list">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '';
+
+  showContent();
+}
+
+async function loadCategory(cat: TravelCategory) {
+  if (cache.has(cat)) {
+    renderContent(cache.get(cat));
+    return;
+  }
+
+  showLoading();
+  try {
+    const res = await fetch('/api/travel-news', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ category: cat }),
+    });
+    const data = await res.json();
+    if (!res.ok || data.error) {
+      showError(data.error ?? '發生錯誤，請稍後再試');
+      return;
+    }
+    cache.set(cat, data);
+    renderContent(data);
+  } catch {
+    showError('網路錯誤，請稍後再試');
+  }
+}
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    loadCategory(btn.dataset.cat as TravelCategory);
+  });
+});
+
+// 預設載入第一個 tab
+loadCategory('japan-tax');
+</script>

@@ -13,6 +13,7 @@ export interface Restaurant {
   trust_score: number;
   trust_reasons: string[];
   has_beef: boolean;
+  is_vegetarian: boolean;
   tags: string[];
 }
 
@@ -44,9 +45,18 @@ export interface FoodResult {
 }
 
 function buildPrompt(city: string, context: string): string {
-  const contextNote = context ? `情境：${context}。` : '';
+  const isDietaryCtx = context === '不吃牛' || context === '吃素';
+  const contextNote = context && !isDietaryCtx ? `情境：${context}。` : '';
+
+  let dietaryInstruction = '';
+  if (context === '不吃牛') {
+    dietaryInstruction = '\n\n【飲食限制：不吃牛】只推薦完全不含牛肉、牛骨湯、牛油、牛腩、牛雜等牛相關食材的餐廳。所有回傳項目 has_beef 必須為 false。含牛的餐廳一律排除。';
+  } else if (context === '吃素') {
+    dietaryInstruction = '\n\n【飲食限制：吃素】只推薦有素食選項的餐廳（蛋奶素或全素均可，需明確標示可點素食）。所有回傳項目 is_vegetarian 必須為 true，has_beef 必須為 false。無素食選項的餐廳一律排除。';
+  }
+
   return `你是美食顧問，精通當地飲食文化，擅長分辨真實口碑與觀光陷阱。
-請用 Google 搜尋「${city} 美食推薦」「${city} 隱藏版餐廳」「${city} 無菜單料理」「${city} 必買伴手禮」「${city} 地雷餐廳」，整理最值得吃的餐廳與食物。${contextNote}
+請用 Google 搜尋「${city} 美食推薦」「${city} 隱藏版餐廳」「${city} 無菜單料理」「${city} 必買伴手禮」「${city} 地雷餐廳」，整理最值得吃的餐廳與食物。${contextNote}${dietaryInstruction}
 
 【trust_score 評分標準（0-100）】
 - 在地人評論比例高 → 加分
@@ -72,6 +82,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_score": 85,
       "trust_reasons": ["在地人評論占多數", "負評只集中在排隊"],
       "has_beef": false,
+      "is_vegetarian": false,
       "tags": ["在地人", "平價"]
     }
   ],
@@ -82,6 +93,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_score": 90,
       "trust_reasons": ["當地部落格才提到", "Google Maps 評論數少但質量高"],
       "has_beef": false,
+      "is_vegetarian": false,
       "tags": ["當地人才知道", "不需排隊"]
     }
   ],
@@ -92,6 +104,7 @@ JSON 格式（每個餐廳陣列至少 3 筆）：
       "trust_score": 88,
       "trust_reasons": ["理由"],
       "has_beef": false,
+      "is_vegetarian": false,
       "tags": ["需預約", "主廚推薦"],
       "price_range": "1000-3000"
     }
@@ -125,6 +138,7 @@ function sanitizeRestaurant(r: any): Restaurant {
       ? r.trust_reasons.map((s: any) => String(s).slice(0, 80)).slice(0, 4)
       : [],
     has_beef: Boolean(r?.has_beef),
+    is_vegetarian: Boolean(r?.is_vegetarian),
     tags: Array.isArray(r?.tags)
       ? r.tags.map((s: any) => String(s).slice(0, 20)).slice(0, 5)
       : [],

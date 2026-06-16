@@ -46,6 +46,8 @@ html body { background: #0f172a; color: #e2e8f0; }
         <button class="ctx-btn" data-ctx="在地人口味">在地人口味</button>
         <button class="ctx-btn" data-ctx="約會">約會</button>
         <button class="ctx-btn" data-ctx="親子友善">親子友善</button>
+        <button class="ctx-btn" data-ctx="不吃牛">🚫 不吃牛</button>
+        <button class="ctx-btn" data-ctx="吃素">🥦 吃素</button>
       </div>
 
       <div class="food-quick">
@@ -571,6 +573,17 @@ async function search() {
     if (!res.ok || data.error) {
       statusEl.innerHTML = `<p>⚠️ ${data.error ?? '發生錯誤，請稍後再試'}</p>`;
       return;
+    }
+
+    if (activeCtx === '不吃牛') {
+      data.must_eat    = (data.must_eat    ?? []).filter((r: any) => !r.has_beef);
+      data.hidden_gems = (data.hidden_gems ?? []).filter((r: any) => !r.has_beef);
+      data.omakase     = (data.omakase     ?? []).filter((r: any) => !r.has_beef);
+    }
+    if (activeCtx === '吃素') {
+      data.must_eat    = (data.must_eat    ?? []).filter((r: any) => r.is_vegetarian);
+      data.hidden_gems = (data.hidden_gems ?? []).filter((r: any) => r.is_vegetarian);
+      data.omakase     = (data.omakase     ?? []).filter((r: any) => r.is_vegetarian);
     }
 
     setEl('list-must',      (data.must_eat ?? []).map((r: any) => renderRestaurant(r)).join(''));

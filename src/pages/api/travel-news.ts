@@ -24,7 +24,10 @@ export type TravelCategory =
   | 'thailand-rent-short'
   | 'thailand-rent-long'
   | 'korea-rent-short'
-  | 'korea-rent-long';
+  | 'korea-rent-long'
+  | 'japan-scam'
+  | 'thailand-scam'
+  | 'korea-scam';
 
 export interface NewsItem {
   title: string;
@@ -35,6 +38,10 @@ export interface NewsItem {
   age_limit?: string;
   deadline?: string;
   unique_system?: string;
+  red_flags?: string[];
+  how_to_avoid?: string;
+  real_cases?: string;
+  legal_risk?: '高' | '中' | '低';
   source: string;
 }
 
@@ -178,6 +185,78 @@ country 欄位填國家名稱。
 台灣人注意事項：外國人辦理所需文件（護照、登錄外國人）、短租平台推薦（Zigbang、Dabang、Airbnb、KV Stays）。
 以台灣人角度，繁體中文。`,
 
+  'japan-scam': `你是專為台灣人（外國人）服務的日本不動產風險顧問。
+請用 Google 搜尋「日本 外国人 不動産 詐欺 2025 2026」「日本買房 外國人 陷阱」「Japan real estate scam foreigner」「日本 地上げ 不動産詐欺 事例」「日本 マンション 管理費 トラブル」。
+整理日本不動產市場中外國人（台灣人）常見的購屋騙局與法律風險。
+
+背景：外國人可在日本自由購買不動產，但需注意農地限制、邊境地區管制（国境離島等土地取引法）、仲介必須有宅地建物取引業許可証（宅建業免許）。
+
+每個項目需包含：
+- title：騙局或陷阱名稱
+- content：詳細說明手法（100字以內）
+- red_flags：陣列，2-4個警示訊號
+- how_to_avoid：如何避免（100字以內）
+- real_cases：真實案例摘要，只引用有新聞報導或官方紀錄的案例，沒有可靠案例請填空字串
+- legal_risk：「高」或「中」或「低」
+- source：資料來源
+
+必須包含以下主題：
+1. 空屋（空き家）投資陷阱：隱藏的修繕費、解體費
+2. 管理費・修繕積立金未申報陷阱
+3. 無宅建業免許仲介詐欺
+4. 境界紛争（土地界線糾紛）
+5. 防火・耐震性能未申報
+6. 正規管道：宅建業免許確認方法（国土交通省データベース）、司法書士、土地家屋調査士
+以台灣人角度，繁體中文。`,
+
+  'thailand-scam': `你是專為台灣人（外國人）服務的泰國不動產風險顧問。
+請用 Google 搜尋「Thailand real estate scam foreigner 2025 2026」「泰國買房外國人陷阱」「Thailand Nominee structure illegal」「Thailand presale condo scam developer」「泰國預售屋跑路 案例」「Thailand 49 percent quota exceeded」。
+整理泰國不動產市場中外國人（台灣人）常見的購屋騙局與法律風險。
+
+背景：外國人完全禁止持有泰國土地（Land Code Act）；外國人可購買公寓單位（Condominium）但整棟外國人比例不得超過49%；購買公寓必須以外幣匯入並取得 FET（Foreign Exchange Transaction）文件。
+
+每個項目需包含：
+- title：騙局或陷阱名稱
+- content：詳細說明手法（100字以內）
+- red_flags：陣列，2-4個警示訊號
+- how_to_avoid：如何避免（100字以內）
+- real_cases：真實案例摘要，只引用有新聞報導或官方紀錄的案例，沒有可靠案例請填空字串
+- legal_risk：「高」或「中」或「低」
+- source：資料來源
+
+必須包含以下主題：
+1. Nominee Structure（人頭持地）違法風險：最嚴可吊銷居留、刑事責任
+2. Off-plan預售屋開發商跑路風險：識別方式、EIA核准確認
+3. 外國人配額超賣（Oversold Foreign Quota）
+4. 假 Chanote（土地狀況書）或 NS3K 等低等級土地憑證
+5. 管理費/沉沒費用陷阱
+6. 正規管道：泰國執業律師（Thai Bar Association）、DDProperty、確認 Chanote 土地狀況書、EIA 核准文件
+以台灣人角度，繁體中文。`,
+
+  'korea-scam': `你是專為台灣人（外國人）服務的韓國不動產風險顧問，熟悉全稅詐騙。
+請用 Google 搜尋「깡통전세 사기 외국인 2024 2025」「韓國全稅詐騙 Jeonse fraud cases」「Korea real estate scam foreigner」「전세사기 피해 사례 통계」「한국 부동산 사기 뉴스」。
+整理韓國不動產市場中外國人（台灣人）常見的購屋騙局，特別是全稅詐騙。
+
+背景：外國人可在韓國自由購買不動產；全稅（전세 Jeonse）是韓國特有制度，繳納高額押金換取免租金居住，押金通常為房屋市值60-80%；2022-2024年全稅泡沫危機造成數萬戶受害，為韓國史上最大規模租屋詐騙。
+
+每個項目需包含：
+- title：騙局或陷阱名稱
+- content：詳細說明手法（100字以內）
+- red_flags：陣列，2-4個警示訊號
+- how_to_avoid：如何避免（100字以內）
+- real_cases：2022-2024年全稅危機有大量真實案例，請引用有新聞根據的具體案例（受害人數、金額規模）
+- legal_risk：「高」或「中」或「低」
+- source：資料來源
+
+必須包含以下主題：
+1. 깡통전세（空殼全稅）：房屋市值低於全稅押金，房東無力返還
+2. 2022-2024年全稅泡沫危機真實規模（受害戶數、金額）
+3. 仲介勾結房東聯手詐騙手法
+4. 다가구주택（多戶住宅）的特殊全稅風險
+5. 등기부등본（登記簿謄本）查詢方法與重點確認項目
+6. 正規管道：HUG（주택도시보증공사）全稅保證保險、부동산거래관리시스템、법무사（法務師）協助
+以台灣人角度，繁體中文。`,
+
   'korea-rent-long': `你是專為台灣人服務的韓國租屋專家，熟悉全稅制度。
 請用 Google 搜尋「韓國全稅 Jeonse 台灣人 外國人 2026」「韓國全稅制度 설명」「全稅 外國人 ARC 辦理」「韓國長期租屋 台灣人注意」。
 詳細整理韓國長期租屋制度，重點說明：
@@ -194,8 +273,34 @@ country 欄位填國家名稱。
 以台灣人角度，繁體中文。`,
 };
 
+const SCAM_CATS = new Set<TravelCategory>(['japan-scam', 'thailand-scam', 'korea-scam']);
+
 function buildPrompt(category: TravelCategory): string {
   const today = new Date().toISOString().slice(0, 10);
+
+  if (SCAM_CATS.has(category)) {
+    return `${CATEGORY_CONFIG[category]}
+
+今天日期：${today}。你的回覆只能是 JSON，不要任何說明文字、markdown 程式碼框或 \`\`\`json 標記。
+
+JSON 格式（items 至少 5 筆，tips 至少 3 條）：
+{
+  "summary": "2-3 句話總結最重要的購屋騙局風險",
+  "items": [
+    {
+      "title": "騙局或陷阱名稱",
+      "content": "詳細說明手法（100字以內）",
+      "red_flags": ["警示訊號1", "警示訊號2"],
+      "how_to_avoid": "如何避免（100字以內）",
+      "real_cases": "真實案例摘要，只引用有新聞根據的案例，沒有可靠案例請填空字串",
+      "legal_risk": "高 或 中 或 低",
+      "source": "來源網站名稱"
+    }
+  ],
+  "tips": ["給台灣人的避坑提醒，50字以內"]
+}`;
+  }
+
   return `${CATEGORY_CONFIG[category]}
 
 今天日期：${today}。你的回覆只能是 JSON，不要任何說明文字、markdown 程式碼框或 \`\`\`json 標記。
@@ -300,6 +405,12 @@ export const POST: APIRoute = async ({ request }) => {
             age_limit: item?.age_limit || undefined,
             deadline: item?.deadline || undefined,
             unique_system: item?.unique_system ? String(item.unique_system).slice(0, 400) : undefined,
+            red_flags: Array.isArray(item?.red_flags)
+              ? item.red_flags.slice(0, 5).map((f: any) => String(f).slice(0, 100))
+              : undefined,
+            how_to_avoid: item?.how_to_avoid ? String(item.how_to_avoid).slice(0, 200) : undefined,
+            real_cases: item?.real_cases ? String(item.real_cases).slice(0, 300) : undefined,
+            legal_risk: ['高', '中', '低'].includes(item?.legal_risk) ? item.legal_risk : undefined,
             source: String(item?.source ?? '').slice(0, 60),
           }))
         : [],

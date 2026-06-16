@@ -32,7 +32,7 @@ html body { background: #0f172a; color: #e2e8f0; }
       <button class="section-btn active" data-section="travel"     role="tab" aria-selected="true">✈️ 旅遊資訊</button>
       <button class="section-btn"        data-section="immigration" role="tab" aria-selected="false">🏠 移民資訊</button>
       <button class="section-btn"        data-section="lifestyle"   role="tab" aria-selected="false">📚 海外生活</button>
-      <button class="section-btn"        data-section="rent"        role="tab" aria-selected="false">🏠 海外租屋</button>
+      <button class="section-btn"        data-section="rent"        role="tab" aria-selected="false">🏠 海外居住</button>
       <button class="section-btn"        data-section="advisor"     role="tab" aria-selected="false">🤖 AI 顧問</button>
     </div>
 
@@ -104,6 +104,9 @@ html body { background: #0f172a; color: #e2e8f0; }
         <button class="tab-btn"        data-cat="thailand-rent-long"  role="tab">🇹🇭 泰國長期租屋</button>
         <button class="tab-btn"        data-cat="korea-rent-short"    role="tab">🇰🇷 韓國短期租屋</button>
         <button class="tab-btn"        data-cat="korea-rent-long"     role="tab">🇰🇷 韓國長期租屋</button>
+        <button class="tab-btn tab-danger" data-cat="japan-scam"       role="tab">🇯🇵 日本購屋騙局</button>
+        <button class="tab-btn tab-danger" data-cat="thailand-scam"    role="tab">🇹🇭 泰國購屋騙局</button>
+        <button class="tab-btn tab-danger" data-cat="korea-scam"       role="tab">🇰🇷 韓國購屋騙局</button>
       </div>
       <div id="panel-rent" class="news-panel">
         <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
@@ -653,6 +656,40 @@ html body { background: #0f172a; color: #e2e8f0; }
 .steps-list li::before { content: "✅"; position: absolute; left: 0; font-size: .78rem; }
 .warns-list li::before { content: "⚠️"; position: absolute; left: 0; font-size: .78rem; }
 
+/* ── danger tab ── */
+.tab-btn.tab-danger { color: #f87171; border-color: rgba(248,113,113,.3); }
+.tab-btn.tab-danger:hover { border-color: rgba(248,113,113,.6); color: #fca5a5; background: rgba(248,113,113,.06); }
+.tab-btn.tab-danger.active { color: #fca5a5; border-color: #f87171; background: rgba(248,113,113,.1); }
+
+/* ── legal_risk badge ── */
+.badge-risk-high   { background: rgba(239,68,68,.15);   color: #fca5a5; border: 1px solid rgba(239,68,68,.4); }
+.badge-risk-mid { background: rgba(234,179,8,.12);   color: #fde047; border: 1px solid rgba(234,179,8,.4); }
+.badge-risk-low    { background: rgba(34,197,94,.12);   color: #86efac; border: 1px solid rgba(34,197,94,.4); }
+
+/* ── scam card extras ── */
+.red-flags-list {
+  list-style: none; margin: .5rem 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: .3rem;
+}
+.red-flags-list li {
+  font-size: .8rem; color: #fca5a5; padding-left: 1.4rem; position: relative; line-height: 1.45;
+}
+.red-flags-list li::before { content: "🚩"; position: absolute; left: 0; font-size: .75rem; }
+
+.how-to-avoid-box {
+  background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25);
+  border-radius: 8px; padding: .6rem .9rem; margin-top: .55rem;
+}
+.how-to-avoid-label { font-size: .7rem; font-weight: 700; color: #4ade80; margin: 0 0 .25rem; letter-spacing: .05em; }
+.how-to-avoid-text  { font-size: .82rem; color: #bbf7d0; line-height: 1.55; margin: 0; }
+
+.real-cases-box {
+  background: rgba(251,191,36,.07); border: 1px solid rgba(251,191,36,.22);
+  border-radius: 8px; padding: .6rem .9rem; margin-top: .5rem;
+}
+.real-cases-label { font-size: .7rem; font-weight: 700; color: #fbbf24; margin: 0 0 .25rem; }
+.real-cases-text  { font-size: .82rem; color: #fde68a; line-height: 1.55; margin: 0; }
+
 /* ── unique_system 制度說明框 ── */
 .unique-system-box {
   background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.25);
@@ -744,7 +781,8 @@ type TravelCategory =
   | 'working-holiday' | 'study-abroad' | 'study-holiday'
   | 'japan-rent-short' | 'japan-rent-long'
   | 'thailand-rent-short' | 'thailand-rent-long'
-  | 'korea-rent-short' | 'korea-rent-long';
+  | 'korea-rent-short' | 'korea-rent-long'
+  | 'japan-scam' | 'thailand-scam' | 'korea-scam';
 
 type SectionId = 'travel' | 'immigration' | 'lifestyle' | 'rent' | 'advisor';
 
@@ -757,6 +795,10 @@ interface NewsItem {
   age_limit?: string;
   deadline?: string;
   unique_system?: string;
+  red_flags?: string[];
+  how_to_avoid?: string;
+  real_cases?: string;
+  legal_risk?: '高' | '中' | '低';
   source?: string;
 }
 
@@ -868,6 +910,7 @@ function showContent(panelId: string) {
 const IMMIG_CATS = new Set(['immigration-easy', 'immigration-country']);
 const LIFE_CATS  = new Set(['working-holiday', 'study-abroad', 'study-holiday']);
 const RENT_CATS  = new Set(['japan-rent-short', 'japan-rent-long', 'thailand-rent-short', 'thailand-rent-long', 'korea-rent-short', 'korea-rent-long']);
+const SCAM_CATS  = new Set(['japan-scam', 'thailand-scam', 'korea-scam']);
 
 function difficultyClass(d?: string) {
   if (d === '容易') return 'badge-easy';
@@ -876,10 +919,51 @@ function difficultyClass(d?: string) {
   return '';
 }
 
+function legalRiskClass(r?: string) {
+  if (r === '高') return 'badge-risk-high';
+  if (r === '中') return 'badge-risk-mid';
+  if (r === '低') return 'badge-risk-low';
+  return '';
+}
+
 function renderNewsItem(item: NewsItem, cat: TravelCategory): string {
   const isImmig = IMMIG_CATS.has(cat);
   const isLife  = LIFE_CATS.has(cat);
   const isRent  = RENT_CATS.has(cat);
+  const isScam  = SCAM_CATS.has(cat);
+
+  // Scam cards have their own layout
+  if (isScam) {
+    const riskCls = legalRiskClass(item.legal_risk);
+    const riskBadge = riskCls
+      ? `<span class="badge ${riskCls}">⚖️ 風險：${item.legal_risk}</span>` : '';
+    const casesBadge = item.real_cases
+      ? `<span class="badge badge-deadline">📰 真實案例</span>` : '';
+    const flagsHtml = (item.red_flags?.length)
+      ? `<ul class="red-flags-list">${item.red_flags.map(f => `<li>${f}</li>`).join('')}</ul>` : '';
+    const avoidHtml = item.how_to_avoid ? `
+      <div class="how-to-avoid-box">
+        <p class="how-to-avoid-label">✅ 如何避免</p>
+        <p class="how-to-avoid-text">${item.how_to_avoid}</p>
+      </div>` : '';
+    const casesHtml = item.real_cases ? `
+      <div class="real-cases-box">
+        <p class="real-cases-label">📰 真實案例</p>
+        <p class="real-cases-text">${item.real_cases}</p>
+      </div>` : '';
+
+    return `<div class="news-card" style="border-color:rgba(239,68,68,.25)">
+      <div class="news-card-top">
+        <span class="news-title">${item.title ?? ''}</span>
+        <div style="display:flex;gap:.3rem;flex-wrap:wrap">${riskBadge}${casesBadge}</div>
+      </div>
+      <p class="news-content">${item.content ?? ''}</p>
+      ${flagsHtml}
+      ${avoidHtml}
+      ${casesHtml}
+      ${item.source ? `<p class="news-source">${item.source}</p>` : ''}
+    </div>`;
+  }
 
   const badges: string[] = [];
   if (item.country) badges.push(`<span class="badge badge-country">${item.country}</span>`);

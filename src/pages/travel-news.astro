@@ -13,8 +13,8 @@ html body { background: #0f172a; color: #e2e8f0; }
 <html lang="zh-TW">
 <head>
   <BaseHead
-    title="旅遊最新報｜日本泰國最新政策"
-    description="兩隻熊幫你追蹤日本退稅制度、泰國免簽政策、最新旅遊消息，出發前必看。"
+    title="旅遊移民最新報｜旅遊、移民、打工、留學"
+    description="兩隻熊追蹤日本退稅、泰韓歐洲免簽、移民方案、打工度假、留學資訊，AI 問卷幫你找最適合的海外生活方式。"
   />
 </head>
 <body>
@@ -22,33 +22,219 @@ html body { background: #0f172a; color: #e2e8f0; }
   <main class="tn-page">
 
     <header class="tn-hero">
-      <p class="tn-eyebrow">兩隻熊 × 即時情報</p>
-      <h1>✈️ 旅遊最新報</h1>
-      <p class="tn-sub">出發前必看，AI 幫你追蹤最新政策與旅遊新聞 🐻</p>
+      <p class="tn-eyebrow">兩隻熊 × AI 即時情報</p>
+      <h1>✈️ 旅遊移民最新報</h1>
+      <p class="tn-sub">出發前必看，AI 幫你追蹤最新政策 · 移民方案 · 海外生活資訊 🐻</p>
     </header>
 
-    <div class="tn-tabs" role="tablist">
-      <button class="tab-btn active" data-cat="japan-tax"    role="tab" aria-selected="true">🇯🇵 日本退稅</button>
-      <button class="tab-btn"        data-cat="japan-news"   role="tab" aria-selected="false">🇯🇵 日本旅遊</button>
-      <button class="tab-btn"        data-cat="thailand-visa" role="tab" aria-selected="false">🇹🇭 泰國免簽</button>
-      <button class="tab-btn"        data-cat="thailand-news" role="tab" aria-selected="false">🇹🇭 泰國旅遊</button>
+    <!-- 主分區 tabs -->
+    <div class="section-tabs" role="tablist" aria-label="資訊分類">
+      <button class="section-btn active" data-section="travel"     role="tab" aria-selected="true">✈️ 旅遊資訊</button>
+      <button class="section-btn"        data-section="immigration" role="tab" aria-selected="false">🏠 移民資訊</button>
+      <button class="section-btn"        data-section="lifestyle"   role="tab" aria-selected="false">📚 海外生活</button>
+      <button class="section-btn"        data-section="advisor"     role="tab" aria-selected="false">🤖 AI 顧問</button>
     </div>
 
-    <section id="tn-panel" class="tn-panel">
-      <div id="tn-loading" class="tn-loading" hidden>
-        <div class="spinner"></div>
-        <p>AI 正在搜尋最新資訊，請稍候…</p>
+    <!-- Section 1: 旅遊資訊 -->
+    <div id="section-travel" class="section-panel active">
+      <div class="sub-tabs" role="tablist">
+        <button class="tab-btn active" data-cat="japan-tax"     role="tab">🇯🇵 日本退稅</button>
+        <button class="tab-btn"        data-cat="japan-news"    role="tab">🇯🇵 日本旅遊</button>
+        <button class="tab-btn"        data-cat="thailand-visa" role="tab">🇹🇭 泰國免簽</button>
+        <button class="tab-btn"        data-cat="thailand-news" role="tab">🇹🇭 泰國旅遊</button>
+        <button class="tab-btn"        data-cat="korea-news"    role="tab">🇰🇷 韓國旅遊</button>
+        <button class="tab-btn"        data-cat="europe-news"   role="tab">🇪🇺 歐洲旅遊</button>
       </div>
-      <div id="tn-error" class="tn-error" hidden></div>
-      <div id="tn-content" hidden>
-        <div class="tn-summary" id="tn-summary"></div>
-        <div class="tn-items" id="tn-items"></div>
-        <div class="tn-tips" id="tn-tips"></div>
-        <p class="tn-disclaimer">
-          ⚠️ 資料由 AI 即時搜尋整理，可能有時間差，建議出發前再次確認官方資訊。
-        </p>
+      <div id="panel-travel" class="news-panel">
+        <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
+        <div class="tn-error" hidden></div>
+        <div class="tn-content" hidden>
+          <div class="tn-summary"></div>
+          <div class="tn-items"></div>
+          <div class="tn-tips"></div>
+          <p class="tn-disclaimer">⚠️ 資料由 AI 即時搜尋整理，可能有時間差，建議出發前再次確認官方資訊。</p>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Section 2: 移民資訊 -->
+    <div id="section-immigration" class="section-panel" hidden>
+      <div class="sub-tabs" role="tablist">
+        <button class="tab-btn active" data-cat="immigration-easy"    role="tab">🌟 最容易移民</button>
+        <button class="tab-btn"        data-cat="immigration-country" role="tab">🗺️ 各國方案</button>
+      </div>
+      <div id="panel-immigration" class="news-panel">
+        <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
+        <div class="tn-error" hidden></div>
+        <div class="tn-content" hidden>
+          <div class="tn-summary"></div>
+          <div class="tn-items imm-items"></div>
+          <div class="tn-tips"></div>
+          <p class="tn-disclaimer">⚠️ 移民資訊僅供參考，申請前請諮詢專業移民顧問或查閱官方網站。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: 海外生活 -->
+    <div id="section-lifestyle" class="section-panel" hidden>
+      <div class="sub-tabs" role="tablist">
+        <button class="tab-btn active" data-cat="working-holiday" role="tab">🎒 打工度假</button>
+        <button class="tab-btn"        data-cat="study-abroad"    role="tab">🎓 留學資訊</button>
+        <button class="tab-btn"        data-cat="study-holiday"   role="tab">💻 數位遊牧</button>
+      </div>
+      <div id="panel-lifestyle" class="news-panel">
+        <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
+        <div class="tn-error" hidden></div>
+        <div class="tn-content" hidden>
+          <div class="tn-summary"></div>
+          <div class="tn-items life-items"></div>
+          <div class="tn-tips"></div>
+          <p class="tn-disclaimer">⚠️ 資料由 AI 即時搜尋整理，申請前請再次確認官方最新規定。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: AI 顧問 -->
+    <div id="section-advisor" class="section-panel" hidden>
+      <div class="advisor-box">
+        <div class="advisor-intro">
+          <p class="advisor-intro-title">🤖 AI 海外生活顧問</p>
+          <p class="advisor-intro-sub">回答 5 個問題，AI 幫你找最適合的海外生活方案</p>
+        </div>
+
+        <!-- 進度條 -->
+        <div class="quiz-progress" id="quiz-progress">
+          <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+          <p class="progress-label" id="progress-label">第 1 步，共 5 步</p>
+        </div>
+
+        <!-- Step 1: 年齡 -->
+        <div class="quiz-step active" id="step-1">
+          <p class="step-q">你今年幾歲？</p>
+          <div class="age-input-wrap">
+            <input type="number" id="q-age" class="age-input" min="18" max="80" placeholder="例如 28" />
+            <span class="age-unit">歲</span>
+          </div>
+          <p class="age-hint">打工度假通常限 30 歲以下，其他方案不受年齡限制</p>
+          <button class="quiz-next-btn" onclick="nextStep(1)">下一步 →</button>
+        </div>
+
+        <!-- Step 2: 預算 -->
+        <div class="quiz-step" id="step-2">
+          <p class="step-q">你的海外生活預算？</p>
+          <div class="option-cards">
+            <label class="opt-card">
+              <input type="radio" name="budget" value="low">
+              <span class="opt-title">省錢型</span>
+              <span class="opt-desc">每月 3 萬台幣以下<br>打工補貼為主</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="budget" value="medium">
+              <span class="opt-title">舒適型</span>
+              <span class="opt-desc">每月 3-8 萬台幣<br>遠端工作或留學</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="budget" value="high">
+              <span class="opt-title">充裕型</span>
+              <span class="opt-desc">每月 8 萬台幣以上<br>移民或精品留學</span>
+            </label>
+          </div>
+          <button class="quiz-back-btn" onclick="prevStep(2)">← 上一步</button>
+          <button class="quiz-next-btn" onclick="nextStep(2)">下一步 →</button>
+        </div>
+
+        <!-- Step 3: 時長 -->
+        <div class="quiz-step" id="step-3">
+          <p class="step-q">計劃在海外待多久？</p>
+          <div class="option-cards">
+            <label class="opt-card">
+              <input type="radio" name="duration" value="short">
+              <span class="opt-title">短期</span>
+              <span class="opt-desc">1-6 個月<br>體驗為主</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="duration" value="medium">
+              <span class="opt-title">中期</span>
+              <span class="opt-desc">6-18 個月<br>深度生活</span>
+            </label>
+            <label class="opt-card">
+              <input type="radio" name="duration" value="long">
+              <span class="opt-title">長期</span>
+              <span class="opt-desc">18 個月以上<br>落地生根</span>
+            </label>
+          </div>
+          <button class="quiz-back-btn" onclick="prevStep(3)">← 上一步</button>
+          <button class="quiz-next-btn" onclick="nextStep(3)">下一步 →</button>
+        </div>
+
+        <!-- Step 4: 目的 -->
+        <div class="quiz-step" id="step-4">
+          <p class="step-q">主要目的是？（可多選）</p>
+          <div class="checkbox-grid">
+            <label class="check-item"><input type="checkbox" name="purpose" value="旅遊體驗"> 🌏 旅遊體驗</label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="打工賺錢"> 💰 打工賺錢</label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="語言學習"> 📖 語言學習</label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="學歷文憑"> 🎓 學歷文憑</label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="遠端工作"> 💻 遠端工作</label>
+            <label class="check-item"><input type="checkbox" name="purpose" value="永久移民"> 🏠 永久移民</label>
+          </div>
+          <button class="quiz-back-btn" onclick="prevStep(4)">← 上一步</button>
+          <button class="quiz-next-btn" onclick="nextStep(4)">下一步 →</button>
+        </div>
+
+        <!-- Step 5: 國家與技能 -->
+        <div class="quiz-step" id="step-5">
+          <p class="step-q">還有一些細節…</p>
+
+          <p class="sub-label">偏好哪些國家？（可多選）</p>
+          <div class="checkbox-grid">
+            <label class="check-item"><input type="checkbox" name="countries" value="日本"> 🇯🇵 日本</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="澳洲"> 🇦🇺 澳洲</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="加拿大"> 🇨🇦 加拿大</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="英國"> 🇬🇧 英國</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="歐洲"> 🇪🇺 歐洲</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="東南亞"> 🌴 東南亞</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="韓國"> 🇰🇷 韓國</label>
+            <label class="check-item"><input type="checkbox" name="countries" value="紐西蘭"> 🇳🇿 紐西蘭</label>
+          </div>
+
+          <p class="sub-label" style="margin-top:1.2rem">有什麼專業技能？（選填）</p>
+          <input type="text" id="q-skill" class="skill-input" placeholder="例如：軟體工程師、廚師、設計師…" maxlength="60" />
+
+          <div class="toggle-row">
+            <label class="toggle-label">
+              <input type="checkbox" id="q-work-ok" checked>
+              <span>願意打工</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="q-study-ok" checked>
+              <span>願意留學</span>
+            </label>
+          </div>
+
+          <button class="quiz-back-btn" onclick="prevStep(5)">← 上一步</button>
+          <button class="quiz-submit-btn" id="quiz-submit" onclick="submitQuiz()">🤖 AI 幫我找方案</button>
+        </div>
+
+        <!-- 載入中 -->
+        <div class="advisor-loading" id="advisor-loading" hidden>
+          <div class="spinner"></div>
+          <p>AI 正在分析你的條件並搜尋最新方案，請稍候…</p>
+        </div>
+
+        <!-- 錯誤 -->
+        <div class="advisor-error" id="advisor-error" hidden></div>
+
+        <!-- 結果 -->
+        <div class="advisor-result" id="advisor-result" hidden>
+          <div id="advisor-best"></div>
+          <div id="advisor-alts"></div>
+          <div id="advisor-steps"></div>
+          <div id="advisor-warns"></div>
+          <button class="quiz-reset-btn" onclick="resetQuiz()">🔄 重新測驗</button>
+        </div>
+      </div>
+    </div>
 
   </main>
   <Footer />
@@ -57,313 +243,655 @@ html body { background: #0f172a; color: #e2e8f0; }
 
 <style>
 .tn-page {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem 5rem;
 }
 
 /* ── hero ── */
-.tn-hero {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-}
+.tn-hero { text-align: center; padding: 3rem 1rem 2rem; }
 .tn-eyebrow {
-  font-size: .82rem;
-  letter-spacing: .08em;
-  color: #38bdf8;
-  text-transform: uppercase;
-  margin: 0 0 .6rem;
+  font-size: .82rem; letter-spacing: .08em;
+  color: #38bdf8; text-transform: uppercase; margin: 0 0 .6rem;
 }
 .tn-hero h1 {
   font-size: clamp(1.8rem, 5vw, 2.6rem);
-  font-weight: 800;
-  color: #f1f5f9;
-  margin: 0 0 .6rem;
+  font-weight: 800; color: #f1f5f9; margin: 0 0 .6rem;
 }
-.tn-sub {
-  color: #94a3b8;
-  font-size: 1rem;
-  margin: 0;
-}
+.tn-sub { color: #94a3b8; font-size: 1rem; margin: 0; }
 
-/* ── tabs ── */
-.tn-tabs {
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #1e293b;
-  padding-bottom: 0;
+/* ── section tabs ── */
+.section-tabs {
+  display: flex; gap: .4rem; flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+  border-bottom: 2px solid #1e293b; padding-bottom: 0;
 }
-.tab-btn {
-  padding: .6rem 1.1rem;
-  border: none;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  color: #64748b;
-  font-size: .9rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: -2px;
-  border-radius: 6px 6px 0 0;
+.section-btn {
+  padding: .65rem 1.25rem;
+  border: none; border-bottom: 3px solid transparent;
+  background: transparent; color: #64748b;
+  font-size: .95rem; font-weight: 700; cursor: pointer;
+  margin-bottom: -2px; border-radius: 6px 6px 0 0;
   transition: color .2s, border-color .2s, background .2s;
   white-space: nowrap;
 }
-.tab-btn:hover { color: #cbd5e1; background: rgba(255,255,255,.04); }
-.tab-btn.active {
-  color: #38bdf8;
-  border-bottom-color: #38bdf8;
-  background: rgba(56,189,248,.06);
-}
+.section-btn:hover { color: #cbd5e1; background: rgba(255,255,255,.04); }
+.section-btn.active { color: #38bdf8; border-bottom-color: #38bdf8; background: rgba(56,189,248,.06); }
 
-/* ── panel ── */
-.tn-panel { min-height: 300px; }
+/* ── section panels ── */
+.section-panel { min-height: 300px; }
+
+/* ── sub tabs ── */
+.sub-tabs {
+  display: flex; gap: .35rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.tab-btn {
+  padding: .45rem .9rem;
+  border: 1px solid #334155; border-radius: 20px;
+  background: transparent; color: #64748b;
+  font-size: .82rem; font-weight: 600; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.tab-btn:hover { color: #cbd5e1; border-color: #475569; background: rgba(255,255,255,.04); }
+.tab-btn.active { color: #38bdf8; border-color: #38bdf8; background: rgba(56,189,248,.1); }
+
+/* ── news panel ── */
+.news-panel { min-height: 280px; }
 
 /* ── loading ── */
 .tn-loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 4rem 1rem;
-  color: #64748b;
-  font-size: .95rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem; padding: 4rem 1rem; color: #64748b; font-size: .95rem;
 }
 .spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid #1e293b;
-  border-top-color: #38bdf8;
-  border-radius: 50%;
-  animation: spin .8s linear infinite;
+  width: 36px; height: 36px;
+  border: 3px solid #1e293b; border-top-color: #38bdf8;
+  border-radius: 50%; animation: spin .8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── error ── */
-.tn-error {
-  text-align: center;
-  padding: 3rem 1rem;
-  color: #f87171;
-  font-size: .95rem;
-}
+.tn-error { text-align: center; padding: 3rem 1rem; color: #f87171; font-size: .95rem; }
 
 /* ── summary ── */
 .tn-summary {
   background: linear-gradient(135deg, #0c4a6e 0%, #1e293b 100%);
-  border: 1px solid #0369a1;
-  border-radius: 14px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
+  border: 1px solid #0369a1; border-radius: 14px;
+  padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;
 }
 .tn-summary-label {
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  color: #38bdf8;
-  text-transform: uppercase;
-  margin: 0 0 .4rem;
+  font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+  color: #38bdf8; text-transform: uppercase; margin: 0 0 .4rem;
 }
-.tn-summary-text {
-  color: #e0f2fe;
-  font-size: .95rem;
-  line-height: 1.7;
-  margin: 0;
-}
-.tn-updated {
-  font-size: .75rem;
-  color: #475569;
-  margin-top: .5rem;
-}
+.tn-summary-text { color: #e0f2fe; font-size: .95rem; line-height: 1.7; margin: 0; }
+.tn-updated { font-size: .75rem; color: #475569; margin-top: .5rem; }
 
-/* ── items ── */
-.tn-items {
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-  margin-bottom: 1.5rem;
-}
+/* ── items (travel) ── */
+.tn-items { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1.5rem; }
 
 .news-card {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  transition: border-color .2s;
+  background: #1e293b; border: 1px solid #334155;
+  border-radius: 12px; padding: 1rem 1.25rem; transition: border-color .2s;
 }
 .news-card:hover { border-color: #475569; }
-
 .news-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: .75rem;
-  margin-bottom: .4rem;
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: .75rem; margin-bottom: .4rem;
 }
-.news-title {
-  font-size: .95rem;
-  font-weight: 700;
-  color: #f1f5f9;
-  line-height: 1.35;
-}
+.news-title { font-size: .95rem; font-weight: 700; color: #f1f5f9; line-height: 1.35; }
 .news-date {
-  flex-shrink: 0;
-  font-size: .72rem;
-  padding: .2rem .55rem;
-  background: rgba(56,189,248,.1);
-  color: #38bdf8;
-  border-radius: 5px;
-  border: 1px solid rgba(56,189,248,.2);
-  white-space: nowrap;
+  flex-shrink: 0; font-size: .72rem; padding: .2rem .55rem;
+  background: rgba(56,189,248,.1); color: #38bdf8;
+  border-radius: 5px; border: 1px solid rgba(56,189,248,.2); white-space: nowrap;
 }
-.news-content {
-  font-size: .875rem;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin: 0 0 .5rem;
-}
-.news-source {
-  font-size: .75rem;
-  color: #475569;
-}
+.news-content { font-size: .875rem; color: #94a3b8; line-height: 1.6; margin: 0 0 .5rem; }
+.news-source { font-size: .75rem; color: #475569; }
 .news-source::before { content: "📌 來源："; }
+
+/* ── badge row ── */
+.badge-row { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.badge {
+  font-size: .7rem; font-weight: 700; padding: .18rem .5rem;
+  border-radius: 4px; white-space: nowrap;
+}
+.badge-country { background: rgba(99,102,241,.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,.3); }
+.badge-easy    { background: rgba(34,197,94,.12);  color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+.badge-medium  { background: rgba(234,179,8,.12);  color: #facc15; border: 1px solid rgba(234,179,8,.3); }
+.badge-hard    { background: rgba(239,68,68,.12);  color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+.badge-age     { background: rgba(251,146,60,.12); color: #fb923c; border: 1px solid rgba(251,146,60,.3); }
+.badge-deadline { background: rgba(56,189,248,.1); color: #38bdf8; border: 1px solid rgba(56,189,248,.2); }
 
 /* ── tips ── */
 .tn-tips {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  padding: 1.1rem 1.3rem;
-  margin-bottom: 1.5rem;
+  background: #1e293b; border: 1px solid #334155;
+  border-radius: 12px; padding: 1.1rem 1.3rem; margin-bottom: 1.5rem;
 }
-.tn-tips-title {
-  font-size: .85rem;
-  font-weight: 700;
-  color: #fbbf24;
-  margin: 0 0 .75rem;
-  letter-spacing: .04em;
-}
-.tips-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
+.tn-tips-title { font-size: .85rem; font-weight: 700; color: #fbbf24; margin: 0 0 .75rem; letter-spacing: .04em; }
+.tips-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
 .tips-list li {
-  font-size: .875rem;
-  color: #cbd5e1;
-  line-height: 1.5;
-  padding-left: 1.4rem;
-  position: relative;
+  font-size: .875rem; color: #cbd5e1; line-height: 1.5;
+  padding-left: 1.4rem; position: relative;
 }
-.tips-list li::before {
-  content: "💡";
-  position: absolute;
-  left: 0;
-  font-size: .8rem;
-}
+.tips-list li::before { content: "💡"; position: absolute; left: 0; font-size: .8rem; }
 
 /* ── disclaimer ── */
-.tn-disclaimer {
-  font-size: .78rem;
-  color: #475569;
-  text-align: center;
-  padding-top: .5rem;
+.tn-disclaimer { font-size: .78rem; color: #475569; text-align: center; padding-top: .5rem; }
+
+/* ══════════════════════════════
+   AI 顧問 Section
+══════════════════════════════ */
+.advisor-box {
+  background: #1e293b; border: 1px solid #334155;
+  border-radius: 16px; padding: 2rem 1.75rem; max-width: 680px; margin: 0 auto;
 }
+.advisor-intro { text-align: center; margin-bottom: 1.75rem; }
+.advisor-intro-title { font-size: 1.2rem; font-weight: 800; color: #f1f5f9; margin: 0 0 .4rem; }
+.advisor-intro-sub { font-size: .9rem; color: #64748b; margin: 0; }
+
+/* progress */
+.quiz-progress { margin-bottom: 1.75rem; }
+.progress-bar { height: 6px; background: #0f172a; border-radius: 3px; overflow: hidden; margin-bottom: .5rem; }
+.progress-fill { height: 100%; background: #38bdf8; border-radius: 3px; transition: width .4s ease; }
+.progress-label { font-size: .78rem; color: #475569; text-align: center; margin: 0; }
+
+/* steps */
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+
+.step-q { font-size: 1.05rem; font-weight: 700; color: #e2e8f0; margin: 0 0 1.25rem; }
+.sub-label { font-size: .85rem; font-weight: 600; color: #94a3b8; margin: 0 0 .6rem; }
+
+/* age input */
+.age-input-wrap { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
+.age-input {
+  width: 100px; padding: .6rem .9rem;
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  color: #f1f5f9; font-size: 1.1rem; text-align: center;
+}
+.age-input:focus { outline: none; border-color: #38bdf8; }
+.age-unit { color: #64748b; font-size: .95rem; }
+.age-hint { font-size: .78rem; color: #475569; margin: 0 0 1.5rem; }
+
+/* option cards */
+.option-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-bottom: 1.5rem; }
+@media (max-width: 480px) { .option-cards { grid-template-columns: 1fr; } }
+
+.opt-card {
+  display: flex; flex-direction: column; gap: .25rem;
+  padding: .85rem .9rem; border: 2px solid #334155; border-radius: 10px;
+  cursor: pointer; transition: border-color .2s, background .2s;
+}
+.opt-card:hover { border-color: #475569; background: rgba(255,255,255,.03); }
+.opt-card input[type="radio"] { display: none; }
+.opt-card:has(input:checked) { border-color: #38bdf8; background: rgba(56,189,248,.08); }
+.opt-title { font-size: .9rem; font-weight: 700; color: #f1f5f9; }
+.opt-desc { font-size: .75rem; color: #64748b; line-height: 1.4; }
+
+/* checkbox grid */
+.checkbox-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: .45rem; margin-bottom: 1.5rem;
+}
+@media (max-width: 400px) { .checkbox-grid { grid-template-columns: 1fr; } }
+.check-item {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .55rem .8rem; border: 1px solid #334155; border-radius: 8px;
+  cursor: pointer; font-size: .875rem; color: #94a3b8;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.check-item:has(input:checked) { border-color: #38bdf8; color: #e2e8f0; background: rgba(56,189,248,.07); }
+.check-item input { width: 14px; height: 14px; accent-color: #38bdf8; }
+
+/* skill input */
+.skill-input {
+  width: 100%; box-sizing: border-box; padding: .65rem .9rem;
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  color: #f1f5f9; font-size: .9rem; margin-bottom: 1rem;
+}
+.skill-input:focus { outline: none; border-color: #38bdf8; }
+.skill-input::placeholder { color: #475569; }
+
+/* toggles */
+.toggle-row { display: flex; gap: 1.5rem; margin-bottom: 1.75rem; }
+.toggle-label {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .875rem; color: #94a3b8; cursor: pointer;
+}
+.toggle-label input { width: 14px; height: 14px; accent-color: #38bdf8; }
+
+/* buttons */
+.quiz-next-btn, .quiz-submit-btn {
+  width: 100%; padding: .75rem;
+  background: #38bdf8; color: #0c1825; border: none; border-radius: 8px;
+  font-size: .95rem; font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.quiz-next-btn:hover, .quiz-submit-btn:hover { background: #7dd3fc; }
+.quiz-back-btn {
+  display: block; width: 100%; padding: .6rem;
+  background: transparent; color: #64748b; border: 1px solid #334155; border-radius: 8px;
+  font-size: .88rem; cursor: pointer; margin-bottom: .5rem; transition: color .2s, border-color .2s;
+}
+.quiz-back-btn:hover { color: #94a3b8; border-color: #475569; }
+.quiz-reset-btn {
+  width: 100%; padding: .65rem; margin-top: 1.5rem;
+  background: transparent; color: #64748b; border: 1px solid #334155; border-radius: 8px;
+  font-size: .88rem; cursor: pointer; transition: color .2s, border-color .2s;
+}
+.quiz-reset-btn:hover { color: #94a3b8; border-color: #475569; }
+
+/* loading/error inside advisor */
+.advisor-loading {
+  display: none; flex-direction: column; align-items: center;
+  gap: 1rem; padding: 3rem 1rem; color: #64748b; font-size: .95rem;
+}
+.advisor-loading.show { display: flex; }
+.advisor-error { text-align: center; padding: 2rem; color: #f87171; font-size: .9rem; }
+
+/* ── advisor result ── */
+.advisor-result { display: none; }
+.advisor-result.show { display: block; }
+
+.best-card {
+  background: linear-gradient(135deg, #0c4a6e 0%, #1e293b 100%);
+  border: 1px solid #0369a1; border-radius: 14px; padding: 1.5rem; margin-bottom: 1.25rem;
+}
+.best-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; color: #38bdf8; text-transform: uppercase; margin: 0 0 .6rem; }
+.best-type { font-size: 1.3rem; font-weight: 800; color: #f1f5f9; margin: 0 0 .2rem; }
+.best-country { font-size: .95rem; color: #7dd3fc; margin: 0 0 .75rem; }
+.best-reason { font-size: .9rem; color: #bae6fd; line-height: 1.65; margin: 0 0 .75rem; }
+.best-meta { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+.alts-title { font-size: .85rem; font-weight: 700; color: #94a3b8; margin: 0 0 .75rem; }
+.alt-cards { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
+.alt-card {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 10px;
+  padding: .85rem 1rem;
+}
+.alt-top { display: flex; gap: .5rem; align-items: center; margin-bottom: .35rem; flex-wrap: wrap; }
+.alt-type { font-size: .88rem; font-weight: 700; color: #e2e8f0; }
+.alt-country { font-size: .8rem; color: #64748b; }
+.alt-reason { font-size: .8rem; color: #64748b; line-height: 1.5; margin: 0; }
+
+.steps-box, .warns-box {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+  padding: 1.1rem 1.25rem; margin-bottom: .75rem;
+}
+.steps-title { font-size: .82rem; font-weight: 700; color: #a3e635; margin: 0 0 .75rem; }
+.warns-title { font-size: .82rem; font-weight: 700; color: #fbbf24; margin: 0 0 .75rem; }
+.steps-list, .warns-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+.steps-list li, .warns-list li { font-size: .875rem; color: #cbd5e1; line-height: 1.55; padding-left: 1.5rem; position: relative; }
+.steps-list li::before { content: "✅"; position: absolute; left: 0; font-size: .78rem; }
+.warns-list li::before { content: "⚠️"; position: absolute; left: 0; font-size: .78rem; }
 </style>
 
 <script>
-type TravelCategory = 'japan-tax' | 'japan-news' | 'thailand-visa' | 'thailand-news';
+// ─────────────────────────────
+// Types
+// ─────────────────────────────
+type TravelCategory =
+  | 'japan-tax' | 'japan-news'
+  | 'thailand-visa' | 'thailand-news'
+  | 'korea-news' | 'europe-news'
+  | 'immigration-easy' | 'immigration-country'
+  | 'working-holiday' | 'study-abroad' | 'study-holiday';
 
-const cache = new Map<TravelCategory, any>();
-const tabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
-const loadingEl = document.getElementById('tn-loading')!;
-const errorEl   = document.getElementById('tn-error')!;
-const contentEl = document.getElementById('tn-content')!;
+type SectionId = 'travel' | 'immigration' | 'lifestyle' | 'advisor';
 
-function showLoading() {
-  loadingEl.hidden = false;
-  errorEl.hidden   = true;
-  contentEl.hidden = true;
-}
-function showError(msg: string) {
-  loadingEl.hidden = true;
-  errorEl.hidden   = false;
-  contentEl.hidden = true;
-  errorEl.textContent = '⚠️ ' + msg;
-}
-function showContent() {
-  loadingEl.hidden = true;
-  errorEl.hidden   = true;
-  contentEl.hidden = false;
+interface NewsItem {
+  title: string;
+  content: string;
+  effective_date?: string;
+  country?: string;
+  difficulty?: '容易' | '中等' | '困難';
+  age_limit?: string;
+  deadline?: string;
+  source?: string;
 }
 
-function renderContent(data: any) {
-  const summaryEl = document.getElementById('tn-summary')!;
+interface NewsData {
+  summary?: string;
+  updated_at?: string;
+  items?: NewsItem[];
+  tips?: string[];
+}
+
+// ─────────────────────────────
+// Shared cache & state
+// ─────────────────────────────
+const cache = new Map<TravelCategory, NewsData>();
+
+const sectionPanelOf: Record<SectionId, string> = {
+  travel: 'panel-travel',
+  immigration: 'panel-immigration',
+  lifestyle: 'panel-lifestyle',
+  advisor: '',
+};
+
+const sectionDefaultCat: Record<SectionId, TravelCategory | null> = {
+  travel: 'japan-tax',
+  immigration: 'immigration-easy',
+  lifestyle: 'working-holiday',
+  advisor: null,
+};
+
+// ─────────────────────────────
+// Section switching
+// ─────────────────────────────
+const sectionBtns = document.querySelectorAll<HTMLButtonElement>('.section-btn');
+const sectionPanels = document.querySelectorAll<HTMLElement>('.section-panel');
+
+sectionBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const sid = btn.dataset.section as SectionId;
+    sectionBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    sectionPanels.forEach(p => p.hidden = true);
+    const panel = document.getElementById(`section-${sid}`);
+    if (panel) panel.hidden = false;
+
+    // auto-load first tab if not yet loaded
+    const defaultCat = sectionDefaultCat[sid];
+    if (defaultCat && !cache.has(defaultCat)) {
+      const panelId = sectionPanelOf[sid];
+      loadCategory(defaultCat, panelId);
+    }
+  });
+});
+
+// ─────────────────────────────
+// Sub-tab switching
+// ─────────────────────────────
+function attachSubTabs(sectionEl: HTMLElement, panelId: string) {
+  const btns = sectionEl.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const cat = btn.dataset.cat as TravelCategory;
+      loadCategory(cat, panelId);
+    });
+  });
+}
+
+(['travel', 'immigration', 'lifestyle'] as SectionId[]).forEach(sid => {
+  const sectionEl = document.getElementById(`section-${sid}`)!;
+  const panelId = sectionPanelOf[sid];
+  attachSubTabs(sectionEl, panelId);
+});
+
+// ─────────────────────────────
+// Panel helpers
+// ─────────────────────────────
+function getPanel(panelId: string) {
+  const p = document.getElementById(panelId)!;
+  return {
+    loading: p.querySelector<HTMLElement>('.tn-loading')!,
+    error:   p.querySelector<HTMLElement>('.tn-error')!,
+    content: p.querySelector<HTMLElement>('.tn-content')!,
+  };
+}
+
+function showLoading(panelId: string) {
+  const { loading, error, content } = getPanel(panelId);
+  loading.hidden = false; error.hidden = true; content.hidden = true;
+}
+function showError(panelId: string, msg: string) {
+  const { loading, error, content } = getPanel(panelId);
+  loading.hidden = true; error.hidden = false; content.hidden = true;
+  error.textContent = '⚠️ ' + msg;
+}
+function showContent(panelId: string) {
+  const { loading, error, content } = getPanel(panelId);
+  loading.hidden = true; error.hidden = true; content.hidden = false;
+}
+
+// ─────────────────────────────
+// Rendering
+// ─────────────────────────────
+const IMMIG_CATS = new Set(['immigration-easy', 'immigration-country']);
+const LIFE_CATS  = new Set(['working-holiday', 'study-abroad', 'study-holiday']);
+
+function difficultyClass(d?: string) {
+  if (d === '容易') return 'badge-easy';
+  if (d === '中等') return 'badge-medium';
+  if (d === '困難') return 'badge-hard';
+  return '';
+}
+
+function renderNewsItem(item: NewsItem, cat: TravelCategory): string {
+  const isImmig = IMMIG_CATS.has(cat);
+  const isLife  = LIFE_CATS.has(cat);
+
+  const badges: string[] = [];
+  if (item.country) badges.push(`<span class="badge badge-country">${item.country}</span>`);
+  if (item.difficulty && difficultyClass(item.difficulty)) {
+    badges.push(`<span class="badge ${difficultyClass(item.difficulty)}">${item.difficulty}</span>`);
+  }
+  if (item.age_limit) badges.push(`<span class="badge badge-age">🎂 ${item.age_limit}</span>`);
+  if (item.deadline)  badges.push(`<span class="badge badge-deadline">⏰ ${item.deadline}</span>`);
+
+  const badgeRow = badges.length ? `<div class="badge-row">${badges.join('')}</div>` : '';
+  const dateTag  = (!isImmig && !isLife && item.effective_date)
+    ? `<span class="news-date">${item.effective_date}</span>` : '';
+
+  return `<div class="news-card">
+    <div class="news-card-top">
+      <span class="news-title">${item.title ?? ''}</span>
+      ${dateTag}
+    </div>
+    ${badgeRow}
+    <p class="news-content">${item.content ?? ''}</p>
+    ${item.source ? `<p class="news-source">${item.source}</p>` : ''}
+  </div>`;
+}
+
+function renderContent(panelId: string, data: NewsData, cat: TravelCategory) {
+  const p = document.getElementById(panelId)!;
+
+  const summaryEl = p.querySelector('.tn-summary')!;
   summaryEl.innerHTML = `
     <p class="tn-summary-label">📋 重點摘要</p>
     <p class="tn-summary-text">${data.summary ?? ''}</p>
     <p class="tn-updated">AI 搜尋日期：${data.updated_at ?? ''}</p>`;
 
-  const itemsEl = document.getElementById('tn-items')!;
-  const items: any[] = data.items ?? [];
-  itemsEl.innerHTML = items.map(item => `
-    <div class="news-card">
-      <div class="news-card-top">
-        <span class="news-title">${item.title ?? ''}</span>
-        ${item.effective_date ? `<span class="news-date">${item.effective_date}</span>` : ''}
-      </div>
-      <p class="news-content">${item.content ?? ''}</p>
-      ${item.source ? `<p class="news-source">${item.source}</p>` : ''}
-    </div>`).join('');
+  const itemsEl = p.querySelector('.tn-items')!;
+  itemsEl.innerHTML = (data.items ?? []).map(item => renderNewsItem(item, cat)).join('');
 
-  const tipsEl = document.getElementById('tn-tips')!;
-  const tips: string[] = data.tips ?? [];
+  const tipsEl = p.querySelector('.tn-tips')!;
+  const tips = data.tips ?? [];
   tipsEl.innerHTML = tips.length ? `
-    <div class="tn-tips-title">🧳 台灣旅客實用提醒</div>
+    <div class="tn-tips-title">🧳 台灣人實用提醒</div>
     <ul class="tips-list">${tips.map(t => `<li>${t}</li>`).join('')}</ul>` : '';
 
-  showContent();
+  showContent(panelId);
 }
 
-async function loadCategory(cat: TravelCategory) {
+// ─────────────────────────────
+// Fetch
+// ─────────────────────────────
+async function loadCategory(cat: TravelCategory, panelId: string) {
   if (cache.has(cat)) {
-    renderContent(cache.get(cat));
+    renderContent(panelId, cache.get(cat)!, cat);
     return;
   }
-
-  showLoading();
+  showLoading(panelId);
   try {
-    const res = await fetch('/api/travel-news', {
+    const res  = await fetch('/api/travel-news', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ category: cat }),
     });
     const data = await res.json();
-    if (!res.ok || data.error) {
-      showError(data.error ?? '發生錯誤，請稍後再試');
-      return;
-    }
+    if (!res.ok || data.error) { showError(panelId, data.error ?? '發生錯誤，請稍後再試'); return; }
     cache.set(cat, data);
-    renderContent(data);
+    renderContent(panelId, data, cat);
   } catch {
-    showError('網路錯誤，請稍後再試');
+    showError(panelId, '網路錯誤，請稍後再試');
   }
 }
 
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabBtns.forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-selected', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-    loadCategory(btn.dataset.cat as TravelCategory);
-  });
-});
+// ─────────────────────────────
+// Auto-load first section
+// ─────────────────────────────
+loadCategory('japan-tax', 'panel-travel');
 
-// 預設載入第一個 tab
-loadCategory('japan-tax');
+// ─────────────────────────────
+// AI Advisor Quiz
+// ─────────────────────────────
+let currentStep = 1;
+const TOTAL_STEPS = 5;
+
+function updateProgress(step: number) {
+  const pct = Math.round((step / TOTAL_STEPS) * 100);
+  const fill  = document.getElementById('progress-fill')!;
+  const label = document.getElementById('progress-label')!;
+  fill.style.width  = pct + '%';
+  label.textContent = `第 ${step} 步，共 ${TOTAL_STEPS} 步`;
+}
+
+(window as any).nextStep = function(step: number) {
+  if (step === 1) {
+    const age = parseInt((document.getElementById('q-age') as HTMLInputElement).value);
+    if (!age || age < 18 || age > 80) { alert('請輸入 18-80 之間的年齡'); return; }
+  }
+  if (step === 2 && !document.querySelector<HTMLInputElement>('input[name="budget"]:checked')) {
+    alert('請選擇預算類型'); return;
+  }
+  if (step === 3 && !document.querySelector<HTMLInputElement>('input[name="duration"]:checked')) {
+    alert('請選擇計劃時長'); return;
+  }
+  if (step === 4) {
+    const checked = document.querySelectorAll<HTMLInputElement>('input[name="purpose"]:checked');
+    if (!checked.length) { alert('請至少選擇一個目的'); return; }
+  }
+  document.getElementById(`step-${step}`)!.classList.remove('active');
+  currentStep = step + 1;
+  document.getElementById(`step-${currentStep}`)!.classList.add('active');
+  updateProgress(currentStep);
+};
+
+(window as any).prevStep = function(step: number) {
+  document.getElementById(`step-${step}`)!.classList.remove('active');
+  currentStep = step - 1;
+  document.getElementById(`step-${currentStep}`)!.classList.add('active');
+  updateProgress(currentStep);
+};
+
+(window as any).submitQuiz = async function() {
+  const age      = parseInt((document.getElementById('q-age') as HTMLInputElement).value);
+  const budget   = (document.querySelector<HTMLInputElement>('input[name="budget"]:checked')?.value ?? '') as 'low'|'medium'|'high';
+  const duration = (document.querySelector<HTMLInputElement>('input[name="duration"]:checked')?.value ?? '') as 'short'|'medium'|'long';
+  const purpose  = [...document.querySelectorAll<HTMLInputElement>('input[name="purpose"]:checked')].map(e => e.value);
+  const countries = [...document.querySelectorAll<HTMLInputElement>('input[name="countries"]:checked')].map(e => e.value);
+  const has_skill = (document.getElementById('q-skill') as HTMLInputElement).value.trim();
+  const work_ok   = (document.getElementById('q-work-ok') as HTMLInputElement).checked;
+  const study_ok  = (document.getElementById('q-study-ok') as HTMLInputElement).checked;
+
+  // hide steps & progress
+  document.getElementById(`step-${currentStep}`)!.classList.remove('active');
+  document.getElementById('quiz-progress')!.style.display = 'none';
+
+  const loadingEl = document.getElementById('advisor-loading')!;
+  const errorEl   = document.getElementById('advisor-error')!;
+  const resultEl  = document.getElementById('advisor-result')!;
+  loadingEl.classList.add('show');
+  errorEl.hidden = true;
+  resultEl.classList.remove('show');
+
+  try {
+    const res  = await fetch('/api/travel-advisor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ age, budget, duration, purpose, preferred_countries: countries, work_ok, study_ok, has_skill }),
+    });
+    const data = await res.json();
+    loadingEl.classList.remove('show');
+    if (!res.ok || data.error) {
+      errorEl.hidden = false;
+      errorEl.textContent = '⚠️ ' + (data.error ?? '發生錯誤，請稍後再試');
+      return;
+    }
+    renderAdvisorResult(data);
+  } catch {
+    loadingEl.classList.remove('show');
+    errorEl.hidden = false;
+    errorEl.textContent = '⚠️ 網路錯誤，請稍後再試';
+  }
+};
+
+function diffBadge(d?: string): string {
+  if (!d) return '';
+  const cls = d === '容易' ? 'badge-easy' : d === '中等' ? 'badge-medium' : 'badge-hard';
+  return `<span class="badge ${cls}">${d}</span>`;
+}
+
+function renderAdvisorResult(data: any) {
+  const bm = data.best_match ?? {};
+  document.getElementById('advisor-best')!.innerHTML = `
+    <div class="best-card">
+      <p class="best-label">🏆 最佳推薦方案</p>
+      <p class="best-type">${bm.type ?? ''}</p>
+      <p class="best-country">📍 ${bm.country ?? ''}</p>
+      <p class="best-reason">${bm.reason ?? ''}</p>
+      <div class="best-meta">
+        ${bm.estimated_cost ? `<span class="badge badge-deadline">💰 ${bm.estimated_cost}</span>` : ''}
+        ${diffBadge(bm.difficulty)}
+      </div>
+    </div>`;
+
+  const alts = data.alternatives ?? [];
+  document.getElementById('advisor-alts')!.innerHTML = alts.length ? `
+    <p class="alts-title">📌 其他推薦方案</p>
+    <div class="alt-cards">
+      ${alts.map((a: any) => `
+        <div class="alt-card">
+          <div class="alt-top">
+            <span class="alt-type">${a.type ?? ''}</span>
+            <span class="alt-country">· ${a.country ?? ''}</span>
+            ${diffBadge(a.difficulty)}
+            ${a.estimated_cost ? `<span class="badge badge-deadline">💰 ${a.estimated_cost}</span>` : ''}
+          </div>
+          <p class="alt-reason">${a.reason ?? ''}</p>
+        </div>`).join('')}
+    </div>` : '';
+
+  const steps = data.action_steps ?? [];
+  document.getElementById('advisor-steps')!.innerHTML = steps.length ? `
+    <div class="steps-box">
+      <p class="steps-title">📋 行動步驟</p>
+      <ul class="steps-list">${steps.map((s: string) => `<li>${s}</li>`).join('')}</ul>
+    </div>` : '';
+
+  const warns = data.warnings ?? [];
+  document.getElementById('advisor-warns')!.innerHTML = warns.length ? `
+    <div class="warns-box">
+      <p class="warns-title">⚠️ 注意事項</p>
+      <ul class="warns-list">${warns.map((w: string) => `<li>${w}</li>`).join('')}</ul>
+    </div>` : '';
+
+  document.getElementById('advisor-result')!.classList.add('show');
+}
+
+(window as any).resetQuiz = function() {
+  currentStep = 1;
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-1')!.classList.add('active');
+  document.getElementById('quiz-progress')!.style.display = '';
+  updateProgress(1);
+  // reset form
+  (document.getElementById('q-age') as HTMLInputElement).value = '';
+  document.querySelectorAll<HTMLInputElement>('input[name="budget"]').forEach(e => e.checked = false);
+  document.querySelectorAll<HTMLInputElement>('input[name="duration"]').forEach(e => e.checked = false);
+  document.querySelectorAll<HTMLInputElement>('input[name="purpose"]').forEach(e => e.checked = false);
+  document.querySelectorAll<HTMLInputElement>('input[name="countries"]').forEach(e => e.checked = false);
+  (document.getElementById('q-skill') as HTMLInputElement).value = '';
+  (document.getElementById('q-work-ok') as HTMLInputElement).checked = true;
+  (document.getElementById('q-study-ok') as HTMLInputElement).checked = true;
+
+  document.getElementById('advisor-result')!.classList.remove('show');
+  document.getElementById('advisor-error')!.hidden = true;
+};
 </script>

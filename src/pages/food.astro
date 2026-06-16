@@ -336,6 +336,18 @@ html body { background: #0f172a; color: #e2e8f0; }
   line-height: 1.6;
 }
 
+.rest-info {
+  margin-top: .55rem;
+  font-size: .75rem;
+  color: #64748b;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .1rem;
+  align-items: baseline;
+  line-height: 1.6;
+}
+.rest-info-sep { margin: 0 .3rem; color: #334155; }
+
 /* ── omakase price groups ── */
 .omakase-groups {
   display: grid;
@@ -489,16 +501,26 @@ function renderRestaurant(r: any, showPrice?: string): string {
   const tags = (r.tags ?? []).map((t: string) => `<span class="tag">${t}</span>`).join('');
   const reasons = (r.trust_reasons ?? []).map((t: string) => `<li>${t}</li>`).join('');
 
+  const address = r.address ?? '';
+  const phone = r.phone ?? '';
+  const pricePerPerson = r.price_per_person ?? '';
+  const infoRow = [
+    pricePerPerson ? `💰 ${pricePerPerson}` : '',
+    address ? `📍 ${address}` : '',
+    phone ? `📞 ${phone}` : '',
+  ].filter(Boolean).join('<span class="rest-info-sep">·</span>');
+
   return `
     <div class="rest-card">
       <div class="rest-card-top">
-        <span class="rest-name">${name}<a class="maps-link" href="${mapsUrl(name)}" target="_blank" rel="noopener">點我看店家 ↗</a></span>
+        <span class="rest-name">${name}<a class="maps-link" href="${mapsUrl(name)}" target="_blank" rel="noopener">地圖 ↗</a></span>
         <span class="trust-badge ${trust}">${r.trust_score ?? 70}</span>
       </div>
       ${beefBadge}${priceBadge}
       <p class="rest-reason">${r.reason ?? ''}</p>
       ${tags ? `<div class="rest-tags">${tags}</div>` : ''}
       ${reasons ? `<ul class="trust-reasons">${reasons}</ul>` : ''}
+      ${infoRow ? `<div class="rest-info">${infoRow}</div>` : ''}
     </div>`;
 }
 

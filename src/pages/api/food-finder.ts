@@ -55,6 +55,9 @@ function buildPrompt(city: string, context: string): string {
 - 負評集中在排隊久、停車難 → 不扣分；負評集中在食物本身或服務態度 → 扣分
 - 長期穩定好評 → 加分；短期爆紅 → 保持觀望
 
+【停業排除規則】
+搜尋時必須確認每家餐廳目前仍在正常營業。凡是 Google Maps 顯示「已永久歇業」「暫停營業」「Permanently closed」「Temporarily closed」，或近期評論、新聞提到已停業、搬遷、結束營業，一律不得列入任何區塊（包含 must_eat、hidden_gems、omakase）。寧可少推薦，不要推薦已關門的餐廳。
+
 【has_beef 規則】
 菜單含有牛肉、牛排、牛腩、牛骨湯、牛雜、牛油等牛相關食材 → has_beef: true，否則 false。
 

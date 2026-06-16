@@ -12,7 +12,9 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
 	site: 'https://twobears.vercel.app',
 	adapter: vercel(),
-	integrations: [mdx(), sitemap(), react(), keystatic()],
+	integrations: [mdx(), sitemap({
+		filter: (page) => !page.includes('/admin/') && !page.includes('/keystatic/'),
+	}), react(), keystatic()],
 	vite: {
 		plugins: [tailwindcss()],
 	},

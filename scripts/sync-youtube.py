@@ -38,13 +38,68 @@ def run(cmd, **kw):
     return subprocess.run(cmd, capture_output=True, text=True, **kw)
 
 
-def slug_for(video_id):
-    return os.path.join(BLOG_DIR, f"yt-{video_id}.md")
+def title_to_slug(title, video_id, upload_date="NA"):
+    """Generate SEO-friendly slug from video title English keywords + year."""
+    year = ""
+    if upload_date and len(upload_date) == 8 and upload_date.isdigit():
+        year = upload_date[:4]
+
+    # Extract English words from mixed Chinese-English titles
+    stopwords = {'a', 'an', 'the', 'in', 'on', 'at', 'to', 'of', 'for', 'by',
+                 'is', 'it', 'and', 'or', 'vs', 'ep', 'ft'}
+    letter_words = re.findall(r'[a-zA-Z][a-zA-Z0-9]*', title)
+    words = [w.lower() for w in letter_words if w.lower() not in stopwords and len(w) >= 2]
+
+    if not words:
+        # Pure Chinese title (no English keywords) — fall back to yt-{video_id}
+        return f"yt-{video_id}"
+
+    if year and year not in words:
+        words = [year] + words
+
+    slug = '-'.join(words)
+    if len(slug) > 70:
+        slug = slug[:70].rsplit('-', 1)[0]
+    return slug
+
+
+def find_existing_path(video_id):
+    """Find existing post file for this video (supports both old yt- and new keyword slugs)."""
+    old = os.path.join(BLOG_DIR, f"yt-{video_id}.md")
+    if os.path.exists(old):
+        return old
+    for fn in os.listdir(BLOG_DIR):
+        if not fn.endswith('.md'):
+            continue
+        fp = os.path.join(BLOG_DIR, fn)
+        try:
+            with open(fp) as f:
+                if f"youtubeId: '{video_id}'" in f.read(800):
+                    return fp
+        except Exception:
+            pass
+    return None
+
+
+def new_post_path(video_id, title, upload_date):
+    """Generate file path for a new post, handling slug collisions."""
+    slug = title_to_slug(title, video_id, upload_date)
+    base = os.path.join(BLOG_DIR, f"{slug}.md")
+    if os.path.exists(base):
+        # Collision with a different video — append short video_id suffix
+        try:
+            with open(base) as f:
+                if f"youtubeId: '{video_id}'" in f.read(800):
+                    return base  # same video, same path — fine
+        except Exception:
+            pass
+        return os.path.join(BLOG_DIR, f"{slug}-{video_id[:6].lower()}.md")
+    return base
 
 
 def needs_transcription(video_id):
-    path = slug_for(video_id)
-    if not os.path.exists(path):
+    path = find_existing_path(video_id)
+    if not path:
         return True
     with open(path) as f:
         content = f.read()
@@ -145,17 +200,17 @@ def fetch_channel_videos(limit=None):
 
 def create_stub(video):
     vid = video["id"]
-    path = slug_for(vid)
-    if os.path.exists(path):
+    if find_existing_path(vid):
         return False  # already exists
 
+    path = new_post_path(vid, video["title"], video["date"])
     tags = guess_tags(video["title"])
     fm = make_frontmatter(vid, video["title"], video["date"], tags)
     with open(path, "w") as f:
         f.write(fm + "\n\n")
 
-    log(f"  Created stub: yt-{vid}.md")
-    return True
+    log(f"  Created stub: {os.path.basename(path)}")
+    return path
 
 
 # ─── download + transcribe ─────────────────────────────────────────────────────
@@ -195,7 +250,9 @@ def transcribe(audio_path):
 
 
 def write_transcript(video_id, raw_text):
-    path = slug_for(video_id)
+    path = find_existing_path(video_id)
+    if not path:
+        return False
     with open(path) as f:
         content = f.read()
     if content.startswith("---"):
@@ -211,14 +268,15 @@ def write_transcript(video_id, raw_text):
 
 # ─── git ───────────────────────────────────────────────────────────────────────
 
-def git_commit_push(new_ids):
-    if not new_ids:
+def git_commit_push(changed_paths):
+    if not changed_paths:
         return
     repo = os.path.expanduser("~/Documents/two-bears-blog")
-    log(f"\nCommitting {len(new_ids)} new/updated files...")
-    files = [f"src/content/blog/yt-{vid}.md" for vid in new_ids]
-    run(["git", "-C", repo, "add"] + files)
-    msg = f"Sync YouTube: add/update {len(new_ids)} video posts\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+    log(f"\nCommitting {len(changed_paths)} new/updated files...")
+    # Convert absolute paths to repo-relative paths
+    rel_files = [os.path.relpath(p, repo) for p in changed_paths]
+    run(["git", "-C", repo, "add"] + rel_files)
+    msg = f"Sync YouTube: add/update {len(changed_paths)} video posts\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
     run(["git", "-C", repo, "commit", "-m", msg])
     result = run(["git", "-C", repo, "push"])
     if result.returncode == 0:
@@ -244,16 +302,26 @@ def main():
     if args.video_id:
         videos = [{"id": args.video_id, "duration": "?", "title": "?", "date": "NA"}]
     elif args.transcribe_only:
-        # Find existing stubs that need transcription
-        all_md = [f for f in os.listdir(BLOG_DIR) if f.startswith("yt-") and f.endswith(".md")]
-        videos = [{"id": f[3:-3], "duration": "?", "title": "?", "date": "NA"} for f in all_md]
+        # Find existing stubs that need transcription (both yt- and keyword-slug posts)
+        all_md = [f for f in os.listdir(BLOG_DIR) if f.endswith(".md")]
+        videos = []
+        for fn in all_md:
+            fp = os.path.join(BLOG_DIR, fn)
+            try:
+                with open(fp) as f:
+                    content = f.read(500)
+                m = re.search(r"youtubeId:\s*'([^']+)'", content)
+                if m:
+                    videos.append({"id": m.group(1), "duration": "?", "title": "?", "date": "NA"})
+            except Exception:
+                pass
     else:
         videos = fetch_channel_videos(limit=args.limit)
 
     new_stubs = 0
     transcribed = 0
     errors = 0
-    changed_ids = []
+    changed_paths = []
 
     for i, video in enumerate(videos):
         vid = video["id"]
@@ -261,21 +329,22 @@ def main():
 
         # Create stub if new
         if not args.transcribe_only:
-            created = create_stub(video)
-            if created:
+            result_path = create_stub(video)
+            if result_path:
                 new_stubs += 1
-                changed_ids.append(vid)
+                changed_paths.append(result_path)
 
         # Transcribe if needed
         if not args.no_transcribe and needs_transcription(vid):
             try:
                 audio = download_audio(vid)
                 text = transcribe(audio)
-                if write_transcript(vid, text):
+                post_path = find_existing_path(vid)
+                if post_path and write_transcript(vid, text):
                     log(f"  Transcribed ✓")
                     transcribed += 1
-                    if vid not in changed_ids:
-                        changed_ids.append(vid)
+                    if post_path not in changed_paths:
+                        changed_paths.append(post_path)
                 # Clean up audio
                 try:
                     os.remove(audio)
@@ -290,9 +359,9 @@ def main():
     log(f"\n{'─'*40}")
     log(f"New posts: {new_stubs} | Transcribed: {transcribed} | Errors: {errors}")
 
-    if changed_ids and not args.no_push:
-        git_commit_push(changed_ids)
-    elif changed_ids:
+    if changed_paths and not args.no_push:
+        git_commit_push(changed_paths)
+    elif changed_paths:
         log(f"Changes ready (--no-push). Run: git add + commit manually.")
     else:
         log("No changes.")

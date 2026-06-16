@@ -98,8 +98,12 @@ html body { background: #0f172a; color: #e2e8f0; }
     <!-- Section 5: 海外租屋 -->
     <div id="section-rent" class="section-panel" hidden>
       <div class="sub-tabs" role="tablist">
-        <button class="tab-btn active" data-cat="korea-rent-short" role="tab">🇰🇷 韓國短期租屋</button>
-        <button class="tab-btn"        data-cat="korea-rent-long"  role="tab">🇰🇷 韓國長期租屋</button>
+        <button class="tab-btn active" data-cat="japan-rent-short"    role="tab">🇯🇵 日本短期租屋</button>
+        <button class="tab-btn"        data-cat="japan-rent-long"     role="tab">🇯🇵 日本長期租屋</button>
+        <button class="tab-btn"        data-cat="thailand-rent-short" role="tab">🇹🇭 泰國短期租屋</button>
+        <button class="tab-btn"        data-cat="thailand-rent-long"  role="tab">🇹🇭 泰國長期租屋</button>
+        <button class="tab-btn"        data-cat="korea-rent-short"    role="tab">🇰🇷 韓國短期租屋</button>
+        <button class="tab-btn"        data-cat="korea-rent-long"     role="tab">🇰🇷 韓國長期租屋</button>
       </div>
       <div id="panel-rent" class="news-panel">
         <div class="tn-loading"><div class="spinner"></div><p>AI 正在搜尋最新資訊，請稍候…</p></div>
@@ -738,6 +742,8 @@ type TravelCategory =
   | 'korea-news' | 'europe-news'
   | 'immigration-easy' | 'immigration-country'
   | 'working-holiday' | 'study-abroad' | 'study-holiday'
+  | 'japan-rent-short' | 'japan-rent-long'
+  | 'thailand-rent-short' | 'thailand-rent-long'
   | 'korea-rent-short' | 'korea-rent-long';
 
 type SectionId = 'travel' | 'immigration' | 'lifestyle' | 'rent' | 'advisor';
@@ -778,7 +784,7 @@ const sectionDefaultCat: Record<SectionId, TravelCategory | null> = {
   travel: 'japan-tax',
   immigration: 'immigration-easy',
   lifestyle: 'working-holiday',
-  rent: 'korea-rent-short',
+  rent: 'japan-rent-short',
   advisor: null,
 };
 
@@ -861,7 +867,7 @@ function showContent(panelId: string) {
 // ─────────────────────────────
 const IMMIG_CATS = new Set(['immigration-easy', 'immigration-country']);
 const LIFE_CATS  = new Set(['working-holiday', 'study-abroad', 'study-holiday']);
-const RENT_CATS  = new Set(['korea-rent-short', 'korea-rent-long']);
+const RENT_CATS  = new Set(['japan-rent-short', 'japan-rent-long', 'thailand-rent-short', 'thailand-rent-long', 'korea-rent-short', 'korea-rent-long']);
 
 function difficultyClass(d?: string) {
   if (d === '容易') return 'badge-easy';

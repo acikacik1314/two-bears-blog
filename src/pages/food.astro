@@ -267,6 +267,19 @@ html body { background: #0f172a; color: #e2e8f0; }
   color: #f1f5f9;
   line-height: 1.3;
 }
+.maps-link {
+  display: inline-block;
+  margin-left: .4rem;
+  font-size: .7rem;
+  font-weight: 500;
+  color: #f59e0b;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  opacity: .8;
+  transition: opacity .2s;
+}
+.maps-link:hover { opacity: 1; text-decoration: underline; }
 .trust-badge {
   flex-shrink: 0;
   font-size: .75rem;
@@ -432,6 +445,7 @@ const ctxBtns   = document.querySelectorAll<HTMLButtonElement>('.ctx-btn');
 const quickBtns = document.querySelectorAll<HTMLButtonElement>('.food-quick button');
 
 let activeCtx = '';
+let currentCity = '';
 
 ctxBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -459,8 +473,13 @@ function trustClass(score: number): string {
   return 'trust-red';
 }
 
+function mapsUrl(name: string): string {
+  return 'https://www.google.com/maps/search/' + encodeURIComponent(name + ' ' + currentCity);
+}
+
 function renderRestaurant(r: any, showPrice?: string): string {
   const trust = trustClass(r.trust_score ?? 70);
+  const name = r.name ?? '';
   const beefBadge = r.has_beef ? '<span class="beef-badge">⚠️ 含牛</span>' : '';
   const priceBadge = showPrice
     ? `<span class="price-range-badge ${showPrice === '1000以下' ? 'price-low' : showPrice === '3000以上' ? 'price-high' : 'price-mid'}">${showPrice}</span>`
@@ -471,7 +490,7 @@ function renderRestaurant(r: any, showPrice?: string): string {
   return `
     <div class="rest-card">
       <div class="rest-card-top">
-        <span class="rest-name">${r.name ?? ''}</span>
+        <span class="rest-name">${name}<a class="maps-link" href="${mapsUrl(name)}" target="_blank" rel="noopener">點我看店家 ↗</a></span>
         <span class="trust-badge ${trust}">${r.trust_score ?? 70}</span>
       </div>
       ${beefBadge}${priceBadge}
@@ -547,6 +566,7 @@ async function search() {
       body: JSON.stringify({ city, context: activeCtx }),
     });
     const data = await res.json();
+    currentCity = data.city ?? city;
 
     if (!res.ok || data.error) {
       statusEl.innerHTML = `<p>⚠️ ${data.error ?? '發生錯誤，請稍後再試'}</p>`;

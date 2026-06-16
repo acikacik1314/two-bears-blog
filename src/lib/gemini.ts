@@ -240,24 +240,27 @@ export async function chatWithSeller(
     generationConfig: { temperature: 0.7, maxOutputTokens: 600, thinkingConfig: { thinkingBudget: 0 } },
   })
 
-  for (const key of keys) {
-    try {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${key}`,
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body },
-      )
-      if (!res.ok) continue
-      const data = await res.json()
-      const reply = (data?.candidates?.[0]?.content?.parts ?? [])
-        .filter((p: any) => !p.thought)
-        .map((p: any) => p.text ?? '')
-        .join('')
-        .trim()
-      if (!reply) continue
-      const isComplete = reply.includes('[READY_TO_LIST]')
-      return { reply: reply.replace('[READY_TO_LIST]', '').trim(), isComplete }
-    } catch {
-      continue
+  for (const model of MODELS) {
+    for (const key of keys) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+          { method: 'POST', headers: { 'Content-Type': 'application/json' }, body },
+        )
+        if (res.status === 404) break
+        if (!res.ok) continue
+        const data = await res.json()
+        const reply = (data?.candidates?.[0]?.content?.parts ?? [])
+          .filter((p: any) => !p.thought)
+          .map((p: any) => p.text ?? '')
+          .join('')
+          .trim()
+        if (!reply) continue
+        const isComplete = reply.includes('[READY_TO_LIST]')
+        return { reply: reply.replace('[READY_TO_LIST]', '').trim(), isComplete }
+      } catch {
+        continue
+      }
     }
   }
   return { reply: '抱歉，我暫時連不上，請稍後再試。', isComplete: false }

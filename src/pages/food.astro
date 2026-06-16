@@ -340,13 +340,7 @@ html body { background: #0f172a; color: #e2e8f0; }
   margin-top: .55rem;
   font-size: .75rem;
   color: #64748b;
-  display: flex;
-  flex-wrap: wrap;
-  gap: .25rem .1rem;
-  align-items: baseline;
-  line-height: 1.6;
 }
-.rest-info-sep { margin: 0 .3rem; color: #334155; }
 
 /* ── omakase price groups ── */
 .omakase-groups {
@@ -501,14 +495,8 @@ function renderRestaurant(r: any, showPrice?: string): string {
   const tags = (r.tags ?? []).map((t: string) => `<span class="tag">${t}</span>`).join('');
   const reasons = (r.trust_reasons ?? []).map((t: string) => `<li>${t}</li>`).join('');
 
-  const address = r.address ?? '';
-  const phone = r.phone ?? '';
   const pricePerPerson = r.price_per_person ?? '';
-  const infoRow = [
-    pricePerPerson ? `💰 ${pricePerPerson}` : '',
-    address ? `📍 ${address}` : '',
-    phone ? `📞 ${phone}` : '',
-  ].filter(Boolean).join('<span class="rest-info-sep">·</span>');
+  const infoRow = pricePerPerson ? `💰 ${pricePerPerson}/人` : '';
 
   return `
     <div class="rest-card">

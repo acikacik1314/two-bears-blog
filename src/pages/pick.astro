@@ -244,6 +244,7 @@ import Footer from '../components/Footer.astro';
     margin: 1rem 0;
   }
   .pick-platforms button, .platform-btn {
+    text-decoration: none;
     padding: 0.65rem 0.6rem;
     border: 1px solid #e3d5bd;
     background: #fffdf8;
@@ -460,6 +461,7 @@ import Footer from '../components/Footer.astro';
         card.appendChild(btnWrap);
         resultsList.appendChild(card);
       });
+      renderPlatformButtons(data.keyword || keyword);
     } catch {
       showStatus('連線失敗，請稍後再試', true);
     } finally {
@@ -477,19 +479,24 @@ import Footer from '../components/Footer.astro';
 
   // ===== 手動搜尋各平台 =====
   const platformsBox = $('platforms')!;
-  PLATFORMS.forEach((p) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'platform-btn';
-    btn.innerHTML = `
-      <span class="platform-btn-name">🔗 ${p.name}</span>
-      ${p.promo ? `<span class="platform-btn-promo">${p.promo}</span>` : ''}
-    `;
-    btn.addEventListener('click', () => {
-      const k = encodeURIComponent(kwInput.value.trim() || '');
-      window.open(p.aff || p.search(k), '_blank');
+
+  function renderPlatformButtons(keyword: string) {
+    const k = encodeURIComponent(keyword || '');
+    platformsBox.innerHTML = '';
+    PLATFORMS.forEach((p) => {
+      const btn = document.createElement('a');
+      btn.className = 'platform-btn';
+      btn.href = p.aff || p.search(k);
+      btn.target = '_blank';
+      btn.rel = 'noopener sponsored';
+      btn.innerHTML = `
+        <span class="platform-btn-name">🔗 ${p.name}</span>
+        ${p.promo ? `<span class="platform-btn-promo">${p.promo}</span>` : ''}
+      `;
+      platformsBox.appendChild(btn);
     });
-    platformsBox.appendChild(btn);
-  });
+  }
+
+  renderPlatformButtons('');
 
 </script>

@@ -47,13 +47,13 @@ function sourceLabel(url: string): string {
 }
 
 const SEARCH_QUERIES = [
-  '永安旅遊 wingontravel 郵輪特賣 2026 NT$ 出發 優惠價',
-  '東南旅遊 settour 郵輪特賣 2026 NT$ 出發日期 優惠',
-  '可樂旅遊 colatour 郵輪特賣 2026 優惠價格',
-  '雄獅旅遊 liontravel 郵輪 2026 優惠 NT$ 出發',
-  'Klook 郵輪 2026 香港 基隆 優惠 HKD TWD 出發',
-  'KKday 郵輪 2026 台灣 香港 優惠 出發日期',
-  '郵輪特賣 2026 基隆 香港出發 優惠價 NT$ 天 晚',
+  'site:wingontravel.com 郵輪 2026 特賣優惠價格',
+  'site:settour.com.tw 郵輪 2026 特賣優惠',
+  'site:klook.com 郵輪 cruise 2026 優惠 香港 台灣',
+  'site:kkday.com 郵輪 cruise 2026 優惠',
+  'site:colatour.com.tw 郵輪 2026 特賣優惠',
+  'site:liontravel.com 郵輪 2026 特賣優惠',
+  'site:travel.rakuten.com.tw 郵輪 2026 特賣優惠',
 ]
 
 async function tavilySearch(query: string, apiKey: string): Promise<any[]> {

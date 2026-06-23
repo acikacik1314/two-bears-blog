@@ -246,10 +246,9 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  const geminiDebug = `直接解析: ${parsed.length} 筆`
-  const allResults = [{ results: [], error: undefined }]  // not used below
-
-  // parsed + geminiDebug already set above
+  const rawPreview = rawContent.slice(0, 400)
+  const parseMethod = arrMatch ? 'full_match' : trimmed.startsWith('[') ? 'truncated_repair' : 'no_match'
+  const geminiDebug = `直接解析: ${parsed.length} 筆 (${parseMethod}) rawLen=${rawContent.length}`
 
   // Enrich with affiliate URL and source label
   const deals = parsed
@@ -267,7 +266,11 @@ export const POST: APIRoute = async ({ request }) => {
     }))
     .filter((d: any) => d.days_until > 0)  // skip past departures
 
-  return new Response(JSON.stringify({ deals, searched: parsed.length, debug: { gemini: geminiDebug } }), {
+  return new Response(JSON.stringify({
+    deals,
+    searched: parsed.length,
+    debug: { gemini: geminiDebug, raw_preview: rawPreview },
+  }), {
     headers: { 'Content-Type': 'application/json' },
   })
 }

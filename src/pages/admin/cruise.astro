@@ -132,6 +132,40 @@ html body { background: #0f172a; color: #e2e8f0; }
   text-decoration: none; display: none;
 }
 .btn-dl:hover { background: #0891b244; }
+
+/* AI Search */
+.ai-search-card {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+  padding: 1.5rem; margin-bottom: 2rem;
+}
+.ai-search-card h3 { font-size: 1rem; color: #f1f5f9; margin: 0 0 1rem; }
+.btn-ai-search {
+  padding: .65rem 1.5rem; border: none; border-radius: 9px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: #fff; font-weight: 700; font-size: .95rem; cursor: pointer; font-family: inherit;
+  transition: opacity .15s;
+}
+.btn-ai-search:hover { opacity: .85; }
+.btn-ai-search:disabled { opacity: .5; cursor: not-allowed; }
+.ai-status { font-size: .82rem; color: #64748b; margin-left: .75rem; }
+.candidate-list { margin-top: 1.25rem; display: flex; flex-direction: column; gap: .75rem; }
+.candidate-card {
+  background: #0f172a; border: 1px solid #334155; border-radius: 10px;
+  padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+}
+.candidate-info { flex: 1; }
+.candidate-info h4 { font-size: .9rem; color: #f1f5f9; margin: 0 0 .3rem; }
+.candidate-info p  { font-size: .78rem; color: #94a3b8; margin: 0; line-height: 1.6; }
+.candidate-price { font-size: 1.05rem; font-weight: 700; color: #E8920A; white-space: nowrap; }
+.candidate-disc  { font-size: .75rem; color: #4ade80; }
+.candidate-source { font-size: .72rem; color: #64748b; margin-top: .2rem; }
+.btn-add-candidate {
+  padding: .45rem .9rem; border: none; border-radius: 7px;
+  background: #16a34a; color: #fff; font-size: .8rem; font-weight: 700;
+  cursor: pointer; font-family: inherit; white-space: nowrap; transition: background .15s;
+}
+.btn-add-candidate:hover { background: #15803d; }
+.btn-add-candidate:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
 </style>
 
 <html lang="zh-Hant">
@@ -154,6 +188,16 @@ html body { background: #0f172a; color: #e2e8f0; }
 
     <!-- Main UI (hidden until login) -->
     <div class="adm-main" id="admMain">
+
+      <!-- AI Search -->
+      <div class="ai-search-card">
+        <h3>🤖 AI 自動搜尋最新特賣</h3>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem">
+          <button class="btn-ai-search" id="btnAiSearch">🔍 搜尋永安旅遊 ＋ 東南旅遊 ＋ Klook</button>
+          <span class="ai-status" id="aiStatus"></span>
+        </div>
+        <div class="candidate-list" id="candidateList" style="display:none"></div>
+      </div>
 
       <!-- Add / Edit Form -->
       <div class="form-card" id="formCard">
@@ -583,4 +627,111 @@ async function deleteDeal(id, name) {
   loadDeals()
 }
 window.deleteDeal = deleteDeal
+
+// ── AI Search ──
+document.getElementById('btnAiSearch').addEventListener('click', async () => {
+  const btn    = document.getElementById('btnAiSearch')
+  const status = document.getElementById('aiStatus')
+  const list   = document.getElementById('candidateList')
+
+  btn.disabled = true
+  btn.textContent = '⏳ 搜尋中…'
+  status.textContent = '正在搜尋永安旅遊、東南旅遊、Klook，約需 15–30 秒'
+  list.style.display = 'none'
+  list.innerHTML = ''
+
+  try {
+    const res = await fetch('/api/cruise/ai-search', {
+      method: 'POST',
+      headers: getHeaders(),
+    })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error)
+
+    const deals = data.deals || []
+    status.textContent = `找到 ${deals.length} 筆特賣（共掃描 ${data.searched} 筆搜尋結果）`
+
+    if (!deals.length) {
+      list.style.display = 'block'
+      list.innerHTML = '<p style="color:#64748b;font-size:.82rem;padding:.5rem 0">本次搜尋無法解析出完整特賣資料，請稍後再試。</p>'
+      return
+    }
+
+    list.style.display = 'block'
+    list.innerHTML = deals.map((d, i) => {
+      const disc = d.discount_pct ? `<span class="candidate-disc">↓${d.discount_pct}% OFF</span> ` : ''
+      const curr = d.price_currency || 'TWD'
+      const price = Number(d.current_price).toLocaleString()
+      const orig  = d.original_price ? `<s style="color:#475569">${curr} ${Number(d.original_price).toLocaleString()}</s> → ` : ''
+      return `
+        <div class="candidate-card" id="cand-${i}">
+          <div class="candidate-info">
+            <h4>${d.ship_name} — ${d.destination}</h4>
+            <p>📅 ${d.departure_date} ｜ 🌙 ${d.duration_nights} 晚 ｜ 🚢 ${d.departure_port || '—'} ｜ 🛏 ${d.cabin_type || '內艙'}</p>
+            <p>${d.cruise_line || ''} ${d.notes ? '｜ ' + d.notes : ''}</p>
+            <p class="candidate-source">來源：${d.source} · 聯盟連結已自動填入</p>
+          </div>
+          <div style="text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
+            <div class="candidate-price">${orig}${curr} ${price}</div>
+            <div>${disc}</div>
+            <button class="btn-add-candidate" onclick="addCandidate(${i})">✅ 新增</button>
+          </div>
+        </div>`
+    }).join('')
+
+    window._aiCandidates = deals
+  } catch (e) {
+    status.textContent = '❌ 搜尋失敗：' + e.message
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🔍 搜尋永安旅遊 ＋ 東南旅遊 ＋ Klook'
+  }
+})
+
+async function addCandidate(i) {
+  const d = window._aiCandidates[i]
+  if (!d) return
+
+  const btn = document.querySelector(`#cand-${i} .btn-add-candidate`)
+  btn.disabled = true
+  btn.textContent = '新增中…'
+
+  const body = {
+    ship_name:      d.ship_name,
+    cruise_line:    d.cruise_line || '',
+    destination:    d.destination,
+    departure_port: d.departure_port || '香港',
+    departure_date: d.departure_date,
+    duration_nights: d.duration_nights,
+    cabin_type:     d.cabin_type || '內艙',
+    original_price: d.original_price || null,
+    current_price:  d.current_price,
+    price_currency: d.price_currency || 'TWD',
+    source:         d.source || '',
+    affiliate_url:  d.affiliate_url,
+    notes:          d.notes || null,
+    is_repositioning: false, is_last_minute: false,
+    has_kids_free: false, has_3rd_free: false,
+    has_obc: false, is_featured: false,
+  }
+
+  try {
+    const res = await fetch('/api/cruise/deals', {
+      method: 'POST',
+      headers: getHeaders(),
+      body: JSON.stringify(body),
+    })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error)
+    btn.textContent = '✅ 已新增'
+    btn.style.background = '#334155'
+    showToast(`✅ ${d.ship_name} 已新增！`)
+    loadDeals()
+  } catch (e) {
+    btn.disabled = false
+    btn.textContent = '✅ 新增'
+    showToast('❌ ' + e.message)
+  }
+}
+window.addCandidate = addCandidate
 </script>

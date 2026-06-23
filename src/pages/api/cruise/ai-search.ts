@@ -136,20 +136,27 @@ ${text}
     .join('')
     .trim()
 
-  // Try full array first
-  const arrMatch = raw.match(/\[[\s\S]*\]/)
+  const trimmed = raw.trim()
+
+  // Case 1: complete valid JSON array
+  const arrMatch = trimmed.match(/\[[\s\S]*\]/)
   if (arrMatch) {
     try { return JSON.parse(arrMatch[0]) } catch {}
   }
 
-  // Fallback: extract individual objects even if array is truncated
-  const items: any[] = []
-  const objRegex = /\{[\s\S]*?\n\s*\}/g
-  let m: RegExpExecArray | null
-  while ((m = objRegex.exec(raw)) !== null) {
-    try { items.push(JSON.parse(m[0])) } catch {}
+  // Case 2: truncated array — find last complete object and close the array
+  if (trimmed.startsWith('[')) {
+    const lastBrace = trimmed.lastIndexOf('},')
+    if (lastBrace > 0) {
+      try { return JSON.parse(trimmed.slice(0, lastBrace + 1) + ']') } catch {}
+    }
+    const lastBrace2 = trimmed.lastIndexOf('}')
+    if (lastBrace2 > 0) {
+      try { return JSON.parse(trimmed.slice(0, lastBrace2 + 1) + ']') } catch {}
+    }
   }
-  return items
+
+  return []
 }
 
 async function geminiParse(chunks: any[][], keys: string[]): Promise<{ deals: any[], raw: string }> {

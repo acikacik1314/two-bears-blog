@@ -56,21 +56,28 @@ const SEARCH_QUERIES = [
   'site:travel.rakuten.com.tw 郵輪 2026 特賣優惠',
 ]
 
-async function tavilySearch(query: string, apiKey: string): Promise<any[]> {
-  const res = await fetch('https://api.tavily.com/search', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: apiKey,
-      query,
-      search_depth: 'advanced',
-      max_results: 8,
-      include_answer: false,
-    }),
-  })
-  if (!res.ok) return []
-  const data = await res.json()
-  return data.results || []
+async function tavilySearch(query: string, apiKey: string): Promise<{ results: any[], error?: string }> {
+  try {
+    const res = await fetch('https://api.tavily.com/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        api_key: apiKey,
+        query,
+        search_depth: 'basic',
+        max_results: 7,
+        include_answer: false,
+      }),
+    })
+    if (!res.ok) {
+      const err = await res.text()
+      return { results: [], error: `HTTP ${res.status}: ${err.slice(0, 100)}` }
+    }
+    const data = await res.json()
+    return { results: data.results || [] }
+  } catch (e: any) {
+    return { results: [], error: e.message }
+  }
 }
 
 async function geminiParseChunk(text: string, key: string): Promise<any[]> {
@@ -195,11 +202,13 @@ export const POST: APIRoute = async ({ request }) => {
   // Search all sources in parallel
   const allResults = await Promise.all(SEARCH_QUERIES.map(q => tavilySearch(q, tavilyKey)))
 
-  // Combine and deduplicate by URL
+  // Collect errors and results
+  const tavilyErrors: string[] = []
   const seen = new Set<string>()
   const combined: any[] = []
-  for (const batch of allResults) {
-    for (const r of batch) {
+  for (const { results, error } of allResults) {
+    if (error) tavilyErrors.push(error)
+    for (const r of results) {
       if (!seen.has(r.url)) {
         seen.add(r.url)
         combined.push(r)
@@ -208,9 +217,11 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   if (!combined.length) {
-    return new Response(JSON.stringify({ deals: [], message: '搜尋無結果，請稍後再試' }), {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return new Response(JSON.stringify({
+      deals: [],
+      message: '搜尋無結果，請稍後再試',
+      tavily_errors: tavilyErrors,
+    }), { headers: { 'Content-Type': 'application/json' } })
   }
 
   // Split into chunks of 12 for Gemini

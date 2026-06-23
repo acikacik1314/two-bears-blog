@@ -68,18 +68,5 @@ const ogImage = imageUrl ?? new URL(image.src, Astro.url).toString();
 <Analytics />
 
 <!-- 通路王 Deep Link 自動轉換器（全站只需一次） -->
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    window.oeya_member = '3RE6d';
-    window.oeya_uid1 = 'twobears';
-    window.oeya_uid2 = '';
-    window.oeya_uid3 = '';
-    window.oeya_uid4 = '';
-    window.oeya_uid5 = '';
-    var base = (location.protocol === 'https:') ? 'https://www.conn.tw/' : 'http://crazykiwi.net/';
-    var s = document.createElement('script');
-    s.src = base + 'track/script/oeya_member_url.js';
-    s.async = true;
-    document.body.appendChild(s);
-  });
-</script>
+<script is:inline>var ConverlyCustomData = {channelId: null};</script>
+<script async defer src="https://cdn.adotone.com/production/adlinks/f2bfa7ad3f3cfb230c4c8f7481542a7f6235fb7b9b0c42c85a53f92ed74c6231.js"></script>

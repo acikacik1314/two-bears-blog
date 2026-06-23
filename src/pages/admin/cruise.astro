@@ -111,6 +111,27 @@ html body { background: #0f172a; color: #e2e8f0; }
   border: 1px solid #334155;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Image generation */
+.img-preview-box {
+  background: #0f172a; border: 1px dashed #334155; border-radius: 10px;
+  min-height: 120px; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.img-preview-box img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 9px; display: none; }
+.btn-gen {
+  padding: .5rem 1.1rem; border: 1px solid #7c3aed; border-radius: 9px;
+  background: #7c3aed22; color: #a78bfa; font-size: .82rem; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-gen:hover { background: #7c3aed44; }
+.btn-gen:disabled { opacity: .5; cursor: not-allowed; }
+.btn-dl {
+  padding: .5rem 1.1rem; border: 1px solid #0891b2; border-radius: 9px;
+  background: #0891b222; color: #67e8f9; font-size: .82rem; cursor: pointer; font-family: inherit;
+  text-decoration: none; display: none;
+}
+.btn-dl:hover { background: #0891b244; }
 </style>
 
 <html lang="zh-Hant">
@@ -252,6 +273,19 @@ html body { background: #0f172a; color: #e2e8f0; }
           <div class="form-group full">
             <label>備註</label>
             <textarea id="f-notes" placeholder="含飲料套餐、早鳥優惠截止日等補充說明…"></textarea>
+          </div>
+          <div class="form-group full" style="margin-top:.5rem">
+            <label>AI 封面圖 <span style="color:#64748b;font-weight:400">（填好船名、目的地、天數後點生成）</span></label>
+            <div class="img-preview-box" id="imgPreviewBox">
+              <span id="imgPlaceholder" style="color:#475569;font-size:.82rem">尚未生成圖片</span>
+              <img id="imgPreview" alt="封面圖" />
+            </div>
+            <div style="display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap;align-items:center">
+              <button type="button" class="btn-gen" id="btnGenImage">🎨 AI 生成封面圖</button>
+              <a id="btnDownload" class="btn-dl" download="cruise-cover.png">⬇ 下載圖片</a>
+              <span id="genStatus" style="color:#64748b;font-size:.78rem"></span>
+            </div>
+            <input type="hidden" id="f-imgurl" />
           </div>
         </div>
         <div class="form-actions">
@@ -425,13 +459,81 @@ function clearForm() {
   document.getElementById('editId').value = ''
   document.getElementById('formTitle').textContent = '+ 新增郵輪特賣'
   document.getElementById('btnCancel').style.display = 'none'
-  ;['f-ship','f-line','f-dest','f-date','f-nights','f-orig','f-curr','f-source','f-url','f-shore-url','f-shore-note','f-notes']
+  ;['f-ship','f-line','f-dest','f-date','f-nights','f-orig','f-curr','f-source','f-url','f-shore-url','f-shore-note','f-notes','f-imgurl']
     .forEach(id => { document.getElementById(id).value = '' })
   document.getElementById('f-port').value = '基隆'
   document.getElementById('f-cabin').value = '內艙'
   document.getElementById('f-currency').value = 'TWD'
   ;['f-repo','f-last','f-kids','f-3rd','f-obc','f-feat'].forEach(id => { document.getElementById(id).checked = false })
+  // clear image
+  const img = document.getElementById('imgPreview')
+  img.src = ''; img.style.display = 'none'
+  document.getElementById('imgPlaceholder').style.display = 'block'
+  document.getElementById('btnDownload').style.display = 'none'
+  document.getElementById('genStatus').textContent = ''
 }
+
+// ── Generate Image ──
+document.getElementById('btnGenImage').addEventListener('click', async () => {
+  const ship   = document.getElementById('f-ship').value.trim()
+  const dest   = document.getElementById('f-dest').value.trim()
+  const nights = document.getElementById('f-nights').value
+  const curr   = document.getElementById('f-curr').value
+  const orig   = document.getElementById('f-orig').value
+  const cabin  = document.getElementById('f-cabin').value
+
+  if (!ship || !dest) {
+    showToast('⚠️ 請先填寫船名和目的地')
+    return
+  }
+
+  const disc = (orig && curr) ? Math.round((1 - parseInt(curr) / parseInt(orig)) * 100) : null
+
+  const btn    = document.getElementById('btnGenImage')
+  const status = document.getElementById('genStatus')
+  btn.disabled = true
+  btn.textContent = '⏳ 生成中…'
+  status.textContent = '約需 1 分鐘，請稍候'
+
+  document.getElementById('imgPreview').style.display = 'none'
+  document.getElementById('imgPlaceholder').style.display = 'block'
+  document.getElementById('imgPlaceholder').textContent = '⏳ AI 生成中，約 1 分鐘…'
+  document.getElementById('btnDownload').style.display = 'none'
+
+  try {
+    const res = await fetch('/api/cruise/generate-image', {
+      method: 'POST',
+      headers: getHeaders(),
+      body: JSON.stringify({
+        ship_name: ship, destination: dest,
+        duration_nights: parseInt(nights) || 7,
+        current_price: parseInt(curr) || 0,
+        discount_pct: disc, cabin_type: cabin,
+      }),
+    })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error || '生成失敗')
+
+    const img = document.getElementById('imgPreview')
+    img.src = data.url
+    img.style.display = 'block'
+    document.getElementById('imgPlaceholder').style.display = 'none'
+    document.getElementById('f-imgurl').value = data.url
+
+    const dl = document.getElementById('btnDownload')
+    dl.href = data.url
+    dl.style.display = 'inline-block'
+    status.textContent = '✅ 生成完成'
+    showToast('✅ 封面圖生成完成！')
+  } catch (e) {
+    document.getElementById('imgPlaceholder').textContent = '尚未生成圖片'
+    status.textContent = '❌ ' + e.message
+    showToast('❌ 生成失敗：' + e.message)
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🎨 AI 生成封面圖'
+  }
+})
 
 document.getElementById('btnCancel').addEventListener('click', clearForm)
 

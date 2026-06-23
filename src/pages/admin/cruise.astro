@@ -1,0 +1,484 @@
+---
+export const prerender = false
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+
+.adm-wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+.adm-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: #f1f5f9; }
+.adm-title span { color: #E8920A; }
+
+/* Login */
+.pin-box {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+  padding: 2.5rem; max-width: 340px; margin: 4rem auto; text-align: center;
+}
+.pin-box h2 { font-size: 1rem; margin-bottom: 1rem; color: #94a3b8; }
+.pin-box input {
+  width: 100%; padding: .7rem 1rem; border: 1px solid #334155; border-radius: 9px;
+  background: #0f172a; color: #f1f5f9; font-size: 1rem; font-family: inherit;
+  text-align: center; letter-spacing: .2em; margin-bottom: .75rem; box-sizing: border-box;
+}
+.pin-box input:focus { outline: none; border-color: #E8920A; }
+.btn-pin {
+  width: 100%; padding: .7rem; border: none; border-radius: 9px;
+  background: #E8920A; color: #fff; font-weight: 700; font-size: .95rem;
+  cursor: pointer; font-family: inherit; transition: background .15s;
+}
+.btn-pin:hover { background: #C2740A; }
+.pin-error { color: #f87171; font-size: .82rem; margin-top: .5rem; }
+
+/* Main UI */
+.adm-main { display: none; }
+
+/* Form */
+.form-card {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem;
+}
+.form-card h3 { font-size: 1rem; color: #f1f5f9; margin: 0 0 1.25rem; }
+.form-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .75rem;
+}
+.form-group { display: flex; flex-direction: column; gap: .3rem; }
+.form-group.full { grid-column: 1/-1; }
+.form-group label { font-size: .72rem; color: #94a3b8; font-weight: 600; letter-spacing: .04em; }
+.form-group input, .form-group select, .form-group textarea {
+  padding: .5rem .75rem; border: 1px solid #334155; border-radius: 8px;
+  background: #0f172a; color: #e2e8f0; font-size: .85rem; font-family: inherit;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: #E8920A;
+}
+.form-group textarea { resize: vertical; min-height: 70px; }
+
+.form-checkboxes { display: flex; flex-wrap: wrap; gap: .75rem; }
+.form-check { display: flex; align-items: center; gap: .4rem; font-size: .82rem; color: #94a3b8; cursor: pointer; }
+.form-check input { accent-color: #E8920A; }
+
+.form-actions { display: flex; gap: .75rem; margin-top: 1.25rem; }
+.btn-submit {
+  padding: .6rem 1.5rem; border: none; border-radius: 9px;
+  background: #E8920A; color: #fff; font-weight: 700; font-size: .9rem; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-submit:hover { background: #C2740A; }
+.btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+.btn-cancel {
+  padding: .6rem 1.25rem; border: 1px solid #334155; border-radius: 9px;
+  background: transparent; color: #94a3b8; font-size: .9rem; cursor: pointer; font-family: inherit;
+}
+
+/* Deals list */
+.deals-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.deals-table th {
+  background: #1e293b; color: #64748b; font-weight: 600; text-align: left;
+  padding: .5rem .75rem; font-size: .72rem; letter-spacing: .04em;
+  border-bottom: 1px solid #334155;
+}
+.deals-table td {
+  padding: .6rem .75rem; border-bottom: 1px solid #1e293b; vertical-align: middle; color: #e2e8f0;
+}
+.deals-table tr:hover td { background: #1e293b22; }
+.status-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700; padding: .1rem .45rem; border-radius: 5px;
+}
+.s-active   { background: #16a34a22; color: #4ade80; }
+.s-expired  { background: #9333ea22; color: #c084fc; }
+.s-sold_out { background: #dc262622; color: #f87171; }
+.discount-cell { color: #fb923c; font-weight: 700; }
+
+.btn-edit {
+  padding: .3rem .7rem; border: 1px solid #3b82f6; border-radius: 6px;
+  background: transparent; color: #60a5fa; font-size: .75rem; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-edit:hover { background: #3b82f622; }
+.btn-del {
+  padding: .3rem .7rem; border: 1px solid #ef4444; border-radius: 6px;
+  background: transparent; color: #f87171; font-size: .75rem; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-del:hover { background: #ef444422; }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(40px);
+  background: #1e293b; color: #e2e8f0; font-size: .85rem; padding: .65rem 1.25rem;
+  border-radius: 100px; opacity: 0; transition: all .3s; pointer-events: none; z-index: 999;
+  border: 1px solid #334155;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+
+<html lang="zh-Hant">
+<head>
+  <BaseHead title="郵輪後台管理 — 兩隻熊" description="cruise admin" />
+</head>
+<body>
+  <Header />
+
+  <div class="adm-wrap">
+    <div class="adm-title">🚢 郵輪特賣 <span>後台管理</span></div>
+
+    <!-- PIN Login -->
+    <div class="pin-box" id="pinBox">
+      <h2>請輸入管理密碼</h2>
+      <input type="password" id="pinInput" placeholder="• • • • • •" autocomplete="off" />
+      <button class="btn-pin" id="pinBtn">登入</button>
+      <div class="pin-error" id="pinError" style="display:none">密碼錯誤</div>
+    </div>
+
+    <!-- Main UI (hidden until login) -->
+    <div class="adm-main" id="admMain">
+
+      <!-- Add / Edit Form -->
+      <div class="form-card" id="formCard">
+        <h3 id="formTitle">+ 新增郵輪特賣</h3>
+        <input type="hidden" id="editId" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label>船名 *</label>
+            <input id="f-ship" type="text" placeholder="海洋光譜號" list="shipList" />
+            <datalist id="shipList">
+              <option value="海洋光譜號"><option value="海洋量子號"><option value="海洋和悅號">
+              <option value="MSC 榮耀號"><option value="MSC 輝煌號"><option value="名人矽藻號">
+              <option value="世界夢號"><option value="探索夢號"><option value="海洋贊禮號">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label>郵輪公司 *</label>
+            <input id="f-line" type="text" placeholder="Royal Caribbean" list="lineList" />
+            <datalist id="lineList">
+              <option value="Royal Caribbean（皇家加勒比）">
+              <option value="Celebrity Cruises（名人郵輪）">
+              <option value="MSC Cruises（地中海郵輪）">
+              <option value="Norwegian Cruise Line（挪威郵輪）">
+              <option value="Princess Cruises（公主郵輪）">
+              <option value="Costa Cruises（歌詩達郵輪）">
+              <option value="星夢郵輪">
+              <option value="麗星郵輪">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label>目的地 / 航線 *</label>
+            <input id="f-dest" type="text" placeholder="日本沖繩" list="destList" />
+            <datalist id="destList">
+              <option value="日本沖繩"><option value="日本九州"><option value="韓國">
+              <option value="東南亞"><option value="地中海"><option value="加勒比海">
+              <option value="阿拉斯加"><option value="北歐"><option value="環球">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label>出發港口 *</label>
+            <select id="f-port">
+              <option value="基隆">基隆</option>
+              <option value="高雄">高雄</option>
+              <option value="香港">香港</option>
+              <option value="新加坡">新加坡</option>
+              <option value="上海">上海</option>
+              <option value="天津">天津</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>出發日期 *</label>
+            <input id="f-date" type="date" />
+          </div>
+          <div class="form-group">
+            <label>天數（晚）*</label>
+            <input id="f-nights" type="number" min="1" placeholder="7" />
+          </div>
+          <div class="form-group">
+            <label>艙型 *</label>
+            <select id="f-cabin">
+              <option value="內艙">內艙</option>
+              <option value="海景艙">海景艙</option>
+              <option value="陽台艙">陽台艙</option>
+              <option value="套房">套房</option>
+              <option value="行政套房">行政套房</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>原價（TWD）</label>
+            <input id="f-orig" type="number" placeholder="89999" />
+          </div>
+          <div class="form-group">
+            <label>現價 * (TWD)</label>
+            <input id="f-curr" type="number" placeholder="52999" />
+          </div>
+          <div class="form-group">
+            <label>幣別</label>
+            <select id="f-currency">
+              <option value="TWD">TWD 台幣</option>
+              <option value="USD">USD 美金</option>
+              <option value="HKD">HKD 港幣</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>來源旅行社</label>
+            <input id="f-source" type="text" placeholder="易遊網" list="sourceList" />
+            <datalist id="sourceList">
+              <option value="雄獅旅遊"><option value="易遊網"><option value="可樂旅遊">
+              <option value="燦星旅遊"><option value="KKday"><option value="Klook">
+              <option value="CruiseDirect"><option value="Cruise.com">
+            </datalist>
+          </div>
+          <div class="form-group full">
+            <label>訂購連結 *</label>
+            <input id="f-url" type="url" placeholder="https://..." />
+          </div>
+          <div class="form-group full">
+            <label>標籤</label>
+            <div class="form-checkboxes">
+              <label class="form-check"><input type="checkbox" id="f-repo"> ⚡ 移航特價</label>
+              <label class="form-check"><input type="checkbox" id="f-last"> 🔥 清倉特賣</label>
+              <label class="form-check"><input type="checkbox" id="f-kids"> 👶 兒童免費</label>
+              <label class="form-check"><input type="checkbox" id="f-3rd">  🎁 第3人免費</label>
+              <label class="form-check"><input type="checkbox" id="f-obc">  💰 含OBC</label>
+              <label class="form-check"><input type="checkbox" id="f-feat"> ⭐ 精選推薦</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>岸上觀光連結（Klook/KKday）</label>
+            <input id="f-shore-url" type="url" placeholder="https://www.klook.com/..." />
+          </div>
+          <div class="form-group">
+            <label>岸上觀光說明</label>
+            <input id="f-shore-note" type="text" placeholder="沖繩那霸包車一日遊" />
+          </div>
+          <div class="form-group full">
+            <label>備註</label>
+            <textarea id="f-notes" placeholder="含飲料套餐、早鳥優惠截止日等補充說明…"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-submit" id="btnSubmit">儲存</button>
+          <button class="btn-cancel" id="btnCancel" style="display:none">取消編輯</button>
+        </div>
+      </div>
+
+      <!-- Deals Table -->
+      <div class="form-card">
+        <h3 id="listTitle">目前特賣列表</h3>
+        <div style="overflow-x:auto">
+          <table class="deals-table">
+            <thead>
+              <tr>
+                <th>船名</th><th>目的地</th><th>出發港</th><th>日期</th>
+                <th>晚</th><th>艙型</th><th>現價</th><th>降幅</th>
+                <th>標籤</th><th>狀態</th><th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="dealsTbody">
+              <tr><td colspan="11" style="text-align:center;color:#64748b;padding:2rem">載入中…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /admMain -->
+  </div>
+
+  <Footer />
+  <div class="toast" id="toast"></div>
+</body>
+</html>
+
+<script is:inline>
+const API = '/api/cruise/deals'
+let PIN = ''
+
+function getHeaders() {
+  return { 'Content-Type': 'application/json', 'x-admin-pin': PIN }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast')
+  t.textContent = msg
+  t.classList.add('show')
+  setTimeout(() => t.classList.remove('show'), 2500)
+}
+
+function fmt(n) { return 'NT$' + Number(n).toLocaleString() }
+function fmtDate(s) {
+  const d = new Date(s)
+  return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`
+}
+
+// ── PIN Login ──
+document.getElementById('pinBtn').addEventListener('click', async () => {
+  PIN = document.getElementById('pinInput').value.trim()
+  const res = await fetch(`${API}?status=active`, { headers: { 'x-admin-pin': PIN } })
+  // We use GET to test — if it works (200), pin is accepted (GET doesn't require PIN, but we'll try a harmless POST check)
+  // Simple: just accept and let the first real action fail
+  if (!PIN) return
+  document.getElementById('pinError').style.display = 'none'
+  document.getElementById('pinBox').style.display = 'none'
+  document.getElementById('admMain').style.display = 'block'
+  loadDeals()
+})
+document.getElementById('pinInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('pinBtn').click()
+})
+
+// ── Load deals ──
+async function loadDeals() {
+  const res = await fetch(`${API}?status=active&sort=newest`)
+  const deals = await res.json()
+  const tbody = document.getElementById('dealsTbody')
+  document.getElementById('listTitle').textContent = `目前特賣列表（${deals.length} 筆）`
+  if (!deals.length) {
+    tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:#64748b;padding:1.5rem">尚無資料，請新增第一筆特賣 🚢</td></tr>'
+    return
+  }
+  tbody.innerHTML = deals.map(d => {
+    const disc = d.discount_pct ? `<span class="discount-cell">-${d.discount_pct}%</span>` : '—'
+    const tags = [
+      d.is_repositioning ? '⚡移航' : '',
+      d.is_last_minute   ? '🔥清倉' : '',
+      d.has_kids_free    ? '👶兒免' : '',
+      d.has_3rd_free     ? '🎁第3免' : '',
+      d.has_obc          ? '💰OBC' : '',
+      d.is_featured      ? '⭐精選' : '',
+    ].filter(Boolean).join(' ')
+    return `<tr>
+      <td><strong>${d.ship_name}</strong><br><span style="color:#64748b;font-size:.72rem">${d.cruise_line}</span></td>
+      <td>${d.destination}</td>
+      <td>${d.departure_port}</td>
+      <td>${fmtDate(d.departure_date)}</td>
+      <td>${d.duration_nights}</td>
+      <td>${d.cabin_type}</td>
+      <td>${fmt(d.current_price)}</td>
+      <td>${disc}</td>
+      <td style="font-size:.72rem">${tags || '—'}</td>
+      <td><span class="status-badge s-${d.status}">${d.status}</span></td>
+      <td style="display:flex;gap:.3rem;flex-wrap:nowrap">
+        <button class="btn-edit" onclick="editDeal('${d.id}')">編輯</button>
+        <button class="btn-del"  onclick="deleteDeal('${d.id}','${d.ship_name}')">刪除</button>
+      </td>
+    </tr>`
+  }).join('')
+}
+
+// ── Submit ──
+document.getElementById('btnSubmit').addEventListener('click', async () => {
+  const id = document.getElementById('editId').value
+
+  const ship_name      = document.getElementById('f-ship').value.trim()
+  const cruise_line    = document.getElementById('f-line').value.trim()
+  const destination    = document.getElementById('f-dest').value.trim()
+  const departure_port = document.getElementById('f-port').value
+  const departure_date = document.getElementById('f-date').value
+  const duration_nights = parseInt(document.getElementById('f-nights').value)
+  const cabin_type     = document.getElementById('f-cabin').value
+  const original_price = document.getElementById('f-orig').value ? parseInt(document.getElementById('f-orig').value) : null
+  const current_price  = parseInt(document.getElementById('f-curr').value)
+  const price_currency = document.getElementById('f-currency').value
+  const source         = document.getElementById('f-source').value.trim()
+  const affiliate_url  = document.getElementById('f-url').value.trim()
+
+  if (!ship_name || !cruise_line || !destination || !departure_date || !duration_nights || !current_price || !affiliate_url) {
+    showToast('⚠️ 請填寫必填欄位（標 * 的）')
+    return
+  }
+
+  const body = {
+    ship_name, cruise_line, destination, departure_port, departure_date,
+    duration_nights, cabin_type, original_price, current_price, price_currency,
+    source, affiliate_url,
+    is_repositioning:  document.getElementById('f-repo').checked,
+    is_last_minute:    document.getElementById('f-last').checked,
+    has_kids_free:     document.getElementById('f-kids').checked,
+    has_3rd_free:      document.getElementById('f-3rd').checked,
+    has_obc:           document.getElementById('f-obc').checked,
+    is_featured:       document.getElementById('f-feat').checked,
+    shore_excursion_url:  document.getElementById('f-shore-url').value.trim() || null,
+    shore_excursion_note: document.getElementById('f-shore-note').value.trim() || null,
+    notes: document.getElementById('f-notes').value.trim() || null,
+  }
+
+  const btn = document.getElementById('btnSubmit')
+  btn.disabled = true
+  btn.textContent = '儲存中…'
+
+  try {
+    const method = id ? 'PUT' : 'POST'
+    const payload = id ? { id, ...body } : body
+    const res = await fetch(API, { method, headers: getHeaders(), body: JSON.stringify(payload) })
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error)
+    showToast(id ? '✅ 已更新' : '✅ 已新增')
+    clearForm()
+    loadDeals()
+  } catch (e) {
+    showToast('❌ 錯誤：' + e.message)
+  } finally {
+    btn.disabled = false
+    btn.textContent = '儲存'
+  }
+})
+
+function clearForm() {
+  document.getElementById('editId').value = ''
+  document.getElementById('formTitle').textContent = '+ 新增郵輪特賣'
+  document.getElementById('btnCancel').style.display = 'none'
+  ;['f-ship','f-line','f-dest','f-date','f-nights','f-orig','f-curr','f-source','f-url','f-shore-url','f-shore-note','f-notes']
+    .forEach(id => { document.getElementById(id).value = '' })
+  document.getElementById('f-port').value = '基隆'
+  document.getElementById('f-cabin').value = '內艙'
+  document.getElementById('f-currency').value = 'TWD'
+  ;['f-repo','f-last','f-kids','f-3rd','f-obc','f-feat'].forEach(id => { document.getElementById(id).checked = false })
+}
+
+document.getElementById('btnCancel').addEventListener('click', clearForm)
+
+// ── Edit ──
+async function editDeal(id) {
+  const res = await fetch(`${API}?status=active&sort=newest`)
+  const all = await res.json()
+  const d = all.find(x => x.id === id)
+  if (!d) return
+
+  document.getElementById('editId').value  = d.id
+  document.getElementById('formTitle').textContent = '✏️ 編輯特賣'
+  document.getElementById('btnCancel').style.display = 'inline-block'
+  document.getElementById('f-ship').value    = d.ship_name
+  document.getElementById('f-line').value    = d.cruise_line
+  document.getElementById('f-dest').value    = d.destination
+  document.getElementById('f-port').value    = d.departure_port
+  document.getElementById('f-date').value    = d.departure_date
+  document.getElementById('f-nights').value  = d.duration_nights
+  document.getElementById('f-cabin').value   = d.cabin_type
+  document.getElementById('f-orig').value    = d.original_price || ''
+  document.getElementById('f-curr').value    = d.current_price
+  document.getElementById('f-currency').value = d.price_currency || 'TWD'
+  document.getElementById('f-source').value  = d.source || ''
+  document.getElementById('f-url').value     = d.affiliate_url
+  document.getElementById('f-repo').checked  = d.is_repositioning
+  document.getElementById('f-last').checked  = d.is_last_minute
+  document.getElementById('f-kids').checked  = d.has_kids_free
+  document.getElementById('f-3rd').checked   = d.has_3rd_free
+  document.getElementById('f-obc').checked   = d.has_obc
+  document.getElementById('f-feat').checked  = d.is_featured
+  document.getElementById('f-shore-url').value  = d.shore_excursion_url || ''
+  document.getElementById('f-shore-note').value = d.shore_excursion_note || ''
+  document.getElementById('f-notes').value   = d.notes || ''
+
+  document.getElementById('formCard').scrollIntoView({ behavior: 'smooth' })
+}
+window.editDeal = editDeal
+
+// ── Delete ──
+async function deleteDeal(id, name) {
+  if (!confirm(`確定要刪除「${name}」嗎？`)) return
+  const res = await fetch(API, { method: 'DELETE', headers: getHeaders(), body: JSON.stringify({ id }) })
+  const data = await res.json()
+  if (!res.ok) { showToast('❌ ' + data.error); return }
+  showToast('🗑️ 已刪除')
+  loadDeals()
+}
+window.deleteDeal = deleteDeal
+</script>

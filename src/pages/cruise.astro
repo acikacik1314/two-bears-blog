@@ -1,0 +1,486 @@
+---
+export const prerender = false
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<style is:global>
+html body { background: #FFF8EC; color: #3B2A1E; }
+
+/* ── Layout ── */
+.cruise-hero {
+  background: #3B2A1E;
+  color: #FFF8EC;
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+.cruise-hero h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(1.5rem,4vw,2rem); font-weight: 400; margin: 0 0 .5rem; }
+.cruise-hero h1 em { font-style: normal; color: #E8920A; }
+.cruise-hero p { font-size: .85rem; color: rgba(255,248,236,.65); margin: 0; }
+
+.cruise-wrap { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+/* ── LINE Banner ── */
+.line-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  background: #06C755; color: #fff;
+  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: 1.5rem;
+}
+.line-banner-text { font-size: .9rem; font-weight: 600; }
+.line-banner-text span { font-size: .75rem; font-weight: 400; opacity: .85; display: block; }
+.line-banner-btn {
+  background: #fff; color: #06C755; font-weight: 700; font-size: .85rem;
+  padding: .5rem 1.1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+  transition: opacity .15s;
+}
+.line-banner-btn:hover { opacity: .85; }
+
+/* ── Filters ── */
+.cruise-filters {
+  background: #fff; border: 1px solid #EADFC8; border-radius: 12px;
+  padding: 1rem 1.25rem; margin-bottom: 1.25rem;
+  display: flex; flex-wrap: wrap; gap: .65rem; align-items: flex-end;
+}
+.filter-group { display: flex; flex-direction: column; gap: .25rem; min-width: 120px; }
+.filter-group label { font-size: .72rem; color: #5C4A35; font-weight: 600; letter-spacing: .04em; }
+.filter-group select, .filter-group input {
+  padding: .4rem .65rem; border: 1px solid #EADFC8; border-radius: 7px;
+  font-size: .82rem; font-family: inherit; color: #3B2A1E; background: #FFF8EC;
+}
+.filter-group select:focus, .filter-group input:focus { outline: none; border-color: #E8920A; }
+.filter-tags { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.tag-check { display: flex; align-items: center; gap: .3rem; cursor: pointer; font-size: .78rem; color: #5C4A35; }
+.tag-check input { accent-color: #E8920A; }
+.filter-actions { display: flex; gap: .5rem; margin-left: auto; align-self: flex-end; }
+.btn-filter-reset {
+  padding: .4rem .9rem; border: 1px solid #EADFC8; border-radius: 7px;
+  background: transparent; font-size: .82rem; color: #5C4A35; cursor: pointer; font-family: inherit;
+}
+.btn-filter-search {
+  padding: .4rem 1.1rem; border: none; border-radius: 7px;
+  background: #E8920A; color: #fff; font-size: .82rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-filter-search:hover { background: #C2740A; }
+
+/* ── Sort bar ── */
+.sort-bar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 1rem;
+}
+.sort-bar-count { font-size: .82rem; color: #5C4A35; }
+.sort-btns { display: flex; gap: .4rem; }
+.sort-btn {
+  padding: .3rem .75rem; border: 1px solid #EADFC8; border-radius: 100px;
+  background: #fff; font-size: .78rem; color: #5C4A35; cursor: pointer; font-family: inherit;
+  transition: all .15s;
+}
+.sort-btn.active { background: #3B2A1E; color: #FFF8EC; border-color: #3B2A1E; }
+
+/* ── Deal Grid ── */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Deal Card ── */
+.deal-card {
+  background: #fff; border: 1px solid #EADFC8; border-radius: 14px;
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+.deal-card:hover { box-shadow: 0 6px 24px rgba(59,42,30,.1); transform: translateY(-2px); }
+
+.card-top {
+  background: #3B2A1E; padding: .7rem 1rem;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem;
+}
+.card-ship { color: #FFF8EC; font-weight: 700; font-size: .9rem; line-height: 1.3; }
+.card-line { color: rgba(255,248,236,.55); font-size: .72rem; margin-top: .1rem; }
+.card-discount {
+  background: #E8920A; color: #fff; font-weight: 800; font-size: .95rem;
+  padding: .2rem .5rem; border-radius: 7px; white-space: nowrap; flex-shrink: 0;
+}
+
+.card-body { padding: .85rem 1rem; flex: 1; display: flex; flex-direction: column; gap: .6rem; }
+
+.card-route {
+  display: flex; align-items: center; gap: .35rem; flex-wrap: wrap;
+  font-size: .8rem; color: #5C4A35;
+}
+.card-route-dest { font-weight: 600; color: #3B2A1E; }
+.card-route-sep { color: #EADFC8; }
+
+.card-meta {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+  font-size: .75rem; color: #5C4A35;
+}
+.card-meta-item {
+  background: #FFF8EC; border: 1px solid #EADFC8; border-radius: 5px;
+  padding: .15rem .5rem; white-space: nowrap;
+}
+
+.card-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+.tag {
+  font-size: .7rem; font-weight: 600; padding: .15rem .45rem; border-radius: 5px;
+  white-space: nowrap;
+}
+.tag-fire    { background: #fff3e0; color: #e65100; }
+.tag-sail    { background: #e3f2fd; color: #0277bd; }
+.tag-kids    { background: #f3e5f5; color: #6a1b9a; }
+.tag-3rd     { background: #e8f5e9; color: #2e7d32; }
+.tag-obc     { background: #fce4ec; color: #880e4f; }
+.tag-last    { background: #ffebee; color: #c62828; }
+.tag-featured { background: #E8920A; color: #fff; }
+
+.card-price { margin-top: auto; }
+.card-original { font-size: .75rem; color: #999; text-decoration: line-through; }
+.card-current {
+  font-size: 1.35rem; font-weight: 800; color: #3B2A1E; line-height: 1;
+}
+.card-current small { font-size: .65rem; font-weight: 400; color: #5C4A35; margin-left: .2rem; }
+.card-pernight { font-size: .75rem; color: #5C4A35; margin-top: .15rem; }
+.card-pernight strong { color: #E8920A; }
+
+.card-days-badge {
+  display: inline-block; font-size: .7rem; font-weight: 600;
+  padding: .1rem .45rem; border-radius: 5px; margin-top: .25rem;
+}
+.days-soon   { background: #ffebee; color: #c62828; }
+.days-coming { background: #fff3e0; color: #e65100; }
+.days-future { background: #f1f8e9; color: #558b2f; }
+
+.card-foot {
+  padding: .7rem 1rem; border-top: 1px solid #EADFC8;
+  display: flex; gap: .5rem;
+}
+.btn-book {
+  flex: 1; padding: .55rem .5rem; border-radius: 8px; border: none;
+  background: #E8920A; color: #fff; font-weight: 700; font-size: .85rem;
+  text-decoration: none; text-align: center; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-book:hover { background: #C2740A; }
+.btn-shore {
+  padding: .55rem .75rem; border-radius: 8px; border: 1px solid #EADFC8;
+  background: #FFF8EC; color: #5C4A35; font-size: .78rem;
+  text-decoration: none; text-align: center; white-space: nowrap; font-family: inherit;
+  transition: border-color .15s;
+}
+.btn-shore:hover { border-color: #E8920A; color: #E8920A; }
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center; padding: 4rem 1rem; color: #5C4A35;
+}
+.empty-state p { margin: .5rem 0 0; font-size: .85rem; color: #8a7060; }
+
+/* ── Loading ── */
+.loading-dots { text-align: center; padding: 3rem; color: #5C4A35; font-size: .9rem; }
+
+/* ── Bottom LINE CTA ── */
+.line-cta-bottom {
+  background: #3B2A1E; border-radius: 14px; padding: 1.5rem 1.5rem;
+  text-align: center; margin-top: 2.5rem; color: #FFF8EC;
+}
+.line-cta-bottom h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+.line-cta-bottom p  { margin: 0 0 1rem; font-size: .85rem; color: rgba(255,248,236,.65); }
+.btn-line-big {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: #06C755; color: #fff; font-weight: 700; font-size: .95rem;
+  padding: .7rem 1.75rem; border-radius: 10px; text-decoration: none;
+  transition: opacity .15s;
+}
+.btn-line-big:hover { opacity: .85; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .cruise-filters { flex-direction: column; }
+  .filter-actions { margin-left: 0; width: 100%; }
+  .btn-filter-reset, .btn-filter-search { flex: 1; text-align: center; }
+  .sort-btns { flex-wrap: wrap; }
+  .deals-grid { grid-template-columns: 1fr; }
+  .card-current { font-size: 1.2rem; }
+}
+</style>
+
+<html lang="zh-Hant">
+<head>
+  <BaseHead
+    title="熊愛郵輪 · 神價格情報 — 每日最低價、移航特賣、社團千元優惠"
+    description="兩隻熊整理全台灣最低郵輪價格，包含基隆、高雄出發，移航特價、清倉、兒童免費航程。加入 LINE 官方帳號享社團千元優惠。"
+  />
+</head>
+<body>
+  <Header />
+
+  <div class="cruise-hero">
+    <h1>🚢 熊愛郵輪 · <em>神價格情報</em></h1>
+    <p>每週精選最低價 · 降幅最大 · 移航特賣 · 社團千元優惠</p>
+  </div>
+
+  <div class="cruise-wrap">
+
+    <!-- LINE CTA Top -->
+    <div class="line-banner">
+      <div class="line-banner-text">
+        加入 熊愛郵輪 LINE 官方帳號
+        <span>看到喜歡的船？加入我們，享社團限定千元折抵優惠 🎉</span>
+      </div>
+      <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="line-banner-btn">
+        加入 LINE @156dvhlp →
+      </a>
+    </div>
+
+    <!-- Filters -->
+    <div class="cruise-filters" id="filtersBox">
+      <div class="filter-group">
+        <label>出發港口</label>
+        <select id="f-port">
+          <option value="">全部港口</option>
+          <option value="基隆">基隆</option>
+          <option value="高雄">高雄</option>
+          <option value="香港">香港</option>
+          <option value="新加坡">新加坡</option>
+          <option value="上海">上海</option>
+          <option value="天津">天津</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>目的地</label>
+        <select id="f-dest">
+          <option value="">全部航線</option>
+          <option value="日本">日本</option>
+          <option value="沖繩">沖繩</option>
+          <option value="韓國">韓國</option>
+          <option value="東南亞">東南亞</option>
+          <option value="地中海">地中海</option>
+          <option value="加勒比海">加勒比海</option>
+          <option value="阿拉斯加">阿拉斯加</option>
+          <option value="北歐">北歐</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>天數</label>
+        <select id="f-nights">
+          <option value="">不限</option>
+          <option value="3,5">3–5 天</option>
+          <option value="5,7">5–7 天</option>
+          <option value="7,10">7–10 天</option>
+          <option value="10,999">10 天以上</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>特殊條件</label>
+        <div class="filter-tags">
+          <label class="tag-check"><input type="checkbox" id="f-repo"> ⚡ 移航特價</label>
+          <label class="tag-check"><input type="checkbox" id="f-kids"> 👶 兒童免費</label>
+          <label class="tag-check"><input type="checkbox" id="f-3rd">  🎁 第3人免費</label>
+          <label class="tag-check"><input type="checkbox" id="f-last"> 🔥 清倉特賣</label>
+          <label class="tag-check"><input type="checkbox" id="f-obc">  💰 含OBC</label>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn-filter-reset" id="btnReset">重置</button>
+        <button class="btn-filter-search" id="btnSearch">搜尋</button>
+      </div>
+    </div>
+
+    <!-- Sort bar -->
+    <div class="sort-bar">
+      <span class="sort-bar-count" id="dealCount">載入中…</span>
+      <div class="sort-btns">
+        <button class="sort-btn active" data-sort="discount">降幅最大</button>
+        <button class="sort-btn" data-sort="per_night">每晚最低</button>
+        <button class="sort-btn" data-sort="departure">最快出發</button>
+        <button class="sort-btn" data-sort="newest">最新上架</button>
+      </div>
+    </div>
+
+    <!-- Deals -->
+    <div id="dealsGrid" class="deals-grid">
+      <div class="loading-dots">🚢 正在幫你找最低價…</div>
+    </div>
+
+    <!-- Bottom LINE CTA -->
+    <div class="line-cta-bottom">
+      <h3>🐻 找到心動的船了嗎？</h3>
+      <p>加入熊愛郵輪 LINE 官方帳號，社團成員訂購享千元專屬折抵</p>
+      <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="btn-line-big">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.2 2 11.3c0 2.9 1.4 5.5 3.7 7.3-.2.6-.6 2.2-.7 2.5-.1.4.1.4.3.3.2-.1 2.2-1.5 3.1-2.1.8.1 1.7.2 2.6.2 5.52 0 10-4.2 10-9.3C22 6.2 17.52 2 12 2z"/></svg>
+        加入 LINE @156dvhlp
+      </a>
+    </div>
+
+  </div>
+
+  <Footer />
+</body>
+</html>
+
+<script is:inline>
+const API = '/api/cruise/deals'
+let currentSort = 'discount'
+let allDeals = []
+
+const fmt = n => 'NT$' + Number(n).toLocaleString()
+const fmtDate = s => {
+  const d = new Date(s)
+  return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`
+}
+
+function buildParams() {
+  const p = new URLSearchParams({ sort: currentSort })
+  const port  = document.getElementById('f-port').value
+  const dest  = document.getElementById('f-dest').value
+  const night = document.getElementById('f-nights').value
+  if (port)  p.set('departure_port', port)
+  if (dest)  p.set('destination', dest)
+  if (night) { const [mn, mx] = night.split(','); p.set('min_nights', mn); p.set('max_nights', mx) }
+  const tags = []
+  if (document.getElementById('f-repo').checked) tags.push('repositioning')
+  if (document.getElementById('f-kids').checked) tags.push('kids_free')
+  if (document.getElementById('f-3rd').checked)  tags.push('3rd_free')
+  if (document.getElementById('f-last').checked) tags.push('last_minute')
+  if (document.getElementById('f-obc').checked)  tags.push('obc')
+  if (tags.length) p.set('tags', tags.join(','))
+  return p.toString()
+}
+
+function daysBadge(days) {
+  if (days < 0)   return ''
+  if (days <= 30)  return `<span class="card-days-badge days-soon">🔥 ${days} 天後出發</span>`
+  if (days <= 90)  return `<span class="card-days-badge days-coming">⏳ ${days} 天後出發</span>`
+  return `<span class="card-days-badge days-future">📅 ${days} 天後出發</span>`
+}
+
+function renderCard(d) {
+  const tags = [
+    d.is_featured    ? `<span class="tag tag-featured">⭐ 精選</span>` : '',
+    d.is_repositioning ? `<span class="tag tag-sail">⚡ 移航特價</span>` : '',
+    d.is_last_minute   ? `<span class="tag tag-fire">🔥 清倉</span>` : '',
+    d.has_kids_free    ? `<span class="tag tag-kids">👶 兒童免費</span>` : '',
+    d.has_3rd_free     ? `<span class="tag tag-3rd">🎁 第3人免費</span>` : '',
+    d.has_obc          ? `<span class="tag tag-obc">💰 含OBC</span>` : '',
+  ].filter(Boolean).join('')
+
+  const discountBadge = d.discount_pct
+    ? `<div class="card-discount">-${d.discount_pct}%</div>`
+    : ''
+
+  const origPrice = d.original_price
+    ? `<div class="card-original">${fmt(d.original_price)}</div>` : ''
+
+  const shoreBtn = d.shore_excursion_url
+    ? `<a href="${d.shore_excursion_url}" target="_blank" rel="noopener sponsored" class="btn-shore" title="${d.shore_excursion_note || '岸上觀光'}">📍 岸上觀光</a>`
+    : ''
+
+  const priceHist = Array.isArray(d.price_history) && d.price_history.length > 1
+    ? (() => {
+        const sorted = [...d.price_history].sort((a,b) => new Date(a.recorded_at) - new Date(b.recorded_at))
+        const oldest = sorted[0].price
+        const newest = sorted[sorted.length-1].price
+        const diff = oldest - newest
+        return diff > 0
+          ? `<div style="font-size:.7rem;color:#2e7d32;margin-top:.2rem">📉 近期降價 ${fmt(diff)}</div>`
+          : ''
+      })()
+    : ''
+
+  return `
+  <div class="deal-card">
+    <div class="card-top">
+      <div>
+        <div class="card-ship">${d.ship_name}</div>
+        <div class="card-line">${d.cruise_line}</div>
+      </div>
+      ${discountBadge}
+    </div>
+    <div class="card-body">
+      <div class="card-route">
+        <span class="card-route-dest">${d.destination}</span>
+        <span class="card-route-sep">·</span>
+        <span>${d.cabin_type}</span>
+        <span class="card-route-sep">·</span>
+        <span>${d.duration_nights} 晚</span>
+      </div>
+      <div class="card-meta">
+        <span class="card-meta-item">✈️ ${d.departure_port} 出發</span>
+        <span class="card-meta-item">📅 ${fmtDate(d.departure_date)}</span>
+        ${d.source ? `<span class="card-meta-item">🏢 ${d.source}</span>` : ''}
+      </div>
+      ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+      <div class="card-price">
+        ${origPrice}
+        <div class="card-current">
+          ${fmt(d.current_price)}<small>${d.price_currency !== 'TWD' ? d.price_currency : ''}</small>
+        </div>
+        <div class="card-pernight">每晚約 <strong>${fmt(d.per_night)}</strong></div>
+        ${priceHist}
+        ${daysBadge(d.days_until)}
+      </div>
+    </div>
+    <div class="card-foot">
+      <a href="${d.affiliate_url}" target="_blank" rel="noopener sponsored" class="btn-book">立即訂購 →</a>
+      ${shoreBtn}
+    </div>
+  </div>`
+}
+
+async function loadDeals() {
+  document.getElementById('dealsGrid').innerHTML = '<div class="loading-dots">🚢 搜尋中…</div>'
+  try {
+    const res = await fetch(`${API}?${buildParams()}`)
+    allDeals = await res.json()
+    renderDeals(allDeals)
+  } catch {
+    document.getElementById('dealsGrid').innerHTML = '<div class="loading-dots">載入失敗，請稍後再試</div>'
+  }
+}
+
+function renderDeals(deals) {
+  const grid = document.getElementById('dealsGrid')
+  const count = document.getElementById('dealCount')
+  count.textContent = `共 ${deals.length} 個優惠`
+  if (!deals.length) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div style="font-size:2.5rem">🚢</div>
+      <div style="font-size:1rem;font-weight:600;margin-top:.5rem">目前沒有符合條件的特賣</div>
+      <p>試試放寬條件，或加入 LINE 第一時間收到新特賣通知</p>
+    </div>`
+    return
+  }
+  grid.innerHTML = deals.map(renderCard).join('')
+}
+
+// Sort buttons
+document.querySelectorAll('.sort-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+    currentSort = btn.dataset.sort
+    loadDeals()
+  })
+})
+
+document.getElementById('btnSearch').addEventListener('click', loadDeals)
+document.getElementById('btnReset').addEventListener('click', () => {
+  document.getElementById('f-port').value  = ''
+  document.getElementById('f-dest').value  = ''
+  document.getElementById('f-nights').value = ''
+  document.getElementById('f-repo').checked = false
+  document.getElementById('f-kids').checked = false
+  document.getElementById('f-3rd').checked  = false
+  document.getElementById('f-last').checked = false
+  document.getElementById('f-obc').checked  = false
+  loadDeals()
+})
+document.getElementById('f-port').addEventListener('change', loadDeals)
+document.getElementById('f-dest').addEventListener('change', loadDeals)
+document.getElementById('f-nights').addEventListener('change', loadDeals)
+
+loadDeals()
+</script>

@@ -73,7 +73,7 @@ async function tavilySearch(query: string, apiKey: string): Promise<any[]> {
   return data.results || []
 }
 
-async function geminiParse(text: string, keys: string[]): Promise<any[]> {
+async function geminiParse(text: string, keys: string[]): Promise<{ deals: any[], raw: string }> {
   const key = keys[Math.floor(Math.random() * keys.length)]
   const today = new Date().toISOString().split('T')[0]
   const prompt = `
@@ -129,7 +129,10 @@ ${text}
       }),
     }
   )
-  if (!res.ok) return []
+  if (!res.ok) {
+    const errText = await res.text()
+    return { deals: [], raw: `Gemini HTTP ${res.status}: ${errText.slice(0, 200)}` }
+  }
   const data = await res.json()
   const raw = (data?.candidates?.[0]?.content?.parts ?? [])
     .filter((p: any) => !p.thought)
@@ -138,8 +141,13 @@ ${text}
     .trim()
 
   const match = raw.match(/\[[\s\S]*\]/)
-  if (!match) return []
-  try { return JSON.parse(match[0]) } catch { return [] }
+  if (!match) return { deals: [], raw: `No JSON array found. Gemini output: ${raw.slice(0, 500)}` }
+  try {
+    const deals = JSON.parse(match[0])
+    return { deals, raw: `OK: ${deals.length} items parsed` }
+  } catch (e: any) {
+    return { deals: [], raw: `JSON parse error: ${e.message}. Raw: ${match[0].slice(0, 300)}` }
+  }
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -179,7 +187,7 @@ export const POST: APIRoute = async ({ request }) => {
     `URL: ${r.url}\n標題: ${r.title}\n內容: ${r.content}`
   ).join('\n\n---\n\n')
 
-  const parsed = await geminiParse(text, geminiKeys)
+  const { deals: parsed, raw: geminiDebug } = await geminiParse(text, geminiKeys)
 
   // Enrich with affiliate URL and source label
   const deals = parsed
@@ -197,7 +205,10 @@ export const POST: APIRoute = async ({ request }) => {
     }))
     .filter((d: any) => d.days_until > 0)  // skip past departures
 
-  return new Response(JSON.stringify({ deals, searched: combined.length }), {
+  // sample of tavily results for debug
+  const tavilySample = combined.slice(0, 3).map(r => ({ url: r.url, title: r.title, snippet: (r.content || '').slice(0, 150) }))
+
+  return new Response(JSON.stringify({ deals, searched: combined.length, debug: { gemini: geminiDebug, tavily_sample: tavilySample } }), {
     headers: { 'Content-Type': 'application/json' },
   })
 }

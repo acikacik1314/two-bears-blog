@@ -56,25 +56,47 @@ const SEARCH_QUERIES = [
   'site:travel.rakuten.com.tw 郵輪 2026 特賣優惠',
 ]
 
-async function tavilySearch(query: string, apiKey: string): Promise<{ results: any[], error?: string }> {
+async function geminiSearch(query: string, key: string): Promise<{ results: any[], error?: string }> {
   try {
-    const res = await fetch('https://api.tavily.com/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_key: apiKey,
-        query,
-        search_depth: 'basic',
-        max_results: 7,
-        include_answer: false,
-      }),
-    })
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: query }] }],
+          tools: [{ google_search: {} }],
+          generationConfig: { maxOutputTokens: 2048, temperature: 0.1 },
+        }),
+      }
+    )
     if (!res.ok) {
       const err = await res.text()
       return { results: [], error: `HTTP ${res.status}: ${err.slice(0, 100)}` }
     }
     const data = await res.json()
-    return { results: data.results || [] }
+
+    // Extract grounding chunks (search results)
+    const groundingChunks = data?.candidates?.[0]?.groundingMetadata?.groundingChunks || []
+    const searchResults = groundingChunks.map((c: any) => ({
+      url: c.web?.uri || '',
+      title: c.web?.title || '',
+      content: '',
+    })).filter((r: any) => r.url)
+
+    // Also get the text answer which includes summarized deal info
+    const answerText = (data?.candidates?.[0]?.content?.parts ?? [])
+      .filter((p: any) => !p.thought)
+      .map((p: any) => p.text ?? '')
+      .join('')
+      .trim()
+
+    // Combine into a pseudo-result with the answer text
+    if (answerText) {
+      searchResults.unshift({ url: 'gemini_answer', title: query, content: answerText })
+    }
+
+    return { results: searchResults }
   } catch (e: any) {
     return { results: [], error: e.message }
   }
@@ -193,21 +215,21 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: '密碼錯誤' }), { status: 401 })
   }
 
-  const tavilyKey = getTavilyKey()
   const geminiKeys = getGeminiKeys()
 
-  if (!tavilyKey) return new Response(JSON.stringify({ error: 'Tavily key 未設定' }), { status: 500 })
   if (!geminiKeys.length) return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
 
-  // Search all sources in parallel
-  const allResults = await Promise.all(SEARCH_QUERIES.map(q => tavilySearch(q, tavilyKey)))
+  // Search using Gemini Google Search grounding — rotate keys
+  const allResults = await Promise.all(
+    SEARCH_QUERIES.map((q, i) => geminiSearch(q, geminiKeys[i % geminiKeys.length]))
+  )
 
   // Collect errors and results
-  const tavilyErrors: string[] = []
+  const searchErrors: string[] = []
   const seen = new Set<string>()
   const combined: any[] = []
   for (const { results, error } of allResults) {
-    if (error) tavilyErrors.push(error)
+    if (error) searchErrors.push(error)
     for (const r of results) {
       if (!seen.has(r.url)) {
         seen.add(r.url)
@@ -220,7 +242,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({
       deals: [],
       message: '搜尋無結果，請稍後再試',
-      tavily_errors: tavilyErrors,
+      search_errors: searchErrors,
     }), { headers: { 'Content-Type': 'application/json' } })
   }
 

@@ -25,6 +25,7 @@ const AFFILIATE: Record<string, string> = {
   'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
   'colatour.com.tw':  'https://vbtrax.com/track/clicks/9601/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff20761a44125095ff88635aca3163d8e',
   'liontravel.com':   'https://twshop4coupon.com/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e',
+  'travel.rakuten':   'https://vbshoptrax.com/track/clicks/3786/c627c2bb910723d9f09cab248d2596412379128f78eee1fc0176f6476a0449a8c23ae5a5112d',
 }
 
 function affiliateFor(url: string): string {
@@ -41,6 +42,7 @@ function sourceLabel(url: string): string {
   if (url.includes('kkday'))       return 'KKday'
   if (url.includes('colatour'))   return '可樂旅遊'
   if (url.includes('liontravel')) return '雄獅旅遊'
+  if (url.includes('rakuten'))   return '樂天旅遊'
   return '其他'
 }
 
@@ -51,6 +53,7 @@ const SEARCH_QUERIES = [
   'site:kkday.com 郵輪 cruise 2026 優惠',
   'site:colatour.com.tw 郵輪 2026 特賣優惠',
   'site:liontravel.com 郵輪 2026 特賣優惠',
+  'site:travel.rakuten.com.tw 郵輪 2026 特賣優惠',
 ]
 
 async function tavilySearch(query: string, apiKey: string): Promise<any[]> {

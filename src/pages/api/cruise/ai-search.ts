@@ -62,16 +62,18 @@ async function geminiDirectSearch(keys: string[]): Promise<{ results: any[], err
   // Try keys until one works
   for (const key of [...keys].sort(() => Math.random() - 0.5)) {
     try {
-      const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前 2026 年的郵輪特賣，盡量多列：
+      const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前的郵輪特賣，出發日期必須在 ${today} 之後，盡量多列：
 - 永安旅遊 (wingontravel.com) — 香港出發
 - 東南旅遊 (settour.com.tw) — 台灣出發
 - 可樂旅遊 (colatour.com.tw) — 台灣出發
 - 雄獅旅遊 (liontravel.com) — 台灣出發
+- Klook (klook.com) — 郵輪行程
+- KKday (kkday.com) — 郵輪行程
 
-每筆輸出格式（純 JSON 陣列，不要其他文字）：
+每筆輸出格式（純 JSON 陣列，不要其他文字，不要 markdown code block）：
 [{"ship_name":"船名","cruise_line":"郵輪公司","destination":"目的地","departure_port":"出發港口","departure_date":"YYYY-MM-DD","duration_nights":天數,"cabin_type":"內艙","original_price":原價或null,"current_price":現價,"price_currency":"TWD或HKD","source_url":"旅行社官網URL","notes":"備註"}]
 
-如果不確定具體日期，用 2026 年合理推估。只輸出 JSON。`
+出發日期必須晚於 ${today}。如果不確定具體日期，填 ${today.slice(0,7)}-28 或更晚。只輸出 JSON 陣列。`
 
       const res = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,

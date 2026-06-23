@@ -216,39 +216,40 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (!geminiKeys.length) return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
 
-  // Use Gemini knowledge directly (Tavily quota exhausted)
-  const allResults = [await geminiDirectSearch(geminiKeys)]
+  // Use Gemini knowledge directly — skip second parsing pass
+  const { results: directResults, error: directError } = await geminiDirectSearch(geminiKeys)
 
-  // Collect errors and results
-  const searchErrors: string[] = []
-  const seen = new Set<string>()
-  const combined: any[] = []
-  for (const { results, error } of allResults) {
-    if (error) searchErrors.push(error)
-    for (const r of results) {
-      if (!seen.has(r.url)) {
-        seen.add(r.url)
-        combined.push(r)
-      }
-    }
-  }
-
-  if (!combined.length) {
+  if (!directResults.length) {
     return new Response(JSON.stringify({
       deals: [],
       message: '搜尋無結果，請稍後再試',
-      search_errors: searchErrors,
+      search_errors: directError ? [directError] : [],
     }), { headers: { 'Content-Type': 'application/json' } })
   }
 
-  // Split into chunks of 12 for Gemini
-  const CHUNK = 12
-  const chunks: any[][] = []
-  for (let i = 0; i < combined.length; i += CHUNK) {
-    chunks.push(combined.slice(i, i + CHUNK))
+  // The content IS already a JSON array from Gemini — parse it directly
+  const rawContent = directResults[0]?.content || ''
+  let parsed: any[] = []
+  const today = new Date().toISOString().split('T')[0]
+
+  const trimmed = rawContent.trim()
+  const arrMatch = trimmed.match(/\[[\s\S]*\]/)
+  if (arrMatch) {
+    try { parsed = JSON.parse(arrMatch[0]) } catch {}
+  }
+  if (!parsed.length && trimmed.startsWith('[')) {
+    const lb1 = trimmed.lastIndexOf('},')
+    if (lb1 > 0) try { parsed = JSON.parse(trimmed.slice(0, lb1 + 1) + ']') } catch {}
+    if (!parsed.length) {
+      const lb2 = trimmed.lastIndexOf('}')
+      if (lb2 > 0) try { parsed = JSON.parse(trimmed.slice(0, lb2 + 1) + ']') } catch {}
+    }
   }
 
-  const { deals: parsed, raw: geminiDebug } = await geminiParse(chunks, geminiKeys)
+  const geminiDebug = `直接解析: ${parsed.length} 筆`
+  const allResults = [{ results: [], error: undefined }]  // not used below
+
+  // parsed + geminiDebug already set above
 
   // Enrich with affiliate URL and source label
   const deals = parsed
@@ -266,10 +267,7 @@ export const POST: APIRoute = async ({ request }) => {
     }))
     .filter((d: any) => d.days_until > 0)  // skip past departures
 
-  // sample of tavily results for debug
-  const tavilySample = combined.slice(0, 3).map(r => ({ url: r.url, title: r.title, snippet: (r.content || '').slice(0, 150) }))
-
-  return new Response(JSON.stringify({ deals, searched: combined.length, debug: { gemini: geminiDebug, tavily_sample: tavilySample } }), {
+  return new Response(JSON.stringify({ deals, searched: parsed.length, debug: { gemini: geminiDebug } }), {
     headers: { 'Content-Type': 'application/json' },
   })
 }

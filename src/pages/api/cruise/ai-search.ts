@@ -56,50 +56,47 @@ const SEARCH_QUERIES = [
   'site:travel.rakuten.com.tw 郵輪 2026 特賣優惠',
 ]
 
-async function geminiSearch(query: string, key: string): Promise<{ results: any[], error?: string }> {
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: query }] }],
-          tools: [{ google_search: {} }],
-          generationConfig: { maxOutputTokens: 2048, temperature: 0.1 },
-        }),
-      }
-    )
-    if (!res.ok) {
-      const err = await res.text()
-      return { results: [], error: `HTTP ${res.status}: ${err.slice(0, 100)}` }
-    }
-    const data = await res.json()
+async function geminiDirectSearch(keys: string[]): Promise<{ results: any[], error?: string }> {
+  const today = new Date().toISOString().split('T')[0]
 
-    // Extract grounding chunks (search results)
-    const groundingChunks = data?.candidates?.[0]?.groundingMetadata?.groundingChunks || []
-    const searchResults = groundingChunks.map((c: any) => ({
-      url: c.web?.uri || '',
-      title: c.web?.title || '',
-      content: '',
-    })).filter((r: any) => r.url)
+  // Try keys until one works
+  for (const key of [...keys].sort(() => Math.random() - 0.5)) {
+    try {
+      const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前 2026 年的郵輪特賣，盡量多列：
+- 永安旅遊 (wingontravel.com) — 香港出發
+- 東南旅遊 (settour.com.tw) — 台灣出發
+- 可樂旅遊 (colatour.com.tw) — 台灣出發
+- 雄獅旅遊 (liontravel.com) — 台灣出發
 
-    // Also get the text answer which includes summarized deal info
-    const answerText = (data?.candidates?.[0]?.content?.parts ?? [])
-      .filter((p: any) => !p.thought)
-      .map((p: any) => p.text ?? '')
-      .join('')
-      .trim()
+每筆輸出格式（純 JSON 陣列，不要其他文字）：
+[{"ship_name":"船名","cruise_line":"郵輪公司","destination":"目的地","departure_port":"出發港口","departure_date":"YYYY-MM-DD","duration_nights":天數,"cabin_type":"內艙","original_price":原價或null,"current_price":現價,"price_currency":"TWD或HKD","source_url":"旅行社官網URL","notes":"備註"}]
 
-    // Combine into a pseudo-result with the answer text
-    if (answerText) {
-      searchResults.unshift({ url: 'gemini_answer', title: query, content: answerText })
-    }
+如果不確定具體日期，用 2026 年合理推估。只輸出 JSON。`
 
-    return { results: searchResults }
-  } catch (e: any) {
-    return { results: [], error: e.message }
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
+            generationConfig: { maxOutputTokens: 8192, temperature: 0.2, thinkingConfig: { thinkingBudget: 0 } },
+          }),
+        }
+      )
+      if (res.status === 429 || res.status === 503) continue
+      if (!res.ok) continue
+
+      const data = await res.json()
+      const text = (data?.candidates?.[0]?.content?.parts ?? [])
+        .filter((p: any) => !p.thought)
+        .map((p: any) => p.text ?? '')
+        .join('').trim()
+
+      return { results: [{ url: 'gemini_direct', title: 'Gemini 知識庫', content: text }] }
+    } catch { continue }
   }
+  return { results: [], error: '所有 Gemini key 都失敗' }
 }
 
 async function geminiParseChunk(text: string, key: string): Promise<any[]> {
@@ -219,10 +216,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (!geminiKeys.length) return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
 
-  // Search using Gemini Google Search grounding — rotate keys
-  const allResults = await Promise.all(
-    SEARCH_QUERIES.map((q, i) => geminiSearch(q, geminiKeys[i % geminiKeys.length]))
-  )
+  // Use Gemini knowledge directly (Tavily quota exhausted)
+  const allResults = [await geminiDirectSearch(geminiKeys)]
 
   // Collect errors and results
   const searchErrors: string[] = []

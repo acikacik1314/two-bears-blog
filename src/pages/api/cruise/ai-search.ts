@@ -22,6 +22,7 @@ const AFFILIATE: Record<string, string> = {
   'wingontravel.com': 'https://idragon.info/3RVzZ',
   'settour.com.tw':   'https://vbshoptrax.com/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
   'klook.com':        'https://dreamstore.info/3RVzd',
+  'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
 }
 
 function affiliateFor(url: string): string {
@@ -35,6 +36,7 @@ function sourceLabel(url: string): string {
   if (url.includes('wingontravel')) return '永安旅遊'
   if (url.includes('settour'))     return '東南旅遊'
   if (url.includes('klook'))       return 'Klook'
+  if (url.includes('kkday'))       return 'KKday'
   return '其他'
 }
 
@@ -42,6 +44,7 @@ const SEARCH_QUERIES = [
   'site:wingontravel.com 郵輪 2026 特賣優惠價格',
   'site:settour.com.tw 郵輪 2026 特賣優惠',
   'site:klook.com 郵輪 cruise 2026 優惠 香港 台灣',
+  'site:kkday.com 郵輪 cruise 2026 優惠',
 ]
 
 async function tavilySearch(query: string, apiKey: string): Promise<any[]> {

@@ -73,8 +73,7 @@ async function tavilySearch(query: string, apiKey: string): Promise<any[]> {
   return data.results || []
 }
 
-async function geminiParse(text: string, keys: string[]): Promise<{ deals: any[], raw: string }> {
-  const key = keys[Math.floor(Math.random() * keys.length)]
+async function geminiParseChunk(text: string, key: string): Promise<any[]> {
   const today = new Date().toISOString().split('T')[0]
   const prompt = `
 你是郵輪特賣資料解析器。從以下搜尋結果文字中，盡力找出郵輪特賣資訊。
@@ -125,14 +124,11 @@ ${text}
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: { maxOutputTokens: 4096, temperature: 0.1, thinkingConfig: { thinkingBudget: 0 } },
+        generationConfig: { maxOutputTokens: 8192, temperature: 0.1, thinkingConfig: { thinkingBudget: 0 } },
       }),
     }
   )
-  if (!res.ok) {
-    const errText = await res.text()
-    return { deals: [], raw: `Gemini HTTP ${res.status}: ${errText.slice(0, 200)}` }
-  }
+  if (!res.ok) return []
   const data = await res.json()
   const raw = (data?.candidates?.[0]?.content?.parts ?? [])
     .filter((p: any) => !p.thought)
@@ -140,14 +136,42 @@ ${text}
     .join('')
     .trim()
 
-  const match = raw.match(/\[[\s\S]*\]/)
-  if (!match) return { deals: [], raw: `No JSON array found. Gemini output: ${raw.slice(0, 500)}` }
-  try {
-    const deals = JSON.parse(match[0])
-    return { deals, raw: `OK: ${deals.length} items parsed` }
-  } catch (e: any) {
-    return { deals: [], raw: `JSON parse error: ${e.message}. Raw: ${match[0].slice(0, 300)}` }
+  // Try full array first
+  const arrMatch = raw.match(/\[[\s\S]*\]/)
+  if (arrMatch) {
+    try { return JSON.parse(arrMatch[0]) } catch {}
   }
+
+  // Fallback: extract individual objects even if array is truncated
+  const items: any[] = []
+  const objRegex = /\{[\s\S]*?\n\s*\}/g
+  let m: RegExpExecArray | null
+  while ((m = objRegex.exec(raw)) !== null) {
+    try { items.push(JSON.parse(m[0])) } catch {}
+  }
+  return items
+}
+
+async function geminiParse(chunks: any[][], keys: string[]): Promise<{ deals: any[], raw: string }> {
+  const allDeals: any[] = []
+  const debugLines: string[] = []
+
+  for (let i = 0; i < chunks.length; i++) {
+    const key = keys[Math.floor(Math.random() * keys.length)]
+    const chunkText = chunks[i].map(r =>
+      `URL: ${r.url}\n標題: ${r.title}\n內容: ${r.content}`
+    ).join('\n\n---\n\n')
+
+    try {
+      const deals = await geminiParseChunk(chunkText, key)
+      allDeals.push(...deals)
+      debugLines.push(`批次${i+1}: ${deals.length} 筆`)
+    } catch (e: any) {
+      debugLines.push(`批次${i+1}: 錯誤 ${e.message}`)
+    }
+  }
+
+  return { deals: allDeals, raw: debugLines.join(', ') }
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -182,12 +206,14 @@ export const POST: APIRoute = async ({ request }) => {
     })
   }
 
-  // Build text for Gemini
-  const text = combined.map(r =>
-    `URL: ${r.url}\n標題: ${r.title}\n內容: ${r.content}`
-  ).join('\n\n---\n\n')
+  // Split into chunks of 12 for Gemini
+  const CHUNK = 12
+  const chunks: any[][] = []
+  for (let i = 0; i < combined.length; i += CHUNK) {
+    chunks.push(combined.slice(i, i + CHUNK))
+  }
 
-  const { deals: parsed, raw: geminiDebug } = await geminiParse(text, geminiKeys)
+  const { deals: parsed, raw: geminiDebug } = await geminiParse(chunks, geminiKeys)
 
   // Enrich with affiliate URL and source label
   const deals = parsed

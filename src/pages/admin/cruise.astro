@@ -618,9 +618,12 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
             source:         d.source || '',
             affiliate_url:  d.affiliate_url,
             notes:          d.notes || null,
-            is_repositioning: false, is_last_minute: false,
-            has_kids_free: false, has_3rd_free: false,
-            has_obc: false, is_featured: false,
+            is_repositioning: d.is_repositioning || false,
+            is_last_minute:   d.is_last_minute   || false,
+            has_kids_free:    d.has_kids_free     || false,
+            has_3rd_free:     d.has_3rd_free      || false,
+            has_obc:          d.has_obc           || false,
+            is_featured: false,
           }),
         })
         if (r.ok) added++; else failed++

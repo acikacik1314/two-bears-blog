@@ -172,6 +172,7 @@ function parseSettour(html: string, today: string): any[] {
       const year = testDate < todayDate ? currentYear + 1 : currentYear
       const departure_date = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`
 
+      const allText = titleText + ' ' + notesText
       deals.push({
         ship_name, cruise_line, destination,
         departure_port,
@@ -183,6 +184,11 @@ function parseSettour(html: string, today: string): any[] {
         price_currency: 'TWD',
         source_url: href,
         notes: notesText.trim(),
+        has_3rd_free:   /第三人免費|第3人免費|三人同行.*免費|三人.{0,5}免費/.test(allText),
+        has_kids_free:  /兒童免費|小孩免費|孩童免費/.test(allText),
+        has_obc:        /OBC|船上消費額度/.test(allText),
+        is_repositioning: /移航/.test(allText),
+        is_last_minute: /清倉|最後/.test(allText),
       })
     }
   })

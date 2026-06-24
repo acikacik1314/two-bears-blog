@@ -27,6 +27,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.4.0",
     "astro": "^6.3.7",
+    "cheerio": "^1.2.0",
     "cloudinary": "^2.10.0",
     "msedge-tts": "^2.0.5",
     "react": "^19.2.6",

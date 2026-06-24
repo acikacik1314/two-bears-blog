@@ -1,6 +1,7 @@
 export const prerender = false
 
 import type { APIRoute } from 'astro'
+import { load } from 'cheerio'
 
 function checkPin(req: Request): boolean {
   const pin = req.headers.get('x-admin-pin')
@@ -58,39 +59,27 @@ function tryParseDealsJson(text: string): any[] {
   return []
 }
 
-// ── Step 1: Verified listing pages ───────────────────────────────────────────
-// URLs manually verified 2026-06. ssr:true = server-side rendered HTML,
-// ssr:false = SPA that requires Jina JS rendering.
+// ── Verified listing pages (2026-06) ─────────────────────────────────────────
+// cheerio:true = structured Cheerio parsing; cheerio:false = Jina + Gemini
 const LISTING_PAGES = [
-  // ✅ Verified SSR — plain HTML, real prices confirmed
-  { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html',                               ssr: true  },
-  { name: '可樂旅遊', url: 'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',           ssr: true  },
-  // ⚠️ SPA — requires Jina rendering; correct subdomain confirmed, cruise path TBD
-  { name: '雄獅旅遊', url: 'https://search.liontravel.com/zh-tw/%E9%83%B5%E8%BC%AA?fr=ev16575C0101C0801M02', ssr: false },
-  // Removed: wingontravel (HK-only, HKD prices), Klook (experience tickets ≠ package cruise), KKday (unverified)
+  { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html',                               cheerio: true  },
+  { name: '可樂旅遊', url: 'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',           cheerio: true  },
+  { name: '雄獅旅遊', url: 'https://search.liontravel.com/zh-tw/%E9%83%B5%E8%BC%AA?fr=ev16575C0101C0801M02', cheerio: false },
 ]
 
-// ── Step 2a: Direct fetch for SSR pages (faster, no Jina rate limit) ─────────
-async function fetchSSR(url: string): Promise<string> {
+// Raw HTML fetch for Cheerio-parsed pages
+async function fetchRawHTML(url: string): Promise<string> {
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; cruise-bot/1.0)' },
       signal: AbortSignal.timeout(15000),
     })
     if (!res.ok) return ''
-    const html = await res.text()
-    // Strip scripts/styles/tags, collapse whitespace → clean text for Gemini
-    return html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 12000)
+    return await res.text()
   } catch { return '' }
 }
 
-// ── Step 2b: Jina.ai for SPA pages (renders JavaScript) ──────────────────────
+// Jina.ai for SPA pages (renders JavaScript)
 async function fetchWithJina(url: string): Promise<string> {
   try {
     const res = await fetch(`https://r.jina.ai/${url}`, {
@@ -102,11 +91,143 @@ async function fetchWithJina(url: string): Promise<string> {
   } catch { return '' }
 }
 
-async function fetchPage(page: { name: string, url: string, ssr: boolean }): Promise<string> {
-  return page.ssr ? fetchSSR(page.url) : fetchWithJina(page.url)
+// ── Cheerio parser: 東南旅遊 (settour) ────────────────────────────────────────
+// Structure: .col-card-50 → a.card-blue-border-box[href], h3.productTitle,
+//            ul.productDate li (dates as "MM/DD"), .price small (duration), .price-num
+function parseSettour(html: string, today: string): any[] {
+  const $ = load(html)
+  const currentYear = new Date(today).getFullYear()
+  const todayDate = new Date(today)
+  const deals: any[] = []
+
+  $('.col-card-50').each((_, el) => {
+    const href = $(el).find('a.card-blue-border-box').attr('href')
+    if (!href) return
+
+    const priceText = $(el).find('.price-num').text().trim()
+    const priceMatch = priceText.match(/[\d,]+/)
+    if (!priceMatch) return
+    const current_price = parseInt(priceMatch[0].replace(/,/g, ''), 10)
+    if (!current_price) return
+
+    const titleText = $(el).find('h3.productTitle').text().trim()
+    const durationText = $(el).find('.price small').text().trim()
+
+    // Duration: "4天" → 3 nights
+    const durationMatch = durationText.match(/(\d+)/)
+    const duration_nights = durationMatch ? parseInt(durationMatch[1], 10) - 1 : 0
+
+    // Ship name / cruise line from 【...】
+    const shipMatch = titleText.match(/【([^】]+)】/)
+    const shipFull = shipMatch ? shipMatch[1] : ''
+    let ship_name = '', cruise_line = ''
+    if (shipFull.includes('-')) {
+      const dashIdx = shipFull.lastIndexOf('-')
+      cruise_line = shipFull.slice(0, dashIdx).trim()
+      ship_name = shipFull.slice(dashIdx + 1).trim()
+    } else {
+      ship_name = shipFull
+    }
+
+    // Destination: text after 】 up to verb/duration pattern
+    const afterBracket = titleText.replace(/^【[^】]*】/, '').trim()
+    const destMatch = afterBracket.match(/^(.+?)(?:自主遊|旅遊|行程|\d+[天日]|[一二三四五六七八九十]+[天日])/)
+    const destination = destMatch
+      ? destMatch[1].trim()
+      : afterBracket.split('（')[0].trim().slice(0, 20)
+
+    // Cabin type: first part of （內艙．二人一室）
+    const cabinMatch = titleText.match(/（([^·‧.．）]+)/)
+    const cabin_type = cabinMatch ? cabinMatch[1].trim() : '內艙'
+
+    // Departure dates: li items matching MM/DD, infer year
+    const validDates = $(el).find('ul.productDate li')
+      .toArray()
+      .map(d => $(d).text().trim())
+      .filter(d => /^\d{1,2}\/\d{1,2}$/.test(d))
+
+    if (validDates.length === 0) return
+
+    const [mm, dd] = validDates[0].split('/').map(Number)
+    const testDate = new Date(`${currentYear}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`)
+    const year = testDate < todayDate ? currentYear + 1 : currentYear
+    const departure_date = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`
+
+    deals.push({
+      ship_name, cruise_line, destination,
+      departure_port: '基隆',
+      departure_date,
+      duration_nights,
+      cabin_type,
+      original_price: null,
+      current_price,
+      price_currency: 'TWD',
+      source_url: href,
+      notes: $(el).find('h5').text().trim(),
+    })
+  })
+
+  return deals
 }
 
-// ── Step 3: Gemini → parse rendered page content → JSON ──────────────────────
+// ── Cheerio parser: 可樂旅遊 (colatour) ──────────────────────────────────────
+// Structure: #cruise li → a[href], h3.list-name (span=port, em=promo), .list-price strong
+// No departure dates on listing page — departure_date left empty (passes filter as null)
+function parseColatour(html: string): any[] {
+  const $ = load(html)
+  const deals: any[] = []
+
+  $('#cruise li').each((_, el) => {
+    let href = $(el).find('a').attr('href') || ''
+    if (!href) return
+    if (href.startsWith('/')) href = 'https://www.colatour.com.tw' + href
+
+    const priceText = $(el).find('.list-price strong').text().trim()
+    const current_price = parseInt(priceText.replace(/,/g, ''), 10)
+    if (!current_price) return
+
+    const h3 = $(el).find('h3.list-name')
+    const spanText = h3.find('span').text().trim()
+    // span is sometimes a port ("基隆港出發") and sometimes a category ("地中海郵輪")
+    const isPort = /出發|基隆|台北|高雄|台中|台南/.test(spanText)
+    const departure_port = isPort
+      ? spanText.replace(/出發$/, '').replace(/港$/, '').trim()
+      : ''
+    const notes = h3.find('em').text().trim()
+
+    h3.find('span, em').remove()
+    const mainTitle = h3.text().trim()
+
+    const arrowIdx = mainTitle.indexOf('》')
+    const shipPart = arrowIdx >= 0 ? mainTitle.slice(0, arrowIdx).trim() : ''
+    const afterArrow = arrowIdx >= 0 ? mainTitle.slice(arrowIdx + 1) : mainTitle
+
+    const destMatch = afterArrow.match(/^(.+?)(?:自主遊|旅遊|行程|\d+日|[一二三四五六七八九十]+日)/)
+    const destination = destMatch ? destMatch[1].trim() : afterArrow.slice(0, 20).trim()
+
+    const durationMatch = mainTitle.match(/(\d+)日/)
+    const duration_nights = durationMatch ? parseInt(durationMatch[1], 10) - 1 : 0
+
+    deals.push({
+      ship_name: shipPart,
+      cruise_line: '',
+      destination,
+      departure_port: departure_port || '基隆',
+      departure_date: '',
+      duration_nights,
+      cabin_type: '內艙',
+      original_price: null,
+      current_price,
+      price_currency: 'TWD',
+      source_url: href,
+      notes,
+    })
+  })
+
+  return deals
+}
+
+// ── Gemini: parse Jina-rendered content (liontravel) ─────────────────────────
 async function parsePageContent(
   pages: { name: string, url: string, content: string }[],
   key: string,
@@ -119,7 +240,7 @@ async function parsePageContent(
 
   if (!combined) return []
 
-  const prompt = `以下是台灣/香港郵輪旅行社網頁的真實抓取內容，今天是 ${today}。
+  const prompt = `以下是台灣郵輪旅行社網頁的真實抓取內容，今天是 ${today}。
 請從中提取郵輪特賣資料。
 
 ${combined}
@@ -225,27 +346,41 @@ export const POST: APIRoute = async ({ request }) => {
   let debugModel = ''
   let debugUrls: string[] = []
 
-  // ── PRIMARY: Hardcoded URLs → fetch (SSR direct / SPA via Jina) → Parse ──
+  // ── PRIMARY: Cheerio for SSR pages, Jina+Gemini for SPA pages ────────────
   try {
     debugUrls = LISTING_PAGES.map(p => p.url)
 
-    const fetched = await Promise.all(
-      LISTING_PAGES.map(async p => ({
-        name: p.name,
-        url: p.url,
-        content: await fetchPage(p),
-      }))
-    )
+    const allParsed: any[] = []
+    const geminiPages: { name: string, url: string, content: string }[] = []
 
-    const fetchedCount = fetched.filter(p => p.content.length > 200).length
-
-    if (fetchedCount > 0) {
-      const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
-      parsed = await parsePageContent(fetched, key, today)
-      if (parsed.length > 0) {
-        source = 'scraped'
-        debugModel = `gemini-2.5-flash+scrape(${fetchedCount}/${LISTING_PAGES.length} pages)`
+    await Promise.all(LISTING_PAGES.map(async p => {
+      if (p.cheerio) {
+        const rawHtml = await fetchRawHTML(p.url)
+        if (rawHtml.length > 500) {
+          const deals = p.name === '東南旅遊'
+            ? parseSettour(rawHtml, today)
+            : parseColatour(rawHtml)
+          allParsed.push(...deals)
+        }
+      } else {
+        const content = await fetchWithJina(p.url)
+        geminiPages.push({ name: p.name, url: p.url, content })
       }
+    }))
+
+    const fetchedForGemini = geminiPages.filter(p => p.content.length > 200)
+    let geminiCount = 0
+    if (fetchedForGemini.length > 0) {
+      const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
+      const geminiDeals = await parsePageContent(geminiPages, key, today)
+      geminiCount = geminiDeals.length
+      allParsed.push(...geminiDeals)
+    }
+
+    if (allParsed.length > 0) {
+      parsed = allParsed
+      source = 'scraped'
+      debugModel = `cheerio+gemini-2.5-flash(${allParsed.length - geminiCount} cheerio, ${geminiCount} gemini)`
     }
   } catch { /* fall through to knowledge fallback */ }
 
@@ -275,16 +410,15 @@ export const POST: APIRoute = async ({ request }) => {
       discount_pct: d.original_price
         ? Math.round((1 - d.current_price / d.original_price) * 100)
         : null,
-      days_until: Math.ceil(
-        (new Date(d.departure_date).getTime() - Date.now()) / 86400000
-      ),
+      days_until: d.departure_date
+        ? Math.ceil((new Date(d.departure_date).getTime() - Date.now()) / 86400000)
+        : null,
     }))
-    .filter((d: any) => d.days_until > 0)
+    .filter((d: any) => d.days_until === null || d.days_until > 0)
 
   return new Response(JSON.stringify({
     deals,
     searched: parsed.length,
-    // 'jina' = real scraped data  'knowledge' = AI estimated
     source,
     debug: { model: debugModel, urls: debugUrls },
   }), {

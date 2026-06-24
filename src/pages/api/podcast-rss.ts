@@ -2,6 +2,7 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 
 const RSS_URL = 'https://anchor.fm/s/11310a874/podcast/rss';
+const APPLE_PODCAST_ID = '1896823711';
 
 function extractCdata(tag: string, str: string) {
   const m = str.match(new RegExp(`<${tag}><\\!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>`));
@@ -16,14 +17,38 @@ function extractAttr(tag: string, attr: string, str: string) {
   return m ? m[1] : '';
 }
 
+async function fetchAppleEpisodeIds(): Promise<Record<string, string>> {
+  try {
+    const res = await fetch(
+      `https://itunes.apple.com/lookup?id=${APPLE_PODCAST_ID}&entity=podcastEpisode&limit=200&country=TW`,
+      { signal: AbortSignal.timeout(10000) }
+    );
+    if (!res.ok) return {};
+    const data = await res.json();
+    const map: Record<string, string> = {};
+    for (const r of data.results ?? []) {
+      if (r.wrapperType === 'podcastEpisode' && r.trackId && r.trackName) {
+        map[r.trackName.trim()] = String(r.trackId);
+      }
+    }
+    return map;
+  } catch {
+    return {};
+  }
+}
+
 export const GET: APIRoute = async () => {
   try {
-    const res = await fetch(RSS_URL, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RSS reader)' },
-      signal: AbortSignal.timeout(12000),
-    });
-    if (!res.ok) throw new Error(`RSS fetch ${res.status}`);
-    const xml = await res.text();
+    const [rssRes, appleIds] = await Promise.all([
+      fetch(RSS_URL, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RSS reader)' },
+        signal: AbortSignal.timeout(12000),
+      }),
+      fetchAppleEpisodeIds(),
+    ]);
+
+    if (!rssRes.ok) throw new Error(`RSS fetch ${rssRes.status}`);
+    const xml = await rssRes.text();
 
     const channelPart = xml.split('<item>')[0];
     const coverImage = extractAttr('itunes:image', 'href', channelPart);
@@ -32,24 +57,21 @@ export const GET: APIRoute = async () => {
 
     const itemParts = xml.split('<item>').slice(1);
     const episodes = itemParts.map((item, idx) => {
-      const link = extractTag('link', item);
-      const slugMatch = link.match(/\/episodes\/([^/\s<]+)/);
-      const slug = slugMatch ? slugMatch[1] : '';
-      const episodeImage = extractAttr('itunes:image', 'href', item) || coverImage;
+      const title = extractCdata('title', item);
+      const appleId = appleIds[title] ?? '';
       const description = extractCdata('description', item);
 
       return {
         num: itemParts.length - idx,
-        title: extractCdata('title', item),
+        title,
         date: extractTag('pubDate', item),
-        link,
-        slug,
-        embedUrl: slug
-          ? `https://creators.spotify.com/pod/profile/teddy175/embed/episodes/${slug}`
+        link: extractTag('link', item),
+        embedUrl: appleId
+          ? `https://embed.podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}?i=${appleId}`
           : '',
         duration: extractTag('itunes:duration', item),
         description,
-        image: episodeImage,
+        image: extractAttr('itunes:image', 'href', item) || coverImage,
       };
     });
 

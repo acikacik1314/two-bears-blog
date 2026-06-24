@@ -20,7 +20,7 @@ const AFFILIATE: Record<string, string> = {
   'klook.com':        'https://dreamstore.info/3RVzd',
   'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
   'colatour.com.tw':  'https://vbshoptrax.com/track/clicks/9762/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff30162a44125095ff88635aca3163d8e',
-  'liontravel.com':   'https://twshop4coupon.com/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e',
+  'liontravel.com':   'https://affclkr.online/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e',
   'travel.rakuten':   'https://vbshoptrax.com/track/clicks/3786/c627c2bb910723d9f09cab248d2596412379128f78eee1fc0176f6476a0449a8c23ae5a5112d',
 }
 
@@ -28,6 +28,7 @@ const AFFILIATE: Record<string, string> = {
 const CRUISE_LISTING_URLS = new Set([
   'https://tour.settour.com.tw/cruise.html',
   'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',
+  'https://travel.liontravel.com/category/zh-tw/cruise/index',
 ])
 
 function affiliateFor(url: string): string {

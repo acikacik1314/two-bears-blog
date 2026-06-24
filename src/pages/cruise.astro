@@ -136,6 +136,7 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 .tag-featured { background: #E8920A; color: #fff; }
 
 .card-price { margin-top: auto; }
+.card-notes { font-size: .75rem; color: #E8920A; font-weight: 600; margin-bottom: .3rem; }
 .card-original { font-size: .72rem; color: #999; text-decoration: line-through; }
 .card-savings { font-size: .75rem; color: #2e7d32; font-weight: 700; margin-top: .1rem; }
 .card-current {
@@ -370,16 +371,35 @@ function renderCard(d) {
     d.has_obc          ? `<span class="tag tag-obc">💰 含OBC</span>` : '',
   ].filter(Boolean).join('')
 
-  const discountBadge = d.discount_pct
-    ? `<div class="card-discount">-${d.discount_pct}%</div>`
+  const discountBadge = discountBadgeVal
+    ? `<div class="card-discount">-${discountBadgeVal}%</div>`
     : ''
 
-  const origPrice = d.original_price
-    ? `<div class="card-original">原價 ${fmt(d.original_price)}</div>` : ''
+  // 優先用資料庫原價；沒有則從 notes 解析「折X,XXX元」反推
+  let derivedOriginal = d.original_price || null
+  let derivedSavings = 0
+  if (!derivedOriginal && d.notes) {
+    const m = d.notes.match(/折([0-9,]+)元/)
+    if (m) {
+      derivedSavings = parseInt(m[1].replace(/,/g, ''), 10)
+      derivedOriginal = d.current_price + derivedSavings
+    }
+  } else if (derivedOriginal) {
+    derivedSavings = derivedOriginal - d.current_price
+  }
+  const derivedPct = derivedOriginal
+    ? Math.round(derivedSavings / derivedOriginal * 100) : 0
 
-  const savingsLine = d.original_price && d.discount_pct
-    ? `<div class="card-savings">省 ${fmt(d.original_price - d.current_price)}（-${d.discount_pct}%）</div>`
+  const discountBadgeVal = d.discount_pct || derivedPct
+  const origPrice = derivedOriginal
+    ? `<div class="card-original">原價 ${fmt(derivedOriginal)}</div>` : ''
+
+  const savingsLine = derivedOriginal && derivedPct
+    ? `<div class="card-savings">省 ${fmt(derivedSavings)}（-${derivedPct}%）</div>`
     : ''
+
+  const notesLine = d.notes
+    ? `<div class="card-notes">${d.notes}</div>` : ''
 
   const shoreBtn = d.shore_excursion_url
     ? `<a href="${d.shore_excursion_url}" target="_blank" rel="noopener sponsored" class="btn-shore" title="${d.shore_excursion_note || '岸上觀光'}">📍 岸上觀光</a>`
@@ -420,6 +440,7 @@ function renderCard(d) {
         ${d.source ? `<span class="card-meta-item">🏢 ${d.source}</span>` : ''}
       </div>
       ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+      ${notesLine}
       <div class="card-price">
         ${origPrice}
         <div class="card-current">

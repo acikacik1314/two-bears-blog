@@ -371,10 +371,6 @@ function renderCard(d) {
     d.has_obc          ? `<span class="tag tag-obc">💰 含OBC</span>` : '',
   ].filter(Boolean).join('')
 
-  const discountBadge = discountBadgeVal
-    ? `<div class="card-discount">-${discountBadgeVal}%</div>`
-    : ''
-
   // 優先用資料庫原價；沒有則從 notes 解析「折X,XXX元」反推
   let derivedOriginal = d.original_price || null
   let derivedSavings = 0
@@ -391,6 +387,9 @@ function renderCard(d) {
     ? Math.round(derivedSavings / derivedOriginal * 100) : 0
 
   const discountBadgeVal = d.discount_pct || derivedPct
+  const discountBadge = discountBadgeVal
+    ? `<div class="card-discount">-${discountBadgeVal}%</div>`
+    : ''
   const origPrice = derivedOriginal
     ? `<div class="card-original">原價 ${fmt(derivedOriginal)}</div>` : ''
 

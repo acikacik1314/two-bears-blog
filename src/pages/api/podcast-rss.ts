@@ -18,6 +18,7 @@ function extractAttr(tag: string, attr: string, str: string) {
 }
 
 function normalizeTitle(t: string): string {
+  if (!t) return '';
   return t.trim()
     .replace(/\s+/g, '')
     .replace(/[「」『』【】〔〕《》〈〉""'']/g, '')
@@ -26,7 +27,8 @@ function normalizeTitle(t: string): string {
     .toLowerCase();
 }
 
-async function fetchAppleEpisodeIds(): Promise<{ exact: Record<string, string>; norm: Record<string, string> }> {
+// iTunes Search API — 覆蓋所有舊集數，但新集有幾小時延遲
+async function fetchFromItunes(): Promise<{ exact: Record<string, string>; norm: Record<string, string> }> {
   try {
     const res = await fetch(
       `https://itunes.apple.com/lookup?id=${APPLE_PODCAST_ID}&entity=podcastEpisode&limit=200&country=TW`,
@@ -49,14 +51,66 @@ async function fetchAppleEpisodeIds(): Promise<{ exact: Record<string, string>; 
   }
 }
 
+// Jina.ai 渲染 Apple Podcasts 頁面 — 和 App 同步，即時覆蓋最新幾集
+async function fetchFromWebPage(): Promise<Record<string, string>> {
+  try {
+    const res = await fetch(
+      `https://r.jina.ai/https://podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}`,
+      {
+        headers: { 'Accept': 'text/plain', 'X-Timeout': '15' },
+        signal: AbortSignal.timeout(20000),
+      }
+    );
+    if (!res.ok) return {};
+    const text = await res.text();
+
+    // Jina 渲染格式：[時間 ### 標題 簡介](url?i=EPISODE_ID)
+    const linkRegex = /\[([^\]]+)\]\([^)]*[?&]i=(\d+)[^)]*\)/g;
+    const normMap: Record<string, string> = {};
+    let m;
+    while ((m = linkRegex.exec(text)) !== null) {
+      const linkText = m[1];
+      const episodeId = m[2];
+      const afterHash = linkText.match(/###\s+(.+)/);
+      if (afterHash) {
+        normMap[normalizeTitle(afterHash[1])] = episodeId;
+      }
+    }
+    return normMap;
+  } catch {
+    return {};
+  }
+}
+
+function findEpisodeId(
+  title: string,
+  itunes: { exact: Record<string, string>; norm: Record<string, string> },
+  webNorm: Record<string, string>
+): string {
+  if (itunes.exact[title]) return itunes.exact[title];
+
+  const n = normalizeTitle(title);
+  if (!n) return '';
+
+  if (itunes.norm[n]) return itunes.norm[n];
+
+  // Jina 的 key 是「標題+簡介」整段，用 startsWith 比對
+  for (const [key, id] of Object.entries(webNorm)) {
+    if (key.startsWith(n) && n.length > 5) return id;
+  }
+
+  return '';
+}
+
 export const GET: APIRoute = async () => {
   try {
-    const [rssRes, appleIds] = await Promise.all([
+    const [rssRes, itunes, webNorm] = await Promise.all([
       fetch(RSS_URL, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RSS reader)' },
         signal: AbortSignal.timeout(12000),
       }),
-      fetchAppleEpisodeIds(),
+      fetchFromItunes(),
+      fetchFromWebPage(),
     ]);
 
     if (!rssRes.ok) throw new Error(`RSS fetch ${rssRes.status}`);
@@ -70,7 +124,7 @@ export const GET: APIRoute = async () => {
     const itemParts = xml.split('<item>').slice(1);
     const episodes = itemParts.map((item, idx) => {
       const title = extractCdata('title', item);
-      const appleId = appleIds.exact[title] ?? appleIds.norm[normalizeTitle(title)] ?? '';
+      const appleId = findEpisodeId(title, itunes, webNorm);
       const description = extractCdata('description', item);
 
       return {

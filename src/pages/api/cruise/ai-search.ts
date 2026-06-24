@@ -167,7 +167,16 @@ function parseSettour(html: string, today: string): any[] {
     })
   })
 
-  return deals
+  // Same ship + destination + departure_date → keep lowest price only
+  const deduped = new Map<string, any>()
+  for (const deal of deals) {
+    const key = `${deal.ship_name}|${deal.destination}|${deal.departure_date}`
+    const existing = deduped.get(key)
+    if (!existing || deal.current_price < existing.current_price) {
+      deduped.set(key, deal)
+    }
+  }
+  return [...deduped.values()]
 }
 
 // ── Cheerio parser: 可樂旅遊 (colatour) ──────────────────────────────────────

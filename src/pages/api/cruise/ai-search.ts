@@ -16,7 +16,7 @@ function getGeminiKeys(): string[] {
 
 const AFFILIATE: Record<string, string> = {
   'wingontravel.com': 'https://idragon.info/3RVzZ',
-  'settour.com.tw':   'https://vbshoptrax.com/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
+  'settour.com.tw':   'https://afflnk.site/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
   'klook.com':        'https://dreamstore.info/3RVzd',
   'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
   'colatour.com.tw':  'https://vbshoptrax.com/track/clicks/9762/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff30162a44125095ff88635aca3163d8e',
@@ -26,7 +26,13 @@ const AFFILIATE: Record<string, string> = {
 
 function affiliateFor(url: string): string {
   for (const [domain, aff] of Object.entries(AFFILIATE)) {
-    if (url.includes(domain)) return aff
+    if (url.includes(domain)) {
+      // settour 支援 ?t= 深層連結，直接帶入商品頁 URL
+      if (domain === 'settour.com.tw' && url !== 'https://tour.settour.com.tw/cruise.html') {
+        return aff + '?t=' + encodeURIComponent(encodeURIComponent(url))
+      }
+      return aff
+    }
   }
   return url
 }

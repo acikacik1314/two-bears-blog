@@ -24,9 +24,24 @@ export const GET: APIRoute = async ({ url }) => {
     .select('*, price_history:cruise_price_history(price, recorded_at)')
     .eq('status', status)
 
+  // 地區名稱 → 城市關鍵字展開
+  const REGION_KEYWORDS: Record<string, string[]> = {
+    '日本': ['福岡','長崎','那霸','沖繩','鹿兒島','鹿耳島','熊本','神戶','大阪','東京','高知','宮崎','佐世保','石垣島','宮古島','橫濱','橫浜','日本'],
+    '沖繩': ['沖繩','那霸','石垣島','宮古島'],
+    '韓國': ['釜山','濟州','仁川','麗水','韓國'],
+    '東南亞': ['新加坡','曼谷','普吉島','胡志明','河內','吉隆坡','峇里島','越南','泰國','馬來西亞','印尼','菲律賓','檳城','東南亞'],
+    '地中海': ['地中海','羅馬','巴塞隆納','雅典','威尼斯','那不勒斯','克里特','馬賽','米科諾斯','西西里','直布羅陀','黑山','亞得里亞'],
+    '加勒比海': ['加勒比海','巴哈馬','邁阿密'],
+    '阿拉斯加': ['阿拉斯加','冰河灣','溫哥華','西雅圖','恩迪科'],
+    '北歐': ['北歐','挪威','冰島','赫爾辛基','哥本哈根','斯德哥爾摩','峽灣','波羅的海'],
+  }
+
   if (departure_port) q = q.eq('departure_port', departure_port)
   if (cruise_line)    q = q.eq('cruise_line', cruise_line)
-  if (destination)    q = q.ilike('destination', `%${destination}%`)
+  if (destination) {
+    const kws = REGION_KEYWORDS[destination] || [destination]
+    q = q.or(kws.map(k => `destination.ilike.%${k}%`).join(','))
+  }
   if (min_nights)     q = q.gte('duration_nights', parseInt(min_nights))
   if (max_nights)     q = q.lte('duration_nights', parseInt(max_nights))
   if (tags.includes('repositioning')) q = q.eq('is_repositioning', true)

@@ -41,44 +41,95 @@ function sourceLabel(url: string): string {
   return '其他'
 }
 
-// Extract JSON array from Gemini output — handles markdown fences and truncation
 function tryParseDealsJson(text: string): any[] {
   const trimmed = text.trim()
-
-  // Try to find a complete [...] array anywhere in the text (handles markdown fences)
   const arrMatch = trimmed.match(/\[[\s\S]*\]/)
   if (arrMatch) {
     try { return JSON.parse(arrMatch[0]) } catch {}
   }
-
-  // Truncation repair: find where the array starts, then find last complete object
   const arrayStart = trimmed.indexOf('[')
   if (arrayStart >= 0) {
     const slice = trimmed.slice(arrayStart)
     const lb1 = slice.lastIndexOf('},')
-    if (lb1 > 0) {
-      try { return JSON.parse(slice.slice(0, lb1 + 1) + ']') } catch {}
-    }
+    if (lb1 > 0) { try { return JSON.parse(slice.slice(0, lb1 + 1) + ']') } catch {} }
     const lb2 = slice.lastIndexOf('}')
-    if (lb2 > 0) {
-      try { return JSON.parse(slice.slice(0, lb2 + 1) + ']') } catch {}
-    }
+    if (lb2 > 0) { try { return JSON.parse(slice.slice(0, lb2 + 1) + ']') } catch {} }
   }
-
   return []
 }
 
-const MODELS = [
-  'gemini-3.5-flash',
-  'gemini-3.1-flash-lite',
-  'gemini-2.5-flash',
-  'gemini-2.5-flash-lite',
-]
+type SearchResult = { content: string, model: string, parsed: any[], source: 'grounding' | 'knowledge' }
 
-async function geminiDirectSearch(
-  keys: string[]
-): Promise<{ content: string, model: string, parsed: any[] } | null> {
-  const today = new Date().toISOString().split('T')[0]
+// Step 1 of grounding: search + summarise (returns plain text, not JSON)
+async function geminiGroundedText(key: string, today: string): Promise<string> {
+  const prompt = `今天是 ${today}。請用 Google 搜尋以下台灣/香港郵輪旅行社，找出他們目前在賣的 ${today} 之後出發的郵輪特賣，並列出每筆優惠的詳細資訊：
+- 永安旅遊 wingontravel.com（香港出發）
+- 東南旅遊 settour.com.tw（台灣出發）
+- 可樂旅遊 colatour.com.tw（台灣出發）
+- 雄獅旅遊 liontravel.com（台灣出發）
+- Klook klook.com 郵輪
+- KKday kkday.com 郵輪
+
+每筆請列出：船名、郵輪公司、目的地、出發港口、出發日期、幾晚、艙型、原價、現價、幣別、旅行社官網連結、備註。`
+
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        tools: [{ google_search: {} }],
+        generationConfig: { maxOutputTokens: 4096, temperature: 0.1 },
+      }),
+    }
+  )
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  const data = await res.json()
+  return (data?.candidates?.[0]?.content?.parts ?? [])
+    .filter((p: any) => !p.thought)
+    .map((p: any) => p.text ?? '')
+    .join('').trim()
+}
+
+// Step 2 of grounding: convert the text summary to JSON
+async function geminiTextToJson(text: string, key: string, today: string): Promise<any[]> {
+  const prompt = `把下面的郵輪特賣資訊轉成 JSON 陣列，只輸出 JSON，不要其他文字：
+
+${text}
+
+每筆格式：
+{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"","notes":""}
+
+規則：
+- 出發日期必須在 ${today} 之後，不確定就填 ${today.slice(0,7)}-28
+- 找不到的欄位填合理預設值（departure_port 永安填"香港"，其他填"基隆"）
+- 只輸出 JSON 陣列`
+
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: { maxOutputTokens: 8192, temperature: 0.1 },
+      }),
+    }
+  )
+  if (!res.ok) return []
+  const data = await res.json()
+  const raw = (data?.candidates?.[0]?.content?.parts ?? [])
+    .filter((p: any) => !p.thought)
+    .map((p: any) => p.text ?? '')
+    .join('').trim()
+  return tryParseDealsJson(raw)
+}
+
+// Fallback: knowledge-based (no real search, estimated data)
+const KNOWLEDGE_MODELS = ['gemini-3.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-flash-lite']
+
+async function geminiKnowledgeSearch(keys: string[], today: string): Promise<SearchResult | null> {
   const shuffledKeys = [...keys].sort(() => Math.random() - 0.5)
 
   const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前的郵輪特賣，出發日期必須在 ${today} 之後，盡量多列：
@@ -94,7 +145,7 @@ async function geminiDirectSearch(
 
 出發日期必須晚於 ${today}。如果不確定具體日期，填 ${today.slice(0,7)}-28 或更晚。只輸出 JSON 陣列。`
 
-  for (const model of MODELS) {
+  for (const model of KNOWLEDGE_MODELS) {
     for (const key of shuffledKeys) {
       try {
         const res = await fetch(
@@ -108,22 +159,16 @@ async function geminiDirectSearch(
             }),
           }
         )
-        if (res.status === 429 || res.status === 503) continue  // rate limited → try next key
-        if (res.status === 404) break                           // model not found → try next model
+        if (res.status === 429 || res.status === 503) continue
+        if (res.status === 404) break
         if (!res.ok) continue
-
         const data = await res.json()
         const text = (data?.candidates?.[0]?.content?.parts ?? [])
           .filter((p: any) => !p.thought)
           .map((p: any) => p.text ?? '')
           .join('').trim()
-
-        // Only return if we can actually parse JSON from this response
         const parsed = tryParseDealsJson(text)
-        if (parsed.length > 0) {
-          return { content: text, model, parsed }
-        }
-        // Unparseable response — try next key/model
+        if (parsed.length > 0) return { content: text, model, parsed, source: 'knowledge' }
       } catch { continue }
     }
   }
@@ -140,17 +185,37 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
   }
 
-  const result = await geminiDirectSearch(geminiKeys)
+  const today = new Date().toISOString().split('T')[0]
+  const shuffledKeys = [...geminiKeys].sort(() => Math.random() - 0.5)
+
+  let result: SearchResult | null = null
+
+  // ── Try Google Search grounding first (real web data) ──
+  for (const key of shuffledKeys) {
+    try {
+      const groundedText = await geminiGroundedText(key, today)
+      if (!groundedText) continue
+      const parsed = await geminiTextToJson(groundedText, key, today)
+      if (parsed.length > 0) {
+        result = { content: groundedText, model: 'gemini-2.5-flash+grounding', parsed, source: 'grounding' }
+        break
+      }
+    } catch { continue }
+  }
+
+  // ── Fallback to knowledge if grounding failed ──
+  if (!result) {
+    result = await geminiKnowledgeSearch(geminiKeys, today)
+  }
 
   if (!result) {
     return new Response(JSON.stringify({
-      deals: [],
-      searched: 0,
-      message: '搜尋無結果，所有 Gemini 模型均無法解析，請稍後再試',
+      deals: [], searched: 0,
+      message: '搜尋無結果，請稍後再試',
     }), { headers: { 'Content-Type': 'application/json' } })
   }
 
-  const { content, model, parsed } = result
+  const { content, model, parsed, source } = result
 
   const deals = parsed
     .filter((d: any) => d.destination && d.current_price && Number(d.current_price) > 0)
@@ -170,7 +235,8 @@ export const POST: APIRoute = async ({ request }) => {
   return new Response(JSON.stringify({
     deals,
     searched: parsed.length,
-    debug: { model, raw_preview: content.slice(0, 400) },
+    source,   // 'grounding' = 真實網路資料, 'knowledge' = AI 推估
+    debug: { model, raw_preview: content.slice(0, 500) },
   }), {
     headers: { 'Content-Type': 'application/json' },
   })

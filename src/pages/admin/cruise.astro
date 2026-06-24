@@ -649,7 +649,10 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     if (!res.ok) throw new Error(data.error)
 
     const deals = data.deals || []
-    status.textContent = `找到 ${deals.length} 筆特賣（共掃描 ${data.searched} 筆搜尋結果）`
+    const srcLabel = data.source === 'grounding'
+      ? '🌐 真實網路資料'
+      : '⚠️ AI 推估（需自行核實價格）'
+    status.textContent = `找到 ${deals.length} 筆特賣（掃描 ${data.searched} 筆）· ${srcLabel}`
 
     if (!deals.length) {
       list.style.display = 'block'
@@ -657,8 +660,14 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
       return
     }
 
+    const warningHtml = data.source !== 'grounding'
+      ? `<div style="background:#92400e22;border:1px solid #92400e55;border-radius:8px;padding:.65rem 1rem;font-size:.78rem;color:#fbbf24;margin-bottom:.75rem">
+          ⚠️ 本次為 AI 推估資料，非即時搜尋結果。請上旅行社網站核實價格後再新增。
+         </div>`
+      : ''
+
     list.style.display = 'block'
-    list.innerHTML = deals.map((d, i) => {
+    list.innerHTML = warningHtml + deals.map((d, i) => {
       const disc = d.discount_pct ? `<span class="candidate-disc">↓${d.discount_pct}% OFF</span> ` : ''
       const curr = d.price_currency || 'TWD'
       const price = Number(d.current_price).toLocaleString()
@@ -684,7 +693,7 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     status.textContent = '❌ 搜尋失敗：' + e.message
   } finally {
     btn.disabled = false
-    btn.textContent = '🔍 搜尋永安旅遊 ＋ 東南旅遊 ＋ Klook'
+    btn.textContent = '🔍 AI 搜尋最新特賣'
   }
 })
 

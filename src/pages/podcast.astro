@@ -166,20 +166,13 @@ import { SITE_TITLE } from '../consts';
             <h3 class="pod-card-title">${ep.title}</h3>
           </div>
         </div>
-        ${ep.embedUrl || ep.audioUrl ? `
         <div class="pod-card-player">
-          ${ep.embedUrl ? `
-          <iframe
-            src="${ep.embedUrl}"
-            width="100%"
-            height="175"
-            frameborder="0"
-            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-            loading="lazy"
-          ></iframe>` : `
-          <audio class="pod-audio" src="${ep.audioUrl}" controls preload="none"></audio>
-          <div class="pod-audio-hint">播放器更新中，點閱數正在累計至 Apple Podcasts</div>`}
+          <a href="${ep.appleUrl}" target="_blank" rel="noopener" class="pod-apple-link">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            在 Apple Podcasts 收聽
+          </a>
           ${ep.description ? `
           <button class="pod-transcript-btn" aria-expanded="false" aria-label="展開預言文章">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -191,7 +184,7 @@ import { SITE_TITLE } from '../consts';
             </svg>
           </button>
           <div class="pod-transcript" hidden>${ep.description}</div>` : ''}
-        </div>` : ''}
+        </div>
       `;
 
       if (ep.description) {
@@ -427,19 +420,20 @@ import { SITE_TITLE } from '../consts';
   .pod-card-player {
     padding: 0 1.2em 1.2em;
   }
-  .pod-card-player iframe {
+  .pod-apple-link {
+    display: flex; align-items: center; justify-content: center; gap: .5em;
+    width: 100%; padding: .65em 1em;
+    background: rgba(158,43,207,.12);
+    border: 1px solid rgba(158,43,207,.35);
     border-radius: 8px;
-    display: block; border: none;
+    color: #C46EE8; font-size: .82em; font-weight: 700;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+    margin-bottom: .6em;
   }
-  .pod-audio {
-    width: 100%; display: block;
-    border-radius: 8px;
-    accent-color: #9E2BCF;
-  }
-  .pod-audio-hint {
-    margin-top: .45em;
-    font-size: .72em; color: #727272;
-    text-align: center; line-height: 1.5;
+  .pod-apple-link:hover {
+    background: rgba(158,43,207,.22);
+    border-color: rgba(158,43,207,.6);
   }
   .pod-transcript-btn {
     display: flex;

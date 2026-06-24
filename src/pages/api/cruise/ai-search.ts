@@ -58,19 +58,13 @@ function tryParseDealsJson(text: string): any[] {
   return []
 }
 
-type SearchResult = { content: string, model: string, parsed: any[], source: 'grounding' | 'knowledge' }
+// ── Step 1: Grounding → find real listing page URLs ──────────────────────────
+async function findListingUrls(key: string): Promise<{ name: string, url: string }[]> {
+  const prompt = `用 Google 搜尋以下台灣/香港郵輪旅行社，找出他們目前「郵輪特賣列表頁」的真實 URL（顯示多筆特賣的頁面，不是單一商品頁）：
+永安旅遊(wingontravel.com)、東南旅遊(settour.com.tw)、可樂旅遊(colatour.com.tw)、雄獅旅遊(liontravel.com)、Klook(klook.com)郵輪、KKday(kkday.com)郵輪
 
-// Step 1 of grounding: search + summarise (returns plain text, not JSON)
-async function geminiGroundedText(key: string, today: string): Promise<string> {
-  const prompt = `今天是 ${today}。請用 Google 搜尋以下台灣/香港郵輪旅行社，找出他們目前在賣的 ${today} 之後出發的郵輪特賣，並列出每筆優惠的詳細資訊：
-- 永安旅遊 wingontravel.com（香港出發）
-- 東南旅遊 settour.com.tw（台灣出發）
-- 可樂旅遊 colatour.com.tw（台灣出發）
-- 雄獅旅遊 liontravel.com（台灣出發）
-- Klook klook.com 郵輪
-- KKday kkday.com 郵輪
-
-每筆請列出：船名、郵輪公司、目的地、出發港口、出發日期、幾晚、艙型、原價、現價、幣別、旅行社官網連結、備註。`
+只輸出 JSON 陣列，不要其他文字：
+[{"name":"旅行社名稱","url":"https://...實際找到的網址"}]`
 
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
@@ -80,30 +74,66 @@ async function geminiGroundedText(key: string, today: string): Promise<string> {
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
         tools: [{ google_search: {} }],
-        generationConfig: { maxOutputTokens: 4096, temperature: 0.1 },
+        generationConfig: { maxOutputTokens: 1024, temperature: 0.1 },
       }),
     }
   )
-  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  if (!res.ok) return []
   const data = await res.json()
-  return (data?.candidates?.[0]?.content?.parts ?? [])
+  const text = (data?.candidates?.[0]?.content?.parts ?? [])
     .filter((p: any) => !p.thought)
     .map((p: any) => p.text ?? '')
     .join('').trim()
+
+  try {
+    const m = text.match(/\[[\s\S]*\]/)
+    if (m) return JSON.parse(m[0])
+  } catch {}
+  return []
 }
 
-// Step 2 of grounding: convert the text summary to JSON
-async function geminiTextToJson(text: string, key: string, today: string): Promise<any[]> {
-  const prompt = `把下面的郵輪特賣資訊轉成 JSON 陣列，只輸出 JSON，不要其他文字：
+// ── Step 2: Jina.ai → render JS page → real content with prices ──────────────
+async function fetchWithJina(url: string): Promise<string> {
+  try {
+    const res = await fetch(`https://r.jina.ai/${url}`, {
+      headers: {
+        'Accept': 'text/plain',
+        'X-No-Cache': 'true',
+        'X-Timeout': '20',
+      },
+      signal: AbortSignal.timeout(25000),
+    })
+    if (!res.ok) return ''
+    const text = await res.text()
+    return text.slice(0, 10000) // cap to avoid token overflow
+  } catch { return '' }
+}
 
-${text}
+// ── Step 3: Gemini → parse rendered page content → JSON ──────────────────────
+async function parsePageContent(
+  pages: { name: string, url: string, content: string }[],
+  key: string,
+  today: string
+): Promise<any[]> {
+  const combined = pages
+    .filter(p => p.content.length > 200)
+    .map(p => `=== ${p.name} (${p.url}) ===\n${p.content.slice(0, 3000)}`)
+    .join('\n\n')
 
-每筆格式：
-{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"","notes":""}
+  if (!combined) return []
+
+  const prompt = `以下是台灣/香港郵輪旅行社網頁的真實內容（已渲染 JavaScript），今天是 ${today}。
+請從中找出所有郵輪特賣，出發日期必須在 ${today} 之後。
+
+${combined}
+
+只輸出 JSON 陣列，不要其他文字，不要 markdown code block：
+[{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"找到這筆資料的實際頁面URL","notes":""}]
 
 規則：
-- 出發日期必須在 ${today} 之後，不確定就填 ${today.slice(0,7)}-28
-- 找不到的欄位填合理預設值（departure_port 永安填"香港"，其他填"基隆"）
+- current_price 必須是網頁上出現的真實數字
+- source_url 填該旅行社的頁面 URL（非空）
+- 出發日期必須晚於 ${today}，不確定就填 ${today.slice(0,7)}-28
 - 只輸出 JSON 陣列`
 
   const res = await fetch(
@@ -126,13 +156,16 @@ ${text}
   return tryParseDealsJson(raw)
 }
 
-// Fallback: knowledge-based (no real search, estimated data)
-const KNOWLEDGE_MODELS = ['gemini-3.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-flash-lite']
+// ── Fallback: knowledge-based (estimated, no real scraping) ──────────────────
+const KNOWLEDGE_MODELS = [
+  'gemini-3.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-flash-lite',
+]
 
-async function geminiKnowledgeSearch(keys: string[], today: string): Promise<SearchResult | null> {
-  const shuffledKeys = [...keys].sort(() => Math.random() - 0.5)
-
-  const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前的郵輪特賣，出發日期必須在 ${today} 之後，盡量多列：
+async function knowledgeFallback(
+  keys: string[], today: string
+): Promise<{ parsed: any[], model: string } | null> {
+  const shuffled = [...keys].sort(() => Math.random() - 0.5)
+  const prompt = `今天是 ${today}。請列出以下台灣/香港郵輪旅行社目前的郵輪特賣，出發日期必須在 ${today} 之後：
 - 永安旅遊 (wingontravel.com) — 香港出發
 - 東南旅遊 (settour.com.tw) — 台灣出發
 - 可樂旅遊 (colatour.com.tw) — 台灣出發
@@ -140,13 +173,11 @@ async function geminiKnowledgeSearch(keys: string[], today: string): Promise<Sea
 - Klook (klook.com) — 郵輪行程
 - KKday (kkday.com) — 郵輪行程
 
-每筆輸出格式（純 JSON 陣列，不要其他文字，不要 markdown code block）：
-[{"ship_name":"船名","cruise_line":"郵輪公司","destination":"目的地","departure_port":"出發港口","departure_date":"YYYY-MM-DD","duration_nights":天數,"cabin_type":"內艙","original_price":原價或null,"current_price":現價,"price_currency":"TWD或HKD","source_url":"旅行社官網URL","notes":"備註"}]
-
-出發日期必須晚於 ${today}。如果不確定具體日期，填 ${today.slice(0,7)}-28 或更晚。只輸出 JSON 陣列。`
+只輸出 JSON 陣列，不要 markdown code block：
+[{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"","notes":""}]`
 
   for (const model of KNOWLEDGE_MODELS) {
-    for (const key of shuffledKeys) {
+    for (const key of shuffled) {
       try {
         const res = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
@@ -168,13 +199,14 @@ async function geminiKnowledgeSearch(keys: string[], today: string): Promise<Sea
           .map((p: any) => p.text ?? '')
           .join('').trim()
         const parsed = tryParseDealsJson(text)
-        if (parsed.length > 0) return { content: text, model, parsed, source: 'knowledge' }
+        if (parsed.length > 0) return { parsed, model }
       } catch { continue }
     }
   }
   return null
 }
 
+// ── Main ──────────────────────────────────────────────────────────────────────
 export const POST: APIRoute = async ({ request }) => {
   if (!checkPin(request)) {
     return new Response(JSON.stringify({ error: '密碼錯誤' }), { status: 401 })
@@ -188,34 +220,57 @@ export const POST: APIRoute = async ({ request }) => {
   const today = new Date().toISOString().split('T')[0]
   const shuffledKeys = [...geminiKeys].sort(() => Math.random() - 0.5)
 
-  let result: SearchResult | null = null
+  let parsed: any[] = []
+  let source = 'knowledge'
+  let debugModel = ''
+  let debugUrls: string[] = []
 
-  // ── Try Google Search grounding first (real web data) ──
-  for (const key of shuffledKeys) {
-    try {
-      const groundedText = await geminiGroundedText(key, today)
-      if (!groundedText) continue
-      const parsed = await geminiTextToJson(groundedText, key, today)
-      if (parsed.length > 0) {
-        result = { content: groundedText, model: 'gemini-2.5-flash+grounding', parsed, source: 'grounding' }
-        break
+  // ── PRIMARY: Grounding → Jina → Parse ──
+  try {
+    // 1. Find real listing URLs
+    const pages = await findListingUrls(shuffledKeys[0])
+    debugUrls = pages.map(p => p.url)
+
+    if (pages.length > 0) {
+      // 2. Fetch all pages with Jina.ai in parallel
+      const fetched = await Promise.all(
+        pages.map(async p => ({
+          name: p.name,
+          url: p.url,
+          content: await fetchWithJina(p.url),
+        }))
+      )
+
+      const fetchedCount = fetched.filter(p => p.content.length > 200).length
+
+      if (fetchedCount > 0) {
+        // 3. Parse real page content
+        const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
+        parsed = await parsePageContent(fetched, key, today)
+        if (parsed.length > 0) {
+          source = 'jina'
+          debugModel = 'gemini-2.5-flash+jina'
+        }
       }
-    } catch { continue }
+    }
+  } catch { /* fall through to knowledge fallback */ }
+
+  // ── FALLBACK: knowledge-based ──
+  if (parsed.length === 0) {
+    const fb = await knowledgeFallback(geminiKeys, today)
+    if (fb) {
+      parsed = fb.parsed
+      source = 'knowledge'
+      debugModel = fb.model
+    }
   }
 
-  // ── Fallback to knowledge if grounding failed ──
-  if (!result) {
-    result = await geminiKnowledgeSearch(geminiKeys, today)
-  }
-
-  if (!result) {
+  if (parsed.length === 0) {
     return new Response(JSON.stringify({
       deals: [], searched: 0,
       message: '搜尋無結果，請稍後再試',
     }), { headers: { 'Content-Type': 'application/json' } })
   }
-
-  const { content, model, parsed, source } = result
 
   const deals = parsed
     .filter((d: any) => d.destination && d.current_price && Number(d.current_price) > 0)
@@ -235,8 +290,9 @@ export const POST: APIRoute = async ({ request }) => {
   return new Response(JSON.stringify({
     deals,
     searched: parsed.length,
-    source,   // 'grounding' = 真實網路資料, 'knowledge' = AI 推估
-    debug: { model, raw_preview: content.slice(0, 500) },
+    // 'jina' = real scraped data  'knowledge' = AI estimated
+    source,
+    debug: { model: debugModel, urls: debugUrls },
   }), {
     headers: { 'Content-Type': 'application/json' },
   })

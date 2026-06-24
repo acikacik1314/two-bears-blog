@@ -649,9 +649,11 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     if (!res.ok) throw new Error(data.error)
 
     const deals = data.deals || []
-    const srcLabel = data.source === 'grounding'
-      ? '🌐 真實網路資料'
-      : '⚠️ AI 推估（需自行核實價格）'
+    const srcLabel = data.source === 'jina'
+      ? '✅ 真實網頁資料（Jina 渲染）'
+      : data.source === 'grounding'
+      ? '🌐 Google 搜尋資料'
+      : '⚠️ AI 推估（需自行核實）'
     status.textContent = `找到 ${deals.length} 筆特賣（掃描 ${data.searched} 筆）· ${srcLabel}`
 
     if (!deals.length) {
@@ -660,9 +662,9 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
       return
     }
 
-    const warningHtml = data.source !== 'grounding'
+    const warningHtml = data.source === 'knowledge'
       ? `<div style="background:#92400e22;border:1px solid #92400e55;border-radius:8px;padding:.65rem 1rem;font-size:.78rem;color:#fbbf24;margin-bottom:.75rem">
-          ⚠️ 本次為 AI 推估資料，非即時搜尋結果。請上旅行社網站核實價格後再新增。
+          ⚠️ 本次為 AI 推估資料，非即時網頁內容。請點連結至旅行社網站核實價格後再新增。
          </div>`
       : ''
 

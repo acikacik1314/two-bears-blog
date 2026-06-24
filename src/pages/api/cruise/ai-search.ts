@@ -58,39 +58,18 @@ function tryParseDealsJson(text: string): any[] {
   return []
 }
 
-// ── Step 1: Grounding → find real listing page URLs ──────────────────────────
-async function findListingUrls(key: string): Promise<{ name: string, url: string }[]> {
-  const prompt = `用 Google 搜尋以下台灣/香港郵輪旅行社，找出他們目前「郵輪特賣列表頁」的真實 URL（顯示多筆特賣的頁面，不是單一商品頁）：
-永安旅遊(wingontravel.com)、東南旅遊(settour.com.tw)、可樂旅遊(colatour.com.tw)、雄獅旅遊(liontravel.com)、Klook(klook.com)郵輪、KKday(kkday.com)郵輪
-
-只輸出 JSON 陣列，不要其他文字：
-[{"name":"旅行社名稱","url":"https://...實際找到的網址"}]`
-
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        tools: [{ google_search: {} }],
-        generationConfig: { maxOutputTokens: 1024, temperature: 0.1 },
-      }),
-    }
-  )
-  if (!res.ok) return []
-  const data = await res.json()
-  const text = (data?.candidates?.[0]?.content?.parts ?? [])
-    .filter((p: any) => !p.thought)
-    .map((p: any) => p.text ?? '')
-    .join('').trim()
-
-  try {
-    const m = text.match(/\[[\s\S]*\]/)
-    if (m) return JSON.parse(m[0])
-  } catch {}
-  return []
-}
+// ── Step 1: Hardcoded known listing pages (no grounding needed) ──────────────
+// Grounding is unreliable for finding the right URL — it returns homepages or
+// outdated campaign pages. These are verified listing pages that always show
+// multiple current deals.
+const LISTING_PAGES = [
+  { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html' },
+  { name: '可樂旅遊', url: 'https://www.colatour.com.tw/f/cruise/' },
+  { name: '雄獅旅遊', url: 'https://www.liontravel.com/category/cruise/' },
+  { name: '永安旅遊', url: 'https://www.wingontravel.com/cruise' },
+  { name: 'Klook',   url: 'https://www.klook.com/zh-TW/cruises/' },
+  { name: 'KKday',   url: 'https://www.kkday.com/zh-tw/category/cruise/' },
+]
 
 // ── Step 2: Jina.ai → render JS page → real content with prices ──────────────
 async function fetchWithJina(url: string): Promise<string> {
@@ -122,19 +101,22 @@ async function parsePageContent(
 
   if (!combined) return []
 
-  const prompt = `以下是台灣/香港郵輪旅行社網頁的真實內容（已渲染 JavaScript），今天是 ${today}。
-請從中找出所有郵輪特賣，出發日期必須在 ${today} 之後。
+  const prompt = `以下是台灣/香港郵輪旅行社網頁的真實抓取內容，今天是 ${today}。
+請從中提取郵輪特賣資料。
 
 ${combined}
 
 只輸出 JSON 陣列，不要其他文字，不要 markdown code block：
-[{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"找到這筆資料的實際頁面URL","notes":""}]
+[{"ship_name":"","cruise_line":"","destination":"","departure_port":"","departure_date":"YYYY-MM-DD","duration_nights":0,"cabin_type":"內艙","original_price":null,"current_price":0,"price_currency":"TWD","source_url":"","notes":""}]
 
-規則：
-- current_price 必須是網頁上出現的真實數字
-- source_url 填該旅行社的頁面 URL（非空）
-- 出發日期必須晚於 ${today}，不確定就填 ${today.slice(0,7)}-28
-- 只輸出 JSON 陣列`
+嚴格規則（違反規則寧可回傳空陣列）：
+- current_price 必須是網頁文字中出現的確切數字，絕對不可以推算或估計
+- departure_date 必須是網頁中明確出現的日期，晚於 ${today}；找不到明確日期就跳過這筆
+- destination 必須是網頁中出現的文字，不能自己補
+- 如果以上三個欄位有任何一個在網頁中找不到確切資料，直接跳過這筆，不要補填
+- ship_name、cruise_line 找不到就填空字串，不要猜
+- source_url 填該網頁的 URL
+- 寧可回傳少幾筆真實資料，也不要回傳任何捏造的資料`
 
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
@@ -225,32 +207,27 @@ export const POST: APIRoute = async ({ request }) => {
   let debugModel = ''
   let debugUrls: string[] = []
 
-  // ── PRIMARY: Grounding → Jina → Parse ──
+  // ── PRIMARY: Hardcoded URLs → Jina render → Parse ──
   try {
-    // 1. Find real listing URLs
-    const pages = await findListingUrls(shuffledKeys[0])
-    debugUrls = pages.map(p => p.url)
+    debugUrls = LISTING_PAGES.map(p => p.url)
 
-    if (pages.length > 0) {
-      // 2. Fetch all pages with Jina.ai in parallel
-      const fetched = await Promise.all(
-        pages.map(async p => ({
-          name: p.name,
-          url: p.url,
-          content: await fetchWithJina(p.url),
-        }))
-      )
+    // Fetch all pages with Jina.ai in parallel
+    const fetched = await Promise.all(
+      LISTING_PAGES.map(async p => ({
+        name: p.name,
+        url: p.url,
+        content: await fetchWithJina(p.url),
+      }))
+    )
 
-      const fetchedCount = fetched.filter(p => p.content.length > 200).length
+    const fetchedCount = fetched.filter(p => p.content.length > 200).length
 
-      if (fetchedCount > 0) {
-        // 3. Parse real page content
-        const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
-        parsed = await parsePageContent(fetched, key, today)
-        if (parsed.length > 0) {
-          source = 'jina'
-          debugModel = 'gemini-2.5-flash+jina'
-        }
+    if (fetchedCount > 0) {
+      const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
+      parsed = await parsePageContent(fetched, key, today)
+      if (parsed.length > 0) {
+        source = 'jina'
+        debugModel = `gemini-2.5-flash+jina(${fetchedCount}/${LISTING_PAGES.length} pages)`
       }
     }
   } catch { /* fall through to knowledge fallback */ }

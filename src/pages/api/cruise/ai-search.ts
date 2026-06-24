@@ -153,9 +153,27 @@ function parseSettour(html: string, today: string): any[] {
     const year = testDate < todayDate ? currentYear + 1 : currentYear
     const departure_date = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`
 
+    // GFG prefix = fly+cruise; infer embarkation port from title/notes
+    const notesText = $(el).find('h5').text()
+    const isFlyAndCruise = /GFG/i.test(href)
+    let departure_port = '基隆'
+    if (isFlyAndCruise) {
+      const allText = titleText + ' ' + notesText
+      if (/新加坡/.test(allText))      departure_port = '新加坡'
+      else if (/香港/.test(allText))   departure_port = '香港'
+      else if (/上海/.test(allText))   departure_port = '上海'
+      else if (/天津/.test(allText))   departure_port = '天津'
+      else if (/釜山/.test(allText))   departure_port = '釜山'
+      else if (/橫濱|東京/.test(allText)) departure_port = '橫濱'
+      else if (/高雄/.test(allText))   departure_port = '高雄'
+      else                             departure_port = '飛航接駁'
+    } else if (/高雄/.test(titleText + notesText)) {
+      departure_port = '高雄'
+    }
+
     deals.push({
       ship_name, cruise_line, destination,
-      departure_port: '基隆',
+      departure_port,
       departure_date,
       duration_nights,
       cabin_type,
@@ -163,7 +181,7 @@ function parseSettour(html: string, today: string): any[] {
       current_price,
       price_currency: 'TWD',
       source_url: href,
-      notes: $(el).find('h5').text().trim(),
+      notes: notesText.trim(),
     })
   })
 

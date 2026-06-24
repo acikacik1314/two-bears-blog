@@ -66,7 +66,7 @@ const LISTING_PAGES = [
   { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html',                               ssr: true  },
   { name: '可樂旅遊', url: 'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',           ssr: true  },
   // ⚠️ SPA — requires Jina rendering; correct subdomain confirmed, cruise path TBD
-  { name: '雄獅旅遊', url: 'https://travel.liontravel.com/cruise/',                                 ssr: false },
+  { name: '雄獅旅遊', url: 'https://search.liontravel.com/zh-tw/%E9%83%B5%E8%BC%AA?fr=ev16575C0101C0801M02', ssr: false },
   // Removed: wingontravel (HK-only, HKD prices), Klook (experience tickets ≠ package cruise), KKday (unverified)
 ]
 

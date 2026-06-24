@@ -458,8 +458,8 @@ document.getElementById('btnSubmit').addEventListener('click', async () => {
   const source         = document.getElementById('f-source').value.trim()
   const affiliate_url  = document.getElementById('f-url').value.trim()
 
-  if (!ship_name || !cruise_line || !destination || !departure_date || !duration_nights || !current_price || !affiliate_url) {
-    showToast('⚠️ 請填寫必填欄位（標 * 的）')
+  if (!ship_name || !destination || !departure_date || !duration_nights || !current_price || !affiliate_url) {
+    showToast('⚠️ 請填寫必填欄位（船名、目的地、出發日期、天數、現價、連結）')
     return
   }
 
@@ -678,7 +678,7 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
         <div class="candidate-card" id="cand-${i}">
           <div class="candidate-info">
             <h4>${d.ship_name} — ${d.destination}</h4>
-            <p>📅 ${d.departure_date} ｜ 🌙 ${d.duration_nights} 晚 ｜ 🚢 ${d.departure_port || '—'} ｜ 🛏 ${d.cabin_type || '內艙'}</p>
+            <p>📅 ${d.departure_date || '<span style="color:#f59e0b">需手動填日期</span>'} ｜ 🌙 ${d.duration_nights} 晚 ｜ 🚢 ${d.departure_port || '—'} ｜ 🛏 ${d.cabin_type || '內艙'}</p>
             <p>${d.cruise_line || ''} ${d.notes ? '｜ ' + d.notes : ''}</p>
             <p class="candidate-source">來源：${d.source} · 聯盟連結已自動填入</p>
           </div>
@@ -703,6 +703,24 @@ async function addCandidate(i) {
   const d = window._aiCandidates[i]
   if (!d) return
 
+  // No departure_date (colatour listing page doesn't show dates) → load into form
+  if (!d.departure_date) {
+    document.getElementById('f-ship').value    = d.ship_name || ''
+    document.getElementById('f-line').value    = d.cruise_line || ''
+    document.getElementById('f-dest').value    = d.destination || ''
+    document.getElementById('f-port').value    = d.departure_port || '基隆'
+    document.getElementById('f-nights').value  = d.duration_nights || ''
+    document.getElementById('f-cabin').value   = d.cabin_type || '內艙'
+    document.getElementById('f-curr').value    = d.current_price || ''
+    document.getElementById('f-source').value  = d.source || ''
+    document.getElementById('f-url').value     = d.affiliate_url || ''
+    document.getElementById('f-notes').value   = d.notes || ''
+    document.getElementById('f-date').value    = ''
+    document.getElementById('formCard').scrollIntoView({ behavior: 'smooth' })
+    showToast('📅 請填寫出發日期後點「儲存」')
+    return
+  }
+
   const btn = document.querySelector(`#cand-${i} .btn-add-candidate`)
   btn.disabled = true
   btn.textContent = '新增中…'
@@ -711,7 +729,7 @@ async function addCandidate(i) {
     ship_name:      d.ship_name,
     cruise_line:    d.cruise_line || '',
     destination:    d.destination,
-    departure_port: d.departure_port || '香港',
+    departure_port: d.departure_port || '基隆',
     departure_date: d.departure_date,
     duration_nights: d.duration_nights,
     cabin_type:     d.cabin_type || '內艙',

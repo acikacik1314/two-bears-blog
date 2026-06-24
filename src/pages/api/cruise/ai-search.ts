@@ -222,7 +222,7 @@ function parseColatour(html: string): any[] {
       cruise_line: '',
       destination,
       departure_port: departure_port || '基隆',
-      departure_date: '',
+      departure_date: null,
       duration_nights,
       cabin_type: '內艙',
       original_price: null,

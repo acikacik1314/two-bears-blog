@@ -65,10 +65,10 @@ export const GET: APIRoute = async () => {
         num: itemParts.length - idx,
         title,
         date: extractTag('pubDate', item),
-        link: extractTag('link', item),
         embedUrl: appleId
           ? `https://embed.podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}?i=${appleId}`
           : '',
+        audioUrl: extractAttr('enclosure', 'url', item),
         duration: extractTag('itunes:duration', item),
         description,
         image: extractAttr('itunes:image', 'href', item) || coverImage,

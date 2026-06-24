@@ -166,8 +166,9 @@ import { SITE_TITLE } from '../consts';
             <h3 class="pod-card-title">${ep.title}</h3>
           </div>
         </div>
-        ${ep.embedUrl ? `
+        ${ep.embedUrl || ep.audioUrl ? `
         <div class="pod-card-player">
+          ${ep.embedUrl ? `
           <iframe
             src="${ep.embedUrl}"
             width="100%"
@@ -176,7 +177,9 @@ import { SITE_TITLE } from '../consts';
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
             loading="lazy"
-          ></iframe>
+          ></iframe>` : `
+          <audio class="pod-audio" src="${ep.audioUrl}" controls preload="none"></audio>
+          <div class="pod-audio-hint">播放器更新中，點閱數正在累計至 Apple Podcasts</div>`}
           ${ep.description ? `
           <button class="pod-transcript-btn" aria-expanded="false" aria-label="展開預言文章">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -427,6 +430,16 @@ import { SITE_TITLE } from '../consts';
   .pod-card-player iframe {
     border-radius: 8px;
     display: block; border: none;
+  }
+  .pod-audio {
+    width: 100%; display: block;
+    border-radius: 8px;
+    accent-color: #9E2BCF;
+  }
+  .pod-audio-hint {
+    margin-top: .45em;
+    font-size: .72em; color: #727272;
+    text-align: center; line-height: 1.5;
   }
   .pod-transcript-btn {
     display: flex;

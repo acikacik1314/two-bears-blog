@@ -136,7 +136,8 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 .tag-featured { background: #E8920A; color: #fff; }
 
 .card-price { margin-top: auto; }
-.card-original { font-size: .75rem; color: #999; text-decoration: line-through; }
+.card-original { font-size: .72rem; color: #999; text-decoration: line-through; }
+.card-savings { font-size: .75rem; color: #2e7d32; font-weight: 700; margin-top: .1rem; }
 .card-current {
   font-size: 1.35rem; font-weight: 800; color: #3B2A1E; line-height: 1;
 }
@@ -374,7 +375,11 @@ function renderCard(d) {
     : ''
 
   const origPrice = d.original_price
-    ? `<div class="card-original">${fmt(d.original_price)}</div>` : ''
+    ? `<div class="card-original">原價 ${fmt(d.original_price)}</div>` : ''
+
+  const savingsLine = d.original_price && d.discount_pct
+    ? `<div class="card-savings">省 ${fmt(d.original_price - d.current_price)}（-${d.discount_pct}%）</div>`
+    : ''
 
   const shoreBtn = d.shore_excursion_url
     ? `<a href="${d.shore_excursion_url}" target="_blank" rel="noopener sponsored" class="btn-shore" title="${d.shore_excursion_note || '岸上觀光'}">📍 岸上觀光</a>`
@@ -420,6 +425,7 @@ function renderCard(d) {
         <div class="card-current">
           ${fmt(d.current_price)}<small>${d.price_currency !== 'TWD' ? d.price_currency : ''}</small>
         </div>
+        ${savingsLine}
         <div class="card-pernight">每晚約 <strong>${fmt(d.per_night)}</strong></div>
         ${priceHist}
         ${daysBadge(d.days_until)}

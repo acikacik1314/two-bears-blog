@@ -140,18 +140,13 @@ function parseSettour(html: string, today: string): any[] {
     const cabinMatch = titleText.match(/（([^·‧.．）]+)/)
     const cabin_type = cabinMatch ? cabinMatch[1].trim() : '內艙'
 
-    // Departure dates: li items matching MM/DD, infer year
+    // Departure dates: li items matching MM/DD, infer year — one record per date
     const validDates = $(el).find('ul.productDate li')
       .toArray()
       .map(d => $(d).text().trim())
       .filter(d => /^\d{1,2}\/\d{1,2}$/.test(d))
 
     if (validDates.length === 0) return
-
-    const [mm, dd] = validDates[0].split('/').map(Number)
-    const testDate = new Date(`${currentYear}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`)
-    const year = testDate < todayDate ? currentYear + 1 : currentYear
-    const departure_date = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`
 
     // GFG prefix = fly+cruise; infer embarkation port from title/notes
     const notesText = $(el).find('h5').text()
@@ -171,18 +166,25 @@ function parseSettour(html: string, today: string): any[] {
       departure_port = '高雄'
     }
 
-    deals.push({
-      ship_name, cruise_line, destination,
-      departure_port,
-      departure_date,
-      duration_nights,
-      cabin_type,
-      original_price: null,
-      current_price,
-      price_currency: 'TWD',
-      source_url: href,
-      notes: notesText.trim(),
-    })
+    for (const dateStr of validDates) {
+      const [mm, dd] = dateStr.split('/').map(Number)
+      const testDate = new Date(`${currentYear}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`)
+      const year = testDate < todayDate ? currentYear + 1 : currentYear
+      const departure_date = `${year}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`
+
+      deals.push({
+        ship_name, cruise_line, destination,
+        departure_port,
+        departure_date,
+        duration_nights,
+        cabin_type,
+        original_price: null,
+        current_price,
+        price_currency: 'TWD',
+        source_url: href,
+        notes: notesText.trim(),
+      })
+    }
   })
 
   // Same ship + destination + departure_date → keep lowest price only

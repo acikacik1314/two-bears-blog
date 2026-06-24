@@ -147,6 +147,13 @@ html body { background: #0f172a; color: #e2e8f0; }
 .btn-add-candidate:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
 .ai-progress { font-size: .85rem; color: #94a3b8; padding: .5rem 0; }
 .ai-progress strong { color: #4ade80; }
+.btn-cleanup {
+  padding: .5rem 1rem; border: 1px solid #475569; border-radius: 9px;
+  background: #1e293b; color: #94a3b8; font-size: .82rem; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.btn-cleanup:hover { background: #334155; color: #f1f5f9; }
+.btn-cleanup:disabled { opacity: .5; cursor: not-allowed; }
 </style>
 
 <html lang="zh-Hant">
@@ -175,6 +182,7 @@ html body { background: #0f172a; color: #e2e8f0; }
         <h3>🤖 AI 自動搜尋最新特賣</h3>
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem">
           <button class="btn-ai-search" id="btnAiSearch">🔍 搜尋永安・東南・可樂・雄獅・樂天・Klook・KKday</button>
+          <button class="btn-cleanup" id="btnCleanup">🧹 清理重複</button>
           <span class="ai-status" id="aiStatus"></span>
         </div>
         <div class="candidate-list" id="candidateList" style="display:none"></div>
@@ -527,6 +535,27 @@ async function deleteDeal(id, name) {
   loadDeals()
 }
 window.deleteDeal = deleteDeal
+
+// ── Cleanup Duplicates ──
+document.getElementById('btnCleanup').addEventListener('click', async () => {
+  if (!confirm('確定清理？將刪除同船名＋日期＋艙型＋現價的重複紀錄（保留最早一筆）。')) return
+  const btn    = document.getElementById('btnCleanup')
+  const status = document.getElementById('aiStatus')
+  btn.disabled = true
+  btn.textContent = '⏳ 清理中…'
+  try {
+    const r = await fetch('/api/cruise/cleanup-duplicates', { method: 'POST', headers: getHeaders() })
+    const d = await r.json()
+    if (!r.ok) throw new Error(d.error)
+    status.textContent = d.deleted ? `🧹 已刪除 ${d.deleted} 筆重複` : '✅ 沒有找到重複資料'
+    if (d.deleted) loadDeals()
+  } catch (e) {
+    status.textContent = '❌ ' + e.message
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🧹 清理重複'
+  }
+})
 
 // ── AI Search → 自動批次新增 ──
 document.getElementById('btnAiSearch').addEventListener('click', async () => {

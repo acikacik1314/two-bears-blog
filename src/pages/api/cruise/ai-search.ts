@@ -58,34 +58,52 @@ function tryParseDealsJson(text: string): any[] {
   return []
 }
 
-// ── Step 1: Hardcoded known listing pages (no grounding needed) ──────────────
-// Grounding is unreliable for finding the right URL — it returns homepages or
-// outdated campaign pages. These are verified listing pages that always show
-// multiple current deals.
+// ── Step 1: Verified listing pages ───────────────────────────────────────────
+// URLs manually verified 2026-06. ssr:true = server-side rendered HTML,
+// ssr:false = SPA that requires Jina JS rendering.
 const LISTING_PAGES = [
-  { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html' },
-  { name: '可樂旅遊', url: 'https://www.colatour.com.tw/f/cruise/' },
-  { name: '雄獅旅遊', url: 'https://www.liontravel.com/category/cruise/' },
-  { name: '永安旅遊', url: 'https://www.wingontravel.com/cruise' },
-  { name: 'Klook',   url: 'https://www.klook.com/zh-TW/cruises/' },
-  { name: 'KKday',   url: 'https://www.kkday.com/zh-tw/category/cruise/' },
+  // ✅ Verified SSR — plain HTML, real prices confirmed
+  { name: '東南旅遊', url: 'https://tour.settour.com.tw/cruise.html',                               ssr: true  },
+  { name: '可樂旅遊', url: 'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',           ssr: true  },
+  // ⚠️ SPA — requires Jina rendering; correct subdomain confirmed, cruise path TBD
+  { name: '雄獅旅遊', url: 'https://travel.liontravel.com/cruise/',                                 ssr: false },
+  // Removed: wingontravel (HK-only, HKD prices), Klook (experience tickets ≠ package cruise), KKday (unverified)
 ]
 
-// ── Step 2: Jina.ai → render JS page → real content with prices ──────────────
+// ── Step 2a: Direct fetch for SSR pages (faster, no Jina rate limit) ─────────
+async function fetchSSR(url: string): Promise<string> {
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; cruise-bot/1.0)' },
+      signal: AbortSignal.timeout(15000),
+    })
+    if (!res.ok) return ''
+    const html = await res.text()
+    // Strip scripts/styles/tags, collapse whitespace → clean text for Gemini
+    return html
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[\s\S]*?<\/style>/gi, '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 12000)
+  } catch { return '' }
+}
+
+// ── Step 2b: Jina.ai for SPA pages (renders JavaScript) ──────────────────────
 async function fetchWithJina(url: string): Promise<string> {
   try {
     const res = await fetch(`https://r.jina.ai/${url}`, {
-      headers: {
-        'Accept': 'text/plain',
-        'X-No-Cache': 'true',
-        'X-Timeout': '20',
-      },
+      headers: { 'Accept': 'text/plain', 'X-No-Cache': 'true', 'X-Timeout': '20' },
       signal: AbortSignal.timeout(25000),
     })
     if (!res.ok) return ''
-    const text = await res.text()
-    return text.slice(0, 10000) // cap to avoid token overflow
+    return (await res.text()).slice(0, 12000)
   } catch { return '' }
+}
+
+async function fetchPage(page: { name: string, url: string, ssr: boolean }): Promise<string> {
+  return page.ssr ? fetchSSR(page.url) : fetchWithJina(page.url)
 }
 
 // ── Step 3: Gemini → parse rendered page content → JSON ──────────────────────
@@ -207,16 +225,15 @@ export const POST: APIRoute = async ({ request }) => {
   let debugModel = ''
   let debugUrls: string[] = []
 
-  // ── PRIMARY: Hardcoded URLs → Jina render → Parse ──
+  // ── PRIMARY: Hardcoded URLs → fetch (SSR direct / SPA via Jina) → Parse ──
   try {
     debugUrls = LISTING_PAGES.map(p => p.url)
 
-    // Fetch all pages with Jina.ai in parallel
     const fetched = await Promise.all(
       LISTING_PAGES.map(async p => ({
         name: p.name,
         url: p.url,
-        content: await fetchWithJina(p.url),
+        content: await fetchPage(p),
       }))
     )
 
@@ -226,8 +243,8 @@ export const POST: APIRoute = async ({ request }) => {
       const key = shuffledKeys[Math.floor(Math.random() * shuffledKeys.length)]
       parsed = await parsePageContent(fetched, key, today)
       if (parsed.length > 0) {
-        source = 'jina'
-        debugModel = `gemini-2.5-flash+jina(${fetchedCount}/${LISTING_PAGES.length} pages)`
+        source = 'scraped'
+        debugModel = `gemini-2.5-flash+scrape(${fetchedCount}/${LISTING_PAGES.length} pages)`
       }
     }
   } catch { /* fall through to knowledge fallback */ }

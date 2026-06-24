@@ -649,10 +649,10 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     if (!res.ok) throw new Error(data.error)
 
     const deals = data.deals || []
-    const srcLabel = data.source === 'jina'
+    const srcLabel = data.source === 'scraped'
+      ? '✅ 真實網頁資料（直接抓取）'
+      : data.source === 'jina'
       ? '✅ 真實網頁資料（Jina 渲染）'
-      : data.source === 'grounding'
-      ? '🌐 Google 搜尋資料'
       : '⚠️ AI 推估（需自行核實）'
     status.textContent = `找到 ${deals.length} 筆特賣（掃描 ${data.searched} 筆）· ${srcLabel}`
 

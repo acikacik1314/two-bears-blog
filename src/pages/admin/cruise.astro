@@ -551,11 +551,22 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
       return
     }
 
+    // 取現有資料，避免重複新增
+    const existingRes = await fetch('/api/cruise/deals', { headers: getHeaders() })
+    const existing = existingRes.ok ? await existingRes.json() : []
+    const existingKeys = new Set((existing || []).map(d => `${d.ship_name}|${d.departure_date}`))
+
     // 分成「有日期可直接新增」和「無日期需手動填」
-    const withDate    = deals.filter(d => d.departure_date)
+    const withDate    = deals.filter(d => d.departure_date && !existingKeys.has(`${d.ship_name}|${d.departure_date}`))
+    const skipped     = deals.filter(d => d.departure_date &&  existingKeys.has(`${d.ship_name}|${d.departure_date}`)).length
     const withoutDate = deals.filter(d => !d.departure_date)
 
-    status.textContent = `找到 ${deals.length} 筆，自動新增 ${withDate.length} 筆中…`
+    if (!withDate.length && !withoutDate.length) {
+      status.textContent = `找到 ${deals.length} 筆，全部已存在，無需新增`
+      return
+    }
+
+    status.textContent = `找到 ${deals.length} 筆${skipped ? `（${skipped} 筆已存在跳過）` : ''}，新增 ${withDate.length} 筆中…`
 
     // 批次新增有日期的
     let added = 0, failed = 0

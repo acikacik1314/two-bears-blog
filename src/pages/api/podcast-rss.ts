@@ -17,23 +17,35 @@ function extractAttr(tag: string, attr: string, str: string) {
   return m ? m[1] : '';
 }
 
-async function fetchAppleEpisodeIds(): Promise<Record<string, string>> {
+function normalizeTitle(t: string): string {
+  return t.trim()
+    .replace(/\s+/g, '')
+    .replace(/[「」『』【】〔〕《》〈〉""'']/g, '')
+    .replace(/[！？。，、；：…‥～〜·・]/g, '')
+    .replace(/[!?.,;:~]/g, '')
+    .toLowerCase();
+}
+
+async function fetchAppleEpisodeIds(): Promise<{ exact: Record<string, string>; norm: Record<string, string> }> {
   try {
     const res = await fetch(
       `https://itunes.apple.com/lookup?id=${APPLE_PODCAST_ID}&entity=podcastEpisode&limit=200&country=TW`,
       { signal: AbortSignal.timeout(10000) }
     );
-    if (!res.ok) return {};
+    if (!res.ok) return { exact: {}, norm: {} };
     const data = await res.json();
-    const map: Record<string, string> = {};
+    const exact: Record<string, string> = {};
+    const norm: Record<string, string> = {};
     for (const r of data.results ?? []) {
       if (r.wrapperType === 'podcastEpisode' && r.trackId && r.trackName) {
-        map[r.trackName.trim()] = String(r.trackId);
+        const id = String(r.trackId);
+        exact[r.trackName.trim()] = id;
+        norm[normalizeTitle(r.trackName)] = id;
       }
     }
-    return map;
+    return { exact, norm };
   } catch {
-    return {};
+    return { exact: {}, norm: {} };
   }
 }
 
@@ -58,7 +70,7 @@ export const GET: APIRoute = async () => {
     const itemParts = xml.split('<item>').slice(1);
     const episodes = itemParts.map((item, idx) => {
       const title = extractCdata('title', item);
-      const appleId = appleIds[title] ?? '';
+      const appleId = appleIds.exact[title] ?? appleIds.norm[normalizeTitle(title)] ?? '';
       const description = extractCdata('description', item);
 
       return {

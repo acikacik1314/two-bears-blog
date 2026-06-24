@@ -152,16 +152,20 @@ function parseSettour(html: string, today: string): any[] {
     const notesText = $(el).find('h5').text()
     const isFlyAndCruise = /GFG/i.test(href)
     let departure_port = '基隆'
-    if (isFlyAndCruise) {
+    // 常駐基隆船班：即使是 GFG 連結也從基隆出發
+    const isKeelungBased = /莎倫娜|榮耀號|MSC榮耀|麗星/.test(ship_name)
+    if (isKeelungBased) {
+      departure_port = '基隆'
+    } else if (isFlyAndCruise) {
       const allText = titleText + ' ' + notesText
-      if (/新加坡/.test(allText))      departure_port = '新加坡'
-      else if (/香港/.test(allText))   departure_port = '香港'
-      else if (/上海/.test(allText))   departure_port = '上海'
-      else if (/天津/.test(allText))   departure_port = '天津'
-      else if (/釜山/.test(allText))   departure_port = '釜山'
+      if (/新加坡/.test(allText))         departure_port = '新加坡'
+      else if (/香港/.test(allText))      departure_port = '香港'
+      else if (/上海/.test(allText))      departure_port = '上海'
+      else if (/天津/.test(allText))      departure_port = '天津'
+      else if (/釜山/.test(allText))      departure_port = '釜山'
       else if (/橫濱|東京/.test(allText)) departure_port = '橫濱'
-      else if (/高雄/.test(allText))   departure_port = '高雄'
-      else                             departure_port = '飛航接駁'
+      else if (/高雄/.test(allText))      departure_port = '高雄'
+      else                                departure_port = '飛航接駁'
     } else if (/高雄/.test(titleText + notesText)) {
       departure_port = '高雄'
     }

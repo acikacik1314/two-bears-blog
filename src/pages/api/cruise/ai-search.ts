@@ -24,17 +24,17 @@ const AFFILIATE: Record<string, string> = {
   'travel.rakuten':   'https://vbshoptrax.com/track/clicks/3786/c627c2bb910723d9f09cab248d2596412379128f78eee1fc0176f6476a0449a8c23ae5a5112d',
 }
 
-// CRUISE_LISTING_PAGES: 這些是列表頁，不做深層連結
-const LISTING_PAGES = new Set([
+// 列表頁 URL（不做 ?t= 深層連結）
+const CRUISE_LISTING_URLS = new Set([
   'https://tour.settour.com.tw/cruise.html',
-  'https://www.colatour.com.tw/B2C/Cruise/',
+  'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',
 ])
 
 function affiliateFor(url: string): string {
   for (const [domain, aff] of Object.entries(AFFILIATE)) {
     if (url.includes(domain)) {
       // 支援 ?t= 深層連結（列表頁除外）
-      if (aff.includes('/track/clicks/') && !LISTING_PAGES.has(url)) {
+      if (aff.includes('/track/clicks/') && !CRUISE_LISTING_URLS.has(url)) {
         return aff + '?t=' + encodeURIComponent(encodeURIComponent(url))
       }
       return aff

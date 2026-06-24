@@ -153,9 +153,11 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 .days-future { background: #f1f8e9; color: #558b2f; }
 
 .card-foot {
-  padding: .7rem 1rem; border-top: 1px solid #EADFC8;
-  display: flex; gap: .5rem;
+  padding: .7rem 1rem .5rem; border-top: 1px solid #EADFC8;
+  display: flex; flex-direction: column; gap: .4rem;
 }
+.card-foot-btns { display: flex; gap: .5rem; }
+.card-book-hint { font-size: .68rem; color: #9C856E; text-align: center; line-height: 1.4; }
 .btn-book {
   flex: 1; padding: .55rem .5rem; border-radius: 8px; border: none;
   background: #E8920A; color: #fff; font-weight: 700; font-size: .85rem;
@@ -424,8 +426,11 @@ function renderCard(d) {
       </div>
     </div>
     <div class="card-foot">
-      <a href="${d.affiliate_url}" target="_blank" rel="noopener sponsored" class="btn-book">立即訂購 →</a>
-      ${shoreBtn}
+      <div class="card-foot-btns">
+        <a href="${d.affiliate_url}" target="_blank" rel="noopener sponsored" class="btn-book">立即訂購 →</a>
+        ${shoreBtn}
+      </div>
+      <div class="card-book-hint">前往 ${d.source || '旅行社'} 郵輪專區後，請搜尋以上航線確認最新價格</div>
     </div>
   </div>`
 }

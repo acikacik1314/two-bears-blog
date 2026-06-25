@@ -212,10 +212,10 @@ function parseSettour(html: string, today: string): any[] {
     }
   })
 
-  // Same ship + destination + departure_date → keep lowest price only
+  // Same ship + destination + departure_date + cabin_type → keep lowest price only
   const deduped = new Map<string, any>()
   for (const deal of deals) {
-    const key = `${deal.ship_name}|${deal.destination}|${deal.departure_date}`
+    const key = `${deal.ship_name}|${deal.destination}|${deal.departure_date}|${deal.cabin_type}`
     const existing = deduped.get(key)
     if (!existing || deal.current_price < existing.current_price) {
       deduped.set(key, deal)

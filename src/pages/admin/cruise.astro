@@ -605,7 +605,7 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     // 取現有資料，建立 key → record 的 map
     const existingRes = await fetch('/api/cruise/deals', { headers: getHeaders() })
     const existing = existingRes.ok ? await existingRes.json() : []
-    const existingMap = new Map((existing || []).map(d => [`${d.ship_name}|${d.departure_date}`, d]))
+    const existingMap = new Map((existing || []).map(d => [`${d.ship_name}|${d.departure_date}|${d.cabin_type}`, d]))
 
     // 分類：有日期→判斷新增或更新；無日期→手動填
     const withDate    = deals.filter(d => d.departure_date)
@@ -620,7 +620,7 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
     const toAdd    = []
     const toUpdate = []
     for (const d of withDate) {
-      const key = `${d.ship_name}|${d.departure_date}`
+      const key = `${d.ship_name}|${d.departure_date}|${d.cabin_type}`
       const ex  = existingMap.get(key)
       if (!ex) {
         toAdd.push(d)

@@ -127,6 +127,12 @@ export const GET: APIRoute = async () => {
       const appleId = findEpisodeId(title, itunes, webNorm);
       const description = extractCdata('description', item);
 
+      const linkUrl = extractTag('link', item);
+      const slugMatch = linkUrl.match(/\/episodes\/([^/\s?]+)/);
+      const spotifyEmbedUrl = slugMatch
+        ? `https://creators.spotify.com/pod/profile/teddy175/embed/episodes/${slugMatch[1]}`
+        : '';
+
       return {
         num: itemParts.length - idx,
         title,
@@ -135,6 +141,7 @@ export const GET: APIRoute = async () => {
           ? `https://podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}?i=${appleId}`
           : `https://podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}`,
         hasEpisodeId: !!appleId,
+        spotifyEmbedUrl,
         duration: extractTag('itunes:duration', item),
         description,
         image: extractAttr('itunes:image', 'href', item) || coverImage,

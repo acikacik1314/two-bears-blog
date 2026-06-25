@@ -339,6 +339,51 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					width: 100%;
 				}
 			}
+			.kofi-section {
+				background: #1a1a2e;
+				padding: 1.8em 1.5em;
+			}
+			.kofi-inner {
+				max-width: 760px;
+				margin: 0 auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1.2em;
+				flex-wrap: wrap;
+			}
+			.kofi-text {
+				display: flex;
+				align-items: center;
+				gap: 1em;
+			}
+			.kofi-icon {
+				font-size: 2em;
+				line-height: 1;
+			}
+			.kofi-title {
+				font-weight: 700;
+				color: #fff;
+				font-size: 1em;
+				margin-bottom: .2em;
+			}
+			.kofi-desc {
+				color: #a0a0b0;
+				font-size: .85em;
+			}
+			.kofi-btn {
+				display: inline-block;
+				background: #FF5E5B;
+				color: #fff;
+				font-weight: 700;
+				font-size: .9em;
+				padding: .65em 1.6em;
+				border-radius: 24px;
+				text-decoration: none;
+				white-space: nowrap;
+				transition: background .15s, transform .12s;
+			}
+			.kofi-btn:hover { background: #ff3d3a; transform: translateY(-2px); }
 		</style>
 	</head>
 
@@ -491,6 +536,18 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				</div>
 			</article>
 		</main>
+		<div class="kofi-section">
+			<div class="kofi-inner">
+				<div class="kofi-text">
+					<span class="kofi-icon">☕</span>
+					<div>
+						<div class="kofi-title">喜歡這篇文章？</div>
+						<div class="kofi-desc">你的支持讓兩隻熊繼續追蹤世界動態</div>
+					</div>
+				</div>
+				<a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener" class="kofi-btn">贊助一杯咖啡</a>
+			</div>
+		</div>
 		<Footer />
 	</body>
 	<script define:vars={{ slug: Astro.url.pathname }}>

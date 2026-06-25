@@ -100,6 +100,14 @@ import { SITE_TITLE } from '../consts';
     </div>
 
     </main>
+    <div class="pod-kofi">
+      <span class="pod-kofi-icon">☕</span>
+      <div class="pod-kofi-text">
+        <div class="pod-kofi-title">喜歡收聽未來人預言家？</div>
+        <div class="pod-kofi-desc">贊助一杯咖啡，讓兩隻熊繼續為你整理預言情報</div>
+      </div>
+      <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener" class="pod-kofi-btn">☕ 贊助支持</a>
+    </div>
     <Footer />
   </body>
 </html>
@@ -496,6 +504,28 @@ import { SITE_TITLE } from '../consts';
     text-align: center; color: #727272;
     padding: 3em 0; font-size: .9em;
   }
+
+  /* ── Ko-fi ── */
+  .pod-kofi {
+    display: flex; align-items: center; gap: 1.2em;
+    flex-wrap: wrap; justify-content: space-between;
+    max-width: 860px; margin: 0 auto;
+    padding: 1.8em 1.5em;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .pod-kofi-icon { font-size: 2em; }
+  .pod-kofi-text { flex: 1; min-width: 0; }
+  .pod-kofi-title { font-weight: 700; color: #fff; font-size: .95em; margin-bottom: .2em; }
+  .pod-kofi-desc { color: #a0a0b0; font-size: .82em; }
+  .pod-kofi-btn {
+    display: inline-block;
+    background: #FF5E5B; color: #fff;
+    font-weight: 700; font-size: .88em;
+    padding: .65em 1.6em; border-radius: 24px;
+    text-decoration: none; white-space: nowrap;
+    transition: background .15s, transform .12s;
+  }
+  .pod-kofi-btn:hover { background: #ff3d3a; transform: translateY(-2px); }
 
   /* ── Responsive ── */
   @media (max-width: 860px) {

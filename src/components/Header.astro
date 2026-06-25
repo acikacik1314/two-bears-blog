@@ -67,6 +67,7 @@ import UserMenu from './UserMenu.astro';
       <HeaderLink href="/friends">情報</HeaderLink>
       <HeaderLink href="/member">會員</HeaderLink>
       <HeaderLink href="/about">關於</HeaderLink>
+      <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener" class="nav-kofi">☕ 支持</a>
     </nav>
     <UserMenu />
   </div>
@@ -291,6 +292,21 @@ import UserMenu from './UserMenu.astro';
   /* 觀測站 highlight */
   .site-nav :global(a[href="/oracle"]) { color: #14b8a6; font-weight: 700; }
   .site-nav :global(a[href="/oracle"]:hover) { background: rgba(20,184,166,.1); color: #2dd4bf; }
+
+  /* Ko-fi 支持按鈕 */
+  .nav-kofi {
+    display: inline-flex; align-items: center;
+    padding: 0.3em 0.8em;
+    background: #FF5E5B;
+    color: #fff !important;
+    font-size: 0.78em; font-weight: 700;
+    border-radius: 20px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background .15s, transform .12s;
+    margin-left: 0.3em;
+  }
+  .nav-kofi:hover { background: #ff3d3a !important; transform: translateY(-1px); }
 
   @media (max-width: 900px) {
     .site-nav :global(a) { padding: 0.35em 0.4em; font-size: 0.78em; }

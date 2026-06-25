@@ -21,35 +21,23 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 
 .cruise-wrap { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
 
-/* ── LINE Banner ── */
-.line-banner {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  background: #06C755; color: #fff;
-  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: .75rem;
+/* ── Community Banner ── */
+.community-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap;
+  background: #3B2A1E; color: #FFF8EC;
+  border-radius: 12px; padding: .75rem 1.25rem; margin-bottom: 1.5rem;
 }
-.line-banner-text { font-size: .9rem; font-weight: 600; }
-.line-banner-text span { font-size: .75rem; font-weight: 400; opacity: .85; display: block; }
-.line-banner-btn {
-  background: #fff; color: #06C755; font-weight: 700; font-size: .85rem;
-  padding: .5rem 1.1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+.community-banner-text { font-size: .85rem; font-weight: 600; }
+.community-banner-text span { font-size: .73rem; font-weight: 400; opacity: .7; }
+.community-btns { display: flex; gap: .5rem; flex-shrink: 0; }
+.community-btn {
+  font-weight: 700; font-size: .8rem;
+  padding: .45rem 1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
   transition: opacity .15s;
 }
-.line-banner-btn:hover { opacity: .85; }
-
-/* ── FB Group Banner ── */
-.fb-banner {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  background: #1877F2; color: #fff;
-  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: 1.5rem;
-}
-.fb-banner-text { font-size: .9rem; font-weight: 600; }
-.fb-banner-text span { font-size: .75rem; font-weight: 400; opacity: .85; display: block; }
-.fb-banner-btn {
-  background: #fff; color: #1877F2; font-weight: 700; font-size: .85rem;
-  padding: .5rem 1.1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
-  transition: opacity .15s;
-}
-.fb-banner-btn:hover { opacity: .85; }
+.community-btn:hover { opacity: .85; }
+.community-btn-line { background: #06C755; color: #fff; }
+.community-btn-fb   { background: #1877F2; color: #fff; }
 
 /* ── Filters ── */
 .cruise-filters {
@@ -199,13 +187,14 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 /* ── Loading ── */
 .loading-dots { text-align: center; padding: 3rem; color: #5C4A35; font-size: .9rem; }
 
-/* ── Bottom LINE CTA ── */
+/* ── Bottom CTA ── */
 .line-cta-bottom {
   background: #3B2A1E; border-radius: 14px; padding: 1.5rem 1.5rem;
   text-align: center; margin-top: 2.5rem; color: #FFF8EC;
 }
 .line-cta-bottom h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
 .line-cta-bottom p  { margin: 0 0 1rem; font-size: .85rem; color: rgba(255,248,236,.65); }
+.cta-bottom-btns { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
 .btn-line-big {
   display: inline-flex; align-items: center; gap: .4rem;
   background: #06C755; color: #fff; font-weight: 700; font-size: .95rem;
@@ -213,6 +202,13 @@ html body { background: #FFF8EC; color: #3B2A1E; }
   transition: opacity .15s;
 }
 .btn-line-big:hover { opacity: .85; }
+.btn-fb-big {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: #1877F2; color: #fff; font-weight: 700; font-size: .95rem;
+  padding: .7rem 1.75rem; border-radius: 10px; text-decoration: none;
+  transition: opacity .15s;
+}
+.btn-fb-big:hover { opacity: .85; }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
@@ -242,26 +238,15 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 
   <div class="cruise-wrap">
 
-    <!-- LINE CTA Top -->
-    <div class="line-banner">
-      <div class="line-banner-text">
-        加入 熊愛郵輪 LINE 官方帳號
-        <span>看到喜歡的船？加入我們，享社團限定千元折抵優惠 🎉</span>
+    <!-- Community Banner -->
+    <div class="community-banner">
+      <div class="community-banner-text">
+        加入熊愛郵輪社群 <span>· 享社團千元折抵・互相揪團・第一時間掌握特賣</span>
       </div>
-      <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="line-banner-btn">
-        加入 LINE @156dvhlp →
-      </a>
-    </div>
-
-    <!-- FB Group Banner -->
-    <div class="fb-banner">
-      <div class="fb-banner-text">
-        加入 熊愛郵輪 Facebook 社團
-        <span>分享航程心得・互相揪團・第一時間掌握特賣資訊</span>
+      <div class="community-btns">
+        <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="community-btn community-btn-line">LINE →</a>
+        <a href="https://www.facebook.com/groups/731658172260664" target="_blank" rel="noopener" class="community-btn community-btn-fb">FB 社團 →</a>
       </div>
-      <a href="https://www.facebook.com/groups/731658172260664" target="_blank" rel="noopener" class="fb-banner-btn">
-        加入社團 →
-      </a>
     </div>
 
     <!-- Filters -->
@@ -340,11 +325,17 @@ html body { background: #FFF8EC; color: #3B2A1E; }
     <!-- Bottom LINE CTA -->
     <div class="line-cta-bottom">
       <h3>🐻 找到心動的船了嗎？</h3>
-      <p>加入熊愛郵輪 LINE 官方帳號，社團成員訂購享千元專屬折抵</p>
-      <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="btn-line-big">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.2 2 11.3c0 2.9 1.4 5.5 3.7 7.3-.2.6-.6 2.2-.7 2.5-.1.4.1.4.3.3.2-.1 2.2-1.5 3.1-2.1.8.1 1.7.2 2.6.2 5.52 0 10-4.2 10-9.3C22 6.2 17.52 2 12 2z"/></svg>
-        加入 LINE @156dvhlp
-      </a>
+      <p>加入熊愛郵輪社群，社團成員訂購享千元專屬折抵・揪團・掌握最新特賣</p>
+      <div class="cta-bottom-btns">
+        <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="btn-line-big">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.2 2 11.3c0 2.9 1.4 5.5 3.7 7.3-.2.6-.6 2.2-.7 2.5-.1.4.1.4.3.3.2-.1 2.2-1.5 3.1-2.1.8.1 1.7.2 2.6.2 5.52 0 10-4.2 10-9.3C22 6.2 17.52 2 12 2z"/></svg>
+          加入 LINE
+        </a>
+        <a href="https://www.facebook.com/groups/731658172260664" target="_blank" rel="noopener" class="btn-fb-big">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          加入 FB 社團
+        </a>
+      </div>
     </div>
 
   </div>

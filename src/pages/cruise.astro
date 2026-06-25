@@ -25,7 +25,7 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 .line-banner {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
   background: #06C755; color: #fff;
-  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: 1.5rem;
+  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: .75rem;
 }
 .line-banner-text { font-size: .9rem; font-weight: 600; }
 .line-banner-text span { font-size: .75rem; font-weight: 400; opacity: .85; display: block; }
@@ -35,6 +35,21 @@ html body { background: #FFF8EC; color: #3B2A1E; }
   transition: opacity .15s;
 }
 .line-banner-btn:hover { opacity: .85; }
+
+/* ── FB Group Banner ── */
+.fb-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  background: #1877F2; color: #fff;
+  border-radius: 12px; padding: .9rem 1.25rem; margin-bottom: 1.5rem;
+}
+.fb-banner-text { font-size: .9rem; font-weight: 600; }
+.fb-banner-text span { font-size: .75rem; font-weight: 400; opacity: .85; display: block; }
+.fb-banner-btn {
+  background: #fff; color: #1877F2; font-weight: 700; font-size: .85rem;
+  padding: .5rem 1.1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+  transition: opacity .15s;
+}
+.fb-banner-btn:hover { opacity: .85; }
 
 /* ── Filters ── */
 .cruise-filters {
@@ -235,6 +250,17 @@ html body { background: #FFF8EC; color: #3B2A1E; }
       </div>
       <a href="https://line.me/R/ti/p/@156dvhlp" target="_blank" rel="noopener" class="line-banner-btn">
         加入 LINE @156dvhlp →
+      </a>
+    </div>
+
+    <!-- FB Group Banner -->
+    <div class="fb-banner">
+      <div class="fb-banner-text">
+        加入 熊愛郵輪 Facebook 社團
+        <span>分享航程心得・互相揪團・第一時間掌握特賣資訊</span>
+      </div>
+      <a href="https://www.facebook.com/groups/731658172260664" target="_blank" rel="noopener" class="fb-banner-btn">
+        加入社團 →
       </a>
     </div>
 

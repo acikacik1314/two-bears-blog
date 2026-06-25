@@ -183,6 +183,7 @@ html body { background: #0f172a; color: #e2e8f0; }
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem">
           <button class="btn-ai-search" id="btnAiSearch">🔍 搜尋永安・東南・可樂・雄獅・樂天・Klook・KKday</button>
           <button class="btn-cleanup" id="btnCleanup">🧹 清理重複</button>
+          <button class="btn-cleanup" id="btnCleanupExpired">🗑️ 清理過期</button>
           <span class="ai-status" id="aiStatus"></span>
         </div>
         <div class="candidate-list" id="candidateList" style="display:none"></div>
@@ -557,6 +558,27 @@ document.getElementById('btnCleanup').addEventListener('click', async () => {
   }
 })
 
+// ── Cleanup Expired ──
+document.getElementById('btnCleanupExpired').addEventListener('click', async () => {
+  if (!confirm('確定清理？將刪除所有出發日期已過的紀錄，此操作不可復原。')) return
+  const btn    = document.getElementById('btnCleanupExpired')
+  const status = document.getElementById('aiStatus')
+  btn.disabled = true
+  btn.textContent = '⏳ 清理中…'
+  try {
+    const r = await fetch('/api/cruise/cleanup-expired', { method: 'POST', headers: getHeaders() })
+    const d = await r.json()
+    if (!r.ok) throw new Error(d.error)
+    status.textContent = d.deleted ? `🗑️ 已刪除 ${d.deleted} 筆過期活動` : '✅ 沒有找到過期活動'
+    if (d.deleted) loadDeals()
+  } catch (e) {
+    status.textContent = '❌ ' + e.message
+  } finally {
+    btn.disabled = false
+    btn.textContent = '🗑️ 清理過期'
+  }
+})
+
 // ── AI Search → 自動批次新增 ──
 document.getElementById('btnAiSearch').addEventListener('click', async () => {
   const btn    = document.getElementById('btnAiSearch')
@@ -580,59 +602,99 @@ document.getElementById('btnAiSearch').addEventListener('click', async () => {
       return
     }
 
-    // 取現有資料，避免重複新增
+    // 取現有資料，建立 key → record 的 map
     const existingRes = await fetch('/api/cruise/deals', { headers: getHeaders() })
     const existing = existingRes.ok ? await existingRes.json() : []
-    const existingKeys = new Set((existing || []).map(d => `${d.ship_name}|${d.departure_date}`))
+    const existingMap = new Map((existing || []).map(d => [`${d.ship_name}|${d.departure_date}`, d]))
 
-    // 分成「有日期可直接新增」和「無日期需手動填」
-    const withDate    = deals.filter(d => d.departure_date && !existingKeys.has(`${d.ship_name}|${d.departure_date}`))
-    const skipped     = deals.filter(d => d.departure_date &&  existingKeys.has(`${d.ship_name}|${d.departure_date}`)).length
+    // 分類：有日期→判斷新增或更新；無日期→手動填
+    const withDate    = deals.filter(d => d.departure_date)
     const withoutDate = deals.filter(d => !d.departure_date)
 
     if (!withDate.length && !withoutDate.length) {
-      status.textContent = `找到 ${deals.length} 筆，全部已存在，無需新增`
+      status.textContent = `找到 ${deals.length} 筆，全部無日期`
       return
     }
 
-    status.textContent = `找到 ${deals.length} 筆${skipped ? `（${skipped} 筆已存在跳過）` : ''}，新增 ${withDate.length} 筆中…`
-
-    // 批次新增有日期的
-    let added = 0, failed = 0
+    // 比對欄位決定新增 or 更新 or 跳過
+    const toAdd    = []
+    const toUpdate = []
     for (const d of withDate) {
+      const key = `${d.ship_name}|${d.departure_date}`
+      const ex  = existingMap.get(key)
+      if (!ex) {
+        toAdd.push(d)
+      } else {
+        const changed = (
+          d.current_price  !== ex.current_price  ||
+          d.original_price !== ex.original_price ||
+          (d.is_repositioning || false) !== (ex.is_repositioning || false) ||
+          (d.is_last_minute   || false) !== (ex.is_last_minute   || false) ||
+          (d.has_kids_free    || false) !== (ex.has_kids_free    || false) ||
+          (d.has_3rd_free     || false) !== (ex.has_3rd_free     || false) ||
+          (d.has_obc          || false) !== (ex.has_obc          || false)
+        )
+        if (changed) toUpdate.push({ ...d, id: ex.id })
+      }
+    }
+    const skipped = withDate.length - toAdd.length - toUpdate.length
+
+    status.textContent = `找到 ${deals.length} 筆：新增 ${toAdd.length}、更新 ${toUpdate.length}、跳過 ${skipped} 筆中…`
+
+    const dealBody = (d, extra = {}) => ({
+      ship_name:      d.ship_name,
+      cruise_line:    d.cruise_line || '',
+      destination:    d.destination,
+      departure_port: d.departure_port || '基隆',
+      departure_date: d.departure_date,
+      duration_nights: d.duration_nights,
+      cabin_type:     d.cabin_type || '內艙',
+      original_price: d.original_price || null,
+      current_price:  d.current_price,
+      price_currency: d.price_currency || 'TWD',
+      source:         d.source || '',
+      affiliate_url:  d.affiliate_url,
+      notes:          d.notes || null,
+      is_repositioning: d.is_repositioning || false,
+      is_last_minute:   d.is_last_minute   || false,
+      has_kids_free:    d.has_kids_free     || false,
+      has_3rd_free:     d.has_3rd_free      || false,
+      has_obc:          d.has_obc           || false,
+      ...extra,
+    })
+
+    // 批次新增
+    let added = 0, updated = 0, failed = 0
+    for (const d of toAdd) {
       try {
         const r = await fetch('/api/cruise/deals', {
-          method: 'POST',
-          headers: getHeaders(),
-          body: JSON.stringify({
-            ship_name:      d.ship_name,
-            cruise_line:    d.cruise_line || '',
-            destination:    d.destination,
-            departure_port: d.departure_port || '基隆',
-            departure_date: d.departure_date,
-            duration_nights: d.duration_nights,
-            cabin_type:     d.cabin_type || '內艙',
-            original_price: d.original_price || null,
-            current_price:  d.current_price,
-            price_currency: d.price_currency || 'TWD',
-            source:         d.source || '',
-            affiliate_url:  d.affiliate_url,
-            notes:          d.notes || null,
-            is_repositioning: d.is_repositioning || false,
-            is_last_minute:   d.is_last_minute   || false,
-            has_kids_free:    d.has_kids_free     || false,
-            has_3rd_free:     d.has_3rd_free      || false,
-            has_obc:          d.has_obc           || false,
-            is_featured: false,
-          }),
+          method: 'POST', headers: getHeaders(),
+          body: JSON.stringify(dealBody(d, { is_featured: false })),
         })
         if (r.ok) added++; else failed++
       } catch { failed++ }
-      status.textContent = `自動新增中… ${added + failed}/${withDate.length}`
+      status.textContent = `新增中… ${added + failed}/${toAdd.length}`
+    }
+
+    // 批次更新（只改變動的欄位）
+    for (const d of toUpdate) {
+      try {
+        const r = await fetch('/api/cruise/deals', {
+          method: 'PUT', headers: getHeaders(),
+          body: JSON.stringify(dealBody(d, { id: d.id })),
+        })
+        if (r.ok) updated++; else failed++
+      } catch { failed++ }
+      status.textContent = `更新中… ${updated + failed}/${toUpdate.length}`
     }
 
     loadDeals()
-    status.textContent = `✅ 成功新增 ${added} 筆${failed ? `，${failed} 筆失敗` : ''}${withoutDate.length ? `；${withoutDate.length} 筆無日期（見下方，請手動填）` : ''}`
+    const parts = []
+    if (added)   parts.push(`新增 ${added} 筆`)
+    if (updated) parts.push(`更新 ${updated} 筆`)
+    if (skipped) parts.push(`${skipped} 筆無變動`)
+    if (failed)  parts.push(`${failed} 筆失敗`)
+    status.textContent = `✅ ${parts.join('、')}${withoutDate.length ? `；${withoutDate.length} 筆無日期（見下方）` : ''}`
 
     // 顯示需要手動補日期的
     if (withoutDate.length) {

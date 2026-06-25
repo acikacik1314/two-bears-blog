@@ -19,10 +19,13 @@ export const GET: APIRoute = async ({ url }) => {
   const tags          = url.searchParams.get('tags')          || ''  // comma-sep: repositioning,kids_free,...
   const sort          = url.searchParams.get('sort')          || 'discount'
 
+  const today = new Date().toISOString().split('T')[0]
+
   let q = supabaseAdmin
     .from('cruise_deals')
     .select('*, price_history:cruise_price_history(price, recorded_at)')
     .eq('status', status)
+    .or(`departure_date.is.null,departure_date.gte.${today}`)
 
   // 地區名稱 → 城市關鍵字展開
   const REGION_KEYWORDS: Record<string, string[]> = {

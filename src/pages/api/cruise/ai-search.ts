@@ -19,8 +19,8 @@ const AFFILIATE: Record<string, string> = {
   'settour.com.tw':   'https://afflnk.site/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
   'klook.com':        'https://dreamstore.info/3RVzd',
   'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
-  'colatour.com.tw':  'https://vbshoptrax.com/track/clicks/9762/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff30162a44125095ff88635aca3163d8e',
-  'liontravel.com':   'https://affclkr.online/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e',
+  'colatour.com.tw':  'https://afftck.site/track/clicks/9762/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff30162a44125095ff88635aca3163d8e',
+  'liontravel.com':   'https://aftck.com/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e?t=https%253A%252F%252Ftravel.liontravel.com%252Fcategory%252Fzh-tw%252Fcruise%252Findex',
   'travel.rakuten':   'https://vbshoptrax.com/track/clicks/3786/c627c2bb910723d9f09cab248d2596412379128f78eee1fc0176f6476a0449a8c23ae5a5112d',
 }
 
@@ -31,11 +31,13 @@ const CRUISE_LISTING_URLS = new Set([
   'https://travel.liontravel.com/category/zh-tw/cruise/index',
 ])
 
+// 不支援深層連結的平台：固定連結，不加 ?t=
+const AFFILIATE_NO_DEEPLINK = new Set(['colatour.com.tw', 'liontravel.com'])
+
 function affiliateFor(url: string): string {
   for (const [domain, aff] of Object.entries(AFFILIATE)) {
     if (url.includes(domain)) {
-      // 支援 ?t= 深層連結（列表頁除外）
-      if (aff.includes('/track/clicks/') && !CRUISE_LISTING_URLS.has(url)) {
+      if (aff.includes('/track/clicks/') && !AFFILIATE_NO_DEEPLINK.has(domain)) {
         return aff + '?t=' + encodeURIComponent(encodeURIComponent(url))
       }
       return aff

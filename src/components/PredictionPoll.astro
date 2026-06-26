@@ -1,0 +1,311 @@
+---
+import { PREDICTIONS } from '../data/predictions'
+const items = PREDICTIONS
+---
+
+<section class="pp-section">
+  <div class="pp-header">
+    <span class="pp-eyebrow">🔭 預言同意投票</span>
+    <p class="pp-desc">這些預言還沒發生⸺你認同嗎？每則都是 2026 年以後的預測</p>
+  </div>
+
+  <div class="pp-carousel" id="ppCarousel">
+    {items.map((p, i) => (
+      <div class="pp-card" data-id={p.id} data-idx={i} style={i === 0 ? '' : 'display:none'}>
+        <!-- 頂部：icon + 預言家代碼 + 命中率 -->
+        <div class="pp-meta">
+          <span class="pp-icon">{p.icon}</span>
+          <span class="pp-code">{p.code}</span>
+          <span class="pp-prophet">{p.prophetKey}</span>
+          <span class="pp-rate">命中率 <strong>{p.hitRate}%</strong></span>
+          <span class="pp-year">{p.year}</span>
+        </div>
+
+        <!-- 預言文字 -->
+        <div class="pp-text">「{p.text}」</div>
+
+        <!-- 投票按鈕（未投票時顯示） -->
+        <div class="pp-btns" id={`btns-${p.id}`}>
+          <button class="pp-btn pp-agree" onclick={`ppVote('${p.id}', 'agree')`}>
+            👍 我認同
+          </button>
+          <button class="pp-btn pp-disagree" onclick={`ppVote('${p.id}', 'disagree')`}>
+            👎 不認同
+          </button>
+        </div>
+
+        <!-- 結果（投票後顯示） -->
+        <div class="pp-result" id={`result-${p.id}`} style="display:none">
+          <div class="pp-bar-row" id={`bars-${p.id}`}></div>
+          <div class="pp-total" id={`total-${p.id}`}></div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- 導航 -->
+  <div class="pp-nav">
+    <button class="pp-nav-btn" id="ppPrev" onclick="ppMove(-1)">‹</button>
+    <span class="pp-nav-idx" id="ppIdx">1 / {items.length}</span>
+    <button class="pp-nav-btn" id="ppNext" onclick="ppMove(1)">›</button>
+  </div>
+</section>
+
+<script define:vars={{ total: items.length, ids: items.map(p => p.id) }}>
+  let cur = 0
+  const KEY_PRE = 'pp2_'
+
+  // 顯示第 idx 張
+  function showCard(idx) {
+    document.querySelectorAll('.pp-card').forEach((el, i) => {
+      el.style.display = i === idx ? '' : 'none'
+    })
+    document.getElementById('ppIdx').textContent = `${idx + 1} / ${total}`
+    document.getElementById('ppPrev').disabled = idx === 0
+    document.getElementById('ppNext').disabled = idx === total - 1
+    // 如果已投票，載入結果
+    const id = ids[idx]
+    const already = localStorage.getItem(KEY_PRE + id)
+    if (already) loadResult(id, already)
+  }
+
+  window.ppMove = function(dir) {
+    cur = Math.max(0, Math.min(total - 1, cur + dir))
+    showCard(cur)
+  }
+
+  function pct(n, t) { return t ? Math.round(n / t * 100) : 0 }
+
+  function renderResult(id, counts, myVote) {
+    const total = counts.agree + counts.disagree
+    const agPct = pct(counts.agree, total)
+    const diPct = pct(counts.disagree, total)
+    const bars = document.getElementById('bars-' + id)
+    const totEl = document.getElementById('total-' + id)
+    if (bars) bars.innerHTML = `
+      <div class="pp-bar-item ${myVote === 'agree' ? 'pp-mine' : ''}">
+        <span class="pp-bl">👍 認同</span>
+        <div class="pp-bwrap"><div class="pp-bfill pp-bagree" style="width:${agPct}%"></div></div>
+        <span class="pp-bpct">${agPct}%</span>
+      </div>
+      <div class="pp-bar-item ${myVote === 'disagree' ? 'pp-mine' : ''}">
+        <span class="pp-bl">👎 不認同</span>
+        <div class="pp-bwrap"><div class="pp-bfill pp-bdisagree" style="width:${diPct}%"></div></div>
+        <span class="pp-bpct">${diPct}%</span>
+      </div>`
+    if (totEl) totEl.textContent = `已有 ${total.toLocaleString()} 人投票`
+    document.getElementById('btns-' + id).style.display = 'none'
+    document.getElementById('result-' + id).style.display = ''
+  }
+
+  async function loadResult(id, myVote) {
+    try {
+      const r = await fetch('/api/prediction-poll')
+      const data = await r.json()
+      const counts = data[id] || { agree: 0, disagree: 0 }
+      renderResult(id, counts, myVote)
+    } catch {}
+  }
+
+  window.ppVote = async function(id, vote) {
+    const already = localStorage.getItem(KEY_PRE + id)
+    if (already) { loadResult(id, already); return }
+    // 禁用按鈕
+    document.querySelectorAll(`#btns-${id} .pp-btn`).forEach(b => b.disabled = true)
+    try {
+      const r = await fetch('/api/prediction-poll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ predId: id, vote }),
+      })
+      const counts = await r.json()
+      localStorage.setItem(KEY_PRE + id, vote)
+      renderResult(id, counts, vote)
+    } catch {
+      document.querySelectorAll(`#btns-${id} .pp-btn`).forEach(b => b.disabled = false)
+    }
+  }
+
+  // 初始化：檢查每張卡是否已投票
+  ;(async () => {
+    for (const id of ids) {
+      const already = localStorage.getItem(KEY_PRE + id)
+      if (already) {
+        // 先拿資料
+        try {
+          const r = await fetch('/api/prediction-poll')
+          const data = await r.json()
+          const counts = data[id] || { agree: 0, disagree: 0 }
+          renderResult(id, counts, already)
+        } catch {}
+        break // 只預載第一個已投過的，其餘等導航時再載
+      }
+    }
+    showCard(0)
+  })()
+</script>
+
+<style>
+  .pp-section {
+    margin: 3em auto;
+    max-width: 580px;
+    padding: 0 1em;
+  }
+  .pp-header {
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+  .pp-eyebrow {
+    font-size: .72rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    display: block;
+    margin-bottom: .5em;
+  }
+  .pp-desc {
+    font-size: .82rem;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* Card */
+  .pp-card {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 16px;
+    padding: 1.6em 1.8em 1.4em;
+  }
+
+  /* Meta row */
+  .pp-meta {
+    display: flex;
+    align-items: center;
+    gap: .55em;
+    flex-wrap: wrap;
+    margin-bottom: 1.1em;
+  }
+  .pp-icon { font-size: 1.1rem; }
+  .pp-code {
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+    color: #a78bfa;
+    background: rgba(139,92,246,.12);
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: 5px;
+    padding: .15em .5em;
+  }
+  .pp-prophet {
+    font-size: .76rem;
+    color: #94a3b8;
+  }
+  .pp-rate {
+    margin-left: auto;
+    font-size: .73rem;
+    color: #64748b;
+  }
+  .pp-rate strong { color: #22c55e; }
+  .pp-year {
+    font-size: .68rem;
+    color: #4b5563;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 4px;
+    padding: .1em .45em;
+  }
+
+  /* Prediction text */
+  .pp-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.6;
+    text-align: center;
+    padding: .8em 0 1.2em;
+    min-height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Buttons */
+  .pp-btns {
+    display: flex;
+    gap: .75em;
+  }
+  .pp-btn {
+    flex: 1;
+    padding: .7em 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: .9rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .pp-btn:disabled { opacity: .4; cursor: not-allowed; }
+  .pp-agree    { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.35); color: #4ade80; }
+  .pp-agree:hover:not(:disabled)    { background: rgba(34,197,94,.2); }
+  .pp-disagree { background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.35); color: #f87171; }
+  .pp-disagree:hover:not(:disabled) { background: rgba(239,68,68,.2); }
+
+  /* Result bars */
+  .pp-result { padding-top: .2em; }
+  .pp-bar-item {
+    display: grid;
+    grid-template-columns: 70px 1fr 42px;
+    align-items: center;
+    gap: .6em;
+    margin-bottom: .55em;
+  }
+  .pp-bar-item.pp-mine .pp-bl { font-weight: 900; color: #e2e8f0; }
+  .pp-bl { font-size: .78rem; color: #94a3b8; white-space: nowrap; }
+  .pp-bwrap {
+    background: rgba(255,255,255,.06);
+    border-radius: 4px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .pp-bfill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+    min-width: 3px;
+  }
+  .pp-bagree    { background: #22c55e; }
+  .pp-bdisagree { background: #ef4444; }
+  .pp-bpct { font-size: .77rem; font-weight: 700; color: #64748b; text-align: right; }
+  .pp-total { font-size: .72rem; color: #475569; text-align: right; margin-top: .3em; }
+
+  /* Navigation */
+  .pp-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+    margin-top: 1.1em;
+  }
+  .pp-nav-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(139,92,246,.3);
+    background: rgba(139,92,246,.08);
+    color: #a78bfa;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all .15s;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+  }
+  .pp-nav-btn:hover:not(:disabled) { background: rgba(139,92,246,.2); }
+  .pp-nav-btn:disabled { opacity: .25; cursor: not-allowed; }
+  .pp-nav-idx { font-size: .78rem; color: #64748b; min-width: 50px; text-align: center; }
+
+  @media (max-width: 480px) {
+    .pp-card { padding: 1.2em 1.1em 1em; }
+    .pp-text { font-size: .95rem; }
+    .pp-bar-item { grid-template-columns: 58px 1fr 36px; gap: .4em; }
+  }
+</style>

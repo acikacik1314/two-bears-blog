@@ -1,0 +1,402 @@
+---
+// 馬丁阿姆斯壯 π 週期計算器
+// 用法：在任何 .astro 或 .mdx 文章裡 import 並使用
+// import ArmstrongPiCycleCalculator from '../../components/ArmstrongPiCycleCalculator.astro';
+// <ArmstrongPiCycleCalculator />
+---
+
+<div class="pi-calc">
+  <div class="row">
+    <label for="qdate">查詢日期</label>
+    <input type="date" id="qdate" />
+    <button id="todayBtn" type="button">回到今天</button>
+  </div>
+
+  <div class="summary">
+    <div class="cell">
+      <p class="label">目前階段</p>
+      <p class="value" id="phase">—</p>
+    </div>
+    <div class="cell">
+      <p class="label">距下一轉折</p>
+      <p class="value" id="daysLeft">—</p>
+    </div>
+    <div class="cell">
+      <p class="label">所在大週期</p>
+      <p class="value" id="bigCycle">—</p>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-labels">
+      <span id="prevLabel">上一轉折</span>
+      <span id="nextLabel">下一轉折</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-marker" id="markerNow"></div>
+    </div>
+    <div class="progress-dates">
+      <span id="prevDate">—</span>
+      <span id="nextDate">—</span>
+    </div>
+  </div>
+
+  <div class="timeline-wrap">
+    <p class="timeline-title">關鍵轉折時間軸（前後各 3 個轉折點）</p>
+    <div id="timeline" class="timeline"></div>
+  </div>
+
+  <div class="footer">
+    <span>錨點 1987.8（1987/10/19 黑色星期一）</span>
+    <span>驗證點 2032.95</span>
+  </div>
+</div>
+
+<style>
+  .pi-calc {
+    font-family: inherit;
+    color: var(--text-color, #1a1a1a);
+    max-width: 680px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .row label {
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+  }
+  .row input[type="date"] {
+    width: 160px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: var(--bg-primary, #fff);
+    color: inherit;
+    font-size: 14px;
+  }
+  .row button {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .row button:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .summary {
+    background: var(--bg-secondary, #f4f3ef);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .summary .label {
+    font-size: 13px;
+    color: var(--text-secondary, #666);
+    margin: 0 0 4px;
+  }
+  .summary .value {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .progress-wrap {
+    margin-bottom: 1.5rem;
+  }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-secondary, #666);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    position: relative;
+    height: 8px;
+    background: var(--bg-secondary, #ece9e2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #378ade;
+    width: 0%;
+  }
+  .progress-marker {
+    position: absolute;
+    top: -3px;
+    width: 2px;
+    height: 14px;
+    background: var(--text-color, #1a1a1a);
+    left: 0%;
+  }
+  .progress-dates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-tertiary, #999);
+    margin-top: 6px;
+  }
+
+  .timeline-wrap {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1.25rem;
+  }
+  .timeline-title {
+    font-size: 13px;
+    color: var(--text-secondary, #666);
+    margin: 0 0 10px;
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+  .timeline-row.active {
+    background: rgba(55, 138, 222, 0.1);
+  }
+  .timeline-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .timeline-date {
+    min-width: 90px;
+  }
+  .timeline-label {
+    color: var(--text-secondary, #666);
+  }
+  .timeline-yf {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-tertiary, #999);
+  }
+
+  .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-tertiary, #999);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .pi-calc {
+      color: var(--text-color, #f0f0f0);
+    }
+    .summary {
+      background: var(--bg-secondary, #2a2a28);
+    }
+    .row input[type="date"] {
+      background: var(--bg-primary, #1f1f1d);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: inherit;
+    }
+    .row button {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .row button:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .progress-track {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .timeline-row.active {
+      background: rgba(55, 138, 222, 0.18);
+    }
+    .footer,
+    .timeline-wrap {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+</style>
+
+<script>
+  function initPiCalc() {
+    const ANCHOR_YEAR = 1987.8;
+    const QUARTER = 2.15;
+    const BIG = 51.6;
+
+    const root = document.querySelector(".pi-calc");
+    if (!root || (root as HTMLElement).dataset.initialized === "true") return;
+    (root as HTMLElement).dataset.initialized = "true";
+
+    function yearFractionToDate(yf: number): Date {
+      const year = Math.floor(yf);
+      const frac = yf - year;
+      const isLeap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      const daysInYear = isLeap ? 366 : 365;
+      const dayOfYear = Math.round(frac * daysInYear);
+      const d = new Date(year, 0, 1);
+      d.setDate(d.getDate() + dayOfYear);
+      return d;
+    }
+
+    function dateToYearFraction(d: Date): number {
+      const year = d.getFullYear();
+      const start = new Date(year, 0, 1);
+      const isLeap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      const daysInYear = isLeap ? 366 : 365;
+      const dayOfYear = (d.getTime() - start.getTime()) / 86400000;
+      return year + dayOfYear / daysInYear;
+    }
+
+    function fmtDate(d: Date): string {
+      return (
+        d.getFullYear() +
+        "/" +
+        String(d.getMonth() + 1).padStart(2, "0") +
+        "/" +
+        String(d.getDate()).padStart(2, "0")
+      );
+    }
+
+    type Point = { yf: number; label: string; index: number };
+
+    function buildTurningPoints(centerYf: number): Point[] {
+      const points: Point[] = [];
+      const n0 = Math.round((centerYf - ANCHOR_YEAR) / QUARTER);
+      const labels = ["高點", "下降轉折", "低點", "上升轉折"];
+      for (let i = n0 - 6; i <= n0 + 6; i++) {
+        const yf = ANCHOR_YEAR + i * QUARTER;
+        const phaseIndex = ((i % 4) + 4) % 4;
+        points.push({ yf, label: labels[phaseIndex], index: i });
+      }
+      return points;
+    }
+
+    const qdate = root.querySelector("#qdate") as HTMLInputElement;
+    const todayBtn = root.querySelector("#todayBtn") as HTMLButtonElement;
+
+    function render() {
+      const input = qdate.value;
+      const d = input ? new Date(input + "T00:00:00") : new Date();
+      const yf = dateToYearFraction(d);
+
+      const points = buildTurningPoints(yf);
+      let prev = points[0];
+      let next = points[points.length - 1];
+      for (let i = 0; i < points.length - 1; i++) {
+        if (points[i].yf <= yf && points[i + 1].yf > yf) {
+          prev = points[i];
+          next = points[i + 1];
+          break;
+        }
+      }
+
+      const prevDate = yearFractionToDate(prev.yf);
+      const nextDate = yearFractionToDate(next.yf);
+      const totalSpan = next.yf - prev.yf;
+      const progress = Math.max(0, Math.min(1, (yf - prev.yf) / totalSpan));
+      const daysToNext = Math.round((nextDate.getTime() - d.getTime()) / 86400000);
+
+      const phaseText =
+        prev.label === "低點"
+          ? "上升段（低點後）"
+          : prev.label === "高點"
+          ? "下降段（高點後）"
+          : prev.label === "上升轉折"
+          ? "上升段中段"
+          : "下降段中段";
+
+      (root.querySelector("#phase") as HTMLElement).textContent = phaseText;
+      const daysLeftEl = root.querySelector("#daysLeft") as HTMLElement;
+      daysLeftEl.textContent = daysToNext + " 天";
+      daysLeftEl.title = next.label + "：" + fmtDate(nextDate);
+
+      const bigCycleIndex = Math.floor((yf - ANCHOR_YEAR) / BIG);
+      const bigStart = ANCHOR_YEAR + bigCycleIndex * BIG;
+      (root.querySelector("#bigCycle") as HTMLElement).textContent =
+        Math.round(bigStart) + "–" + Math.round(bigStart + BIG);
+
+      (root.querySelector("#prevLabel") as HTMLElement).textContent = prev.label;
+      (root.querySelector("#nextLabel") as HTMLElement).textContent = next.label;
+      (root.querySelector("#prevDate") as HTMLElement).textContent = fmtDate(prevDate);
+      (root.querySelector("#nextDate") as HTMLElement).textContent = fmtDate(nextDate);
+      (root.querySelector("#progressBar") as HTMLElement).style.width =
+        (progress * 100).toFixed(1) + "%";
+      (root.querySelector("#markerNow") as HTMLElement).style.left =
+        (progress * 100).toFixed(1) + "%";
+
+      const tl = root.querySelector("#timeline") as HTMLElement;
+      tl.innerHTML = "";
+      points.forEach((p) => {
+        const pd = yearFractionToDate(p.yf);
+        const isPast = p.yf <= yf;
+        const isCurrentEdge = p === prev || p === next;
+
+        const row = document.createElement("div");
+        row.className = "timeline-row" + (isCurrentEdge ? " active" : "");
+        row.style.opacity = isPast ? "0.55" : "1";
+
+        const dot = document.createElement("span");
+        dot.className = "timeline-dot";
+        dot.style.background =
+          p.label === "高點" ? "#d9534f" : p.label === "低點" ? "#3b8a3e" : "#999";
+
+        const dateSpan = document.createElement("span");
+        dateSpan.className = "timeline-date";
+        if (isCurrentEdge) dateSpan.style.color = "#378ade";
+        dateSpan.textContent = fmtDate(pd);
+
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "timeline-label";
+        labelSpan.textContent = p.label;
+
+        const yfSpan = document.createElement("span");
+        yfSpan.className = "timeline-yf";
+        yfSpan.textContent = p.yf.toFixed(3);
+
+        row.appendChild(dot);
+        row.appendChild(dateSpan);
+        row.appendChild(labelSpan);
+        row.appendChild(yfSpan);
+        tl.appendChild(row);
+      });
+    }
+
+    const today = new Date();
+    qdate.value = today.toISOString().slice(0, 10);
+    qdate.addEventListener("change", render);
+    todayBtn.addEventListener("click", () => {
+      qdate.value = new Date().toISOString().slice(0, 10);
+      render();
+    });
+    render();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPiCalc);
+  } else {
+    initPiCalc();
+  }
+  document.addEventListener("astro:page-load", initPiCalc);
+</script>

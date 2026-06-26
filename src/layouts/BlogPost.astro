@@ -14,6 +14,7 @@ import AffiliateLinks from '../components/AffiliateLinks.astro';
 import PredictionCheck from '../components/PredictionCheck.astro';
 import CommentSection from '../components/CommentSection.astro';
 import { getProphetConfig } from '../utils/prophets';
+import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
@@ -385,6 +386,97 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 			}
 			.kofi-btn:hover { background: #ff3d3a; transform: translateY(-2px); }
 		</style>
+	<style>
+		/* π 週期浮動按鈕 */
+		.pi-float-btn {
+			position: fixed;
+			bottom: 24px;
+			right: 24px;
+			z-index: 999;
+			background: #1a1a2e;
+			color: #eab308;
+			border: 2px solid rgba(234, 179, 8, 0.4);
+			border-radius: 50px;
+			padding: 10px 16px;
+			font-size: 17px;
+			font-weight: 900;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+			transition: transform 0.15s, box-shadow 0.15s;
+			font-family: inherit;
+			line-height: 1;
+		}
+		.pi-float-btn .pi-btn-label {
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			opacity: 0.75;
+		}
+		.pi-float-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+			border-color: rgba(234, 179, 8, 0.7);
+		}
+		/* π 週期 Modal */
+		.pi-modal {
+			border: none;
+			border-radius: 16px;
+			padding: 0;
+			max-width: min(740px, calc(100vw - 32px));
+			width: 100%;
+			box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+			background: #fff;
+		}
+		.pi-modal::backdrop {
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(3px);
+		}
+		.pi-modal-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1rem 1.5rem;
+			border-bottom: 1px solid #eadfc8;
+			gap: 1rem;
+		}
+		.pi-modal-title {
+			font-size: 0.95rem;
+			font-weight: 800;
+			color: #3B2A1E;
+			margin: 0;
+		}
+		.pi-modal-subtitle {
+			font-size: 0.75rem;
+			color: #5C4A35;
+			margin: 2px 0 0;
+			font-weight: 400;
+		}
+		.pi-modal-close {
+			background: none;
+			border: none;
+			font-size: 1.1rem;
+			color: #5C4A35;
+			cursor: pointer;
+			padding: 4px 8px;
+			border-radius: 6px;
+			line-height: 1;
+			flex-shrink: 0;
+			transition: background 0.1s;
+		}
+		.pi-modal-close:hover { background: #f4f0e8; }
+		.pi-modal-body {
+			padding: 1.5rem;
+			overflow-y: auto;
+			max-height: 80dvh;
+		}
+		@media (max-width: 640px) {
+			.pi-float-btn { bottom: 16px; right: 16px; padding: 9px 13px; }
+			.pi-modal-body { padding: 1rem; }
+		}
+	</style>
 	</head>
 
 	<body>
@@ -549,6 +641,42 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 			</div>
 		</div>
 		<Footer />
+
+		<!-- π 週期計算器浮動按鈕 -->
+		<button id="pi-calc-trigger" class="pi-float-btn" type="button" aria-label="開啟馬丁阿姆斯壯 π 週期計算器">
+			π<span class="pi-btn-label">週期</span>
+		</button>
+
+		<!-- π 週期計算器 Modal -->
+		<dialog id="pi-calc-modal" class="pi-modal">
+			<div class="pi-modal-header">
+				<div>
+					<p class="pi-modal-title">馬丁阿姆斯壯 π 週期計算器</p>
+					<p class="pi-modal-subtitle">8.6 年週期（3141 天）· 錨點 1987/10/19</p>
+				</div>
+				<button id="pi-calc-close" type="button" class="pi-modal-close" aria-label="關閉">✕</button>
+			</div>
+			<div class="pi-modal-body">
+				<ArmstrongPiCycleCalculator />
+			</div>
+		</dialog>
+
+		<script>
+			const trigger = document.getElementById('pi-calc-trigger');
+			const modal = document.getElementById('pi-calc-modal') as HTMLDialogElement | null;
+			const closeBtn = document.getElementById('pi-calc-close');
+			if (trigger && modal) {
+				trigger.addEventListener('click', () => modal.showModal());
+				closeBtn?.addEventListener('click', () => modal.close());
+				modal.addEventListener('click', (e) => {
+					const rect = modal.getBoundingClientRect();
+					const inDialog =
+						e.clientX >= rect.left && e.clientX <= rect.right &&
+						e.clientY >= rect.top  && e.clientY <= rect.bottom;
+					if (!inDialog) modal.close();
+				});
+			}
+		</script>
 	</body>
 	<script define:vars={{ slug: Astro.url.pathname }}>
 		// View tracking

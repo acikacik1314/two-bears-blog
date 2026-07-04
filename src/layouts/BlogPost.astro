@@ -673,7 +673,7 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 			const text = prose.innerText || prose.textContent || '';
 			const words = text.trim().split(/\s+/).length;
 			const mins = Math.max(1, Math.round(words / 400));
-			rtEl.textContent = `⏱ 約 ${mins} 分鐘閱讀`;
+			rtEl.innerHTML = `⏱ 約 ${mins} 分鐘閱讀 · <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener" style="color:inherit;opacity:0.45;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.45'" title="喜歡的話，歡迎請兩隻熊喝杯咖啡">☕</a>`;
 		}
 
 		// Copy link button

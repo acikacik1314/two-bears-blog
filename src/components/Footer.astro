@@ -14,6 +14,9 @@ const today = new Date();
 			<a href="/friends">情報</a>
 		</span>
 	</div>
+	<div class="footer-support">
+		如果這裡的內容讓你多了解了一點什麼，歡迎<a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener">請兩隻熊喝杯咖啡 ☕</a>
+	</div>
 </footer>
 
 <style>
@@ -38,6 +41,24 @@ const today = new Date();
 	.footer-links { display: flex; gap: 1.2em; }
 	.footer-links a { color: #64748b; text-decoration: none; transition: color 0.15s; }
 	.footer-links a:hover { color: #a855f7; }
+	.footer-support {
+		text-align: center;
+		margin-top: 1.1em;
+		font-size: 0.75em;
+		color: #334155;
+		line-height: 1.8;
+	}
+	.footer-support a {
+		color: #475569;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(255,255,255,0.12);
+		padding-bottom: 1px;
+		transition: color 0.15s, border-color 0.15s;
+	}
+	.footer-support a:hover {
+		color: #94a3b8;
+		border-bottom-color: rgba(255,255,255,0.3);
+	}
 	@media (max-width: 600px) {
 		.footer-inner { justify-content: center; text-align: center; }
 		.footer-links { flex-wrap: wrap; justify-content: center; }

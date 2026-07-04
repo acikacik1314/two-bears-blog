@@ -57,8 +57,8 @@ async function fetchFromWebPage(): Promise<Record<string, string>> {
     const res = await fetch(
       `https://r.jina.ai/https://podcasts.apple.com/tw/podcast/id${APPLE_PODCAST_ID}`,
       {
-        headers: { 'Accept': 'text/plain', 'X-Timeout': '15' },
-        signal: AbortSignal.timeout(20000),
+        headers: { 'Accept': 'text/plain', 'X-Timeout': '4' },
+        signal: AbortSignal.timeout(4000),
       }
     );
     if (!res.ok) return {};
@@ -151,7 +151,7 @@ export const GET: APIRoute = async () => {
     return new Response(JSON.stringify({ coverImage, podcastTitle, podcastDesc, episodes }), {
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate=600',
       },
     });
   } catch (e) {

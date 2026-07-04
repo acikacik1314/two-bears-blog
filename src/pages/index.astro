@@ -116,7 +116,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 	</div>
 
 	<!-- ── Leaderboard full width ── -->
-	<section class="lb-section">
+	<section class="lb-section" id="leaderboard">
 		<ProphecyLeaderboard />
 	</section>
 
@@ -155,8 +155,10 @@ const CATEGORY_ICONS: Record<string, string> = {
 					const thumb = getThumbnail(post);
 					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
 					const icon = CATEGORY_ICONS[cat] ?? '📝';
+					const ageDays = (Date.now() - new Date(post.data.pubDate).getTime()) / 86400000;
+					const isClassic = ageDays > 365;
 					return (
-						<li class="post-card">
+						<li class={`post-card${isClassic ? ' post-card-classic' : ''}`}>
 							<a href={`/blog/${post.id}/`}>
 								<div class="post-thumb">
 									{thumb ? (
@@ -168,6 +170,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 										</div>
 									)}
 									<span class="cat-tag" style={`background:${color}`}>{cat}</span>
+									{isClassic && <span class="classic-tag">📚 經典整理</span>}
 								</div>
 								<div class="post-body">
 									<h4 class="post-title">{post.data.title}</h4>
@@ -529,6 +532,10 @@ const CATEGORY_ICONS: Record<string, string> = {
 .ph-icon { font-size: 2em; opacity: .9; }
 .ph-cat { font-size: .7em; color: rgba(255,255,255,.7); font-weight: 700; }
 .cat-tag { position:absolute;top:.4em;left:.4em;color:white;padding:.12em .45em;border-radius:5px;font-size:.65em;font-weight:700;backdrop-filter:blur(4px); }
+.classic-tag { position:absolute;bottom:.4em;right:.4em;background:rgba(180,130,30,.85);color:#fef3c7;padding:.12em .5em;border-radius:5px;font-size:.62em;font-weight:700;backdrop-filter:blur(4px);white-space:nowrap; }
+.post-card-classic { opacity: .88; }
+.post-card-classic a { border-color: rgba(180,130,30,.25) !important; }
+.post-card-classic a:hover { border-color: rgba(180,130,30,.5) !important; opacity: 1; }
 .post-body { padding: .65em .75em; flex: 1; }
 .post-title { margin:0 0 .3em;font-size:.82em;font-weight:700;color:#e2e8f0;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
 .post-card a:hover .post-title { color: #c084fc; }

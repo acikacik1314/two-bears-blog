@@ -14,7 +14,18 @@ import { SITE_TITLE } from '../consts';
     <BaseHead
       title={`未來人預言家 Podcast | ${SITE_TITLE}`}
       description="兩隻熊的未來人預言家 Podcast — 解讀末日預言、台海局勢、靈性分析"
+      imageUrl="https://twobears.vercel.app/images/podcast-cover.jpg"
     />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "PodcastSeries",
+      "name": "兩隻熊的未來人預言家",
+      "description": "兩隻熊的未來人預言家 Podcast — 解讀末日預言、台海局勢、靈性分析",
+      "url": "https://twobears.vercel.app/podcast",
+      "image": "https://twobears.vercel.app/images/podcast-cover.jpg",
+      "webFeed": "https://anchor.fm/s/11310a874/podcast/rss",
+      "author": { "@type": "Person", "name": "兩隻熊" }
+    })} />
   </head>
   <body class="pod-page">
     <Header />
@@ -54,6 +65,16 @@ import { SITE_TITLE } from '../consts';
                 href="https://podcasts.apple.com/tw/podcast/id1896823711"
                 target="_blank" rel="noopener"
               >Apple Podcasts</a>
+              <a
+                class="pod-apple-btn-sm"
+                href="https://anchor.fm/s/11310a874/podcast/rss"
+                target="_blank" rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true" style="opacity:.7;flex-shrink:0">
+                  <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+                </svg>
+                RSS 訂閱
+              </a>
             </div>
           </div>
         </div>
@@ -247,7 +268,7 @@ import { SITE_TITLE } from '../consts';
     const contentEl = document.getElementById('pod-content')!;
 
     try {
-      const r = await fetch('/api/podcast-rss', { cache: 'no-store' });
+      const r = await fetch('/api/podcast-rss');
       if (!r.ok) throw new Error('fetch');
       const d = await r.json();
       if (d.error) throw new Error(d.error);
@@ -257,6 +278,9 @@ import { SITE_TITLE } from '../consts';
         _idx: i,
         _prophet: detectProphet(ep.title),
       }));
+
+      const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
+      if (coverEl && d.coverImage) coverEl.src = d.coverImage;
 
       const totalEl = document.getElementById('pod-total');
       if (totalEl) totalEl.textContent = `${allEpisodes.length} 集`;
@@ -355,6 +379,7 @@ import { SITE_TITLE } from '../consts';
   }
   .pod-spotify-btn:hover { background: #1ed760; transform: translateY(-2px); }
   .pod-apple-btn-sm {
+    display: inline-flex; align-items: center; gap: .35em;
     font-size: .78em; color: rgba(255,255,255,.5);
     text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.2);
     transition: color .15s;

@@ -1,6 +1,39 @@
 ---
+import { getCollection } from 'astro:content';
 import { PREDICTIONS } from '../data/predictions'
-const items = PREDICTIONS
+
+const allPosts = await getCollection('blog');
+
+// Same tag mapping as ProphecyLeaderboard — keeps the two sources in sync
+const PROPHET_TAGS: Record<string, string[]> = {
+  '比格斯':    ['比格斯'],
+  '帕克':      ['帕克'],
+  '麥克蒙尼格':['麥克蒙尼格'],
+  '摩普萊':    ['摩普萊'],
+  '波蘭預言家':['波蘭'],
+  '英國神算':  ['英國神算'],
+  '阿南德':    ['阿南德'],
+  '未來人KFK': ['未來人', 'kfk', 'KFK'],
+};
+
+const prophetAccuracy: Record<string, number | null> = {};
+for (const [name, tags] of Object.entries(PROPHET_TAGS)) {
+  const posts = allPosts.filter(post =>
+    (post.data.tags ?? []).some((t: string) =>
+      tags.some(k => t.toLowerCase().includes(k.toLowerCase()))
+    )
+  );
+  const hits   = [...new Set(posts.flatMap(post => (post.data as any).predictions?.hits   ?? []))];
+  const misses = [...new Set(posts.flatMap(post => (post.data as any).predictions?.misses ?? []))];
+  const total  = hits.length + misses.length;
+  prophetAccuracy[name] = total > 0 ? Math.round((hits.length / total) * 100) : null;
+}
+
+// Override hardcoded hitRate with live-computed accuracy; fall back if no data yet
+const items = PREDICTIONS.map(p => ({
+  ...p,
+  hitRate: prophetAccuracy[p.prophetKey] ?? p.hitRate,
+}));
 ---
 
 <section class="pp-section">
@@ -11,7 +44,7 @@ const items = PREDICTIONS
 
   <div class="pp-carousel" id="ppCarousel">
     {items.map((p, i) => (
-      <div class="pp-card" data-id={p.id} data-idx={i} style={i === 0 ? '' : 'display:none'}>
+      <div class="pp-card" data-id={p.id} data-idx={i} data-deadline={p.deadline} style={i === 0 ? '' : 'display:none'}>
         <!-- 頂部：icon + 預言家代碼 + 命中率 -->
         <div class="pp-meta">
           <span class="pp-icon">{p.icon}</span>
@@ -23,6 +56,11 @@ const items = PREDICTIONS
 
         <!-- 預言文字 -->
         <div class="pp-text">「{p.text}」</div>
+
+        <!-- 已到期標籤（deadline 過了才顯示，由 JS 控制） -->
+        <a href="/#leaderboard" class="pp-expired" id={`expired-${p.id}`} style="display:none">
+          ⏰ 已到期・前往驗證結果 →
+        </a>
 
         <!-- 投票按鈕（未投票時顯示） -->
         <div class="pp-btns" id={`btns-${p.id}`}>
@@ -55,6 +93,18 @@ const items = PREDICTIONS
   let cur = 0
   const KEY_PRE = 'pp2_'
 
+  const todayStr = new Date().toISOString().slice(0, 10) // 'YYYY-MM-DD'
+
+  function applyExpiredState(id: string, deadline: string) {
+    if (todayStr <= deadline) return
+    const expiredEl = document.getElementById('expired-' + id)
+    const btnsEl    = document.getElementById('btns-' + id)
+    if (expiredEl) expiredEl.style.display = ''
+    if (btnsEl) {
+      btnsEl.querySelectorAll<HTMLButtonElement>('.pp-btn').forEach(b => { b.disabled = true })
+    }
+  }
+
   // 顯示第 idx 張
   function showCard(idx) {
     document.querySelectorAll('.pp-card').forEach((el, i) => {
@@ -65,6 +115,9 @@ const items = PREDICTIONS
     document.getElementById('ppNext').disabled = idx === total - 1
     // 如果已投票，載入結果
     const id = ids[idx]
+    const card = document.querySelector<HTMLElement>(`.pp-card[data-id="${id}"]`)
+    const deadline = card?.dataset.deadline ?? ''
+    applyExpiredState(id, deadline)
     const already = localStorage.getItem(KEY_PRE + id)
     if (already) loadResult(id, already)
   }
@@ -126,12 +179,18 @@ const items = PREDICTIONS
     }
   }
 
-  // 初始化：檢查每張卡是否已投票
+  // 初始化：套用到期狀態 + 檢查是否已投票
   ;(async () => {
+    // 先對所有卡片套用到期狀態（不限 display）
+    document.querySelectorAll<HTMLElement>('.pp-card').forEach(card => {
+      const id       = card.dataset.id ?? ''
+      const deadline = card.dataset.deadline ?? ''
+      applyExpiredState(id, deadline)
+    })
+
     for (const id of ids) {
       const already = localStorage.getItem(KEY_PRE + id)
       if (already) {
-        // 先拿資料
         try {
           const r = await fetch('/api/prediction-poll')
           const data = await r.json()
@@ -227,6 +286,29 @@ const items = PREDICTIONS
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Expired badge */
+  .pp-expired {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4em;
+    padding: .65em 1em;
+    margin-bottom: .6em;
+    border-radius: 10px;
+    background: rgba(251,146,60,.1);
+    border: 1px solid rgba(251,146,60,.35);
+    color: #fb923c;
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .pp-expired:hover {
+    background: rgba(251,146,60,.2);
+    border-color: rgba(251,146,60,.6);
+    color: #fdba74;
   }
 
   /* Buttons */

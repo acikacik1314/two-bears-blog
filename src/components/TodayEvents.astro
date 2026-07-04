@@ -18,19 +18,19 @@
     const events: Event[] = [];
 
     const [eqRes, newsRes, mktRes] = await Promise.allSettled([
-      fetch('/api/earthquakes').then(r => r.json()),
-      fetch('/api/news').then(r => r.json()),
-      fetch('/api/market').then(r => r.json()),
+      fetch('/api/earthquakes', { signal: AbortSignal.timeout(12000) }).then(r => r.json()),
+      fetch('/api/news',        { signal: AbortSignal.timeout(18000) }).then(r => r.json()),
+      fetch('/api/market',      { signal: AbortSignal.timeout(12000) }).then(r => r.json()),
     ]);
 
-    // Earthquakes M5+
+    // Earthquakes M5+  (/api/earthquakes returns flat array [{mag,place,time,depth}])
     if (eqRes.status === 'fulfilled') {
-      const features = eqRes.value?.features ?? [];
-      for (const f of features.slice(0, 5)) {
-        const mag = f.properties?.mag ?? 0;
+      const quakes: any[] = Array.isArray(eqRes.value) ? eqRes.value : [];
+      for (const q of quakes.slice(0, 5)) {
+        const mag = q.mag ?? 0;
         if (mag >= 5) {
-          const place = f.properties?.place ?? '';
-          const hrs = Math.floor((Date.now() - f.properties.time) / 3600000);
+          const place = q.place ?? '';
+          const hrs = Math.floor((Date.now() - q.time) / 3600000);
           events.push({ text: `${place} M${mag} 地震`, time: hrs < 1 ? '剛剛' : `${hrs}小時前`, level: mag >= 6.5 ? 'high' : 'medium' });
         }
       }

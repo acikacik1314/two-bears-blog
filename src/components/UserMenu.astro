@@ -3,7 +3,7 @@
 ---
 
 <div class="um-root" id="um-root">
-  <a href="/api/auth/google" class="um-login" id="um-login">
+  <a href="/api/auth/google" class="um-login" id="um-login" style="display:none">
     <svg class="g-icon" viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
       <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -14,7 +14,7 @@
   </a>
   <div class="um-wrap" id="um-wrap" style="display:none">
     <button class="um-btn" id="um-btn" aria-label="帳號選單">
-      <img id="um-avatar" class="um-avatar" src="" alt="" referrerpolicy="no-referrer" style="display:none" />
+      <img id="um-avatar" class="um-avatar" alt="" referrerpolicy="no-referrer" style="display:none" />
       <span class="um-initial" id="um-initial" style="display:none"></span>
     </button>
     <div class="um-dropdown" id="um-dropdown">
@@ -29,32 +29,38 @@
 
 <script>
   async function initUserMenu() {
+    const login = document.getElementById('um-login') as HTMLElement
+    const wrap  = document.getElementById('um-wrap')  as HTMLElement
+
     try {
-      const res = await fetch('/api/auth/me')
+      const res  = await fetch('/api/auth/me')
       const user = await res.json()
-      if (!user) return
 
-      const login = document.getElementById('um-login') as HTMLElement
-      const wrap = document.getElementById('um-wrap') as HTMLElement
-      const avatar = document.getElementById('um-avatar') as HTMLImageElement
+      if (!user?.email) {
+        login.style.display = ''
+        return
+      }
+
+      const avatar  = document.getElementById('um-avatar')  as HTMLImageElement
       const initial = document.getElementById('um-initial') as HTMLElement
-      const nameEl = document.getElementById('um-name') as HTMLElement
-      const emailEl = document.getElementById('um-email') as HTMLElement
+      const nameEl  = document.getElementById('um-name')    as HTMLElement
+      const emailEl = document.getElementById('um-email')   as HTMLElement
 
-      login.style.display = 'none'
-      wrap.style.display = 'block'
-      nameEl.textContent = user.name
+      wrap.style.display  = 'block'
+      nameEl.textContent  = user.name
       emailEl.textContent = user.email
 
       if (user.picture) {
-        avatar.src = user.picture
-        avatar.alt = user.name
+        avatar.src          = user.picture
+        avatar.alt          = user.name
         avatar.style.display = 'block'
       } else {
-        initial.textContent = user.name[0] ?? '?'
+        initial.textContent  = user.name[0] ?? '?'
         initial.style.display = 'flex'
       }
-    } catch {}
+    } catch {
+      login.style.display = ''
+    }
   }
 
   initUserMenu()

@@ -123,8 +123,8 @@ document.getElementById('cs-form').addEventListener('submit', async e => {
       if      (c.crown === 'diamond') text += ' 🎉 恭喜獲得 💎 鑽石皇冠！';
       else if (c.crown === 'gold')    text += ' 🎉 恭喜獲得 👑 黃金皇冠！';
       else if (c.crown === 'silver')  text += ' 🎉 恭喜獲得 🥈 白銀皇冠！';
-      msg.className   = 'cs-msg cs-ok';
-      msg.textContent = text;
+      msg.className = 'cs-msg cs-ok';
+      msg.innerHTML = text + ' <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener" class="cs-kofi-link">喜歡這裡？請我們喝杯咖啡 ☕</a>';
       loadComments();
     } else {
       msg.className   = 'cs-msg cs-err-msg';
@@ -312,6 +312,8 @@ loadComments();
   .cs-msg { margin-top: 0.65rem; font-size: 0.82rem; min-height: 1.2em; }
   .cs-ok      { color: #4ade80; }
   .cs-err-msg { color: #f87171; }
+  .cs-kofi-link { color: #86efac; opacity: 0.7; text-underline-offset: 2px; transition: opacity 0.15s; }
+  .cs-kofi-link:hover { opacity: 1; }
 
   @media (max-width: 520px) {
     .cs-row         { grid-template-columns: 1fr; }

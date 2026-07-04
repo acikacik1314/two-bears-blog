@@ -357,26 +357,26 @@ export default function HotelFinder() {
     const agoda   = buildAgodaUrl(dest, ci, co, adults, rooms, intent, hotelName);
     const booking = buildBookingUrl(dest, ci, co, adults, rooms, intent);
     const trip    = buildTripUrl(dest, ci, co, adults, rooms, intent);
+    // Open Agoda immediately (direct user-gesture context — mobile-safe).
+    // Booking and Trip are shown as tappable cards below; delayed window.open
+    // is blocked by iOS Safari / Android Chrome outside direct gesture scope.
     window.open(agoda, '_blank', 'noopener');
-    setTimeout(() => window.open(booking, '_blank', 'noopener'), 400);
-    setTimeout(() => window.open(trip,    '_blank', 'noopener'), 800);
     setSearchLinks({ agoda, booking, trip, destination: dest, checkIn: ci, checkOut: co, adults, rooms });
   }
 
   function handleSearch() {
     if (!search.destination.trim()) return;
-    setLoading(true);
     const ci = search.checkIn  || offsetDate(7);
     const co = search.checkOut || offsetDate(10);
     const adults = parseAdultsStr(search.adults);
     const rooms  = parseInt(search.rooms) || 1;
-    setTimeout(() => {
-      doSearch(search.destination, ci, co, adults, rooms, search.intent, search.hotelName || undefined);
-      setSearched(true);
-      setLoading(false);
-      setMapMode(false);
-      setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-    }, 500);
+    // Call synchronously — wrapping in setTimeout breaks the user-gesture chain
+    // and causes mobile browsers to block window.open.
+    doSearch(search.destination, ci, co, adults, rooms, search.intent, search.hotelName || undefined);
+    setSearched(true);
+    setLoading(false);
+    setMapMode(false);
+    setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }
 
   function pickCity(city: string) {

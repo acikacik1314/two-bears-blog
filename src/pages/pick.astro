@@ -1,10 +1,20 @@
 ---
-// src/pages/pick.astro
-// 兩隻熊比價神器 🐻 — 前端頁面
 export const prerender = false;
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const PLATFORMS = [
+  { name: 'momo購物網',    home: 'https://www.momoshop.com.tw/',       promo: '🔥 天天限時秒殺',     search: 'https://www.momoshop.com.tw/search/searchShop.jsp?keyword={k}' },
+  { name: '蝦皮商城',      home: 'https://shopee.tw/mall',              promo: '🎁 每日免運優惠',     search: 'https://shopee.tw/mall/search?keyword={k}' },
+  { name: '酷澎',          home: 'https://www.tw.coupang.com/',         promo: '⚡ 新會員折$100',     search: 'https://www.tw.coupang.com/search?q={k}' },
+  { name: '家樂福線上',    home: 'https://online.carrefour.com.tw/',    promo: '🛒 生鮮超市特價',     search: 'https://online.carrefour.com.tw/zh/search?q={k}' },
+  { name: 'Yahoo購物中心', home: 'https://ibanana.biz/3RDip',           promo: '💰 購物回饋金加碼',   search: 'https://tw.buy.yahoo.com/search/product?p={k}' },
+  { name: '台灣樂天市場',  home: 'https://www.rakuten.com.tw/',         promo: '🌟 點數最高10倍回饋', search: 'https://www.rakuten.com.tw/search/{k}/' },
+  { name: '小三美日',      home: 'https://afflink.one/s/nP5WT',         promo: '💄 美妝保養下殺5折',  search: 'https://www.s3.com.tw/Search?q={k}' },
+  { name: 'PChome 24h',   home: 'https://24h.pchome.com.tw/',          promo: '📦 24小時急速到貨',   search: 'https://24h.pchome.com.tw/search/?q={k}' },
+  { name: '飛比價格',      home: 'https://feebee.com.tw/',              promo: '🔍 全網最低價比較',   search: 'https://feebee.com.tw/s/?q={k}' },
+];
 ---
 
 <!doctype html>
@@ -64,7 +74,21 @@ import Footer from '../components/Footer.astro';
     <section class="pick-manual">
       <h2>想自己翻？直接搜尋各大平台</h2>
       <p>AI 找不到或想要更多選擇時，點下面的按鈕直接開啟該平台的搜尋結果。</p>
-      <div class="pick-platforms" id="platforms"></div>
+      <div class="pick-platforms" id="platforms">
+        {PLATFORMS.map(p => (
+          <a
+            class="platform-btn"
+            href={p.home}
+            data-home={p.home}
+            data-search={p.search}
+            target="_blank"
+            rel="noopener sponsored"
+          >
+            <span class="platform-btn-name">🔗 {p.name}</span>
+            <span class="platform-btn-promo">{p.promo}</span>
+          </a>
+        ))}
+      </div>
     </section>
   </main>
   <Footer />
@@ -461,7 +485,7 @@ import Footer from '../components/Footer.astro';
         card.appendChild(btnWrap);
         resultsList.appendChild(card);
       });
-      renderPlatformButtons(data.keyword || keyword);
+      updatePlatformLinks(data.keyword || keyword);
     } catch {
       showStatus('連線失敗，請稍後再試', true);
     } finally {
@@ -472,31 +496,19 @@ import Footer from '../components/Footer.astro';
 
   goBtn.addEventListener('click', compare);
   kwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') compare(); });
+  kwInput.addEventListener('input', () => { if (!kwInput.value.trim()) updatePlatformLinks(''); });
   $('tags')!.addEventListener('click', (e) => {
     const t = (e.target as HTMLElement).closest('button[data-kw]') as HTMLButtonElement | null;
     if (t) { kwInput.value = t.dataset.kw!; compare(); }
   });
 
-  // ===== 手動搜尋各平台 =====
-  const platformsBox = $('platforms')!;
-
-  function renderPlatformButtons(keyword: string) {
-    const k = encodeURIComponent(keyword || '');
-    platformsBox.innerHTML = '';
-    PLATFORMS.forEach((p) => {
-      const btn = document.createElement('a');
-      btn.className = 'platform-btn';
-      btn.href = p.aff || p.search(k);
-      btn.target = '_blank';
-      btn.rel = 'noopener sponsored';
-      btn.innerHTML = `
-        <span class="platform-btn-name">🔗 ${p.name}</span>
-        ${p.promo ? `<span class="platform-btn-promo">${p.promo}</span>` : ''}
-      `;
-      platformsBox.appendChild(btn);
+  // ===== 手動搜尋各平台（按鈕由 Astro server-render，JS 只更新 href） =====
+  function updatePlatformLinks(keyword: string) {
+    document.querySelectorAll<HTMLAnchorElement>('#platforms .platform-btn').forEach(btn => {
+      const tpl = btn.dataset.search ?? '';
+      const home = btn.dataset.home ?? '';
+      btn.href = keyword ? tpl.replace('{k}', encodeURIComponent(keyword)) : home;
     });
   }
-
-  renderPlatformButtons('');
 
 </script>

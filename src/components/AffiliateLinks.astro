@@ -1,4 +1,6 @@
 ---
+import { BOOKING_TRACKING, AGODA_TRACKING, TRIP_TRACKING, KKDAY_TRACKING } from '../config/affiliates';
+
 const vpnLinks = [
   {
     name: 'NordVPN',
@@ -28,28 +30,28 @@ const travelLinks = [
     name: 'Booking.com',
     desc: '全球飯店訂房首選',
     emoji: '🏨',
-    url: 'https://www.booking.com/?aid=376461',
+    url: BOOKING_TRACKING,
     color: '#003580',
   },
   {
     name: 'Agoda',
     desc: '亞洲訂房優惠最多',
     emoji: '🌏',
-    url: 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1794088&hl=zh-tw',
+    url: AGODA_TRACKING,
     color: '#e44d45',
   },
   {
     name: 'Trip.com',
     desc: '機票飯店一站搞定',
     emoji: '✈️',
-    url: 'https://www.trip.com/',
+    url: TRIP_TRACKING,
     color: '#1890ff',
   },
   {
     name: 'KKday',
     desc: '當地體驗＆一日遊',
     emoji: '🎯',
-    url: 'https://www.kkday.com/',
+    url: KKDAY_TRACKING,
     color: '#ff6b35',
   },
 ];
@@ -59,7 +61,7 @@ const travelLinks = [
   <h4 class="affiliate-heading">✦ 旅遊推薦</h4>
   <div class="affiliate-grid">
     {travelLinks.map(link => (
-      <a href={link.url} target="_blank" rel="noopener sponsored" class="affiliate-card"
+      <a href={link.url} target="_blank" rel="sponsored nofollow noopener" class="affiliate-card"
          style={`--card-color: ${link.color}`}>
         <span class="aff-emoji">{link.emoji}</span>
         <span class="aff-name">{link.name}</span>
@@ -71,7 +73,7 @@ const travelLinks = [
   <h4 class="affiliate-heading">✦ VPN 推薦</h4>
   <div class="affiliate-grid">
     {vpnLinks.map(link => (
-      <a href={link.url} target="_blank" rel="noopener sponsored" class="affiliate-card"
+      <a href={link.url} target="_blank" rel="sponsored nofollow noopener" class="affiliate-card"
          style={`--card-color: ${link.color}`}>
         <span class="aff-emoji">{link.emoji}</span>
         <span class="aff-name">{link.name}</span>

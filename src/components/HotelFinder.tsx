@@ -1,10 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
-const AGODA_TRACKING = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d';
-const AGODA_CID = '1933603';
-const BOOKING_AID = '304142';
-const TRIP_TRACKING = 'https://afftck.site/track/clicks/3569/c627c2bb990529dffe9cab248d2596412379128f78eee3f20e76f6476a0449a8c23ae5a5112d';
+import { AGODA_TRACKING, BOOKING_TRACKING, TRIP_TRACKING, deepLink } from '../config/affiliates';
 
 const AGODA_CITY_IDS: Record<string, number> = {
   '東京': 5085, '大阪': 9590, '京都': 1784,
@@ -135,7 +132,7 @@ function buildAgodaUrl(
     `checkIn=${checkIn}`, `checkOut=${checkOut}`,
     `rooms=${rooms}`, `adults=${adults}`,
     `sort=${inf.agodaSort}`,
-    `cid=${AGODA_CID}`, 'productType=-1',
+    'productType=-1',
   ];
   if (cityId) {
     base.push(`city=${cityId}`);
@@ -144,7 +141,7 @@ function buildAgodaUrl(
     base.push(`textToSearch=${encodeURIComponent(hotelName || destination)}`);
   }
   const agodaUrl = `https://www.agoda.com/zh-tw/search?${base.join('&')}${inf.agodaExtra}`;
-  return `${AGODA_TRACKING}?t=${encodeURIComponent(encodeURIComponent(agodaUrl))}`;
+  return deepLink(AGODA_TRACKING, agodaUrl);
 }
 
 function buildBookingUrl(
@@ -153,12 +150,12 @@ function buildBookingUrl(
 ): string {
   const nflt = INTENT_FILTERS[intent].bookingNflt
     .split(';').map(f => encodeURIComponent(f)).join('%3B');
-  return `https://www.booking.com/searchresults.zh-tw.html` +
-    `?aid=${BOOKING_AID}` +
-    `&ss=${encodeURIComponent(destination)}` +
+  const bookingUrl = `https://www.booking.com/searchresults.zh-tw.html` +
+    `?ss=${encodeURIComponent(destination)}` +
     `&checkin=${checkIn}&checkout=${checkOut}` +
     `&group_adults=${adults}&no_rooms=${rooms}` +
     `&lang=zh-tw&nflt=${nflt}`;
+  return deepLink(BOOKING_TRACKING, bookingUrl);
 }
 
 function buildTripUrl(
@@ -183,7 +180,7 @@ function buildTripUrl(
     params.push(`keyword=${encodeURIComponent(destination)}`);
   }
   const tripUrl = `https://www.trip.com/hotels/list/?${params.join('&')}`;
-  return `${TRIP_TRACKING}?t=${encodeURIComponent(encodeURIComponent(tripUrl))}`;
+  return deepLink(TRIP_TRACKING, tripUrl);
 }
 
 // ── AI Response ────────────────────────────────────────────────────────────────
@@ -705,7 +702,7 @@ export default function HotelFinder() {
                   </p>
                   <p className="text-xs text-gray-400 mb-4">已同步開啟 3 個分頁。若視窗被擋，請點擊以下連結手動前往：</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href={searchLinks.agoda} target="_blank" rel="noopener noreferrer"
+                    <a href={searchLinks.agoda} target="_blank" rel="sponsored nofollow noopener"
                       className="flex items-center gap-3 p-4 bg-[#4CAF50] text-white rounded-xl hover:bg-[#43A047] transition-all group">
                       <div className="text-2xl shrink-0">🏨</div>
                       <div className="flex-1 min-w-0">
@@ -714,7 +711,7 @@ export default function HotelFinder() {
                       </div>
                       <div className="opacity-70 group-hover:opacity-100 shrink-0"><IconExternalLink /></div>
                     </a>
-                    <a href={searchLinks.booking} target="_blank" rel="noopener noreferrer"
+                    <a href={searchLinks.booking} target="_blank" rel="sponsored nofollow noopener"
                       className="flex items-center gap-3 p-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all group">
                       <div className="text-2xl shrink-0">🏨</div>
                       <div className="flex-1 min-w-0">
@@ -723,7 +720,7 @@ export default function HotelFinder() {
                       </div>
                       <div className="opacity-70 group-hover:opacity-100 shrink-0"><IconExternalLink /></div>
                     </a>
-                    <a href={searchLinks.trip} target="_blank" rel="noopener noreferrer"
+                    <a href={searchLinks.trip} target="_blank" rel="sponsored nofollow noopener"
                       className="flex items-center gap-3 p-4 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 transition-all group sm:col-span-2">
                       <div className="text-2xl shrink-0">✈️</div>
                       <div className="flex-1 min-w-0">
@@ -763,11 +760,11 @@ export default function HotelFinder() {
                           🔍 Google 暗黑搜尋
                           <span className="text-xs font-medium opacity-60">「{search.hotelName || search.destination || '飯店'}」優惠碼...</span>
                         </button>
-                        <a href="https://www.ptt.cc/bbs/Travel/search?q=飯店+優惠" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.ptt.cc/bbs/Travel/search?q=飯店+優惠" target="_blank" rel="sponsored nofollow noopener"
                           className="flex items-center gap-1.5 px-4 py-2.5 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-500 transition-colors">
                           PTT 旅遊版 <IconExternalLink />
                         </a>
-                        <a href="https://www.dcard.tw/f/travel" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.dcard.tw/f/travel" target="_blank" rel="sponsored nofollow noopener"
                           className="flex items-center gap-1.5 px-4 py-2.5 bg-blue-500 text-white text-sm font-bold rounded-xl hover:bg-blue-400 transition-colors">
                           Dcard 旅遊版 <IconExternalLink />
                         </a>

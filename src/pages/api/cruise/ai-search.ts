@@ -16,22 +16,15 @@ function getGeminiKeys(): string[] {
 
 const AFFILIATE: Record<string, string> = {
   'wingontravel.com': 'https://idragon.info/3RVzZ',
-  'settour.com.tw':   'https://afflnk.site/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
-  'klook.com':        'https://dreamstore.info/3RVzd',
+  'settour.com.tw':   'https://affclkr.com/track/clicks/4448/c627c2b6980327dbfe9cab248d2596412379128f78e9e2f00f76f6476a0449a8c23ae5a5112d',
+  'klook.com':        'https://abzcoupon.com/track/clicks/3731/c627c2bb910426daf89cab248d2596412379128f78eee1f70676f6476a0449a8c23ae5a5112d',
   'kkday.com':        'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d',
-  'colatour.com.tw':  'https://afftck.site/track/clicks/9762/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff30162a44125095ff88635aca3163d8e',
-  'liontravel.com':   'https://aftck.com/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e?t=https%253A%252F%252Ftravel.liontravel.com%252Fcategory%252Fzh-tw%252Fcruise%252Findex',
+  'colatour.com.tw':  'https://affone.site/track/clicks/9601/c627c2bc9b0523ddfb88ec23d62e994c21695b9633e0eff20761a44125095ff88635aca3163d8e',
+  'liontravel.com':   'https://afftkr.site/track/clicks/7983/c627c2bc9b0523ddfb89ec23d62e994c21695b9633e0e1fd0f63a44125095ff88635aca3163d8e?t=https%253A%252F%252Ftravel.liontravel.com%252Fcategory%252Fzh-tw%252Fcruise%252Findex',
   'travel.rakuten':   'https://vbshoptrax.com/track/clicks/3786/c627c2bb910723d9f09cab248d2596412379128f78eee1fc0176f6476a0449a8c23ae5a5112d',
 }
 
-// 列表頁 URL（不做 ?t= 深層連結）
-const CRUISE_LISTING_URLS = new Set([
-  'https://tour.settour.com.tw/cruise.html',
-  'https://www.colatour.com.tw/webDM/theme/promotion/sale.html',
-  'https://travel.liontravel.com/category/zh-tw/cruise/index',
-])
-
-// 不支援深層連結的平台：固定連結，不加 ?t=
+// 固定連結，不加 ?t=（連結本身已指向正確落地頁）
 const AFFILIATE_NO_DEEPLINK = new Set(['colatour.com.tw', 'liontravel.com'])
 
 function affiliateFor(url: string): string {

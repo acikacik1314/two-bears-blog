@@ -5,15 +5,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const PLATFORMS = [
-  { name: 'momo購物網',    home: 'https://www.momoshop.com.tw/',       promo: '🔥 天天限時秒殺',     search: 'https://www.momoshop.com.tw/search/searchShop.jsp?keyword={k}' },
-  { name: '蝦皮商城',      home: 'https://shopee.tw/mall',              promo: '🎁 每日免運優惠',     search: 'https://shopee.tw/mall/search?keyword={k}' },
-  { name: '酷澎',          home: 'https://www.tw.coupang.com/',         promo: '⚡ 新會員折$100',     search: 'https://www.tw.coupang.com/search?q={k}' },
-  { name: '家樂福線上',    home: 'https://online.carrefour.com.tw/',    promo: '🛒 生鮮超市特價',     search: 'https://online.carrefour.com.tw/zh/search?q={k}' },
-  { name: 'Yahoo購物中心', home: 'https://ibanana.biz/3RDip',           promo: '💰 購物回饋金加碼',   search: 'https://tw.buy.yahoo.com/search/product?p={k}' },
-  { name: '台灣樂天市場',  home: 'https://www.rakuten.com.tw/',         promo: '🌟 點數最高10倍回饋', search: 'https://www.rakuten.com.tw/search/{k}/' },
-  { name: '小三美日',      home: 'https://afflink.one/s/nP5WT',         promo: '💄 美妝保養下殺5折',  search: 'https://www.s3.com.tw/Search?q={k}' },
-  { name: 'PChome 24h',   home: 'https://24h.pchome.com.tw/',          promo: '📦 24小時急速到貨',   search: 'https://24h.pchome.com.tw/search/?q={k}' },
-  { name: '飛比價格',      home: 'https://feebee.com.tw/',              promo: '🔍 全網最低價比較',   search: 'https://feebee.com.tw/s/?q={k}' },
+  { name: 'momo購物網',    home: 'https://www1.gamepark.com.tw/3Ii4v',  ichannels: true,  promo: '🔥 天天限時秒殺',     search: 'https://www.momoshop.com.tw/search/searchShop.jsp?keyword={k}' },
+  { name: '蝦皮商城',      home: 'https://tlcafftrax.com/track/clicks/5282/c627c2b7900723d7fb9cab248d2596412379128f78e8e4fc0576f6476a0449a8c23ae5a5112d', aff: 'https://tlcafftrax.com/track/clicks/5282/c627c2b7900723d7fb9cab248d2596412379128f78e8e4fc0576f6476a0449a8c23ae5a5112d', promo: '🎁 每日免運優惠',     search: 'https://shopee.tw/mall/search?keyword={k}' },
+  { name: '酷澎',          home: 'https://whitehippo.net/3RDil',         ichannels: true,  promo: '⚡ 新會員折$100',     search: 'https://www.tw.coupang.com/search?q={k}' },
+  { name: '家樂福線上',    home: 'https://online.carrefour.com.tw/',                       promo: '🛒 生鮮超市特價',     search: 'https://online.carrefour.com.tw/zh/search?q={k}' },
+  { name: 'Yahoo購物中心', home: 'https://afftck.com/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e', aff: 'https://afftck.com/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e', promo: '💰 購物回饋金加碼',   search: 'https://tw.buy.yahoo.com/search/product?p={k}' },
+  { name: '台灣樂天市場',  home: 'https://affclkr.com/track/clicks/9379/c627c2b8900224ddfe9cab248d2596412379128f78e4e5f30e76f6476a0449a8c23ae5a5112d', aff: 'https://affclkr.com/track/clicks/9379/c627c2b8900224ddfe9cab248d2596412379128f78e4e5f30e76f6476a0449a8c23ae5a5112d', promo: '🌟 點數最高10倍回饋', search: 'https://www.rakuten.com.tw/search/{k}/' },
+  { name: '小三美日',      home: 'https://abzcoupon.com/track/clicks/4281/c627c2bc9b0521dffc8cec23d62e994c21695b9633e0e2f60f61a44125095ff88635aca3163d8e', aff: 'https://abzcoupon.com/track/clicks/4281/c627c2bc9b0521dffc8cec23d62e994c21695b9633e0e2f60f61a44125095ff88635aca3163d8e', promo: '💄 美妝保養下殺5折',  search: 'https://www.s3.com.tw/Search?q={k}' },
+  { name: 'PChome 24h',   home: 'https://24h.pchome.com.tw/',                             promo: '📦 24小時急速到貨',   search: 'https://24h.pchome.com.tw/search/?q={k}' },
+  { name: '飛比價格',      home: 'https://feebee.com.tw/',                                 promo: '🔍 全網最低價比較',   search: 'https://feebee.com.tw/s/?q={k}' },
 ];
 ---
 
@@ -81,8 +81,10 @@ const PLATFORMS = [
             href={p.home}
             data-home={p.home}
             data-search={p.search}
+            data-aff={p.aff ?? ''}
+            data-ichannels={p.ichannels ? 'true' : 'false'}
             target="_blank"
-            rel="noopener sponsored"
+            rel="sponsored nofollow noopener"
           >
             <span class="platform-btn-name">🔗 {p.name}</span>
             <span class="platform-btn-promo">{p.promo}</span>
@@ -348,29 +350,27 @@ const PLATFORMS = [
     return '#a0856a';
   }
 
-  // ===== 平台設定（品牌原生搜尋網址，通路王 Deep Link 自動轉換）=====
+  // ===== 平台設定 =====
   const PLATFORMS = [
-    { name: 'momo購物網', match: /momo/i,
+    { name: 'momo購物網', match: /momo/i, home: 'https://www1.gamepark.com.tw/3Ii4v', ichannels: true,
       promo: '🔥 天天限時秒殺',
       search: (k) => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
-    { name: '蝦皮商城', match: /蝦皮|shopee/i,
+    { name: '蝦皮商城', match: /蝦皮|shopee/i, home: 'https://tlcafftrax.com/track/clicks/5282/c627c2b7900723d7fb9cab248d2596412379128f78e8e4fc0576f6476a0449a8c23ae5a5112d', aff: 'https://tlcafftrax.com/track/clicks/5282/c627c2b7900723d7fb9cab248d2596412379128f78e8e4fc0576f6476a0449a8c23ae5a5112d',
       promo: '🎁 每日免運優惠',
       search: (k) => `https://shopee.tw/mall/search?keyword=${k}` },
-    { name: '酷澎', match: /酷澎|coupang/i,
+    { name: '酷澎', match: /酷澎|coupang/i, home: 'https://whitehippo.net/3RDil', ichannels: true,
       promo: '⚡ 新會員折$100',
       search: (k) => `https://www.tw.coupang.com/search?q=${k}` },
     { name: '家樂福線上', match: /家樂福|carrefour/i,
       promo: '🛒 生鮮超市特價',
       search: (k) => `https://online.carrefour.com.tw/zh/search?q=${k}` },
-    { name: 'Yahoo購物中心', match: /yahoo|雅虎/i,
-      aff: 'https://ibanana.biz/3RDip',
+    { name: 'Yahoo購物中心', match: /yahoo|雅虎/i, home: 'https://afftck.com/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e', aff: 'https://afftck.com/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e',
       promo: '💰 購物回饋金加碼',
       search: (k) => `https://tw.buy.yahoo.com/search/product?p=${k}` },
-    { name: '台灣樂天市場', match: /樂天|rakuten/i,
+    { name: '台灣樂天市場', match: /樂天|rakuten/i, home: 'https://affclkr.com/track/clicks/9379/c627c2b8900224ddfe9cab248d2596412379128f78e4e5f30e76f6476a0449a8c23ae5a5112d', aff: 'https://affclkr.com/track/clicks/9379/c627c2b8900224ddfe9cab248d2596412379128f78e4e5f30e76f6476a0449a8c23ae5a5112d',
       promo: '🌟 點數最高10倍回饋',
       search: (k) => `https://www.rakuten.com.tw/search/${k}/` },
-    { name: '小三美日', match: /小三|s3/i,
-      aff: 'https://afflink.one/s/nP5WT',
+    { name: '小三美日', match: /小三|s3/i, home: 'https://abzcoupon.com/track/clicks/4281/c627c2bc9b0521dffc8cec23d62e994c21695b9633e0e2f60f61a44125095ff88635aca3163d8e', aff: 'https://abzcoupon.com/track/clicks/4281/c627c2bc9b0521dffc8cec23d62e994c21695b9633e0e2f60f61a44125095ff88635aca3163d8e',
       promo: '💄 美妝保養下殺5折',
       search: (k) => `https://www.s3.com.tw/Search?q=${k}` },
     { name: 'PChome 24h', match: /pchome/i,
@@ -445,7 +445,10 @@ const PLATFORMS = [
         card.className = 'pick-card' + (i === 0 ? ' best' : '');
         card.style.borderLeftColor = color;
         const directUrl = r.url ? r.url.replace(/^http:\/\//i, 'https://') : '';
-        const searchUrl = p ? p.search(encodeURIComponent(data.keyword)) : directUrl;
+        const rawSearchUrl = p ? p.search(encodeURIComponent(data.keyword)) : directUrl;
+        const searchUrl = p?.ichannels
+          ? (p.home ?? rawSearchUrl)
+          : (p?.aff ? p.aff + '?t=' + encodeURIComponent(encodeURIComponent(rawSearchUrl)) : rawSearchUrl);
         const noteBadge = r.note ? `<span class="promo-badge">⚠️ ${escapeHtml(r.note)}</span>` : '';
         card.innerHTML = `
           <div class="info">
@@ -470,7 +473,7 @@ const PLATFORMS = [
         buy.textContent = '搜尋平台';
         buy.href = searchUrl;
         buy.target = '_blank';
-        buy.rel = 'noopener sponsored';
+        buy.rel = 'sponsored nofollow noopener';
         btnWrap.appendChild(buy);
         if (directUrl) {
           const direct = document.createElement('a');
@@ -505,9 +508,20 @@ const PLATFORMS = [
   // ===== 手動搜尋各平台（按鈕由 Astro server-render，JS 只更新 href） =====
   function updatePlatformLinks(keyword: string) {
     document.querySelectorAll<HTMLAnchorElement>('#platforms .platform-btn').forEach(btn => {
-      const tpl = btn.dataset.search ?? '';
+      const tpl  = btn.dataset.search ?? '';
       const home = btn.dataset.home ?? '';
-      btn.href = keyword ? tpl.replace('{k}', encodeURIComponent(keyword)) : home;
+      const aff  = btn.dataset.aff ?? '';
+      const ichannels = btn.dataset.ichannels === 'true';
+      if (!keyword) {
+        btn.href = home;
+      } else if (ichannels) {
+        btn.href = home;
+      } else if (aff) {
+        const searchUrl = tpl.replace('{k}', encodeURIComponent(keyword));
+        btn.href = aff + '?t=' + encodeURIComponent(encodeURIComponent(searchUrl));
+      } else {
+        btn.href = tpl.replace('{k}', encodeURIComponent(keyword));
+      }
     });
   }
 

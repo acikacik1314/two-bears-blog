@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { REGIONS, PAIN_MAP, type PainKey } from '../data/avoidData';
+import { AGODA_TRACKING, BOOKING_TRACKING, deepLink } from '../config/affiliates';
 
-const AGODA_TRACKING = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d';
-const AGODA_CID      = '1933603';
-const BOOKING_AID    = '304142';
 
 const PAIN_LIST = [
   { id: 'luggage',        label: '29吋行李箱打不開',                emoji: '🧳' },
@@ -52,8 +50,8 @@ function buildAgodaUrl(area: typeof PAIN_MAP[0], checkIn: string, checkOut: stri
     sort = 'rating_desc'; reviewScore = '8';
   }
   const reviewParam = reviewScore ? `&hotelReviewScore=${reviewScore}` : '';
-  const base = `https://www.agoda.com/zh-tw/search?city=${area.agodaCityId}&checkIn=${checkIn}&checkOut=${checkOut}&rooms=${rooms}&adults=${adults}&locale=zh-tw&currency=TWD&cid=${AGODA_CID}&sort=${sort}${reviewParam}`;
-  return `${AGODA_TRACKING}?t=${encodeURIComponent(encodeURIComponent(base))}`;
+  const base = `https://www.agoda.com/zh-tw/search?city=${area.agodaCityId}&checkIn=${checkIn}&checkOut=${checkOut}&rooms=${rooms}&adults=${adults}&locale=zh-tw&currency=TWD&sort=${sort}${reviewParam}`;
+  return deepLink(AGODA_TRACKING, base);
 }
 
 function buildBookingUrl(area: typeof PAIN_MAP[0], checkIn: string, checkOut: string, rooms: number, adults: number, selectedPains: string[]): string {
@@ -61,7 +59,8 @@ function buildBookingUrl(area: typeof PAIN_MAP[0], checkIn: string, checkOut: st
   let reviewScore = '80';
   if (selectedPains.some(p => qualityPains.includes(p))) reviewScore = '90';
   const nflt = selectedPains.length > 0 ? `&nflt=review_score%3D${reviewScore}` : '';
-  return `https://www.booking.com/searchresults.zh-tw.html?aid=${BOOKING_AID}&ss=${encodeURIComponent(area.bookingArea)}&checkin=${checkIn}&checkout=${checkOut}&group_adults=${adults}&no_rooms=${rooms}${nflt}`;
+  const bookingUrl = `https://www.booking.com/searchresults.zh-tw.html?ss=${encodeURIComponent(area.bookingArea)}&checkin=${checkIn}&checkout=${checkOut}&group_adults=${adults}&no_rooms=${rooms}${nflt}`;
+  return deepLink(BOOKING_TRACKING, bookingUrl);
 }
 
 type ResultArea = typeof PAIN_MAP[0] & { userPainTotal: number };
@@ -351,12 +350,12 @@ export default function AvoidPage() {
                     {/* Platform CTAs */}
                     <div className="grid grid-cols-2 gap-3">
                       <a href={buildAgodaUrl(area, checkIn, checkOut, rooms, adults, selectedPains)}
-                        target="_blank" rel="noopener noreferrer"
+                        target="_blank" rel="sponsored nofollow noopener"
                         className="flex items-center justify-center gap-2 py-3 bg-green-600 hover:bg-green-700 text-white text-sm font-bold rounded-xl transition-colors">
                         🔍 搜尋安全替代區域（Agoda）
                       </a>
                       <a href={buildBookingUrl(area, checkIn, checkOut, rooms, adults, selectedPains)}
-                        target="_blank" rel="noopener noreferrer"
+                        target="_blank" rel="sponsored nofollow noopener"
                         className="flex items-center justify-center gap-2 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition-colors">
                         🔍 搜尋安全替代區域（Booking）
                       </a>

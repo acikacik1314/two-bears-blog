@@ -820,8 +820,8 @@ body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-se
 
 <script is:inline>
 // ── 設定 ──────────────────────────────────────────
-const TRACKING_BASE = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d';
-const CID = '1933603';
+const AGODA_TRACKING = 'https://affsrc.com/track/clicks/8682/c627c2bc9b0225dbff89ec23d62e994c21695b9633e0eef20f62a44125095ff88635aca3163d8e';
+const BOOKING_TRACKING = 'https://abzcoupon.com/track/clicks/3455/c627c2bb980623dafa9cab248d2596412379128f78eee2f10276f6476a0449a8c23ae5a5112d';
 
 const INTENT_PARAMS = {
   all: {
@@ -879,10 +879,9 @@ function goAgoda(cityId) {
     '&locale=zh-tw&currency=TWD' +
     '&sort='     + params.sort +
     params.extra +
-    '&cid='      + CID +
     '&productType=-1';
 
-  const finalUrl = TRACKING_BASE + '?t=' + encodeURIComponent(encodeURIComponent(agodaUrl));
+  const finalUrl = AGODA_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(agodaUrl));
 
   if (typeof gtag !== 'undefined') {
     gtag('event', 'agoda_click', {
@@ -910,15 +909,15 @@ function goBooking(ss) {
   const rooms    = document.getElementById('rooms').value;
   const nflt     = BOOKING_NFLT[currentIntent] || BOOKING_NFLT.all;
 
-  const url =
+  const bookingUrl =
     'https://www.booking.com/searchresults.zh-tw.html' +
     '?ss='           + encodeURIComponent(ss) +
-    '&aid=304142' +
     '&checkin='      + checkIn +
     '&checkout='     + checkOut +
     '&group_adults=' + adults +
     '&no_rooms='     + rooms +
     '&nflt='         + nflt;
+  const url = BOOKING_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(bookingUrl));
 
   window.open(url, '_blank', 'noopener');
 }

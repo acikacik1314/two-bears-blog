@@ -418,7 +418,7 @@ function renderCard(d) {
     ? `<div class="card-notes">${d.notes}</div>` : ''
 
   const shoreBtn = d.shore_excursion_url
-    ? `<a href="${d.shore_excursion_url}" target="_blank" rel="noopener sponsored" class="btn-shore" title="${d.shore_excursion_note || '岸上觀光'}">📍 岸上觀光</a>`
+    ? `<a href="${d.shore_excursion_url}" target="_blank" rel="sponsored nofollow noopener" class="btn-shore" title="${d.shore_excursion_note || '岸上觀光'}">📍 岸上觀光</a>`
     : ''
 
   const priceHist = Array.isArray(d.price_history) && d.price_history.length > 1
@@ -470,7 +470,7 @@ function renderCard(d) {
     </div>
     <div class="card-foot">
       <div class="card-foot-btns">
-        <a href="${d.affiliate_url || '#'}" target="_blank" rel="noopener sponsored" class="btn-book"${!d.affiliate_url ? ' aria-disabled="true"' : ''}>立即訂購 →</a>
+        <a href="${d.affiliate_url || '#'}" target="_blank" rel="sponsored nofollow noopener" class="btn-book"${!d.affiliate_url ? ' aria-disabled="true"' : ''}>立即訂購 →</a>
         ${shoreBtn}
       </div>
       <div class="card-book-hint">前往 ${d.source || '旅行社'} 郵輪專區後，請搜尋以上航線確認最新價格</div>

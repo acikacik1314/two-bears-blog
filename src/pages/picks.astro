@@ -245,23 +245,27 @@ let conversationHistory = []
 let lastRawText = ''
 let queryHistory = []
 
-// ===== 平台設定（品牌原生搜尋網址，通路王 Deep Link 自動轉換）=====
+// ===== 平台設定 =====
 const BUY_PLATFORMS = [
   { name: 'momo',   icon: '🛍️', color: '#e94560', match: /momo/i,
+    home: 'https://www1.gamepark.com.tw/3Ii4v', ichannels: true,
     search: k => `https://www.momoshop.com.tw/search/searchShop.jsp?keyword=${k}` },
   { name: '蝦皮',   icon: '🛒', color: '#f07113', match: /蝦皮|shopee/i,
+    aff: 'https://tlcafftrax.com/track/clicks/5282/c627c2b7900723d7fb9cab248d2596412379128f78e8e4fc0576f6476a0449a8c23ae5a5112d',
     search: k => `https://shopee.tw/mall/search?keyword=${k}` },
   { name: '酷澎',   icon: '⚡', color: '#1db8c2', match: /酷澎|coupang/i,
+    home: 'https://whitehippo.net/3RDil', ichannels: true,
     search: k => `https://www.tw.coupang.com/search?q=${k}` },
   { name: 'Yahoo',  icon: '💜', color: '#7b00d4', match: /yahoo|雅虎/i,
-    aff: 'https://ibanana.biz/3RDip',
+    aff: 'https://afftck.com/track/clicks/3416/c627c2bc9b0521dff088ec23d62e994c21695b9633e0e5f00666a44125095ff88635aca3163d8e',
     search: k => `https://tw.buy.yahoo.com/search/product?p=${k}` },
   { name: '樂天',   icon: '🌸', color: '#bf0000', match: /樂天|rakuten/i,
+    aff: 'https://affclkr.com/track/clicks/9379/c627c2b8900224ddfe9cab248d2596412379128f78e4e5f30e76f6476a0449a8c23ae5a5112d',
     search: k => `https://www.rakuten.com.tw/search/${k}/` },
   { name: '家樂福', icon: '🏪', color: '#004fa3', match: /家樂福|carrefour/i,
     search: k => `https://online.carrefour.com.tw/zh/search?q=${k}` },
   { name: '小三美日',icon:'💄', color: '#1a7f37', match: /小三|s3/i,
-    aff: 'https://afflink.one/s/nP5WT',
+    aff: 'https://abzcoupon.com/track/clicks/4281/c627c2bc9b0521dffc8cec23d62e994c21695b9633e0e2f60f61a44125095ff88635aca3163d8e',
     search: k => `https://www.s3.com.tw/Search?q=${k}` },
   { name: 'PChome', icon: '📦', color: '#005bab', match: /pchome/i,
     search: k => `https://24h.pchome.com.tw/search/?q=${k}` },
@@ -335,9 +339,11 @@ function renderBuyLinks(products) {
       btn.className = 'buy-platform-btn'
       btn.style.setProperty('--pc', p.color)
       btn.title = p.name + ' 搜尋「' + product + '」'
-      btn.href = p.aff || p.search(kw)
+      btn.href = p.ichannels
+        ? (p.home || p.aff)
+        : (p.aff ? p.aff + '?t=' + encodeURIComponent(encodeURIComponent(p.search(kw))) : p.search(kw))
       btn.target = '_blank'
-      btn.rel = 'noopener sponsored'
+      btn.rel = 'sponsored nofollow noopener'
       const labelEl = document.createElement('span')
       labelEl.textContent = p.icon + ' ' + p.name
       const priceEl = document.createElement('span')

@@ -6,6 +6,7 @@ tags: ['加密貨幣', '空投', 'Web3', '區塊鏈']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071409043'
 category: '其他'
 heroImage: 'https://images.unsplash.com/photo-1484100356142-db6ab6244067?w=800&h=450&fit=crop'
+draft: true
 ---
 
 哈囉，各位熊粉們！最近的加密貨幣市場可真是熱鬧滾滾，尤其空投消息一個接一個，讓人應接不暇。今天我們就來聊聊一個最近備受矚目的項目——Humanity Protocol，它終於確認要空投了！消息一出，相信不少朋友都跟我一樣，興奮之情溢於言表，畢竟這可是大家期待已久的潛力股啊。

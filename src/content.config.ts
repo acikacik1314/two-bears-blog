@@ -20,6 +20,7 @@ const blog = defineCollection({
 			youtubeId: z.string().optional(),
 			pixnetSource: emptyToUndefined,
 			prophet: z.string().optional(),
+			draft: z.boolean().optional(),
 		predictions: z.object({
 				hits: z.array(z.string()).optional(),
 				misses: z.array(z.string()).optional(),

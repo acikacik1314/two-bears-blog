@@ -8,6 +8,41 @@
   ],
   "redirects": [
     {
+      "source": "/blog/2025-01-06-pi-network-invitation",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2025-01-07-me-pass-airdrop",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2025-01-07-solv-protocol-solvbtc",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2025-01-06-humanity-protocol-airdrop",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-11-18-paybei-alipay-taobao",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-05-28-biggo-cashback",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-04-18-fengming-land-for-sale",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/blog/rumble-v79b0b6",
       "destination": "/blog/2026-mor-plai",
       "permanent": true

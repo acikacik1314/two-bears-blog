@@ -10,7 +10,7 @@ import { getPostCategory, CATEGORY_COLORS } from '../../../utils/category';
 import { SITE_TITLE } from '../../../consts';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const allPosts = await getCollection('blog');
+  const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
 
   const catMap = new Map<string, CollectionEntry<'blog'>[]>();
   for (const post of allPosts) {

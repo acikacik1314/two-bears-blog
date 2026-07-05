@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import { PREDICTIONS } from '../data/predictions'
 
-const allPosts = await getCollection('blog');
+const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
 
 // Same tag mapping as ProphecyLeaderboard — keeps the two sources in sync
 const PROPHET_TAGS: Record<string, string[]> = {

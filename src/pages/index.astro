@@ -22,7 +22,7 @@ try {
 	if (res.ok) viewCounts = await res.json();
 } catch {}
 
-const allPosts = await getCollection('blog');
+const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
 const CATEGORY_ORDER: Record<string, number> = { '預言': 0, '評測': 1, '旅遊': 2, '影片': 3 };
 
 function categoryPriority(post: CollectionEntry<'blog'>): number {

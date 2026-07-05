@@ -6,6 +6,7 @@ tags: ['加密貨幣', 'Pi Network', 'Web3', '區塊鏈']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071409034'
 category: '其他'
 heroImage: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=800&h=450&fit=crop'
+draft: true
 ---
 
 Sitemap

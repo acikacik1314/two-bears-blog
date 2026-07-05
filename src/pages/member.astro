@@ -18,7 +18,7 @@ const hasAI = !!(import.meta.env.GROQ_API_KEY || process.env.GROQ_API_KEY || imp
 let recentPosts: { id: string; title: string; date: string; href: string }[] = []
 if (user) {
   try {
-    const all = await getCollection('blog')
+    const all = (await getCollection('blog')).filter(p => !p.data.draft)
     recentPosts = all
       .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
       .slice(0, 8)

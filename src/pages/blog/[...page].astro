@@ -10,7 +10,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getPostCategory, CATEGORY_COLORS } from '../../utils/category';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-	const posts = (await getCollection('blog')).sort(
+	const posts = (await getCollection('blog')).filter(p => !p.data.draft).sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 	const categoryCounts: Record<string, number> = { '全部': posts.length };

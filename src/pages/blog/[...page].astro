@@ -33,13 +33,22 @@ type Props = {
 };
 const { page, categoryCounts, orderedCats } = Astro.props;
 
-function getThumbnail(post: CollectionEntry<'blog'>): string | null {
+const CATEGORY_DEFAULT_IMAGES: Record<string, string> = {
+	'預言': 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop',
+	'影片': 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&h=450&fit=crop',
+	'旅遊': 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop',
+	'評測': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=450&fit=crop',
+	'其他': 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop',
+};
+
+function getThumbnail(post: CollectionEntry<'blog'>, cat: string): string {
 	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
 	if (post.data.heroImage) {
 		const h = post.data.heroImage as any;
-		return typeof h === 'string' ? h : h?.src ?? null;
+		const url = typeof h === 'string' ? h : h?.src ?? null;
+		if (url) return url;
 	}
-	return null;
+	return CATEGORY_DEFAULT_IMAGES[cat] ?? CATEGORY_DEFAULT_IMAGES['其他'];
 }
 
 const CATEGORY_GRADIENTS: Record<string, string> = {
@@ -248,28 +257,19 @@ const pageTitle = page.currentPage > 1
 				{page.data.map((post) => {
 					const cat = getPostCategory(post);
 					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
-					const thumb = getThumbnail(post);
+					const thumb = getThumbnail(post, cat);
 					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
 					const icon = CATEGORY_ICONS[cat] ?? '📝';
 					return (
 						<li>
 							<a href={`/blog/${post.id}`}>
 								<div class="card-thumb">
-									{thumb ? (
-										<>
-											<img src={thumb} alt={post.data.title} loading="lazy" decoding="async"
-												onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-											<div class="card-thumb-placeholder" style={`background: ${gradient}; display:none`}>
-												<span class="placeholder-icon">{icon}</span>
-												<span class="placeholder-cat">{cat}</span>
-											</div>
-										</>
-									) : (
-										<div class="card-thumb-placeholder" style={`background: ${gradient}`}>
-											<span class="placeholder-icon">{icon}</span>
-											<span class="placeholder-cat">{cat}</span>
-										</div>
-									)}
+									<img src={thumb} alt={post.data.title} loading="lazy" decoding="async"
+										onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+									<div class="card-thumb-placeholder" style={`background: ${gradient}; display:none`}>
+										<span class="placeholder-icon">{icon}</span>
+										<span class="placeholder-cat">{cat}</span>
+									</div>
 									<span class="cat-badge" style={`background:${color}`}>{cat}</span>
 								</div>
 								<div class="card-body">

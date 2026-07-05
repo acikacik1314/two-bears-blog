@@ -9,31 +9,3 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 export const supabaseAdmin = supabaseServiceKey
   ? createClient(supabaseUrl, supabaseServiceKey)
   : supabase
-
-export type MarketItem = {
-  id: string
-  created_at: string
-  seller_id: string
-  seller_name: string
-  seller_email: string
-  contact_type: 'line' | 'phone' | 'form' | 'both'
-  contact_line_id?: string
-  contact_phone?: string
-  title: string
-  category: string
-  description_story: string
-  description_plain: string
-  condition: 'like_new' | 'good' | 'fair'
-  condition_notes?: string
-  years_used?: number
-  deal_type: 'sell' | 'trade' | 'free'
-  price?: number
-  market_price?: number
-  trade_want?: string
-  location_city?: string
-  location_note?: string
-  image_urls: string[]
-  status: 'active' | 'sold' | 'removed'
-  view_count: number
-  inquiry_count: number
-}

@@ -6,7 +6,7 @@ import UserMenu from './UserMenu.astro';
 const path = Astro.url.pathname;
 const travelActive   = ['/travel','/language','/avoid','/food','/pick','/cruise'].some(p => path.startsWith(p));
 const prophecyActive = ['/oracle','/fortune','/omikuji'].some(p => path.startsWith(p));
-const moreActive     = ['/picks','/friends','/member','/about','/market'].some(p => path.startsWith(p));
+const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.startsWith(p));
 ---
 
 <!-- Ticker bar -->
@@ -95,7 +95,6 @@ const moreActive     = ['/picks','/friends','/member','/about','/market'].some(p
         <div class="nav-dropdown" role="menu">
           <a href="/picks"     class={path.startsWith('/picks')    ? 'active' : ''}>🐻 選物</a>
           <a href="/friends"   class={path.startsWith('/friends')  ? 'active' : ''}>情報</a>
-          <a href="/market"    class={path.startsWith('/market')   ? 'active' : ''}>🛍️ 二手市集</a>
           <a href="/member"    class={path.startsWith('/member')   ? 'active' : ''}>會員</a>
           <a href="/about"     class={path.startsWith('/about')    ? 'active' : ''}>關於</a>
         </div>

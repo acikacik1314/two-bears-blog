@@ -341,8 +341,6 @@ html body { background: #FFF8EC; color: #3B2A1E; }
   </div>
 
   <Footer />
-</body>
-</html>
 
 <script is:inline>
 const API = '/api/cruise/deals'
@@ -472,7 +470,7 @@ function renderCard(d) {
     </div>
     <div class="card-foot">
       <div class="card-foot-btns">
-        <a href="${d.affiliate_url}" target="_blank" rel="noopener sponsored" class="btn-book">立即訂購 →</a>
+        <a href="${d.affiliate_url || '#'}" target="_blank" rel="noopener sponsored" class="btn-book"${!d.affiliate_url ? ' aria-disabled="true"' : ''}>立即訂購 →</a>
         ${shoreBtn}
       </div>
       <div class="card-book-hint">前往 ${d.source || '旅行社'} 郵輪專區後，請搜尋以上航線確認最新價格</div>
@@ -484,10 +482,21 @@ async function loadDeals() {
   document.getElementById('dealsGrid').innerHTML = '<div class="loading-dots">🚢 搜尋中…</div>'
   try {
     const res = await fetch(`${API}?${buildParams()}`)
-    allDeals = await res.json()
+    const json = await res.json()
+    if (!res.ok || json.error) {
+      document.getElementById('dealsGrid').innerHTML =
+        `<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">⚠️</div>
+         <div style="font-size:.9rem;font-weight:600;margin-top:.5rem">載入失敗</div>
+         <p>${json.error || 'HTTP ' + res.status}</p></div>`
+      return
+    }
+    allDeals = Array.isArray(json) ? json : []
     renderDeals(allDeals)
-  } catch {
-    document.getElementById('dealsGrid').innerHTML = '<div class="loading-dots">載入失敗，請稍後再試</div>'
+  } catch(e) {
+    document.getElementById('dealsGrid').innerHTML =
+      `<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">⚠️</div>
+       <div style="font-size:.9rem;font-weight:600;margin-top:.5rem">網路錯誤</div>
+       <p>${e.message}</p></div>`
   }
 }
 
@@ -534,3 +543,6 @@ document.getElementById('f-nights').addEventListener('change', loadDeals)
 
 loadDeals()
 </script>
+
+</body>
+</html>

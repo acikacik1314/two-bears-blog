@@ -1,23 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
+import type { GetStaticPathsOptions, Page } from 'astro';
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import { getPostCategory, CATEGORIES, CATEGORY_COLORS } from '../../utils/category';
-import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import { getPostCategory, CATEGORIES, CATEGORY_COLORS } from '../../../utils/category';
+import { SITE_TITLE } from '../../../consts';
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const allPosts = await getCollection('blog');
   const categories = CATEGORIES.filter(c => c !== '全部');
-  return categories.map(category => ({ params: { category } }));
+
+  return categories.flatMap(category =>
+    paginate(
+      allPosts
+        .filter(post => getPostCategory(post) === category)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+      { params: { category }, pageSize: 24 },
+    )
+  );
 }
 
+type Props = { page: Page<CollectionEntry<'blog'>> };
+const { page } = Astro.props;
 const { category } = Astro.params;
-const allPosts = await getCollection('blog');
-const posts = allPosts
-  .filter(post => getPostCategory(post) === category)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const color = CATEGORY_COLORS[category] ?? '#7f8c8d';
 
@@ -40,11 +48,31 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 const CATEGORY_ICONS: Record<string, string> = {
   '預言': '🔮', '影片': '🎬', '旅遊': '✈️', '評測': '📦', '其他': '📝',
 };
+
+function getPageNums(current: number, last: number): (number | '…')[] {
+  const show = new Set<number>();
+  show.add(1);
+  show.add(last);
+  for (let i = Math.max(1, current - 2); i <= Math.min(last, current + 2); i++) show.add(i);
+  const sorted = [...show].sort((a, b) => a - b);
+  const result: (number | '…')[] = [];
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1) result.push('…');
+    result.push(sorted[i]);
+  }
+  return result;
+}
+
+const pageNums = getPageNums(page.currentPage, page.lastPage);
+const pageTitle = page.currentPage > 1
+  ? `${category} 第${page.currentPage}頁 | ${SITE_TITLE}`
+  : `${category} | ${SITE_TITLE}`;
 ---
 
+<!doctype html>
 <html lang="zh-TW">
   <head>
-    <BaseHead title={`${category} | ${SITE_TITLE}`} description={`${SITE_TITLE} 的 ${category} 分類文章`} />
+    <BaseHead title={pageTitle} description={`${SITE_TITLE} 的 ${category} 分類文章`} />
     <style>
       main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 2em 1em; }
       .category-header { text-align: center; margin-bottom: 1.5em; }
@@ -107,6 +135,34 @@ const CATEGORY_ICONS: Record<string, string> = {
       ul li a:hover .card-title { color: var(--accent); }
       .card-date { margin: 0; color: #94a3b8; font-size: 0.78em; }
       .empty { text-align: center; color: rgb(var(--gray)); padding: 3em 0; }
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35em;
+        margin: 2.5em 0 1em;
+        flex-wrap: wrap;
+      }
+      .page-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.2em;
+        height: 2.2em;
+        padding: 0 0.7em;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.85em;
+        color: rgb(var(--gray-dark));
+        background: white;
+        border: 1px solid rgb(var(--gray-light));
+        transition: background 0.15s, color 0.15s;
+        white-space: nowrap;
+      }
+      .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+      .page-btn.active { background: var(--accent); border-color: var(--accent); color: white; font-weight: 700; pointer-events: none; }
+      .page-btn.disabled { opacity: 0.3; pointer-events: none; }
+      .page-ellipsis { color: rgb(var(--gray)); line-height: 2.2em; padding: 0 0.1em; }
       @media (max-width: 720px) { ul { grid-template-columns: repeat(2, 1fr); } }
       @media (max-width: 480px) { ul { grid-template-columns: 1fr; } }
     </style>
@@ -116,7 +172,7 @@ const CATEGORY_ICONS: Record<string, string> = {
     <main>
       <div class="category-header">
         <div class="category-badge" style={`--cat-color: ${color}`}>{category}</div>
-        <p class="post-count">共 {posts.length} 篇文章</p>
+        <p class="post-count">共 {page.total} 篇文章</p>
       </div>
       <nav class="nav-tabs">
         <a href="/blog" class="nav-tab">全部</a>
@@ -124,17 +180,17 @@ const CATEGORY_ICONS: Record<string, string> = {
           <a href={`/category/${cat}`} class={`nav-tab${cat === category ? ' active' : ''}`}>{cat}</a>
         ))}
       </nav>
-      {posts.length === 0 ? (
+      {page.data.length === 0 ? (
         <p class="empty">此分類目前沒有文章。</p>
       ) : (
         <ul>
-          {posts.map(post => {
+          {page.data.map(post => {
             const thumb = getThumbnail(post);
             const gradient = CATEGORY_GRADIENTS[category] ?? CATEGORY_GRADIENTS['其他'];
             const icon = CATEGORY_ICONS[category] ?? '📝';
             return (
               <li>
-                <a href={`/blog/${post.id}/`}>
+                <a href={`/blog/${post.id}`}>
                   <div class="card-thumb">
                     {thumb ? (
                       <>
@@ -161,6 +217,28 @@ const CATEGORY_ICONS: Record<string, string> = {
             );
           })}
         </ul>
+      )}
+
+      {page.lastPage > 1 && (
+        <nav class="pagination" aria-label="分頁導覽">
+          {page.url.prev
+            ? <a href={page.url.prev} class="page-btn" aria-label="上一頁">← 上一頁</a>
+            : <span class="page-btn disabled">← 上一頁</span>
+          }
+          {pageNums.map(n =>
+            n === '…'
+              ? <span class="page-ellipsis">…</span>
+              : <a
+                  href={n === 1 ? `/category/${category}` : `/category/${category}/${n}`}
+                  class={`page-btn${n === page.currentPage ? ' active' : ''}`}
+                  aria-current={n === page.currentPage ? 'page' : undefined}
+                >{n}</a>
+          )}
+          {page.url.next
+            ? <a href={page.url.next} class="page-btn" aria-label="下一頁">下一頁 →</a>
+            : <span class="page-btn disabled">下一頁 →</span>
+          }
+        </nav>
       )}
     </main>
     <Footer />

@@ -1,6 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import type { GetStaticPathsOptions, Page } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -8,20 +9,26 @@ import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getPostCategory, CATEGORY_COLORS } from '../../utils/category';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-
-const categoryCounts: Record<string, number> = { '全部': posts.length };
-for (const post of posts) {
-	const cat = getPostCategory(post);
-	categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1;
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	const categoryCounts: Record<string, number> = { '全部': posts.length };
+	for (const post of posts) {
+		const cat = getPostCategory(post);
+		categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1;
+	}
+	return paginate(posts, { pageSize: 24, props: { categoryCounts } });
 }
 
+type Props = {
+	page: Page<CollectionEntry<'blog'>>;
+	categoryCounts: Record<string, number>;
+};
+const { page, categoryCounts } = Astro.props;
+
 function getThumbnail(post: CollectionEntry<'blog'>): string | null {
-	if (post.data.youtubeId) {
-		return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
-	}
+	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
 	if (post.data.heroImage) {
 		const h = post.data.heroImage as any;
 		return typeof h === 'string' ? h : h?.src ?? null;
@@ -36,20 +43,34 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 	'評測': 'linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%)',
 	'其他': 'linear-gradient(135deg, #373b44 0%, #4286f4 100%)',
 };
-
 const CATEGORY_ICONS: Record<string, string> = {
-	'預言': '🔮',
-	'影片': '🎬',
-	'旅遊': '✈️',
-	'評測': '📦',
-	'其他': '📝',
+	'預言': '🔮', '影片': '🎬', '旅遊': '✈️', '評測': '📦', '其他': '📝',
 };
+
+function getPageNums(current: number, last: number): (number | '…')[] {
+	const show = new Set<number>();
+	show.add(1);
+	show.add(last);
+	for (let i = Math.max(1, current - 2); i <= Math.min(last, current + 2); i++) show.add(i);
+	const sorted = [...show].sort((a, b) => a - b);
+	const result: (number | '…')[] = [];
+	for (let i = 0; i < sorted.length; i++) {
+		if (i > 0 && sorted[i] - sorted[i - 1] > 1) result.push('…');
+		result.push(sorted[i]);
+	}
+	return result;
+}
+
+const pageNums = getPageNums(page.currentPage, page.lastPage);
+const pageTitle = page.currentPage > 1
+	? `文章列表 第${page.currentPage}頁 | ${SITE_TITLE}`
+	: `文章列表 | ${SITE_TITLE}`;
 ---
 
 <!doctype html>
 <html lang="zh-TW">
 	<head>
-		<BaseHead title={`文章列表 | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;
@@ -128,9 +149,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				border-radius: 0;
 				transition: transform 0.3s;
 			}
-			ul li a:hover .card-thumb img {
-				transform: scale(1.04);
-			}
+			ul li a:hover .card-thumb img { transform: scale(1.04); }
 			.card-thumb-placeholder {
 				width: 100%;
 				height: 100%;
@@ -140,16 +159,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 				justify-content: center;
 				gap: 0.4em;
 			}
-			.placeholder-icon {
-				font-size: 2.2em;
-				opacity: 0.9;
-			}
-			.placeholder-cat {
-				font-size: 0.8em;
-				color: rgba(255,255,255,0.7);
-				font-weight: 700;
-				letter-spacing: 0.05em;
-			}
+			.placeholder-icon { font-size: 2.2em; opacity: 0.9; }
+			.placeholder-cat { font-size: 0.8em; color: rgba(255,255,255,0.7); font-weight: 700; letter-spacing: 0.05em; }
 			.cat-badge {
 				position: absolute;
 				top: 0.5em;
@@ -163,9 +174,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				backdrop-filter: blur(4px);
 				background: rgba(0,0,0,0.45);
 			}
-			.card-body {
-				padding: 0.85em;
-			}
+			.card-body { padding: 0.85em; }
 			.card-title {
 				margin: 0 0 0.35em 0;
 				color: #e2e8f0;
@@ -178,11 +187,35 @@ const CATEGORY_ICONS: Record<string, string> = {
 				overflow: hidden;
 			}
 			ul li a:hover .card-title { color: var(--accent); }
-			.card-date {
-				margin: 0;
-				color: #94a3b8;
-				font-size: 0.78em;
+			.card-date { margin: 0; color: #94a3b8; font-size: 0.78em; }
+			.pagination {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.35em;
+				margin: 2.5em 0 1em;
+				flex-wrap: wrap;
 			}
+			.page-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-width: 2.2em;
+				height: 2.2em;
+				padding: 0 0.7em;
+				border-radius: 8px;
+				text-decoration: none;
+				font-size: 0.85em;
+				color: #94a3b8;
+				background: #1e293b;
+				border: 1px solid #334155;
+				transition: background 0.15s, color 0.15s;
+				white-space: nowrap;
+			}
+			.page-btn:hover { background: #334155; color: #e2e8f0; }
+			.page-btn.active { background: var(--accent); border-color: var(--accent); color: white; font-weight: 700; pointer-events: none; }
+			.page-btn.disabled { opacity: 0.3; pointer-events: none; }
+			.page-ellipsis { color: #64748b; line-height: 2.2em; padding: 0 0.1em; }
 			@media (max-width: 720px) {
 				ul { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
 			}
@@ -206,7 +239,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 				))}
 			</nav>
 			<ul>
-				{posts.map((post) => {
+				{page.data.map((post) => {
 					const cat = getPostCategory(post);
 					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
 					const thumb = getThumbnail(post);
@@ -214,7 +247,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 					const icon = CATEGORY_ICONS[cat] ?? '📝';
 					return (
 						<li>
-							<a href={`/blog/${post.id}/`}>
+							<a href={`/blog/${post.id}`}>
 								<div class="card-thumb">
 									{thumb ? (
 										<>
@@ -242,12 +275,35 @@ const CATEGORY_ICONS: Record<string, string> = {
 					);
 				})}
 			</ul>
-		<p style="text-align:center;margin:3em 0 1.5em;font-size:0.78em;color:#94a3b8;">
-			每篇文章都是認真整理的。如果你喜歡這裡，歡迎
-			<a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener"
-			   style="color:#94a3b8;text-decoration:underline;text-underline-offset:2px;transition:color 0.15s;"
-			   onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#94a3b8'">請兩隻熊喝杯咖啡 ☕</a>
-		</p>
+
+			{page.lastPage > 1 && (
+				<nav class="pagination" aria-label="分頁導覽">
+					{page.url.prev
+						? <a href={page.url.prev} class="page-btn" aria-label="上一頁">← 上一頁</a>
+						: <span class="page-btn disabled">← 上一頁</span>
+					}
+					{pageNums.map(n =>
+						n === '…'
+							? <span class="page-ellipsis">…</span>
+							: <a
+									href={n === 1 ? '/blog' : `/blog/${n}`}
+									class={`page-btn${n === page.currentPage ? ' active' : ''}`}
+									aria-current={n === page.currentPage ? 'page' : undefined}
+								>{n}</a>
+					)}
+					{page.url.next
+						? <a href={page.url.next} class="page-btn" aria-label="下一頁">下一頁 →</a>
+						: <span class="page-btn disabled">下一頁 →</span>
+					}
+				</nav>
+			)}
+
+			<p style="text-align:center;margin:2em 0 1.5em;font-size:0.78em;color:#94a3b8;">
+				每篇文章都是認真整理的。如果你喜歡這裡，歡迎
+				<a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener"
+				   style="color:#94a3b8;text-decoration:underline;text-underline-offset:2px;transition:color 0.15s;"
+				   onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#94a3b8'">請兩隻熊喝杯咖啡 ☕</a>
+			</p>
 		</main>
 		<Footer />
 	</body>

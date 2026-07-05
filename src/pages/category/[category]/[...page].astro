@@ -6,25 +6,35 @@ import BaseHead from '../../../components/BaseHead.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
-import { getPostCategory, CATEGORIES, CATEGORY_COLORS } from '../../../utils/category';
+import { getPostCategory, CATEGORY_COLORS } from '../../../utils/category';
 import { SITE_TITLE } from '../../../consts';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const allPosts = await getCollection('blog');
-  const categories = CATEGORIES.filter(c => c !== '全部');
 
-  return categories.flatMap(category =>
+  const catMap = new Map<string, CollectionEntry<'blog'>[]>();
+  for (const post of allPosts) {
+    const cat = getPostCategory(post);
+    if (!catMap.has(cat)) catMap.set(cat, []);
+    catMap.get(cat)!.push(post);
+  }
+
+  const PREFERRED = ['評測', '預言', '旅遊', '影片'];
+  const orderedCats = [
+    ...PREFERRED.filter(c => catMap.has(c)),
+    ...[...catMap.keys()].filter(c => !PREFERRED.includes(c)),
+  ];
+
+  return orderedCats.flatMap(category =>
     paginate(
-      allPosts
-        .filter(post => getPostCategory(post) === category)
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
-      { params: { category }, pageSize: 24 },
+      catMap.get(category)!.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+      { params: { category }, pageSize: 24, props: { orderedCats } },
     )
   );
 }
 
-type Props = { page: Page<CollectionEntry<'blog'>> };
-const { page } = Astro.props;
+type Props = { page: Page<CollectionEntry<'blog'>>; orderedCats: string[] };
+const { page, orderedCats } = Astro.props;
 const { category } = Astro.params;
 
 const color = CATEGORY_COLORS[category] ?? '#7f8c8d';
@@ -176,7 +186,7 @@ const pageTitle = page.currentPage > 1
       </div>
       <nav class="nav-tabs">
         <a href="/blog" class="nav-tab">全部</a>
-        {(['評測', '預言', '旅遊', '影片'] as const).map(cat => (
+        {orderedCats.map(cat => (
           <a href={`/category/${cat}`} class={`nav-tab${cat === category ? ' active' : ''}`}>{cat}</a>
         ))}
       </nav>

@@ -18,14 +18,20 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 		const cat = getPostCategory(post);
 		categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1;
 	}
-	return paginate(posts, { pageSize: 24, props: { categoryCounts } });
+	const PREFERRED = ['評測', '預言', '旅遊', '影片'];
+	const orderedCats = [
+		...PREFERRED.filter(c => categoryCounts[c]),
+		...Object.keys(categoryCounts).filter(c => c !== '全部' && !PREFERRED.includes(c) && categoryCounts[c]),
+	];
+	return paginate(posts, { pageSize: 24, props: { categoryCounts, orderedCats } });
 }
 
 type Props = {
 	page: Page<CollectionEntry<'blog'>>;
 	categoryCounts: Record<string, number>;
+	orderedCats: string[];
 };
-const { page, categoryCounts } = Astro.props;
+const { page, categoryCounts, orderedCats } = Astro.props;
 
 function getThumbnail(post: CollectionEntry<'blog'>): string | null {
 	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
@@ -232,9 +238,9 @@ const pageTitle = page.currentPage > 1
 				<a href="/blog" class="nav-tab active">
 					全部 <span class="count-badge">{categoryCounts['全部']}</span>
 				</a>
-				{(['評測', '預言', '旅遊', '影片'] as const).map(cat => (
+				{orderedCats.map(cat => (
 					<a href={`/category/${cat}`} class="nav-tab">
-						{cat} <span class="count-badge">{categoryCounts[cat] ?? 0}</span>
+						{cat} <span class="count-badge">{categoryCounts[cat]}</span>
 					</a>
 				))}
 			</nav>

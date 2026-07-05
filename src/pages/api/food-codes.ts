@@ -9,26 +9,27 @@ import { put, list } from '@vercel/blob';
 // ══════════════════════════════════════════════════════════════════
 const MANUAL_CODES: CodeEntry[] = [
   // ── Uber Eats 全台（分眾）─────────────────────────────────────
-  { platform: 'ubereats', code: '六要大吃',  desc: '消費滿79元享1次4折，最高折抵NT$100', expires: '2026-06-15', general: true  },
-  { platform: 'ubereats', code: '好吃四折',  desc: '消費滿129元享1次4折，最高折抵NT$100', expires: '2026-06-30', general: true  },
-  { platform: 'ubereats', code: '免運吃七次', desc: '消費滿129元享7次免運費', expires: '2026-06-30', general: true  },
+  { platform: 'ubereats', code: '七月吃大餐', desc: '「Uber One會員」消費滿649元現折100元，每人可用2次', expires: '2026-07-31', general: true  },
+  { platform: 'ubereats', code: '七月吃點心', desc: '「年訂閱制Uber One會員」消費滿399元現折50元，每人可用2次', expires: '2026-07-31', general: true  },
   // ── Uber Eats 地區限定 ─────────────────────────────────────────
-  { platform: 'ubereats', code: '六月吃飽',  desc: '消費滿149元享1次9折，最高折抵NT$100（新北/桃園/新竹/苗栗/台中/彰化/南投/雲林/嘉義/台南/高雄/屏東/宜蘭/花蓮/台東/澎湖/金門/基隆指定地區）', expires: '2026-06-30', general: false },
-  { platform: 'ubereats', code: '六就吃八',  desc: '消費滿149元享1次7折，最高折抵NT$100（基隆市）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就享八',  desc: '消費滿149元享1次5折，最高折抵NT$100（苗栗縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就餓八',  desc: '消費滿149元享1次5折，最高折抵NT$100（南投縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就點八',  desc: '消費滿149元享1次5折，最高折抵NT$100（彰化縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就喜八',  desc: '消費滿149元享1次5折，最高折抵NT$100（雲林縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就暖八',  desc: '消費滿149元享1次5折，最高折抵NT$100（嘉義縣市）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就要八',  desc: '消費滿149元享1次5折，最高折抵NT$100（台南市）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就狂八',  desc: '消費滿149元享1次5折，最高折抵NT$100（屏東縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就省八',  desc: '消費滿149元享1次5折，最高折抵NT$100（宜蘭縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就好八',  desc: '消費滿149元享1次7折，最高折抵NT$100（花蓮縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就飽八',  desc: '消費滿149元享1次7折，最高折抵NT$100（台東縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就訂八',  desc: '消費滿149元享1次7折，最高折抵NT$100（澎湖縣）', expires: '2026-06-15', general: false },
-  { platform: 'ubereats', code: '六就樂八',  desc: '消費滿149元享1次7折，最高折抵NT$100（金門縣）', expires: '2026-06-15', general: false },
+  { platform: 'ubereats', code: '七點七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（基隆市）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七點五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（苗栗縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七吃五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（南投縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七好五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（彰化縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七喜五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（雲林縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七飽五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（嘉義縣、嘉義市）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七要五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（台南市）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七狂五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（屏東縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七省五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（宜蘭縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七好七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（花蓮縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七吃七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（台東縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七飽七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（澎湖縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '七省七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（金門縣）', expires: '2026-07-15', general: false },
   // ── Foodpanda ─────────────────────────────────────────────────
-  { platform: 'foodpanda', code: 'pandapro',  desc: 'pandapro會員 85折，最高折抵NT$45（可用2次）', expires: '2026-06-25', general: true  },
+  { platform: 'foodpanda', code: '胖胖達星隊友', desc: '星巴克消費滿320元現折80元（指定店家）', expires: '2026-07-19', general: false },
+  { platform: 'foodpanda', code: '週二星享日',   desc: '星巴克每週二【限時優惠專區】消費滿279元現折70元（指定店家）', expires: '2026-12-31', general: false },
+  { platform: 'foodpanda', code: '爽爽送',       desc: '精選餐廳消費滿260/320/400元現折70/80/100元（指定店家）', expires: '2026-07-19', general: false },
+  { platform: 'foodpanda', code: '十足美味',     desc: '精選餐廳「pandapro」會員享2次85折，最高折抵NT$45（指定店家）', expires: '2026-07-19', general: true  },
 ];
 // ══════════════════════════════════════════════════════════════════
 
@@ -123,8 +124,8 @@ export async function scrapeAllCodes(): Promise<FoodCodesResult> {
   const apiKey = import.meta.env.TAVILY_API_KEY ?? '';
   const [callingText, uberText, pandaText] = await Promise.all([
     scrapeCallingTW(),
-    apiKey ? tavilySearch(apiKey, 'UberEats 台灣 優惠代碼 2026 六月') : Promise.resolve(''),
-    apiKey ? tavilySearch(apiKey, 'foodpanda 台灣 優惠代碼 2026 六月') : Promise.resolve(''),
+    apiKey ? tavilySearch(apiKey, 'UberEats 台灣 優惠代碼 2026 七月') : Promise.resolve(''),
+    apiKey ? tavilySearch(apiKey, 'foodpanda 台灣 優惠代碼 2026 七月') : Promise.resolve(''),
   ]);
 
   const autoCodes = findAutoCode(callingText + '\n' + uberText + '\n' + pandaText);
@@ -157,15 +158,18 @@ async function writeBlob(data: FoodCodesResult): Promise<void> {
 }
 
 // ── Route ──────────────────────────────────────────────────────────
-export const GET: APIRoute = async () => {
-  const stored = await readBlob();
-  if (stored) {
-    return new Response(JSON.stringify({ ...stored, source: 'blob' }), {
-      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=3600' },
-    });
+export const GET: APIRoute = async ({ url }) => {
+  const forceRefresh = url.searchParams.has('refresh');
+
+  if (!forceRefresh) {
+    const stored = await readBlob();
+    if (stored) {
+      return new Response(JSON.stringify({ ...stored, source: 'blob' }), {
+        headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=3600' },
+      });
+    }
   }
 
-  // First boot: scrape + save
   const fresh = await scrapeAllCodes();
   await writeBlob(fresh);
   return new Response(JSON.stringify(fresh), {

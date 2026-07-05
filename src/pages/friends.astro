@@ -3,6 +3,47 @@ export const prerender = false;
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { getPostCategory } from '../utils/category';
+
+const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
+const prophecyPosts = allPosts
+  .filter(p => getPostCategory(p) === '預言')
+  .sort((a, b) => {
+    const aDate = a.data.updatedDate ?? a.data.pubDate;
+    const bDate = b.data.updatedDate ?? b.data.pubDate;
+    return new Date(bDate).getTime() - new Date(aDate).getTime();
+  })
+  .slice(0, 4);
+
+function relativeTime(date: Date): string {
+  const diffDays = Math.floor((Date.now() - date.getTime()) / 86400000);
+  if (diffDays === 0) return '今天';
+  if (diffDays === 1) return '1 天前';
+  if (diffDays < 7) return `${diffDays} 天前`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} 週前`;
+  if (diffDays < 365) return `${Math.floor(diffDays / 30)} 個月前`;
+  return `${Math.floor(diffDays / 365)} 年前`;
+}
+
+const PROPHET_BADGE: Record<string, string> = {
+  '比格斯': '末日預言',
+  '麥克蒙尼格': 'CIA 遙視',
+  '帕克': '英國通靈',
+  '諾斯特拉達姆斯': '古代預言',
+  '松原照子': '靈視預言',
+  '摩普萊': '佛教預測',
+  '阿南德': '印度靈視',
+  '國分玲': '日本靈視',
+  '薩洛梅': '神秘預言',
+};
+
+const GLOW_COLORS = [
+  { glow: 'al-glow-green', badge: 'al-badge-green' },
+  { glow: 'al-glow-amber', badge: 'al-badge-amber' },
+  { glow: 'al-glow-blue',  badge: 'al-badge-blue'  },
+  { glow: 'al-glow-red',   badge: 'al-badge-red'   },
+];
 ---
 
 <!doctype html>
@@ -67,62 +108,26 @@ import Footer from '../components/Footer.astro';
         <div class="al-section-label">🔥 熱門情報討論串</div>
         <h2 class="al-section-title">目前最受關注的預言分析</h2>
         <div class="al-topics">
-
-          <a href="/blog/mcmoneagle-2026-end/" class="al-topic-card al-glow-green">
-            <div class="al-topic-header">
-              <span class="al-topic-badge al-badge-green">CIA 遙視</span>
-              <span class="al-topic-hot">🔴 LIVE</span>
-            </div>
-            <h3 class="al-topic-title">美軍001號遙視者：四年內大國政府崩潰，三戰起點已鎖定</h3>
-            <p class="al-topic-desc">麥克蒙尼格親口說——他用靈魂出體潛入中國機密設施，還預言了 2025 年北韓的愚蠢行動……</p>
-            <div class="al-topic-meta">
-              <span>👁 2.4k 查看</span>
-              <span>💬 87 討論</span>
-              <span>🕐 2天前更新</span>
-            </div>
-          </a>
-
-          <a href="/blog/brandon-biggs-2026/" class="al-topic-card al-glow-amber">
-            <div class="al-topic-header">
-              <span class="al-topic-badge al-badge-amber">末日預言</span>
-              <span class="al-topic-hot">🟠 HOT</span>
-            </div>
-            <h3 class="al-topic-title">比格斯警告：美元已完蛋、蚯蚓漢堡時代來臨、電網即將被攻擊</h3>
-            <p class="al-topic-desc">他說「需求金字塔」正在被從底層攻擊——食物、水、溫暖都會被控制。你準備好了嗎？</p>
-            <div class="al-topic-meta">
-              <span>👁 3.1k 查看</span>
-              <span>💬 134 討論</span>
-              <span>🕐 1天前更新</span>
-            </div>
-          </a>
-
-          <a href="/blog/craig-hamilton-parker-2026/" class="al-topic-card al-glow-blue">
-            <div class="al-topic-header">
-              <span class="al-topic-badge al-badge-blue">英國通靈</span>
-            </div>
-            <h3 class="al-topic-title">帕克驚爆：英國加拿大終將成為美國一部分，無限能源技術已存在</h3>
-            <p class="al-topic-desc">他說「自由民主是病入膏肓的動物」。西方體制大洗牌、UFO古代技術即將公開……</p>
-            <div class="al-topic-meta">
-              <span>👁 1.8k 查看</span>
-              <span>💬 62 討論</span>
-              <span>🕐 1天前更新</span>
-            </div>
-          </a>
-
-          <a href="/blog/2026-05-22-brandon-biggs-gray-matter-taiwan/" class="al-topic-card al-glow-red">
-            <div class="al-topic-header">
-              <span class="al-topic-badge al-badge-red">台灣局勢</span>
-              <span class="al-topic-hot">⚠ 緊急</span>
-            </div>
-            <h3 class="al-topic-title">灰色物質降臨美東！比格斯：這就是中國動台灣的完美時機</h3>
-            <p class="al-topic-desc">美國東海岸被神秘物質覆蓋時，台海危機同步爆發。「閃電戰・48小時・台灣領導層直接被換掉」……</p>
-            <div class="al-topic-meta">
-              <span>👁 4.2k 查看</span>
-              <span>💬 211 討論</span>
-              <span>🕐 3天前更新</span>
-            </div>
-          </a>
-
+          {prophecyPosts.map((post, i) => {
+            const color = GLOW_COLORS[i % 4];
+            const prophet = post.data.prophet;
+            const badgeLabel = prophet ? (PROPHET_BADGE[prophet] ?? prophet) : '預言分析';
+            const date = new Date(post.data.updatedDate ?? post.data.pubDate);
+            const timeAgo = relativeTime(date);
+            return (
+              <a href={`/blog/${post.id}`} class={`al-topic-card ${color.glow}`}>
+                <div class="al-topic-header">
+                  <span class={`al-topic-badge ${color.badge}`}>{badgeLabel}</span>
+                  {i === 0 && <span class="al-topic-hot">🟢 最新</span>}
+                </div>
+                <h3 class="al-topic-title">{post.data.title}</h3>
+                <p class="al-topic-desc">{post.data.description}</p>
+                <div class="al-topic-meta">
+                  <span>🕐 {timeAgo}更新</span>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </section>
 

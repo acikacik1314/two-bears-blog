@@ -11,6 +11,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://twobears.vercel.app',
+	trailingSlash: 'never',
 	adapter: vercel(),
 	integrations: [mdx(), sitemap({
 		filter: (page) => !page.includes('/admin/') && !page.includes('/keystatic/'),

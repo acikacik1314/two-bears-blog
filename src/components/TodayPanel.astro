@@ -1,5 +1,5 @@
 ---
-// No server-side computation — all calculated client-side so the date updates daily without redeploy
+// No server-side computation — everything is client-side so the card is always current
 ---
 
 <div class="today-panel">
@@ -18,156 +18,158 @@
   <div class="tp-row"><span class="k">九運年份</span><span id="tp-year">—</span></div>
 </div>
 
-<script>
-function initTodayPanel() {
-  // Taiwan time (UTC+8)
-  const now = new Date();
-  const tai = new Date(now.getTime() + (8 * 60 + now.getTimezoneOffset()) * 60000);
-  const Y = tai.getFullYear();
-  const M = tai.getMonth() + 1;
-  const D = tai.getDate();
-  const pad = (n: number) => String(n).padStart(2, '0');
-
-  // ── Date & weekday ──────────────────────────────────────────
-  const weekDay = ['日','一','二','三','四','五','六'][tai.getDay()];
-  const bigdate = document.getElementById('tp-bigdate');
-  const week    = document.getElementById('tp-week');
-  if (bigdate) bigdate.textContent = `${Y}/${pad(M)}/${pad(D)}`;
-  if (week)    week.textContent    = `星期${weekDay}`;
-
-  // ── Days to 2027-01-01 ──────────────────────────────────────
-  const target2027 = Date.UTC(2027, 0, 1);
-  const todayUTC   = Date.UTC(Y, M - 1, D);
-  const days2027   = Math.ceil((target2027 - todayUTC) / 86400000);
-  const d2027El    = document.getElementById('tp-days2027');
-  if (d2027El) d2027El.textContent = days2027 > 0 ? `還有 ${days2027} 天` : days2027 === 0 ? '就是今天！' : '已到達';
-
-  // ── Lunar calendar (lookup table 2025–2027) ─────────────────
-  // Each entry: [YYYY-MM-DD start of lunar month, month name, lunar year]
-  const LUNAR_STARTS: [string, string][] = [
-    ['2025-01-29', '正月'],
-    ['2025-02-28', '二月'],
-    ['2025-03-29', '三月'],
-    ['2025-04-27', '四月'],
-    ['2025-05-27', '五月'],
-    ['2025-06-25', '六月'],
-    ['2025-07-25', '七月'],
-    ['2025-08-23', '八月'],
-    ['2025-09-22', '九月'],
-    ['2025-10-21', '十月'],
-    ['2025-11-20', '十一月'],
-    ['2025-12-20', '十二月'],
-    ['2026-01-19', '閏十二月'],
-    ['2026-02-17', '正月'],
-    ['2026-03-19', '二月'],
-    ['2026-04-17', '三月'],
-    ['2026-05-16', '四月'],
-    ['2026-06-15', '五月'],
-    ['2026-07-14', '六月'],
-    ['2026-08-13', '七月'],
-    ['2026-09-11', '八月'],
-    ['2026-10-11', '九月'],
-    ['2026-11-09', '十月'],
-    ['2026-12-09', '十一月'],
-    ['2027-01-07', '十二月'],
-    ['2027-02-06', '正月'],
-    ['2027-03-08', '二月'],
-    ['2027-04-06', '三月'],
-    ['2027-05-05', '四月'],
-    ['2027-06-04', '五月'],
-    ['2027-07-03', '六月'],
-    ['2027-08-01', '七月'],
-    ['2027-08-31', '八月'],
-    ['2027-09-29', '九月'],
-    ['2027-10-29', '十月'],
-    ['2027-11-27', '十一月'],
-    ['2027-12-27', '十二月'],
-  ];
-  const LUNAR_D = ['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十',
-                   '十一','十二','十三','十四','十五','十六','十七','十八','十九','二十',
-                   '廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
-
-  const todayStr = `${Y}-${pad(M)}-${pad(D)}`;
-  let lunarText = '—';
-  for (let i = LUNAR_STARTS.length - 1; i >= 0; i--) {
-    if (todayStr >= LUNAR_STARTS[i][0]) {
-      const startMs = new Date(LUNAR_STARTS[i][0]).getTime();
-      const dayNum  = Math.floor((todayUTC - new Date(LUNAR_STARTS[i][0]).getTime()) / 86400000);
-      lunarText = LUNAR_STARTS[i][1] + LUNAR_D[Math.min(dayNum, 29)];
-      break;
-    }
+<script is:inline>
+(function () {
+  // ── Taiwan date from Intl (survives any client timezone) ───────
+  function twDate() {
+    const s = new Date().toLocaleString('sv', { timeZone: 'Asia/Taipei' });
+    const [dp] = s.split(' ');
+    const [Y, M, D] = dp.split('-').map(Number);
+    const dow = new Date(Y, M - 1, D).getDay();
+    return { Y, M, D, dow };
   }
-  const lunarEl = document.getElementById('tp-lunar');
-  if (lunarEl) lunarEl.textContent = lunarText;
 
-  // ── Moon phase ──────────────────────────────────────────────
-  // Reference new moon: 2000-01-06 18:14 UTC (J2000 epoch new moon)
-  const REF_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);
-  const CYCLE = 29.53058867;
-  const moonAge = ((todayUTC - REF_NEW_MOON) / 86400000 % CYCLE + CYCLE) % CYCLE;
-  const moonEmoji = moonAge < 1.5  ? '🌑' :
-                    moonAge < 7    ? '🌒' :
-                    moonAge < 9    ? '🌓' :
-                    moonAge < 13.5 ? '🌔' :
-                    moonAge < 16   ? '🌕' :
-                    moonAge < 20   ? '🌖' :
-                    moonAge < 22   ? '🌗' :
-                    moonAge < 26   ? '🌘' : '🌑';
-  const moonName  = moonAge < 1.5  ? '新月' :
-                    moonAge < 7    ? '娥眉月' :
-                    moonAge < 9    ? '上弦月' :
-                    moonAge < 13.5 ? '盈凸月' :
-                    moonAge < 16   ? '滿月' :
-                    moonAge < 20   ? '虧凸月' :
-                    moonAge < 22   ? '下弦月' : '殘月';
-  const moonEl = document.getElementById('tp-moon');
-  if (moonEl) moonEl.textContent = `${moonEmoji} ${moonName}`;
+  function pad(n) { return String(n).padStart(2, '0'); }
 
-  // ── Western zodiac ──────────────────────────────────────────
-  let zodiac = '♓雙魚';
-  if      ((M===3&&D>=21)||(M===4&&D<=19))  zodiac = '♈牡羊';
-  else if ((M===4&&D>=20)||(M===5&&D<=20))  zodiac = '♉金牛';
-  else if ((M===5&&D>=21)||(M===6&&D<=20))  zodiac = '♊雙子';
-  else if ((M===6&&D>=21)||(M===7&&D<=22))  zodiac = '♋巨蟹';
-  else if ((M===7&&D>=23)||(M===8&&D<=22))  zodiac = '♌獅子';
-  else if ((M===8&&D>=23)||(M===9&&D<=22))  zodiac = '♍處女';
-  else if ((M===9&&D>=23)||(M===10&&D<=22)) zodiac = '♎天秤';
-  else if ((M===10&&D>=23)||(M===11&&D<=21))zodiac = '♏天蠍';
-  else if ((M===11&&D>=22)||(M===12&&D<=21))zodiac = '♐射手';
-  else if ((M===12&&D>=22)||(M===1&&D<=19)) zodiac = '♑摩羯';
-  else if ((M===1&&D>=20)||(M===2&&D<=18))  zodiac = '♒水瓶';
-  const zodiacEl = document.getElementById('tp-zodiac');
-  if (zodiacEl) zodiacEl.textContent = `${zodiac}座`;
+  function initTodayPanel() {
+    const { Y, M, D, dow } = twDate();
+    const todayStr = `${Y}-${pad(M)}-${pad(D)}`;
+    const todayMs  = Date.UTC(Y, M - 1, D);
 
-  // ── Chinese sexagenary year ─────────────────────────────────
-  const STEMS   = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
-  const BRANCHES= ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
-  const ANIMALS = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
-  // Use lunar year: if before Chinese New Year use previous year
-  // Chinese New Year dates (first day of 正月)
-  const CNY: Record<number, string> = {
-    2025: '2025-01-29', 2026: '2026-02-17', 2027: '2027-02-06', 2028: '2028-01-26',
-  };
-  let lunarY = Y;
-  const cnyThis = CNY[Y];
-  if (cnyThis && todayStr < cnyThis) lunarY = Y - 1;
-  const stem   = STEMS[(lunarY - 4) % 10];
-  const branch = BRANCHES[(lunarY - 4) % 12];
-  const animal = ANIMALS[(lunarY - 4) % 12];
-  const yearEl = document.getElementById('tp-year');
-  if (yearEl) yearEl.textContent = `${stem}${branch}年（${animal}年）`;
+    // ── Date & weekday ──────────────────────────────────────────
+    const bigdate = document.getElementById('tp-bigdate');
+    const week    = document.getElementById('tp-week');
+    if (bigdate) bigdate.textContent = `${Y}/${pad(M)}/${pad(D)}`;
+    if (week)    week.textContent    = `星期${'日一二三四五六'[dow]}`;
 
-  // ── Daily auspicious ────────────────────────────────────────
-  const AUSPICIOUS = ['開市・出行','祭祀・入宅','結婚・嫁娶','求財・立券','動土・破土',
-                      '裁衣・開業','出行・移徙','納財・開光','開市・祈福','入宅・搬家',
-                      '祭祀・開光','嫁娶・開業'];
-  const auspEl = document.getElementById('tp-auspicious');
-  if (auspEl) auspEl.textContent = AUSPICIOUS[(D + M * 3) % AUSPICIOUS.length];
-}
+    // ── Days to 2027-01-01 ──────────────────────────────────────
+    const days2027 = Math.ceil((Date.UTC(2027, 0, 1) - todayMs) / 86400000);
+    const d2027El  = document.getElementById('tp-days2027');
+    if (d2027El) d2027El.textContent =
+      days2027 > 0 ? `還有 ${days2027} 天` : days2027 === 0 ? '就是今天！' : '已到達';
 
-// Run on initial load and after Astro view transitions
-document.addEventListener('astro:page-load', initTodayPanel);
-initTodayPanel();
+    // ── Lunar via browser Intl (永遠不過期，無需 lookup table) ───
+    const lunarEl = document.getElementById('tp-lunar');
+    if (lunarEl) {
+      try {
+        const parts = new Intl.DateTimeFormat('zh-TW-u-ca-chinese', {
+          month: 'long', day: 'numeric',
+        }).formatToParts(new Date(Y, M - 1, D));
+        const mo  = parts.find(p => p.type === 'month')?.value ?? '';
+        const da  = parts.find(p => p.type === 'day')?.value  ?? '';
+        lunarEl.textContent = mo && da ? mo + da : '—';
+      } catch {
+        lunarEl.textContent = '—';
+      }
+    }
+
+    // ── Moon phase (Meeus synodic period) ──────────────────────
+    const jd      = todayMs / 86400000 + 2440587.5;
+    const phase   = ((jd - 2451550.1) / 29.53058867) % 1;
+    const p       = phase < 0 ? phase + 1 : phase;
+    const moonEmoji =
+      p < 0.03 || p > 0.97 ? '🌑' :
+      p < 0.22 ? '🌒' : p < 0.28 ? '🌓' : p < 0.47 ? '🌔' :
+      p < 0.53 ? '🌕' : p < 0.72 ? '🌖' : p < 0.78 ? '🌗' : '🌘';
+    const moonName =
+      p < 0.03 || p > 0.97 ? '新月'  :
+      p < 0.22 ? '眉月'  : p < 0.28 ? '上弦月' : p < 0.47 ? '盈凸月' :
+      p < 0.53 ? '滿月'  : p < 0.72 ? '虧凸月' : p < 0.78 ? '下弦月' : '殘月';
+    const moonEl = document.getElementById('tp-moon');
+    if (moonEl) moonEl.textContent = `${moonEmoji} ${moonName}`;
+
+    // ── Western zodiac ──────────────────────────────────────────
+    let zodiac = '♓雙魚';
+    if      ((M===3&&D>=21)||(M===4&&D<=19))   zodiac = '♈牡羊';
+    else if ((M===4&&D>=20)||(M===5&&D<=20))   zodiac = '♉金牛';
+    else if ((M===5&&D>=21)||(M===6&&D<=20))   zodiac = '♊雙子';
+    else if ((M===6&&D>=21)||(M===7&&D<=22))   zodiac = '♋巨蟹';
+    else if ((M===7&&D>=23)||(M===8&&D<=22))   zodiac = '♌獅子';
+    else if ((M===8&&D>=23)||(M===9&&D<=22))   zodiac = '♍處女';
+    else if ((M===9&&D>=23)||(M===10&&D<=22))  zodiac = '♎天秤';
+    else if ((M===10&&D>=23)||(M===11&&D<=21)) zodiac = '♏天蠍';
+    else if ((M===11&&D>=22)||(M===12&&D<=21)) zodiac = '♐射手';
+    else if ((M===12&&D>=22)||(M===1&&D<=19))  zodiac = '♑摩羯';
+    else if ((M===1&&D>=20)||(M===2&&D<=18))   zodiac = '♒水瓶';
+    const zodiacEl = document.getElementById('tp-zodiac');
+    if (zodiacEl) zodiacEl.textContent = `${zodiac}座`;
+
+    // ── 九運年份（三元九運・下元九運 2024-2044）─────────────────
+    // 以立春（約 2/4）為年度分界
+    // 九運 = 下元第九運，九紫離火，2024-02-04 起至 2044-02-04
+    const LICHUN_MONTH = 2, LICHUN_DAY = 4;
+    const lichunPassed  = (M > LICHUN_MONTH) || (M === LICHUN_MONTH && D >= LICHUN_DAY);
+    const fengShuiYear  = lichunPassed ? Y : Y - 1;
+
+    let yearText;
+    if (fengShuiYear >= 2024 && fengShuiYear < 2044) {
+      const nth = fengShuiYear - 2024 + 1; // 1-20
+      yearText = `下元九運・第${nth}年`;
+    } else if (fengShuiYear >= 2004 && fengShuiYear < 2024) {
+      const nth = fengShuiYear - 2004 + 1;
+      yearText = `下元八運・第${nth}年`;
+    } else if (fengShuiYear >= 2044 && fengShuiYear < 2064) {
+      // 上元一運（下一循環）
+      const nth = fengShuiYear - 2044 + 1;
+      yearText = `上元一運・第${nth}年`;
+    } else {
+      // Fallback: sexagenary year
+      const STEMS    = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+      const BRANCHES = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+      const ANIMALS  = ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
+      yearText = STEMS[(fengShuiYear - 4) % 10] +
+                 BRANCHES[(fengShuiYear - 4) % 12] + '年（' +
+                 ANIMALS[(fengShuiYear - 4) % 12] + '年）';
+    }
+    const yearEl = document.getElementById('tp-year');
+    if (yearEl) yearEl.textContent = yearText;
+
+    // ── Daily auspicious (十二建除 daily rotation) ───────────────
+    // Anchored to lunar day via Intl; fallback: solar-day hash
+    const JIANZHU = ['建','除','滿','平','定','執','破','危','成','收','開','閉'];
+    const AUSPICIOUS_MAP = {
+      '建': '出行・求財', '除': '祭祀・沐浴', '滿': '結婚・嫁娶',
+      '平': '開業・立券', '定': '入宅・移徙', '執': '納財・開光',
+      '破': '宜靜・勿動', '危': '謹慎・防損', '成': '開市・動土',
+      '收': '裁衣・求醫', '開': '開光・祈福', '閉': '安葬・修造',
+    };
+    let lunarDayNum = 0;
+    try {
+      const dayParts = new Intl.DateTimeFormat('zh-TW-u-ca-chinese', {
+        day: 'numeric',
+      }).formatToParts(new Date(Y, M - 1, D));
+      const dayStr = dayParts.find(p => p.type === 'day')?.value ?? '';
+      const CJK_DAY = ['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十',
+                       '十一','十二','十三','十四','十五','十六','十七','十八','十九','二十',
+                       '廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+      lunarDayNum = CJK_DAY.indexOf(dayStr);
+      if (lunarDayNum < 0) lunarDayNum = D - 1;
+    } catch {
+      lunarDayNum = D - 1;
+    }
+    const jzKey = JIANZHU[((lunarDayNum % 12) + 12) % 12];
+    const auspEl = document.getElementById('tp-auspicious');
+    if (auspEl) auspEl.textContent = `${jzKey}日・${AUSPICIOUS_MAP[jzKey]}`;
+  }
+
+  initTodayPanel();
+
+  // ── Midnight refresh: schedule re-init at next Taipei midnight ─
+  function scheduleMidnight() {
+    const { Y, M, D } = twDate();
+    // Next midnight UTC = next calendar day in Taipei at 00:00 Taipei = 16:00 UTC previous day
+    const nextTaipeiMidnightUTC = Date.UTC(Y, M - 1, D + 1) - 8 * 3600000;
+    const ms = nextTaipeiMidnightUTC - Date.now();
+    setTimeout(function () {
+      initTodayPanel();
+      scheduleMidnight();
+    }, ms > 0 ? ms : 1000);
+  }
+  scheduleMidnight();
+
+  // Re-run after Astro view transitions
+  document.addEventListener('astro:page-load', initTodayPanel);
+})();
 </script>
 
 <style>

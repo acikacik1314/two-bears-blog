@@ -262,6 +262,39 @@ generationConfig: { thinkingConfig: { thinkingBudget: 0 } }
 | `api/biggsgpt.ts` | `callGemini()` | Gemini 失敗會 fallback 到 Groq |
 | `api/gemini-analyze.ts` | 直接 fetch | ⚠️ 還有舊模型名，更新時記得改 |
 
+## Rumble 文章欄位規範
+
+### 兩套編號系統，絕對不可混用
+
+Rumble 影片有**兩套獨立 ID**，格式不同、用途不同：
+
+| 欄位 | 說明 | 範例 |
+|------|------|------|
+| `rumblePage` | 完整頁面網址（含文字 slug） | `https://rumble.com/v799em0-2026-.html` |
+| `rumbleId` | embed ID（oEmbed API 回傳） | `v772qls` |
+
+- 頁面網址中的代碼（如 `v799em0`）是**頁面代碼**，**不等於** embed ID
+- `rumbleId` 欄位填錯成頁面代碼，會導致嵌入播放器顯示**陌生頻道的影片**
+
+### 新增或匯入 Rumble 文章時的強制流程
+
+1. 取得影片頁面 URL（如 `https://rumble.com/v{slug}-title.html`）
+2. 查 oEmbed API：`GET https://rumble.com/api/Media/oembed.json?url={頁面URL}`
+3. **驗證** `author_url` 包含 `twobear2`，不符合就不寫入
+4. 從回傳 `html` 欄位提取 embed ID（`rumble.com/embed/{EMBED_ID}/`）
+5. 寫入 `rumbleId: '{EMBED_ID}'` 及 `rumblePage: '{頁面URL}'`，兩欄缺一不可
+
+```yaml
+# ✅ 正確
+rumbleId: 'v772qls'
+rumblePage: 'https://rumble.com/v799em0-2026-.html'
+
+# ❌ 錯誤（把頁面代碼填進 rumbleId）
+rumbleId: 'v799em0'
+```
+
+---
+
 ## 通路王 Deep Link
 
 - member ID：`3RE6d`

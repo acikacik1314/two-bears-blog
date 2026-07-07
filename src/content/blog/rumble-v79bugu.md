@@ -1,6 +1,7 @@
 ---
 title: '未來人不敢說的2025！他從3906年帶回警告：AI失控、戰爭邊緣都是表象，我們沉迷的「新聞與競爭」正在讓靈魂枯萎…'
-rumbleId: 'v79bugu'
+rumbleId: 'v7756gm'
+rumblePage: 'https://rumble.com/v79bugu-20253906ai.html'
 description: '【兩隻熊】未來人不敢說的2025！他從3906年帶回警告：AI失控、戰爭邊緣都是表象，我們沉迷的「新聞與競爭」正在讓靈魂枯萎…'
 pubDate: '2026-05-22'
 tags: ['未來人', '末日', 'AI', '預言']

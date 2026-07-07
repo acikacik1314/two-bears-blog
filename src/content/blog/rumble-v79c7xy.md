@@ -1,10 +1,12 @@
 ---
 title: '來自 2060 的未來人 KFK 未來預言 Q&A (網路資料整理)'
-rumbleId: 'v79c7xy'
+rumbleId: 'v775jxq'
+rumblePage: 'https://rumble.com/v79c7xy--2060-kfk-q-and-a-.html'
 description: '【兩隻熊】來自 2060 的未來人 KFK 未來預言 Q&A (網路資料整理)'
 pubDate: '2026-05-22'
 tags: ['未來人', '預言', '台灣', '末日']
 
+prophet: 'KFK'
 ---
 ## KFK 的預言與驗證
 

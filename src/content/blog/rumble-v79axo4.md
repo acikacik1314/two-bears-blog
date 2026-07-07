@@ -1,6 +1,7 @@
 ---
 title: '【獨家】2025全命中！馬杜洛被捕真相：我們活在「寫好的程序」裡！？'
-rumbleId: 'v79axo4'
+rumbleId: 'v7749nw'
+rumblePage: 'https://rumble.com/v79axo4-2025100.html'
 description: '【兩隻熊】【獨家】2025全命中！馬杜洛被捕真相：我們活在「寫好的程序」裡！？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '三戰']

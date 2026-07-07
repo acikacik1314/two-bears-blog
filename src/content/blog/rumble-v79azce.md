@@ -1,10 +1,12 @@
 ---
 title: '「H·J·T」是哪三國？摩普萊緊急警告：2026上半年絕對別去！業力清算已啟動？'
-rumbleId: 'v79azce'
+rumbleId: 'v774bc6'
+rumblePage: 'https://rumble.com/v79azce-hjt2026.html'
 description: '【兩隻熊】「H·J·T」是哪三國？摩普萊緊急警告：2026上半年絕對別去！業力清算已啟動？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '台灣', '三戰']
 
+prophet: '摩普萊'
 ---
 ## 摩普萊的HJT預言與2026年警示
 

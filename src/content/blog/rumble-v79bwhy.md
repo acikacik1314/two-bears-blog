@@ -1,6 +1,7 @@
 ---
 title: '《奧斯佩預言》警告！世界將重啟？三千年週期終結，全球大災難逼近，如何迎接末世靈性覺醒？'
-rumbleId: 'v79bwhy'
+rumbleId: 'v7758hq'
+rumblePage: 'https://rumble.com/v79bwhy-438935110.html'
 description: '【兩隻熊】《奧斯佩預言》警告！世界將重啟？三千年週期終結，全球大災難逼近，如何迎接末世靈性覺醒？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '靈性', '三戰']

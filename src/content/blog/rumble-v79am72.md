@@ -12,6 +12,7 @@ predictions:
     - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/de/s8/1/E/p/l/k/EplkA.qR4e-small--2026-40-..jpg'
+prophet: '比格斯'
 ---
 
 Brandon Biggs connects three of the most consequential forces of 2026 in this prophecy: Donald Trump's political trajectory, the looming Taiwan crisis, and a $40 trillion wealth transfer that will fundamentally restructure the global financial order. This video breaks down Biggs' detailed vision and what it means for investors, geopolitical observers, and ordinary people preparing for the coming changes.

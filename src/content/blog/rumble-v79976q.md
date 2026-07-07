@@ -12,6 +12,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/3a/s8/1/I/g/7/j/Ig7jA.qR4e-small-2026CT5-74..jpg'
+prophet: '摩普萊'
 ---
 
 In Mor Plai's most Taiwan-focused prophecy yet, the Thai seer declares Taiwan to be the literal key that unlocks — or locks — the door to global catastrophe in 2026. This video decodes Mor Plai's specific CT symbolism and the 5-74 timeline he references, examining why he believes Taiwan's fate is so central to the entire prophetic landscape of 2026 and what this means for the island's people.

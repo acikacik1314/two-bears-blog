@@ -1,9 +1,11 @@
 ---
 title: '【全球倒數3天】比格斯最新預言：台灣榮耀浪潮遇「以色列和平協議」？3天內美國10級地震＋密西西比河斷流！Starlink是獸的印記？'
-rumbleId: 'v79b0oq'
+rumbleId: 'v774coi'
+rumblePage: 'https://rumble.com/v79b0oq-3310starlink.html'
 description: '【兩隻熊】【全球倒數3天】比格斯最新預言：台灣榮耀浪潮遇「以色列和平協議」？3天內美國10級地震＋密西西比河斷流！Starlink是獸的印記？'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '台灣', '末日']
+prophet: '比格斯'
 ---
 
 ## 亞洲榮耀浪潮與地緣政治緊張

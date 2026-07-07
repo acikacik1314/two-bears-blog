@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ee/s8/1/M/f/9/j/Mf9jA.qR4e-small-2026324.....jpg'
+prophet: '比格斯'
 ---
 
 Brandon Biggs points to a blood moon rising over Asia in the third month of 2026 as a celestial warning sign that he interprets as heralding major conflict and upheaval across the region. This video explores Biggs' blood moon prophecy, the biblical and prophetic traditions surrounding lunar signs, and what specific events he expects to unfold in the weeks surrounding this March 24th astronomical event.

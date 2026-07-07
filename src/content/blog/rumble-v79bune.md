@@ -1,9 +1,11 @@
 ---
 title: '巴夏2027預言！痛苦其實不存在，人類是「限制大師」？真相顛覆三觀！'
-rumbleId: 'v79bune'
+rumbleId: 'v7756n6'
+rumblePage: 'https://rumble.com/v79bune-2027.html'
 description: '【兩隻熊】巴夏2027預言！痛苦其實不存在，人類是「限制大師」？真相顛覆三觀！'
 pubDate: '2026-05-22'
 tags: ['預言', '靈性', '巴夏', '末日']
+prophet: '巴夏'
 ---
 
 ## 限制大師與痛苦的根源

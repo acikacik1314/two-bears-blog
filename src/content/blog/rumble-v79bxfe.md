@@ -1,6 +1,7 @@
 ---
 title: '【緊急預警】2025年7月三倍東日本海嘯預言曝光！三木大雲×龍樹諒夢見同一天！震驚日本！'
-rumbleId: 'v79bxfe'
+rumbleId: 'v7759f6'
+rumblePage: 'https://rumble.com/v79bxfe-20257.html'
 description: '【兩隻熊】【緊急預警】2025年7月三倍東日本海嘯預言曝光！三木大雲×龍樹諒夢見同一天！震驚日本！'
 pubDate: '2026-05-22'
 tags: ['預言', '地震', '末日', '台灣']

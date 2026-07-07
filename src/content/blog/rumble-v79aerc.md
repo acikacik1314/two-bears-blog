@@ -10,6 +10,7 @@ predictions:
   pending:
     - '預言事件尚在觀察期，2026年下半年前後可驗證'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/0e/s8/1/4/4/i/k/44ikA.qR4e-small-.....jpg'
+prophet: '帕克'
 ---
 
 Hamilton Parker sees 2026 as the year when two parallel crises erupt simultaneously: a decisive military strike targeting Iran and a comprehensive blackout that plunges Taiwan into darkness. This video analyzes Parker's dual-crisis prophecy, the causal connections he draws between these events, and what a synchronized Iran strike and Taiwan blackout would mean for global stability and the Indo-Pacific balance of power.

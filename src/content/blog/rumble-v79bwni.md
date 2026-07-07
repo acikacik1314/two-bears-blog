@@ -1,6 +1,7 @@
 ---
 title: '【神秘預言曝光】《日月神示》警告：2025「三大清洗」即將爆發！？人類只剩三分之一？'
-rumbleId: 'v79bwni'
+rumbleId: 'v7758na'
+rumblePage: 'https://rumble.com/v79bwni-2025.html'
 description: '【兩隻熊】【神秘預言曝光】《日月神示》警告：2025「三大清洗」即將爆發！？人類只剩三分之一？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '靈性', '三戰']

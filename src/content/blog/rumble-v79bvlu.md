@@ -1,6 +1,7 @@
 ---
 title: '外星靈童阿米曝『靈魂之愛』真相！這才是躲過2025大篩選的唯一作弊碼！'
-rumbleId: 'v79bvlu'
+rumbleId: 'v7757lm'
+rumblePage: 'https://rumble.com/v79bvlu-2025.html'
 description: '【兩隻熊】外星靈童阿米曝『靈魂之愛』真相！這才是躲過2025大篩選的唯一作弊碼！'
 pubDate: '2026-05-22'
 tags: ['靈性', '末日', '預言']

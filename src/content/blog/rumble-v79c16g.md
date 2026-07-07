@@ -1,6 +1,7 @@
 ---
 title: '預言家保江邦夫：揭秘台灣危機、北海道未來與天川神社的外星傳說'
-rumbleId: 'v79c16g'
+rumbleId: 'v775d68'
+rumblePage: 'https://rumble.com/v79c16g-438941176.html'
 description: '【兩隻熊】預言家保江邦夫：揭秘台灣危機、北海道未來與天川神社的外星傳說'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '靈性', '末日']

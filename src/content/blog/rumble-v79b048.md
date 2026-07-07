@@ -1,10 +1,12 @@
 ---
 title: '【震撼】比格斯最新預言：AI戰爭＋金融崩潰＋瘟疫三重審判！「騎上財富浪潮」是神賜的唯一末世方舟船票，錯過＝CBDC奴隸永世歸零'
-rumbleId: 'v79b048'
+rumbleId: 'v774c40'
+rumblePage: 'https://rumble.com/v79b048-aicbdc.html'
 description: '【兩隻熊】【震撼】比格斯最新預言：AI戰爭＋金融崩潰＋瘟疫三重審判！「騎上財富浪潮」是神賜的唯一末世方舟船票，錯過＝CBDC奴隸永世歸零'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', 'AI', '金融', '末日']
 
+prophet: '比格斯'
 ---
 ## 預言的緊迫性與內部威脅
 

@@ -1,9 +1,11 @@
 ---
 title: '比格斯最新驚天預言！台灣命運×小川普遇刺×世界大戰逼近！如何自保'
-rumbleId: 'v79bvv6'
+rumbleId: 'v7757uy'
+rumblePage: 'https://rumble.com/v79bvv6-438934290.html'
 description: '【兩隻熊】比格斯最新驚天預言！台灣命運×小川普遇刺×世界大戰逼近！如何自保'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '台灣', '三戰', '末日']
+prophet: '比格斯'
 ---
 
 ## 川普總統與小川普的安危預警

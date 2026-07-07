@@ -1,9 +1,11 @@
 ---
 title: '2025災難已啟動？巴夏震撼警告：「現實分裂」即將發生，你的信念正在顯化未來！'
-rumbleId: 'v79bwge'
+rumbleId: 'v7758g6'
+rumblePage: 'https://rumble.com/v79bwge-2025.html'
 description: '【兩隻熊】2025災難已啟動？巴夏震撼警告：「現實分裂」即將發生，你的信念正在顯化未來！'
 pubDate: '2026-05-22'
 tags: ['預言', '靈性', '巴夏', '末日']
+prophet: '巴夏'
 ---
 
 ## 巴夏的預言與身份

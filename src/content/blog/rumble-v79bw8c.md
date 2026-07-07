@@ -1,10 +1,12 @@
 ---
 title: '【比格斯末世預言警告】馬斯克將成為福音使者？還是獸印推手？AI真相震撼曝光！'
-rumbleId: 'v79bw8c'
+rumbleId: 'v775884'
+rumblePage: 'https://rumble.com/v79bw8c-438934764.html'
 description: '【兩隻熊】【比格斯末世預言警告】馬斯克將成為福音使者？還是獸印推手？AI真相震撼曝光！'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', 'AI', '末日']
 
+prophet: '比格斯'
 ---
 ## 馬斯克的雙重預言：福音使者或獸印推手？
 

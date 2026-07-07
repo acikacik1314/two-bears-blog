@@ -1,10 +1,12 @@
 ---
 title: '比格斯末世警報：7月災難解除？全球天災預兆與終極應對！'
-rumbleId: 'v79bxyk'
+rumbleId: 'v7759yc'
+rumblePage: 'https://rumble.com/v79bxyk-438937004.html'
 description: '【兩隻熊】比格斯末世警報：7月災難解除？全球天災預兆與終極應對！'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '末日', '地震', '台灣']
 
+prophet: '比格斯'
 ---
 ## 比格斯末世預言與警示
 

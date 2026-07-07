@@ -1,6 +1,7 @@
 ---
 title: '重塑潛意識：我值得被愛、我值得被肯定 ┃ 2026 內在覺醒，找回你本具足的生命價值'
-rumbleId: 'v79c4zw'
+rumbleId: 'v775gzo'
+rumblePage: 'https://rumble.com/v79c4zw--2026-.html'
 description: '【兩隻熊】重塑潛意識：我值得被愛、我值得被肯定 ┃ 2026 內在覺醒，找回你本具足的生命價值'
 pubDate: '2026-05-22'
 tags: ['靈性', '潛意識', '顯化']

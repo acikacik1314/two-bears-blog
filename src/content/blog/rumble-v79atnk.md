@@ -13,6 +13,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/71/s8/1/G/M/n/k/GMnkA.qR4e-small-326020261-37..jpg'
+prophet: '摩普萊'
 ---
 
 As economic warning signs mount, Mor Plai's prophecy about a 2026 economic collapse is looking increasingly confirmed. This video reviews the specific economic indicators and events that are validating Mor Plai's predictions, traces the timeline from his original prophecy through to current developments, and examines what the full collapse scenario looks like as the countdown from day 3 to 26 progresses.

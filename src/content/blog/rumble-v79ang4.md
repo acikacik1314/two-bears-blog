@@ -10,6 +10,7 @@ predictions:
   pending:
     - '2030年預言事件（尚未到驗證期）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/d6/s8/1/0/O/l/k/0OlkA.qR4e-small-KFK204832030..jpg'
+prophet: 'KFK'
 ---
 
 The enigmatic figure who mentored the future person KFK has now come forward with their own prophecy spanning from 2030 to 2048, offering a longer-range view of Taiwan's fate and humanity's trajectory. This video explores the mentor's revelations, how they compare to KFK's timeline, and what the year 2048 holds for Taiwan according to this new prophetic voice.

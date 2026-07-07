@@ -1,6 +1,7 @@
 ---
 title: '《三體》真實上演？黑暗森林現身！哈佛教授警告外星飛船11月逼近地球'
-rumbleId: 'v79bw6e'
+rumbleId: 'v775866'
+rumblePage: 'https://rumble.com/v79bw6e-438934694.html'
 description: '【兩隻熊】《三體》真實上演？黑暗森林現身！哈佛教授警告外星飛船11月逼近地球'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', 'AI', '靈性']

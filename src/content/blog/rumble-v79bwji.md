@@ -1,6 +1,7 @@
 ---
 title: '外星人綁走他30天！他回來後預言：2025是人類命運的終極分歧點？'
-rumbleId: 'v79bwji'
+rumbleId: 'v7758ja'
+rumblePage: 'https://rumble.com/v79bwji-302025.html'
 description: '【兩隻熊】外星人綁走他30天！他回來後預言：2025是人類命運的終極分歧點？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '靈性', '未來人']

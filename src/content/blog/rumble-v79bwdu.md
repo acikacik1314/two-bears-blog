@@ -1,6 +1,7 @@
 ---
 title: '2025年災難真的會發生？金星人歐米娜預言人類命運走向，我原本不相信…'
-rumbleId: 'v79bwdu'
+rumbleId: 'v7758dm'
+rumblePage: 'https://rumble.com/v79bwdu-2025.html'
 description: '【兩隻熊】2025年災難真的會發生？金星人歐米娜預言人類命運走向，我原本不相信…'
 pubDate: '2026-05-22'
 tags: ['預言', '靈性', '末日', '台灣']

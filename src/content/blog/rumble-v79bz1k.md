@@ -1,6 +1,7 @@
 ---
 title: '盲眼龍婆 巴巴萬加 預言成真？2025毀滅性地震！全球強權陷入危機？'
-rumbleId: 'v79bz1k'
+rumbleId: 'v775b1c'
+rumblePage: 'https://rumble.com/v79bz1k--2025.html'
 description: '【兩隻熊】盲眼龍婆 巴巴萬加 預言成真？2025毀滅性地震！全球強權陷入危機？'
 pubDate: '2026-05-22'
 tags: ['預言', '地震', '末日', '三戰']

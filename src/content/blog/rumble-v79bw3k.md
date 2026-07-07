@@ -1,10 +1,12 @@
 ---
 title: '巴夏終極指南 顯化實相3步驟：2025人類命運大轉折＆史上最罕見未來預測！'
-rumbleId: 'v79bw3k'
+rumbleId: 'v77583c'
+rumblePage: 'https://rumble.com/v79bw3k--32025.html'
 description: '【兩隻熊】巴夏終極指南 顯化實相3步驟：2025人類命運大轉折＆史上最罕見未來預測！'
 pubDate: '2026-05-22'
 tags: ['靈性', '巴夏', '顯化', '潛意識']
 
+prophet: '巴夏'
 ---
 ## 現實的本質：潛意識的選擇與無限可能
 

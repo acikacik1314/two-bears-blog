@@ -1,6 +1,7 @@
 ---
 title: '夢想成真：用大腦創造你的理想生活！喬．迪斯本扎科學解析，在 2026 大洗牌中改寫命運！'
-rumbleId: 'v79c81m'
+rumbleId: 'v775k1e'
+rumblePage: 'https://rumble.com/v79c81m--2026-.html'
 description: '【兩隻熊】夢想成真：用大腦創造你的理想生活！喬．迪斯本扎科學解析，在 2026 大洗牌中改寫命運！'
 pubDate: '2026-05-22'
 tags: ['靈性', '潛意識', '顯化']

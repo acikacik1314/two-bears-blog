@@ -1,10 +1,12 @@
 ---
 title: '【2026台灣生死劫】比格斯：1-3月奇蹟式停火？川普與靈界大戰真相！'
-rumbleId: 'v79awig'
+rumbleId: 'v7748i8'
+rumblePage: 'https://rumble.com/v79awig-20261-320263.html'
 description: '【兩隻熊】【2026台灣生死劫】比格斯：1-3月奇蹟式停火？川普與靈界大戰真相！'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '台灣', '末日']
 
+prophet: '比格斯'
 ---
 ## 台灣命運的預言與延遲的希望
 

@@ -12,6 +12,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ff/s8/1/8/c/p/k/8cpkA.qR4e-small-2026..jpg'
+prophet: '比格斯'
 ---
 
 The year 2026 looms as the ultimate convergence point for three catastrophic scenarios that multiple prophets have independently foreseen: a devastating American civil war, the long-feared Taiwan crisis reaching its breaking point, and the emergence of a new plague with Black Death-level mortality. This video synthesizes these interconnected prophecies and explores how these three crises may unfold simultaneously.

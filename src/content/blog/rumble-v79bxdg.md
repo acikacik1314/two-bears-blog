@@ -1,6 +1,7 @@
 ---
 title: '【重大警告】2025年7月台灣大變局？保江邦夫驚人預言曝光｜戰爭、地震、停電、靈魂選別真相揭密！'
-rumbleId: 'v79bxdg'
+rumbleId: 'v7759d8'
+rumblePage: 'https://rumble.com/v79bxdg-20257.html'
 description: '【兩隻熊】【重大警告】2025年7月台灣大變局？保江邦夫驚人預言曝光｜戰爭、地震、停電、靈魂選別真相揭密！'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '地震', '末日']

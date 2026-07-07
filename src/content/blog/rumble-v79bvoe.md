@@ -1,6 +1,7 @@
 ---
 title: '震撼警告！台灣命運早被預言？諾查丹瑪斯揭露第三次世界大戰真相！'
-rumbleId: 'v79bvoe'
+rumbleId: 'v7757o6'
+rumblePage: 'https://rumble.com/v79bvoe-438934046.html'
 description: '【兩隻熊】震撼警告！台灣命運早被預言？諾查丹瑪斯揭露第三次世界大戰真相！'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '三戰', '末日']

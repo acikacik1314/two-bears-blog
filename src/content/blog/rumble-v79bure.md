@@ -1,10 +1,12 @@
 ---
 title: '【2025最新預告】台灣佔領計畫曝光！ AI末日×財富轉移，比格斯震撼揭露全球劇變真相'
-rumbleId: 'v79bure'
+rumbleId: 'v7756r6'
+rumblePage: 'https://rumble.com/v79bure-2025-ai.html'
 description: '【兩隻熊】【2025最新預告】台灣佔領計畫曝光！ AI末日×財富轉移，比格斯震撼揭露全球劇變真相'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', 'AI', '末日', '金融']
 
+prophet: '比格斯'
 ---
 ## 預言者的警示：台灣與全球危機
 

@@ -1,6 +1,7 @@
 ---
 title: '日本2140年未來人驚人對話全記錄！一台能預測未來的時間機器'
-rumbleId: 'v79c11g'
+rumbleId: 'v775d18'
+rumblePage: 'https://rumble.com/v79c11g-2140.html'
 description: '【兩隻熊】日本2140年未來人驚人對話全記錄！一台能預測未來的時間機器'
 pubDate: '2026-05-22'
 tags: ['未來人', '末日', '預言', '台灣']

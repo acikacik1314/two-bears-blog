@@ -1,10 +1,12 @@
 ---
 title: '【2045奇點倒數】未來人Titor X 朵洛莉絲：台灣「消失」的真相，竟是宇宙給人類的「靈魂進化通關密碼」？你是否聽過「未來人警告」？'
-rumbleId: 'v79busw'
+rumbleId: 'v7756so'
+rumblePage: 'https://rumble.com/v79busw-2045titor-x-.html'
 description: '【兩隻熊】【2045奇點倒數】未來人Titor X 朵洛莉絲：台灣「消失」的真相，竟是宇宙給人類的「靈魂進化通關密碼」？你是否聽過「未來人警告」？'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '未來人', '末日', '靈性']
 
+prophet: 'KFK'
 ---
 ## 未來人的警告與台灣的命運
 

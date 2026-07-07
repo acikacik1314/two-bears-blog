@@ -1,6 +1,7 @@
 ---
 title: '2062未來人密碼曝光：2025七月災難預言，爬到山上去！三年誤解的關鍵真相'
-rumbleId: 'v79c20s'
+rumbleId: 'v775e0k'
+rumblePage: 'https://rumble.com/v79c20s-20622025.html'
 description: '【兩隻熊】2062未來人密碼曝光：2025七月災難預言，爬到山上去！三年誤解的關鍵真相'
 pubDate: '2026-05-22'
 tags: ['未來人', '預言', '台灣', '地震', '末日']

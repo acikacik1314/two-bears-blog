@@ -11,6 +11,7 @@ predictions:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
     - '習近平政治地位重大變化'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/bd/s8/1/u/z/n/k/uznkA.qR4e-small-202614..jpg'
+prophet: '比格斯'
 ---
 
 In a prophecy that blends spiritual intervention with political upheaval, 10,000 angels are foretold to intervene in Taiwan's 2026 crisis while an internal CCP coup simultaneously transforms the threat. This video explores the prophetic sources behind this vision, the spiritual significance of the angelic intervention, and how a CCP internal power struggle could unexpectedly change Taiwan's fate.

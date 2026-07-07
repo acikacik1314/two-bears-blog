@@ -1,10 +1,12 @@
 ---
 title: '2026真的要出事了？比格斯最新預言太可怕：台灣、AI、金融崩盤正在一件件應驗？'
-rumbleId: 'v79ihzu'
+rumbleId: 'v77btzm'
+rumblePage: 'https://rumble.com/v79ihzu-2026ai.html'
 description: '【兩隻熊】2026真的要出事了？比格斯最新預言太可怕：台灣、AI、金融崩盤正在一件件應驗？'
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '比格斯', 'AI', '金融']
 
+prophet: '比格斯'
 ---
 ## 全球不安氛圍與預言家的崛起
 

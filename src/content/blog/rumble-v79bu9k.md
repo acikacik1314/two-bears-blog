@@ -1,10 +1,12 @@
 ---
 title: '比格斯最新預言：熊貓背對俄羅斯、光照台灣！美國『暗殺名單』竟被啟示錄揭露？'
-rumbleId: 'v79bu9k'
+rumbleId: 'v77569c'
+rumblePage: 'https://rumble.com/v79bu9k-438932216.html'
 description: '【兩隻熊】比格斯最新預言：熊貓背對俄羅斯、光照台灣！美國『暗殺名單』竟被啟示錄揭露？'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '台灣', '三戰']
 
+prophet: '比格斯'
 ---
 ## 末日預言與全球動盪的加速
 

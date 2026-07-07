@@ -1,10 +1,12 @@
 ---
 title: '巴夏2025最終預言：『愛的頻率』是唯一解方！無法通過『振動篩選』的靈魂將被留在舊地球？'
-rumbleId: 'v79bviw'
+rumbleId: 'v7757io'
+rumblePage: 'https://rumble.com/v79bviw-2025.html'
 description: '【兩隻熊】巴夏2025最終預言：『愛的頻率』是唯一解方！無法通過『振動篩選』的靈魂將被留在舊地球？'
 pubDate: '2026-05-22'
 tags: ['預言', '靈性', '巴夏']
 
+prophet: '巴夏'
 ---
 ## 無條件的愛：宇宙最強大的力量
 

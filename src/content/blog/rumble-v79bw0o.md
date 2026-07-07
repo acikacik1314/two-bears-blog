@@ -1,6 +1,7 @@
 ---
 title: '《一的法則》預言全面應驗！2025「靈魂大收割」啟動：51%的人將被帶往新地球，其餘的命運是？'
-rumbleId: 'v79bw0o'
+rumbleId: 'v77580g'
+rumblePage: 'https://rumble.com/v79bw0o-202551.html'
 description: '【兩隻熊】《一的法則》預言全面應驗！2025「靈魂大收割」啟動：51%的人將被帶往新地球，其餘的命運是？'
 pubDate: '2026-05-22'
 tags: ['預言', '靈性', '末日']

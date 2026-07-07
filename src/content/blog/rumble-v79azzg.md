@@ -1,6 +1,7 @@
 ---
 title: '薩洛美2026終極警告｜命中新冠至俄烏的巴西預言家：台灣淪陷72小時內，全球銀行同步清零＋AI敵基督全面上線'
-rumbleId: 'v79azzg'
+rumbleId: 'v774bz8'
+rumblePage: 'https://rumble.com/v79azzg-202672ai.html'
 description: '【兩隻熊】薩洛美2026終極警告｜命中新冠至俄烏的巴西預言家：台灣淪陷72小時內，全球銀行同步清零＋AI敵基督全面上線'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '三戰', 'AI']

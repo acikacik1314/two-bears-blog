@@ -1,10 +1,12 @@
 ---
 title: '比格斯警告：與龍樹諒預言不謀而合？10級地震與世界危機正在展開'
-rumbleId: 'v79bzj0'
+rumbleId: 'v775bis'
+rumblePage: 'https://rumble.com/v79bzj0-438939036.html'
 description: '【兩隻熊】比格斯警告：與龍樹諒預言不謀而合？10級地震與世界危機正在展開'
 pubDate: '2026-05-22'
 tags: ['預言', '比格斯', '地震', '台灣', '末日']
 
+prophet: '比格斯'
 ---
 ## 比格斯預言家的背景與預測方式
 

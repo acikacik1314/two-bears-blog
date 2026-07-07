@@ -1,10 +1,12 @@
 ---
 title: '2026全球倒數啟動！摩普萊「閻王對話」驚人重合KFK預言：V、L、M邊境失控引爆「系統大清理」，這 3 樣東西將比黃金更貴？'
-rumbleId: 'v79ayic'
+rumbleId: 'v774ai4'
+rumblePage: 'https://rumble.com/v79ayic-2026kfkvlm-3-.html'
 description: '【兩隻熊】2026全球倒數啟動！摩普萊「閻王對話」驚人重合KFK預言：V、L、M邊境失控引爆「系統大清理」，這 3 樣東西將比黃金更貴？'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '台灣', '靈性']
 
+prophet: ['KFK', '摩普萊']
 ---
 ## 模布來預言的精準性與2016年系統大清理
 

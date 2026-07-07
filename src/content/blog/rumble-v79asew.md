@@ -13,6 +13,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/34/s8/1/y/n/n/k/ynnkA.qR4e-small-2026..jpg'
+prophet: '比格斯'
 ---
 
 A fracture within China's People's Liberation Army could change everything for Taiwan — and Brandon Biggs says this split is coming in 2026. This video examines Biggs' detailed prophecy about the internal power struggle within China's military, the factions involved, and how this unexpected development may either accelerate or prevent a Taiwan conflict.

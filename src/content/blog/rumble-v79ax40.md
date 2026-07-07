@@ -13,6 +13,7 @@ predictions:
   pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/3c/s8/1/G/S/o/k/GSokA.qR4e-small-2026..jpg'
+prophet: '比格斯'
 ---
 
 In one of his most visually striking prophecies, Brandon Biggs describes seeing a golden dome of divine protection arching over Taiwan as geopolitical storms gather. This video explores the spiritual and prophetic significance of this vision, what conditions Biggs believes will activate this protection, and how this hopeful image fits alongside his more dire warnings about Taiwan's near-term challenges.

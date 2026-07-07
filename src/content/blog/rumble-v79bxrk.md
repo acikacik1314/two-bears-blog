@@ -1,6 +1,7 @@
 ---
 title: '【必看！ 】2025年7月大災難預示，竜樹諒解新書《天使的遺言》竟藏保命關鍵：「這樣做」才能活下來！'
-rumbleId: 'v79bxrk'
+rumbleId: 'v7759rc'
+rumblePage: 'https://rumble.com/v79bxrk--20257.html'
 description: '【兩隻熊】【必看！ 】2025年7月大災難預示，竜樹諒解新書《天使的遺言》竟藏保命關鍵：「這樣做」才能活下來！'
 pubDate: '2026-05-22'
 tags: ['預言', '末日', '地震', '台灣']

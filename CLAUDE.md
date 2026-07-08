@@ -13,6 +13,12 @@
 - **禁止虛構網址**：不得在回報中捏造任何域名（如 `twobear.blog`、`two-bears.vercel.app` 等未經確認的域名）
 - **禁止虛構部署結果**：未親自執行 `vercel ls` 或確認 ● Ready 狀態前，不得宣稱「已部署」
 - **禁止未附證據宣稱完成**：宣稱完成但無法提供上述三項證據的工作，一律視為**未完成**
+- **schema 驗證失敗必須讓 build 報錯，禁止靜默跳過內容**：若 content.config.ts 的 Zod schema 與 markdown frontmatter 不符，build 必須明確報錯（`exit 1`），不可靜默略過該文章
+
+### 內容異動後強制 commit 規則
+
+- **任何 markdown 的 frontmatter 修改（prophet/predictions/category 等欄位）都必須立即 `git add` + `git commit` + `git push`**
+- 未 commit 的修改不會進入 Vercel build，會導致線上資料與本機不一致，難以排查
 
 ---
 

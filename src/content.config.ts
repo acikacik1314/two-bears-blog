@@ -19,7 +19,7 @@ const blog = defineCollection({
 			rumblePage: emptyToUndefined,
 			youtubeId: z.string().optional(),
 			pixnetSource: emptyToUndefined,
-			prophet: z.string().optional(),
+			prophet: z.union([z.string(), z.array(z.string())]).optional(),
 			draft: z.boolean().optional(),
 		predictions: z.object({
 				hits: z.array(z.string()).optional(),

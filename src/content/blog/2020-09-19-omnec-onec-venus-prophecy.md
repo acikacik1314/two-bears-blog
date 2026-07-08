@@ -11,6 +11,7 @@ predictions:
   pending:
     - '地球頻率提升與維度轉換過程'
     - '人類集體心靈感應能力重新覺醒'
+prophet: 'Omnec Onec'
 ---
 ![undefined](https://omnec-onec.com/wp-content/uploads/2019/07/FI-Post_Spanish-PDF-1.jpg)
 

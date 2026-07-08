@@ -13,6 +13,7 @@ predictions:
     - 'COVID-19引發全球股市劇烈震盪，醫療股大幅上漲'
   misses:
     - '部分中東戰爭規模預測偏大，未達全面衝突'
+prophet: '帕克'
 ---
 ![1604392658098.jpg](https://pic.pimg.tw/acikacik/1604392690-971234972-g_l.jpg)
 

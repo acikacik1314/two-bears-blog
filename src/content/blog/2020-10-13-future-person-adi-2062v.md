@@ -14,6 +14,7 @@ predictions:
   pending:
     - '維度升級完成（全球30年過渡期）'
     - '工作與娛樂完全融合'
+prophet: 'KFK'
 ---
 ![1602583440602.jpg](https://pic.pimg.tw/acikacik/1602583489-3138260186-g_l.jpg)
 

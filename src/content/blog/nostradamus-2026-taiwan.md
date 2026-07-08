@@ -5,6 +5,7 @@ pubDate: '2026-05-22'
 tags: ['預言', '諾查丹瑪斯', '台海', '三戰', '2026']
 youtubePost: 'https://www.youtube.com/post/Ugkx-XJ7JcYw_2tqLTbndE-48hG-9fibL7iC'
 heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
+prophet: '薩洛梅'
 ---
 
 以下整理傳奇預言家 **薩洛梅（Athos Salomé）** 五月一日到五月十六日的預言內容。他說，關於 2026 年，有一件事，台灣海峽，你必須知道。

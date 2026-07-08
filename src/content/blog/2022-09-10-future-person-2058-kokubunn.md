@@ -5,6 +5,7 @@ pubDate: '2022-09-10'
 tags: ['未來人預言', '生活綜合']
 heroImage: '/images/blog/2022-09-10-future-person-2058-kokubunn.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5070182930'
+prophet: '國分玲'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780871219/blog/acikacik/1662815909-712378945-g_n.jpg)

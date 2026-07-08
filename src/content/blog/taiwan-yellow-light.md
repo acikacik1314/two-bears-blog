@@ -5,6 +5,7 @@ pubDate: '2026-05-22'
 tags: ['預言', '台灣', '靈性', '美國', '赤色黎明']
 youtubePost: 'https://www.youtube.com/post/UgkxT4SlebAfnhBfjftc6IwX_RBGLUMe8cvi'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+prophet: '比格斯'
 ---
 
 以下整理比格斯五月十七日到五月二十日看到的台灣異象。

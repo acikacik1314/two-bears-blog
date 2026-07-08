@@ -4,6 +4,7 @@ description: '【兩隻熊】如何掌控命運？2062V未來人ADI ┃ KFK的CP
 pubDate: '2026-05-22'
 tags: ['未來人', '預言', '靈性', '台灣']
 
+prophet: 'KFK'
 ---
 ## 未來人ADI與KFK的預言之旅
 

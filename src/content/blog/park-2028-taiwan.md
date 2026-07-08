@@ -5,6 +5,15 @@ pubDate: '2026-05-22'
 tags: ['台灣', '預言', '帕克', '2028']
 youtubePost: 'https://www.youtube.com/post/UgkxgwLewITuw7n7Ex-scw8Gr-IJ45h96qVr'
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+prophet: '帕克'
+predictions:
+  hits: []
+  misses: []
+  pending:
+    - '2028年美國大選期間台海爆發新危機，中美俄三大國衝突'
+    - '中國發生內部革命，最終分裂成多個類歐盟式小國家'
+    - '習近平下台，出現基於孫逸仙民主原則的新中國'
+    - '民主新生的種子從台灣萌芽並向全球擴散'
 ---
 
 以下整理五月一日到五月十六日**帕克（Parker）**對於台灣的預言內容。

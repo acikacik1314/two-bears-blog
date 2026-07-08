@@ -1,46 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+import { getProphetStats, QUALIFY_THRESHOLD } from '../utils/prophetStats';
 
-const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
-
-const PROPHETS = [
-  { name: '比格斯', tags: ['比格斯'] },
-  { name: '國分玲', tags: ['國分玲'] },
-  { name: '帕克', tags: ['帕克'] },
-  { name: '阿南德', tags: ['阿南德'] },
-  { name: '薩洛梅', tags: ['薩洛梅'] },
-  { name: '摩普萊', tags: ['摩普萊'] },
-  { name: '未來人KFK', tags: ['未來人', 'kfk', 'KFK'] },
-  { name: '牛頓', tags: ['牛頓'] },
-  { name: '諾斯特拉達姆斯', tags: ['诺查丹玛斯', '諾斯特拉達姆斯'] },
-];
-
-const stats = PROPHETS.map(p => {
-  const posts = allPosts.filter(post =>
-    (post.data.tags ?? []).some(t =>
-      p.tags.some(k => t.toLowerCase().includes(k.toLowerCase()))
-    )
-  );
-  const hits    = [...new Set(posts.flatMap(post => post.data.predictions?.hits    ?? []))];
-  const misses  = [...new Set(posts.flatMap(post => post.data.predictions?.misses  ?? []))];
-  const pending = [...new Set(posts.flatMap(post => post.data.predictions?.pending ?? []))];
-  const total = hits.length + misses.length;
-  const accuracy = total > 0 ? Math.round((hits.length / total) * 100) : null;
-  return { name: p.name, posts: posts.length, hits, misses, pending, accuracy };
-}).filter(s => s.posts > 0).sort((a, b) => {
-  if (a.accuracy !== null && b.accuracy !== null) return b.accuracy - a.accuracy;
-  if (a.accuracy !== null) return -1;
-  if (b.accuracy !== null) return 1;
-  return b.posts - a.posts;
-});
+const allStats = await getProphetStats();
+const stats = allStats.filter(s => s.postCount > 0);
 
 // Embed data for client-side modal
 const statsJson = JSON.stringify(stats.map(s => ({
-  name: s.name,
+  name: s.id,
   hits: s.hits,
   misses: s.misses,
   pending: s.pending,
   accuracy: s.accuracy,
+  qualified: s.qualified,
 })));
 ---
 
@@ -67,32 +38,75 @@ const statsJson = JSON.stringify(stats.map(s => ({
           </tr>
         </thead>
         <tbody>
-          {stats.map((s, i) => (
-            <tr
-              class={`lb-row${i === 0 && s.accuracy !== null ? ' lb-top' : ''}`}
-              data-idx={i}
-              title={`點擊查看 ${s.name} 的詳細預言`}
-            >
-              <td class="lb-rank">{i + 1}</td>
-              <td class="lb-name">
-                <span class="lb-name-text">{s.name}</span>
-                <span class="lb-detail-hint">詳情</span>
-              </td>
-              <td>{s.posts}</td>
-              <td class="lb-hit">{s.hits.length > 0 ? `✅ ${s.hits.length}` : '—'}</td>
-              <td class="lb-miss">{s.misses.length > 0 ? `❌ ${s.misses.length}` : '—'}</td>
-              <td class="lb-pend">{s.pending.length > 0 ? `⏳ ${s.pending.length}` : '—'}</td>
-              <td class="lb-acc">
-                {s.accuracy !== null ? (
-                  <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
-                    {s.accuracy}%
-                  </span>
-                ) : (
-                  <span class="acc-none">更新中</span>
-                )}
-              </td>
-            </tr>
-          ))}
+          {(() => {
+            let rank = 0;
+            let shownDivider = false;
+            return stats.map((s, i) => {
+              const isQualified = s.qualified;
+              if (!isQualified && !shownDivider) {
+                shownDivider = true;
+                return [
+                  <tr class="lb-divider" key="divider">
+                    <td colspan="7" class="lb-divider-cell">樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD}）</td>
+                  </tr>,
+                  <tr
+                    class="lb-row lb-unqualified"
+                    data-idx={i}
+                    title={`點擊查看 ${s.id} 的詳細預言`}
+                    key={s.id}
+                  >
+                    <td class="lb-rank">—</td>
+                    <td class="lb-name"><a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a><span class="lb-detail-hint">詳情</span></td>
+                    <td>{s.postCount}</td>
+                    <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
+                    <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
+                    <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
+                    <td class="lb-acc"><span class="acc-none">樣本中</span></td>
+                  </tr>
+                ];
+              }
+              if (!isQualified) {
+                return (
+                  <tr class="lb-row lb-unqualified" data-idx={i} title={`點擊查看 ${s.id} 的詳細預言`}>
+                    <td class="lb-rank">—</td>
+                    <td class="lb-name"><a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a><span class="lb-detail-hint">詳情</span></td>
+                    <td>{s.postCount}</td>
+                    <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
+                    <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
+                    <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
+                    <td class="lb-acc"><span class="acc-none">樣本中</span></td>
+                  </tr>
+                );
+              }
+              rank++;
+              return (
+                <tr
+                  class={`lb-row${rank === 1 && s.accuracy !== null ? ' lb-top' : ''}`}
+                  data-idx={i}
+                  title={`點擊查看 ${s.id} 的詳細預言`}
+                >
+                  <td class="lb-rank">{rank}</td>
+                  <td class="lb-name">
+                    <a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a>
+                    <span class="lb-detail-hint">詳情</span>
+                  </td>
+                  <td>{s.postCount}</td>
+                  <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
+                  <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : '0'}</td>
+                  <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
+                  <td class="lb-acc">
+                    {s.accuracy !== null ? (
+                      <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
+                        {s.accuracy}%
+                      </span>
+                    ) : (
+                      <span class="acc-none">更新中</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            });
+          })()}
         </tbody>
       </table>
     </div>
@@ -245,7 +259,13 @@ const statsJson = JSON.stringify(stats.map(s => ({
 
   .lb-rank { color: #94a3b8; font-weight: 700; }
   .lb-name { color: #f1f5f9; font-weight: 600; }
-  .lb-name-text { margin-right: 0.4em; }
+  .lb-name-link {
+    color: #f1f5f9;
+    text-decoration: none;
+    margin-right: 0.4em;
+    transition: color .15s;
+  }
+  .lb-name-link:hover { color: #a78bfa; }
   .lb-detail-hint {
     font-size: 0.68em;
     color: #a78bfa;

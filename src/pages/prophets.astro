@@ -1,0 +1,218 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProphetStats, QUALIFY_THRESHOLD } from '../utils/prophetStats';
+import { getProfileOrFallback } from '../data/prophets';
+
+const allStats = await getProphetStats();
+const qualified = allStats.filter(s => s.qualified);
+const sampling  = allStats.filter(s => !s.qualified && s.postCount > 0);
+
+const title = '預言家命中率追蹤｜兩隻熊';
+const description = `追蹤 ${allStats.length} 位預言家的命中率，基於實際預言紀錄計算，持續更新。`;
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<html lang="zh-Hant">
+<head>
+  <BaseHead title={title} description={description} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "description": description,
+    "url": "https://twobear.blog/prophets",
+  })} />
+</head>
+<body>
+  <Header />
+
+  <main class="pg-wrap">
+    <div class="pg-head">
+      <h1 class="pg-title">🔮 預言家命中率排行</h1>
+      <p class="pg-sub">依實際預言記錄計算，已驗證 ≥ {QUALIFY_THRESHOLD} 則才列入正式榜</p>
+    </div>
+
+    <!-- Qualified wall -->
+    {qualified.length > 0 && (
+      <section>
+        <h2 class="section-label">✅ 正式榜（已驗證 ≥ {QUALIFY_THRESHOLD} 則）</h2>
+        <div class="card-grid">
+          {qualified.map((s, i) => {
+            const p = getProfileOrFallback(s.id);
+            const rank = i + 1;
+            return (
+              <a href={`/prophet/${encodeURIComponent(s.id)}`} class="prophet-card qualified">
+                <div class="card-rank">{rank}</div>
+                <div class="card-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%);border-color:${p.color}`}>
+                  <span class="card-emoji">{p.emoji}</span>
+                </div>
+                <div class="card-name">{p.name}</div>
+                <div class="card-origin">{p.origin}</div>
+                <div class={`card-acc${s.accuracy !== null && s.accuracy >= 80 ? ' great' : s.accuracy !== null && s.accuracy >= 60 ? ' good' : ''}`}>
+                  {s.accuracy !== null ? `${s.accuracy}%` : '—'}
+                </div>
+                <div class="card-stats">
+                  <span class="cs-hit">✅ {s.hitCount}</span>
+                  <span class="cs-miss">❌ {s.missCount}</span>
+                  <span class="cs-pend">⏳ {s.pendingCount}</span>
+                </div>
+                <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Sampling wall -->
+    {sampling.length > 0 && (
+      <section class="sampling-section">
+        <h2 class="section-label muted">🌱 樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD} 則）</h2>
+        <div class="card-grid">
+          {sampling.map(s => {
+            const p = getProfileOrFallback(s.id);
+            return (
+              <a href={`/prophet/${encodeURIComponent(s.id)}`} class="prophet-card sampling">
+                <div class="card-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%);border-color:${p.color}`}>
+                  <span class="card-emoji">{p.emoji}</span>
+                </div>
+                <div class="card-name">{p.name}</div>
+                <div class="card-origin">{p.origin}</div>
+                <div class="card-acc muted-acc">樣本中</div>
+                <div class="card-stats">
+                  <span class="cs-hit">✅ {s.hitCount}</span>
+                  <span class="cs-miss">❌ {s.missCount}</span>
+                  <span class="cs-pend">⏳ {s.pendingCount}</span>
+                </div>
+                <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</body>
+</html>
+
+<style>
+.pg-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5em 1.5em 4em;
+}
+.pg-head { text-align: center; margin-bottom: 2.5em; }
+.pg-title { font-size: 2em; font-weight: 900; color: #f1f5f9; margin: 0 0 .4em; }
+.pg-sub { font-size: .88em; color: #64748b; margin: 0; }
+
+.section-label {
+  font-size: .72em;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 1em;
+}
+.section-label.muted { color: #475569; }
+
+.sampling-section { margin-top: 2.5em; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1em;
+}
+
+.prophet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5em;
+  padding: 1.4em 1em;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.07);
+  background: rgba(255,255,255,.03);
+  transition: border-color .2s, background .2s, transform .15s;
+  position: relative;
+  cursor: pointer;
+}
+.prophet-card:hover {
+  border-color: rgba(168,85,247,.4);
+  background: rgba(168,85,247,.06);
+  transform: translateY(-2px);
+}
+.prophet-card.sampling { opacity: .75; }
+.prophet-card.sampling:hover { opacity: 1; }
+
+.card-rank {
+  position: absolute;
+  top: .7em;
+  left: .8em;
+  font-size: .65em;
+  font-weight: 900;
+  color: #a78bfa;
+  background: rgba(167,139,250,.15);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.card-emoji { font-size: 2em; }
+
+.card-name {
+  font-size: 1.05em;
+  font-weight: 800;
+  color: #f1f5f9;
+  text-align: center;
+}
+.card-origin {
+  font-size: .68em;
+  color: #475569;
+  text-align: center;
+}
+
+.card-acc {
+  font-size: 1.6em;
+  font-weight: 900;
+  color: #fbbf24;
+}
+.card-acc.great { color: #4ade80; }
+.card-acc.good  { color: #a3e635; }
+.muted-acc { font-size: .8em; color: #475569; font-weight: 600; }
+
+.card-stats {
+  display: flex;
+  gap: .6em;
+  font-size: .72em;
+}
+.cs-hit  { color: #4ade80; }
+.cs-miss { color: #f87171; }
+.cs-pend { color: #fbbf24; }
+
+.card-meta {
+  font-size: .62em;
+  color: #334155;
+  text-align: center;
+}
+</style>

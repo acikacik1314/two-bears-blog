@@ -3,7 +3,7 @@ title: '解答生命中的終極問題！與神對話：第一冊（下）還要
 description: '【兩隻熊】解答生命中的終極問題！與神對話：第一冊（下）還要再玩一次嗎？揭秘 2026 逆轉命運的創造法則'
 pubDate: '2026-05-22'
 tags: ['靈性', '潛意識', '顯化']
-category: '影片'
+category: '靈性'
 rumbleId: 'v775jci'
 rumblePage: 'https://rumble.com/v79c7cq--2026-.html'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/a4/s8/1/6/u/D/k/6uDkA.qR4e-small--2026-..jpg'

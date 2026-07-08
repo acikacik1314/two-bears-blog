@@ -4,6 +4,7 @@ rumbleId: 'v775amo'
 rumblePage: 'https://rumble.com/v79bymw-438937880.html'
 description: '【兩隻熊】與神對話第二冊下冊 - 解開宇宙的終極奧秘，探索人類靈性的終極覺醒'
 pubDate: '2026-05-22'
+category: '靈性'
 tags: ['靈性', '潛意識', '顯化']
 
 ---

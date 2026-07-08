@@ -3,7 +3,7 @@ title: '你就是你最好的版本！《與神對話》第一冊（上）：神
 description: '【兩隻熊】你就是你最好的版本！《與神對話》第一冊（上）：神偷偷跟你說，如何讓人生「如你所願」！'
 pubDate: '2026-05-22'
 tags: ['靈性', '潛意識', '顯化']
-category: '影片'
+category: '靈性'
 rumbleId: 'v775jri'
 rumblePage: 'https://rumble.com/v79c7rq-438949718.html'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/9d/s8/1/w/D/D/k/wDDkA.qR4e-small-..jpg'

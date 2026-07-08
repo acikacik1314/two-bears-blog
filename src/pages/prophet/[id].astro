@@ -1,0 +1,354 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getProphetStats, QUALIFY_THRESHOLD } from '../../utils/prophetStats';
+import { getProfileOrFallback } from '../../data/prophets';
+
+export async function getStaticPaths() {
+  const stats = await getProphetStats();
+  return stats.map(s => ({ params: { id: s.id } }));
+}
+
+const { id } = Astro.params;
+const allStats = await getProphetStats();
+const stat = allStats.find(s => s.id === id);
+
+if (!stat) return Astro.redirect('/prophets');
+
+const profile = getProfileOrFallback(id);
+
+// Posts for this prophet
+const allPosts = (await getCollection('blog')).filter(p => {
+  if (p.data.draft) return false;
+  const raw = p.data.prophet;
+  if (!raw) return false;
+  const ids: string[] = Array.isArray(raw) ? raw : [raw];
+  return ids.map(i => i.trim()).includes(id);
+});
+allPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+const title = `${profile.name} 預言命中率追蹤｜兩隻熊`;
+const accText = stat.accuracy !== null ? `命中率 ${stat.accuracy}%` : '樣本累積中';
+const description = `${profile.name} 預言追蹤：${accText}，已驗證 ${stat.verified} 則，命中 ${stat.hitCount} / 失誤 ${stat.missCount}。${profile.bio}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": profile.name,
+  "description": profile.bio,
+  "url": `https://twobear.blog/prophet/${encodeURIComponent(id)}`,
+};
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<html lang="zh-Hant">
+<head>
+  <BaseHead title={title} description={description} />
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+</head>
+<body>
+  <Header />
+
+  <main class="pg-wrap">
+    <!-- Back link -->
+    <a href="/prophets" class="back-link">← 所有預言家</a>
+
+    <!-- Profile header -->
+    <div class="profile-header">
+      <div class="avatar" style={`background:linear-gradient(135deg,${profile.color} 0%,#0f172a 100%);border-color:${profile.color}`}>
+        <span class="avatar-emoji">{profile.emoji}</span>
+      </div>
+      <div class="profile-info">
+        <h1 class="profile-name">{profile.name}</h1>
+        <div class="profile-tags">
+          <span class="tag">📍 {profile.origin}</span>
+          <span class="tag">🔍 {profile.method}</span>
+        </div>
+        {profile.bio && <p class="profile-bio">{profile.bio}</p>}
+      </div>
+    </div>
+
+    <!-- Stats card -->
+    <div class="stats-card">
+      {stat.qualified ? (
+        <div class="stats-grid">
+          <div class="stat-box hit">
+            <div class="stat-num">{stat.hitCount}</div>
+            <div class="stat-label">✅ 命中</div>
+          </div>
+          <div class="stat-box miss">
+            <div class="stat-num">{stat.missCount}</div>
+            <div class="stat-label">❌ 失誤</div>
+          </div>
+          <div class="stat-box pend">
+            <div class="stat-num">{stat.pendingCount}</div>
+            <div class="stat-label">⏳ 待驗證</div>
+          </div>
+          <div class="stat-box acc">
+            <div class={`stat-num acc-big${stat.accuracy !== null && stat.accuracy >= 80 ? ' great' : stat.accuracy !== null && stat.accuracy >= 60 ? ' good' : ' mid'}`}>
+              {stat.accuracy !== null ? `${stat.accuracy}%` : '—'}
+            </div>
+            <div class="stat-label">準確率</div>
+          </div>
+        </div>
+      ) : (
+        <div class="sampling-notice">
+          <span class="sampling-icon">🌱</span>
+          <div>
+            <div class="sampling-title">樣本累積中</div>
+            <div class="sampling-sub">已驗證 {stat.verified} 則（需達 {QUALIFY_THRESHOLD} 則才列入正式榜）</div>
+          </div>
+          {stat.verified > 0 && (
+            <div class="sampling-mini-stats">
+              <span class="cs-hit">✅ {stat.hitCount}</span>
+              <span class="cs-miss">❌ {stat.missCount}</span>
+              <span class="cs-pend">⏳ {stat.pendingCount}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+
+    <!-- Prediction timeline -->
+    {(stat.hits.length > 0 || stat.misses.length > 0 || stat.pending.length > 0) && (
+      <section class="timeline-section">
+        <h2 class="section-title">預言紀錄</h2>
+        <div class="timeline">
+          {stat.hits.map(h => (
+            <div class="tl-item hit">
+              <span class="tl-badge">✅</span>
+              <span class="tl-text">{h}</span>
+            </div>
+          ))}
+          {stat.misses.map(m => (
+            <div class="tl-item miss">
+              <span class="tl-badge">❌</span>
+              <span class="tl-text">{m}</span>
+            </div>
+          ))}
+          {stat.pending.map(pend => (
+            <div class="tl-item pend">
+              <span class="tl-badge">⏳</span>
+              <span class="tl-text">{pend}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related posts -->
+    {allPosts.length > 0 && (
+      <section class="posts-section">
+        <h2 class="section-title">相關文章（{allPosts.length} 篇）</h2>
+        <div class="posts-list">
+          {allPosts.map(post => (
+            <a href={`/blog/${post.id}/`} class="post-card">
+              {post.data.heroImage && (
+                <img src={post.data.heroImage} alt="" class="post-thumb" loading="lazy" />
+              )}
+              <div class="post-body">
+                <div class="post-title">{post.data.title}</div>
+                <div class="post-date">{new Date(post.data.pubDate).toLocaleDateString('zh-TW', { year:'numeric', month:'long', day:'numeric' })}</div>
+                {post.data.description && <div class="post-desc">{post.data.description}</div>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</body>
+</html>
+
+<style>
+.pg-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5em 1.5em 4em;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: .8em;
+  color: #64748b;
+  text-decoration: none;
+  margin-bottom: 1.5em;
+  transition: color .15s;
+}
+.back-link:hover { color: #a78bfa; }
+
+/* Profile header */
+.profile-header {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+}
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 3px solid #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.avatar-emoji { font-size: 2.4em; }
+
+.profile-info { flex: 1; }
+.profile-name {
+  font-size: 1.8em;
+  font-weight: 900;
+  color: #f1f5f9;
+  margin: 0 0 .4em;
+}
+.profile-tags { display: flex; flex-wrap: wrap; gap: .4em; margin-bottom: .6em; }
+.tag {
+  font-size: .7em;
+  color: #94a3b8;
+  background: rgba(255,255,255,.06);
+  border-radius: 6px;
+  padding: .2em .6em;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.profile-bio {
+  font-size: .85em;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Stats card */
+.stats-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(168,85,247,.2);
+  border-radius: 14px;
+  padding: 1.2em;
+  margin-bottom: 2em;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .8em;
+  text-align: center;
+}
+.stat-box { padding: .6em .2em; }
+.stat-num {
+  font-size: 2em;
+  font-weight: 900;
+  color: #f1f5f9;
+  line-height: 1;
+}
+.acc-big.great { color: #4ade80; }
+.acc-big.good  { color: #a3e635; }
+.acc-big.mid   { color: #fbbf24; }
+.stat-label { font-size: .68em; color: #64748b; margin-top: .3em; }
+
+.stat-box.hit .stat-num  { color: #4ade80; }
+.stat-box.miss .stat-num { color: #f87171; }
+.stat-box.pend .stat-num { color: #fbbf24; }
+
+.sampling-notice {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.sampling-icon { font-size: 1.8em; }
+.sampling-title { font-weight: 700; color: #f1f5f9; font-size: .95em; }
+.sampling-sub   { font-size: .75em; color: #64748b; }
+.sampling-mini-stats { display: flex; gap: .6em; font-size: .8em; margin-left: auto; }
+.cs-hit  { color: #4ade80; }
+.cs-miss { color: #f87171; }
+.cs-pend { color: #fbbf24; }
+
+/* Section titles */
+.section-title {
+  font-size: .75em;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 1em;
+}
+
+/* Timeline */
+.timeline-section { margin-bottom: 2.5em; }
+.timeline { display: flex; flex-direction: column; gap: .5em; }
+.tl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .7em;
+  padding: .55em .8em;
+  border-radius: 8px;
+  font-size: .85em;
+  line-height: 1.55;
+}
+.tl-item.hit  { background: rgba(74,222,128,.06); border-left: 3px solid #4ade80; }
+.tl-item.miss { background: rgba(248,113,113,.06); border-left: 3px solid #f87171; }
+.tl-item.pend { background: rgba(251,191,36,.06);  border-left: 3px solid #fbbf24; }
+.tl-badge { flex-shrink: 0; font-size: .9em; }
+.tl-text  { color: #cbd5e1; }
+
+/* Posts */
+.posts-section { }
+.posts-list { display: flex; flex-direction: column; gap: .7em; }
+.post-card {
+  display: flex;
+  gap: .9em;
+  align-items: flex-start;
+  padding: .8em;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.post-card:hover {
+  border-color: rgba(168,85,247,.3);
+  background: rgba(168,85,247,.05);
+}
+.post-thumb {
+  width: 80px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.post-body { flex: 1; min-width: 0; }
+.post-title {
+  font-size: .88em;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.4;
+  margin-bottom: .2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-date { font-size: .68em; color: #475569; margin-bottom: .2em; }
+.post-desc {
+  font-size: .72em;
+  color: #64748b;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .profile-header { flex-direction: column; align-items: center; text-align: center; }
+  .profile-tags   { justify-content: center; }
+  .stats-grid     { grid-template-columns: repeat(2, 1fr); }
+}
+</style>

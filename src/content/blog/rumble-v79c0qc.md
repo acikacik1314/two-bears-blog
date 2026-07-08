@@ -4,6 +4,7 @@ rumbleId: 'v775cq4'
 rumblePage: 'https://rumble.com/v79c0qc-2025.html'
 description: '【兩隻熊】巴菲特宣布退休！2025波克夏股東會完整回顧（中文版解說）'
 pubDate: '2026-05-22'
+category: '財經'
 tags: ['金融', '加密貨幣']
 
 ---

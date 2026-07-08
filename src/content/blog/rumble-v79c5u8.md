@@ -4,6 +4,7 @@ rumbleId: 'v775hu0'
 rumblePage: 'https://rumble.com/v79c5u8-2026-.html'
 description: '【兩隻熊】改變你一生的對話《與神對話》第二冊｜尼爾·唐納·沃許口語版（上）：2026 大洗牌前的全球覺醒指南！'
 pubDate: '2026-05-22'
+category: '靈性'
 tags: ['靈性', '潛意識', '顯化']
 
 ---

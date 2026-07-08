@@ -1,22 +1,27 @@
 ---
-const PROPHETS = [
-  { id:'biggs',   name:'Biggs',      accuracy:59, color:'#b45309', icon:'💹',
-    prophecies:['全球金融系統即將面臨史上最大重組','美元將失去全球儲備貨幣地位','黃金將突破每盎司 10,000 美元'] },
-  { id:'kfk',     name:'KFK',        accuracy:83, color:'#1e40af', icon:'🔭',
-    prophecies:['2026年將出現重大金融系統事件','AI 將在 2025 年達到人類智慧臨界點','比特幣將在 2026 年達到 20 萬美元'] },
-  { id:'parker',  name:'Parker',     accuracy:82, color:'#0f766e', icon:'🌐',
-    prophecies:['2026年台灣將進入歷史性轉折點','科技泡沫將在 2025–2026 年間破裂','中東局勢 2025 年底將達新高峰'] },
-  { id:'anand',   name:'Anand',      accuracy:55, color:'#4c1d95', icon:'🌌',
-    prophecies:['2028年前人類將成功登陸火星','全球人口將在 2035 年前達高峰後下降','量子通訊 2027 年實現商業化'] },
-  { id:'babavanga', name:'Baba Vanga', accuracy:85, color:'#6b21a8', icon:'👁',
-    prophecies:['歐洲將出現大規模停電持續超過一週','2025年將出現重大癌症治療突破','北極冰層將在 2028 年前完全消失'] },
-  { id:'guofen',  name:'國分玲',     accuracy:68, color:'#065f46', icon:'🎋',
-    prophecies:['2039年中國將發生重大政治變革','2026年日本東海岸將發生強烈地震','台灣 2027 年將進入新的歷史紀元'] },
-];
+import { getProphetStats } from '../utils/prophetStats';
+import { getProfileOrFallback } from '../data/prophets';
+
+const allStats = await getProphetStats();
+// Show qualified prophets first, then unqualified with posts, limit to 8 for carousel
+const displayStats = [
+  ...allStats.filter(s => s.qualified),
+  ...allStats.filter(s => !s.qualified && s.postCount > 0),
+].slice(0, 8);
+
+const PROPHETS = displayStats.map(s => {
+  const p = getProfileOrFallback(s.id);
+  return {
+    id: s.id,
+    name: p.name,
+    accuracy: s.accuracy,
+    color: p.color,
+    icon: p.emoji,
+    prophecies: p.sampleQuotes.length > 0 ? p.sampleQuotes : ['預言記錄持續更新中…'],
+  };
+});
 
 const dayIdx = Math.floor(Date.now() / 86400000);
-const todayProphet = PROPHETS[dayIdx % PROPHETS.length];
-const todayQuote = todayProphet.prophecies[dayIdx % todayProphet.prophecies.length];
 ---
 
 <div class="dp-wrap">
@@ -24,16 +29,21 @@ const todayQuote = todayProphet.prophecies[dayIdx % todayProphet.prophecies.leng
     {PROPHETS.map((p, i) => {
       const isToday = i === (dayIdx % PROPHETS.length);
       const quote = p.prophecies[dayIdx % p.prophecies.length];
+      const accNum = p.accuracy ?? 0;
       return (
         <div class={`dp-card${isToday ? ' active' : ''}`} data-i={i} style={`--pc:${p.color}`}>
           <div class="dp-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%)`}>
             <span class="dp-icon">{p.icon}</span>
           </div>
           <div class="dp-meta">
-            <span class="dp-name">{p.name}</span>
-            <span class="dp-acc">命中率 {p.accuracy}%</span>
+            <a class="dp-name" href={`/prophet/${encodeURIComponent(p.id)}`}>{p.name}</a>
+            <span class="dp-acc">
+              {p.accuracy !== null ? `命中率 ${p.accuracy}%` : '樣本累積中'}
+            </span>
           </div>
-          <div class="dp-bar"><div class="dp-fill" style={`width:${p.accuracy}%`}></div></div>
+          {p.accuracy !== null && (
+            <div class="dp-bar"><div class="dp-fill" style={`width:${accNum}%`}></div></div>
+          )}
           <blockquote class="dp-quote">「{quote}」</blockquote>
           <div class="dp-votes">
             <button class="dp-btn agree" data-pid={p.id} data-v="agree">👍 我認同</button>
@@ -93,7 +103,12 @@ const todayQuote = todayProphet.prophecies[dayIdx % todayProphet.prophecies.leng
   });
 
   // Seed vote counts
-  const BASE: Record<string, number> = { biggs:4218, kfk:8321, parker:6542, anand:2143, babavanga:12804, guofen:5671 };
+  const BASE: Record<string, number> = {
+    '比格斯': 4218, 'KFK': 8321, '帕克': 6542,
+    '薩洛梅': 3105, '鄭博見': 2847, '麥克蒙尼格': 1924,
+    '朱迪海文利': 1563, 'Adam Archon': 892, '阿南德': 1234,
+    '摩普萊': 743, '巴夏': 5671, 'Omnec Onec': 612, '國分玲': 981,
+  };
   for (const [pid, base] of Object.entries(BASE)) {
     const el = document.getElementById(`vc-${pid}`);
     if (el) {
@@ -123,7 +138,12 @@ const todayQuote = todayProphet.prophecies[dayIdx % todayProphet.prophecies.leng
 }
 .dp-icon { font-size: 1.8em; }
 .dp-meta { display: flex; align-items: baseline; gap: .8em; }
-.dp-name { font-size: 1.1em; font-weight: 900; color: #f1f5f9; }
+.dp-name {
+  font-size: 1.1em; font-weight: 900; color: #f1f5f9;
+  text-decoration: none;
+  transition: color .15s;
+}
+.dp-name:hover { color: #a78bfa; }
 .dp-acc { font-size: .72em; color: #94a3b8; }
 .dp-bar { height: 4px; background: rgba(255,255,255,.08); border-radius: 2px; }
 .dp-fill { height: 100%; background: var(--pc, #a855f7); border-radius: 2px; }

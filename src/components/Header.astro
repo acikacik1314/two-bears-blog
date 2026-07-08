@@ -5,7 +5,7 @@ import UserMenu from './UserMenu.astro';
 
 const path = Astro.url.pathname;
 const travelActive   = ['/travel','/language','/avoid','/food','/pick','/cruise'].some(p => path.startsWith(p));
-const prophecyActive = ['/oracle','/fortune','/omikuji'].some(p => path.startsWith(p));
+const prophecyActive = ['/oracle','/fortune','/omikuji','/prophets','/prophet'].some(p => path.startsWith(p));
 const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.startsWith(p));
 ---
 
@@ -84,6 +84,7 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
           <a href="/oracle"    class={path.startsWith('/oracle')   ? 'active' : ''} data-oracle>🔮 觀測</a>
           <a href="/fortune"   class={path.startsWith('/fortune')  ? 'active' : ''}>命理</a>
           <a href="/omikuji"   class={path.startsWith('/omikuji')  ? 'active' : ''}>命運籤</a>
+          <a href="/prophets"  class={(path.startsWith('/prophets') || path.startsWith('/prophet/')) ? 'active' : ''}>👤 預言家</a>
         </div>
       </div>
 

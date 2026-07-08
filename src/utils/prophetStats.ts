@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { PROPHET_PROFILES } from '../data/prophets';
 
 export interface ProphetStat {
   id: string;
@@ -25,8 +26,11 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
 
   const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
 
+  const knownIds = new Set(PROPHET_PROFILES.map(p => p.id));
+
   // Build index: prophetId → matching posts
   const postsByProphet = new Map<string, typeof allPosts>();
+  const unknownEntries: string[] = [];
 
   for (const post of allPosts) {
     const raw = post.data.prophet;
@@ -34,9 +38,20 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
     const ids: string[] = Array.isArray(raw) ? raw : [raw];
     for (const id of ids) {
       const key = id.trim();
+      if (!knownIds.has(key)) {
+        unknownEntries.push(`  ${post.id}: prophet='${key}'`);
+        continue;
+      }
       if (!postsByProphet.has(key)) postsByProphet.set(key, []);
       postsByProphet.get(key)!.push(post);
     }
+  }
+
+  if (unknownEntries.length > 0) {
+    throw new Error(
+      `[prophetStats] 以下文章的 prophet 欄位值不在 prophets.ts 名單中，請確認拼字或先在 prophets.ts 新增該預言家：\n` +
+      unknownEntries.join('\n')
+    );
   }
 
   const stats: ProphetStat[] = [];

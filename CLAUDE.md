@@ -1,5 +1,21 @@
 # 兩隻熊部落格 - Claude 開發指引
 
+## ⛔ 回報紀律（違者視為未完成）
+
+任何「已完成」回報**必須**同時提供以下三項可驗證證據，缺一不可：
+
+1. **Commit hash**：實際 `git commit` 輸出的完整 SHA（例如 `5cb5fc1`）
+2. **git push 實際輸出**：貼上終端機回傳的原文，如 `main -> main`
+3. **真實網址**：只能使用 `twobears.vercel.app` 網域下的路徑，例如 `https://twobears.vercel.app/prophets`
+
+### 禁止事項
+
+- **禁止虛構網址**：不得在回報中捏造任何域名（如 `twobear.blog`、`two-bears.vercel.app` 等未經確認的域名）
+- **禁止虛構部署結果**：未親自執行 `vercel ls` 或確認 ● Ready 狀態前，不得宣稱「已部署」
+- **禁止未附證據宣稱完成**：宣稱完成但無法提供上述三項證據的工作，一律視為**未完成**
+
+---
+
 ## 專案概況
 
 - Astro 6.x + @astrojs/vercel SSR adapter

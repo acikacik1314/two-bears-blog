@@ -9,9 +9,8 @@ rumblePage: 'https://rumble.com/v799bac-2028.html'
 predictions:
   hits:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-  misses:
-    - '第三次世界大戰全面爆發（截至2026年5月尚未發生）'
   pending:
+    - '第三次世界大戰全面爆發（預言目標年份2028，尚未到驗證期）'
     - '2028年預言事件（尚未到驗證期）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/a5/s8/1/K/z/8/j/Kz8jA.qR4e-small-2028..jpg'
 prophet: '帕克'

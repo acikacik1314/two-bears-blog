@@ -5,7 +5,7 @@ rumblePage: 'https://rumble.com/v79byvi-3036nasa.html'
 description: '【兩隻熊】3036年時間旅人警告：滅亡時間曝光！NASA早已知情，人類命運已定！唯一完整記錄公開！'
 pubDate: '2026-05-22'
 tags: ['未來人', '末日', '預言']
-
+prophet: '3036'
 ---
 ## 神秘時間旅人現身
 

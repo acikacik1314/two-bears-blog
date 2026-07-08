@@ -284,6 +284,21 @@ generationConfig: { thinkingConfig: { thinkingBudget: 0 } }
 | `api/biggsgpt.ts` | `callGemini()` | Gemini 失敗會 fallback 到 Groq |
 | `api/gemini-analyze.ts` | 直接 fetch | ⚠️ 還有舊模型名，更新時記得改 |
 
+## 預言計分原則
+
+### misses vs pending 的判定標準
+
+- **`misses`（失準）**：時限已到，且明確未發生。例如「2025年內中國拿下台灣」→ 2025年已過，未發生 → miss。
+- **`pending`（待驗證）**：符合以下任一條件，一律標 pending，不得標 miss：
+  - 明確說「難以驗證」或「尚未到驗證期」
+  - 預言的截止時間尚未到達（包括「2026年底前」等尚未過期的時限）
+  - 預言無明確截止時間，且事件本身尚未發生
+  - 主要事件未發生，導致附帶細節（如時間框架）無法被驗證
+
+**口訣：misses 只收「時到事未成」，其他一律 pending。**
+
+---
+
 ## Rumble 文章欄位規範
 
 ### 兩套編號系統，絕對不可混用

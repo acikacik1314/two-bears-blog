@@ -5,7 +5,7 @@ rumblePage: 'https://rumble.com/v79bxpm-2040-vs-2245-jjjkf.jai.html'
 description: '【兩隻熊】台灣未來人對決！2040若海 vs 2245 jjjkf.j｜預言大地震、黃金飆破天價、AI統治未來？你相信哪條時空？'
 pubDate: '2026-05-22'
 tags: ['未來人', '台灣', '預言', '地震', 'AI', '加密貨幣']
-
+prophet: ['若海', 'jjjkf.j']
 ---
 ## 兩位台灣未來人的背景與穿越方式
 

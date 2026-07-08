@@ -3,7 +3,7 @@ title: '台灣的未來人 jjjkf.j 現身Threads 預測七月地震!? 2025年後
 description: '【兩隻熊】台灣的未來人 jjjkf.j 現身Threads 預測七月地震!? 2025年後的世界 來自2245年'
 pubDate: '2026-05-22'
 tags: ['未來人', '台灣', '地震', '預言']
-
+prophet: 'jjjkf.j'
 ---
 ## 神秘未來人 JJKFJ 的現身與預言
 

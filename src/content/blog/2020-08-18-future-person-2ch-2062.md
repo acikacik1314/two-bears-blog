@@ -17,6 +17,7 @@ predictions:
     - '中國不復存在'
     - '第三次世界大戰發生'
 heroImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop'
+prophet: '2062'
 ---
 ![1597726269183_副本.jpg](https://pic.pimg.tw/acikacik/1597726645-2482690226-g_l.jpg)
 

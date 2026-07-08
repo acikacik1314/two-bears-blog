@@ -5,6 +5,7 @@ pubDate: '2025-04-14'
 tags: ['未來人預言', '生活綜合分享']
 heroImage: '/images/blog/2025-04-14-taiwan-future-person-threads.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071495977'
+prophet: 'jjjkf.j'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872923/blog/acikacik/1744604824-2976338439-g.png)

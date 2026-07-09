@@ -284,6 +284,30 @@ generationConfig: { thinkingConfig: { thinkingBudget: 0 } }
 | `api/biggsgpt.ts` | `callGemini()` | Gemini 失敗會 fallback 到 Groq |
 | `api/gemini-analyze.ts` | 直接 fetch | ⚠️ 還有舊模型名，更新時記得改 |
 
+## 每日發布管線
+
+### 兩個指令
+
+| 指令 | 腳本 | 功能 |
+|------|------|------|
+| `npm run draft` | `scripts/draft-posts.mjs` | 掃描 `~/Downloads/未來人預言家/`，呼叫 Gemini 生成草稿，存入 `drafts/` |
+| `npm run publish` | `scripts/publish-drafts.mjs` | 把 `drafts/` 移入 `content/blog`，build 驗證，commit + push |
+
+### 管線規則（不得違反）
+
+- **predictions 只能有 `pending`，禁止產生 `hits` 或 `misses`**
+  - hits/misses 的判定一律由人工修改 frontmatter
+- **prophet 值必須完全匹配 prophets.ts 名冊**
+  - 若 AI 識別到文中人物但對應不到名冊，草稿中的 `prophet:` 欄位留空，並在報告中標示「未識別人物，待人工確認」
+  - 禁止自行建立新 profile 或猜測歸屬
+- **草稿先在 `drafts/` 確認，再執行 publish**
+  - `drafts/` 已加入 `.gitignore`，不會進 git
+  - `draft: true` 旗標在 publish 時自動移除
+- **tracking 檔案**：`scripts/draft-tracking.json` 記錄哪些來源已處理，會進 git
+- **--all 旗標**：`npm run draft --all` 重新處理全部來源（含已草稿過的）
+
+---
+
 ## 預言計分原則
 
 ### misses vs pending 的判定標準

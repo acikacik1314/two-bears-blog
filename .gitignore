@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# AI 草稿（發布前暫存，不進 git）
+drafts/
 # generated types
 .astro/
 

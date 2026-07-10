@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "draft": "node scripts/draft-posts.mjs",
+    "draft-batch": "node scripts/draft-posts.mjs",
     "publish": "node scripts/publish-drafts.mjs",
     "sync:prophets": "node scripts/sync-prophet-posts.mjs",
     "preview": "astro preview",

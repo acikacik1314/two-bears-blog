@@ -304,6 +304,62 @@ export const PROPHET_PROFILES: ProphetProfile[] = [
       '美元將在不久的將來成為過去式',
     ],
   },
+  {
+    id: 'Clif High',
+    name: 'Clif High',
+    emoji: '📊',
+    color: '#1d4ed8',
+    origin: '美國',
+    method: '預測語言學',
+    bio: '美國數據分析師，透過「預測語言學」掃描網路語言趨勢推演未來走向，長年發布可驗證的年度趨勢預測，在另類媒體圈頗具影響力。',
+    sampleQuotes: [
+      '銀價將在通膨加速期間迎來歷史性超越黃金的比率修正',
+      '大規模揭露（Great Reveal）將在未來數年陸續浮現',
+      '現有全球金融體系將在2030年前出現根本性重組',
+    ],
+  },
+  {
+    id: 'Clifford Mahooty',
+    name: 'Clifford Mahooty',
+    emoji: '🦅',
+    color: '#92400e',
+    origin: '美國（祖尼族）',
+    method: '祖尼族靈視傳承',
+    bio: '美國祖尼族長老靈視者，傳承原住民古老預言智慧，以部落視角解讀星際訊息與人類命運。已於2022年前後辭世，其預言依「已故但可驗證」原則持續列入追蹤。',
+    sampleQuotes: [
+      '地球正在進行一次重大的能量轉換，原住民早已預見',
+      '星際存有與地球人類的接觸將在這個世代公開化',
+      '人類必須回歸與大地的連結，才能在轉化中存活',
+    ],
+  },
+  {
+    id: 'Ian Bremmer',
+    name: 'Ian Bremmer',
+    emoji: '🌍',
+    color: '#0c4a6e',
+    origin: '美國',
+    method: '地緣政治分析',
+    bio: '歐亞集團（Eurasia Group）創辦人，全球頂尖地緣政治學者，每年發布「全球十大風險」清單，以白紙黑字明確預測年度政治風險，命中率可供即時追蹤核對。',
+    sampleQuotes: [
+      '中美科技脫鉤將加速，形成平行技術生態系',
+      '民主體制將在多個西方國家面臨結構性壓力測試',
+      '氣候變遷引發的地緣政治衝突將成為本世紀常態',
+    ],
+  },
+  {
+    id: 'David the Medium',
+    name: 'David the Medium',
+    emoji: '🔮',
+    color: '#5b21b6',
+    origin: '澳洲',
+    method: '靈媒感應',
+    bio: '澳洲頂級靈媒，曾任澳洲政府反恐刑事起訴官，以法律人嚴謹思維結合靈性感知，曾精準預言新冠疫情墨爾本封城及川普遇刺事件，是澳洲首位登上天空新聞的靈媒。',
+    sampleQuotes: [
+      '2026年2至4月將出現重大動盪，建議提前備糧儲水',
+      '數位身份證將成為重新接入網路的強制門檻',
+      '美元體系將在本十年出現根本性動搖',
+    ],
+  },
 ];
 
 const profileMap = new Map(PROPHET_PROFILES.map(p => [p.id, p]));

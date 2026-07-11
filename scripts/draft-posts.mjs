@@ -115,8 +115,12 @@ const ALIASES = {
   'Omnec Onec': ['omnec onec', 'omnec'],
   '國分玲':    ['国分玲', 'kuniwake'],
   '3036':       ['3036', '賽巴斯帝安', 'sebastian'],
-  '3906':       ['3906', 'paul amadeus dienach', 'dienach', 'paul dienach'],
+  '3906':       ['3906', 'paul amadeus dienach', 'dienach', 'paul dienach', '保羅·阿瑪迪斯·迪納赫', 'chronicles from the future'],
   'amanda-grace': ['amanda grace', '阿曼達·葛瑞絲', '阿曼達', '葛瑞絲', 'amanda', 'grace'],
+  'Clif High':  ['clif high', 'cliff high', '克里夫·海', '克里夫', 'clif'],
+  'Clifford Mahooty': ['clifford mahooty', 'mahooty', '馬胡提', 'clifford mahooty'],
+  'Ian Bremmer': ['ian bremmer', 'bremmer', '布雷默'],
+  'David the Medium': ['david the medium', 'david medium', '大衛靈媒', '澳洲大衛', '大衛'],
 }
 
 function buildAliasLookup(knownIds) {
@@ -329,12 +333,15 @@ ${content}
   Bashar→巴夏、Joe McMoneagle→麥克蒙尼格、Judy Hevenly/Judy→朱迪海文利、
   Adam Archon→Adam Archon、Morphee→摩普萊、KFK→KFK、ADI/阿迪→ADI、
   薩洛美/薩洛梅/Salomé→薩洛梅、賽巴斯帝安/Sebastian→3036、Dienach→3906、
-  Amanda Grace/阿曼達·葛瑞絲/阿曼達→amanda-grace
+  Amanda Grace/阿曼達·葛瑞絲/阿曼達→amanda-grace、
+  Clif High/克里夫·海→Clif High、Clifford Mahooty/馬胡提→Clifford Mahooty、
+  Ian Bremmer/布雷默→Ian Bremmer、David the Medium/大衛靈媒→David the Medium
   ⚠️ 重要：文中被提及的政治人物與公眾人物（普丁、川普、澤倫斯基、拜登、習近平等）是預言的對象，不是預言家，絕對不列入 prophetNamesInText 或 matchedProphetIds
 - unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
 
 **第三件：抽取具體預言**
 - pendingPredictions：從文中抽取具體、可驗證的預言，上限 12 條
+  **每條是純字串**（直接寫預言文字，例如 "富士山將在2026年爆發"，不要包裝成物件或加子欄位）
   **過篩標準（三項缺一不可）**：
   ① 必須是未來將發生的事件（不是已發生的描述或背景說明）
   ② 必須有明確的事件主體 + 可驗證的結果（不能只是感覺或意象）
@@ -427,8 +434,10 @@ ${content}
     .replace(/^-|-$/g, '')
     .slice(0, 50)
 
+  // 與既有 blog 文章 slug 比對（防撞名）
+  const existingBlogSlugs = new Set(blogIndex.map(p => p.file.replace(/\.md$/, '')))
   let draftPath = join(DRAFTS_DIR, `${finalSlug}.md`)
-  if (existsSync(draftPath)) {
+  if (existsSync(draftPath) || existingBlogSlugs.has(finalSlug)) {
     finalSlug = `${finalSlug}-${pubDate.replace(/-/g, '')}`
     draftPath  = join(DRAFTS_DIR, `${finalSlug}.md`)
   }
@@ -449,7 +458,13 @@ ${content}
   let predictionsBlock = ''
   if (pendingPredictions.length) {
     const items = pendingPredictions
-      .map(p => `    - '${String(p).replace(/'/g, "''")}'`)
+      .map(p => {
+        // AI 有時回傳物件（{text: '...', timeframe: '...'}），提取文字
+        const str = typeof p === 'string'
+          ? p
+          : (p?.prediction || p?.text || p?.content || p?.description || p?.summary || JSON.stringify(p))
+        return `    - '${String(str).replace(/'/g, "''")}'`
+      })
       .join('\n')
     predictionsBlock = `\npredictions:\n  pending:\n${items}`
   }

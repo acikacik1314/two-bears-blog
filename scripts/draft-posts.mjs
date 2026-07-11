@@ -61,7 +61,7 @@ async function callGeminiJSON(prompt, keys) {
         const body = JSON.stringify({
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           generationConfig: {
-            maxOutputTokens: 4096,
+            maxOutputTokens: 8192,
             temperature: 0.65,
             responseMimeType: 'application/json',
             ...(model.startsWith('gemini-2.5') ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
@@ -331,12 +331,14 @@ ${content}
 - unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
 
 **第三件：抽取具體預言**
-- pendingPredictions：從文中抽取具體、可驗證的預言
-  **逐字稿裡有幾條就抽幾條，禁止湊數、禁止截斷**
-  格式：「主詞 + 動詞/事件 + 時間/地點（若有）」
-  只保留有明確內容的預測，不要模糊靈性感悟或勸告
-  例：「川普將在2027年面臨彈劾」、「富士山將在2026年發生大爆發」
-  如果逐字稿裡只有 2 條具體預言，就只回傳 2 條；有 15 條就回傳 15 條
+- pendingPredictions：從文中抽取具體、可驗證的預言，上限 12 條
+  **過篩標準（三項缺一不可）**：
+  ① 必須是未來將發生的事件（不是已發生的描述或背景說明）
+  ② 必須有明確的事件主體 + 可驗證的結果（不能只是感覺或意象）
+  ③ 必須有時間框架（年份/季節/期間）或具體地點
+  **不算的例子**：「土耳其像吸血鬼崛起」「黑暗籠罩歐洲」「要保持冥想」
+  **算的例子**：「川普將在2027年面臨彈劾」「富士山將在2026年爆發」
+  逐字稿具體預言不足 12 條時有幾條回幾條，禁止湊數；超過 12 條時取最重要的 12 條
 
 回傳的 JSON 結構：
 {
@@ -359,9 +361,40 @@ ${content}
   try {
     parsed = JSON.parse(rawResult)
   } catch {
+    // 嘗試從回傳中擷取 JSON 區塊
     const m = rawResult.match(/\{[\s\S]+\}/)
-    if (!m) throw new Error(`AI 回傳非 JSON：${rawResult.slice(0, 200)}`)
-    parsed = JSON.parse(m[0])
+    const jsonStr = m ? m[0] : rawResult
+
+    // 修復常見問題：字串內的斷行、tab、control chars
+    const repaired = jsonStr
+      .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '')  // control chars
+      .replace(/(?<=[^\\])\n(?=[^"]*"[^"]*(?:"[^"]*"[^"]*)*$)/g, '\\n')  // 字串內換行
+    try {
+      parsed = JSON.parse(repaired)
+    } catch {
+      // 最後手段：嘗試截斷損壞的 pendingPredictions 陣列
+      const safeStr = jsonStr.replace(
+        /("pendingPredictions"\s*:\s*\[)([\s\S]*?)(\])/,
+        (_, open, content, close) => {
+          // 只保留到最後一個完整的 '...' 項目
+          const items = []
+          const re = /'((?:[^'\\]|\\.)*)'/g
+          let hit
+          while ((hit = re.exec(content)) !== null) items.push(`'${hit[1]}'`)
+          // 或取 JSON 字串項目
+          const re2 = /"((?:[^"\\]|\\.)*)"/g
+          const items2 = []
+          while ((hit = re2.exec(content)) !== null) items2.push(`"${hit[1]}"`)
+          const best = (items.length >= items2.length ? items : items2)
+          return open + best.join(', ') + close
+        }
+      )
+      try {
+        parsed = JSON.parse(safeStr)
+      } catch (e2) {
+        throw new Error(`AI 回傳 JSON 無法修復：${e2.message}  原文前 300 字：${rawResult.slice(0, 300)}`)
+      }
+    }
   }
 
   const {

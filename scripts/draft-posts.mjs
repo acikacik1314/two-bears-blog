@@ -121,6 +121,14 @@ const ALIASES = {
   'Clifford Mahooty': ['clifford mahooty', 'mahooty', '馬胡提', 'clifford mahooty'],
   'Ian Bremmer': ['ian bremmer', 'bremmer', '布雷默'],
   'David the Medium': ['david the medium', 'david medium', '大衛靈媒', '澳洲大衛', '大衛'],
+  'Jessica Adams': ['jessica adams', 'jessica', '潔西卡', '潔西卡·亞當斯'],
+  'J.D. Farag': ['j.d. farag', 'jd farag', 'farag', 'j d farag'],
+  'Jeane Dixon': ['jeane dixon', 'jean dixon', 'dixon', '珍·狄克遜', '珍迪克遜'],
+  'Jonathan Cahn': ['jonathan cahn', 'cahn', '強納森·卡恩', '卡恩'],
+  'Jucelino': ['jucelino nobrega da luz', 'jucelino', 'da luz', '朱塞里諾', 'nobrega'],
+  'Joni Patry': ['joni patry', 'patry', '瓊妮·帕崔'],
+  'Jemima Packington': ['jemima packington', 'packington', 'jemima', '蘆筍預言家'],
+  'Julie Poole': ['julie poole', 'poole', 'eli', '朱麗·普爾'],
 }
 
 function buildAliasLookup(knownIds) {
@@ -335,7 +343,11 @@ ${content}
   薩洛美/薩洛梅/Salomé→薩洛梅、賽巴斯帝安/Sebastian→3036、Dienach→3906、
   Amanda Grace/阿曼達·葛瑞絲/阿曼達→amanda-grace、
   Clif High/克里夫·海→Clif High、Clifford Mahooty/馬胡提→Clifford Mahooty、
-  Ian Bremmer/布雷默→Ian Bremmer、David the Medium/大衛靈媒→David the Medium
+  Ian Bremmer/布雷默→Ian Bremmer、David the Medium/大衛靈媒→David the Medium、
+  Jessica Adams/潔西卡→Jessica Adams、J.D. Farag/Farag→J.D. Farag、
+  Jeane Dixon/珍·狄克遜→Jeane Dixon、Jonathan Cahn/卡恩→Jonathan Cahn、
+  Jucelino/朱塞里諾→Jucelino、Joni Patry→Joni Patry、
+  Jemima Packington/蘆筍預言家→Jemima Packington、Julie Poole/Eli→Julie Poole
   ⚠️ 重要：文中被提及的政治人物與公眾人物（普丁、川普、澤倫斯基、拜登、習近平等）是預言的對象，不是預言家，絕對不列入 prophetNamesInText 或 matchedProphetIds
 - unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
 
@@ -434,10 +446,13 @@ ${content}
     .replace(/^-|-$/g, '')
     .slice(0, 50)
 
-  // 與既有 blog 文章 slug 比對（防撞名）
+  // 與既有 blog 文章 + 現有草稿 slug 比對（防撞名）
   const existingBlogSlugs = new Set(blogIndex.map(p => p.file.replace(/\.md$/, '')))
+  const existingDraftSlugs = existsSync(DRAFTS_DIR)
+    ? new Set(readdirSync(DRAFTS_DIR).filter(f => f.endsWith('.md')).map(f => f.replace(/\.md$/, '')))
+    : new Set()
   let draftPath = join(DRAFTS_DIR, `${finalSlug}.md`)
-  if (existsSync(draftPath) || existingBlogSlugs.has(finalSlug)) {
+  if (existingBlogSlugs.has(finalSlug) || existingDraftSlugs.has(finalSlug)) {
     finalSlug = `${finalSlug}-${pubDate.replace(/-/g, '')}`
     draftPath  = join(DRAFTS_DIR, `${finalSlug}.md`)
   }

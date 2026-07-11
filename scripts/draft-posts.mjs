@@ -216,11 +216,11 @@ function titleSimilarity(a, b) {
   return (2 * inter) / (sa.size + sb.size)
 }
 
-// 預-AI 重複偵測：相同預言家 + pubDate 前後 14 天
+// 預-AI 重複偵測：相同預言家 + pubDate 前後 3 天（僅抓同日或鄰日）
 function checkPreAIDuplicate(prophetIds, pubDate, blogIndex) {
   if (!prophetIds.length) return []
   const targetMs = new Date(pubDate).getTime()
-  const WINDOW   = 14 * 86400000
+  const WINDOW   = 3 * 86400000
   return blogIndex.filter(post => {
     if (!post.prophets.some(p => prophetIds.includes(p))) return false
     const postMs = new Date(post.pubDate).getTime()
@@ -331,10 +331,12 @@ ${content}
 - unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
 
 **第三件：抽取具體預言**
-- pendingPredictions：從文中抽取具體、可驗證的預言，最多 8 條
+- pendingPredictions：從文中抽取具體、可驗證的預言
+  **逐字稿裡有幾條就抽幾條，禁止湊數、禁止截斷**
   格式：「主詞 + 動詞/事件 + 時間/地點（若有）」
-  只保留有明確內容的預測，不要模糊靈性感悟
+  只保留有明確內容的預測，不要模糊靈性感悟或勸告
   例：「川普將在2027年面臨彈劾」、「富士山將在2026年發生大爆發」
+  如果逐字稿裡只有 2 條具體預言，就只回傳 2 條；有 15 條就回傳 15 條
 
 回傳的 JSON 結構：
 {

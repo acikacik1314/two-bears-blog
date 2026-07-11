@@ -116,6 +116,7 @@ const ALIASES = {
   '國分玲':    ['国分玲', 'kuniwake'],
   '3036':       ['3036', '賽巴斯帝安', 'sebastian'],
   '3906':       ['3906', 'paul amadeus dienach', 'dienach', 'paul dienach'],
+  'amanda-grace': ['amanda grace', '阿曼達·葛瑞絲', '阿曼達', '葛瑞絲', 'amanda', 'grace'],
 }
 
 function buildAliasLookup(knownIds) {
@@ -327,7 +328,9 @@ ${content}
   常見別名：Brandon Biggs/Biggs→比格斯、Hamilton Parker/Parker→帕克、
   Bashar→巴夏、Joe McMoneagle→麥克蒙尼格、Judy Hevenly/Judy→朱迪海文利、
   Adam Archon→Adam Archon、Morphee→摩普萊、KFK→KFK、ADI/阿迪→ADI、
-  薩洛美/薩洛梅/Salomé→薩洛梅、賽巴斯帝安/Sebastian→3036、Dienach→3906
+  薩洛美/薩洛梅/Salomé→薩洛梅、賽巴斯帝安/Sebastian→3036、Dienach→3906、
+  Amanda Grace/阿曼達·葛瑞絲/阿曼達→amanda-grace
+  ⚠️ 重要：文中被提及的政治人物與公眾人物（普丁、川普、澤倫斯基、拜登、習近平等）是預言的對象，不是預言家，絕對不列入 prophetNamesInText 或 matchedProphetIds
 - unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
 
 **第三件：抽取具體預言**
@@ -335,7 +338,7 @@ ${content}
   **過篩標準（三項缺一不可）**：
   ① 必須是未來將發生的事件（不是已發生的描述或背景說明）
   ② 必須有明確的事件主體 + 可驗證的結果（不能只是感覺或意象）
-  ③ 必須有時間框架（年份/季節/期間）或具體地點
+  ③ 必須有可辨識的驗證標的（有時間框架、具體地點或明確可判斷真偽的事件皆可）
   **不算的例子**：「土耳其像吸血鬼崛起」「黑暗籠罩歐洲」「要保持冥想」
   **算的例子**：「川普將在2027年面臨彈劾」「富士山將在2026年爆發」
   逐字稿具體預言不足 12 條時有幾條回幾條，禁止湊數；超過 12 條時取最重要的 12 條

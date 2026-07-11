@@ -290,6 +290,20 @@ export const PROPHET_PROFILES: ProphetProfile[] = [
       '人類文明將從混亂走向光明，但需付出巨大代價',
     ],
   },
+  {
+    id: 'amanda-grace',
+    name: '阿曼達·葛瑞絲',
+    emoji: '🕊️',
+    color: '#7c2d12',
+    origin: '美國',
+    method: '基督教先知啟示',
+    bio: 'Ark of Grace Ministries 創辦人，美國基督教女先知，以政治與經濟領域的預言著稱，常在禱告中領受神的啟示，是本頻道交叉比對的常用來源之一。',
+    sampleQuotes: [
+      '市場即將發生大逆轉，揭露有史以來最大內線交易醜聞',
+      '台灣，台灣！高度警戒！',
+      '美元將在不久的將來成為過去式',
+    ],
+  },
 ];
 
 const profileMap = new Map(PROPHET_PROFILES.map(p => [p.id, p]));

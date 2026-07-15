@@ -5,6 +5,7 @@ pubDate: '2026-06-16'
 category: '預言'
 tags: ["預言","末日","J.D. Farag","虛擬貨幣","第三次世界大戰"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+prophet: 'J.D. Farag'
 predictions:
   pending:
     - '全球衝突將持續加劇，構成第三次世界大戰的威脅。'

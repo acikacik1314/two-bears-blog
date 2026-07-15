@@ -303,6 +303,10 @@ generationConfig: { thinkingConfig: { thinkingBudget: 0 } }
 - **草稿先在 `drafts/` 確認，再執行 publish**
   - `drafts/` 已加入 `.gitignore`，不會進 git
   - `draft: true` 旗標在 publish 時自動移除
+- **凍結機制 `hold: true`**：任何標記為「待裁決」的草稿，必須立刻在 frontmatter 加上 `hold: true`
+  - publish 腳本會跳過所有帶 `hold: true` 的草稿，並在報告中列出
+  - 凍結草稿在使用者明確裁決前，禁止進入 publish——這是硬性規則，不能靠記憶執行
+  - 人工裁決後，由使用者或 Claude 移除 `hold: true` 才可發布
 - **tracking 檔案**：`scripts/draft-tracking.json` 記錄哪些來源已處理，會進 git
 - **--all 旗標**：`npm run draft --all` 重新處理全部來源（含已草稿過的）
 

@@ -55,6 +55,10 @@ function removeDraftFlag(content) {
   return content.replace(/^draft: true\r?\n/m, '')
 }
 
+function isHeld(content) {
+  return /^hold: true\r?\n/m.test(content)
+}
+
 // ── 回滾：把已複製進 content/blog 的檔案刪除，drafts/ 保持不動 ──────────────
 
 function rollback(movedFiles) {
@@ -80,11 +84,25 @@ async function main() {
     return
   }
 
-  console.log(`\n📦 準備發布 ${draftFiles.length} 篇草稿：`)
-  draftFiles.forEach(f => console.log(`   • drafts/${f}`))
+  // 過濾 hold: true 的凍結草稿
+  const heldFiles = draftFiles.filter(f => isHeld(readFileSync(join(DRAFTS_DIR, f), 'utf-8')))
+  const publishFiles = draftFiles.filter(f => !heldFiles.includes(f))
+
+  if (heldFiles.length) {
+    console.log(`\n⏸  跳過 ${heldFiles.length} 篇凍結草稿（hold: true，待人工裁決）：`)
+    heldFiles.forEach(f => console.log(`   🔒 drafts/${f}`))
+  }
+
+  if (publishFiles.length === 0) {
+    console.log('\n📭 沒有可發布的草稿（全部凍結中）。')
+    return
+  }
+
+  console.log(`\n📦 準備發布 ${publishFiles.length} 篇草稿：`)
+  publishFiles.forEach(f => console.log(`   • drafts/${f}`))
 
   // 1. 前置檢查：目標路徑是否有衝突
-  const conflicts = draftFiles.filter(f => existsSync(join(BLOG_DIR, f)))
+  const conflicts = publishFiles.filter(f => existsSync(join(BLOG_DIR, f)))
   if (conflicts.length) {
     console.error('\n❌ 以下草稿與 content/blog 現有檔案名稱衝突，請先重新命名：')
     conflicts.forEach(f => console.error(`   • ${f}`))
@@ -94,7 +112,7 @@ async function main() {
   // 2. 複製草稿到 content/blog（移除 draft: true 旗標）
   console.log('\n📁 複製草稿至 src/content/blog/')
   const movedFiles = []
-  for (const file of draftFiles) {
+  for (const file of publishFiles) {
     const src     = join(DRAFTS_DIR, file)
     const dest    = join(BLOG_DIR, file)
     const content = removeDraftFlag(readFileSync(src, 'utf-8'))

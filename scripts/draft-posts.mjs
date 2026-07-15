@@ -140,6 +140,10 @@ const ALIASES = {
   'Susan Miller': ['susan miller', '蘇珊·米勒', '蘇珊米勒', 'astrology zone', '蘇珊媽媽'],
   'Tatsuki Ryo': ['tatsuki ryo', '龍樹諒', '龍樹亮', '竜樹諒', 'たつき諒', '我所看見的未來'],
   'Joseph Tittel': ['joseph tittel', 'tittel', 'spiritmanjt', 'spiritman', '提特爾', 'joseph_tittel'],
+  '倪海廈': ['倪海廈', '倪師', 'ni haihsia', '倪海厦', '倪老師', '天紀', '倪海夏'],
+  '張盛舒': ['張盛舒', '科技紫微網', 'chang sheng-shu', '張盛舒老師', '盛舒'],
+  'William Taylor': ['william taylor', '威廉·泰勒', '威廉泰勒', 'william taylor 8973', '8973'],
+  '杜金龍': ['杜金龍', '台股老先覺', '台股活字典', '大華投顧', '杜老師'],
 }
 
 function buildAliasLookup(knownIds) {

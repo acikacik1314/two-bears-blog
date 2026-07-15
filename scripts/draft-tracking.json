@@ -182,5 +182,61 @@
     "draftFile": "2026-miracle-golden-year.md",
     "draftedAt": "2026-07-11T14:28:26.539Z",
     "publishedAt": "2026-07-12T00:00:00.000Z"
+  },
+  "Krzysztof_Jackowski_20260608-20260616_20260616_022611.md": {
+    "status": "published",
+    "draftFile": "2026-financial-doomsday.md",
+    "draftedAt": "2026-07-11T22:44:20.846Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
+  },
+  "Krzysztof_Kieślowski_20260608-20260616_20260616_021158.md": {
+    "status": "drafted",
+    "draftFile": "kieslowski-survival-guide.md",
+    "draftedAt": "2026-07-11T22:44:32.567Z"
+  },
+  "Love_Me_Do_20260301-20260615_20260615_113841.md": {
+    "status": "published",
+    "draftFile": "2026-ai-domination-warning.md",
+    "draftedAt": "2026-07-11T22:44:40.788Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
+  },
+  "Martin_Armstrong_20260101-20260621_20260621_012638.md": {
+    "status": "published",
+    "draftFile": "2026-financial-meltdown-survival.md",
+    "draftedAt": "2026-07-11T22:44:52.083Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
+  },
+  "Milton_William_Cooper_-_Bill_Cooper_20200101-20260705_20260705_105053.md": {
+    "status": "drafted",
+    "draftFile": "bill-cooper-ultimate-warning.md",
+    "draftedAt": "2026-07-11T22:45:05.291Z"
+  },
+  "Nikki_Dutta_20200101-20260710_20260710_180421.md": {
+    "status": "published",
+    "draftFile": "nikki-dutta-alien-ai-reset.md",
+    "draftedAt": "2026-07-11T22:45:15.098Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
+  },
+  "Noah__ApexTV_20200101-20260705_20260705_212325.md": {
+    "status": "drafted",
+    "draftFile": "noah-aplextv-fake-time-traveler.md",
+    "draftedAt": "2026-07-11T22:45:25.103Z"
+  },
+  "Paul_Begley_20260522-20260704_20260704_221335.md": {
+    "status": "published",
+    "draftFile": "2026-prophecies-paul-begley.md",
+    "draftedAt": "2026-07-11T22:45:36.993Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
+  },
+  "Paul_Begley_20260611-20260616_20260616_095101.md": {
+    "status": "drafted",
+    "draftFile": "2026-taiwan-prophecy-begley.md",
+    "draftedAt": "2026-07-11T22:45:48.011Z"
+  },
+  "Pleiadian_Laarkmaa_20260101-20260628_20260629_135158.md": {
+    "status": "published",
+    "draftFile": "pleiadian-laarkmaa-2026-warning.md",
+    "draftedAt": "2026-07-11T22:45:56.821Z",
+    "publishedAt": "2026-07-12T01:45:44.152Z"
   }
 }

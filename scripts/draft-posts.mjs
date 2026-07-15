@@ -129,6 +129,12 @@ const ALIASES = {
   'Joni Patry': ['joni patry', 'patry', '瓊妮·帕崔'],
   'Jemima Packington': ['jemima packington', 'packington', 'jemima', '蘆筍預言家'],
   'Julie Poole': ['julie poole', 'poole', 'eli', '朱麗·普爾'],
+  'Jackowski': ['krzysztof jackowski', 'jackowski', '傑可夫斯基', '雅可夫斯基'],
+  'Martin Armstrong': ['martin armstrong', 'armstrong', '安馬丁', '阿姆斯壯', 'armstrong economics', 'princeton economics'],
+  'Love Me Do': ['love me do', 'ラブちゃん', 'ラブ', '占いtv love', 'love-me-do', 'lovemedо'],
+  'Paul Begley': ['paul begley', 'begley', '保羅·貝格利', '貝格利', 'paul_begley', 'coming apocalypse'],
+  'Nikki Dutta': ['nikki dutta', 'dutta', 'nikki dutta'],
+  'Laarkmaa': ['laarkmaa', 'pleiadian laarkmaa', '拉克瑪', 'pia orleane', 'cullen baird smith', 'cullen smith'],
 }
 
 function buildAliasLookup(knownIds) {
@@ -148,7 +154,8 @@ function matchNames(names, lookup) {
     if (lookup[key]) { matched.add(lookup[key]); continue }
     let found = null
     for (const [alias, id] of Object.entries(lookup)) {
-      if (key.includes(alias) || alias.includes(key)) { found = id; break }
+      // 模糊比對要求 alias 至少 5 字元，防止短代碼（kfk/adi/eli）誤配
+      if (alias.length >= 5 && (key.includes(alias) || alias.includes(key))) { found = id; break }
     }
     if (found) matched.add(found)
     else unmatched.push(name)
@@ -334,22 +341,12 @@ ${content}
   - 開場直接切入主題，不要廢話
 
 **第二件：識別文中提到的預言家**
-- prophetNamesInText：文中提到的預言家名稱（原文照寫，可多個，找不到就空陣列）
-- matchedProphetIds：對應到以下名冊的 ID（嚴格只用名冊裡的字串，對應不到就空陣列）
-  已知名冊：${knownIdsList}
-  常見別名：Brandon Biggs/Biggs→比格斯、Hamilton Parker/Parker→帕克、
-  Bashar→巴夏、Joe McMoneagle→麥克蒙尼格、Judy Hevenly/Judy→朱迪海文利、
-  Adam Archon→Adam Archon、Morphee→摩普萊、KFK→KFK、ADI/阿迪→ADI、
-  薩洛美/薩洛梅/Salomé→薩洛梅、賽巴斯帝安/Sebastian→3036、Dienach→3906、
-  Amanda Grace/阿曼達·葛瑞絲/阿曼達→amanda-grace、
-  Clif High/克里夫·海→Clif High、Clifford Mahooty/馬胡提→Clifford Mahooty、
-  Ian Bremmer/布雷默→Ian Bremmer、David the Medium/大衛靈媒→David the Medium、
-  Jessica Adams/潔西卡→Jessica Adams、J.D. Farag/Farag→J.D. Farag、
-  Jeane Dixon/珍·狄克遜→Jeane Dixon、Jonathan Cahn/卡恩→Jonathan Cahn、
-  Jucelino/朱塞里諾→Jucelino、Joni Patry→Joni Patry、
-  Jemima Packington/蘆筍預言家→Jemima Packington、Julie Poole/Eli→Julie Poole
-  ⚠️ 重要：文中被提及的政治人物與公眾人物（普丁、川普、澤倫斯基、拜登、習近平等）是預言的對象，不是預言家，絕對不列入 prophetNamesInText 或 matchedProphetIds
-- unidentifiedPeople：文中提到但對應不到名冊的人物（如全新角色）
+- prophetNamesInText：文字稿正文中**確實出現**的人名（原文照寫，可多個，找不到就空陣列）
+  ⚠️ 只填文字稿正文中看得到的原文人名（如 "Krzysztof Jackowski"、"ラブちゃん"、"朱塞里諾"）
+  ⚠️ 禁止填入縮略代碼（如 KFK、ADI）、禁止填入你推測的頻道對應 ID、禁止填入你推斷的人物身份
+  ⚠️ 政治人物（普丁、川普、澤倫斯基、拜登、習近平等）是預言的對象，不是預言家，不列入
+- matchedProphetIds：一律回傳空陣列 []，系統將自動從 prophetNamesInText 比對名冊
+- unidentifiedPeople：文中出現但明顯不是本名冊預言家的新人物（全新角色、一般公眾人物）
 
 **第三件：抽取具體預言**
 - pendingPredictions：從文中抽取具體、可驗證的預言，上限 12 條
@@ -428,12 +425,26 @@ ${content}
 
   if (!slug || !title || !body) throw new Error('AI 回傳缺少必要欄位（slug/title/body）')
 
-  // 二次驗證：過濾 AI 回傳的 prophet IDs，只保留名冊裡真實存在的
-  const verifiedFromAI = matchedProphetIds.filter(id => knownIds.includes(id))
+  // 識別邏輯：棄用 AI 的 matchedProphetIds（會誤填縮略代碼造成張冠李戴）
+  // 改為純代碼比對 prophetNamesInText，再加原文交叉驗證
+  const rawSourceLower = raw.toLowerCase()
   const { matched: clientMatched, unmatched: clientUnmatched } = matchNames(prophetNamesInText, aliasLookup)
-  const allMatchedIds   = [...new Set([...verifiedFromAI, ...clientMatched])]
-  const allUnidentified = [...new Set([...unidentifiedPeople, ...clientUnmatched])]
-    .filter(name => !verifiedFromAI.some(id => ALIASES[id]?.includes(name.toLowerCase())))
+
+  // 信心門檻：確認 alias 確實出現在原始文字稿中（防止 AI 幻覺人名）
+  const confirmedIds = clientMatched.filter(id => {
+    const checkList = [id.toLowerCase(), ...(ALIASES[id] ?? []).map(a => a.toLowerCase())]
+    return checkList.some(a => a.length >= 3 && rawSourceLower.includes(a))
+  })
+  const lowConfidenceIds = clientMatched.filter(id => !confirmedIds.includes(id))
+
+  const allMatchedIds   = [...new Set(confirmedIds)]
+  const allUnidentified = [
+    ...new Set([
+      ...unidentifiedPeople,
+      ...clientUnmatched,
+      ...(lowConfidenceIds.length ? lowConfidenceIds.map(id => `[低信心-需確認] ${id}`) : []),
+    ]),
+  ].filter(name => !allMatchedIds.includes(name))
 
   // 後-AI 標題重複偵測（警示用，不擋）
   const titleConflicts = skipDup ? [] : checkPostAIDuplicate(title, allMatchedIds, blogIndex)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { AGODA_TRACKING } from '../config/affiliates';
 
-const TRACKING_BASE = 'https://abzcoupon.com/track/clicks/3408/c627c2ba900929dcfc9cab248d2596412379128f78eee2f40f76f6476a0449a8c23ae5a5112d';
 const CID = '1933603';
 
 type Intent = 'all' | 'luxury' | 'escape' | 'base';
@@ -213,7 +213,7 @@ function buildUrl(cityId: number, checkIn: string, checkOut: string, adults: num
     p.extra +
     '&cid=' + CID +
     '&productType=-1';
-  return TRACKING_BASE + '?t=' + encodeURIComponent(encodeURIComponent(agoda));
+  return AGODA_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(agoda));
 }
 
 function buildBookingUrl(bookingCity: string, checkIn: string, checkOut: string, adults: number, rooms: number, intent: Intent): string {

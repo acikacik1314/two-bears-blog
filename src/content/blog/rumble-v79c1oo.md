@@ -5,7 +5,7 @@ rumblePage: 'https://rumble.com/v79c1oo-2075-ai-2026-.html'
 description: '【兩隻熊】2075 年未來人警告：AI 即將失控，世界走向終極災難！2026 覺醒者必看生存法則！'
 pubDate: '2026-05-22'
 tags: ['未來人', '預言', 'AI', '末日']
-
+prophet: '2075'
 ---
 ## 未來人現身與 AI 預警
 

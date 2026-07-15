@@ -4,6 +4,7 @@ description: '【兩隻熊】緊急警告！2026台灣危機、美元崩潰、AI
 pubDate: '2026-05-22'
 tags: ['預言', '台灣', '金融', 'AI', '末日']
 category: '預言'
+prophet: '比格斯'
 rumbleId: 'v7728mc'
 rumblePage: 'https://rumble.com/v798wmk-2026ai.html'
 predictions:

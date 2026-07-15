@@ -5,7 +5,7 @@ rumblePage: 'https://rumble.com/v79ayu4-438891484.html'
 description: '【兩隻熊】身體刺痛、耳鳴、莫名焦躁？金星人歐米娜說：這不是病，是升級徵兆。台灣人必學的6個「安撫自己」心法，陪你平靜度過赤馬紅羊期'
 pubDate: '2026-05-22'
 tags: ['靈性', '顯化', '潛意識']
-
+prophet: 'Omnec Onec'
 ---
 ## 身體與情緒的升級徵兆
 

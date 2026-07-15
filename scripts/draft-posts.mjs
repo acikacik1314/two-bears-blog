@@ -125,7 +125,7 @@ const ALIASES = {
   'J.D. Farag': ['j.d. farag', 'jd farag', 'farag', 'j d farag'],
   'Jeane Dixon': ['jeane dixon', 'jean dixon', 'dixon', '珍·狄克遜', '珍迪克遜'],
   'Jonathan Cahn': ['jonathan cahn', 'cahn', '強納森·卡恩', '卡恩'],
-  'Jucelino': ['jucelino nobrega da luz', 'jucelino', 'da luz', '朱塞里諾', 'nobrega'],
+  'Jucelino': ['jucelino nobrega da luz', 'jucelino', 'da luz', '朱塞里諾', '朱瑟里諾', 'nobrega'],
   'Joni Patry': ['joni patry', 'patry', '瓊妮·帕崔'],
   'Jemima Packington': ['jemima packington', 'packington', 'jemima', '蘆筍預言家'],
   'Julie Poole': ['julie poole', 'poole', 'eli', '朱麗·普爾'],
@@ -135,6 +135,11 @@ const ALIASES = {
   'Paul Begley': ['paul begley', 'begley', '保羅·貝格利', '貝格利', 'paul_begley', 'coming apocalypse'],
   'Nikki Dutta': ['nikki dutta', 'dutta', 'nikki dutta'],
   'Laarkmaa': ['laarkmaa', 'pleiadian laarkmaa', '拉克瑪', 'pia orleane', 'cullen baird smith', 'cullen smith'],
+  'Troy Black': ['troy black', '特洛伊·布萊克', '特洛伊布萊克', 'troy_black'],
+  'Ray Kurzweil': ['ray kurzweil', 'kurzweil', '庫茲威爾', '雷·庫茲威爾', '雷·庫茲維爾', '庫茲維爾'],
+  'Susan Miller': ['susan miller', '蘇珊·米勒', '蘇珊米勒', 'astrology zone', '蘇珊媽媽'],
+  'Tatsuki Ryo': ['tatsuki ryo', '龍樹諒', '龍樹亮', '竜樹諒', 'たつき諒', '我所看見的未來'],
+  'Joseph Tittel': ['joseph tittel', 'tittel', 'spiritmanjt', 'spiritman', '提特爾', 'joseph_tittel'],
 }
 
 function buildAliasLookup(knownIds) {

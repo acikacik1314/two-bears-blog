@@ -325,6 +325,12 @@ generationConfig: { thinkingConfig: { thinkingBudget: 0 } }
 
 **口訣：misses 只收「時到事未成」，其他一律 pending。**
 
+### 同名/近名人物辨別規則
+
+- **禁止以名字推斷歸屬**：兩個名字相似的人物，不得以「名字看起來像某人」為理由直接補掛 prophet 欄位
+- **必須以內文實證區分**：裁決前先開檔案讀內容，確認文中出現的具體人名、作品、頭銜
+- 判例：波蘭 Krzysztof Kieślowski（導演）vs Krzysztof Jackowski（預言家）——外部推理曾誤判，內文實證糾正。`kieslowski-survival-guide.md` = 導演文章，`2026-financial-doomsday.md` = 傑可夫斯基預言
+
 ### 典籍類預言特別計分規則（推背圖、諾查丹瑪斯、日月神示等）
 
 - **典籍可立檔**，但事後諸葛的解讀**不算命中**

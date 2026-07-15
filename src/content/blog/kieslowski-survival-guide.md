@@ -1,9 +1,11 @@
 ---
+# 此為電影導演奇士勞斯基（Kieślowski）的人生觀察內容，與預言家傑可夫斯基（Jackowski）為兩位不同的波蘭 Krzysztof。
+# 永不掛 prophet 欄位，不進命中率系統。傑可夫斯基的文章見 2026-financial-doomsday.md。
 title: '30年前他就看穿AI亂世？波蘭大師的生存指南'
 description: '波蘭電影大師奇士勞斯基預言總體性危機與科技焦慮，並提出在亂世中縮小世界、專注微小事物的生存哲學。'
 pubDate: '2026-06-16'
-category: '預言'
-tags: ["預言","末日","靈性","科技焦慮","生存指南"]
+category: '靈性'
+tags: ["靈性","哲學","科技焦慮","生存指南","電影"]
 heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=450&fit=crop'
 predictions:
   pending:

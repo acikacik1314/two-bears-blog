@@ -8,7 +8,7 @@ heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h
 prophet: 'amanda-grace'
 predictions:
   pending:
-    - '北韓和伊朗的事件，很快會串聯發生。'
+    - '[hit-待出處] 北韓和伊朗的事件，很快會串聯發生。'
     - '中國這條蛇，正準備對台灣採取一項非常嚴重的演習或舉動。'
     - '中國一座巨大的假神紀念碑將會破碎倒塌。'
     - '中國將遭受一場摧毀國家的經濟災難，還有基礎設施的實體災難。'

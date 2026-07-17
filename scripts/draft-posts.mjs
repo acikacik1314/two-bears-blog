@@ -147,6 +147,8 @@ const ALIASES = {
   '權朗': ['權朗', '權師傅'],
   '蔡上機': ['蔡上機', '蔡上機老師'],
   '袁天罡與李淳風': ['袁天罡', '李淳風', '推背圖', '袁天罡與李淳風'],
+  'Anne Tucker': ['anne tucker', 'tucker', '安·塔克', '安塔克'],
+  'Sadhguru': ['sadhguru', '薩古魯', '薩谷魯', 'jaggi vasudev', 'sadhguru jaggi'],
 }
 
 function buildAliasLookup(knownIds) {

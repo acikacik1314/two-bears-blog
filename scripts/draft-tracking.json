@@ -126,14 +126,16 @@
     "publishedAt": "2026-07-11T14:26:23.254Z"
   },
   "J.D._Farag_20260516-20260616_20260616_155459.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jd-farag-end-times-warning.md",
-    "draftedAt": "2026-07-11T14:26:41.971Z"
+    "draftedAt": "2026-07-11T14:26:41.971Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "J.D._Farag_20260616-20260616_20260616_164450.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jd-farag-2026-end-times.md",
-    "draftedAt": "2026-07-11T14:26:50.425Z"
+    "draftedAt": "2026-07-11T14:26:50.425Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "Jeane_Dixon_20200101-20260705_20260705_093854.md": {
     "status": "published",
@@ -190,9 +192,10 @@
     "publishedAt": "2026-07-12T01:45:44.152Z"
   },
   "Krzysztof_Kieślowski_20260608-20260616_20260616_021158.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "kieslowski-survival-guide.md",
-    "draftedAt": "2026-07-11T22:44:32.567Z"
+    "draftedAt": "2026-07-11T22:44:32.567Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "Love_Me_Do_20260301-20260615_20260615_113841.md": {
     "status": "published",
@@ -207,9 +210,10 @@
     "publishedAt": "2026-07-12T01:45:44.152Z"
   },
   "Milton_William_Cooper_-_Bill_Cooper_20200101-20260705_20260705_105053.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "bill-cooper-ultimate-warning.md",
-    "draftedAt": "2026-07-11T22:45:05.291Z"
+    "draftedAt": "2026-07-11T22:45:05.291Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "Nikki_Dutta_20200101-20260710_20260710_180421.md": {
     "status": "published",
@@ -218,9 +222,10 @@
     "publishedAt": "2026-07-12T01:45:44.152Z"
   },
   "Noah__ApexTV_20200101-20260705_20260705_212325.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "noah-aplextv-fake-time-traveler.md",
-    "draftedAt": "2026-07-11T22:45:25.103Z"
+    "draftedAt": "2026-07-11T22:45:25.103Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "Paul_Begley_20260522-20260704_20260704_221335.md": {
     "status": "published",
@@ -229,9 +234,10 @@
     "publishedAt": "2026-07-12T01:45:44.152Z"
   },
   "Paul_Begley_20260611-20260616_20260616_095101.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-taiwan-prophecy-begley.md",
-    "draftedAt": "2026-07-11T22:45:48.011Z"
+    "draftedAt": "2026-07-11T22:45:48.011Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "Pleiadian_Laarkmaa_20260101-20260628_20260629_135158.md": {
     "status": "published",
@@ -359,23 +365,68 @@
     "publishedAt": "2026-07-15T10:41:15.608Z"
   },
   "權朗_20260628-20260628_20260628_211236.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-taiwan-doomsday-warning.md",
-    "draftedAt": "2026-07-15T10:41:33.448Z"
+    "draftedAt": "2026-07-15T10:41:33.448Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "權朗_20260630-20260714_20260715_173201.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-taiwan-crisis-warning.md",
-    "draftedAt": "2026-07-15T10:41:43.777Z"
+    "draftedAt": "2026-07-15T10:41:43.777Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "蔡上機_20260301-20260614_20260614_185127.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-financial-geopolitical-storm.md",
-    "draftedAt": "2026-07-15T10:41:56.171Z"
+    "draftedAt": "2026-07-15T10:41:56.171Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
   },
   "袁天罡_20200630-20260707_20260707_172532.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-red-horse-red-sheep-calamity.md",
-    "draftedAt": "2026-07-15T10:42:08.034Z"
+    "draftedAt": "2026-07-15T10:42:08.034Z",
+    "publishedAt": "2026-07-15T11:51:46.297Z"
+  },
+  "Anne_Tucker_20200702-20260717_20260717_235147.md": {
+    "status": "published",
+    "draftFile": "anne-tucker-2026-predictions.md",
+    "draftedAt": "2026-07-17T18:39:35.421Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
+  },
+  "Brandon_Biggs_20260716-20260717_20260717_143753.md": {
+    "status": "published",
+    "draftFile": "taiwan-crypto-wealth-shift.md",
+    "draftedAt": "2026-07-17T18:39:44.799Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
+  },
+  "Craig_Hamilton_Parker_20260716-20260717_20260717_140330.md": {
+    "status": "published",
+    "draftFile": "2026-global-crisis-warnings-20260717.md",
+    "draftedAt": "2026-07-17T18:39:53.844Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
+  },
+  "Joseph_Tittel_20260702-20260717_20260717_224845.md": {
+    "status": "drafted",
+    "draftFile": "joseph-tittel-future-q-a.md",
+    "draftedAt": "2026-07-17T18:40:01.535Z"
+  },
+  "Martin_Armstrong_20260626-20260714_20260715_195354.md": {
+    "status": "published",
+    "draftFile": "2026-panic-survival-guide.md",
+    "draftedAt": "2026-07-17T18:40:11.326Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
+  },
+  "Sadhguru_20200625-20260714_20260715_211549.md": {
+    "status": "published",
+    "draftFile": "sadhguru-doomsday-2045-ai.md",
+    "draftedAt": "2026-07-17T18:40:20.854Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
+  },
+  "Troy_Black_20260625-20260714_20260715_203529.md": {
+    "status": "published",
+    "draftFile": "troy-black-2026-warning.md",
+    "draftedAt": "2026-07-17T18:40:31.824Z",
+    "publishedAt": "2026-07-17T18:52:33.487Z"
   }
 }

@@ -1,38 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
 import { PREDICTIONS } from '../data/predictions'
+import { getProphetStats } from '../utils/prophetStats'
 
-const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
-
-// Same tag mapping as ProphecyLeaderboard — keeps the two sources in sync
-const PROPHET_TAGS: Record<string, string[]> = {
-  '比格斯':    ['比格斯'],
-  '帕克':      ['帕克'],
-  '麥克蒙尼格':['麥克蒙尼格'],
-  '摩普萊':    ['摩普萊'],
-  '波蘭預言家':['波蘭'],
-  '英國神算':  ['英國神算'],
-  '阿南德':    ['阿南德'],
-  '未來人KFK': ['未來人', 'kfk', 'KFK'],
-};
-
-const prophetAccuracy: Record<string, number | null> = {};
-for (const [name, tags] of Object.entries(PROPHET_TAGS)) {
-  const posts = allPosts.filter(post =>
-    (post.data.tags ?? []).some((t: string) =>
-      tags.some(k => t.toLowerCase().includes(k.toLowerCase()))
-    )
-  );
-  const hits   = [...new Set(posts.flatMap(post => (post.data as any).predictions?.hits   ?? []))];
-  const misses = [...new Set(posts.flatMap(post => (post.data as any).predictions?.misses ?? []))];
-  const total  = hits.length + misses.length;
-  prophetAccuracy[name] = total > 0 ? Math.round((hits.length / total) * 100) : null;
-}
+const stats = await getProphetStats();
+const statsByProphet = Object.fromEntries(stats.map(s => [s.id, s]));
 
 // Override hardcoded hitRate with live-computed accuracy; fall back if no data yet
 const items = PREDICTIONS.map(p => ({
   ...p,
-  hitRate: prophetAccuracy[p.prophetKey] ?? p.hitRate,
+  hitRate: statsByProphet[p.prophetKey]?.accuracy ?? p.hitRate,
 }));
 ---
 

@@ -1,0 +1,274 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '計分方法｜兩隻熊預言驗證';
+const description = '兩隻熊預言驗證系統的計分原則：如何認定命中、失誤、待驗與排除，以及事前出處的要求。';
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<html lang="zh-Hant">
+<head>
+  <BaseHead title={title} description={description} />
+</head>
+<body>
+  <Header />
+
+  <main class="wrap">
+    <div class="head">
+      <h1 class="title">📋 計分方法</h1>
+      <p class="sub">我們如何驗證預言、為何這樣計分</p>
+    </div>
+
+    <div class="content">
+
+      <section class="intro-block">
+        <p>
+          預言驗證的信度，取決於規則的一致性。以下是本站所有命中率數字背後的計分原則，適用於每一位預言家、每一條預言。規則公開，不因人而異。
+        </p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">01</div>
+        <h2 class="rule-title">命中（hits）的定義</h2>
+        <p>預言在<strong>事件發生之前</strong>已公開發布，且事件確實發生，描述與事實吻合到可以合理對照的程度。</p>
+        <p>命中不要求完美——「伊朗遭受攻擊」比「某城市某日爆炸」要求低，後者若精確則加分。我們記錄的是對照關係，不是讚美。</p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">02</div>
+        <h2 class="rule-title">事前出處：命中的必要條件</h2>
+        <p>
+          只承認<strong>事件發生之前就已公開發布</strong>的預言。事後才廣泛流傳的說法，再準也不計分。
+        </p>
+        <p>
+          若一條預言的原始發布日期無法確認早於事件，我們會標注 <code>[待出處]</code>，列為 pending 狀態，直到發布日期得到驗證才升為 hits。這條紀律是本站與「事後諸葛」頻道的分界線。
+        </p>
+        <p class="note">
+          注意：文章在本站的入庫日期≠預言的原始發布日。入庫可能晚於事件，但預言家的原始影片、貼文或書面記錄若早於事件，仍可計入命中——前提是出處可查。
+        </p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">03</div>
+        <h2 class="rule-title">跨期型預言：以終點為死線</h2>
+        <p>
+          「2026年底前發生某事」這類預言，dead line 是 2026 年 12 月 31 日，不是預言發布當天。
+        </p>
+        <ul>
+          <li><strong>命中可提前入帳</strong>：事件在期限內發生，即可標記命中，不必等到期限截止。</li>
+          <li><strong>失誤須等期限到</strong>：期限未到，不得標 miss，一律留 pending——即使目前看起來不太可能發生。</li>
+        </ul>
+        <p>口訣：<strong>misses 只收「時到事未成」，其他一律 pending。</strong></p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">04</div>
+        <h2 class="rule-title">複合式預言：以終局為準</h2>
+        <p>
+          若一條預言包含多個子條件（例如「革命爆發→領導人死亡→新國家誕生」），整條預言的判決以<strong>最後一個條件</strong>是否成立為準。
+        </p>
+        <p>
+          部分子條件成立，不算命中；也不算失誤——繼續標 pending，直到終局事件發生或確認未發生。
+        </p>
+        <p class="example">
+          判例：帕克「伊朗爆發革命，阿亞圖拉去世，現代伊朗誕生」——哈梅內伊已在 2026/2/28 身亡，但「現代伊朗誕生」尚未發生 → 整條維持 pending。
+        </p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">05</div>
+        <h2 class="rule-title">排除（excluded）：無可驗證標的</h2>
+        <p>
+          若預言的表述方式使其根本無法被客觀驗證（例如「某人的陽氣將上升」、「黑暗勢力將受挫」），則標記為 <code>excluded</code>，不計入命中率分母，也不計入失誤。
+        </p>
+        <p>excluded 不代表預言家說錯，只代表這條無從驗證，計分不適用。</p>
+      </section>
+
+      <section class="rule-block">
+        <div class="rule-number">06</div>
+        <h2 class="rule-title">典籍類特別規則（推背圖、諾查丹瑪斯等）</h2>
+        <p>
+          古典預言典籍（如推背圖）可以立檔追蹤，但<strong>事後諸葛的解讀不算命中</strong>。
+        </p>
+        <p>
+          命中的唯一條件：對應事件發生<strong>之前</strong>，該段落的特定解讀就已在公開管道流傳，且有可查的時間戳記。
+        </p>
+        <p>若解讀是在事件發生後才出現（「第 X 象正是在說這件事」），一律標 pending 或不入 hits。寧缺勿濫。</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="qualify-block">
+        <h2 class="rule-title">正式榜門檻</h2>
+        <p>累積至少 <strong>5 條已驗證預言</strong>（hits + misses ≥ 5）才列入正式命中率排行。低於門檻者列為「樣本累積中」。</p>
+        <p>這個門檻避免小樣本的高命中率被過度解讀。一位預言家若只有一條命中紀錄，命中率 100% 毫無意義。</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <div class="back-link">
+        <a href="/prophets">← 返回命中率排行榜</a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</body>
+</html>
+
+<style>
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5em 1.5em 5em;
+}
+.head {
+  text-align: center;
+  margin-bottom: 3em;
+}
+.title {
+  font-size: 2em;
+  font-weight: 900;
+  color: #f1f5f9;
+  margin: 0 0 .4em;
+}
+.sub {
+  font-size: .9em;
+  color: #64748b;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.intro-block {
+  background: rgba(99,102,241,.08);
+  border: 1px solid rgba(99,102,241,.2);
+  border-radius: 12px;
+  padding: 1.4em 1.6em;
+  margin-bottom: 2.5em;
+}
+.intro-block p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.rule-block {
+  position: relative;
+  padding: 2em 0 2em 1em;
+  border-left: 2px solid rgba(168,85,247,.25);
+  margin-left: 1.5em;
+  margin-bottom: .5em;
+}
+.rule-block:last-of-type {
+  border-left-color: transparent;
+}
+
+.rule-number {
+  position: absolute;
+  left: -1.5em;
+  top: 1.8em;
+  width: 2.2em;
+  height: 2.2em;
+  background: #1e1b4b;
+  border: 2px solid #7c3aed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72em;
+  font-weight: 900;
+  color: #a78bfa;
+  letter-spacing: .05em;
+}
+
+.rule-title {
+  font-size: 1.1em;
+  font-weight: 800;
+  color: #e2e8f0;
+  margin: 0 0 .8em;
+}
+
+.rule-block p {
+  color: #94a3b8;
+  line-height: 1.75;
+  margin: 0 0 .7em;
+}
+.rule-block p:last-child { margin-bottom: 0; }
+
+.rule-block ul {
+  color: #94a3b8;
+  padding-left: 1.4em;
+  margin: .4em 0 .7em;
+  line-height: 1.75;
+}
+.rule-block ul li { margin-bottom: .3em; }
+
+.rule-block strong { color: #c4b5fd; }
+
+code {
+  background: rgba(167,139,250,.12);
+  color: #a78bfa;
+  padding: .1em .4em;
+  border-radius: 4px;
+  font-size: .88em;
+  font-family: monospace;
+}
+
+.note {
+  font-size: .84em !important;
+  color: #475569 !important;
+  border-left: 2px solid #334155;
+  padding-left: .8em;
+  margin-top: .8em !important;
+}
+
+.example {
+  font-size: .86em !important;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 8px;
+  padding: .8em 1em;
+  color: #64748b !important;
+  margin-top: .6em !important;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,.06);
+  margin: 2.5em 0;
+}
+
+.qualify-block {
+  padding: 0 0 0 1em;
+}
+.qualify-block .rule-title {
+  margin-bottom: .6em;
+}
+.qualify-block p {
+  color: #94a3b8;
+  line-height: 1.75;
+  margin: 0 0 .6em;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 1em;
+}
+.back-link a {
+  color: #7c3aed;
+  text-decoration: none;
+  font-size: .9em;
+}
+.back-link a:hover { color: #a78bfa; }
+</style>

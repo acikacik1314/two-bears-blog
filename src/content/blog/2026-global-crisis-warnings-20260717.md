@@ -7,7 +7,6 @@ tags: ["預言","末日","靈性","金融","地緣政治"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: '帕克'
 predictions:
-  pending:
     - '一團影響全世界的危險氣體雲將在日本附近出現，8月12日是一個危機點。'
     - '8月15日到9月16日之間，將是一個高度危險的時期。'
     - '台灣可能在選舉期間出現問題。'

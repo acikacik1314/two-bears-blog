@@ -6,7 +6,6 @@ category: '預言'
 tags: ["預言","AI","末日","開運","風水"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '2026年是人類支配人類的最後一年。'
     - '從2026年之後，將正式進入由人工智能AI管理甚至是支配人類的時代。'
     - '2026年是丙午年，一整年都充滿劇烈燃燒的能量。'

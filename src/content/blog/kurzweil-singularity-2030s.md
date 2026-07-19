@@ -6,7 +6,6 @@ category: '科技'
 tags: ["預言","AI","長壽","奇點","未來學"]
 heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '全民基本收入（UBI）將在 2030 年代正式上線。'
     - '電腦將在 2029 年達到通用人工智能 AGI。'
     - '納米機器人將在 2030 年代通過微血管進入我們的大腦，將我們的新皮質直接連接到雲端。'

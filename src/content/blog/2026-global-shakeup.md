@@ -7,7 +7,6 @@ tags: ["預言","末日","地緣政治","科技","AI"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 prophet: 'Troy Black'
 predictions:
-  pending:
     - '東方開始的衝突將會擴大，並在接下來的六年內成為全球關注的熱門話題。'
     - '2027年初將會出現一個巨大的變局。'
     - '川普總統與他的顧問們將在2026年底左右會面，策劃萬一發生入侵時的應對方案。'

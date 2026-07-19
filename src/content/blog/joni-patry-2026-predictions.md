@@ -7,7 +7,6 @@ tags: ["預言","末日","Joni Patry","2026","靈性"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 prophet: 'Joni Patry'
 predictions:
-  pending:
     - '2026年4月13日左右，火星穿過海王星將嚴重影響全球能源。'
     - '2026年4月19日到20日，全球水道將發生重大事件，油輪和船隻在海域會遇到大問題，甚至有爆炸性事件。'
     - '2026年5月30日到31日，某些事情將突然襲擊，震驚世界。'

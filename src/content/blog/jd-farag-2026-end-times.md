@@ -7,7 +7,6 @@ tags: ["預言","末日","J.D. Farag","虛擬貨幣","第三次世界大戰"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'J.D. Farag'
 predictions:
-  pending:
     - '全球衝突將持續加劇，構成第三次世界大戰的威脅。'
     - '虛擬貨幣與區塊鏈技術是撒旦的技術，作為邪惡的秘密行動而非法、隱密地運作。'
     - '地震、饑荒和瘟疫將在世界各地持續增加，尤其在不常發生地震的地區。'

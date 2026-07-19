@@ -6,7 +6,6 @@ category: '預言'
 tags: ["預言","末日","靈性","地緣政治","川普"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '2026年將是至關重要、具有決定性的一年，將決定未來幾年的走向。'
     - '末後的日子，列國將全部聯合起來攻擊以色列。'
     - '當列國攻擊以色列的那一天、那一刻，救主將會降臨。'

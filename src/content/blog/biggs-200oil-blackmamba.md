@@ -7,7 +7,6 @@ tags: ["預言","末日","比格斯","地緣政治","川普"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
-  pending:
     - '油價將達到每桶 200 美元'
     - '以色列與伊朗之間將爆發戰爭，衝突將持續升級'
     - '以色列將在沒有美國援助的情況下，獨自發動攻擊'

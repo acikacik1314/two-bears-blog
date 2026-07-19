@@ -7,7 +7,6 @@ tags: ["預言","末日","AI","金融風暴","第三次世界大戰"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Paul Begley'
 predictions:
-  pending:
     - '中國對台灣的威脅會持續，但不會有攻擊。'
     - '2026年會是去遠東地區旅遊非常棒的一年。'
     - '2026年，AI 將會接管西方政府的運作，包括美國。'

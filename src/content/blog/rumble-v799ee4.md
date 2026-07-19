@@ -7,7 +7,6 @@ category: '預言'
 rumbleId: 'v772qdw'
 rumblePage: 'https://rumble.com/v799ee4-2026nasa.html'
 predictions:
-  pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/08/s8/1/C/y/9/j/Cy9jA.qR4e-small-2026NASA..jpg'
 ---

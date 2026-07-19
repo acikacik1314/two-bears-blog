@@ -7,7 +7,6 @@ tags: ["預言","金融","末日","白銀","外星人"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: 'Clif High'
 predictions:
-  pending:
     - '2026到2027年，會看到兩種貨幣同時存在：FERNs（聯準會券）和金、銀或即將出現的「憲法美元」。'
     - '白銀大爆炸將在2026年初開始。'
     - '白銀價格可能衝到200美元，然後跌回100美元，接著噴發到400美元。'

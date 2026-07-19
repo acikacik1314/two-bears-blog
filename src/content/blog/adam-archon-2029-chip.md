@@ -7,7 +7,6 @@ tags: ["預言","末日","時空旅人","晶片","AI"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Adam Archon'
 predictions:
-  pending:
     - '2029年2月，一款叫「The One」的植入式晶片將被植入右手'
     - '2029年2月，「The One」右手晶片推出後沒有它將無法買到食物'
     - '2030年代初期，所有國家的邊界將消失'

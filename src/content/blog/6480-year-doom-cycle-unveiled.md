@@ -6,7 +6,6 @@ category: '預言'
 tags: ["末日","科技","天災","地緣政治","靈性"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '在深層地下軍事基地裡，將發生利用非人類智能技術的邪惡計劃。'
     - '中國將建造一個比CERN大十倍的粒子對撞機，並追求反物質武器。'
     - '未來將出現物理性的「動態戰爭」，自主機器人將在街道和戰場上巡邏。'

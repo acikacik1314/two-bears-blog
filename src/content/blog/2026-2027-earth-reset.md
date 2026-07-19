@@ -7,7 +7,6 @@ tags: ["預言","末日","巴夏","賽斯","金融重置"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 prophet: '巴夏'
 predictions:
-  pending:
     - '我們絕不會允許你們進行全球規模的熱核戰爭'
     - '我們的飛船曾盤盤旋在發射井上，發出電磁光束，抹除發射代碼'
     - '2026 年是揭露之年'

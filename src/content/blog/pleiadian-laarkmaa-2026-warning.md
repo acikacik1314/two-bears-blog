@@ -7,7 +7,6 @@ tags: ["預言","末日","靈性","戰爭","財富轉移"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'Laarkmaa'
 predictions:
-  pending:
     - '一股戰爭能量即將從東方開始爆發，隨後波及歐洲、北美與南美。'
     - '東方戰爭能量的預警適用於整個台灣地區。'
     - '地球將經歷星球的變動、移動與破壞。'

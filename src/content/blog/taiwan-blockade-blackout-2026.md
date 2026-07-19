@@ -7,7 +7,6 @@ tags: ["預言","台灣","末日","地緣政治","金融"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'Joseph Tittel'
 predictions:
-  pending:
     - '台灣將在2026年發生一場大停電，可能是中國故意造成。'
     - '比特幣將在政府完成全數位系統前經歷一次巨大的暴跌。'
     - '2026年夏天，特別是7月和8月，虛擬貨幣將出現大幅回調。'

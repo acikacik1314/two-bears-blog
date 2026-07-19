@@ -6,7 +6,6 @@ category: '地緣政治'
 tags: ["預言","末日","陰謀論","300人委員會","人口削減"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '到2050年，世界人口將被砍到剩下10億人。'
     - '到2050年，這10億人中，有5億人會是中國人和日本人。'
     - '聯邦準備理事會和國際貨幣基金組織將作為掠奪的打手。'

@@ -7,7 +7,6 @@ tags: ["預言","末日","金融危機","地緣政治","生存指南"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: 'Martin Armstrong'
 predictions:
-  pending:
     - '2026 年將進入「恐慌週期」，情況在 8 月後會更嚴重。'
     - '中國會封鎖台灣當籌碼，這甚至可能在美國大選前就會發生。'
     - '歐洲會實施資本管制。'

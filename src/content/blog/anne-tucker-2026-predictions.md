@@ -7,7 +7,6 @@ tags: ["預言","末日","金融危機","地緣政治","靈性覺醒"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'Anne Tucker'
 predictions:
-  pending:
     - '戰爭將會擴大，並發生一場規模巨大的災難。'
     - '當美國分心處理國內問題時，中國將對台灣主張控制權。'
     - '日本將集結世界其他國家防衛台灣，正式開啟戰爭戰場。'

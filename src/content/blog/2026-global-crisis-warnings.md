@@ -7,7 +7,6 @@ tags: ["預言","末日","Jucelino Nobrega da Luz","天災","金融"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Jucelino'
 predictions:
-  pending:
     - '[hit-待出處] 2026年5月，中國境內將發生嚴重的煤礦爆炸，造成數十人喪生。'
     - '[hit-待出處] 2026年5月，中國將隨後發生一場強烈的地震。'
     - '強大的颱風將襲擊菲律賓、香港以及中國，留下數百人死亡，並使更多人流離失所。'

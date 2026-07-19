@@ -7,7 +7,6 @@ tags: ["預言","末日","靈性","科技危機","外星文明"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 prophet: 'Clifford Mahooty'
 predictions:
-  pending:
     - '人類正處於極快速的轉變期，事情發生的速度之快超乎想像。'
     - '世界正處於嚴重分裂，彼此正在開戰。'
     - '這場大動盪其實早已開始了。'

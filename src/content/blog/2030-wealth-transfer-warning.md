@@ -7,7 +7,6 @@ tags: ["預言","末日","財富轉移","天氣武器","虛擬貨幣"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
-  pending:
     - '某些政府會利用天氣來操縱事物，製造重大災難性事件'
     - '某些地區會在極短時間內降下暴雨，導致嚴重的洪水'
     - '他們正使用某種武器來引發災難性事件'

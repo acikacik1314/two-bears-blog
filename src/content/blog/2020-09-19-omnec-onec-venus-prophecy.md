@@ -8,7 +8,6 @@ category: '預言'
 predictions:
   misses:
     - '金星有物質文明的說法與現代天文探測結果不符'
-  pending:
     - '地球頻率提升與維度轉換過程'
     - '人類集體心靈感應能力重新覺醒'
 prophet: 'Omnec Onec'

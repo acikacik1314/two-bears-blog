@@ -7,7 +7,6 @@ tags: ["預言","末日","拿督鄭博見","2026","台灣"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: '鄭博見'
 predictions:
-  pending:
     - '亞洲在未來幾個月內可能會有一些大型詐騙事件。'
     - '亞洲在未來幾個月內可能會有一些足以影響到國家格局、大層面的駭客事件。'
     - '2026年將是一場全球性的經濟大洗牌。'

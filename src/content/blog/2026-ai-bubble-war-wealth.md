@@ -7,7 +7,6 @@ prophet: '張盛舒'
 tags: ["預言","末日","金融危機","地緣政治","AI泡沫"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - 'AI的泡沫將在2026年下半年破裂。'
     - 'OpenAI和SpaceX預計在2026年上市，將是AI泡沫破裂的開端。'
     - '2026年4月和10月，AI泡沫破裂的風險將格外高。'

@@ -7,7 +7,6 @@ prophet: '杜金龍'
 tags: ["預言","金融","台股","杜金龍","波浪理論"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '川普可能會在4月9日部隊集結完畢後，發動對伊朗的陸戰。'
     - '2026年將是破解台股「三牛一熊」慣性的一年。'
     - '這波行情是台灣64年來最強的一波。'

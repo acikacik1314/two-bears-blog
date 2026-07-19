@@ -7,7 +7,6 @@ tags: ["預言","末日","地緣政治","金融","天災"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'amanda-grace'
 predictions:
-  pending:
     - '[hit-待出處] 北韓和伊朗的事件，很快會串聯發生。'
     - '中國這條蛇，正準備對台灣採取一項非常嚴重的演習或舉動。'
     - '中國一座巨大的假神紀念碑將會破碎倒塌。'

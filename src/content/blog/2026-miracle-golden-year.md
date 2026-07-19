@@ -6,7 +6,6 @@ category: '預言'
 tags: ["預言","靈性","末日","財富","高塔牌"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
-  pending:
     - '世界將在2032年看到不敢置信的奇妙改變。'
     - '無限的豐盛將對人們開放。'
     - '2026年5月22日，天王星會跟太陽精確合相，帶來巨大的覺醒和全新清晰度。'

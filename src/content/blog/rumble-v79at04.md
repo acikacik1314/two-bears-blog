@@ -7,7 +7,6 @@ category: '預言'
 rumbleId: 'v7744zw'
 rumblePage: 'https://rumble.com/v79at04-202614.html'
 predictions:
-  pending:
     - '習近平政治地位重大變化'
   excluded:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'

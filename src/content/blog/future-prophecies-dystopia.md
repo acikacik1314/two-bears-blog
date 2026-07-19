@@ -7,7 +7,6 @@ tags: ["預言","末日","未來世界","3906"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 prophet: '3906'
 predictions:
-  pending:
     - '美國在選舉騷亂中將流傳「他們正在吃寵物」的指控。'
     - '美國將有一名男子突然奪取權力，但只能背負此重擔大約兩年。'
     - '該名男子的權力隨後將被篡奪或終結。'

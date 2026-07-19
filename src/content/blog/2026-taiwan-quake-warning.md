@@ -7,7 +7,6 @@ tags: ["預言","末日","朱瑟里諾","台灣地震","比特幣"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Jucelino'
 predictions:
-  pending:
     - '2026年5月，強風和暴雨將橫掃整個台灣。'
     - '2026年7月，一場強烈的颱風可能會襲擊日本、台灣、中國以及菲律賓。'
     - '2026年7月，極端的酷熱天氣會持續影響台灣、中國、韓國和日本。'

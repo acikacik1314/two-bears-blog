@@ -10,7 +10,6 @@ rumblePage: 'https://rumble.com/v79at52-2026cia1202632....html'
 predictions:
   hits:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-  pending:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/a9/s8/1/g/C/n/k/gCnkA.qR4e-small-2026CIA1202632.....jpg'
 ---

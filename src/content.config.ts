@@ -38,6 +38,29 @@ const blog = defineCollection({
 					excluded: z.array(z.string()).optional(),
 				}).strict()),
 			]).optional(),
+		}).superRefine((data, ctx) => {
+			// Guard: if predictions uses Format B (per-prophet keys), every key must
+			// appear in this file's prophet list. Catches typos like `hit:` that would
+			// silently bypass strict() and drop data without an error.
+			const preds = data.predictions;
+			if (!preds || typeof preds !== 'object') return;
+			const FLAT_KEYS = new Set(['hits', 'misses', 'pending', 'excluded']);
+			const predKeys = Object.keys(preds);
+			const isFormatB = predKeys.some(k => !FLAT_KEYS.has(k));
+			if (!isFormatB) return;
+			const prophetList = Array.isArray(data.prophet)
+				? data.prophet
+				: data.prophet ? [data.prophet] : [];
+			const prophetSet = new Set(prophetList);
+			for (const key of predKeys) {
+				if (!prophetSet.has(key)) {
+					ctx.addIssue({
+						code: z.ZodIssueCode.custom,
+						path: ['predictions', key],
+						message: `predictions key "${key}" is not in prophet list [${prophetList.join(', ')}] — typo or missing prophet?`,
+					});
+				}
+			}
 		}),
 });
 

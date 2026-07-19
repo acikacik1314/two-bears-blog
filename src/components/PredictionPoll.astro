@@ -34,7 +34,7 @@ const items = PREDICTIONS.map(p => ({
         <div class="pp-text">「{p.text}」</div>
 
         <!-- 已到期標籤（deadline 過了才顯示，由 JS 控制） -->
-        <a href="/#leaderboard" class="pp-expired" id={`expired-${p.id}`} style="display:none">
+        <a href="/#leaderboard" class="pp-expired" id={`expired-${p.id}`}>
           ⏰ 已到期・前往驗證結果 →
         </a>
 
@@ -71,13 +71,13 @@ const items = PREDICTIONS.map(p => ({
 
   const todayStr = new Date().toISOString().slice(0, 10) // 'YYYY-MM-DD'
 
-  function applyExpiredState(id: string, deadline: string) {
-    if (todayStr <= deadline) return
+  function applyExpiredState(id, deadline) {
+    if (!deadline || todayStr <= deadline) return
     const expiredEl = document.getElementById('expired-' + id)
     const btnsEl    = document.getElementById('btns-' + id)
-    if (expiredEl) expiredEl.style.display = ''
+    if (expiredEl) expiredEl.classList.add('pp-visible')
     if (btnsEl) {
-      btnsEl.querySelectorAll<HTMLButtonElement>('.pp-btn').forEach(b => { b.disabled = true })
+      btnsEl.querySelectorAll('.pp-btn').forEach(function(b) { b.disabled = true })
     }
   }
 
@@ -91,7 +91,7 @@ const items = PREDICTIONS.map(p => ({
     document.getElementById('ppNext').disabled = idx === total - 1
     // 如果已投票，載入結果
     const id = ids[idx]
-    const card = document.querySelector<HTMLElement>(`.pp-card[data-id="${id}"]`)
+    const card = document.querySelector(`.pp-card[data-id="${id}"]`)
     const deadline = card?.dataset.deadline ?? ''
     applyExpiredState(id, deadline)
     const already = localStorage.getItem(KEY_PRE + id)
@@ -158,7 +158,7 @@ const items = PREDICTIONS.map(p => ({
   // 初始化：套用到期狀態 + 檢查是否已投票
   ;(async () => {
     // 先對所有卡片套用到期狀態（不限 display）
-    document.querySelectorAll<HTMLElement>('.pp-card').forEach(card => {
+    document.querySelectorAll('.pp-card').forEach(function(card) {
       const id       = card.dataset.id ?? ''
       const deadline = card.dataset.deadline ?? ''
       applyExpiredState(id, deadline)
@@ -264,9 +264,9 @@ const items = PREDICTIONS.map(p => ({
     justify-content: center;
   }
 
-  /* Expired badge */
+  /* Expired badge — hidden by default; JS adds .pp-visible to show */
   .pp-expired {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     gap: .4em;
@@ -281,7 +281,10 @@ const items = PREDICTIONS.map(p => ({
     text-decoration: none;
     transition: background .15s, border-color .15s;
   }
-  .pp-expired:hover {
+  .pp-expired.pp-visible {
+    display: flex;
+  }
+  .pp-expired.pp-visible:hover {
     background: rgba(251,146,60,.2);
     border-color: rgba(251,146,60,.6);
     color: #fdba74;

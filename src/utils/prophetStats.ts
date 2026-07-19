@@ -19,6 +19,26 @@ export interface ProphetStat {
 // Minimum verified predictions to appear in the official ranked section
 export const QUALIFY_THRESHOLD = 5;
 
+// Extracts predictions for a specific prophet from either format:
+//   Format A (flat):        {hits: [...], misses: [...], pending: [...]}
+//   Format B (per-prophet): {比格斯: {hits: [...], ...}, 帕克: {...}}
+function extractPreds(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 'pending'): string[] {
+  if (!preds || typeof preds !== 'object') return []
+  const p = preds as Record<string, unknown>
+  // Format B: this prophet's own key exists and its value is an object (not an array)
+  if (prophetId in p && typeof p[prophetId] === 'object' && !Array.isArray(p[prophetId])) {
+    const entry = p[prophetId] as Record<string, unknown>
+    const list = entry[key]
+    return Array.isArray(list) ? (list as string[]) : []
+  }
+  // Format A: hits/misses/pending directly on the object
+  if ('hits' in p || 'misses' in p || 'pending' in p) {
+    const list = p[key]
+    return Array.isArray(list) ? (list as string[]) : []
+  }
+  return []
+}
+
 let _cache: ProphetStat[] | null = null;
 
 export async function getProphetStats(): Promise<ProphetStat[]> {
@@ -57,9 +77,9 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
   const stats: ProphetStat[] = [];
 
   for (const [id, posts] of postsByProphet) {
-    const hits    = [...new Set(posts.flatMap(p => p.data.predictions?.hits    ?? []))];
-    const misses  = [...new Set(posts.flatMap(p => p.data.predictions?.misses  ?? []))];
-    const pending = [...new Set(posts.flatMap(p => p.data.predictions?.pending ?? []))];
+    const hits    = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'hits')))];
+    const misses  = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'misses')))];
+    const pending = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'pending')))];
     const verified = hits.length + misses.length;
     const accuracy = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
 

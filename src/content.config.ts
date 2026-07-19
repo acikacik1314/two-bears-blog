@@ -21,12 +21,23 @@ const blog = defineCollection({
 			pixnetSource: emptyToUndefined,
 			prophet: z.union([z.string(), z.array(z.string())]).optional(),
 			draft: z.boolean().optional(),
-		predictions: z.object({
-				hits: z.array(z.string()).optional(),
-				misses: z.array(z.string()).optional(),
-				pending: z.array(z.string()).optional(),
-				excluded: z.array(z.string()).optional(),
-			}).optional(),
+		predictions: z.union([
+				// Format A: flat list (single prophet, or genuinely shared predictions)
+				z.object({
+					hits: z.array(z.string()).optional(),
+					misses: z.array(z.string()).optional(),
+					pending: z.array(z.string()).optional(),
+					excluded: z.array(z.string()).optional(),
+				}).strict(),
+				// Format B: per-prophet grouping (multi-prophet files)
+				// Keys are prophet IDs; values are per-prophet prediction lists
+				z.record(z.string(), z.object({
+					hits: z.array(z.string()).optional(),
+					misses: z.array(z.string()).optional(),
+					pending: z.array(z.string()).optional(),
+					excluded: z.array(z.string()).optional(),
+				}).strict()),
+			]).optional(),
 		}),
 });
 

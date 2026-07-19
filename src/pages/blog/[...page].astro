@@ -6,6 +6,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
+import CategoryChips from '../../components/CategoryChips.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getPostCategory, CATEGORY_COLORS } from '../../utils/category';
 
@@ -13,25 +14,11 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	const posts = (await getCollection('blog')).filter(p => !p.data.draft).sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
-	const categoryCounts: Record<string, number> = { '全部': posts.length };
-	for (const post of posts) {
-		const cat = getPostCategory(post);
-		categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1;
-	}
-	const PREFERRED = ['評測', '預言', '旅遊', '影片'];
-	const orderedCats = [
-		...PREFERRED.filter(c => categoryCounts[c]),
-		...Object.keys(categoryCounts).filter(c => c !== '全部' && !PREFERRED.includes(c) && categoryCounts[c]),
-	];
-	return paginate(posts, { pageSize: 24, props: { categoryCounts, orderedCats } });
+	return paginate(posts, { pageSize: 24 });
 }
 
-type Props = {
-	page: Page<CollectionEntry<'blog'>>;
-	categoryCounts: Record<string, number>;
-	orderedCats: string[];
-};
-const { page, categoryCounts, orderedCats } = Astro.props;
+type Props = { page: Page<CollectionEntry<'blog'>> };
+const { page } = Astro.props;
 
 const CATEGORY_DEFAULT_IMAGES: Record<string, string> = {
 	'預言': 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=450&fit=crop',
@@ -97,36 +84,6 @@ const pageTitle = page.currentPage > 1
 				text-align: center;
 				margin-bottom: 1.5em;
 				font-size: 1.8em;
-			}
-			.nav-tabs {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5em;
-				justify-content: center;
-				margin-bottom: 2em;
-			}
-			.nav-tab {
-				padding: 0.4em 1.1em;
-				border-radius: 20px;
-				text-decoration: none;
-				font-size: 0.9em;
-				border: 2px solid #334155;
-				color: #94a3b8;
-				background: #1e293b;
-			}
-			.nav-tab:hover { border-color: var(--accent); color: var(--accent); }
-			.nav-tab.active {
-				background: var(--accent);
-				border-color: var(--accent);
-				color: white;
-				font-weight: 700;
-			}
-			.count-badge {
-				background: rgba(0,0,0,0.15);
-				border-radius: 10px;
-				padding: 0 0.4em;
-				font-size: 0.85em;
-				margin-left: 0.3em;
 			}
 			ul {
 				display: grid;
@@ -243,16 +200,7 @@ const pageTitle = page.currentPage > 1
 		<Header />
 		<main>
 			<h1 class="page-title">所有文章</h1>
-			<nav class="nav-tabs">
-				<a href="/blog" class="nav-tab active">
-					全部 <span class="count-badge">{categoryCounts['全部']}</span>
-				</a>
-				{orderedCats.map(cat => (
-					<a href={`/category/${cat}`} class="nav-tab">
-						{cat} <span class="count-badge">{categoryCounts[cat]}</span>
-					</a>
-				))}
-			</nav>
+			<CategoryChips />
 			<ul>
 				{page.data.map((post) => {
 					const cat = getPostCategory(post);

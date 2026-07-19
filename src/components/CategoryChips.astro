@@ -1,0 +1,108 @@
+---
+/**
+ * CategoryChips.astro — 文章庫分類篩選列
+ *
+ * 用在兩個地方(共用,避免單向巷子):
+ *   /blog        → <CategoryChips />
+ *   /category/X  → <CategoryChips current={category} />
+ */
+import { getCollection } from 'astro:content'
+import { getPostCategory } from '../utils/category'
+
+interface Props {
+  current?: string
+}
+
+const { current = '' } = Astro.props
+
+const posts = (await getCollection('blog')).filter(p => !p.data.draft)
+
+const counts = new Map<string, number>()
+for (const p of posts) {
+  const cat = getPostCategory(p)
+  if (!cat) continue
+  counts.set(cat, (counts.get(cat) ?? 0) + 1)
+}
+
+const PREFERRED_ORDER = ['預言', '靈性', '金融', '地緣政治', '旅遊', '評測', '影片', '其他']
+const cats = [
+  ...PREFERRED_ORDER.filter((c) => counts.has(c)),
+  ...[...counts.keys()].filter((c) => !PREFERRED_ORDER.includes(c)).sort(),
+]
+
+const total = posts.length
+---
+
+<nav class="cat-chips" aria-label="文章分類">
+  <div class="cc-scroll">
+    <a class:list={['cc-chip', { active: !current }]} href="/blog">
+      全部 <span class="cc-count">{total}</span>
+    </a>
+    {cats.map((c) => (
+      <a
+        class:list={['cc-chip', { active: current === c }]}
+        href={`/category/${encodeURIComponent(c)}`}
+        aria-current={current === c ? 'page' : undefined}
+      >
+        {c} <span class="cc-count">{counts.get(c)}</span>
+      </a>
+    ))}
+    <a class="cc-chip cc-special" href="/prophets?utm_source=site&utm_medium=blog&utm_campaign=chips">
+      👤 預言家命中率
+    </a>
+  </div>
+</nav>
+
+<style>
+  .cat-chips {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    margin: 0 0 1.25rem;
+    padding: 0.6rem 0;
+    background: var(--page-bg, rgba(10, 10, 14, 0.92));
+    backdrop-filter: blur(8px);
+  }
+  .cc-scroll {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0 1rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cc-scroll::-webkit-scrollbar { display: none; }
+  .cc-chip {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+    border-radius: 999px;
+    font-size: 0.88rem;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.8;
+    white-space: nowrap;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+  .cc-chip:hover { opacity: 1; }
+  .cc-chip.active {
+    opacity: 1;
+    border-color: var(--accent, rgba(255, 200, 80, 0.7));
+    background: var(--accent-bg, rgba(255, 200, 80, 0.12));
+    font-weight: 600;
+  }
+  .cc-count {
+    font-size: 0.72rem;
+    opacity: 0.6;
+  }
+  .cc-special {
+    border-style: dashed;
+    opacity: 0.9;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cc-chip { transition: none; }
+  }
+</style>

@@ -6,6 +6,7 @@ import BaseHead from '../../../components/BaseHead.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
+import CategoryChips from '../../../components/CategoryChips.astro';
 import { getPostCategory, CATEGORY_COLORS } from '../../../utils/category';
 import { SITE_TITLE } from '../../../consts';
 
@@ -28,13 +29,13 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return orderedCats.flatMap(category =>
     paginate(
       catMap.get(category)!.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
-      { params: { category }, pageSize: 24, props: { orderedCats } },
+      { params: { category }, pageSize: 24 },
     )
   );
 }
 
-type Props = { page: Page<CollectionEntry<'blog'>>; orderedCats: string[] };
-const { page, orderedCats } = Astro.props;
+type Props = { page: Page<CollectionEntry<'blog'>> };
+const { page } = Astro.props;
 const { category } = Astro.params;
 
 const color = CATEGORY_COLORS[category] ?? '#7f8c8d';
@@ -106,17 +107,6 @@ const pageTitle = page.currentPage > 1
         margin-bottom: 0.4em;
       }
       .post-count { color: rgb(var(--gray)); font-size: 0.9em; margin: 0; }
-      .nav-tabs {
-        display: flex; flex-wrap: wrap; gap: 0.5em;
-        justify-content: center; margin-bottom: 2em;
-      }
-      .nav-tab {
-        padding: 0.4em 1em; border-radius: 20px; text-decoration: none;
-        font-size: 0.9em; border: 2px solid rgb(var(--gray-light));
-        color: rgb(var(--gray-dark)); background: white;
-      }
-      .nav-tab:hover { border-color: var(--accent); color: var(--accent); }
-      .nav-tab.active { border-color: var(--accent); color: var(--accent); font-weight: 700; }
       ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -193,12 +183,7 @@ const pageTitle = page.currentPage > 1
         <div class="category-badge" style={`--cat-color: ${color}`}>{category}</div>
         <p class="post-count">共 {page.total} 篇文章</p>
       </div>
-      <nav class="nav-tabs">
-        <a href="/blog" class="nav-tab">全部</a>
-        {orderedCats.map(cat => (
-          <a href={`/category/${cat}`} class={`nav-tab${cat === category ? ' active' : ''}`}>{cat}</a>
-        ))}
-      </nav>
+      <CategoryChips current={category} />
       {page.data.length === 0 ? (
         <p class="empty">此分類目前沒有文章。</p>
       ) : (

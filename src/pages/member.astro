@@ -4,7 +4,6 @@ export const prerender = false
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_TITLE } from '../consts'
 import { getSession } from '../utils/session'
 import { getCollection } from 'astro:content'
 
@@ -36,7 +35,11 @@ if (user) {
 <!doctype html>
 <html lang="zh-TW">
 <head>
-  <BaseHead title={`會員中心 | ${SITE_TITLE}`} description="熊族會員專屬：積分等級・每日簽到・AI助手" />
+  <BaseHead
+    title="會員中心｜兩隻熊的旅遊記事｜未來人預言家"
+    description="熊族會員專屬：積分等級・每日簽到・AI助手"
+    imageUrl="https://twobears.vercel.app/images/two-bears-avatar.jpg"
+  />
 </head>
 <body>
 <Header />

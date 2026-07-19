@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
     - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
   pending:
+  excluded:
     - '美元全面崩潰或銀行系統大規模倒閉（2026年尚未結束，待觀察）'
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/11/s8/1/G/I/7/j/GI7jA.qR4e-small-20263..jpg'

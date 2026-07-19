@@ -9,6 +9,7 @@ predictions:
   hits:
     - 'AI技術在2025-2026年出現重大突破，社會衝擊持續擴大'
   pending:
+  excluded:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 prophet: ['比格斯', 'KFK']

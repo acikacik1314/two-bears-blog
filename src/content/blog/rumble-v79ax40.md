@@ -11,6 +11,7 @@ predictions:
     - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
     - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
   pending:
+  excluded:
     - '2026年下半年關鍵事件（尚在進行中，待觀察）'
 heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/3c/s8/1/G/S/o/k/GSokA.qR4e-small-2026..jpg'
 prophet: '比格斯'

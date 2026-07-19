@@ -9,13 +9,13 @@
   "redirects": [
     {
       "source": "/market",
-      "destination": "/member",
-      "permanent": false
+      "destination": "/",
+      "permanent": true
     },
     {
       "source": "/market/:path*",
-      "destination": "/member",
-      "permanent": false
+      "destination": "/",
+      "permanent": true
     },
     {
       "source": "/blog/2025-01-06-pi-network-invitation",

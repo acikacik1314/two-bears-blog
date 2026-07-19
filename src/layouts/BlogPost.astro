@@ -15,6 +15,7 @@ import PredictionCheck from '../components/PredictionCheck.astro';
 import CommentSection from '../components/CommentSection.astro';
 import { getProphetConfig } from '../utils/prophets';
 import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator.astro';
+import RelatedTools from '../components/RelatedTools.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
@@ -557,6 +558,8 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 							<button class="share-btn share-copy" id="copy-link-btn" data-url={pageUrl}>🔗 複製連結</button>
 						</div>
 					</div>
+
+					<RelatedTools category={category} tags={tags} prophet={prophet} />
 
 					<CommentSection slug={Astro.url.pathname} />
 

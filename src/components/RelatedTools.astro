@@ -1,0 +1,138 @@
+---
+interface Props {
+  category?: string
+  tags?: string[]
+  prophet?: string
+}
+
+const { category = '', tags = [], prophet } = Astro.props
+
+type ToolCard = { emoji: string; title: string; desc: string; href: string }
+
+const RULES: Record<string, ToolCard[]> = {
+  預言: [
+    { emoji: '🔮', title: '時間線直斷', desc: '30 秒翻閱你自己的三條時間線', href: '/fortune' },
+    { emoji: '🎋', title: '命運籤', desc: '賽博神社,每日一籤問卜宇宙頻率', href: '/omikuji' },
+    { emoji: '👤', title: '預言家命中率', desc: '52 位預言家,每一條預言誠實記帳', href: '/prophets' },
+  ],
+  靈性: [
+    { emoji: '🔮', title: '時間線直斷', desc: '星座×紫微×易經,三線交叉看你的未來', href: '/fortune' },
+    { emoji: '🎋', title: '命運籤', desc: '賽博神社,每日一籤問卜宇宙頻率', href: '/omikuji' },
+    { emoji: '👤', title: '預言家命中率', desc: '52 位預言家的完整驗證紀錄', href: '/prophets' },
+  ],
+  金融: [
+    { emoji: '📡', title: '末日觀測站', desc: 'Pi 循環週期、經濟指標即時追蹤', href: '/oracle' },
+    { emoji: '👤', title: '預言家命中率', desc: '財經預言家說了什麼、中了幾條', href: '/prophets' },
+    { emoji: '🔮', title: '時間線直斷', desc: '用易經看你的財運走向', href: '/fortune' },
+  ],
+  地緣政治: [
+    { emoji: '👤', title: '預言家命中率', desc: '地緣預言誰說準了,完整記帳', href: '/prophets' },
+    { emoji: '📡', title: '末日觀測站', desc: '全球風險指標即時監控', href: '/oracle' },
+    { emoji: '🔮', title: '時間線直斷', desc: '易經卦象看大局走勢', href: '/fortune' },
+  ],
+  旅遊: [
+    { emoji: '🚨', title: '出發前先避雷', desc: '44 個城市的地雷飯店清單', href: '/avoid' },
+    { emoji: '🏨', title: '超省訂房', desc: '全網比價+信用卡疊加省錢', href: '/hotels' },
+    { emoji: '🗣️', title: '旅遊語言', desc: '出國前 10 分鐘惡補實用句', href: '/language' },
+  ],
+  影片: [
+    { emoji: '👤', title: '預言家命中率', desc: '影片提到的預言,這裡查驗證進度', href: '/prophets' },
+    { emoji: '🎋', title: '命運籤', desc: '看完影片,抽一支今日籤', href: '/omikuji' },
+  ],
+}
+
+const DEFAULT_CARDS: ToolCard[] = [
+  { emoji: '👤', title: '預言家命中率', desc: '52 位預言家的完整驗證紀錄', href: '/prophets' },
+  { emoji: '🔮', title: '時間線直斷', desc: '星座×紫微×易經,交叉比對你的未來', href: '/fortune' },
+]
+
+function pickCards(): ToolCard[] {
+  if (RULES[category]) return [...RULES[category]]
+  const tagStr = tags.join(' ')
+  if (/(預言|末日|命理|運勢)/.test(tagStr)) return [...RULES['預言']]
+  if (/(旅遊|飯店|機票|行程)/.test(tagStr)) return [...RULES['旅遊']]
+  if (/(金融|股市|經濟|財經)/.test(tagStr)) return [...RULES['金融']]
+  if (/(政治|地緣|國際|戰爭)/.test(tagStr)) return [...RULES['地緣政治']]
+  return [...DEFAULT_CARDS]
+}
+
+let cards = pickCards()
+
+if (prophet) {
+  cards = [
+    {
+      emoji: '📊',
+      title: `${prophet} 的命中紀錄`,
+      desc: '這位預言家說過什麼、中了幾條,完整清單',
+      href: `/prophet/${encodeURIComponent(prophet)}`,
+    },
+    ...cards.filter((c) => c.href !== '/prophets'),
+  ]
+}
+
+cards = cards.slice(0, 3)
+---
+
+<aside class="related-tools" aria-label="站內工具推薦">
+  <p class="rt-eyebrow">🐻 讀完這篇,順路看看</p>
+  <div class="rt-grid">
+    {cards.map((c) => (
+      <a class="rt-card" href={`${c.href}?utm_source=site&utm_medium=article&utm_campaign=crosslink`}>
+        <span class="rt-emoji">{c.emoji}</span>
+        <span class="rt-text">
+          <strong>{c.title}</strong>
+          <small>{c.desc}</small>
+        </span>
+        <span class="rt-arrow">→</span>
+      </a>
+    ))}
+  </div>
+</aside>
+
+<style>
+  .related-tools {
+    margin: 2.5rem 0 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .rt-eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    opacity: 0.75;
+  }
+  .rt-grid {
+    display: grid;
+    gap: 0.6rem;
+  }
+  .rt-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .rt-card:hover {
+    transform: translateX(3px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .rt-emoji { font-size: 1.4rem; flex-shrink: 0; }
+  .rt-text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+  .rt-text strong { font-size: 0.95rem; }
+  .rt-text small { font-size: 0.8rem; opacity: 0.7; }
+  .rt-arrow { margin-left: auto; opacity: 0.5; flex-shrink: 0; }
+  @media (min-width: 640px) {
+    .rt-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .rt-card { flex-direction: column; align-items: flex-start; }
+    .rt-arrow { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rt-card { transition: none; }
+  }
+</style>

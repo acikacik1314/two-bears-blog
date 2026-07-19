@@ -1,0 +1,76 @@
+---
+type Tool = { emoji: string; title: string; pitch: string; href: string; badge?: string }
+
+const TOOLS: Tool[] = [
+  { emoji: '🎋', title: '命運籤', pitch: '30 秒抽出今日命運,賽博神社開張中', href: '/omikuji', badge: '每日' },
+  { emoji: '🔮', title: '時間線直斷', pitch: '星座×紫微×易經,三線交叉看你的未來', href: '/fortune' },
+  { emoji: '👤', title: '預言家檔案', pitch: '52 位預言家,每條預言誠實記帳', href: '/prophets', badge: '獨家' },
+  { emoji: '🚨', title: '避雷指南', pitch: '44 個城市的地雷飯店,出發前必看', href: '/avoid' },
+  { emoji: '🗣️', title: '旅遊語言', pitch: '出國前 10 分鐘,惡補最實用的當地話', href: '/language' },
+  { emoji: '🚢', title: '郵輪攻略', pitch: '第一次搭郵輪就上手的完整指南', href: '/cruise' },
+]
+---
+
+<section class="tool-showcase" aria-label="站內工具">
+  <h2>🧰 兩隻熊工具箱</h2>
+  <p class="ts-sub">不只看預言,這些都免費玩</p>
+  <div class="ts-grid">
+    {TOOLS.map((t) => (
+      <a class="ts-card" href={`${t.href}?utm_source=site&utm_medium=home&utm_campaign=showcase`}>
+        {t.badge && <span class="ts-badge">{t.badge}</span>}
+        <span class="ts-emoji">{t.emoji}</span>
+        <strong>{t.title}</strong>
+        <small>{t.pitch}</small>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .tool-showcase {
+    margin: 2.5rem auto;
+    max-width: 1080px;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .tool-showcase h2 { margin: 0 0 0.25rem; }
+  .ts-sub { margin: 0 0 1.25rem; opacity: 0.7; font-size: 0.9rem; }
+  .ts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.8rem;
+  }
+  .ts-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1.1rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .ts-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 200, 80, 0.6);
+  }
+  .ts-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.65rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    background: rgba(255, 200, 80, 0.18);
+  }
+  .ts-emoji { font-size: 1.8rem; }
+  .ts-card strong { font-size: 0.95rem; }
+  .ts-card small { font-size: 0.78rem; opacity: 0.7; line-height: 1.4; }
+  @media (prefers-reduced-motion: reduce) {
+    .ts-card { transition: none; }
+  }
+</style>

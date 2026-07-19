@@ -1,0 +1,120 @@
+---
+type Link = { label: string; href: string }
+type Column = { title: string; links: Link[] }
+
+const COLUMNS: Column[] = [
+  {
+    title: '🔮 預言',
+    links: [
+      { label: '預言家命中率', href: '/prophets' },
+      { label: '末日觀測站', href: '/oracle' },
+      { label: '時間線直斷', href: '/fortune' },
+      { label: '命運籤', href: '/omikuji' },
+      { label: '比格斯 GPT', href: '/biggsgpt' },
+      { label: '預言文章', href: '/category/預言' },
+    ],
+  },
+  {
+    title: '✈️ 旅遊',
+    links: [
+      { label: '人生清單', href: '/travel' },
+      { label: '超省訂房', href: '/hotels' },
+      { label: '避雷指南', href: '/avoid' },
+      { label: '旅遊語言', href: '/language' },
+      { label: '在地好料', href: '/food' },
+      { label: '郵輪攻略', href: '/cruise' },
+      { label: '旅遊最新報', href: '/travel-news' },
+      { label: '比價神器', href: '/pick' },
+    ],
+  },
+  {
+    title: '🐻 兩隻熊',
+    links: [
+      { label: '所有文章', href: '/blog' },
+      { label: '播客', href: '/podcast' },
+      { label: '熊熊選物', href: '/picks' },
+      { label: '情報交換站', href: '/friends' },
+      { label: '會員中心', href: '/member' },
+      { label: '關於我們', href: '/about' },
+    ],
+  },
+]
+
+const year = new Date().getFullYear()
+---
+
+<footer class="site-footer">
+  <div class="sf-columns">
+    {COLUMNS.map((col) => (
+      <nav class="sf-col" aria-label={col.title}>
+        <h3>{col.title}</h3>
+        <ul>
+          {col.links.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  <div class="sf-bottom">
+    <p>🐻🐻 &copy; {year} 兩隻熊的旅遊記事｜未來人預言家</p>
+    <p>
+      如果這裡的內容讓你多了解了一點什麼,歡迎
+      <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener">請兩隻熊喝杯咖啡 ☕</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 3rem;
+    padding: 2rem 1.25rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.95);
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  .sf-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto 1.5rem;
+  }
+  .sf-col h3 {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    color: #94a3b8;
+  }
+  .sf-col ul { list-style: none; margin: 0; padding: 0; }
+  .sf-col li { margin: 0.35rem 0; }
+  .sf-col a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .sf-col a:hover { color: #a855f7; }
+  .sf-bottom {
+    text-align: center;
+    color: #334155;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+  .sf-bottom p { margin: 0.3rem 0; font-size: 0.8rem; }
+  .sf-bottom a {
+    color: #475569;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .sf-bottom a:hover {
+    color: #94a3b8;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+  @media (max-width: 600px) {
+    .sf-columns { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

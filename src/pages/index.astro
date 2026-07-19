@@ -15,6 +15,7 @@ import TodayEvents from '../components/TodayEvents.astro';
 import DailyQuote from '../components/DailyQuote.astro';
 import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
+import HomeToolShowcase from '../components/HomeToolShowcase.astro';
 
 let viewCounts: Record<string, number> = {};
 try {
@@ -118,6 +119,9 @@ const CATEGORY_ICONS: Record<string, string> = {
 	<section class="lb-section" id="leaderboard">
 		<ProphecyLeaderboard />
 	</section>
+
+	<!-- ── Tool Showcase ── -->
+	<HomeToolShowcase />
 
 	<!-- ── Hotel Finder Banner ── -->
 	<a href="/hotels" class="hotel-banner">

@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","金融","地緣政治","科技"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '世界地圖將在2026年6月前後被重新繪製。'
     - '邊界變動將持續到2033年才會停止。'
     - '中東衝突關於和平條約的混亂將在2026年1月結束。'

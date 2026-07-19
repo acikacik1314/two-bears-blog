@@ -7,6 +7,7 @@ tags: ["預言","加密貨幣","末日","地緣政治","財富轉移"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
+  pending:
     - '台灣將是第一個通過加密貨幣相關法律的國家。'
     - '未來會出現很多亞洲的加密貨幣億萬富翁或千萬富翁。'
     - '金融地毯即將被抽走，過程不會太輕鬆。'

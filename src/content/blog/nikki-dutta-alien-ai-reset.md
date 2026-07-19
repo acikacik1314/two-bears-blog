@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","外星人","AI","深層政府"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '大地震即將發生，而且會非常猛烈'
     - '南極洲的實體門戶正在開啟，大地正在裂開，有些東西會從那裡出來，這將引發大規模的破壞與地震'
     - '從2025年起的3年會非常密集，這是在清除這個世界的業力'

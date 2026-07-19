@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","Jemima Packington","蘆筍占卜"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '2026年將會發生一場大屠殺。'
     - '2026年平民百姓們將發起反抗。'
     - '2026年將有大量政治人物請辭。'

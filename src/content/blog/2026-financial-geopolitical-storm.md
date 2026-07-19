@@ -7,6 +7,7 @@ tags: ["預言","末日","金融","地緣政治","AI"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: '蔡上機'
 predictions:
+  pending:
     - '2026年會有一場智慧型世紀大騙局。'
     - '2026年AI和晶片產業會出現明顯的斷層，因為需求沒跟上，會出現供過於求的缺口。'
     - '2026年會出現AI泡沫化的論調。'

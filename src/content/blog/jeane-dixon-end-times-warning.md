@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","珍狄克遜","地緣政治"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '國民政府將敗給共產黨，並被迫撤退到一個形狀像葉片的小島，也就是台灣。'
     - '中國將會出現一個新的政府，並正式成為共產中國，作為全球性的力量崛起。'
     - '美國與俄羅斯在未來將會再次成為朋友。'

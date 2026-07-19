@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","靈性","世界大戰","佛教"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '世界大戰將會來臨'
     - '核武戰爭將會發生'
     - '人類心智將會墮落'

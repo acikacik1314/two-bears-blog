@@ -6,6 +6,7 @@ category: '金融'
 tags: ["預言","金融危機","地緣政治","AI","末日"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '到2028年，所有潛伏的地緣政治爭端都會浮出水面。'
     - '美國將處於通膨高於GDP增長的滯脹狀態。'
     - '歐洲則正走向蕭條。'

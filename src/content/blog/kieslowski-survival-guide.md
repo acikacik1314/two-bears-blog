@@ -8,6 +8,7 @@ category: '靈性'
 tags: ["靈性","哲學","科技焦慮","生存指南","電影"]
 heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '世界將經歷一場文化危機，正在努力辨認生命的價值。'
     - '世界將經歷一場總體性的危機，有人稱之為世界末日。'
     - '世界現在正處於正弦曲線的底部，稍後會再次跌落。'

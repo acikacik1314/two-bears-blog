@@ -7,6 +7,7 @@ tags: ["預言","末日","比格斯","地震","瘟疫"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
+  pending:
     - '土耳其領導人將與敘利亞聯合攻擊以色列。'
     - '法國的馬克宏在未來將變成像希特勒一樣的暴君。'
     - '以色列在未來將使用一種「裝置」，讓全世界感到憤怒。'

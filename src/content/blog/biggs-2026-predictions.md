@@ -7,6 +7,7 @@ tags: ["預言","末日","比格斯","財富轉移","川普"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
+  pending:
     - '普丁接下來會敲響戰爭的鼓聲'
     - '普丁會針對波蘭，在未來的日子裡襲擊華沙'
     - '他們會封鎖黑海，讓你完全進不去'

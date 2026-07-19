@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","蘇珊米勒","經濟","地緣政治"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '冥王星與天王星形成三分相的星象，自1921年以來就沒有再發生過。'
     - '強人崛起的動盪狀態會持續下去，直到2028年。'
     - '美國的「叛逆情緒」短時間內不會消失。'

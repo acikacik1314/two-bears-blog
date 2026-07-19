@@ -6,6 +6,7 @@ category: '靈性'
 tags: ["預言","末日","靈性","實相顯化","矩陣"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '系統很快會用電子晶片，透過駕照或銀行卡，把人類像籠子裡的兔子一樣圍起來。'
     - '在全球，已經有三分之一的蜜蜂死掉了。'
     - '在中國的某些省份，蜜蜂因為農藥被完全消滅了。'

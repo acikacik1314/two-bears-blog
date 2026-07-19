@@ -7,6 +7,7 @@ tags: ["預言","末日","海嘯","地殼變動","龍樹諒"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Tatsuki Ryo'
 predictions:
+  pending:
     - '台灣、香港和菲律賓將因地殼變動而完全連在一起，形成一塊全新的巨大陸地。'
     - '日本、台灣、菲律賓和印尼將受到地殼變動和海嘯的波及。'
     - '社會結構將面臨崩潰，物價將因為物資短缺而瘋狂飆升，甚至出現五公斤大米價格翻倍的情況。'

@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","推背圖","財富格式化","AI戰爭"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '台灣這座海島在時間長河裡將劇烈震盪。'
     - '海島與大陸將處於分治狀態。'
     - '盤踞西方的鷹犬強權將主導台灣一段命運。'

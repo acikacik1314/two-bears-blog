@@ -7,6 +7,7 @@ tags: ["預言","末日","權朗","天災","金融風暴"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: '權朗'
 predictions:
+  pending:
     - '台灣在2026年將面臨經濟大蕭條。'
     - '台灣在2026年將出現大裁員，失業率非常高。'
     - '台灣在2026年將爆發嚴重的瘟疫，很多人病倒，甚至因此離開人世。'

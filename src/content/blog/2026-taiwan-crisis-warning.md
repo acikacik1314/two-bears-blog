@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","權朗","台灣危機","2026"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '台灣下半年（2026年）氣氛會非常緊張。'
     - '台灣下半年（2026年）會產生大規模的軍事演習。'
     - '台灣接下來（2026年）軍事開支會非常大。'

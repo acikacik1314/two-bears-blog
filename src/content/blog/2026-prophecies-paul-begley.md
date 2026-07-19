@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","保羅比格利","2026"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '2026年中國對台灣不會有實際攻擊'
     - '2026年將是去遠東旅行的好年份'
     - 'AI將導致大規模失業潮，影響華爾街價值'

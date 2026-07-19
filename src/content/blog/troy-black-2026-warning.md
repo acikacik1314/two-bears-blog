@@ -7,6 +7,7 @@ tags: ["預言","末日","地緣政治","金融","AI"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'Troy Black'
 predictions:
+  pending:
     - '世界各國的動盪將會擴大，這場從東方開始的衝突將在接下來的六年裡成為熱門話題。'
     - '中國將參與東方開始的衝突，但不會是唯一的參與者。'
     - '到了2027年初，線索會開始拆解，一場巨大的行動將會上演。'

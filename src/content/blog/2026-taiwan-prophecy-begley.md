@@ -7,6 +7,7 @@ tags: ["預言","末日","靈性","地緣政治","科技"]
 heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
 prophet: 'Paul Begley'
 predictions:
+  pending:
     - '中國對台灣的威脅會持續下去，但不會有進攻。'
     - '2026年會是一個去遠東旅行的好年份。'
     - '第三次世界大戰將殺死地球上三分之一的人口，也就是26億人。'

@@ -7,6 +7,7 @@ tags: ["預言","末日","金融危機","第三次世界大戰","AI"]
 heroImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop'
 prophet: 'Jackowski'
 predictions:
+  pending:
     - '2026年，美國與中國之間將徹底決裂。'
     - '2026年，現有的金融秩序將會瓦解。'
     - '中國將推行完全由黃金支撐的貨幣，取代美元。'

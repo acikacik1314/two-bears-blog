@@ -7,6 +7,7 @@ prophet: 'William Taylor'
 tags: ["預言","時空旅行","外星科技","曼德拉效應","未來科技"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '政府將在2028年向大眾公開時光旅行技術。'
     - '政府將在2028年向大眾公開外星逆向工程技術。'
     - '各國政府將會企圖把世界轉移到另一條時間線上。'

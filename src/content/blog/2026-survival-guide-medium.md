@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","末日","生存","川普","AI"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '2026年2月到4月期間，世界將存在巨大的動盪能量。'
     - '2026年將發生兩次重大的集體事件，導致大量的靈魂回歸靈界，與美國局勢強烈關聯。'
     - '2026年網路很可能會出現問題，甚至會斷網或大停電。'

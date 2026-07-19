@@ -6,6 +6,7 @@ category: '靈性'
 tags: ["靈性","潛意識","量子物理","末日預言","身心靈"]
 heroImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '使用手機的恐怖後果，預計在2035年左右會全面爆發。'
     - '到2035年左右，腦瘤與基因變異的規模會大到無法想像。'
 ---

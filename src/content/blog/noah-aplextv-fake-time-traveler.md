@@ -6,6 +6,7 @@ category: '預言'
 tags: ["預言","時空旅人","騙局","末日","ApexTV"]
 heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=450&fit=crop'
 predictions:
+  pending:
     - '南韓和北韓會重新掐住對方的喉嚨。'
     - '兩韓會是引發下一場世界大戰的主因。'
     - '美國會捲入下一場世界大戰。'

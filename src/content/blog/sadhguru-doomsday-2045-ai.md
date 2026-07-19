@@ -7,6 +7,7 @@ tags: ["預言","末日","Sadhguru","AI","核戰"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: 'Sadhguru'
 predictions:
+  pending:
     - '到2050年，全球近三分之二的耕地預計會變成荒漠。'
     - '過了2045年，在地球上生活將變得極度困難。'
     - '在未來的25到30年內，人類的生理健康將面臨嚴重挑戰，身體將開始崩潰。'

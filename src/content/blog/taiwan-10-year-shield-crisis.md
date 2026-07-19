@@ -7,6 +7,7 @@ tags: ["預言","台灣","川普","地緣政治","末日"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
+  pending:
     - '中國將背棄承諾對付台灣'
     - '川普計畫在兩年內在美國製造自己的晶片'
     - '台灣與中國之間有一個10年的窗口期'

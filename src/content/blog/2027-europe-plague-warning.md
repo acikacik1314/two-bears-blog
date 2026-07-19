@@ -7,6 +7,7 @@ tags: ["預言","末日","比格斯","瘟疫","AI"]
 heroImage: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=450&fit=crop'
 prophet: '比格斯'
 predictions:
+  pending:
     - '在2027年秋天，大約11月、12月，一場瘟疫會在歐洲釋放，那是透過老鼠傳播的'
     - '3億5,000萬人將會死去'
     - '這種震盪會持續進入2028年和2029年'

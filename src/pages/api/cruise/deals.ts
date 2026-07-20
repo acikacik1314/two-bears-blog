@@ -18,6 +18,8 @@ export const GET: APIRoute = async ({ url }) => {
   const max_nights    = url.searchParams.get('max_nights')    || ''
   const tags          = url.searchParams.get('tags')          || ''  // comma-sep: repositioning,kids_free,...
   const sort          = url.searchParams.get('sort')          || 'discount'
+  const date_from     = url.searchParams.get('date_from')     || ''  // YYYY-MM-DD
+  const date_to       = url.searchParams.get('date_to')       || ''  // YYYY-MM-DD
 
   const today = new Date().toISOString().split('T')[0]
 
@@ -25,7 +27,9 @@ export const GET: APIRoute = async ({ url }) => {
     .from('cruise_deals')
     .select('*, price_history:cruise_price_history(price, recorded_at)')
     .eq('status', status)
-    .or(`departure_date.is.null,departure_date.gte.${today}`)
+    .or(`departure_date.is.null,departure_date.gte.${date_from || today}`)
+
+  if (date_to) q = q.lte('departure_date', date_to)
 
   // 地區名稱 → 城市關鍵字展開
   const REGION_KEYWORDS: Record<string, string[]> = {

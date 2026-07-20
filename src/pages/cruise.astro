@@ -291,6 +291,14 @@ html body { background: #FFF8EC; color: #3B2A1E; }
         </select>
       </div>
       <div class="filter-group">
+        <label>出發日 從</label>
+        <input type="date" id="f-date-from" />
+      </div>
+      <div class="filter-group">
+        <label>出發日 到</label>
+        <input type="date" id="f-date-to" />
+      </div>
+      <div class="filter-group">
         <label>特殊條件</label>
         <div class="filter-tags">
           <label class="tag-check"><input type="checkbox" id="f-repo"> ⚡ 移航特價</label>
@@ -353,14 +361,20 @@ const fmtDate = s => {
   return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`
 }
 
+const TRIP_TRACKING = 'https://affclkr.online/track/clicks/3569/c627c2bb990529dffe9cab248d2596412379128f78eee3f20e76f6476a0449a8c23ae5a5112d'
+
 function buildParams() {
   const p = new URLSearchParams({ sort: currentSort })
-  const port  = document.getElementById('f-port').value
-  const dest  = document.getElementById('f-dest').value
-  const night = document.getElementById('f-nights').value
-  if (port)  p.set('departure_port', port)
-  if (dest)  p.set('destination', dest)
-  if (night) { const [mn, mx] = night.split(','); p.set('min_nights', mn); p.set('max_nights', mx) }
+  const port     = document.getElementById('f-port').value
+  const dest     = document.getElementById('f-dest').value
+  const night    = document.getElementById('f-nights').value
+  const dateFrom = document.getElementById('f-date-from').value
+  const dateTo   = document.getElementById('f-date-to').value
+  if (port)     p.set('departure_port', port)
+  if (dest)     p.set('destination', dest)
+  if (night)    { const [mn, mx] = night.split(','); p.set('min_nights', mn); p.set('max_nights', mx) }
+  if (dateFrom) p.set('date_from', dateFrom)
+  if (dateTo)   p.set('date_to', dateTo)
   const tags = []
   if (document.getElementById('f-repo').checked) tags.push('repositioning')
   if (document.getElementById('f-kids').checked) tags.push('kids_free')
@@ -505,10 +519,22 @@ function renderDeals(deals) {
   const count = document.getElementById('dealCount')
   count.textContent = `共 ${deals.length} 個優惠`
   if (!deals.length) {
+    const dateFrom = document.getElementById('f-date-from').value
+    const dateTo   = document.getElementById('f-date-to').value
+    let tripBtn = ''
+    if (dateFrom) {
+      const tripTarget = `https://www.trip.com/cruises/list?departureDate=${dateFrom}`
+      const tripLink = TRIP_TRACKING + '?t=' + encodeURIComponent(encodeURIComponent(tripTarget))
+      const label = dateTo ? `${dateFrom} ～ ${dateTo}` : dateFrom + ' 後出發'
+      tripBtn = `<a href="${tripLink}" target="_blank" rel="sponsored nofollow noopener"
+        style="display:inline-block;margin-top:1.2rem;padding:.65rem 1.5rem;background:#E8920A;color:#fff;border-radius:9px;text-decoration:none;font-weight:700;font-size:.88rem;">
+        用「${label}」去 Trip.com 搜郵輪 →</a>`
+    }
     grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
       <div style="font-size:2.5rem">🚢</div>
       <div style="font-size:1rem;font-weight:600;margin-top:.5rem">目前沒有符合條件的特賣</div>
       <p>試試放寬條件，或加入 LINE 第一時間收到新特賣通知</p>
+      ${tripBtn}
     </div>`
     return
   }
@@ -527,9 +553,11 @@ document.querySelectorAll('.sort-btn').forEach(btn => {
 
 document.getElementById('btnSearch').addEventListener('click', loadDeals)
 document.getElementById('btnReset').addEventListener('click', () => {
-  document.getElementById('f-port').value  = ''
-  document.getElementById('f-dest').value  = ''
-  document.getElementById('f-nights').value = ''
+  document.getElementById('f-port').value      = ''
+  document.getElementById('f-dest').value      = ''
+  document.getElementById('f-nights').value    = ''
+  document.getElementById('f-date-from').value = ''
+  document.getElementById('f-date-to').value   = ''
   document.getElementById('f-repo').checked = false
   document.getElementById('f-kids').checked = false
   document.getElementById('f-3rd').checked  = false
@@ -540,6 +568,8 @@ document.getElementById('btnReset').addEventListener('click', () => {
 document.getElementById('f-port').addEventListener('change', loadDeals)
 document.getElementById('f-dest').addEventListener('change', loadDeals)
 document.getElementById('f-nights').addEventListener('change', loadDeals)
+document.getElementById('f-date-from').addEventListener('change', loadDeals)
+document.getElementById('f-date-to').addEventListener('change', loadDeals)
 
 loadDeals()
 </script>

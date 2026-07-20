@@ -70,3 +70,8 @@ const ogImage = imageUrl ?? new URL(image.src, Astro.url).toString();
 <!-- 通路王 Deep Link 自動轉換器（全站只需一次） -->
 <script is:inline>var ConverlyCustomData = {channelId: null};</script>
 <script async defer src="https://cdn.adotone.com/production/adlinks/f2bfa7ad3f3cfb230c4c8f7481542a7f6235fb7b9b0c42c85a53f92ed74c6231.js"></script>
+
+<!-- Google AdSense（僅生產環境載入） -->
+{import.meta.env.PROD && (
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2954712342813984" crossorigin="anonymous"></script>
+)}

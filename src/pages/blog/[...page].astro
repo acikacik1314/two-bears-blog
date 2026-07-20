@@ -9,6 +9,7 @@ import Header from '../../components/Header.astro';
 import CategoryChips from '../../components/CategoryChips.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getPostCategory, CATEGORY_COLORS } from '../../utils/category';
+import AdSlot from '../../components/AdSlot.astro';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	const posts = (await getCollection('blog')).filter(p => !p.data.draft).sort(
@@ -202,30 +203,37 @@ const pageTitle = page.currentPage > 1
 			<h1 class="page-title">所有文章</h1>
 			<CategoryChips />
 			<ul>
-				{page.data.map((post) => {
+				{page.data.map((post, i) => {
 					const cat = getPostCategory(post);
 					const color = CATEGORY_COLORS[cat] ?? '#7f8c8d';
 					const thumb = getThumbnail(post, cat);
 					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
 					const icon = CATEGORY_ICONS[cat] ?? '📝';
 					return (
-						<li>
-							<a href={`/blog/${post.id}`}>
-								<div class="card-thumb">
-									<img src={thumb} alt={post.data.title} loading="lazy" decoding="async"
-										onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-									<div class="card-thumb-placeholder" style={`background: ${gradient}; display:none`}>
-										<span class="placeholder-icon">{icon}</span>
-										<span class="placeholder-cat">{cat}</span>
+						<>
+							{i === 6 && (
+								<li style="grid-column: 1 / -1; list-style: none; padding: 0;">
+									<AdSlot slot="" format="horizontal" />
+								</li>
+							)}
+							<li>
+								<a href={`/blog/${post.id}`}>
+									<div class="card-thumb">
+										<img src={thumb} alt={post.data.title} loading="lazy" decoding="async"
+											onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+										<div class="card-thumb-placeholder" style={`background: ${gradient}; display:none`}>
+											<span class="placeholder-icon">{icon}</span>
+											<span class="placeholder-cat">{cat}</span>
+										</div>
+										<span class="cat-badge" style={`background:${color}`}>{cat}</span>
 									</div>
-									<span class="cat-badge" style={`background:${color}`}>{cat}</span>
-								</div>
-								<div class="card-body">
-									<h4 class="card-title">{post.data.title}</h4>
-									<p class="card-date"><FormattedDate date={post.data.pubDate} /></p>
-								</div>
-							</a>
-						</li>
+									<div class="card-body">
+										<h4 class="card-title">{post.data.title}</h4>
+										<p class="card-date"><FormattedDate date={post.data.pubDate} /></p>
+									</div>
+								</a>
+							</li>
+						</>
 					);
 				})}
 			</ul>

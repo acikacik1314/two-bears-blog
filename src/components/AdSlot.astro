@@ -1,0 +1,46 @@
+---
+interface Props {
+  slot: string
+  format?: 'auto' | 'horizontal' | 'rectangle' | 'vertical'
+}
+const { slot: adSlot, format = 'auto' } = Astro.props
+const isProd = import.meta.env.PROD
+---
+
+{isProd && adSlot ? (
+  <div class="ad-wrap">
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2954712342813984"
+      data-ad-slot={adSlot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    />
+    <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+) : !isProd && (
+  <div class="ad-dev" aria-hidden="true">AD · {adSlot || '(slot 待填入)'}</div>
+)}
+
+<style>
+  .ad-wrap {
+    min-height: 250px;
+    margin: 1.5em auto;
+    text-align: center;
+    overflow: hidden;
+  }
+  .ad-dev {
+    min-height: 90px;
+    margin: 1.25em 0;
+    border: 1px dashed #475569;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    color: #64748b;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+</style>

@@ -2,7 +2,7 @@
 title: '2030 年後不死？Google 前總監：這 5 年內千萬別死！'
 description: 'Ray Kurzweil 預言 2030 年代將實現長壽逃逸速度，人類不再因衰老而死。他強調未來五年是關鍵，並揭示 AI 將徹底改變財富分配與人機融合。'
 pubDate: '2026-06-21'
-category: '科技'
+category: '預言'
 tags: ["預言","AI","長壽","奇點","未來學"]
 heroImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=450&fit=crop'
 predictions:

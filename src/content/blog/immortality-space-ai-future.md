@@ -2,7 +2,7 @@
 title: '物理學家警告：活到500歲，你注定當社畜？'
 description: 'Isaac Arthur預言長生不老將鎖死社會階級，年輕人翻身只能靠太空。他還警告氣候工程恐引爆未來戰爭。'
 pubDate: '2026-06-17'
-category: '科技'
+category: '預言'
 tags: ["預言","長生不老","AI","氣候變遷","太空","末日"]
 heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=800&h=450&fit=crop'
 predictions:

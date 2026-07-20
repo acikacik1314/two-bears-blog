@@ -25,8 +25,8 @@ export const GET: APIRoute = async ({ request }) => {
   const { deals, source, searched } = await scrapeDeals(geminiKeys, today)
 
   // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
-  // TEST MODE: condition set to 'impossible' to force alert — change back to 'scraped' after verifying email
-  if (source !== 'impossible' || deals.length === 0) {
+  // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
+  if (source !== 'scraped' || deals.length === 0) {
     const resendKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY || ''
     if (resendKey) {
       const sourceCounts: Record<string, number> = {}

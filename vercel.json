@@ -4,6 +4,10 @@
     {
       "path": "/api/cron/refresh-food-codes",
       "schedule": "0 0 1 * *"
+    },
+    {
+      "path": "/api/cron/refresh-cruise-deals",
+      "schedule": "0 2 1 * *"
     }
   ],
   "redirects": [

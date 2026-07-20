@@ -374,18 +374,13 @@ async function knowledgeFallback(
   return null
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
-export const POST: APIRoute = async ({ request }) => {
-  if (!checkPin(request)) {
-    return new Response(JSON.stringify({ error: '密碼錯誤' }), { status: 401 })
-  }
-
-  const geminiKeys = getGeminiKeys()
-  if (!geminiKeys.length) {
-    return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
-  }
-
-  const today = new Date().toISOString().split('T')[0]
+// ── Shared scraping function (used by POST and cron) ─────────────────────────
+export async function scrapeDeals(geminiKeys: string[], today: string): Promise<{
+  deals: any[]
+  source: string
+  searched: number
+  debug: { model: string; urls: string[] }
+}> {
   const shuffledKeys = [...geminiKeys].sort(() => Math.random() - 0.5)
 
   let parsed: any[] = []
@@ -441,13 +436,6 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  if (parsed.length === 0) {
-    return new Response(JSON.stringify({
-      deals: [], searched: 0,
-      message: '搜尋無結果，請稍後再試',
-    }), { headers: { 'Content-Type': 'application/json' } })
-  }
-
   const deals = parsed
     .filter((d: any) => d.destination && d.current_price && Number(d.current_price) > 0)
     .map((d: any) => ({
@@ -463,12 +451,31 @@ export const POST: APIRoute = async ({ request }) => {
     }))
     .filter((d: any) => d.days_until === null || d.days_until > 0)
 
-  return new Response(JSON.stringify({
-    deals,
-    searched: parsed.length,
-    source,
-    debug: { model: debugModel, urls: debugUrls },
-  }), {
+  return { deals, source, searched: parsed.length, debug: { model: debugModel, urls: debugUrls } }
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+export const POST: APIRoute = async ({ request }) => {
+  if (!checkPin(request)) {
+    return new Response(JSON.stringify({ error: '密碼錯誤' }), { status: 401 })
+  }
+
+  const geminiKeys = getGeminiKeys()
+  if (!geminiKeys.length) {
+    return new Response(JSON.stringify({ error: 'Gemini keys 未設定' }), { status: 500 })
+  }
+
+  const today = new Date().toISOString().split('T')[0]
+  const result = await scrapeDeals(geminiKeys, today)
+
+  if (result.deals.length === 0) {
+    return new Response(JSON.stringify({
+      deals: [], searched: result.searched,
+      message: '搜尋無結果，請稍後再試',
+    }), { headers: { 'Content-Type': 'application/json' } })
+  }
+
+  return new Response(JSON.stringify(result), {
     headers: { 'Content-Type': 'application/json' },
   })
 }

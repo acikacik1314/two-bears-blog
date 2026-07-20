@@ -24,10 +24,26 @@ export const GET: APIRoute = async ({ request }) => {
   const today = new Date().toISOString().split('T')[0]
   const { deals, source, searched } = await scrapeDeals(geminiKeys, today)
 
-  if (!deals.length) {
-    return new Response(JSON.stringify({ ok: true, inserted: 0, skipped: 0, searched, source }), {
-      headers: { 'Content-Type': 'application/json' },
-    })
+  // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
+  if (source !== 'scraped' || deals.length === 0) {
+    const resendKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY || ''
+    if (resendKey) {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'cron@twobears.vercel.app',
+          to: 'acikacik@gmail.com',
+          subject: `⚠️ 郵輪爬蟲告警 ${today}`,
+          text: `爬蟲月更 (${today}) 結果異常：\nsource=${source}\ndeals=${deals.length}\nsearched=${searched}\n\n請手動確認東南旅遊/可樂旅遊/雄獅旅遊頁面結構是否改版。`,
+        }),
+      }).catch(() => {})
+    }
+    if (!deals.length) {
+      return new Response(JSON.stringify({ ok: true, inserted: 0, skipped: 0, searched, source }), {
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
   }
 
   let inserted = 0
@@ -60,6 +76,8 @@ export const GET: APIRoute = async ({ request }) => {
       current_price:   Number(deal.current_price),
       price_currency:  deal.price_currency  || 'TWD',
       source_url:      deal.source_url      || '',
+      affiliate_url:   deal.affiliate_url   || '',
+      source:          deal.source          || '',
       notes:           deal.notes           || '',
       has_3rd_free:    deal.has_3rd_free    || false,
       has_kids_free:   deal.has_kids_free   || false,

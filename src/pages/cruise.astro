@@ -184,6 +184,26 @@ html body { background: #FFF8EC; color: #3B2A1E; }
 }
 .empty-state p { margin: .5rem 0 0; font-size: .85rem; color: #8a7060; }
 
+/* ── Undated deal group (可樂旅遊 etc.) ── */
+.undated-group {
+  grid-column: 1 / -1; margin-top: .5rem;
+}
+.undated-group summary {
+  cursor: pointer; list-style: none;
+  font-size: .8rem; color: #5C4A35; font-weight: 600;
+  padding: .5rem .9rem;
+  background: #FFF8EC; border: 1px solid #EADFC8; border-radius: 8px;
+  user-select: none;
+}
+.undated-group summary::-webkit-details-marker { display: none; }
+.undated-group summary::before { content: '▶ '; font-size: .65rem; }
+.undated-group[open] summary::before { content: '▼ '; }
+.undated-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem; margin-top: .75rem;
+}
+
 /* ── Loading ── */
 .loading-dots { text-align: center; padding: 3rem; color: #5C4A35; font-size: .9rem; }
 
@@ -517,10 +537,17 @@ async function loadDeals() {
 function renderDeals(deals) {
   const grid = document.getElementById('dealsGrid')
   const count = document.getElementById('dealCount')
+  const dateFrom = document.getElementById('f-date-from').value
+  const dateTo   = document.getElementById('f-date-to').value
+  const isDateFiltered = !!(dateFrom || dateTo)
+
+  // When date filter is active, separate null-date deals into a collapsible group
+  const datedDeals   = isDateFiltered ? deals.filter(d => d.departure_date) : deals
+  const undatedDeals = isDateFiltered ? deals.filter(d => !d.departure_date) : []
+
   count.textContent = `共 ${deals.length} 個優惠`
+
   if (!deals.length) {
-    const dateFrom = document.getElementById('f-date-from').value
-    const dateTo   = document.getElementById('f-date-to').value
     let tripBtn = ''
     if (dateFrom) {
       const tripTarget = `https://www.trip.com/cruises/list?departureDate=${dateFrom}`
@@ -538,7 +565,26 @@ function renderDeals(deals) {
     </div>`
     return
   }
-  grid.innerHTML = deals.map(renderCard).join('')
+
+  let html = ''
+
+  if (!datedDeals.length && undatedDeals.length) {
+    html = `<div class="empty-state" style="grid-column:1/-1;padding:1.5rem 1rem .25rem">
+      <div style="font-size:.9rem;font-weight:600;color:#5C4A35">此日期區間暫無有標示日期的特賣</div>
+    </div>`
+  } else {
+    html = datedDeals.map(renderCard).join('')
+  }
+
+  if (undatedDeals.length) {
+    const openAttr = datedDeals.length === 0 ? ' open' : ''
+    html += `<details class="undated-group"${openAttr}>
+      <summary>另有 ${undatedDeals.length} 筆促銷未標示出發日期・日期請洽訂購頁確認</summary>
+      <div class="undated-cards">${undatedDeals.map(renderCard).join('')}</div>
+    </details>`
+  }
+
+  grid.innerHTML = html
 }
 
 // Sort buttons

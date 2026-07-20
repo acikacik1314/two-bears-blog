@@ -32,7 +32,7 @@ export const GET: APIRoute = async ({ request }) => {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from: 'cron@twobears.vercel.app',
+          from: 'onboarding@resend.dev',
           to: 'acikacik@gmail.com',
           subject: `⚠️ 郵輪爬蟲告警 ${today}`,
           text: `爬蟲月更 (${today}) 結果異常：\nsource=${source}\ndeals=${deals.length}\nsearched=${searched}\n\n請手動確認東南旅遊/可樂旅遊/雄獅旅遊頁面結構是否改版。`,

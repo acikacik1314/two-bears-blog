@@ -25,9 +25,15 @@ export const GET: APIRoute = async ({ request }) => {
   const { deals, source, searched } = await scrapeDeals(geminiKeys, today)
 
   // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
-  if (source !== 'scraped' || deals.length === 0) {
+  // TEST MODE: condition set to 'impossible' to force alert — change back to 'scraped' after verifying email
+  if (source !== 'impossible' || deals.length === 0) {
     const resendKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY || ''
     if (resendKey) {
+      const sourceCounts: Record<string, number> = {}
+      for (const deal of deals) { const s = deal.source || '未知'; sourceCounts[s] = (sourceCounts[s] || 0) + 1 }
+      const breakdown = ['東南旅遊', '可樂旅遊', '雄獅旅遊']
+        .map(s => `  ${s}: ${sourceCounts[s] ?? 0} 筆`)
+        .join('\n')
       await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
@@ -35,7 +41,7 @@ export const GET: APIRoute = async ({ request }) => {
           from: 'onboarding@resend.dev',
           to: 'acikacik@gmail.com',
           subject: `⚠️ 郵輪爬蟲告警 ${today}`,
-          text: `爬蟲月更 (${today}) 結果異常：\nsource=${source}\ndeals=${deals.length}\nsearched=${searched}\n\n請手動確認東南旅遊/可樂旅遊/雄獅旅遊頁面結構是否改版。`,
+          text: `爬蟲月更 (${today}) 結果異常：\nsource=${source}\ndeals 總計=${deals.length}\nsearched=${searched}\n\n各來源明細：\n${breakdown}\n\n請手動確認東南旅遊/可樂旅遊/雄獅旅遊頁面結構是否改版。`,
         }),
       }).catch(() => {})
     }

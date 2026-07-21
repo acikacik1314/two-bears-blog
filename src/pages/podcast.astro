@@ -207,21 +207,23 @@ import { SITE_TITLE } from '../consts';
         </div>
         <div class="pod-card-player">
           ${ep.spotifyEmbedUrl ? `
-          <iframe src="${ep.spotifyEmbedUrl}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;border:none;margin-bottom:.6em;display:block"></iframe>
+          <div class="pod-player-sticky">
+            <iframe src="${ep.spotifyEmbedUrl}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;border:none;display:block"></iframe>
+          </div>
           ` : `
           <a href="${ep.appleUrl}" target="_blank" rel="noopener" class="pod-apple-link">前往收聽</a>
           `}
           ${ep.description ? `
-          <button class="pod-transcript-btn" aria-expanded="false" aria-label="展開預言文章">
+          <button class="pod-transcript-btn is-open" aria-expanded="true" aria-label="收合文字版">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
             </svg>
-            展開預言文章
+            收合文字版
             <svg class="pod-btn-arrow" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
-          <div class="pod-transcript" hidden>${ep.description}</div>` : ''}
+          <div class="pod-transcript">${ep.description}</div>` : ''}
         </div>
       `;
 
@@ -230,10 +232,16 @@ import { SITE_TITLE } from '../consts';
           e.stopPropagation();
           const btn = e.currentTarget as HTMLButtonElement;
           const transcript = btn.closest('.pod-card-player')!.querySelector('.pod-transcript') as HTMLElement;
-          const isOpen = transcript && !transcript.hidden;
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
           if (transcript) transcript.hidden = isOpen;
           btn.setAttribute('aria-expanded', String(!isOpen));
           btn.classList.toggle('is-open', !isOpen);
+          for (const node of Array.from(btn.childNodes)) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
+              node.textContent = isOpen ? ' 展開這集的文字版 ' : ' 收合文字版 ';
+              break;
+            }
+          }
         });
       }
 
@@ -438,7 +446,7 @@ import { SITE_TITLE } from '../consts';
     background: #1a1a1a;
     border-radius: 0 10px 10px 0;
     margin-bottom: 1.6em;
-    overflow: hidden;
+    overflow: visible;
     transition: background .15s;
     box-shadow: 0 2px 12px rgba(0,0,0,.35);
   }
@@ -470,6 +478,14 @@ import { SITE_TITLE } from '../consts';
 
   .pod-card-player {
     padding: 0 1.2em 1.2em;
+  }
+  .pod-player-sticky {
+    position: sticky;
+    top: 8px;
+    z-index: 5;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: .6em;
   }
   .pod-apple-link {
     display: flex; align-items: center; justify-content: center;

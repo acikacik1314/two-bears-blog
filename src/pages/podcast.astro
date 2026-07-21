@@ -270,40 +270,64 @@ import { SITE_TITLE } from '../consts';
     }
   }
 
+  const CACHE_KEY = 'pod-rss-v1';
+  const CACHE_TTL = 5 * 60 * 1000; // 5 分鐘
+
+  function applyData(d: any) {
+    allEpisodes = (d.episodes as any[]).map((ep: any, i: number) => ({
+      ...ep,
+      _idx: i,
+      _prophet: detectProphet(ep.title),
+    }));
+    const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
+    if (coverEl && d.coverImage) coverEl.src = d.coverImage;
+    const totalEl = document.getElementById('pod-total');
+    if (totalEl) totalEl.textContent = `${allEpisodes.length} 集`;
+    const countEl = document.getElementById('pod-ep-count');
+    if (countEl) countEl.textContent = `${allEpisodes.length} 集`;
+    renderList('all');
+  }
+
+  async function fetchFresh() {
+    const r = await fetch('/api/podcast-rss');
+    if (!r.ok) throw new Error('fetch');
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: d })); } catch {}
+    return d;
+  }
+
   async function init() {
     const loadingEl = document.getElementById('pod-loading')!;
     const errorEl   = document.getElementById('pod-error')!;
     const contentEl = document.getElementById('pod-content')!;
 
     try {
-      const r = await fetch('/api/podcast-rss');
-      if (!r.ok) throw new Error('fetch');
-      const d = await r.json();
-      if (d.error) throw new Error(d.error);
+      const raw = localStorage.getItem(CACHE_KEY);
+      const cached = raw ? JSON.parse(raw) : null;
+      const fresh = !cached || (Date.now() - cached.ts > CACHE_TTL);
 
-      allEpisodes = (d.episodes as any[]).map((ep, i) => ({
-        ...ep,
-        _idx: i,
-        _prophet: detectProphet(ep.title),
-      }));
+      if (cached) {
+        // 立刻顯示快取，不等網路
+        applyData(cached.data);
+        loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
+      }
 
-      const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
-      if (coverEl && d.coverImage) coverEl.src = d.coverImage;
-
-      const totalEl = document.getElementById('pod-total');
-      if (totalEl) totalEl.textContent = `${allEpisodes.length} 集`;
-
-      const countEl = document.getElementById('pod-ep-count');
-      if (countEl) countEl.textContent = `${allEpisodes.length} 集`;
-
-      renderList('all');
-
-      loadingEl.style.display = 'none';
-      contentEl.style.display = 'block';
-
+      if (fresh) {
+        // 快取不存在或超過 5 分鐘：背景（或前景）更新
+        const d = await fetchFresh();
+        applyData(d);
+        if (!cached) {
+          loadingEl.style.display = 'none';
+          contentEl.style.display = 'block';
+        }
+      }
     } catch {
-      loadingEl.style.display = 'none';
-      errorEl.style.display = 'block';
+      if (document.getElementById('pod-content')!.style.display !== 'block') {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+      }
     }
   }
 

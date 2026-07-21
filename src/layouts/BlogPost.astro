@@ -58,7 +58,15 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 
 <html lang="zh-TW">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			{...(heroImage
+				? typeof heroImage === 'string'
+					? { imageUrl: heroImage.startsWith('http') ? heroImage : new URL(heroImage, Astro.site).href }
+					: { image: heroImage }
+				: {})}
+		/>
 		<style>
 			/* Reading progress bar */
 			#reading-progress {

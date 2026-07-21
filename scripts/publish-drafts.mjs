@@ -190,13 +190,42 @@ async function main() {
     try { unlinkSync(join(DRAFTS_DIR, file)) } catch {}
   }
 
-  // 6. 最終報告
+  // 6. 社群貼文草稿
+  const OUTPUT_DIR = join(PROJECT_ROOT, 'output')
+  mkdirSync(OUTPUT_DIR, { recursive: true })
+  const draftDate = new Date().toISOString().slice(0, 10)
+  const draftPath = join(OUTPUT_DIR, `community-post-draft-${draftDate}.txt`)
+
+  function extractHook(filePath) {
+    const raw = readFileSync(filePath, 'utf-8')
+    // strip frontmatter
+    const body = raw.replace(/^---[\s\S]*?---\s*\n/, '')
+    for (const line of body.split('\n')) {
+      const t = line.trim()
+      if (!t || t.startsWith('>') || t.startsWith('#') || t === '---' || t.startsWith('!')) continue
+      // take up to first 。or first 60 chars
+      const cut = t.indexOf('。')
+      return cut >= 0 ? t.slice(0, cut + 1) : t.slice(0, 60)
+    }
+    return ''
+  }
+
+  const drafts = movedFiles.map(f => {
+    const slug = basename(f, '.md')
+    const url  = `https://twobears.vercel.app/blog/${slug}`
+    const hook = extractHook(join(BLOG_DIR, f))
+    return `${hook}\n\n${url}`
+  })
+  writeFileSync(draftPath, drafts.join('\n\n---\n\n'), 'utf-8')
+
+  // 7. 最終報告
   console.log('\n🎉 發布完成！')
   console.log(`   本次發布：${movedFiles.length} 篇`)
   movedFiles.forEach(f => {
     const slug = basename(f, '.md')
     console.log(`   • https://twobears.vercel.app/blog/${slug}`)
   })
+  console.log(`\n📋 社群草稿：${draftPath}`)
   console.log('\n   Vercel 將在幾分鐘內自動完成部署。')
 }
 

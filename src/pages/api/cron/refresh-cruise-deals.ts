@@ -9,11 +9,33 @@ function getGeminiKeys(): string[] {
   try { return JSON.parse(raw) } catch { return [raw].filter(Boolean) }
 }
 
-export const GET: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async ({ request, url }) => {
   const auth = request.headers.get('authorization')
   const secret = import.meta.env.CRON_SECRET || process.env.CRON_SECRET || ''
   if (secret && auth !== `Bearer ${secret}`) {
     return new Response('Unauthorized', { status: 401 })
+  }
+
+  // ?test=1 — fires alert email without scraping, for verifying the Resend path
+  if (url.searchParams.get('test') === '1') {
+    const resendKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY || ''
+    const today = new Date().toISOString().split('T')[0]
+    if (resendKey) {
+      const breakdown = ['東南旅遊', '可樂旅遊', '雄獅旅遊'].map(s => `  ${s}: -- 筆`).join('\n')
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'onboarding@resend.dev',
+          to: 'acikacik@gmail.com',
+          subject: `🧪 郵輪爬蟲告警 TEST ${today}`,
+          text: `TEST 訊息 (${today}) — 告警路徑驗證，非真實異常。\n\n各來源明細格式預覽：\n${breakdown}\n\n告警系統運作正常。`,
+        }),
+      }).catch(() => {})
+    }
+    return new Response(JSON.stringify({ ok: true, test: true, emailSent: !!resendKey }), {
+      headers: { 'Content-Type': 'application/json' },
+    })
   }
 
   const geminiKeys = getGeminiKeys()
@@ -24,7 +46,6 @@ export const GET: APIRoute = async ({ request }) => {
   const today = new Date().toISOString().split('T')[0]
   const { deals, source, searched } = await scrapeDeals(geminiKeys, today)
 
-  // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
   // Alert if real scraping produced nothing (falling back to knowledge means HTML structure changed)
   if (source !== 'scraped' || deals.length === 0) {
     const resendKey = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY || ''

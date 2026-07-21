@@ -102,15 +102,25 @@ function findEpisodeId(
   return '';
 }
 
+const EMPTY_ITUNES = { exact: {} as Record<string, string>, norm: {} as Record<string, string> };
+
+function withTimeout<T>(p: Promise<T>, ms: number, fallback: T): Promise<T> {
+  return Promise.race([p, new Promise<T>(res => setTimeout(() => res(fallback), ms))]);
+}
+
 export const GET: APIRoute = async () => {
   try {
-    const [rssRes, itunes, webNorm] = await Promise.all([
+    const enrichPromise = Promise.all([
+      withTimeout(fetchFromItunes(), 3000, EMPTY_ITUNES),
+      withTimeout(fetchFromWebPage(), 3000, {} as Record<string, string>),
+    ]);
+
+    const [rssRes, [itunes, webNorm]] = await Promise.all([
       fetch(RSS_URL, {
         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RSS reader)' },
-        signal: AbortSignal.timeout(12000),
+        signal: AbortSignal.timeout(10000),
       }),
-      fetchFromItunes(),
-      fetchFromWebPage(),
+      enrichPromise,
     ]);
 
     if (!rssRes.ok) throw new Error(`RSS fetch ${rssRes.status}`);

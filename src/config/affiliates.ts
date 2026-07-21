@@ -1,7 +1,7 @@
 // ─── Affiliates.One ───────────────────────────────────────────────────────────
 // 支援深度連結：trackingUrl + '?t=' + encodeURIComponent(encodeURIComponent(targetUrl))
 export const BOOKING_TRACKING   = 'https://abzcoupon.com/track/clicks/3455/c627c2bb980623dafa9cab248d2596412379128f78eee2f10276f6476a0449a8c23ae5a5112d'
-export const AGODA_TRACKING     = 'https://afflnk.site/track/clicks/8682/c627c2bc9b0225dbff89ec23d62e994c21695b9633e0eef20f62a44125095ff88635aca3163d8e'
+export const AGODA_TRACKING     = 'https://affsrc.com/track/clicks/8682/c627c2bc9b0225dbff89ec23d62e994c21695b9633e0eef20f62a44125095ff88635aca3163d8e'
 export const TRIP_TRACKING      = 'https://affclkr.online/track/clicks/3569/c627c2bb990529dffe9cab248d2596412379128f78eee3f20e76f6476a0449a8c23ae5a5112d'
 export const KLOOK_TRACKING     = 'https://abzcoupon.com/track/clicks/3731/c627c2bb910426daf89cab248d2596412379128f78eee1f70676f6476a0449a8c23ae5a5112d'
 export const KKDAY_TRACKING     = 'https://twcouponcenter.com/track/clicks/2652/c627c2ba900820d9f19cab248d2596412379128f78efe0f10576f6476a0449a8c23ae5a5112d'

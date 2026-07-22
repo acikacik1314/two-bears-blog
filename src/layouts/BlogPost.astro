@@ -537,7 +537,6 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					)}
 					{youtubeId && <YouTubeEmbed videoId={youtubeId} title={title} />}
 					<slot />
-					<AdSlot slot="4916286882" />
 					{predictions && (
 						<PredictionCheck
 							hits={predictions.hits}
@@ -569,7 +568,6 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</div>
 					</div>
 
-					<AdSlot slot="4916286882" />
 					<RelatedTools category={category} tags={tags} prophet={prophet} />
 
 					<CommentSection slug={Astro.url.pathname} />

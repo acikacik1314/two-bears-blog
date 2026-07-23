@@ -16,6 +16,7 @@ import DailyQuote from '../components/DailyQuote.astro';
 import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
 import HomeToolShowcase from '../components/HomeToolShowcase.astro';
+import AdSlot from '../components/AdSlot.astro';
 
 let viewCounts: Record<string, number> = {};
 try {
@@ -140,6 +141,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 		</div>
 		<div class="hotel-banner-cta">立即找最低價 →</div>
 	</a>
+
+	<AdSlot slot="4916286882" format="horizontal" />
 
 	<!-- ── Main grid: articles + sidebar ── -->
 	<div class="content-grid">

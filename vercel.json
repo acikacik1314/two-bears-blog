@@ -2,6 +2,10 @@
   "trailingSlash": false,
   "crons": [
     {
+      "path": "/api/cron/refresh-podcast",
+      "schedule": "*/30 * * * *"
+    },
+    {
       "path": "/api/cron/refresh-food-codes",
       "schedule": "0 0 1 * *"
     },

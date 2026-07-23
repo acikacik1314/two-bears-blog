@@ -1,9 +1,9 @@
 ---
 interface Props {
-  slot: string
+  unit: string
   format?: 'auto' | 'horizontal' | 'rectangle' | 'vertical'
 }
-const { slot: adSlot, format = 'auto' } = Astro.props
+const { unit: adSlot, format = 'auto' } = Astro.props
 const isProd = import.meta.env.PROD
 ---
 

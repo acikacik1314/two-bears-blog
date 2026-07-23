@@ -3,7 +3,7 @@
   "crons": [
     {
       "path": "/api/cron/refresh-podcast",
-      "schedule": "*/30 * * * *"
+      "schedule": "0 22 * * *"
     },
     {
       "path": "/api/cron/refresh-food-codes",

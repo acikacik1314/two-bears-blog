@@ -6,6 +6,11 @@ tags: ['預言', '諾查丹瑪斯', '台海', '三戰', '2026']
 youtubePost: 'https://www.youtube.com/post/Ugkx-XJ7JcYw_2tqLTbndE-48hG-9fibL7iC'
 heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
 prophet: '薩洛梅'
+predictions:
+  pending:
+    - '2026年台灣海峽發生「技術故障」（technical glitch），引爆全球大規模衝突連鎖反應'
+    - '台海觸發EMP攻擊或強烈太陽風暴，電網、通訊、網路與銀行系統全面癱瘓'
+    - '2026年為人類文明分水嶺，七個國家勢力在台灣附近海域交鋒，事態在數天甚至數小時內升溫'
 ---
 
 以下整理傳奇預言家 **薩洛梅（Athos Salomé）** 五月一日到五月十六日的預言內容。他說，關於 2026 年，有一件事，台灣海峽，你必須知道。

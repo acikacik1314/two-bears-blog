@@ -6,6 +6,25 @@ tags: ['未來人預言', '生活綜合分享']
 heroImage: '/images/blog/2025-04-14-taiwan-future-person-threads.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5071495977'
 prophet: 'jjjkf.j'
+predictions:
+  hits:
+    - '日本2025年7月發生大地震，台灣影響不大（多篇文章交叉確認）'
+    - 'BTC曾跌至73,000（預言BTC底部73,000，與2025年行情相符）'
+  pending:
+    - '2025年NBA總冠軍：湖人對騎士4比2'
+    - 'iPhone 17 2025年9月14日、iPhone 18 2026年9月12日發表'
+    - '台積電2043年達5600元'
+    - '特斯拉2030年達5000美元'
+    - 'ETH 2026年突破10,000美元'
+    - '台灣2026年棒球世界冠軍'
+    - '台灣2026年自動駕駛上路（有限制）'
+    - '台灣2030年仍為綠（民進黨）執政，2045年前DPP執政次數最多'
+    - '不會有武力統一台灣；實質有三戰但國際不承認'
+    - '2126年首次實現人類意識與肉體完全分離，達成數位永生技術'
+    - '台灣民眾黨不曾執政，柯文哲不會當總統'
+    - 'LeBron James 45歲退休'
+    - '量子電腦將影響比特幣崩跌'
+    - 'BTS來台開演唱會'
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780872923/blog/acikacik/1744604824-2976338439-g.png)

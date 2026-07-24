@@ -209,7 +209,24 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				"@type": "WebPage",
 				"@id": Astro.url.href
 			},
-			...(heroImage ? { "image": new URL(heroImage.src ?? heroImage, Astro.site).href } : {})
+			...(heroImage ? { "image": new URL(heroImage.src ?? heroImage, Astro.site).href } : {}),
+			...(youtubeId ? { "video": {
+				"@type": "VideoObject",
+				"name": title,
+				"description": description,
+				"thumbnailUrl": `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`,
+				"uploadDate": pubDate?.toISOString?.() ?? pubDate,
+				"contentUrl": `https://www.youtube.com/watch?v=${youtubeId}`,
+				"embedUrl": `https://www.youtube.com/embed/${youtubeId}`
+			}} : {}),
+			...(rumbleId && rumblePage ? { "video": {
+				"@type": "VideoObject",
+				"name": title,
+				"description": description,
+				"uploadDate": pubDate?.toISOString?.() ?? pubDate,
+				"contentUrl": rumblePage,
+				"embedUrl": `https://rumble.com/embed/${rumbleId}/`
+			}} : {})
 		})} />
 		<style>
 			main {

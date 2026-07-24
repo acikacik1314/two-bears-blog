@@ -4,9 +4,6 @@ import HeaderLink from './HeaderLink.astro';
 import UserMenu from './UserMenu.astro';
 
 const path = Astro.url.pathname;
-const travelActive   = ['/travel','/language','/avoid','/food','/pick','/cruise'].some(p => path.startsWith(p));
-const prophecyActive = ['/oracle','/fortune','/omikuji','/prophets','/prophet'].some(p => path.startsWith(p));
-const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.startsWith(p));
 ---
 
 <!-- Ticker bar -->
@@ -51,59 +48,45 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
 <!-- Main header -->
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="site-logo">
-      <span class="logo-bears">🐻🐻</span>
-      <span class="logo-title">{SITE_TITLE}</span>
-    </a>
-    <nav class="site-nav">
-      <HeaderLink href="/">首頁</HeaderLink>
-      <HeaderLink href="/blog">文章</HeaderLink>
-      <HeaderLink href="/podcast">播客</HeaderLink>
 
-      <!-- 旅遊 群組 -->
-      <div class={`nav-group${travelActive ? ' nav-group-active' : ''}`} id="nav-travel">
-        <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
-          旅遊 <span class="nav-chevron">▾</span>
-        </button>
-        <div class="nav-dropdown" role="menu">
-          <a href="/travel"    class={path.startsWith('/travel')    ? 'active' : ''}>✈️ 清單</a>
-          <a href="/language"  class={path.startsWith('/language')  ? 'active' : ''}>🗣️ 語言</a>
-          <a href="/avoid"     class={path.startsWith('/avoid')     ? 'active' : ''} data-avoid>🚨 避雷</a>
-          <a href="/food"      class={path.startsWith('/food')      ? 'active' : ''}>🍜 好料</a>
-          <a href="/pick"      class={path === '/pick'              ? 'active' : ''}>💰 比價</a>
-          <a href="/cruise"    class={path.startsWith('/cruise')    ? 'active' : ''}>🚢 郵輪</a>
-        </div>
+    <!-- ── Row 1: Logo · 首頁 文章 播客 · UserMenu ── -->
+    <div class="header-row row1">
+      <a href="/" class="site-logo">
+        <span class="logo-bears">🐻🐻</span>
+        <span class="logo-title">{SITE_TITLE}</span>
+      </a>
+      <nav class="site-nav-main">
+        <HeaderLink href="/">首頁</HeaderLink>
+        <HeaderLink href="/blog">文章</HeaderLink>
+        <HeaderLink href="/podcast">播客</HeaderLink>
+      </nav>
+      <div class="header-right">
+        <UserMenu />
       </div>
-
-      <!-- 預言 群組 -->
-      <div class={`nav-group${prophecyActive ? ' nav-group-active' : ''}`} id="nav-prophecy">
-        <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
-          預言 <span class="nav-chevron">▾</span>
-        </button>
-        <div class="nav-dropdown" role="menu">
-          <a href="/oracle"    class={path.startsWith('/oracle')   ? 'active' : ''} data-oracle>🔮 觀測</a>
-          <a href="/fortune"   class={path.startsWith('/fortune')  ? 'active' : ''}>命理</a>
-          <a href="/omikuji"   class={path.startsWith('/omikuji')  ? 'active' : ''}>命運籤</a>
-          <a href="/prophets"  class={(path.startsWith('/prophets') || path.startsWith('/prophet/')) ? 'active' : ''}>👤 預言家</a>
-        </div>
-      </div>
-
-      <!-- 更多 群組 -->
-      <div class={`nav-group${moreActive ? ' nav-group-active' : ''}`} id="nav-more">
-        <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false">
-          更多 <span class="nav-chevron">▾</span>
-        </button>
-        <div class="nav-dropdown" role="menu">
-          <a href="/picks"     class={path.startsWith('/picks')    ? 'active' : ''}>🐻 選物</a>
-          <a href="/friends"   class={path.startsWith('/friends')  ? 'active' : ''}>情報</a>
-          <a href="/member"    class={path.startsWith('/member')   ? 'active' : ''}>會員</a>
-          <a href="/about"     class={path.startsWith('/about')    ? 'active' : ''}>關於</a>
-        </div>
-      </div>
-    </nav>
-    <div class="header-right">
-      <UserMenu />
     </div>
+
+    <!-- ── Row 2: 所有子項目展開 ── -->
+    <div class="header-row row2">
+      <nav class="site-nav-sub">
+        <a href="/travel"   class={path.startsWith('/travel')   ? 'active' : ''}>✈️ 清單</a>
+        <a href="/language" class={path.startsWith('/language') ? 'active' : ''}>🗣️ 語言</a>
+        <a href="/avoid"    class={path.startsWith('/avoid')    ? 'active' : ''} data-avoid>🚨 避雷</a>
+        <a href="/food"     class={path.startsWith('/food')     ? 'active' : ''}>🍜 好料</a>
+        <a href="/pick"     class={path === '/pick'             ? 'active' : ''}>💰 比價</a>
+        <a href="/cruise"   class={path.startsWith('/cruise')   ? 'active' : ''}>🚢 郵輪</a>
+        <span class="nav-sep"></span>
+        <a href="/oracle"   class={path.startsWith('/oracle')   ? 'active' : ''} data-oracle>🔮 觀測</a>
+        <a href="/fortune"  class={path.startsWith('/fortune')  ? 'active' : ''}>命理</a>
+        <a href="/omikuji"  class={path.startsWith('/omikuji')  ? 'active' : ''}>命運籤</a>
+        <a href="/prophets" class={(path.startsWith('/prophets') || path.startsWith('/prophet/')) ? 'active' : ''}>👤 預言家</a>
+        <span class="nav-sep"></span>
+        <a href="/picks"    class={path.startsWith('/picks')    ? 'active' : ''}>🐻 選物</a>
+        <a href="/friends"  class={path.startsWith('/friends')  ? 'active' : ''}>情報</a>
+        <a href="/member"   class={path.startsWith('/member')   ? 'active' : ''}>會員</a>
+        <a href="/about"    class={path.startsWith('/about')    ? 'active' : ''}>關於</a>
+      </nav>
+    </div>
+
   </div>
 </header>
 
@@ -199,50 +182,6 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
   setInterval(loadWeather, 600000);
   setInterval(loadFearGreed, 3600000);
 
-  // ── Dropdown nav toggle ──
-  function initNav() {
-    const groups = document.querySelectorAll<HTMLElement>('.nav-group');
-
-    groups.forEach(group => {
-      const btn = group.querySelector<HTMLButtonElement>('.nav-group-btn');
-      if (!btn) return;
-
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const isOpen = group.classList.contains('open');
-        // Close all
-        groups.forEach(g => {
-          g.classList.remove('open');
-          g.querySelector('.nav-group-btn')?.setAttribute('aria-expanded', 'false');
-        });
-        // Toggle this one
-        if (!isOpen) {
-          group.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // Close on outside click
-    document.addEventListener('click', () => {
-      groups.forEach(g => {
-        g.classList.remove('open');
-        g.querySelector('.nav-group-btn')?.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        groups.forEach(g => {
-          g.classList.remove('open');
-          g.querySelector('.nav-group-btn')?.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-  }
-
-  initNav();
 </script>
 
 <style>
@@ -310,11 +249,28 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
     margin: auto;
     padding: 0 1.5em;
     display: flex;
-    align-items: center;
-    gap: 0.4em;
-    height: 56px;
+    flex-direction: column;
   }
 
+  /* ── Row 1 ── */
+  .header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .row1 {
+    height: 52px;
+    gap: 0.4em;
+  }
+
+  .row2 {
+    height: 34px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    gap: 0;
+  }
+
+  /* Logo */
   .site-logo {
     display: flex;
     align-items: center;
@@ -335,121 +291,31 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
     white-space: nowrap;
   }
 
-  /* ── Nav base ── */
-  .site-nav {
+  /* ── Row 1 nav (首頁 文章 播客) ── */
+  .site-nav-main {
     display: flex;
+    align-items: center;
     gap: 0.05em;
-    align-items: center;
-    flex-wrap: nowrap;
     flex: 1;
-    overflow: visible;
   }
 
-  /* Standalone links (HeaderLink) */
-  .site-nav :global(a) {
+  .site-nav-main :global(a) {
     color: #94a3b8;
     text-decoration: none;
-    font-size: 0.82em;
+    font-size: 0.84em;
     font-weight: 500;
-    padding: 0.4em 0.55em;
+    padding: 0.4em 0.6em;
     border-radius: 8px;
     transition: color 0.15s, background 0.15s;
     border-bottom: none !important;
     white-space: nowrap;
   }
-  .site-nav :global(a:hover),
-  .site-nav :global(a.active) {
+  .site-nav-main :global(a:hover),
+  .site-nav-main :global(a.active) {
     color: #e2e8f0;
     background: rgba(168,85,247,0.12);
   }
-  .site-nav :global(a.active) { color: #a855f7; }
-
-  /* ── Dropdown group ── */
-  .nav-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-group-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #94a3b8;
-    font-size: 0.82em;
-    font-weight: 500;
-    font-family: inherit;
-    padding: 0.4em 0.55em;
-    border-radius: 8px;
-    transition: color 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-  .nav-group-btn:hover,
-  .nav-group.open .nav-group-btn,
-  .nav-group-active .nav-group-btn {
-    color: #e2e8f0;
-    background: rgba(168,85,247,0.12);
-  }
-  .nav-group-active .nav-group-btn { color: #a855f7; }
-
-  .nav-chevron {
-    font-size: 0.7em;
-    opacity: 0.6;
-    transition: transform 0.2s;
-    display: inline-block;
-  }
-  .nav-group.open .nav-chevron { transform: rotate(180deg); }
-
-  /* Dropdown panel */
-  .nav-dropdown {
-    display: none;
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    min-width: 120px;
-    background: rgba(15,23,42,0.97);
-    border: 1px solid rgba(168,85,247,0.2);
-    border-radius: 10px;
-    padding: 0.4em 0;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    z-index: 200;
-    backdrop-filter: blur(12px);
-  }
-  .nav-dropdown a {
-    display: block;
-    color: #94a3b8;
-    font-size: 0.8em;
-    font-weight: 500;
-    padding: 0.45em 1em;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: color 0.12s, background 0.12s;
-    border-bottom: none !important;
-  }
-  .nav-dropdown a:hover,
-  .nav-dropdown a.active {
-    color: #e2e8f0;
-    background: rgba(168,85,247,0.12);
-  }
-  .nav-dropdown a.active { color: #a855f7; }
-
-  /* 避雷 highlight inside dropdown */
-  .nav-dropdown a[data-avoid] { color: #e11d48; font-weight: 700; }
-  .nav-dropdown a[data-avoid]:hover { background: rgba(225,29,72,.1); color: #fb7185; }
-
-  /* 觀測站 highlight inside dropdown */
-  .nav-dropdown a[data-oracle] { color: #14b8a6; font-weight: 700; }
-  .nav-dropdown a[data-oracle]:hover { background: rgba(20,184,166,.1); color: #2dd4bf; }
-
-  /* Desktop: open on hover (devices with pointer) */
-  @media (hover: hover) and (pointer: fine) {
-    .nav-group:hover .nav-dropdown { display: block; }
-  }
-  /* JS-controlled open for mobile / touch */
-  .nav-group.open .nav-dropdown { display: block; }
+  .site-nav-main :global(a.active) { color: #a855f7; }
 
   /* header-right */
   .header-right {
@@ -459,57 +325,67 @@ const moreActive     = ['/picks','/friends','/member','/about'].some(p => path.s
     flex-shrink: 0;
   }
 
-  /* ── 手機：兩行導覽 ── */
+  /* ── Row 2 sub-nav ── */
+  .site-nav-sub {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+  }
+  .site-nav-sub::-webkit-scrollbar { display: none; }
+
+  .site-nav-sub a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.78em;
+    font-weight: 500;
+    padding: 0.25em 0.6em;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    border-bottom: none !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .site-nav-sub a:hover,
+  .site-nav-sub a.active {
+    color: #e2e8f0;
+    background: rgba(168,85,247,0.12);
+  }
+  .site-nav-sub a.active { color: #a855f7; }
+
+  /* 避雷 */
+  .site-nav-sub a[data-avoid] { color: #e11d48; font-weight: 700; }
+  .site-nav-sub a[data-avoid]:hover { background: rgba(225,29,72,.1); color: #fb7185; }
+
+  /* 觀測 */
+  .site-nav-sub a[data-oracle] { color: #14b8a6; font-weight: 700; }
+  .site-nav-sub a[data-oracle]:hover { background: rgba(20,184,166,.1); color: #2dd4bf; }
+
+  /* 分隔線 */
+  .nav-sep {
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 0.3em;
+    flex-shrink: 0;
+  }
+
+  /* ── 手機 ── */
   @media (max-width: 700px) {
-    .site-header { top: 32px; }
+    .header-inner { padding: 0 0.6em; }
 
-    .header-inner {
-      height: auto;
-      flex-wrap: wrap;
-      padding: 0.35em 0.6em 0;
-      gap: 0;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .row1 { height: 48px; }
+    .row2 { height: auto; padding: 0.2em 0 0.3em; }
 
-    .site-logo { order: 1; padding: 0.25em 0; }
     .site-logo .logo-title { display: none; }
 
-    :global(.um-root) { order: 2; flex-shrink: 0; }
+    .site-nav-main :global(a) { font-size: 0.76em; padding: 0.35em 0.45em; }
 
-    .site-nav {
-      order: 3;
-      flex-basis: 100%;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 0.1em;
-      padding: 0.2em 0 0.35em;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 0.2em;
-    }
-
-    .site-nav :global(a) { font-size: 0.72em; padding: 0.3em 0.45em; }
-    .nav-group-btn { font-size: 0.72em; padding: 0.3em 0.45em; }
-
-    /* Mobile dropdown: static flow, full-width pill row */
-    .nav-dropdown {
-      position: static;
-      display: none;
-      flex-wrap: wrap;
-      gap: 0.15em;
-      background: rgba(255,255,255,0.03);
-      border: none;
-      border-radius: 0;
-      padding: 0.2em 0 0.2em 0.6em;
-      box-shadow: none;
-      backdrop-filter: none;
-      width: 100%;
-    }
-    .nav-group.open .nav-dropdown { display: flex; }
-    .nav-dropdown a {
-      font-size: 0.68em;
-      padding: 0.25em 0.55em;
-      border-radius: 6px;
-    }
+    .site-nav-sub a { font-size: 0.72em; padding: 0.2em 0.45em; }
   }
 </style>

@@ -129,7 +129,7 @@ const statsJson = JSON.stringify(stats.map(s => ({
         </tbody>
       </table>
     </div>
-    <p class="lb-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。</p>
+    <p class="lb-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。<a href="/methodology" class="lb-note-link">計分方法 →</a></p>
   )}
 </div>
 
@@ -322,6 +322,13 @@ const statsJson = JSON.stringify(stats.map(s => ({
     margin: 0.6em 0 0;
     line-height: 1.5;
   }
+  .lb-note-link {
+    color: #7c3aed;
+    text-decoration: none;
+    margin-left: 0.4em;
+    font-weight: 600;
+  }
+  .lb-note-link:hover { color: #a78bfa; }
 
   /* ── Modal ── */
   .pred-modal-overlay {

@@ -101,6 +101,29 @@ html body { background: #0f172a; color: #e2e8f0; }
         <p>若解讀是在事件發生後才出現（「第 X 象正是在說這件事」），一律標 pending 或不入 hits。寧缺勿濫。</p>
       </section>
 
+      <section class="rule-block">
+        <div class="rule-number">07</div>
+        <h2 class="rule-title">判定率：我們判了多少比例</h2>
+        <p>
+          <strong>判定率 = 已判定條數（hits + misses）/ 全部條數（hits + misses + pending）</strong>
+        </p>
+        <p>
+          命中率只計算已判定的預言；判定率則揭示「我們判過多少」。比格斯命中率 92%、判定率 8%，意思是：在他 742 條紀錄裡，只有 59 條已到達可判決的時間點，其餘 683 條的觀察窗口還沒關閉。
+        </p>
+        <p>判定率低，不等於怠惰——多數預言針對的事件還沒發生或還沒到期。這是系統性的現象，有三個根本原因：</p>
+        <ul>
+          <li><strong>長時限預言占多數</strong>：許多預言設定 2027–2030 年才到期，今天只能掛 pending。</li>
+          <li><strong>事件未發生</strong>：無截止時間的預言，在事件發生或被証偽之前一律 pending。</li>
+          <li><strong>出處待確認</strong>：預言發布日期若無法確認早於事件，不得升為 hits，先留 pending。</li>
+        </ul>
+        <p>
+          隨著時間推進，pending 會逐漸移動到 hits、misses 或 excluded，判定率會自然上升。這個數字是動態的，不是靜態的分母。
+        </p>
+        <p class="note">
+          兩個數字要一起看：高命中率 + 低判定率，表示「已知的多數命中，但多數預言還在等」；高命中率 + 高判定率，才是更有力的準確度證據。
+        </p>
+      </section>
+
       <div class="divider"></div>
 
       <section class="qualify-block">

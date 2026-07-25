@@ -7,28 +7,35 @@ interface Props {
 
 const { hits = [], misses = [], pending = [] } = Astro.props;
 
-const total = hits.length + misses.length;
-const hitRate = total > 0 ? Math.round((hits.length / total) * 100) : null;
+const verified        = hits.length + misses.length;
+const totalPredictions = verified + pending.length;
+const hitRate         = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
+const adjRate         = totalPredictions > 0 ? Math.round((verified / totalPredictions) * 100) : null;
 
 const rateColor =
   hitRate === null ? '#888' :
-  hitRate >= 70 ? '#27ae60' :
-  hitRate >= 40 ? '#e67e22' :
-  '#e74c3c';
+  hitRate >= 70    ? '#27ae60' :
+  hitRate >= 40    ? '#e67e22' :
+                     '#e74c3c';
 ---
 
 <div class="prediction-check">
   <div class="pc-header">
     <span class="pc-title">🔍 命中率檢驗</span>
-    {hitRate !== null && (
+    {hitRate !== null ? (
       <span class="pc-rate" style={`color:${rateColor}`}>
-        {hitRate}% 命中（{hits.length}/{total} 條已驗證）
+        {hitRate}% 命中（{hits.length}/{verified} 條已判定）
       </span>
-    )}
-    {hitRate === null && pending.length > 0 && (
-      <span class="pc-rate" style="color:#888">尚無已驗證預言</span>
-    )}
+    ) : pending.length > 0 ? (
+      <span class="pc-rate" style="color:#888">尚無已判定預言</span>
+    ) : null}
   </div>
+
+  {adjRate !== null && (
+    <div class="pc-adj">
+      判定率 {adjRate}%（{verified} / {totalPredictions} 條）{pending.length > 0 && `，另有 ${pending.length} 條仍在觀察窗口`}・<a href="/methodology" class="pc-adj-link">計分方法 →</a>
+    </div>
+  )}
 
   {hits.length > 0 && (
     <ul class="pc-list pc-hits">
@@ -63,7 +70,7 @@ const rateColor =
     align-items: center;
     gap: 1em;
     flex-wrap: wrap;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.4em;
   }
   .pc-title {
     font-weight: 700;
@@ -74,6 +81,18 @@ const rateColor =
     font-weight: 700;
     font-size: 0.95em;
   }
+  .pc-adj {
+    font-size: 0.78em;
+    color: #888;
+    margin-bottom: 0.7em;
+    line-height: 1.5;
+  }
+  .pc-adj-link {
+    color: #8e44ad;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .pc-adj-link:hover { text-decoration: underline; }
   .pc-list {
     list-style: none;
     padding: 0;

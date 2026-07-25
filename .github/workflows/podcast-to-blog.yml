@@ -27,44 +27,59 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Sync new podcast episodes (RSS → Groq Whisper → source .md)
+      - name: 從 RSS 取得新集數文字版（第一道 AI 拒絕偵測）
         env:
-          GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
           PODCAST_SOURCE_DIR: /tmp/podcast-sources
-          MAX_EPISODES: '5'
+          MAX_EPISODES: '1'
         run: |
           mkdir -p /tmp/podcast-sources
-          node scripts/sync-podcast.mjs
+          node scripts/podcast-to-blog.mjs
 
-      - name: Commit podcast tracking (避免下次重複處理)
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/podcast-sync-tracking.json 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "chore: 更新 podcast 追蹤記錄" && git push origin main || true
-
-      - name: Check for new source files
-        id: check
+      - name: 檢查是否有新來源檔
+        id: check_sources
         run: |
           count=$(ls /tmp/podcast-sources/*.md 2>/dev/null | wc -l | tr -d ' ')
           echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "新來源檔數：$count"
+          echo "新來源檔：$count"
 
-      - name: Generate drafts (Gemini → blog post)
-        if: steps.check.outputs.count != '0'
+      - name: 用 Gemini 生成草稿（第二道 AI 拒絕偵測在 publish 步驟）
+        if: steps.check_sources.outputs.count != '0'
         env:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
           PODCAST_SOURCE_DIR: /tmp/podcast-sources
         run: node scripts/draft-posts.mjs
 
-      - name: Check for new drafts
+      - name: 檢查是否有新草稿
         id: check_drafts
         run: |
           count=$(ls drafts/*.md 2>/dev/null | wc -l | tr -d ' ')
           echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "新草稿：$count"
 
-      - name: Build and publish
+      - name: 設定 git 身份
+        if: steps.check_drafts.outputs.count != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build 驗證 + 發布（含第二道 AI 拒絕偵測）
         if: steps.check_drafts.outputs.count != '0'
         env:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
         run: node scripts/publish-drafts.mjs
+
+      - name: 確認發布成功，寫入 podcast tracking
+        if: steps.check_drafts.outputs.count != '0'
+        run: node scripts/podcast-to-blog.mjs --finalize
+
+      - name: Commit podcast-sync-tracking.json
+        run: |
+          git config user.name "github-actions[bot]" 2>/dev/null || true
+          git config user.email "github-actions[bot]@users.noreply.github.com" 2>/dev/null || true
+          git add scripts/podcast-sync-tracking.json
+          if git diff --cached --quiet; then
+            echo "tracking 無變更，跳過 commit"
+          else
+            git commit -m "chore: 更新 podcast 追蹤記錄"
+            git push origin main
+          fi

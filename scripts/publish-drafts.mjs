@@ -22,6 +22,23 @@ const BLOG_DIR   = join(PROJECT_ROOT, 'src/content/blog')
 const DRAFTS_DIR = join(PROJECT_ROOT, 'drafts')
 const TRACKING   = join(__dirname, 'draft-tracking.json')
 
+const REFUSAL_PATTERNS = [
+  '我們在此不直接撰寫',
+  '為了維護健康的資訊傳播環境',
+  '這些內容主要源自於個人的主觀靈性體驗',
+  '並非經過科學驗證',
+  '我們可以轉而探討',
+  '避免強化未經證實的恐慌感',
+  '如果您對影片製作與內容創作感興趣',
+  '我們可以轉而',
+]
+
+function detectRefusal(content) {
+  const fmEnd = content.indexOf('---', 3)
+  const body  = fmEnd !== -1 ? content.slice(fmEnd + 3) : content
+  return REFUSAL_PATTERNS.find(p => body.includes(p)) ?? null
+}
+
 // ── 工具 ──────────────────────────────────────────────────────────────────────
 
 function getTracking() {
@@ -86,15 +103,33 @@ async function main() {
 
   // 過濾 hold: true 的凍結草稿
   const heldFiles = draftFiles.filter(f => isHeld(readFileSync(join(DRAFTS_DIR, f), 'utf-8')))
-  const publishFiles = draftFiles.filter(f => !heldFiles.includes(f))
+  let publishFiles = draftFiles.filter(f => !heldFiles.includes(f))
 
   if (heldFiles.length) {
     console.log(`\n⏸  跳過 ${heldFiles.length} 篇凍結草稿（hold: true，待人工裁決）：`)
     heldFiles.forEach(f => console.log(`   🔒 drafts/${f}`))
   }
 
+  // 第二道 AI 拒絕偵測：Gemini 草稿生成後再掃一次
+  const refusedFiles = publishFiles.filter(f => {
+    const content = readFileSync(join(DRAFTS_DIR, f), 'utf-8')
+    return detectRefusal(content) !== null
+  })
+  if (refusedFiles.length) {
+    console.log(`\n⛔ 偵測到 AI 拒絕內容，加 hold 標記，不發布：`)
+    for (const f of refusedFiles) {
+      const path    = join(DRAFTS_DIR, f)
+      const content = readFileSync(path, 'utf-8')
+      const hitPat  = detectRefusal(content)
+      console.log(`   🚫 drafts/${f}（命中：「${hitPat}」）`)
+      // 加 hold: true 讓草稿留著等人工確認，不自動重試
+      writeFileSync(path, content.replace(/^---\n/, '---\nhold: true\n'), 'utf-8')
+    }
+    publishFiles = publishFiles.filter(f => !refusedFiles.includes(f))
+  }
+
   if (publishFiles.length === 0) {
-    console.log('\n📭 沒有可發布的草稿（全部凍結中）。')
+    console.log('\n📭 沒有可發布的草稿（全部凍結或被拒絕）。')
     return
   }
 

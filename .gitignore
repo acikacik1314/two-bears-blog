@@ -3,6 +3,8 @@ dist/
 
 # AI 草稿（發布前暫存，不進 git）
 drafts/
+# podcast 發布前暫存佇列（workflow 內部用，不進 git）
+scripts/podcast-queue.json
 # generated types
 .astro/
 

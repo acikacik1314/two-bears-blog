@@ -1,0 +1,53 @@
+name: Podcast to Blog
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 09:00 台灣時間 (UTC+8)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate drafts from sources/podcasts/
+        env:
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          PODCAST_SOURCE_DIR: ${{ github.workspace }}/sources/podcasts
+        run: node scripts/draft-posts.mjs
+
+      - name: Check for new drafts
+        id: check
+        run: |
+          count=$(ls drafts/*.md 2>/dev/null | wc -l | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "新草稿數：$count"
+
+      - name: Configure git identity
+        if: steps.check.outputs.count != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build and publish
+        if: steps.check.outputs.count != '0'
+        env:
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+        run: node scripts/publish-drafts.mjs

@@ -2,16 +2,17 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { put, list } from '@vercel/blob';
 import { createHash } from 'crypto';
+import { getSession } from '../../utils/session';
 
 const CROWN_DIAMOND = 20;
 const CROWN_GOLD    = 10;
 const CROWN_SILVER  = 3;
 const MAX_CONTENT   = 500;
-const MAX_NAME      = 30;
 
 interface Comment {
   id: string;
   name: string;
+  picture: string | null;
   emailHash: string | null;
   content: string;
   timestamp: string;
@@ -67,33 +68,43 @@ export const GET: APIRoute = async ({ url }) => {
   });
 };
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, cookies }) => {
   if (!hasStorage()) {
     return new Response(JSON.stringify({ ok: false, noStorage: true }), { status: 200 });
+  }
+
+  // Require Google login
+  const token = cookies.get('sb_session')?.value;
+  if (!token) {
+    return new Response(JSON.stringify({ ok: false, error: '請先登入 Google 帳號才能留言' }), { status: 401 });
+  }
+  const user = await getSession(token);
+  if (!user) {
+    return new Response(JSON.stringify({ ok: false, error: '登入已過期，請重新登入' }), { status: 401 });
   }
 
   let body: any;
   try { body = await request.json(); }
   catch { return new Response(JSON.stringify({ ok: false, error: 'Invalid JSON' }), { status: 400 }); }
 
-  const { slug, name, email, content } = body ?? {};
+  const { slug, content } = body ?? {};
 
-  if (!slug || !name?.trim() || !content?.trim()) {
-    return new Response(JSON.stringify({ ok: false, error: '請填寫名稱與留言內容' }), { status: 400 });
+  if (!slug || !content?.trim()) {
+    return new Response(JSON.stringify({ ok: false, error: '請填寫留言內容' }), { status: 400 });
   }
 
-  const cleanName    = String(name).trim().slice(0, MAX_NAME);
   const cleanContent = String(content).trim().slice(0, MAX_CONTENT);
-  const emailHash    = email && String(email).includes('@') ? hashEmail(String(email)) : null;
+  const emailHash    = hashEmail(user.email);
 
-  const userStats  = await getUserStats();
-  const prev       = emailHash ? (userStats[emailHash] ?? 0) : 0;
-  const newCount   = prev + 1;
-  const crown      = getCrown(newCount);
+  const userStats = await getUserStats();
+  const prev      = userStats[emailHash] ?? 0;
+  const newCount  = prev + 1;
+  const crown     = getCrown(newCount);
 
   const comment: Comment = {
     id:        `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-    name:      cleanName,
+    name:      user.name,
+    picture:   user.picture || null,
     emailHash,
     content:   cleanContent,
     timestamp: new Date().toISOString(),
@@ -107,13 +118,11 @@ export const POST: APIRoute = async ({ request }) => {
     allowOverwrite: true,
   });
 
-  if (emailHash) {
-    userStats[emailHash] = newCount;
-    await put('comments/users.json', JSON.stringify(userStats), {
-      access: 'public',
-      allowOverwrite: true,
-    });
-  }
+  userStats[emailHash] = newCount;
+  await put('comments/users.json', JSON.stringify(userStats), {
+    access: 'public',
+    allowOverwrite: true,
+  });
 
   return new Response(JSON.stringify({ ok: true, comment }), {
     headers: { 'Content-Type': 'application/json' },

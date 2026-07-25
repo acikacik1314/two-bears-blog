@@ -27,27 +27,44 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate drafts from sources/podcasts/
+      - name: Sync new podcast episodes (RSS → Groq Whisper → source .md)
         env:
-          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
-          PODCAST_SOURCE_DIR: ${{ github.workspace }}/sources/podcasts
-        run: node scripts/draft-posts.mjs
-
-      - name: Check for new drafts
-        id: check
+          GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
+          PODCAST_SOURCE_DIR: /tmp/podcast-sources
+          MAX_EPISODES: '5'
         run: |
-          count=$(ls drafts/*.md 2>/dev/null | wc -l | tr -d ' ')
-          echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "新草稿數：$count"
+          mkdir -p /tmp/podcast-sources
+          node scripts/sync-podcast.mjs
 
-      - name: Configure git identity
-        if: steps.check.outputs.count != '0'
+      - name: Commit podcast tracking (避免下次重複處理)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/podcast-sync-tracking.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: 更新 podcast 追蹤記錄" && git push origin main || true
+
+      - name: Check for new source files
+        id: check
+        run: |
+          count=$(ls /tmp/podcast-sources/*.md 2>/dev/null | wc -l | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "新來源檔數：$count"
+
+      - name: Generate drafts (Gemini → blog post)
+        if: steps.check.outputs.count != '0'
+        env:
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          PODCAST_SOURCE_DIR: /tmp/podcast-sources
+        run: node scripts/draft-posts.mjs
+
+      - name: Check for new drafts
+        id: check_drafts
+        run: |
+          count=$(ls drafts/*.md 2>/dev/null | wc -l | tr -d ' ')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
 
       - name: Build and publish
-        if: steps.check.outputs.count != '0'
+        if: steps.check_drafts.outputs.count != '0'
         env:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
         run: node scripts/publish-drafts.mjs

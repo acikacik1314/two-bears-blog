@@ -61,11 +61,16 @@ html body { background: #0f172a; color: #e2e8f0; }
                   <span class="cs-miss">❌ {s.missCount}</span>
                   <span class="cs-pend">⏳ {s.pendingCount}</span>
                 </div>
+                <div class="card-adj">
+                  判定率 {s.adjudicationRate !== null ? `${s.adjudicationRate}%` : '—'}
+                  <span class="card-adj-det">（{s.verified}/{s.totalPredictions}）</span>
+                </div>
                 <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
               </a>
             );
           })}
         </div>
+        <p class="pg-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。</p>
       </section>
     )}
 
@@ -88,6 +93,10 @@ html body { background: #0f172a; color: #e2e8f0; }
                   <span class="cs-hit">✅ {s.hitCount}</span>
                   <span class="cs-miss">❌ {s.missCount}</span>
                   <span class="cs-pend">⏳ {s.pendingCount}</span>
+                </div>
+                <div class="card-adj">
+                  判定率 {s.adjudicationRate !== null ? `${s.adjudicationRate}%` : '—'}
+                  <span class="card-adj-det">（{s.verified}/{s.totalPredictions}）</span>
                 </div>
                 <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
               </a>
@@ -214,5 +223,19 @@ html body { background: #0f172a; color: #e2e8f0; }
   font-size: .62em;
   color: #334155;
   text-align: center;
+}
+
+.card-adj {
+  font-size: .65em;
+  color: #475569;
+  text-align: center;
+}
+.card-adj-det { color: #334155; }
+
+.pg-note {
+  font-size: .72em;
+  color: #475569;
+  margin: 1em 0 0;
+  line-height: 1.55;
 }
 </style>

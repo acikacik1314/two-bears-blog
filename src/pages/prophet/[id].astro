@@ -76,41 +76,55 @@ html body { background: #0f172a; color: #e2e8f0; }
     <!-- Stats card -->
     <div class="stats-card">
       {stat.qualified ? (
-        <div class="stats-grid">
-          <div class="stat-box hit">
-            <div class="stat-num">{stat.hitCount}</div>
-            <div class="stat-label">✅ 命中</div>
-          </div>
-          <div class="stat-box miss">
-            <div class="stat-num">{stat.missCount}</div>
-            <div class="stat-label">❌ 失誤</div>
-          </div>
-          <div class="stat-box pend">
-            <div class="stat-num">{stat.pendingCount}</div>
-            <div class="stat-label">⏳ 待驗證</div>
-          </div>
-          <div class="stat-box acc">
-            <div class={`stat-num acc-big${stat.accuracy !== null && stat.accuracy >= 80 ? ' great' : stat.accuracy !== null && stat.accuracy >= 60 ? ' good' : ' mid'}`}>
-              {stat.accuracy !== null ? `${stat.accuracy}%` : '—'}
+        <>
+          <div class="stats-grid">
+            <div class="stat-box hit">
+              <div class="stat-num">{stat.hitCount}</div>
+              <div class="stat-label">✅ 命中</div>
             </div>
-            <div class="stat-label">準確率</div>
+            <div class="stat-box miss">
+              <div class="stat-num">{stat.missCount}</div>
+              <div class="stat-label">❌ 失誤</div>
+            </div>
+            <div class="stat-box pend">
+              <div class="stat-num">{stat.pendingCount}</div>
+              <div class="stat-label">⏳ 待驗證</div>
+            </div>
+            <div class="stat-box acc">
+              <div class={`stat-num acc-big${stat.accuracy !== null && stat.accuracy >= 80 ? ' great' : stat.accuracy !== null && stat.accuracy >= 60 ? ' good' : ' mid'}`}>
+                {stat.accuracy !== null ? `${stat.accuracy}%` : '—'}
+              </div>
+              <div class="stat-label">準確率</div>
+            </div>
           </div>
-        </div>
+          <p class="adj-note">
+            已判定 {stat.verified} / {stat.totalPredictions} 條
+            （{stat.adjudicationRate !== null ? `${stat.adjudicationRate}%` : '—'}），其餘仍在觀察窗口內
+          </p>
+        </>
       ) : (
-        <div class="sampling-notice">
-          <span class="sampling-icon">🌱</span>
-          <div>
-            <div class="sampling-title">樣本累積中</div>
-            <div class="sampling-sub">已驗證 {stat.verified} 則（需達 {QUALIFY_THRESHOLD} 則才列入正式榜）</div>
-          </div>
-          {stat.verified > 0 && (
-            <div class="sampling-mini-stats">
-              <span class="cs-hit">✅ {stat.hitCount}</span>
-              <span class="cs-miss">❌ {stat.missCount}</span>
-              <span class="cs-pend">⏳ {stat.pendingCount}</span>
+        <>
+          <div class="sampling-notice">
+            <span class="sampling-icon">🌱</span>
+            <div>
+              <div class="sampling-title">樣本累積中</div>
+              <div class="sampling-sub">已驗證 {stat.verified} 則（需達 {QUALIFY_THRESHOLD} 則才列入正式榜）</div>
             </div>
+            {stat.verified > 0 && (
+              <div class="sampling-mini-stats">
+                <span class="cs-hit">✅ {stat.hitCount}</span>
+                <span class="cs-miss">❌ {stat.missCount}</span>
+                <span class="cs-pend">⏳ {stat.pendingCount}</span>
+              </div>
+            )}
+          </div>
+          {stat.totalPredictions > 0 && (
+            <p class="adj-note">
+              已判定 {stat.verified} / {stat.totalPredictions} 條
+              （{stat.adjudicationRate !== null ? `${stat.adjudicationRate}%` : '—'}），其餘仍在觀察窗口內
+            </p>
           )}
-        </div>
+        </>
       )}
     </div>
 
@@ -269,6 +283,13 @@ html body { background: #0f172a; color: #e2e8f0; }
 .cs-hit  { color: #4ade80; }
 .cs-miss { color: #f87171; }
 .cs-pend { color: #fbbf24; }
+
+.adj-note {
+  font-size: .72em;
+  color: #475569;
+  margin: .7em 0 0;
+  line-height: 1.5;
+}
 
 /* Section titles */
 .section-title {

@@ -10,8 +10,10 @@ export interface ProphetStat {
   missCount: number;
   pendingCount: number;
   accuracy: number | null;
-  verified: number;          // hits + misses
-  qualified: boolean;        // verified >= QUALIFY_THRESHOLD
+  verified: number;              // hits + misses
+  totalPredictions: number;      // hits + misses + pending
+  adjudicationRate: number | null; // verified / totalPredictions × 100, null when 0
+  qualified: boolean;            // verified >= QUALIFY_THRESHOLD
   postCount: number;
   postSlugs: string[];
 }
@@ -81,18 +83,24 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
     const misses  = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'misses')))];
     const pending = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'pending')))];
     const verified = hits.length + misses.length;
+    const totalPredictions = hits.length + misses.length + pending.length;
     const accuracy = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
+    const adjudicationRate = totalPredictions > 0
+      ? Math.round((verified / totalPredictions) * 100)
+      : null;
 
     stats.push({
       id,
       hits,
       misses,
       pending,
-      hitCount:    hits.length,
-      missCount:   misses.length,
-      pendingCount: pending.length,
+      hitCount:         hits.length,
+      missCount:        misses.length,
+      pendingCount:     pending.length,
       accuracy,
       verified,
+      totalPredictions,
+      adjudicationRate,
       qualified:   verified >= QUALIFY_THRESHOLD,
       postCount:   posts.length,
       postSlugs:   posts.map(p => p.id),

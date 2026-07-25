@@ -11,6 +11,9 @@ const statsJson = JSON.stringify(stats.map(s => ({
   misses: s.misses,
   pending: s.pending,
   accuracy: s.accuracy,
+  adjudicationRate: s.adjudicationRate,
+  totalPredictions: s.totalPredictions,
+  verified: s.verified,
   qualified: s.qualified,
 })));
 ---
@@ -35,6 +38,7 @@ const statsJson = JSON.stringify(stats.map(s => ({
             <th>失誤</th>
             <th>待驗</th>
             <th>準確率</th>
+            <th>判定率</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +51,7 @@ const statsJson = JSON.stringify(stats.map(s => ({
                 shownDivider = true;
                 return [
                   <tr class="lb-divider" key="divider">
-                    <td colspan="7" class="lb-divider-cell">樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD}）</td>
+                    <td colspan="8" class="lb-divider-cell">樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD}）</td>
                   </tr>,
                   <tr
                     class="lb-row lb-unqualified"
@@ -62,6 +66,11 @@ const statsJson = JSON.stringify(stats.map(s => ({
                     <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
                     <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
                     <td class="lb-acc"><span class="acc-none">樣本中</span></td>
+                    <td class="lb-adj">
+                      {s.adjudicationRate !== null ? (
+                        <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
+                      ) : '—'}
+                    </td>
                   </tr>
                 ];
               }
@@ -75,6 +84,11 @@ const statsJson = JSON.stringify(stats.map(s => ({
                     <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
                     <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
                     <td class="lb-acc"><span class="acc-none">樣本中</span></td>
+                    <td class="lb-adj">
+                      {s.adjudicationRate !== null ? (
+                        <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
+                      ) : '—'}
+                    </td>
                   </tr>
                 );
               }
@@ -103,6 +117,11 @@ const statsJson = JSON.stringify(stats.map(s => ({
                       <span class="acc-none">更新中</span>
                     )}
                   </td>
+                  <td class="lb-adj">
+                    {s.adjudicationRate !== null ? (
+                      <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
+                    ) : '—'}
+                  </td>
                 </tr>
               );
             });
@@ -110,6 +129,7 @@ const statsJson = JSON.stringify(stats.map(s => ({
         </tbody>
       </table>
     </div>
+    <p class="lb-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。</p>
   )}
 </div>
 
@@ -290,6 +310,18 @@ const statsJson = JSON.stringify(stats.map(s => ({
   .acc-mid  { color: #fbbf24; font-weight: 700; }
   .acc-low  { color: #f87171; font-weight: 700; }
   .acc-none { color: #94a3b8; }
+
+  .lb-adj { color: #94a3b8; white-space: nowrap; }
+  .adj-pct { font-weight: 600; }
+  .adj-det { font-size: 0.82em; color: #475569; margin-left: 0.2em; }
+  @media (max-width: 600px) { .adj-det { display: none; } }
+
+  .lb-note {
+    font-size: 0.68em;
+    color: #475569;
+    margin: 0.6em 0 0;
+    line-height: 1.5;
+  }
 
   /* ── Modal ── */
   .pred-modal-overlay {

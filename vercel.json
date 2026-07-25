@@ -16,6 +16,21 @@
   ],
   "redirects": [
     {
+      "source": "/podcas",
+      "destination": "/podcast",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-cnfze10izi0",
+      "destination": "/blog/2026-top-donki-taiwan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-oukpopwcw9e",
+      "destination": "/blog/2026-osner-elbean-kwg",
+      "permanent": true
+    },
+    {
       "source": "/market",
       "destination": "/",
       "permanent": true

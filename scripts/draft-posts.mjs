@@ -21,7 +21,7 @@ const __dirname  = dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT = join(__dirname, '..')
 const BLOG_DIR   = join(PROJECT_ROOT, 'src/content/blog')
 const DRAFTS_DIR = join(PROJECT_ROOT, 'drafts')
-const SOURCE_DIR = join(homedir(), 'Downloads/未來人預言家')
+const SOURCE_DIR = process.env.PODCAST_SOURCE_DIR ?? join(homedir(), 'Downloads/未來人預言家')
 const PROPHETS_TS = join(PROJECT_ROOT, 'src/data/prophets.ts')
 const TRACKING   = join(__dirname, 'draft-tracking.json')
 

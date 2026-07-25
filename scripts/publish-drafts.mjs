@@ -137,9 +137,9 @@ async function main() {
   // 4. git add + commit + push
   console.log('\n📤 提交並推送…')
 
-  // git add 只加這次新增的檔案
-  const addPaths = movedFiles.map(f => `"src/content/blog/${f}"`).join(' ')
-  const addResult = run(`git add ${addPaths}`)
+  // git add 新文章 + tracking 狀態（tracking 要一起 commit，否則 CI 下次跑會重複處理）
+  const blogPaths = movedFiles.map(f => `"src/content/blog/${f}"`).join(' ')
+  const addResult = run(`git add ${blogPaths} "scripts/draft-tracking.json"`)
   if (addResult.status !== 0) {
     rollback(movedFiles)
     console.error('❌ git add 失敗。')
@@ -151,9 +151,12 @@ async function main() {
   if (!statusResult.stdout?.trim()) {
     console.log('ℹ️  沒有新的變更需要 commit（檔案可能已存在於 git history 中）。')
   } else {
-    const dateStr    = new Date().toISOString().slice(0, 10)
-    const fileList   = movedFiles.map(f => `- ${f}`).join('\n')
-    const commitMsg  = `發布 ${movedFiles.length} 篇新文章（${dateStr}）\n\n${fileList}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>`
+    const dateStr   = new Date().toISOString().slice(0, 10)
+    const fileList  = movedFiles.map(f => `- ${f}`).join('\n')
+    const slugList  = movedFiles.map(f => basename(f, '.md')).join(', ')
+    const commitMsg = process.env.CI
+      ? `auto: 新增 podcast 文章 ${slugList}\n\nCo-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>`
+      : `發布 ${movedFiles.length} 篇新文章（${dateStr}）\n\n${fileList}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>`
 
     // 寫到 tmp 檔案避免 shell 引號問題
     const msgFile = join(tmpdir(), `two-bears-commit-${Date.now()}.txt`)

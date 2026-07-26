@@ -1,18 +1,24 @@
 ---
-title: '【震撼預言】比格斯：川普、台灣與 40 兆美債引爆的全球財富大洗牌！'
-description: '【兩隻熊】【震撼預言】比格斯：川普、台灣與 40 兆美債引爆的全球財富大洗牌！'
-pubDate: '2026-05-22'
-tags: ['預言', '比格斯', '台灣', '金融', '三戰']
-category: '預言'
-rumbleId: 'v773y6u'
-rumblePage: 'https://rumble.com/v79am72--2026-40-.html'
+category: 預言
+description: 【兩隻熊】【震撼預言】比格斯：川普、台灣與 40 兆美債引爆的全球財富大洗牌！
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/de/s8/1/E/p/l/k/EplkA.qR4e-small--2026-40-..jpg
 predictions:
+  excluded:
+  - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
   hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
-    - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/de/s8/1/E/p/l/k/EplkA.qR4e-small--2026-40-..jpg'
-prophet: '比格斯'
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v773y6u
+rumblePage: https://rumble.com/v79am72--2026-40-.html
+tags:
+- 預言
+- 比格斯
+- 台灣
+- 金融
+- 三戰
+title: 【震撼預言】比格斯：川普、台灣與 40 兆美債引爆的全球財富大洗牌！
 ---
 
 Brandon Biggs connects three of the most consequential forces of 2026 in this prophecy: Donald Trump's political trajectory, the looming Taiwan crisis, and a $40 trillion wealth transfer that will fundamentally restructure the global financial order. This video breaks down Biggs' detailed vision and what it means for investors, geopolitical observers, and ordinary people preparing for the coming changes.

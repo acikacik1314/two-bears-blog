@@ -1,18 +1,23 @@
 ---
-title: '比格斯預言曝光：黃金飆破萬、XRP等加密貨幣爆漲！台灣末世財富轉移即將啟動！'
-description: '【兩隻熊】比格斯預言曝光：黃金飆破萬、XRP等加密貨幣爆漲！台灣末世財富轉移即將啟動！'
-pubDate: '2026-05-22'
-tags: ['預言', '比格斯', '加密貨幣', '金融']
-category: '預言'
-rumbleId: 'v7758le'
-rumblePage: 'https://rumble.com/v79bwlm-xrp.html'
+category: 預言
+description: 【兩隻熊】比格斯預言曝光：黃金飆破萬、XRP等加密貨幣爆漲！台灣末世財富轉移即將啟動！
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/b9/s8/1/k/7/z/k/k7zkA.qR4e-small-XRP..jpg
 predictions:
+  excluded:
+  - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
   hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
-    - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/b9/s8/1/k/7/z/k/k7zkA.qR4e-small-XRP..jpg'
-prophet: '比格斯'
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v7758le
+rumblePage: https://rumble.com/v79bwlm-xrp.html
+tags:
+- 預言
+- 比格斯
+- 加密貨幣
+- 金融
+title: 比格斯預言曝光：黃金飆破萬、XRP等加密貨幣爆漲！台灣末世財富轉移即將啟動！
 ---
 
 比格斯在最新預言中做出驚人的金融預測：黃金將衝破萬元關卡，而XRP及其他主要加密貨幣也將在全球金融重組的浪潮中暴漲。本片深入解析比格斯對加密貨幣市場的預言邏輯，以及這些資產爆漲背後所代表的全球金融秩序崩解訊號。

@@ -1,17 +1,23 @@
 ---
-title: '【震撼】比格斯最新預言：血月現身亞洲，台灣上空的「榮耀穹頂」...這不是演習！'
-description: '【兩隻熊】【震撼】比格斯最新預言：血月現身亞洲，台灣上空的「榮耀穹頂」...這不是演習！'
-pubDate: '2026-05-22'
-tags: ['預言', '比格斯', '台灣', '末日', '三戰']
-category: '預言'
-rumbleId: 'v772pge'
-rumblePage: 'https://rumble.com/v799dgm-2026324....html'
+category: 預言
+description: 【兩隻熊】【震撼】比格斯最新預言：血月現身亞洲，台灣上空的「榮耀穹頂」...這不是演習！
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/ee/s8/1/M/f/9/j/Mf9jA.qR4e-small-2026324.....jpg
 predictions:
+  excluded:
+  - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
   hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ee/s8/1/M/f/9/j/Mf9jA.qR4e-small-2026324.....jpg'
-prophet: '比格斯'
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v772pge
+rumblePage: https://rumble.com/v799dgm-2026324....html
+tags:
+- 預言
+- 比格斯
+- 台灣
+- 末日
+- 三戰
+title: 【震撼】比格斯最新預言：血月現身亞洲，台灣上空的「榮耀穹頂」...這不是演習！
 ---
 
 Brandon Biggs points to a blood moon rising over Asia in the third month of 2026 as a celestial warning sign that he interprets as heralding major conflict and upheaval across the region. This video explores Biggs' blood moon prophecy, the biblical and prophetic traditions surrounding lunar signs, and what specific events he expects to unfold in the weeks surrounding this March 24th astronomical event.

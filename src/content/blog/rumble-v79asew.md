@@ -1,19 +1,24 @@
 ---
-title: '2026台灣命運逆轉！比格斯預言：中國軍方分裂、台海危機奇蹟解除！？'
-description: '【兩隻熊】2026台灣命運逆轉！比格斯預言：中國軍方分裂、台海危機奇蹟解除！？'
-pubDate: '2026-05-22'
-tags: ['預言', '比格斯', '台灣', '三戰', '末日']
-category: '預言'
-rumbleId: 'v7744eo'
-rumblePage: 'https://rumble.com/v79asew-2026.html'
+category: 預言
+description: 【兩隻熊】2026台灣命運逆轉！比格斯預言：中國軍方分裂、台海危機奇蹟解除！？
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/34/s8/1/y/n/n/k/ynnkA.qR4e-small-2026..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升'
   excluded:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/34/s8/1/y/n/n/k/ynnkA.qR4e-small-2026..jpg'
-prophet: '比格斯'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+  - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
+  hits:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v7744eo
+rumblePage: https://rumble.com/v79asew-2026.html
+tags:
+- 預言
+- 比格斯
+- 台灣
+- 三戰
+- 末日
+title: 2026台灣命運逆轉！比格斯預言：中國軍方分裂、台海危機奇蹟解除！？
 ---
 
 A fracture within China's People's Liberation Army could change everything for Taiwan — and Brandon Biggs says this split is coming in 2026. This video examines Biggs' detailed prophecy about the internal power struggle within China's military, the factions involved, and how this unexpected development may either accelerate or prevent a Taiwan conflict.

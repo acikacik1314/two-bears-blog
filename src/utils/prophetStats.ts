@@ -1,5 +1,8 @@
 import { getCollection } from 'astro:content';
 import { PROPHET_PROFILES } from '../data/prophets';
+import { normalizeEntry, type NormalizedEntry } from './predictionEntry';
+
+export type { NormalizedEntry };
 
 export interface ProphetStat {
   id: string;
@@ -16,30 +19,54 @@ export interface ProphetStat {
   qualified: boolean;            // verified >= QUALIFY_THRESHOLD
   postCount: number;
   postSlugs: string[];
+  // new fields — existing fields above are unchanged
+  hitEntries: NormalizedEntry[];
+  missEntries: NormalizedEntry[];
+  lateCount: number;       // misses with verdict === 'late'
+  unreasonedCount: number; // hits + misses still as strings or without reason
 }
 
 // Minimum verified predictions to appear in the official ranked section
 export const QUALIFY_THRESHOLD = 5;
 
-// Extracts predictions for a specific prophet from either format:
-//   Format A (flat):        {hits: [...], misses: [...], pending: [...]}
-//   Format B (per-prophet): {比格斯: {hits: [...], ...}, 帕克: {...}}
-function extractPreds(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 'pending'): string[] {
-  if (!preds || typeof preds !== 'object') return []
-  const p = preds as Record<string, unknown>
-  // Format B: this prophet's own key exists and its value is an object (not an array)
+// ── internal helpers ──────────────────────────────────────────────────────────
+
+// Returns raw list elements (string or object) from either Format A or B
+function extractRaw(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 'pending'): unknown[] {
+  if (!preds || typeof preds !== 'object') return [];
+  const p = preds as Record<string, unknown>;
   if (prophetId in p && typeof p[prophetId] === 'object' && !Array.isArray(p[prophetId])) {
-    const entry = p[prophetId] as Record<string, unknown>
-    const list = entry[key]
-    return Array.isArray(list) ? (list as string[]) : []
+    const entry = p[prophetId] as Record<string, unknown>;
+    const list = entry[key];
+    return Array.isArray(list) ? list : [];
   }
-  // Format A: hits/misses/pending directly on the object
   if ('hits' in p || 'misses' in p || 'pending' in p) {
-    const list = p[key]
-    return Array.isArray(list) ? (list as string[]) : []
+    const list = p[key];
+    return Array.isArray(list) ? list : [];
   }
-  return []
+  return [];
 }
+
+// Returns claim strings for Set-based deduplication (unchanged external behaviour)
+function extractPreds(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 'pending'): string[] {
+  return extractRaw(preds, prophetId, key).map(e => normalizeEntry(e).claim);
+}
+
+// Deduplicates by claim string; prefers the richer (reasoned) entry when both exist
+function deduplicateEntries(rawEntries: unknown[]): NormalizedEntry[] {
+  const map = new Map<string, NormalizedEntry>();
+  for (const e of rawEntries) {
+    const norm = normalizeEntry(e);
+    if (!norm.claim) continue;
+    const existing = map.get(norm.claim);
+    if (!existing || (!existing.reason && norm.reason)) {
+      map.set(norm.claim, norm);
+    }
+  }
+  return [...map.values()];
+}
+
+// ── public API ────────────────────────────────────────────────────────────────
 
 let _cache: ProphetStat[] | null = null;
 
@@ -50,7 +77,6 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
 
   const knownIds = new Set(PROPHET_PROFILES.map(p => p.id));
 
-  // Build index: prophetId → matching posts
   const postsByProphet = new Map<string, typeof allPosts>();
   const unknownEntries: string[] = [];
 
@@ -79,9 +105,19 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
   const stats: ProphetStat[] = [];
 
   for (const [id, posts] of postsByProphet) {
+    // Claim strings for dedup (preserves existing Set-based logic exactly)
     const hits    = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'hits')))];
     const misses  = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'misses')))];
     const pending = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'pending')))];
+
+    // Rich entries for display — dedup by claim, prefer reasoned over string
+    const hitEntries  = deduplicateEntries(posts.flatMap(p => extractRaw(p.data.predictions, id, 'hits')));
+    const missEntries = deduplicateEntries(posts.flatMap(p => extractRaw(p.data.predictions, id, 'misses')));
+
+    const lateCount      = missEntries.filter(e => e.verdict === 'late').length;
+    const unreasonedCount = hitEntries.filter(e => !e.reason).length
+                          + missEntries.filter(e => !e.reason).length;
+
     const verified = hits.length + misses.length;
     const totalPredictions = hits.length + misses.length + pending.length;
     const accuracy = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
@@ -104,10 +140,13 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
       qualified:   verified >= QUALIFY_THRESHOLD,
       postCount:   posts.length,
       postSlugs:   posts.map(p => p.id),
+      hitEntries,
+      missEntries,
+      lateCount,
+      unreasonedCount,
     });
   }
 
-  // Sort: qualified first (by accuracy desc, then by verified desc), then unqualified (by postCount desc)
   stats.sort((a, b) => {
     if (a.qualified !== b.qualified) return a.qualified ? -1 : 1;
     if (a.accuracy !== null && b.accuracy !== null && a.accuracy !== b.accuracy)

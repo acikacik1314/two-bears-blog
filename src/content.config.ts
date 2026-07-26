@@ -3,6 +3,63 @@ import { glob } from 'astro/loaders';
 
 const emptyToUndefined = z.string().optional().transform(v => v === '' ? undefined : v);
 
+// Accepts either the old plain-string format or the new rich object format.
+// Only hits/misses use this; pending/excluded stay as strings for now.
+const PredictionEntry = z.union([
+  z.string(),
+  z.object({
+    claim:    z.string(),
+    saidOn:   z.string().optional(),
+    window:   z.string().optional(),
+    verdict:  z.enum(['not-happened', 'late']).optional(),
+    reason:   z.string(),             // mandatory when using object form
+    source:   z.string().optional(),
+    judgedOn: z.string().optional(),
+  }).strict(),
+]);
+
+const DATE_RE = /\d{4}[-年]/;
+
+function checkHitsMisses(
+  preds: Record<string, unknown>,
+  ctx: z.RefinementCtx,
+  pathPrefix: string[],
+) {
+  for (const listName of ['hits', 'misses'] as const) {
+    const list = preds[listName];
+    if (!Array.isArray(list)) continue;
+    for (const entry of list) {
+      if (typeof entry !== 'object' || entry === null) continue;
+      const obj = entry as Record<string, unknown>;
+      const claim20 = String(obj.claim ?? '').slice(0, 20);
+      const reason  = String(obj.reason ?? '').trim();
+
+      if (!reason) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [...pathPrefix, listName],
+          message: `${listName} 物件條目缺少 reason：「${claim20}」`,
+        });
+        continue;
+      }
+      if (!DATE_RE.test(reason)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [...pathPrefix, listName],
+          message: `${listName} reason 必須含年份（\\d{4}[-年]）：「${claim20}」`,
+        });
+      }
+      if (listName === 'misses' && !obj.verdict) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [...pathPrefix, listName],
+          message: `misses 物件條目必須有 verdict：「${claim20}」`,
+        });
+      }
+    }
+  }
+}
+
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	schema: () =>
@@ -24,41 +81,56 @@ const blog = defineCollection({
 		predictions: z.union([
 				// Format A: flat list (single prophet, or genuinely shared predictions)
 				z.object({
-					hits: z.array(z.string()).optional(),
-					misses: z.array(z.string()).optional(),
-					pending: z.array(z.string()).optional(),
+					hits:     z.array(PredictionEntry).optional(),
+					misses:   z.array(PredictionEntry).optional(),
+					pending:  z.array(z.string()).optional(),
 					excluded: z.array(z.string()).optional(),
 				}).strict(),
 				// Format B: per-prophet grouping (multi-prophet files)
-				// Keys are prophet IDs; values are per-prophet prediction lists
 				z.record(z.string(), z.object({
-					hits: z.array(z.string()).optional(),
-					misses: z.array(z.string()).optional(),
-					pending: z.array(z.string()).optional(),
+					hits:     z.array(PredictionEntry).optional(),
+					misses:   z.array(PredictionEntry).optional(),
+					pending:  z.array(z.string()).optional(),
 					excluded: z.array(z.string()).optional(),
 				}).strict()),
 			]).optional(),
 		}).superRefine((data, ctx) => {
-			// Guard: if predictions uses Format B (per-prophet keys), every key must
-			// appear in this file's prophet list. Catches typos like `hit:` that would
-			// silently bypass strict() and drop data without an error.
+			// ── existing guard: Format B keys must appear in prophet list ────────
 			const preds = data.predictions;
 			if (!preds || typeof preds !== 'object') return;
 			const FLAT_KEYS = new Set(['hits', 'misses', 'pending', 'excluded']);
 			const predKeys = Object.keys(preds);
 			const isFormatB = predKeys.some(k => !FLAT_KEYS.has(k));
-			if (!isFormatB) return;
-			const prophetList = Array.isArray(data.prophet)
-				? data.prophet
-				: data.prophet ? [data.prophet] : [];
-			const prophetSet = new Set(prophetList);
-			for (const key of predKeys) {
-				if (!prophetSet.has(key)) {
-					ctx.addIssue({
-						code: z.ZodIssueCode.custom,
-						path: ['predictions', key],
-						message: `predictions key "${key}" is not in prophet list [${prophetList.join(', ')}] — typo or missing prophet?`,
-					});
+
+			if (isFormatB) {
+				const prophetList = Array.isArray(data.prophet)
+					? data.prophet
+					: data.prophet ? [data.prophet] : [];
+				const prophetSet = new Set(prophetList);
+				for (const key of predKeys) {
+					if (!prophetSet.has(key)) {
+						ctx.addIssue({
+							code: z.ZodIssueCode.custom,
+							path: ['predictions', key],
+							message: `predictions key "${key}" is not in prophet list [${prophetList.join(', ')}] — typo or missing prophet?`,
+						});
+					}
+				}
+			}
+
+			// ── new: validate object-form entries in hits/misses ─────────────────
+			if (!isFormatB) {
+				checkHitsMisses(preds as Record<string, unknown>, ctx, ['predictions']);
+			} else {
+				for (const prophetKey of predKeys) {
+					const prophetPreds = (preds as Record<string, unknown>)[prophetKey];
+					if (prophetPreds && typeof prophetPreds === 'object') {
+						checkHitsMisses(
+							prophetPreds as Record<string, unknown>,
+							ctx,
+							['predictions', prophetKey],
+						);
+					}
 				}
 			}
 		}),

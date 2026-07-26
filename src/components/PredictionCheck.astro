@@ -1,22 +1,35 @@
 ---
+import { normalizeEntry } from '../utils/predictionEntry';
+
 interface Props {
-  hits?: string[];
-  misses?: string[];
-  pending?: string[];
+  hits?: unknown[];
+  misses?: unknown[];
+  pending?: unknown[];
 }
 
 const { hits = [], misses = [], pending = [] } = Astro.props;
 
-const verified        = hits.length + misses.length;
-const totalPredictions = verified + pending.length;
-const hitRate         = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
-const adjRate         = totalPredictions > 0 ? Math.round((verified / totalPredictions) * 100) : null;
+const hitEntries     = hits.map(normalizeEntry);
+const missEntries    = misses.map(normalizeEntry);
+const pendingEntries = pending.map(normalizeEntry);
+
+const verified         = hitEntries.length + missEntries.length;
+const totalPredictions = verified + pendingEntries.length;
+const hitRate          = verified > 0 ? Math.round((hitEntries.length / verified) * 100) : null;
+const adjRate          = totalPredictions > 0 ? Math.round((verified / totalPredictions) * 100) : null;
+const hasLate          = missEntries.some(e => e.verdict === 'late');
 
 const rateColor =
   hitRate === null ? '#888' :
   hitRate >= 70    ? '#27ae60' :
   hitRate >= 40    ? '#e67e22' :
                      '#e74c3c';
+
+function missBadge(verdict?: string): string {
+  if (verdict === 'late')         return '⏱️ 時間未中';
+  if (verdict === 'not-happened') return '❌ 未發生';
+  return '❌';
+}
 ---
 
 <div class="prediction-check">
@@ -24,7 +37,7 @@ const rateColor =
     <span class="pc-title">🔍 命中率檢驗</span>
     {hitRate !== null ? (
       <span class="pc-rate" style={`color:${rateColor}`}>
-        {hitRate}% 命中（{hits.length}/{verified} 條已判定）
+        {hitRate}% 命中（{hitEntries.length}/{verified} 條已判定）
       </span>
     ) : pending.length > 0 ? (
       <span class="pc-rate" style="color:#888">尚無已判定預言</span>
@@ -33,26 +46,47 @@ const rateColor =
 
   {adjRate !== null && (
     <div class="pc-adj">
-      判定率 {adjRate}%（{verified} / {totalPredictions} 條）{pending.length > 0 && `，另有 ${pending.length} 條仍在觀察窗口`}・<a href="/methodology" class="pc-adj-link">計分方法 →</a>
+      判定率 {adjRate}%（{verified} / {totalPredictions} 條）{pendingEntries.length > 0 && `，另有 ${pendingEntries.length} 條仍在觀察窗口`}・<a href="/methodology" class="pc-adj-link">計分方法 →</a>
     </div>
   )}
 
-  {hits.length > 0 && (
+  {hitEntries.length > 0 && (
     <ul class="pc-list pc-hits">
-      {hits.map(item => <li>✅ {item}</li>)}
+      {hitEntries.map(entry => (
+        <li>
+          ✅ {entry.claim}
+          {entry.reason && (
+            <details class="pc-entry-detail">
+              <summary class="pc-entry-summary">應驗理由</summary>
+              <span class="pc-entry-reason">應驗：{entry.reason}{entry.source && <> · <a href={entry.source} target="_blank" rel="noopener" class="pc-source-link">出處</a></>}</span>
+            </details>
+          )}
+        </li>
+      ))}
     </ul>
   )}
 
-  {misses.length > 0 && (
+  {missEntries.length > 0 && (
     <ul class="pc-list pc-misses">
-      {misses.map(item => <li>❌ {item}</li>)}
+      {missEntries.map(entry => (
+        <li class={entry.verdict === 'late' ? 'pc-late' : ''}>
+          {missBadge(entry.verdict)} {entry.claim}
+          {entry.reason && <div class="pc-entry-reason pc-miss-reason">{entry.reason}</div>}
+        </li>
+      ))}
     </ul>
   )}
 
-  {pending.length > 0 && (
+  {pendingEntries.length > 0 && (
     <ul class="pc-list pc-pending">
-      {pending.map(item => <li>⏳ {item}</li>)}
+      {pendingEntries.map(entry => <li>⏳ {entry.claim}</li>)}
     </ul>
+  )}
+
+  {hasLate && (
+    <p class="pc-late-note">
+      ⏱️ 時間未中代表事件確實發生，但超出預言的時間範圍，仍計為失誤。預言的價值在於事先知道時間。
+    </p>
   )}
 </div>
 
@@ -107,7 +141,50 @@ const rateColor =
   .pc-list li:last-child {
     border-bottom: none;
   }
-  .pc-hits li { color: #1e6b3a; }
+  .pc-hits li   { color: #1e6b3a; }
   .pc-misses li { color: #8b1a1a; }
   .pc-pending li { color: #666; }
+
+  /* ⏱️ late miss: same red family, lighter weight */
+  .pc-misses li.pc-late { color: #9b3a20; opacity: 0.85; }
+
+  /* Reason <details> under hits */
+  .pc-entry-detail {
+    margin-top: 0.2em;
+    margin-left: 1.4em;
+  }
+  .pc-entry-summary {
+    font-size: 0.82em;
+    color: #5a8a5a;
+    cursor: pointer;
+    user-select: none;
+  }
+  .pc-entry-summary:hover { text-decoration: underline; }
+  .pc-entry-reason {
+    display: block;
+    font-size: 0.82em;
+    color: #555;
+    margin-top: 0.15em;
+    line-height: 1.5;
+  }
+  .pc-miss-reason {
+    margin-top: 0.15em;
+    margin-left: 1.4em;
+    color: #7a3a3a;
+  }
+  .pc-source-link {
+    color: #8e44ad;
+    text-decoration: none;
+  }
+  .pc-source-link:hover { text-decoration: underline; }
+
+  /* Late note at bottom */
+  .pc-late-note {
+    font-size: 0.78em;
+    color: #888;
+    margin-top: 0.7em;
+    padding-top: 0.6em;
+    border-top: 1px solid #eee;
+    line-height: 1.5;
+  }
 </style>

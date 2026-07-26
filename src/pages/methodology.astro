@@ -124,6 +124,25 @@ html body { background: #0f172a; color: #e2e8f0; }
         </p>
       </section>
 
+      <section class="rule-block">
+        <div class="rule-number">08</div>
+        <h2 class="rule-title">判定理由與失誤分類</h2>
+        <p>
+          每一條命中（hits）或失誤（misses）都必須能寫出 <code>reason</code>（判定理由），且<strong>理由必須包含年份</strong>（如「2026年」）。說不出時間就不算理由——這個門檻是刻意設計的，確保驗證可追查、可重現，而不是說一句「事件已發生」就算數。
+        </p>
+        <p>失誤（misses）分兩種，兩種都計入失誤，命中率計算方式不變：</p>
+        <ul>
+          <li><strong>❌ 未發生（not-happened）</strong>：觀察窗口截止，事件確認未發生。</li>
+          <li><strong>⏱️ 時間未中（late）</strong>：事件確實發生，但超出預言指定的時間範圍。</li>
+        </ul>
+        <p class="note">
+          ⏱️ 時間未中仍計為失誤。預言的價值在於事先知道時間，不只是方向。沒有時間限制的預言，最終任何方向都可能「成真」——那不是預言，是等待。
+        </p>
+        <p>
+          舊格式的字串條目會逐步補寫為物件形式；未補寫的條目照現有樣子顯示，不影響命中率計算。
+        </p>
+      </section>
+
       <div class="divider"></div>
 
       <section class="qualify-block">

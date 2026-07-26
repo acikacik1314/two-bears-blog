@@ -100,6 +100,7 @@ html body { background: #0f172a; color: #e2e8f0; }
           <p class="adj-note">
             已判定 {stat.verified} / {stat.totalPredictions} 條
             （{stat.adjudicationRate !== null ? `${stat.adjudicationRate}%` : '—'}），其餘仍在觀察窗口內
+            {stat.lateCount > 0 && `・含 ${stat.lateCount} 條⏱️時間未中`}
           </p>
         </>
       ) : (
@@ -129,20 +130,32 @@ html body { background: #0f172a; color: #e2e8f0; }
     </div>
 
     <!-- Prediction timeline -->
-    {(stat.hits.length > 0 || stat.misses.length > 0 || stat.pending.length > 0) && (
+    {(stat.hitEntries.length > 0 || stat.missEntries.length > 0 || stat.pending.length > 0) && (
       <section class="timeline-section">
         <h2 class="section-title">預言紀錄</h2>
         <div class="timeline">
-          {stat.hits.map(h => (
+          {stat.hitEntries.map(entry => (
             <div class="tl-item hit">
               <span class="tl-badge">✅</span>
-              <span class="tl-text">{h}</span>
+              <span class="tl-text">
+                {entry.claim}
+                {entry.reason && (
+                  <details class="tl-reason-detail">
+                    <summary class="tl-reason-summary">應驗理由</summary>
+                    <span class="tl-reason-body">應驗：{entry.reason}{entry.source && <> · <a href={entry.source} target="_blank" rel="noopener" class="tl-source-link">出處</a></>}</span>
+                  </details>
+                )}
+              </span>
             </div>
           ))}
-          {stat.misses.map(m => (
-            <div class="tl-item miss">
-              <span class="tl-badge">❌</span>
-              <span class="tl-text">{m}</span>
+          {stat.missEntries.map(entry => (
+            <div class={`tl-item miss${entry.verdict === 'late' ? ' late' : ''}`}>
+              <span class="tl-badge">{entry.verdict === 'late' ? '⏱️' : '❌'}</span>
+              <span class="tl-text">
+                {entry.verdict === 'late' ? '時間未中・' : entry.verdict === 'not-happened' ? '未發生・' : ''}
+                {entry.claim}
+                {entry.reason && <div class="tl-reason-body tl-miss-reason">{entry.reason}</div>}
+              </span>
             </div>
           ))}
           {stat.pending.map(pend => (
@@ -152,6 +165,11 @@ html body { background: #0f172a; color: #e2e8f0; }
             </div>
           ))}
         </div>
+        {stat.lateCount > 0 && (
+          <p class="tl-late-note">
+            ⏱️ 時間未中代表事件確實發生，但超出預言的時間範圍，仍計為失誤。預言的價值在於事先知道時間。
+          </p>
+        )}
       </section>
     )}
 
@@ -315,9 +333,29 @@ html body { background: #0f172a; color: #e2e8f0; }
 }
 .tl-item.hit  { background: rgba(74,222,128,.06); border-left: 3px solid #4ade80; }
 .tl-item.miss { background: rgba(248,113,113,.06); border-left: 3px solid #f87171; }
+.tl-item.miss.late { background: rgba(248,113,113,.03); border-left: 3px dashed rgba(248,113,113,.5); }
 .tl-item.pend { background: rgba(251,191,36,.06);  border-left: 3px solid #fbbf24; }
 .tl-badge { flex-shrink: 0; font-size: .9em; }
 .tl-text  { color: #cbd5e1; }
+
+/* Reason detail inside timeline items */
+.tl-reason-detail  { margin-top: .25em; }
+.tl-reason-summary { font-size: .78em; color: #4ade80; cursor: pointer; user-select: none; }
+.tl-reason-summary:hover { text-decoration: underline; }
+.tl-reason-body    { display: block; font-size: .78em; color: #64748b; margin-top: .15em; line-height: 1.5; }
+.tl-miss-reason    { color: #94748a; margin-top: .2em; }
+.tl-source-link    { color: #a78bfa; text-decoration: none; }
+.tl-source-link:hover { text-decoration: underline; }
+
+/* Late note at bottom of timeline */
+.tl-late-note {
+  font-size: .75em;
+  color: #475569;
+  margin-top: .8em;
+  padding-left: .5em;
+  border-left: 2px solid #334155;
+  line-height: 1.55;
+}
 
 /* Posts */
 .posts-section { }

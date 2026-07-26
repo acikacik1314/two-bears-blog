@@ -1,19 +1,25 @@
 ---
-title: '帕克警告了！台灣的重要性！該準備物資了，比你想像的更可怕...'
-description: '預言家帕克再度發出緊急警告，強調台灣在全球局勢中的關鍵地位，並具體建議民眾開始備糧備物。'
-pubDate: '2026-05-22'
-tags: ['預言', '帕克', '台灣', '備災', '警告']
-youtubePost: 'https://www.youtube.com/post/UgkxH0eGpNFBC7vhtgwOPoqYRdBBBmsCM3OF'
-heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
+description: 預言家帕克再度發出緊急警告，強調台灣在全球局勢中的關鍵地位，並具體建議民眾開始備糧備物。
+heroImage: https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop
 predictions:
-  hits:
-    - '台灣在全球局勢中的關鍵地位持續受到關注'
-    - '台海緊張情勢升溫，帕克建議備災具有現實參考意義'
+  excluded:
+  - 台海緊張情勢升溫，帕克建議備災具有現實參考意義
+  - 台灣在全球局勢中的關鍵地位持續受到關注
+  hits: []
   misses: []
   pending:
-    - '台灣面臨的衝擊程度超過大多數人想像的重大事件'
-    - '銀行系統中斷導致需以現金因應的危機場景'
-prophet: '帕克'
+  - 台灣面臨的衝擊程度超過大多數人想像的重大事件
+  - 銀行系統中斷導致需以現金因應的危機場景
+prophet: 帕克
+pubDate: '2026-05-22'
+tags:
+- 預言
+- 帕克
+- 台灣
+- 備災
+- 警告
+title: 帕克警告了！台灣的重要性！該準備物資了，比你想像的更可怕...
+youtubePost: https://www.youtube.com/post/UgkxH0eGpNFBC7vhtgwOPoqYRdBBBmsCM3OF
 ---
 
 最近，預言家帕克對於台灣的未來發出了嚴肅的警告，這不僅僅是茶餘飯後的話題，更是值得我們深思的警訊。對於長期關注地緣政治、靈性預言，甚至投入加密貨幣預測的我們來說，帕克的預言從來就不是空穴來風。他過去的許多預測，無論是政治事件或全球趨勢，都展現出驚人的準確性，這也讓這次針對台灣的警告顯得格外沉重。

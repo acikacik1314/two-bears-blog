@@ -1,19 +1,24 @@
 ---
-title: '2028末日預示？川普連任、美中俄開戰！台灣人必看的生存指南！'
-description: '【兩隻熊】2028末日預示？川普連任、美中俄開戰！台灣人必看的生存指南！'
-pubDate: '2026-05-22'
-tags: ['預言', '末日', '三戰', '台灣']
-category: '預言'
-rumbleId: 'v772na4'
-rumblePage: 'https://rumble.com/v799bac-2028.html'
+category: 預言
+description: 【兩隻熊】2028末日預示？川普連任、美中俄開戰！台灣人必看的生存指南！
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/a5/s8/1/K/z/8/j/Kz8jA.qR4e-small-2028..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
   pending:
-    - '第三次世界大戰全面爆發（預言目標年份2028，尚未到驗證期）'
-    - '2028年預言事件（尚未到驗證期）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/a5/s8/1/K/z/8/j/Kz8jA.qR4e-small-2028..jpg'
-prophet: '帕克'
+  - 第三次世界大戰全面爆發（預言目標年份2028，尚未到驗證期）
+  - 2028年預言事件（尚未到驗證期）
+prophet: 帕克
+pubDate: '2026-05-22'
+rumbleId: v772na4
+rumblePage: https://rumble.com/v799bac-2028.html
+tags:
+- 預言
+- 末日
+- 三戰
+- 台灣
+title: 2028末日預示？川普連任、美中俄開戰！台灣人必看的生存指南！
 ---
 
 Looking beyond the immediate 2026 crisis, this video examines a 2028 prophecy that paints a detailed picture of the post-crisis world: Trump's political trajectory, the new strategic balance between the US, China, and Russia, and the shape of international order after the dust settles. Understanding 2028 helps contextualize why the decisions made in 2026 carry such long-lasting consequences.

@@ -5,8 +5,8 @@ heroImage: https://hugh.cdn.rumble.cloud/video/fww1/ee/s8/1/M/f/9/j/Mf9jA.qR4e-s
 predictions:
   excluded:
   - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
-  hits:
   - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
 prophet: 比格斯
 pubDate: '2026-05-22'
 rumbleId: v772pge

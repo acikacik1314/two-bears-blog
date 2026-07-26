@@ -1,21 +1,29 @@
 ---
-title: '來自日本 2075年 的 YJ2075 未來人 在 twitter 發文日文全文部分翻譯 (網路資料整理)'
-description: '整理自稱來自2075年的日本推特用戶YJ的發文紀錄，預言2031年第三次世界大戰、日本首都遷往岡山等。'
-pubDate: '2020-10-11'
-tags: ['未來人', '預言', '時間旅行者', '日本', '台灣', '三戰']
-pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069335754'
-category: '預言'
+category: 預言
+description: 整理自稱來自2075年的日本推特用戶YJ的發文紀錄，預言2031年第三次世界大戰、日本首都遷往岡山等。
+heroImage: https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop
+pixnetSource: https://acikacik.pixnet.net/blog/posts/5069335754
 predictions:
+  excluded:
+  - 俄羅斯太空技術持續發展
   hits:
-    - '老齡化確實是台灣最主要問題之一（已是現實）'
-    - '俄羅斯太空技術持續發展'
+  - 老齡化確實是台灣最主要問題之一（已是現實）
   pending:
-    - '2031年第三次世界大戰爆發'
-    - '日本首都遷往岡山'
-    - '中國氣象控制系統實戰運用'
-heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
+  - 2031年第三次世界大戰爆發
+  - 日本首都遷往岡山
+  - 中國氣象控制系統實戰運用
 prophet: '2075'
+pubDate: '2020-10-11'
+tags:
+- 未來人
+- 預言
+- 時間旅行者
+- 日本
+- 台灣
+- 三戰
+title: 來自日本 2075年 的 YJ2075 未來人 在 twitter 發文日文全文部分翻譯 (網路資料整理)
 ---
+
 ![1602430712376.jpg](https://pic.pimg.tw/acikacik/1602430739-1078915067-g_l.jpg)
 
 這個人叫YJ，於2018年1月3號註冊，自稱是來自2075年的“未來人”

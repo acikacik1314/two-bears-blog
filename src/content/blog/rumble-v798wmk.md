@@ -1,21 +1,26 @@
 ---
-title: '緊急警告！2026台灣危機、美元崩潰、AI末日……你以為是科幻片嗎？'
-description: '【兩隻熊】緊急警告！2026台灣危機、美元崩潰、AI末日……你以為是科幻片嗎？'
-pubDate: '2026-05-22'
-tags: ['預言', '台灣', '金融', 'AI', '末日']
-category: '預言'
-prophet: '比格斯'
-rumbleId: 'v7728mc'
-rumblePage: 'https://rumble.com/v798wmk-2026ai.html'
+category: 預言
+description: 【兩隻熊】緊急警告！2026台灣危機、美元崩潰、AI末日……你以為是科幻片嗎？
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/31/s8/1/S/W/3/j/SW3jA.qR4e-small-2026AI..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - 'AI技術在2025-2026年出現重大突破，社會衝擊持續擴大'
-    - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
   excluded:
-    - '美元全面崩潰或銀行系統大規模倒閉（2026年尚未結束，待觀察）'
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/31/s8/1/S/W/3/j/SW3jA.qR4e-small-2026AI..jpg'
+  - 美元全面崩潰或銀行系統大規模倒閉（2026年尚未結束，待觀察）
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+  - AI技術在2025-2026年出現重大突破，社會衝擊持續擴大
+  hits: []
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v7728mc
+rumblePage: https://rumble.com/v798wmk-2026ai.html
+tags:
+- 預言
+- 台灣
+- 金融
+- AI
+- 末日
+title: 緊急警告！2026台灣危機、美元崩潰、AI末日……你以為是科幻片嗎？
 ---
 
 The 2026 crisis scenario is crystallizing around two interconnected catastrophes: a military confrontation over Taiwan and the long-anticipated collapse of the US dollar's global reserve status. This video explores how these two crises are feeding each other, the AI-driven financial mechanisms accelerating the dollar's decline, and what a simultaneous Taiwan conflict and currency collapse would look like for the global economy.

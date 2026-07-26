@@ -1,19 +1,24 @@
 ---
-title: '2026台灣大轉折！帕克：2月暗殺與毒火山，全球斷網倒數計時！'
-description: '【兩隻熊】2026台灣大轉折！帕克：2月暗殺與毒火山，全球斷網倒數計時！'
-pubDate: '2026-05-22'
-tags: ['預言', '末日', '地震', '三戰']
-category: '預言'
-rumbleId: 'v7748ym'
-rumblePage: 'https://rumble.com/v79awyu-20262.html'
+category: 預言
+description: 【兩隻熊】2026台灣大轉折！帕克：2月暗殺與毒火山，全球斷網倒數計時！
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/b6/s8/1/M/P/o/k/MPokA.qR4e-small-20262..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
   pending:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-    - '特定地區重大天災發生時間點'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/b6/s8/1/M/P/o/k/MPokA.qR4e-small-20262..jpg'
-prophet: '帕克'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+  - 特定地區重大天災發生時間點
+prophet: 帕克
+pubDate: '2026-05-22'
+rumbleId: v7748ym
+rumblePage: https://rumble.com/v79awyu-20262.html
+tags:
+- 預言
+- 末日
+- 地震
+- 三戰
+title: 2026台灣大轉折！帕克：2月暗殺與毒火山，全球斷網倒數計時！
 ---
 
 Hamilton Parker's February 2026 prophecy is among his most specific and alarming: a high-profile political assassination and a major volcanic eruption will both occur in the same month, sending shockwaves through global politics and natural disaster preparedness. This video analyzes Parker's predictions, the potential targets and locations he has identified, and how these events could cascade into wider global instability.

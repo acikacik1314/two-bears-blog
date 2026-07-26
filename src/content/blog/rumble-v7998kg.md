@@ -1,20 +1,24 @@
 ---
-title: '2026台灣危機？中國3天斷電搶錢包！美元崩潰與銀行解鎖真相：一般人如何清債保命？'
-description: '【兩隻熊】2026台灣危機？中國3天斷電搶錢包！美元崩潰與銀行解鎖真相：一般人如何清債保命？'
-pubDate: '2026-05-22'
-tags: ['預言', '末日', '金融', '三戰']
-category: '預言'
-rumbleId: 'v772kk8'
-rumblePage: 'https://rumble.com/v7998kg-20263.html'
+category: 預言
+description: 【兩隻熊】2026台灣危機？中國3天斷電搶錢包！美元崩潰與銀行解鎖真相：一般人如何清債保命？
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/11/s8/1/G/I/7/j/GI7jA.qR4e-small-20263..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
   excluded:
-    - '美元全面崩潰或銀行系統大規模倒閉（2026年尚未結束，待觀察）'
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/11/s8/1/G/I/7/j/GI7jA.qR4e-small-20263..jpg'
-prophet: '比格斯'
+  - 美元全面崩潰或銀行系統大規模倒閉（2026年尚未結束，待觀察）
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+  hits: []
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v772kk8
+rumblePage: https://rumble.com/v7998kg-20263.html
+tags:
+- 預言
+- 末日
+- 金融
+- 三戰
+title: 2026台灣危機？中國3天斷電搶錢包！美元崩潰與銀行解鎖真相：一般人如何清債保命？
 ---
 
 Two simultaneous catastrophes are converging in 2026: a massive grid blackout paralyzing China's industrial and military capabilities, paired with the final stages of the US dollar's collapse as the world's reserve currency. This video analyzes how these two events are connected, the prophetic and analytical sources pointing to this dual crisis, and the profound implications for global trade, Taiwan's security, and everyday financial life.

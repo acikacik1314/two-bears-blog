@@ -1,25 +1,32 @@
 ---
-title: '來自 2060 的未來人 KFK 未來預言 Q&A (網路資料整理)'
-description: '整理2019年豆瓣平台上自稱來自2060年的未來人KFK的問答紀錄，涵蓋科技、戰爭、社會變遷等多項預言。'
-pubDate: '2020-06-29'
-tags: ['未來人', '預言', 'KFK', '時間旅行者', '豆瓣']
-pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5069086580'
-category: '預言'
+category: 預言
+description: 整理2019年豆瓣平台上自稱來自2060年的未來人KFK的問答紀錄，涵蓋科技、戰爭、社會變遷等多項預言。
+heroImage: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop
+pixnetSource: https://acikacik.pixnet.net/blog/posts/5069086580
 predictions:
+  excluded:
+  - 數位貨幣趨勢持續，多國積極推進CBDC（央行數位貨幣）
+  - 結婚率在多數已開發國家持續下降
   hits:
-    - '數位貨幣趨勢持續，多國積極推進CBDC（央行數位貨幣）'
-    - '結婚率在多數已開發國家持續下降'
-    - '3D列印建築技術逐步商業化'
+  - 3D列印建築技術逐步商業化
   pending:
-    - '自動駕駛於中國特別受阻（難以驗證）'
-    - '第三次世界大戰（預言約2048年）'
-    - '全球人口因衝突減至53億（2060年）'
-    - '公共交通全面免費化'
-    - '機器人婚姻合法化'
-    - '日本首都遷往岡山'
-heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop'
-prophet: 'KFK'
+  - 自動駕駛於中國特別受阻（難以驗證）
+  - 第三次世界大戰（預言約2048年）
+  - 全球人口因衝突減至53億（2060年）
+  - 公共交通全面免費化
+  - 機器人婚姻合法化
+  - 日本首都遷往岡山
+prophet: KFK
+pubDate: '2020-06-29'
+tags:
+- 未來人
+- 預言
+- KFK
+- 時間旅行者
+- 豆瓣
+title: 來自 2060 的未來人 KFK 未來預言 Q&A (網路資料整理)
 ---
+
 ![來自 2060 的未來人 KFK 未來預言 Q&A  (網路](https://pic.pimg.tw/acikacik/1593411031-1885580379-g.jpg)
 
 &nbsp;

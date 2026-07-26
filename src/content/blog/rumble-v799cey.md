@@ -1,18 +1,23 @@
 ---
-title: '【震撼】2026 全球倒數！靈媒潔西卡預警：世界地圖重繪、台灣 1947 業力回歸'
-description: '【兩隻熊】【震撼】2026 全球倒數！靈媒潔西卡預警：世界地圖重繪、台灣 1947 業力回歸'
-pubDate: '2026-05-22'
-tags: ['預言', '末日', '三戰', '台灣']
-category: '預言'
-prophet: 'Jessica Adams'
-rumbleId: 'v772oeq'
-rumblePage: 'https://rumble.com/v799cey-20261947ai.html'
+category: 預言
+description: 【兩隻熊】【震撼】2026 全球倒數！靈媒潔西卡預警：世界地圖重繪、台灣 1947 業力回歸
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/ad/s8/1/A/W/8/j/AW8jA.qR4e-small-20261947AI..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
   pending:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ad/s8/1/A/W/8/j/AW8jA.qR4e-small-20261947AI..jpg'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+prophet: Jessica Adams
+pubDate: '2026-05-22'
+rumbleId: v772oeq
+rumblePage: https://rumble.com/v799cey-20261947ai.html
+tags:
+- 預言
+- 末日
+- 三戰
+- 台灣
+title: 【震撼】2026 全球倒數！靈媒潔西卡預警：世界地圖重繪、台灣 1947 業力回歸
 ---
 
 British astrologer Jessica Adams has built a reputation for eerily accurate geopolitical predictions, and her 2026 forecast is her most dramatic yet: the world map will be redrawn as dramatically as it was in 1947. This video examines Adams' prophecy about which borders will change, which nations will emerge or dissolve, and how Taiwan fits into this sweeping cartographic transformation of the post-2026 world.

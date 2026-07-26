@@ -1,19 +1,24 @@
 ---
-title: '泰國預言家命中真相！2026 經濟崩塌與台灣危機：保命 7 法則公開'
-description: '【兩隻熊】泰國預言家命中真相！2026 經濟崩塌與台灣危機：保命 7 法則公開'
-pubDate: '2026-05-22'
-tags: ['預言', '金融', '末日', '台灣']
-category: '預言'
-rumbleId: 'v7745nc'
-rumblePage: 'https://rumble.com/v79atnk-326020261-37.html'
+category: 預言
+description: 【兩隻熊】泰國預言家命中真相！2026 經濟崩塌與台灣危機：保命 7 法則公開
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/71/s8/1/G/M/n/k/GMnkA.qR4e-small-326020261-37..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
-    - '黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+  hits: []
   pending:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/71/s8/1/G/M/n/k/GMnkA.qR4e-small-326020261-37..jpg'
-prophet: '摩普萊'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+prophet: 摩普萊
+pubDate: '2026-05-22'
+rumbleId: v7745nc
+rumblePage: https://rumble.com/v79atnk-326020261-37.html
+tags:
+- 預言
+- 金融
+- 末日
+- 台灣
+title: 泰國預言家命中真相！2026 經濟崩塌與台灣危機：保命 7 法則公開
 ---
 
 As economic warning signs mount, Mor Plai's prophecy about a 2026 economic collapse is looking increasingly confirmed. This video reviews the specific economic indicators and events that are validating Mor Plai's predictions, traces the timeline from his original prophecy through to current developments, and examines what the full collapse scenario looks like as the countdown from day 3 to 26 progresses.

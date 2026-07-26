@@ -1,21 +1,26 @@
 ---
-title: '台灣「閃電戰」預言：中國兩天內拿下，全球晶片版圖徹底重寫？'
-description: '最新預言指出中國可能在極短時間內完成對台灣的軍事行動，這將如何改變全球半導體供應鏈？'
-pubDate: '2026-05-22'
-tags: ['台灣', '預言', '地緣政治', '半導體']
-youtubePost: 'https://www.youtube.com/post/UgkxT19XX9-dDubQOiH6pMQL5F1Rwe3SKdXx'
+description: 最新預言指出中國可能在極短時間內完成對台灣的軍事行動，這將如何改變全球半導體供應鏈？
+heroImage: https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop
 predictions:
+  excluded:
+  - 台海軍事緊張持續升溫，解放軍演習頻率增加
   hits:
-    - '川普表示「不需要台灣」的言論引發外交爭議（2025年川普多次質疑台灣防衛承諾）'
-    - '台海軍事緊張持續升溫，解放軍演習頻率增加'
+  - 川普表示「不需要台灣」的言論引發外交爭議（2025年川普多次質疑台灣防衛承諾）
   misses:
-    - '2025年內中國拿下台灣（2025年已過，未發生）'
+  - 2025年內中國拿下台灣（2025年已過，未發生）
   pending:
-    - '「不到三天」閃電戰時間框架（主事件尚未發生，框架無法驗證）'
-    - '北韓加入中國陣線的時間點'
-    - '半導體供應鏈重組的幅度'
-heroImage: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=450&fit=crop'
-prophet: '比格斯'
+  - 「不到三天」閃電戰時間框架（主事件尚未發生，框架無法驗證）
+  - 北韓加入中國陣線的時間點
+  - 半導體供應鏈重組的幅度
+prophet: 比格斯
+pubDate: '2026-05-22'
+tags:
+- 台灣
+- 預言
+- 地緣政治
+- 半導體
+title: 台灣「閃電戰」預言：中國兩天內拿下，全球晶片版圖徹底重寫？
+youtubePost: https://www.youtube.com/post/UgkxT19XX9-dDubQOiH6pMQL5F1Rwe3SKdXx
 ---
 
 ## 中國將在兩天內拿下台灣

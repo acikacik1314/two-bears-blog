@@ -5,9 +5,9 @@ heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/b9/s8/1/k/7/z/k/k7zkA.qR4e-s
 predictions:
   excluded:
   - 比格斯對台灣的持續關注引發廣泛討論，其預言影響力上升
-  hits:
   - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
   - 黃金價格持續創歷史新高（2025-2026年突破3000美元/盎司）
+  hits: []
 prophet: 比格斯
 pubDate: '2026-05-22'
 rumbleId: v7758le

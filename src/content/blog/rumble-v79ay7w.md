@@ -1,18 +1,22 @@
 ---
-title: '【2026終極預言】美國內爆、中國奪台、黑色瘟疫：命運早已刻在石頭上！'
-description: '【兩隻熊】【2026終極預言】美國內爆、中國奪台、黑色瘟疫：命運早已刻在石頭上！'
-pubDate: '2026-05-22'
-tags: ['預言', '末日', '台灣', '三戰']
-category: '預言'
-rumbleId: 'v774a7o'
-rumblePage: 'https://rumble.com/v79ay7w-2026.html'
+category: 預言
+description: 【兩隻熊】【2026終極預言】美國內爆、中國奪台、黑色瘟疫：命運早已刻在石頭上！
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/ff/s8/1/8/c/p/k/8cpkA.qR4e-small-2026..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
   excluded:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/ff/s8/1/8/c/p/k/8cpkA.qR4e-small-2026..jpg'
-prophet: '比格斯'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
+prophet: 比格斯
+pubDate: '2026-05-22'
+rumbleId: v774a7o
+rumblePage: https://rumble.com/v79ay7w-2026.html
+tags:
+- 預言
+- 末日
+- 台灣
+- 三戰
+title: 【2026終極預言】美國內爆、中國奪台、黑色瘟疫：命運早已刻在石頭上！
 ---
 
 The year 2026 looms as the ultimate convergence point for three catastrophic scenarios that multiple prophets have independently foreseen: a devastating American civil war, the long-feared Taiwan crisis reaching its breaking point, and the emergence of a new plague with Black Death-level mortality. This video synthesizes these interconnected prophecies and explores how these three crises may unfold simultaneously.

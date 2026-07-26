@@ -1,18 +1,23 @@
 ---
-title: '【2026全球倒數】摩普萊：台灣成大戰關鍵？5-7月這4國千萬別去！'
-description: '【兩隻熊】【2026全球倒數】摩普萊：台灣成大戰關鍵？5-7月這4國千萬別去！'
-pubDate: '2026-05-22'
-tags: ['預言', '台灣', '末日', '三戰']
-category: '預言'
-rumbleId: 'v772j6i'
-rumblePage: 'https://rumble.com/v79976q-2026ct5-74.html'
+category: 預言
+description: 【兩隻熊】【2026全球倒數】摩普萊：台灣成大戰關鍵？5-7月這4國千萬別去！
+heroImage: https://hugh.cdn.rumble.cloud/video/fwe2/3a/s8/1/I/g/7/j/Ig7jA.qR4e-small-2026CT5-74..jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
   pending:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fwe2/3a/s8/1/I/g/7/j/Ig7jA.qR4e-small-2026CT5-74..jpg'
-prophet: '摩普萊'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+prophet: 摩普萊
+pubDate: '2026-05-22'
+rumbleId: v772j6i
+rumblePage: https://rumble.com/v79976q-2026ct5-74.html
+tags:
+- 預言
+- 台灣
+- 末日
+- 三戰
+title: 【2026全球倒數】摩普萊：台灣成大戰關鍵？5-7月這4國千萬別去！
 ---
 
 In Mor Plai's most Taiwan-focused prophecy yet, the Thai seer declares Taiwan to be the literal key that unlocks — or locks — the door to global catastrophe in 2026. This video decodes Mor Plai's specific CT symbolism and the 5-74 timeline he references, examining why he believes Taiwan's fate is so central to the entire prophetic landscape of 2026 and what this means for the island's people.

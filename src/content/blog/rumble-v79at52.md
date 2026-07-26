@@ -1,18 +1,23 @@
 ---
-title: '【2026終極生存戰】CIA遙視者警告：台灣「32公里保命線」曝光！你的房子安全嗎？'
-description: '【兩隻熊】【2026終極生存戰】CIA遙視者警告：台灣「32公里保命線」曝光！你的房子安全嗎？'
-pubDate: '2026-05-22'
-tags: ['預言', '台灣', '三戰', '末日']
-category: '預言'
-prophet: '麥克蒙尼格'
-rumbleId: 'v77454u'
-rumblePage: 'https://rumble.com/v79at52-2026cia1202632....html'
+category: 預言
+description: 【兩隻熊】【2026終極生存戰】CIA遙視者警告：台灣「32公里保命線」曝光！你的房子安全嗎？
+heroImage: https://hugh.cdn.rumble.cloud/video/fww1/a9/s8/1/g/C/n/k/gCnkA.qR4e-small-2026CIA1202632.....jpg
 predictions:
-  hits:
-    - '台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）'
+  excluded:
+  - 台海緊張情勢持續升溫，解放軍演習頻率增加（2025-2026年現實）
+  hits: []
   pending:
-    - '2026年下半年關鍵事件（尚在進行中，待觀察）'
-heroImage: 'https://hugh.cdn.rumble.cloud/video/fww1/a9/s8/1/g/C/n/k/gCnkA.qR4e-small-2026CIA1202632.....jpg'
+  - 2026年下半年關鍵事件（尚在進行中，待觀察）
+prophet: 麥克蒙尼格
+pubDate: '2026-05-22'
+rumbleId: v77454u
+rumblePage: https://rumble.com/v79at52-2026cia1202632....html
+tags:
+- 預言
+- 台灣
+- 三戰
+- 末日
+title: 【2026終極生存戰】CIA遙視者警告：台灣「32公里保命線」曝光！你的房子安全嗎？
 ---
 
 A remote viewer with CIA training has come forward with a specific 2026 warning about Taiwan, centering on a critical 32-kilometer geographic zone. This video examines the remote viewing session details, what this 32km boundary signifies in military and strategic terms, and how this intelligence-world perspective on Taiwan's crisis aligns with other prophetic warnings circulating in 2026.

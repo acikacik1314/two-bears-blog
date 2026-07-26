@@ -1,19 +1,25 @@
 ---
-title: 'CIA遙視員喬·麥克蒙尼格預言：全球末日時鐘逼近午夜，三戰快炸了！人類恐將「重回石器時代」'
-description: '前CIA遙視計畫核心成員喬·麥克蒙尼格，以其超感知能力預見全球末日時鐘已接近最危險位置。'
-pubDate: '2026-05-22'
-tags: ['預言', 'CIA', '遙視', '三戰', '末日']
-youtubePost: 'https://www.youtube.com/post/UgkxHPICWEp3em_LcVR0xW3edyfyjcbN92O2'
-heroImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop'
+description: 前CIA遙視計畫核心成員喬·麥克蒙尼格，以其超感知能力預見全球末日時鐘已接近最危險位置。
+heroImage: https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=800&h=450&fit=crop
 predictions:
+  excluded:
+  - 全球緊張局勢持續升溫，末日時鐘維持史上最接近午夜位置
   hits:
-    - '全球緊張局勢持續升溫，末日時鐘維持史上最接近午夜位置'
-    - '多個核大國（俄、中、北韓）同時進入高度備戰狀態'
+  - 多個核大國（俄、中、北韓）同時進入高度備戰狀態
   misses: []
   pending:
-    - '第三次世界大戰正式爆發導致文明基礎建設全面崩潰'
-    - '人類文明倒退至石器時代的末日場景'
-prophet: '麥克蒙尼格'
+  - 第三次世界大戰正式爆發導致文明基礎建設全面崩潰
+  - 人類文明倒退至石器時代的末日場景
+prophet: 麥克蒙尼格
+pubDate: '2026-05-22'
+tags:
+- 預言
+- CIA
+- 遙視
+- 三戰
+- 末日
+title: CIA遙視員喬·麥克蒙尼格預言：全球末日時鐘逼近午夜，三戰快炸了！人類恐將「重回石器時代」
+youtubePost: https://www.youtube.com/post/UgkxHPICWEp3em_LcVR0xW3edyfyjcbN92O2
 ---
 
 最近，一個震撼全球的預言在網路上瘋傳，主角是美國中情局（CIA）的傳奇遙視員喬·麥克蒙尼格（Joe McMoneagle）。這位曾參與「星門計畫」的頂尖遙視專家，當年精準預測了蘇聯解體、911事件，甚至連國際油價的波動都沒能逃過他的「天眼」。而他最新，也是最令人不安的預言，竟然是關於全球末日時鐘逼近午夜，以及第三次世界大戰即將爆發的警示。麥克蒙尼格的預言，讓許多關注地緣政治、靈性預言和生存準備的朋友們，心頭都蒙上了一層陰影。

@@ -35,6 +35,7 @@ html body { background: #0f172a; color: #e2e8f0; }
     <div class="pg-head">
       <h1 class="pg-title">🔮 預言家命中率排行</h1>
       <p class="pg-sub">依實際預言記錄計算，已驗證 ≥ {QUALIFY_THRESHOLD} 則才列入正式榜</p>
+      <p class="pg-reverify">🔍 我們正在逐條填寫命中的查證依據，只有附上理由的才計入分數——整理進行中，數字還會繼續更新</p>
     </div>
 
     <!-- Qualified wall -->
@@ -245,4 +246,13 @@ html body { background: #0f172a; color: #e2e8f0; }
   font-weight: 600;
 }
 .pg-note-link:hover { color: #a78bfa; }
+.pg-reverify {
+  font-size: .75em;
+  color: #64748b;
+  margin: .6em 0 0;
+  border: 1px solid rgba(100,116,139,.25);
+  border-radius: 8px;
+  padding: .5em .9em;
+  display: inline-block;
+}
 </style>

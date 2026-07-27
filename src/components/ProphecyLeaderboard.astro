@@ -24,6 +24,8 @@ const statsJson = JSON.stringify(stats.map(s => ({
     <a class="lb-link" href="/category/預言/">查看所有預言 →</a>
   </div>
 
+  <p class="lb-reverify">🔍 命中須附查證依據才計分，整理進行中——數字還會繼續更新</p>
+
   {stats.length === 0 ? (
     <p class="lb-empty">尚無數據，在文章中加入 <code>predictions</code> 欄位後自動更新</p>
   ) : (
@@ -331,6 +333,15 @@ const statsJson = JSON.stringify(stats.map(s => ({
     font-weight: 600;
   }
   .lb-note-link:hover { color: #a78bfa; }
+
+  .lb-reverify {
+    font-size: 0.68em;
+    color: #475569;
+    margin: 0 0 0.7em;
+    padding: 0.35em 0.6em;
+    border-left: 2px solid #475569;
+    line-height: 1.4;
+  }
 
   /* ── Modal ── */
   .pred-modal-overlay {

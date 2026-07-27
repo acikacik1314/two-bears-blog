@@ -59,23 +59,66 @@ function extractRaw(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 
   return [];
 }
 
-// Returns claim strings for Set-based deduplication (unchanged external behaviour)
-function extractPreds(preds: unknown, prophetId: string, key: 'hits' | 'misses' | 'pending'): string[] {
-  return extractRaw(preds, prophetId, key).map(e => normalizeEntry(e).claim);
+// Strips trailing parenthetical annotation used as editorial notes:
+// e.g. （文中確認命中）, （應驗：2026年…）, (already verified)
+function normalizeKey(claim: string): string {
+  return claim.replace(/[（(][^）)]*[）)]\s*$/, '').trim();
 }
 
-// Deduplicates by claim string; prefers the richer (reasoned) entry when both exist
+// Levenshtein-based similarity in [0,1]. O(|a|·|b|) using single-row DP.
+function strSimilarity(a: string, b: string): number {
+  if (a === b) return 1;
+  const la = a.length, lb = b.length;
+  if (la === 0 || lb === 0) return 0;
+  const dp = Array.from({ length: la + 1 }, (_, i) => i);
+  for (let j = 1; j <= lb; j++) {
+    let prev = dp[0];
+    dp[0] = j;
+    for (let i = 1; i <= la; i++) {
+      const tmp = dp[i];
+      dp[i] = b[j - 1] === a[i - 1] ? prev : Math.min(prev, dp[i], dp[i - 1]) + 1;
+      prev = tmp;
+    }
+  }
+  return 1 - dp[la] / Math.max(la, lb);
+}
+
+// Two-phase dedup:
+// Phase 1 — exact normalized-key grouping (O(n)), strips trailing parentheticals.
+// Phase 2 — fuzzy merge between group representatives (O(m²), m << n),
+//            merges entries whose normalized keys are ≥ 0.85 similar.
+// Within each merged group, prefers the reasoned entry over a plain string.
 function deduplicateEntries(rawEntries: unknown[]): NormalizedEntry[] {
-  const map = new Map<string, NormalizedEntry>();
+  // Phase 1: exact normalized key
+  const byKey = new Map<string, NormalizedEntry>();
   for (const e of rawEntries) {
     const norm = normalizeEntry(e);
     if (!norm.claim) continue;
-    const existing = map.get(norm.claim);
+    const key = normalizeKey(norm.claim);
+    const existing = byKey.get(key);
     if (!existing || (!existing.reason && norm.reason)) {
-      map.set(norm.claim, norm);
+      byKey.set(key, norm);
     }
   }
-  return [...map.values()];
+
+  // Phase 2: fuzzy merge remaining group representatives
+  const keys = [...byKey.keys()];
+  const absorbed = new Set<string>();
+  for (let i = 0; i < keys.length; i++) {
+    if (absorbed.has(keys[i])) continue;
+    for (let j = i + 1; j < keys.length; j++) {
+      if (absorbed.has(keys[j])) continue;
+      if (strSimilarity(keys[i], keys[j]) >= 0.85) {
+        const ei = byKey.get(keys[i])!;
+        const ej = byKey.get(keys[j])!;
+        if (!ei.reason && ej.reason) byKey.set(keys[i], ej);
+        absorbed.add(keys[j]);
+        byKey.delete(keys[j]);
+      }
+    }
+  }
+
+  return [...byKey.values()];
 }
 
 // ── public API ────────────────────────────────────────────────────────────────
@@ -117,14 +160,17 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
   const stats: ProphetStat[] = [];
 
   for (const [id, posts] of postsByProphet) {
-    // Claim strings for dedup (preserves existing Set-based logic exactly)
-    const hits    = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'hits')))];
-    const misses  = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'misses')))];
-    const pending = [...new Set(posts.flatMap(p => extractPreds(p.data.predictions, id, 'pending')))];
-
-    // Rich entries for display — dedup by claim, prefer reasoned over string
+    // Single dedup pass: normalized-key + fuzzy merge + prefer-reasoned.
+    // hits/misses/pending arrays derive from the same result to keep count consistent.
     const hitEntries  = deduplicateEntries(posts.flatMap(p => extractRaw(p.data.predictions, id, 'hits')));
     const missEntries = deduplicateEntries(posts.flatMap(p => extractRaw(p.data.predictions, id, 'misses')));
+    const pendingEntries = deduplicateEntries(
+      posts.flatMap(p => extractRaw(p.data.predictions, id, 'pending'))
+    );
+
+    const hits    = hitEntries.map(e => e.claim);
+    const misses  = missEntries.map(e => e.claim);
+    const pending = pendingEntries.map(e => e.claim);
 
     const lateCount      = missEntries.filter(e => e.verdict === 'late').length;
     const unreasonedCount = hitEntries.filter(e => !e.reason).length

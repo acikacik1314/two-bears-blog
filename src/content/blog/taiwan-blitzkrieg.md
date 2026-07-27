@@ -4,8 +4,8 @@ heroImage: https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=800&h=
 predictions:
   excluded:
   - 台海軍事緊張持續升溫，解放軍演習頻率增加
-  hits:
   - 川普表示「不需要台灣」的言論引發外交爭議（2025年川普多次質疑台灣防衛承諾）
+  hits: []
   misses:
   - 2025年內中國拿下台灣（2025年已過，未發生）
   pending:

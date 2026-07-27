@@ -16,6 +16,16 @@
   ],
   "redirects": [
     {
+      "source": "/prophet/David the Medium",
+      "destination": "/prophet/david-the-medium",
+      "permanent": true
+    },
+    {
+      "source": "/prophet/David%20the%20Medium",
+      "destination": "/prophet/david-the-medium",
+      "permanent": true
+    },
+    {
       "source": "/podcas",
       "destination": "/podcast",
       "permanent": true

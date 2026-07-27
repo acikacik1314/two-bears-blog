@@ -347,7 +347,7 @@ export const PROPHET_PROFILES: ProphetProfile[] = [
     ],
   },
   {
-    id: 'David the Medium',
+    id: 'david-the-medium',
     name: 'David the Medium',
     emoji: '🔮',
     color: '#5b21b6',

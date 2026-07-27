@@ -27,7 +27,7 @@ export interface ProphetStat {
 }
 
 // Minimum verified predictions to appear in the official ranked section
-export const QUALIFY_THRESHOLD = 20;
+export const QUALIFY_THRESHOLD = 15;
 
 // Wilson score lower bound (95% CI) — used as internal sort key for qualified prophets.
 // Favours prophets with genuine accuracy over small-sample flukes.

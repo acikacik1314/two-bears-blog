@@ -27,7 +27,19 @@ export interface ProphetStat {
 }
 
 // Minimum verified predictions to appear in the official ranked section
-export const QUALIFY_THRESHOLD = 5;
+export const QUALIFY_THRESHOLD = 20;
+
+// Wilson score lower bound (95% CI) — used as internal sort key for qualified prophets.
+// Favours prophets with genuine accuracy over small-sample flukes.
+function wilsonLower(hits: number, verified: number): number {
+  if (verified === 0) return 0;
+  const z = 1.96;
+  const p = hits / verified;
+  const n = verified;
+  const centre = p + z * z / (2 * n);
+  const margin = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n));
+  return (centre - margin) / (1 + z * z / n);
+}
 
 // ── internal helpers ──────────────────────────────────────────────────────────
 
@@ -148,11 +160,14 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
   }
 
   stats.sort((a, b) => {
+    // Qualified section first, unqualified section after (internal order unchanged)
     if (a.qualified !== b.qualified) return a.qualified ? -1 : 1;
-    if (a.accuracy !== null && b.accuracy !== null && a.accuracy !== b.accuracy)
-      return b.accuracy - a.accuracy;
-    if (a.accuracy !== null && b.accuracy === null) return -1;
-    if (a.accuracy === null && b.accuracy !== null) return 1;
+    if (a.qualified && b.qualified) {
+      // Within qualified: sort by Wilson lower bound (high-sample accuracy beats small-sample fluke)
+      const diff = wilsonLower(b.hitCount, b.verified) - wilsonLower(a.hitCount, a.verified);
+      if (diff !== 0) return diff;
+    }
+    // Within unqualified (or Wilson tie): sort by verified count then post count
     if (a.verified !== b.verified) return b.verified - a.verified;
     return b.postCount - a.postCount;
   });

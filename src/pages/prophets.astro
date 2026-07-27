@@ -54,7 +54,7 @@ html body { background: #0f172a; color: #e2e8f0; }
                 <div class="card-name">{p.name}</div>
                 <div class="card-origin">{p.origin}</div>
                 <div class={`card-acc${s.accuracy !== null && s.accuracy >= 80 ? ' great' : s.accuracy !== null && s.accuracy >= 60 ? ' good' : ''}`}>
-                  {s.accuracy !== null ? `${s.accuracy}%` : '—'}
+                  {s.accuracy !== null ? `${s.accuracy}%` : s.verified > 0 ? `${s.reasonedHitCount}/${s.verified} 已判定` : '—'}
                 </div>
                 <div class="card-stats">
                   <span class="cs-hit">✅ {s.hitCount}</span>

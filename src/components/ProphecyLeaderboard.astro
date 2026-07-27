@@ -113,8 +113,10 @@ const statsJson = JSON.stringify(stats.map(s => ({
                       <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
                         {s.accuracy}%
                       </span>
+                    ) : s.verified > 0 ? (
+                      <span class="acc-none">{s.reasonedHitCount}/{s.verified} 已判定</span>
                     ) : (
-                      <span class="acc-none">更新中</span>
+                      <span class="acc-none">—</span>
                     )}
                   </td>
                   <td class="lb-adj">

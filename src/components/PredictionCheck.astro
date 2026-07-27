@@ -13,10 +13,11 @@ const hitEntries     = hits.map(normalizeEntry);
 const missEntries    = misses.map(normalizeEntry);
 const pendingEntries = pending.map(normalizeEntry);
 
-const verified         = hitEntries.length + missEntries.length;
-const totalPredictions = verified + pendingEntries.length;
-const hitRate          = verified > 0 ? Math.round((hitEntries.length / verified) * 100) : null;
-const adjRate          = totalPredictions > 0 ? Math.round((verified / totalPredictions) * 100) : null;
+const reasonedHitEntries = hitEntries.filter(e => e.reason && e.reason.trim());
+const verified           = reasonedHitEntries.length + missEntries.length;
+const totalPredictions   = hitEntries.length + missEntries.length + pendingEntries.length;
+const hitRate            = verified > 0 ? Math.round((reasonedHitEntries.length / verified) * 100) : null;
+const adjRate            = totalPredictions > 0 ? Math.round((verified / totalPredictions) * 100) : null;
 const hasLate          = missEntries.some(e => e.verdict === 'late');
 
 const rateColor =
@@ -37,7 +38,7 @@ function missBadge(verdict?: string): string {
     <span class="pc-title">🔍 命中率檢驗</span>
     {hitRate !== null ? (
       <span class="pc-rate" style={`color:${rateColor}`}>
-        {hitRate}% 命中（{hitEntries.length}/{verified} 條已判定）
+        {hitRate}% 命中（{reasonedHitEntries.length}/{verified} 條已判定）
       </span>
     ) : pending.length > 0 ? (
       <span class="pc-rate" style="color:#888">尚無已判定預言</span>

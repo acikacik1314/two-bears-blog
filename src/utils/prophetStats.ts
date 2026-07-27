@@ -9,25 +9,30 @@ export interface ProphetStat {
   hits: string[];
   misses: string[];
   pending: string[];
-  hitCount: number;
+  hitCount: number;              // ALL labeled hits (including unreasoned)
   missCount: number;
   pendingCount: number;
-  accuracy: number | null;
-  verified: number;              // hits + misses
-  totalPredictions: number;      // hits + misses + pending
+  reasonedHitCount: number;      // hits with non-empty reason (counts for scoring)
+  accuracy: number | null;       // reasonedHitCount / verified; null if verified < MIN_SAMPLE_FOR_PCT
+  verified: number;              // reasonedHitCount + missCount (evidence-gated)
+  totalPredictions: number;      // hitCount + missCount + pendingCount
   adjudicationRate: number | null; // verified / totalPredictions × 100, null when 0
   qualified: boolean;            // verified >= QUALIFY_THRESHOLD
   postCount: number;
   postSlugs: string[];
-  // new fields — existing fields above are unchanged
   hitEntries: NormalizedEntry[];
   missEntries: NormalizedEntry[];
   lateCount: number;       // misses with verdict === 'late'
-  unreasonedCount: number; // hits + misses still as strings or without reason
+  unreasonedCount: number; // hits without reason (not yet evidence-gated)
 }
 
 // Minimum verified predictions to appear in the official ranked section
 export const QUALIFY_THRESHOLD = 15;
+
+// Minimum verified predictions required to show an accuracy percentage.
+// Below this threshold, show raw "X/Y" score instead of "Z%" to avoid
+// statistically meaningless single-digit sample claims.
+export const MIN_SAMPLE_FOR_PCT = 5;
 
 // Wilson score lower bound (95% CI) — used as internal sort key for qualified prophets.
 // Favours prophets with genuine accuracy over small-sample flukes.
@@ -172,13 +177,23 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
     const misses  = missEntries.map(e => e.claim);
     const pending = pendingEntries.map(e => e.claim);
 
-    const lateCount      = missEntries.filter(e => e.verdict === 'late').length;
-    const unreasonedCount = hitEntries.filter(e => !e.reason).length
-                          + missEntries.filter(e => !e.reason).length;
+    const lateCount       = missEntries.filter(e => e.verdict === 'late').length;
+    const unreasonedCount = hitEntries.filter(e => !e.reason).length;
 
-    const verified = hits.length + misses.length;
+    // Only hits with a non-empty reason count toward the accuracy score.
+    // Unreasoned hits are visible in the record but treated as pending evidence.
+    const reasonedHitCount = hitEntries.filter(e => e.reason && e.reason.trim()).length;
+
+    // verified = evidence-gated: only reasoned hits + all misses
+    // (misses are self-evident: "event didn't happen by deadline")
+    const verified        = reasonedHitCount + misses.length;
     const totalPredictions = hits.length + misses.length + pending.length;
-    const accuracy = verified > 0 ? Math.round((hits.length / verified) * 100) : null;
+
+    // Only show a percentage when the sample is large enough to be meaningful
+    const accuracy = verified >= MIN_SAMPLE_FOR_PCT
+      ? Math.round((reasonedHitCount / verified) * 100)
+      : null;
+
     const adjudicationRate = totalPredictions > 0
       ? Math.round((verified / totalPredictions) * 100)
       : null;
@@ -191,6 +206,7 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
       hitCount:         hits.length,
       missCount:        misses.length,
       pendingCount:     pending.length,
+      reasonedHitCount,
       accuracy,
       verified,
       totalPredictions,

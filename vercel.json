@@ -591,6 +591,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/yt-wori7gmsejk",
+      "destination": "/blog/2026-vlog-alati-divine-suites",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-wori7gmsejk/",
+      "destination": "/blog/2026-vlog-alati-divine-suites",
+      "permanent": true
+    },
+    {
       "source": "/blog/yt-wuLNrI4ko6M",
       "destination": "/blog/2026-osner-yega-classic",
       "permanent": true

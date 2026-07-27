@@ -351,6 +351,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/yt-oukpopwcw9e",
+      "destination": "/blog/2026-osner-elbean-kwg",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-oukpopwcw9e/",
+      "destination": "/blog/2026-osner-elbean-kwg",
+      "permanent": true
+    },
+    {
       "source": "/blog/yt-PKJ3O6_pPJc",
       "destination": "/blog/2026-chow-chow-bao-bao",
       "permanent": true
@@ -452,6 +462,16 @@
     },
     {
       "source": "/blog/yt-cnFZe10IZI0",
+      "destination": "/blog/2026-top-donki-taiwan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-cnfze10izi0",
+      "destination": "/blog/2026-top-donki-taiwan",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-cnfze10izi0/",
       "destination": "/blog/2026-top-donki-taiwan",
       "permanent": true
     },

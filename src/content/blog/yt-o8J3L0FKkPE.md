@@ -4,6 +4,7 @@ description: '清邁旅遊實況分享，帶你深入探索這座泰北城市的
 pubDate: '2026-05-23'
 tags: ['清邁', '旅遊']
 youtubeId: 'o8J3L0FKkPE'
+draft: true
 ---
 
 ## 影片逐字稿

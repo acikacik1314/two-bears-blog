@@ -4,6 +4,7 @@ description: '澎湖旅遊實況紀錄，帶你體驗離島的海鮮美食、特
 pubDate: '2026-05-23'
 tags: ['澎湖', '旅遊', '飯店', '美食']
 youtubeId: 'weX15D3qU28'
+draft: true
 ---
 
 ## 影片逐字稿

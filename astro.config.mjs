@@ -28,7 +28,7 @@ function validateProphets() {
           if (!text.startsWith('---') || fmEnd === -1) continue;
           const fm = text.slice(3, fmEnd);
 
-          const line = fm.match(/^prophet:\s*(.+)$/m);
+          const line = fm.match(/^prophet:[ \t]*(.+)$/m);
           if (!line) continue;
           const raw = line[1].trim();
 

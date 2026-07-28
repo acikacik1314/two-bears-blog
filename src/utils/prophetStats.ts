@@ -222,14 +222,10 @@ export async function getProphetStats(): Promise<ProphetStat[]> {
   }
 
   stats.sort((a, b) => {
-    // Qualified section first, unqualified section after (internal order unchanged)
-    if (a.qualified !== b.qualified) return a.qualified ? -1 : 1;
-    if (a.qualified && b.qualified) {
-      // Within qualified: sort by Wilson lower bound (high-sample accuracy beats small-sample fluke)
-      const diff = wilsonLower(b.hitCount, b.verified) - wilsonLower(a.hitCount, a.verified);
-      if (diff !== 0) return diff;
-    }
-    // Within unqualified (or Wilson tie): sort by verified count then post count
+    // Wilson lower bound only for prophets with enough sample; 0 otherwise
+    const wa = a.verified >= MIN_SAMPLE_FOR_PCT ? wilsonLower(a.reasonedHitCount, a.verified) : 0;
+    const wb = b.verified >= MIN_SAMPLE_FOR_PCT ? wilsonLower(b.reasonedHitCount, b.verified) : 0;
+    if (wb !== wa) return wb - wa;
     if (a.verified !== b.verified) return b.verified - a.verified;
     return b.postCount - a.postCount;
   });

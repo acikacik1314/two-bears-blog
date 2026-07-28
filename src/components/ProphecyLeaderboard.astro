@@ -1,5 +1,5 @@
 ---
-import { getProphetStats, QUALIFY_THRESHOLD } from '../utils/prophetStats';
+import { getProphetStats } from '../utils/prophetStats';
 
 const allStats = await getProphetStats();
 const stats = allStats.filter(s => s.postCount > 0);
@@ -44,92 +44,42 @@ const statsJson = JSON.stringify(stats.map(s => ({
           </tr>
         </thead>
         <tbody>
-          {(() => {
-            let rank = 0;
-            let shownDivider = false;
-            return stats.map((s, i) => {
-              const isQualified = s.qualified;
-              if (!isQualified && !shownDivider) {
-                shownDivider = true;
-                return [
-                  <tr class="lb-divider" key="divider">
-                    <td colspan="8" class="lb-divider-cell">樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD}）</td>
-                  </tr>,
-                  <tr
-                    class="lb-row lb-unqualified"
-                    data-idx={i}
-                    title={`點擊查看 ${s.id} 的詳細預言`}
-                    key={s.id}
-                  >
-                    <td class="lb-rank">—</td>
-                    <td class="lb-name"><a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a><span class="lb-detail-hint">詳情</span></td>
-                    <td>{s.postCount}</td>
-                    <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
-                    <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
-                    <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
-                    <td class="lb-acc"><span class="acc-none">樣本中</span></td>
-                    <td class="lb-adj">
-                      {s.adjudicationRate !== null ? (
-                        <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
-                      ) : '—'}
-                    </td>
-                  </tr>
-                ];
-              }
-              if (!isQualified) {
-                return (
-                  <tr class="lb-row lb-unqualified" data-idx={i} title={`點擊查看 ${s.id} 的詳細預言`}>
-                    <td class="lb-rank">—</td>
-                    <td class="lb-name"><a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a><span class="lb-detail-hint">詳情</span></td>
-                    <td>{s.postCount}</td>
-                    <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
-                    <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
-                    <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
-                    <td class="lb-acc"><span class="acc-none">樣本中</span></td>
-                    <td class="lb-adj">
-                      {s.adjudicationRate !== null ? (
-                        <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
-                      ) : '—'}
-                    </td>
-                  </tr>
-                );
-              }
-              rank++;
-              return (
-                <tr
-                  class={`lb-row${rank === 1 && s.accuracy !== null ? ' lb-top' : ''}`}
-                  data-idx={i}
-                  title={`點擊查看 ${s.id} 的詳細預言`}
-                >
-                  <td class="lb-rank">{rank}</td>
-                  <td class="lb-name">
-                    <a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a>
-                    <span class="lb-detail-hint">詳情</span>
-                  </td>
-                  <td>{s.postCount}</td>
-                  <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
-                  <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : '0'}</td>
-                  <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
-                  <td class="lb-acc">
-                    {s.accuracy !== null ? (
-                      <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
-                        {s.accuracy}%
-                      </span>
-                    ) : s.verified > 0 ? (
-                      <span class="acc-none">{s.reasonedHitCount}/{s.verified} 已判定</span>
-                    ) : (
-                      <span class="acc-none">—</span>
-                    )}
-                  </td>
-                  <td class="lb-adj">
-                    {s.adjudicationRate !== null ? (
-                      <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
-                    ) : '—'}
-                  </td>
-                </tr>
-              );
-            });
-          })()}
+          {stats.map((s, i) => {
+            const rank = i + 1;
+            return (
+              <tr
+                class={`lb-row${rank === 1 && s.accuracy !== null ? ' lb-top' : ''}`}
+                data-idx={i}
+                title={`點擊查看 ${s.id} 的詳細預言`}
+              >
+                <td class="lb-rank">{rank}</td>
+                <td class="lb-name">
+                  <a class="lb-name-link" href={`/prophet/${encodeURIComponent(s.id)}`}>{s.id}</a>
+                  <span class="lb-detail-hint">詳情</span>
+                </td>
+                <td>{s.postCount}</td>
+                <td class="lb-hit">{s.hitCount > 0 ? `✅ ${s.hitCount}` : '—'}</td>
+                <td class="lb-miss">{s.missCount > 0 ? `❌ ${s.missCount}` : s.verified > 0 ? '0' : '—'}</td>
+                <td class="lb-pend">{s.pendingCount > 0 ? `⏳ ${s.pendingCount}` : '—'}</td>
+                <td class="lb-acc">
+                  {s.accuracy !== null ? (
+                    <span class={s.accuracy >= 60 ? 'acc-good' : s.accuracy >= 40 ? 'acc-mid' : 'acc-low'}>
+                      {s.accuracy}%
+                    </span>
+                  ) : s.verified > 0 ? (
+                    <span class="acc-none">{s.reasonedHitCount}/{s.verified} 已判定</span>
+                  ) : (
+                    <span class="acc-none">—</span>
+                  )}
+                </td>
+                <td class="lb-adj">
+                  {s.adjudicationRate !== null ? (
+                    <><span class="adj-pct">{s.adjudicationRate}%</span><span class="adj-det">({s.verified}/{s.totalPredictions})</span></>
+                  ) : '—'}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

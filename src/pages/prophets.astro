@@ -2,12 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getProphetStats, QUALIFY_THRESHOLD } from '../utils/prophetStats';
+import { getProphetStats } from '../utils/prophetStats';
 import { getProfileOrFallback } from '../data/prophets';
 
 const allStats = await getProphetStats();
-const qualified = allStats.filter(s => s.qualified);
-const sampling  = allStats.filter(s => !s.qualified && s.postCount > 0);
+const withPosts = allStats.filter(s => s.postCount > 0);
 
 const title = '預言家命中率追蹤｜兩隻熊';
 const description = `追蹤 ${allStats.length} 位預言家的命中率，基於實際預言紀錄計算，持續更新。`;
@@ -34,78 +33,46 @@ html body { background: #0f172a; color: #e2e8f0; }
   <main class="pg-wrap">
     <div class="pg-head">
       <h1 class="pg-title">🔮 預言家命中率排行</h1>
-      <p class="pg-sub">依實際預言記錄計算，已驗證 ≥ {QUALIFY_THRESHOLD} 則才列入正式榜</p>
+      <p class="pg-sub">依實際預言記錄計算，命中須附查證依據才計入分數</p>
       <p class="pg-reverify">🔍 我們正在逐條填寫命中的查證依據，只有附上理由的才計入分數——整理進行中，數字還會繼續更新</p>
     </div>
 
-    <!-- Qualified wall -->
-    {qualified.length > 0 && (
-      <section>
-        <h2 class="section-label">✅ 正式榜（已驗證 ≥ {QUALIFY_THRESHOLD} 則）</h2>
-        <div class="card-grid">
-          {qualified.map((s, i) => {
-            const p = getProfileOrFallback(s.id);
-            const rank = i + 1;
-            return (
-              <a href={`/prophet/${encodeURIComponent(s.id)}`} class="prophet-card qualified">
-                <div class="card-rank">{rank}</div>
-                <div class="card-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%);border-color:${p.color}`}>
-                  <span class="card-emoji">{p.emoji}</span>
-                </div>
-                <div class="card-name">{p.name}</div>
-                <div class="card-origin">{p.origin}</div>
-                <div class={`card-acc${s.accuracy !== null && s.accuracy >= 80 ? ' great' : s.accuracy !== null && s.accuracy >= 60 ? ' good' : ''}`}>
-                  {s.accuracy !== null ? `${s.accuracy}%` : s.verified > 0 ? `${s.reasonedHitCount}/${s.verified} 已判定` : '—'}
-                </div>
-                <div class="card-stats">
-                  <span class="cs-hit">✅ {s.hitCount}</span>
-                  <span class="cs-miss">❌ {s.missCount}</span>
-                  <span class="cs-pend">⏳ {s.pendingCount}</span>
-                </div>
-                <div class="card-adj">
-                  判定率 {s.adjudicationRate !== null ? `${s.adjudicationRate}%` : '—'}
-                  <span class="card-adj-det">（{s.verified}/{s.totalPredictions}）</span>
-                </div>
-                <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
-              </a>
-            );
-          })}
-        </div>
-        <p class="pg-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。<a href="/methodology" class="pg-note-link">計分方法 →</a></p>
-      </section>
-    )}
-
-    <!-- Sampling wall -->
-    {sampling.length > 0 && (
-      <section class="sampling-section">
-        <h2 class="section-label muted">🌱 樣本累積中（已驗證 &lt; {QUALIFY_THRESHOLD} 則）</h2>
-        <div class="card-grid">
-          {sampling.map(s => {
-            const p = getProfileOrFallback(s.id);
-            return (
-              <a href={`/prophet/${encodeURIComponent(s.id)}`} class="prophet-card sampling">
-                <div class="card-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%);border-color:${p.color}`}>
-                  <span class="card-emoji">{p.emoji}</span>
-                </div>
-                <div class="card-name">{p.name}</div>
-                <div class="card-origin">{p.origin}</div>
-                <div class="card-acc muted-acc">樣本中</div>
-                <div class="card-stats">
-                  <span class="cs-hit">✅ {s.hitCount}</span>
-                  <span class="cs-miss">❌ {s.missCount}</span>
-                  <span class="cs-pend">⏳ {s.pendingCount}</span>
-                </div>
-                <div class="card-adj">
-                  判定率 {s.adjudicationRate !== null ? `${s.adjudicationRate}%` : '—'}
-                  <span class="card-adj-det">（{s.verified}/{s.totalPredictions}）</span>
-                </div>
-                <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-    )}
+    <div class="card-grid">
+      {withPosts.map((s, i) => {
+        const p = getProfileOrFallback(s.id);
+        const rank = i + 1;
+        const accClass = s.accuracy !== null && s.accuracy >= 80 ? ' great'
+                       : s.accuracy !== null && s.accuracy >= 60 ? ' good' : '';
+        return (
+          <a href={`/prophet/${encodeURIComponent(s.id)}`} class="prophet-card">
+            <div class="card-rank">{rank}</div>
+            <div class="card-avatar" style={`background:linear-gradient(135deg,${p.color} 0%,#0f172a 100%);border-color:${p.color}`}>
+              <span class="card-emoji">{p.emoji}</span>
+            </div>
+            <div class="card-name">{p.name}</div>
+            <div class="card-origin">{p.origin}</div>
+            {s.accuracy !== null ? (
+              <div class={`card-acc${accClass}`}>{s.accuracy}%</div>
+            ) : s.verified > 0 ? (
+              <div class="card-acc card-acc-raw">{s.reasonedHitCount}/{s.verified}<span class="card-acc-label"> 已判定</span></div>
+            ) : (
+              <div class="card-acc muted-acc">—</div>
+            )}
+            <div class="card-stats">
+              <span class="cs-hit">✅ {s.hitCount}</span>
+              <span class="cs-miss">❌ {s.missCount}</span>
+              <span class="cs-pend">⏳ {s.pendingCount}</span>
+            </div>
+            <div class="card-adj">
+              判定率 {s.adjudicationRate !== null ? `${s.adjudicationRate}%` : '—'}
+              <span class="card-adj-det">（{s.verified}/{s.totalPredictions}）</span>
+            </div>
+            <div class="card-meta">{s.postCount} 篇文章・{s.verified} 則已驗</div>
+          </a>
+        );
+      })}
+    </div>
+    <p class="pg-note">準確率只計算已判定的預言；判定率顯示我們判過多少比例，這兩個數字要一起看。<a href="/methodology" class="pg-note-link">計分方法 →</a></p>
   </main>
 
   <Footer />
@@ -130,10 +97,6 @@ html body { background: #0f172a; color: #e2e8f0; }
   color: #94a3b8;
   margin: 0 0 1em;
 }
-.section-label.muted { color: #475569; }
-
-.sampling-section { margin-top: 2.5em; }
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -159,9 +122,6 @@ html body { background: #0f172a; color: #e2e8f0; }
   background: rgba(168,85,247,.06);
   transform: translateY(-2px);
 }
-.prophet-card.sampling { opacity: .75; }
-.prophet-card.sampling:hover { opacity: 1; }
-
 .card-rank {
   position: absolute;
   top: .7em;
@@ -209,6 +169,8 @@ html body { background: #0f172a; color: #e2e8f0; }
 }
 .card-acc.great { color: #4ade80; }
 .card-acc.good  { color: #a3e635; }
+.card-acc-raw { font-size: 1.1em; color: #94a3b8; }
+.card-acc-label { font-size: .55em; color: #64748b; font-weight: 600; }
 .muted-acc { font-size: .8em; color: #475569; font-weight: 600; }
 
 .card-stats {

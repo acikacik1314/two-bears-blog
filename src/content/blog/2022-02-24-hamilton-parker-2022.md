@@ -11,7 +11,7 @@ predictions:
   hits:
   - claim: 伊麗莎白二世女王於2022年9月8日逝世，查爾斯加冕為王
     saidOn: '2021-12-16'
-    reason: 伊麗莎白二世確實於2022年9月8日在巴爾莫勒爾堡辭世，享年96歲；查爾斯三世即日繼位，2023年5月6日正式加冕
+    reason: 伊麗莎白二世確實於2022年9月8日在巴爾莫勒爾堡辭世，享年96歲；查爾斯三世即日繼位，2023年5月6日正式加冕。獨立媒體 higgypop.com 在女王過世前以「Psychic's Predictions For 2022 Include The Death Of The Queen」為題報導此預言，為本站目前外部佐證最完整的一條。附注：預言時女王已95歲，95歲女性年死亡率約25%，此類預測有一定先驗機率，非低機率事件
     source: https://www.higgypop.com/news/psychic-predictions-for-2022/
   - claim: 民主黨在2022年期中選舉損失眾議院多數席位
     saidOn: '2021-12-16'

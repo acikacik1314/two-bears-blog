@@ -503,7 +503,8 @@ ${content}
         const str = typeof p === 'string'
           ? p
           : (p?.prediction || p?.text || p?.content || p?.description || p?.summary || JSON.stringify(p))
-        return `    - '${String(str).replace(/'/g, "''")}'`
+        const claim = String(str).replace(/'/g, "''")
+        return `    - claim: '${claim}'\n      saidOn: '${dateStart}'`
       })
       .join('\n')
     predictionsBlock = `\npredictions:\n  pending:\n${items}`

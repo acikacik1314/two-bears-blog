@@ -3,8 +3,17 @@ import { glob } from 'astro/loaders';
 
 const emptyToUndefined = z.string().optional().transform(v => v === '' ? undefined : v);
 
-// Accepts either the old plain-string format or the new rich object format.
-// Only hits/misses use this; pending/excluded stay as strings for now.
+// Pending items: string (legacy) or lightweight object with claim + saidOn
+const PendingEntry = z.union([
+  z.string(),
+  z.object({
+    claim:  z.string(),
+    saidOn: z.string().optional(),
+    window: z.string().optional(),
+  }).strict(),
+]);
+
+// Hits/misses: same base, plus verdict/reason/source/judgedOn (reason mandatory)
 const PredictionEntry = z.union([
   z.string(),
   z.object({
@@ -83,14 +92,14 @@ const blog = defineCollection({
 				z.object({
 					hits:     z.array(PredictionEntry).optional(),
 					misses:   z.array(PredictionEntry).optional(),
-					pending:  z.array(z.string()).optional(),
+					pending:  z.array(PendingEntry).optional(),
 					excluded: z.array(z.string()).optional(),
 				}).strict(),
 				// Format B: per-prophet grouping (multi-prophet files)
 				z.record(z.string(), z.object({
 					hits:     z.array(PredictionEntry).optional(),
 					misses:   z.array(PredictionEntry).optional(),
-					pending:  z.array(z.string()).optional(),
+					pending:  z.array(PendingEntry).optional(),
 					excluded: z.array(z.string()).optional(),
 				}).strict()),
 			]).optional(),

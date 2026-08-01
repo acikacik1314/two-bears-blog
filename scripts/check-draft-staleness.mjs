@@ -20,7 +20,7 @@ const __dirname    = dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT = join(__dirname, '..')
 const BLOG_DIR     = join(PROJECT_ROOT, 'src/content/blog')
 const DRAFTS_DIR   = join(PROJECT_ROOT, 'drafts')
-const THRESHOLD_DAYS = 3   // 超過 N 天沒發布就告警
+const THRESHOLD_DAYS = 2   // 超過 48h 沒發布就告警
 
 // ── 讀取 .env.local（靜默，不輸出任何 key 值）────────────────────────────────
 function getResendKey() {

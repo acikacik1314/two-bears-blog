@@ -71,7 +71,9 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				? typeof heroImage === 'string'
 					? { imageUrl: heroImage.startsWith('http') ? heroImage : new URL(heroImage, Astro.site).href }
 					: { image: heroImage }
-				: {})}
+				: prophetConfig?.image
+					? { imageUrl: prophetConfig.image.startsWith('http') ? prophetConfig.image : new URL(prophetConfig.image, Astro.site).href }
+					: {})}
 		/>
 		<style>
 			/* Reading progress bar */

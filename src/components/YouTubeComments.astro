@@ -6,9 +6,14 @@ interface Props {
 }
 
 const { slug } = Astro.props;
-const entry = (ytComments as Record<string, { postId: string; comments: Array<{author: string; text: string; date: string}> }>)[slug];
+const decodedSlug = decodeURIComponent(slug);
+const ytMap = ytComments as Record<string, { postId: string; comments: Array<{author: string; text: string; date: string}> }>;
+const entry = ytMap[decodedSlug] ?? ytMap[slug];
 const comments = entry?.comments ?? [];
 const postUrl = entry?.postId ? `https://www.youtube.com/post/${entry.postId}` : null;
+if (import.meta.env.DEV && !entry && /預言|prophet|ep-/.test(decodedSlug)) {
+  console.warn('[YouTubeComments] slug 無對應 key:', decodedSlug);
+}
 ---
 
 {comments.length > 0 && (

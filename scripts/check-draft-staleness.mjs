@@ -2,27 +2,30 @@
 /**
  * check-draft-staleness.mjs
  *
- * 每次執行時檢查 draft-tracking.json 的最後修改時間。
- * 若超過 THRESHOLD_HOURS 小時未更新，透過 Resend 寄告警信。
+ * 檢查「最新已發布文章的 pubDate」與「drafts/ 積壓數量」。
+ * 若最近發布文章超過 THRESHOLD_DAYS 天前，透過 Resend 寄告警信。
  *
- * 設計給 crontab 呼叫（絕對路徑，不依賴 PATH 或 n8n）：
+ * 原本是看 draft-tracking.json 的 mtime，但那個檔案只要 draft 有產就會動，
+ * 即使 publish 停了也不會觸發告警——改成直接看「最新上線日期」才抓得到真正的問題。
+ *
+ * crontab 建議：
  *   0 10 * * * /usr/local/bin/node /path/to/scripts/check-draft-staleness.mjs >> /tmp/two-bears-stale.log 2>&1
  */
 
-import { statSync, readFileSync } from 'fs'
+import { readdirSync, readFileSync, existsSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
-const __dirname  = dirname(fileURLToPath(import.meta.url))
+const __dirname    = dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT = join(__dirname, '..')
-const TRACKING   = join(__dirname, 'draft-tracking.json')
-const THRESHOLD_HOURS = 48
+const BLOG_DIR     = join(PROJECT_ROOT, 'src/content/blog')
+const DRAFTS_DIR   = join(PROJECT_ROOT, 'drafts')
+const THRESHOLD_DAYS = 3   // 超過 N 天沒發布就告警
 
 // ── 讀取 .env.local（靜默，不輸出任何 key 值）────────────────────────────────
 function getResendKey() {
   try {
-    const envPath = join(PROJECT_ROOT, '.env.local')
-    const lines = readFileSync(envPath, 'utf-8').split('\n')
+    const lines = readFileSync(join(PROJECT_ROOT, '.env.local'), 'utf-8').split('\n')
     for (const line of lines) {
       const m = line.match(/^RESEND_API_KEY=(.+)$/)
       if (m) return m[1].trim()
@@ -31,29 +34,47 @@ function getResendKey() {
   return process.env.RESEND_API_KEY ?? null
 }
 
-// ── 主邏輯 ────────────────────────────────────────────────────────────────────
-const now = Date.now()
-const today = new Date().toISOString().slice(0, 10)
+// ── 找最新已發布文章的 pubDate ────────────────────────────────────────────────
+function latestPublishedDate() {
+  const files = readdirSync(BLOG_DIR).filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+  let latest = null
+  for (const file of files) {
+    const content = readFileSync(join(BLOG_DIR, file), 'utf-8')
+    const m = content.match(/^pubDate:\s*['"]?(\d{4}-\d{2}-\d{2})['"]?/m)
+    if (!m) continue
+    const d = new Date(m[1])
+    if (!latest || d > latest) latest = d
+  }
+  return latest
+}
 
-let stat
-try {
-  stat = statSync(TRACKING)
-} catch {
-  console.error(`[${today}] ERROR: 找不到 ${TRACKING}`)
+// ── 積壓草稿數量 ──────────────────────────────────────────────────────────────
+function pendingDraftCount() {
+  if (!existsSync(DRAFTS_DIR)) return 0
+  return readdirSync(DRAFTS_DIR).filter(f => f.endsWith('.md')).length
+}
+
+// ── 主邏輯 ────────────────────────────────────────────────────────────────────
+const today = new Date().toISOString().slice(0, 10)
+const nowMs  = Date.now()
+
+const latestPub = latestPublishedDate()
+if (!latestPub) {
+  console.error(`[${today}] ERROR: 找不到任何已發布文章`)
   process.exit(1)
 }
 
-const ageMs    = now - stat.mtimeMs
-const ageHours = Math.floor(ageMs / 3_600_000)
-const lastUpdated = new Date(stat.mtimeMs).toISOString().replace('T', ' ').slice(0, 16)
+const latestPubStr = latestPub.toISOString().slice(0, 10)
+const daysSince = Math.floor((nowMs - latestPub.getTime()) / 86_400_000)
+const pendingCount = pendingDraftCount()
 
-if (ageMs <= THRESHOLD_HOURS * 3_600_000) {
-  console.log(`[${today}] OK: draft-tracking.json 已在 ${ageHours} 小時前更新（${lastUpdated}）`)
+if (daysSince <= THRESHOLD_DAYS) {
+  console.log(`[${today}] OK: 最近發布 ${latestPubStr}（${daysSince} 天前），積壓草稿 ${pendingCount} 篇`)
   process.exit(0)
 }
 
 // 超過門檻 → 寄告警信
-console.warn(`[${today}] STALE: draft-tracking.json 已 ${ageHours} 小時未更新（最後：${lastUpdated}）`)
+console.warn(`[${today}] STALE: 最近發布 ${latestPubStr}（${daysSince} 天前），積壓草稿 ${pendingCount} 篇`)
 
 const resendKey = getResendKey()
 if (!resendKey) {
@@ -71,24 +92,22 @@ try {
     body: JSON.stringify({
       from:    'onboarding@resend.dev',
       to:      'acikacik@gmail.com',
-      subject: `⚠️ 兩隻熊：draft 管線停擺 ${ageHours} 小時`,
+      subject: `⚠️ 兩隻熊：已 ${daysSince} 天沒發布文章（積壓 ${pendingCount} 篇）`,
       text: [
-        `draft-tracking.json 已超過 ${ageHours} 小時未更新。`,
+        `最近一篇已發布文章日期：${latestPubStr}（${daysSince} 天前）`,
+        `drafts/ 積壓草稿：${pendingCount} 篇`,
         ``,
-        `最後更新：${lastUpdated}`,
-        `檢查時間：${new Date().toISOString().replace('T', ' ').slice(0, 16)}`,
+        `publish cron（09:30）可能停擺，請確認：`,
+        `  /usr/local/bin/node scripts/publish-drafts.mjs`,
+        `  日誌：/tmp/two-bears-publish.log`,
         ``,
-        `請檢查 npm run draft 是否正常執行：`,
-        `  cd ${PROJECT_ROOT}`,
-        `  /usr/local/bin/node scripts/draft-posts.mjs`,
-        ``,
-        `日誌位置：/tmp/two-bears-draft.log`,
+        `draft cron（09:00）日誌：/tmp/two-bears-draft.log`,
       ].join('\n'),
     }),
   })
 
   if (res.ok) {
-    console.log(`[${today}] 告警信已送出（ageHours=${ageHours}）`)
+    console.log(`[${today}] 告警信已送出（${daysSince} 天未發布）`)
   } else {
     const body = await res.text()
     console.error(`[${today}] Resend 錯誤 HTTP ${res.status}：${body.slice(0, 200)}`)

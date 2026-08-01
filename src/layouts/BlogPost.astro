@@ -17,6 +17,7 @@ import { getProphetConfig } from '../utils/prophets';
 import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator.astro';
 import RelatedTools from '../components/RelatedTools.astro';
 import AdSlot from '../components/AdSlot.astro';
+import YouTubeComments from '../components/YouTubeComments.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
@@ -25,6 +26,7 @@ const prophetConfig = prophet ? getProphetConfig(prophet) : null;
 const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
+const articleSlug = Astro.url.pathname.replace(/^\/blog\//, '').replace(/\/$/, '');
 
 // Related posts: shared tags only (same prophet/topic), exclude current page
 const currentSlug = Astro.url.pathname;
@@ -568,6 +570,7 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 							</a>
 						</div>
 					)}
+					<YouTubeComments slug={articleSlug} />
 					<AffiliateLinks />
 
 					<p class="kofi-whisper">

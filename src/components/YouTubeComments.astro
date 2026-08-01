@@ -1,0 +1,112 @@
+---
+import ytComments from '../data/yt-comments.json';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const comments = (ytComments as Record<string, Array<{author: string; text: string; date: string}>>)[slug] ?? [];
+---
+
+{comments.length > 0 && (
+  <section class="yt-comments">
+    <div class="yt-comments-header">
+      <svg class="yt-icon" viewBox="0 0 24 24" fill="#FF0000" width="20" height="20" aria-hidden="true">
+        <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+      </svg>
+      <span>YouTube 社群留言 <span class="yt-count">（{comments.length} 則）</span></span>
+    </div>
+    <ul class="yt-list">
+      {comments.map(c => (
+        <li class="yt-comment">
+          <div class="yt-avatar" aria-hidden="true">
+            {(c.author || '@')[1]?.toUpperCase() ?? '?'}
+          </div>
+          <div class="yt-body">
+            <div class="yt-meta">
+              <span class="yt-author">{c.author}</span>
+              {c.date && <span class="yt-date">{c.date}</span>}
+            </div>
+            <p class="yt-text">{c.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .yt-comments {
+    margin: 2em 0 1.5em;
+    border-top: 1px solid rgb(var(--gray-light));
+    padding-top: 1.5em;
+  }
+  .yt-comments-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: rgb(var(--gray-dark));
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .yt-count {
+    font-weight: 400;
+    text-transform: none;
+    color: rgb(var(--gray));
+    letter-spacing: 0;
+  }
+  .yt-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .yt-comment {
+    display: flex;
+    gap: 0.8em;
+    align-items: flex-start;
+  }
+  .yt-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(var(--gray-light));
+    color: rgb(var(--gray));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85em;
+    flex-shrink: 0;
+  }
+  .yt-body { flex: 1; min-width: 0; }
+  .yt-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+    margin-bottom: 0.3em;
+    flex-wrap: wrap;
+  }
+  .yt-author {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: rgb(var(--gray-dark));
+  }
+  .yt-date {
+    font-size: 0.75em;
+    color: rgb(var(--gray));
+  }
+  .yt-text {
+    font-size: 0.88em;
+    color: rgb(var(--gray-dark));
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+  }
+</style>

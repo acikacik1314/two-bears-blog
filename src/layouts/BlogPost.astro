@@ -46,6 +46,10 @@ function getThumb(post: CollectionEntry<'blog'>): string | null {
 		const h = post.data.heroImage as any;
 		return typeof h === 'string' ? h : h?.src ?? null;
 	}
+	if (post.data.prophet) {
+		const prophetKey = Array.isArray(post.data.prophet) ? post.data.prophet[0] : post.data.prophet;
+		return getProphetConfig(prophetKey).image;
+	}
 	return null;
 }
 // Derive category for display (re-derive since we only have data fields here)
@@ -245,6 +249,22 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+			}
+			.hero-prophet-fallback {
+				height: 260px;
+				overflow: hidden;
+				border-radius: 0;
+			}
+			.hero-prophet-img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center top;
+				opacity: 0.88;
+				display: block;
+				border-radius: 0;
+				box-shadow: none;
+				margin: 0;
 			}
 			.prose {
 				width: 720px;
@@ -488,15 +508,18 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 		<Header />
 		<main>
 			<article>
-				{!prophet && (
-					<div class="hero-image">
-						{heroImage && (
-							typeof heroImage === 'string'
-								? <img src={heroImage} alt="" width={1020} height={510} style="width:100%;height:auto;border-radius:12px;" />
-								: <Image width={1020} height={510} src={heroImage} alt="" />
-						)}
+				{prophetConfig && !heroImage ? (
+					<div class="hero-image hero-prophet-fallback" style={`background:${prophetConfig.color}18`}>
+						<img src={prophetConfig.image} alt={prophetConfig.label} class="hero-prophet-img" />
 					</div>
-				)}
+				) : !prophet && heroImage ? (
+					<div class="hero-image">
+						{typeof heroImage === 'string'
+							? <img src={heroImage} alt="" width={1020} height={510} style="width:100%;height:auto;border-radius:12px;" />
+							: <Image width={1020} height={510} src={heroImage} alt="" />
+						}
+					</div>
+				) : null}
 				<div class="prose">
 					<div class="title">
 						<div class="date">

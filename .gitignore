@@ -34,3 +34,10 @@ pnpm-debug.log*
 
 # social post drafts
 output/
+
+# YouTube 社群抓取（含個資的原始資料，不進 repo）
+community-posts-*.csv
+scripts/scrape-community-posts.py
+scripts/scrape-community-posts.mjs
+scripts/__pycache__/
+reports/

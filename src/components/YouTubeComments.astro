@@ -6,22 +6,31 @@ interface Props {
 }
 
 const { slug } = Astro.props;
-const comments = (ytComments as Record<string, Array<{author: string; text: string; date: string}>>)[slug] ?? [];
+const entry = (ytComments as Record<string, { postId: string; comments: Array<{author: string; text: string; date: string}> }>)[slug];
+const comments = entry?.comments ?? [];
+const postUrl = entry?.postId ? `https://www.youtube.com/post/${entry.postId}` : null;
 ---
 
 {comments.length > 0 && (
   <section class="yt-comments">
     <div class="yt-comments-header">
-      <svg class="yt-icon" viewBox="0 0 24 24" fill="#FF0000" width="20" height="20" aria-hidden="true">
+      <svg class="yt-icon" viewBox="0 0 24 24" fill="#FF0000" width="18" height="18" aria-hidden="true">
         <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
       </svg>
-      <span>YouTube 社群留言 <span class="yt-count">（{comments.length} 則）</span></span>
+      <span>YouTube 社群留言<span class="yt-count">（{comments.length} 則）</span></span>
+      {postUrl && (
+        <a href={postUrl} target="_blank" rel="noopener" class="yt-source-link">原貼文 ↗</a>
+      )}
     </div>
+    <p class="yt-attribution">
+      以下留言來自本頻道 <a href="https://www.youtube.com/@twobears/community" target="_blank" rel="noopener">YouTube 社群貼文</a>，由頻道整理呈現。
+      若希望移除您的留言，請來信 <a href="mailto:acikacik@gmail.com">acikacik@gmail.com</a>。
+    </p>
     <ul class="yt-list">
       {comments.map(c => (
         <li class="yt-comment">
           <div class="yt-avatar" aria-hidden="true">
-            {(c.author || '@')[1]?.toUpperCase() ?? '?'}
+            {(c.author?.replace(/^@/, '') || '?')[0]?.toUpperCase() ?? '?'}
           </div>
           <div class="yt-body">
             <div class="yt-meta">
@@ -49,7 +58,7 @@ const comments = (ytComments as Record<string, Array<{author: string; text: stri
     font-size: 0.9em;
     font-weight: 700;
     color: rgb(var(--gray-dark));
-    margin-bottom: 1.2em;
+    margin-bottom: 0.5em;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
@@ -59,6 +68,24 @@ const comments = (ytComments as Record<string, Array<{author: string; text: stri
     color: rgb(var(--gray));
     letter-spacing: 0;
   }
+  .yt-source-link {
+    margin-left: auto;
+    font-size: 0.78em;
+    font-weight: 600;
+    color: #FF0000;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.8;
+  }
+  .yt-source-link:hover { opacity: 1; text-decoration: underline; }
+  .yt-attribution {
+    font-size: 0.74em;
+    color: rgb(var(--gray));
+    margin: 0 0 1em;
+    line-height: 1.5;
+  }
+  .yt-attribution a { color: inherit; text-decoration: underline; }
   .yt-list {
     list-style: none;
     margin: 0;

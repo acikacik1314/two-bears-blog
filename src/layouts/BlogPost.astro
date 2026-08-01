@@ -14,6 +14,7 @@ import AffiliateLinks from '../components/AffiliateLinks.astro';
 import PredictionCheck from '../components/PredictionCheck.astro';
 import CommentSection from '../components/CommentSection.astro';
 import { getProphetConfig } from '../utils/prophets';
+import { getPostThumbnail } from '../utils/thumbnail';
 import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator.astro';
 import RelatedTools from '../components/RelatedTools.astro';
 import AdSlot from '../components/AdSlot.astro';
@@ -40,18 +41,7 @@ const related = allPosts
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 4);
 
-function getThumb(post: CollectionEntry<'blog'>): string | null {
-	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/mqdefault.jpg`;
-	if (post.data.heroImage) {
-		const h = post.data.heroImage as any;
-		return typeof h === 'string' ? h : h?.src ?? null;
-	}
-	if (post.data.prophet) {
-		const prophetKey = Array.isArray(post.data.prophet) ? post.data.prophet[0] : post.data.prophet;
-		return getProphetConfig(prophetKey).image;
-	}
-	return null;
-}
+const getThumb = (post: CollectionEntry<'blog'>) => getPostThumbnail(post);
 // Derive category for display (re-derive since we only have data fields here)
 const derivedCategory = category ?? (() => {
 	if (rumbleId || youtubeId) return '影片';

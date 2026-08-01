@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getPostCategory, CATEGORY_COLORS } from '../utils/category';
-import { getProphetConfig } from '../utils/prophets';
+import { getPostThumbnail } from '../utils/thumbnail';
 import TodayPanel from '../components/TodayPanel.astro';
 import DailyProphecy from '../components/DailyProphecy.astro';
 import GlobalCountdown from '../components/GlobalCountdown.astro';
@@ -43,19 +43,7 @@ const posts = allPosts.sort((a, b) => {
 	return d !== 0 ? d : score(b) - score(a);
 });
 
-function getThumbnail(post: CollectionEntry<'blog'>): string | null {
-	if (post.data.youtubeId) return `https://img.youtube.com/vi/${post.data.youtubeId}/hqdefault.jpg`;
-	if (post.data.prophet) {
-		const key = Array.isArray(post.data.prophet) ? post.data.prophet[0] : post.data.prophet;
-		const img = getProphetConfig(key as string).image;
-		if (img) return img;
-	}
-	if (post.data.heroImage) {
-		const h = post.data.heroImage as any;
-		return typeof h === 'string' ? h : h?.src ?? null;
-	}
-	return null;
-}
+const getThumbnail = (post: CollectionEntry<'blog'>) => getPostThumbnail(post);
 const CATEGORY_GRADIENTS: Record<string, string> = {
 	'預言': 'linear-gradient(135deg,#1a1a2e,#c0392b)',
 	'影片': 'linear-gradient(135deg,#0f3460,#16213e)',

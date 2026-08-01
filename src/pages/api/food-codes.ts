@@ -9,27 +9,21 @@ import { put, list } from '@vercel/blob';
 // ══════════════════════════════════════════════════════════════════
 const MANUAL_CODES: CodeEntry[] = [
   // ── Uber Eats 全台（分眾）─────────────────────────────────────
-  { platform: 'ubereats', code: '七月吃大餐', desc: '「Uber One會員」消費滿649元現折100元，每人可用2次', expires: '2026-07-31', general: true  },
-  { platform: 'ubereats', code: '七月吃點心', desc: '「年訂閱制Uber One會員」消費滿399元現折50元，每人可用2次', expires: '2026-07-31', general: true  },
+  { platform: 'ubereats', code: '月底幫省',    desc: '消費滿 $199 現折 $60，每人可用 2 次', expires: '2026-08-02', general: true  },
+  { platform: 'ubereats', code: '贏球美食省200', desc: '消費滿 $699 享 8 折，最高折抵 $200，可用 1 次', expires: '2026-08-05', general: true  },
   // ── Uber Eats 地區限定 ─────────────────────────────────────────
-  { platform: 'ubereats', code: '七點七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（基隆市）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七點五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（苗栗縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七吃五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（南投縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七好五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（彰化縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七喜五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（雲林縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七飽五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（嘉義縣、嘉義市）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七要五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（台南市）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七狂五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（屏東縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七省五折',  desc: '消費滿149元享2次5折，最高折抵NT$100（宜蘭縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七好七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（花蓮縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七吃七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（台東縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七飽七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（澎湖縣）', expires: '2026-07-15', general: false },
-  { platform: 'ubereats', code: '七省七折',  desc: '消費滿149元享2次7折，最高折抵NT$100（金門縣）', expires: '2026-07-15', general: false },
+  { platform: 'ubereats', code: '瑪奇Mobile', desc: '消費滿 $249 現折 $50（限部分縣市）', expires: '2026-08-31', general: false },
+  { platform: 'ubereats', code: '八點七折',  desc: '消費滿 $149 享 2 次 7 折，最高折抵 $50（基隆市）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八點五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（苗栗縣）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八好五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（彰化縣）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八吃五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（南投縣）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八喜五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（雲林縣）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八飽五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（嘉義縣、嘉義市）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八要五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（台南市）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八狂五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（屏東縣）', expires: '2026-08-15', general: false },
+  { platform: 'ubereats', code: '八省五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（宜蘭縣）', expires: '2026-08-15', general: false },
   // ── Foodpanda ─────────────────────────────────────────────────
-  { platform: 'foodpanda', code: '胖胖達星隊友', desc: '星巴克消費滿320元現折80元（指定店家）', expires: '2026-07-19', general: false },
-  { platform: 'foodpanda', code: '週二星享日',   desc: '星巴克每週二【限時優惠專區】消費滿279元現折70元（指定店家）', expires: '2026-12-31', general: false },
-  { platform: 'foodpanda', code: '爽爽送',       desc: '精選餐廳消費滿260/320/400元現折70/80/100元（指定店家）', expires: '2026-07-19', general: false },
-  { platform: 'foodpanda', code: '十足美味',     desc: '精選餐廳「pandapro」會員享2次85折，最高折抵NT$45（指定店家）', expires: '2026-07-19', general: true  },
+  { platform: 'foodpanda', code: '週二星享日', desc: '星巴克每週二【限時優惠專區】消費滿 $279 現折 $70（指定店家）', expires: '2026-12-31', general: false },
 ];
 // ══════════════════════════════════════════════════════════════════
 
@@ -85,6 +79,13 @@ async function tavilySearch(apiKey: string, query: string): Promise<string> {
   } catch { return ''; }
 }
 
+// Known brand names that sometimes appear near promo-code keywords but are not actual codes
+const BRAND_BLOCKLIST = new Set([
+  'IHERB', 'FOODPANDA', 'EXPEDIA', 'KLOOK', 'KKDAY', 'ASIAYO',
+  'AGODA', 'BOOKING', 'AIRBNB', 'SHOPEE', 'MOMO', 'RAKUTEN',
+  'PCHOME', 'CARREFOUR', 'UBEREATS', 'GRABFOOD',
+]);
+
 function findAutoCode(text: string): CodeEntry[] {
   const found: CodeEntry[] = [];
   const seen = new Set<string>();
@@ -102,6 +103,7 @@ function findAutoCode(text: string): CodeEntry[] {
     const c = m[1].trim();
     if (/^(http|www|com)/i.test(c)) continue;
     const cu = c.toUpperCase();
+    if (BRAND_BLOCKLIST.has(cu)) continue;
     if (!seen.has(cu) && !manualCodes.has(c.toLowerCase())) {
       seen.add(cu);
       const isPanda = /panda|fp/i.test(text.slice(Math.max(0, m.index! - 100), m.index!));
@@ -122,10 +124,12 @@ function findAutoCode(text: string): CodeEntry[] {
 
 export async function scrapeAllCodes(): Promise<FoodCodesResult> {
   const apiKey = import.meta.env.TAVILY_API_KEY ?? '';
+  const now = new Date();
+  const monthLabel = `${now.getFullYear()} ${now.getMonth() + 1}月`;
   const [callingText, uberText, pandaText] = await Promise.all([
     scrapeCallingTW(),
-    apiKey ? tavilySearch(apiKey, 'UberEats 台灣 優惠代碼 2026 七月') : Promise.resolve(''),
-    apiKey ? tavilySearch(apiKey, 'foodpanda 台灣 優惠代碼 2026 七月') : Promise.resolve(''),
+    apiKey ? tavilySearch(apiKey, `UberEats 台灣 優惠代碼 ${monthLabel}`) : Promise.resolve(''),
+    apiKey ? tavilySearch(apiKey, `foodpanda 台灣 優惠代碼 ${monthLabel}`) : Promise.resolve(''),
   ]);
 
   const autoCodes = findAutoCode(callingText + '\n' + uberText + '\n' + pandaText);

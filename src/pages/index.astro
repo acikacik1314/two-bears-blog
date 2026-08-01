@@ -257,8 +257,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 					class="food-btn food-btn-uber"
 				>
 					<div class="food-btn-text">
-						<div class="food-btn-name">首單滿 $150 享 6 折</div>
-						<div class="food-btn-deal">代碼 <code>eats-uxoiot</code> · 含免運 + Uber One 試用</div>
+						<div class="food-btn-name">新戶首 2 單 5 折，每單最高折 $75</div>
+						<div class="food-btn-deal">代碼 <code>afftweats826</code> · 滿 $150 可用 · 至 8/31</div>
 					</div>
 					<span class="food-btn-arrow">立即領取 →</span>
 				</a>
@@ -364,10 +364,13 @@ const CATEGORY_ICONS: Record<string, string> = {
       const data = await res.json();
       const allCodes: CodeEntry[] = (data as any).codes ?? [];
 
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const activeCodes = allCodes.filter(c => !c.expires || c.expires >= todayStr);
+
       codeColorIdx = 0;
-      renderPlatform(pandaEl, allCodes.filter(c => c.platform === 'foodpanda'), '#d70f64', 'https://www.facebook.com/foodpanda.taiwan', 'region-panda');
+      renderPlatform(pandaEl, activeCodes.filter(c => c.platform === 'foodpanda'), '#d70f64', 'https://www.facebook.com/foodpanda.taiwan', 'region-panda');
       codeColorIdx = 4;
-      renderPlatform(uberEl,  allCodes.filter(c => c.platform === 'ubereats'),  '#00b140', 'https://www.facebook.com/UberEatsTaiwan',    'region-uber');
+      renderPlatform(uberEl,  activeCodes.filter(c => c.platform === 'ubereats'),  '#00b140', 'https://www.facebook.com/UberEatsTaiwan',    'region-uber');
 
       if (note && (data as any).fetched) {
         const d = new Date((data as any).fetched);

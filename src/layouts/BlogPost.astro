@@ -20,9 +20,9 @@ import RelatedTools from '../components/RelatedTools.astro';
 import AdSlot from '../components/AdSlot.astro';
 import YouTubeComments from '../components/YouTubeComments.astro';
 
-type Props = CollectionEntry<'blog'>['data'] & { id?: string };
+type Props = CollectionEntry<'blog'>['data'] & { id?: string; transcriptSlug?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions, prophet } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, category, youtubePost, rumbleId, rumblePage, youtubeId, predictions, prophet, transcriptSlug } = Astro.props;
 const prophetConfig = prophet ? getProphetConfig(prophet) : null;
 const pageUrl = Astro.url.href;
 const encodedUrl = encodeURIComponent(pageUrl);
@@ -335,6 +335,25 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				font-size: 0.8em;
 				text-decoration: none;
 			}
+			.transcript-link-box {
+				margin: 1.5em 0;
+				padding: 0.9em 1.2em;
+				background: #1e293b;
+				border: 1px solid #334155;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.transcript-link-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				color: #94a3b8;
+				text-decoration: none;
+				font-size: 0.85em;
+				font-weight: 600;
+				transition: color 0.15s;
+			}
+			.transcript-link-btn:hover { color: #e2e8f0; }
 			.youtube-link {
 				display: block;
 				text-align: center;
@@ -571,6 +590,13 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					)}
 					{youtubeId && <YouTubeEmbed videoId={youtubeId} title={title} />}
 					<slot />
+					{transcriptSlug && (
+						<div class="transcript-link-box">
+							<a href={`/transcript/${transcriptSlug}`} class="transcript-link-btn" target="_blank" rel="noopener">
+								📄 查看原始逐字稿 →
+							</a>
+						</div>
+					)}
 					{predictions && (
 						<PredictionCheck
 							hits={predictions.hits}

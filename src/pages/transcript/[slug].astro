@@ -1,0 +1,90 @@
+---
+import type { GetStaticPathsResult } from 'astro';
+import { getCollection } from 'astro:content';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const posts = (await getCollection('blog')).filter(
+    p => !p.data.draft && p.body && p.body.includes('\n## 逐字稿')
+  );
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const transcriptText = post.body!.split('\n## 逐字稿').slice(1).join('\n## 逐字稿').trim();
+const articleUrl = `/blog/${post.id}`;
+---
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>逐字稿：{post.data.title} | {SITE_TITLE}</title>
+    <style>
+      main {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 2em 1em;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.85em;
+        margin-bottom: 1.5em;
+      }
+      .back-link:hover { color: #e2e8f0; }
+      .transcript-header {
+        border-bottom: 1px solid #334155;
+        padding-bottom: 1em;
+        margin-bottom: 1.5em;
+      }
+      .transcript-label {
+        font-size: 0.75em;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 0 0 0.4em;
+      }
+      h1 {
+        font-size: 1.15em;
+        color: #e2e8f0;
+        margin: 0 0 0.4em;
+        line-height: 1.4;
+      }
+      .transcript-date { color: #64748b; font-size: 0.8em; margin: 0; }
+      .transcript-body {
+        color: #cbd5e1;
+        font-size: 0.88em;
+        line-height: 2;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <a href={articleUrl} class="back-link">← 返回文章</a>
+      <div class="transcript-header">
+        <p class="transcript-label">原始逐字稿（未經整理）</p>
+        <h1>{post.data.title}</h1>
+        <p class="transcript-date"><FormattedDate date={post.data.pubDate} /></p>
+      </div>
+      <div class="transcript-body">{transcriptText}</div>
+    </main>
+    <Footer />
+  </body>
+</html>

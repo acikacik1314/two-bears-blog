@@ -1,6 +1,13 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
 import BlogPost from '../../layouts/BlogPost.astro';
+
+const TRANSCRIPT_MARKER = '\n## 逐字稿';
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).filter(p => !p.data.draft);
@@ -12,9 +19,27 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const { Content } = await render(post);
+
+const hasTranscript = post.body?.includes(TRANSCRIPT_MARKER) ?? false;
+
+let summaryHtml = '';
+if (hasTranscript) {
+	const summaryMd = post.body!.split(TRANSCRIPT_MARKER)[0];
+	const result = await unified()
+		.use(remarkParse)
+		.use(remarkGfm)
+		.use(remarkRehype)
+		.use(rehypeStringify)
+		.process(summaryMd);
+	summaryHtml = String(result);
+}
+
+const { Content } = hasTranscript ? { Content: null } : await render(post);
 ---
 
-<BlogPost {...post.data}>
-	<Content />
+<BlogPost {...post.data} transcriptSlug={hasTranscript ? post.id : undefined}>
+	{hasTranscript
+		? <Fragment set:html={summaryHtml} />
+		: Content && <Content />
+	}
 </BlogPost>

@@ -230,21 +230,33 @@ const CATEGORY_ICONS: Record<string, string> = {
 					<span class="fp-logo">🐼</span>
 					<span class="fp-name">foodpanda</span>
 				</div>
-				<div class="food-card-label">🆕 新顧客</div>
+				<div class="food-card-label">🆕 新顧客（方案擇一）</div>
 				<a
 					href="https://www.foodpanda.com.tw/referral?code=cb759283bc3b8d82342c97237b399e9b&geid=FP_TW&ts=1781084008"
 					target="_blank" rel="noopener noreferrer"
 					class="food-btn food-btn-panda"
 				>
 					<div class="food-btn-text">
-						<div class="food-btn-name">新戶滿 $99 享 3 折</div>
-						<div class="food-btn-deal">最高折抵 <strong>$200</strong></div>
+						<div class="food-btn-name">方案① 滿 $99 享 3 折・最高折抵 $200・1 筆</div>
+						<div class="food-btn-deal">推薦連結 · 直接點擊領取</div>
 					</div>
 					<span class="food-btn-arrow">立即領取 →</span>
 				</a>
+				<div class="code-row" style="--accent:#d70f64; margin-top:.4em; margin-bottom:.4em">
+					<div class="code-info">
+						<div class="code-desc" style="font-size:.76em;color:#e2e8f0;font-weight:700">方案② 代碼 CALLING</div>
+						<div class="code-desc">首 2 筆滿 $199 享 4 折・每筆最高折抵 $200・兌完為止</div>
+					</div>
+					<button class="code-copy-btn" data-code="CALLING" onclick="copyCode(this)"
+						style="background:rgba(215,15,100,.15);border-color:rgba(215,15,100,.3)">
+						<span class="code-val" style="color:#f472b6">CALLING</span>
+						<span class="copy-label">複製</span>
+					</button>
+				</div>
 				<div class="food-card-label" style="margin-top:.85em">
 					📅 老顧客代碼
 				</div>
+				<p class="fp-disclaimer">代碼有分眾限制，部分帳號無法使用——結帳前先在 App 輸入確認有折抵再送出。</p>
 				<div id="food-codes-panda">
 					<div class="code-loading"><span class="code-spin">⟳</span> 載入中...</div>
 				</div>
@@ -277,7 +289,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 			</div>
 
 		</div>
-		<p class="food-update-note" id="food-update-note">📌 每月1日自動從全網更新最新有效代碼</p>
+		<p class="food-update-note" id="food-update-note">📌 每日自動從全網更新最新有效代碼</p>
 	</section>
 
 	<!-- ── Daily Quote ── -->
@@ -380,7 +392,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 
       if (note && (data as any).fetched) {
         const d = new Date((data as any).fetched);
-        note.textContent = `📌 上次更新：${d.getMonth()+1}月${d.getDate()}日 · 每月1日自動刷新`;
+        note.textContent = `📌 上次更新：${d.getMonth()+1}月${d.getDate()}日 · 每日自動刷新`;
       }
     } catch {
       if (pandaEl) pandaEl.innerHTML = '<p class="code-error">載入失敗</p>';
@@ -635,6 +647,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 }
 .code-fb-btn:hover { background: rgba(24,119,242,.2); }
 .food-update-note { font-size: .67em; color: #475569; margin-top: .6em; margin-bottom: 0; text-align:center; }
+.fp-disclaimer { font-size: .65em; color: #475569; margin: 0 0 .55em; line-height: 1.55; }
 .food-platform-header {
   display: flex; align-items: center; gap: .5em;
   padding: .6em .75em; border-radius: 8px; margin-bottom: .85em;

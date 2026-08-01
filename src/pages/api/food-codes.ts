@@ -22,7 +22,17 @@ const MANUAL_CODES: CodeEntry[] = [
   { platform: 'ubereats', code: '八要五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（台南市）', expires: '2026-08-15', general: false },
   { platform: 'ubereats', code: '八狂五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（屏東縣）', expires: '2026-08-15', general: false },
   { platform: 'ubereats', code: '八省五折',  desc: '消費滿 $149 享 2 次 5 折，最高折抵 $80（宜蘭縣）', expires: '2026-08-15', general: false },
-  // ── Foodpanda ─────────────────────────────────────────────────
+  // ── Foodpanda 老顧客（全台/分眾）──────────────────────────────
+  { platform: 'foodpanda', code: '爽爽送',       desc: '滿額現折（依帳號資格而異）', expires: '2026-08-31', general: true  },
+  { platform: 'foodpanda', code: '十足美味',     desc: 'pandapro 訂閱會員專屬・非訂閱用戶無效', general: true  },
+  // ── Foodpanda 類別/付款方式限定 ───────────────────────────────
+  { platform: 'foodpanda', code: 'FRESH',        desc: 'pandamart 生鮮雜貨訂單適用', general: false },
+  { platform: 'foodpanda', code: 'SHOPS',        desc: 'pandamart 購物訂單適用',     general: false },
+  { platform: 'foodpanda', code: '十足新鮮',    desc: 'pandamart 生鮮訂單適用',     general: false },
+  { platform: 'foodpanda', code: 'psctbc607',    desc: '中信 LINE Pay 卡付款專屬',   general: false },
+  { platform: 'foodpanda', code: 'psctbce607',   desc: '中信 foodpanda 聯名卡付款專屬', general: false },
+  { platform: 'foodpanda', code: '刷這張十足爽', desc: 'foodpanda 聯名卡付款專屬',  general: false },
+  // ── Foodpanda 指定店家 ────────────────────────────────────────
   { platform: 'foodpanda', code: '週二星享日', desc: '星巴克每週二【限時優惠專區】消費滿 $279 現折 $70（指定店家）', expires: '2026-12-31', general: false },
 ];
 // ══════════════════════════════════════════════════════════════════

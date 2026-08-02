@@ -7,7 +7,16 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import BlogPost from '../../layouts/BlogPost.astro';
 
-const TRANSCRIPT_MARKER = '\n## 逐字稿';
+// Minimum chars before a marker to qualify as a meaningful summary
+const MIN_SUMMARY = 200;
+
+function findTranscriptMarker(body: string): { marker: string; index: number } | null {
+	for (const marker of ['\n## 逐字稿', '\n## 影片逐字稿']) {
+		const idx = body.indexOf(marker);
+		if (idx > MIN_SUMMARY) return { marker, index: idx };
+	}
+	return null;
+}
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).filter(p => !p.data.draft);
@@ -19,12 +28,13 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-
-const hasTranscript = post.body?.includes(TRANSCRIPT_MARKER) ?? false;
+const body = post.body ?? '';
+const found = findTranscriptMarker(body);
+const hasTranscript = found !== null;
 
 let summaryHtml = '';
-if (hasTranscript) {
-	const summaryMd = post.body!.split(TRANSCRIPT_MARKER)[0];
+if (found) {
+	const summaryMd = body.slice(0, found.index);
 	const result = await unified()
 		.use(remarkParse)
 		.use(remarkGfm)

@@ -4,6 +4,7 @@ description: '兩隻熊帶你深入探索，分享最真實的旅遊與生活體
 pubDate: '2026-05-23'
 tags: ['開箱']
 youtubeId: 'sH0XNdkEc9Y'
+draft: true
 ---
 
 ## 影片逐字稿

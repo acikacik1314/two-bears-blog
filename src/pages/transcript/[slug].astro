@@ -6,10 +6,20 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { SITE_TITLE } from '../../consts';
 
+const MIN_SUMMARY = 200;
+
+function findMarker(body: string): string | null {
+  for (const m of ['\n## 逐字稿', '\n## 影片逐字稿']) {
+    if (body.indexOf(m) > MIN_SUMMARY) return m;
+  }
+  return null;
+}
+
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const posts = (await getCollection('blog')).filter(
-    p => !p.data.draft && p.body && p.body.includes('\n## 逐字稿')
-  );
+  const posts = (await getCollection('blog')).filter(p => {
+    if (p.data.draft || !p.body) return false;
+    return findMarker(p.body) !== null;
+  });
   return posts.map(post => ({
     params: { slug: post.id },
     props: { post },
@@ -17,7 +27,8 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 }
 
 const { post } = Astro.props;
-const transcriptText = post.body!.split('\n## 逐字稿').slice(1).join('\n## 逐字稿').trim();
+const marker = findMarker(post.body!)!;
+const transcriptText = post.body!.split(marker).slice(1).join(marker).trim();
 const articleUrl = `/blog/${post.id}`;
 ---
 

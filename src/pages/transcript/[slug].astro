@@ -6,16 +6,13 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { SITE_TITLE } from '../../consts';
 
-const MIN_SUMMARY = 200;
-
-function findMarker(body: string): string | null {
-  for (const m of ['\n## 逐字稿', '\n## 影片逐字稿']) {
-    if (body.indexOf(m) > MIN_SUMMARY) return m;
-  }
-  return null;
-}
-
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  function findMarker(body: string): string | null {
+    for (const m of ['\n## 逐字稿', '\n## 影片逐字稿']) {
+      if (body.indexOf(m) > 200) return m;
+    }
+    return null;
+  }
   const posts = (await getCollection('blog')).filter(p => {
     if (p.data.draft || !p.body) return false;
     return findMarker(p.body) !== null;
@@ -27,8 +24,9 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 }
 
 const { post } = Astro.props;
-const marker = findMarker(post.body!)!;
-const transcriptText = post.body!.split(marker).slice(1).join(marker).trim();
+const _body = post.body!;
+const _marker = ['\n## 逐字稿', '\n## 影片逐字稿'].find(m => _body.indexOf(m) > 200)!;
+const transcriptText = _body.split(_marker).slice(1).join(_marker).trim();
 const articleUrl = `/blog/${post.id}`;
 ---
 

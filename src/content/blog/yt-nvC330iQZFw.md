@@ -4,6 +4,7 @@ description: 'MSC郵輪旅遊實況紀錄，帶你深入了解船上各項設施
 pubDate: '2026-05-23'
 tags: ['郵輪', '旅遊']
 youtubeId: 'nvC330iQZFw'
+draft: true
 ---
 
 ## 影片逐字稿

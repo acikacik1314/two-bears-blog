@@ -4,6 +4,7 @@ description: 'NCL挪威奮進號郵輪旅遊實況紀錄，包含餐廳、套房
 pubDate: '2026-05-23'
 tags: ['郵輪', '旅遊', '美食', '開箱']
 youtubeId: 'vpIeElsKEV4'
+draft: true
 ---
 
 ## 影片逐字稿

@@ -4,6 +4,7 @@ description: '大阪旅遊美食實況分享，帶你走訪當地人氣餐廳、
 pubDate: '2026-05-23'
 tags: ['大阪', '日本', '旅遊', '美食']
 youtubeId: 'JYZLjecxJDQ'
+draft: true
 ---
 
 ## 影片逐字稿

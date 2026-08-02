@@ -4,6 +4,7 @@ description: '飯店開箱實況紀錄，帶你深入了解房間設施、服務
 pubDate: '2026-05-23'
 tags: ['短片', '飯店']
 youtubeId: 'pJEkJTcFOiA'
+draft: true
 ---
 
 ## 影片逐字稿

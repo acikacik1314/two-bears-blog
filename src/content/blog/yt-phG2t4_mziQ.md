@@ -4,6 +4,7 @@ description: '曼谷旅遊實況分享，帶你探索當地美食、飯店與購
 pubDate: '2026-05-23'
 tags: ['曼谷', '旅遊', '美食']
 youtubeId: 'phG2t4_mziQ'
+draft: true
 ---
 
 ## 影片逐字稿

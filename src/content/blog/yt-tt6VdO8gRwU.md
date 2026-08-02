@@ -4,6 +4,7 @@ description: '飯店開箱實況紀錄，帶你深入了解房間設施、服務
 pubDate: '2026-05-23'
 tags: ['新竹', '旅遊', '飯店']
 youtubeId: 'tt6VdO8gRwU'
+draft: true
 ---
 
 ## 影片逐字稿

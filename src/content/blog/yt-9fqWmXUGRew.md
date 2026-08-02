@@ -4,6 +4,7 @@ description: '京都旅遊美食實況紀錄，帶你體驗古都的頂級餐廳
 pubDate: '2026-05-23'
 tags: ['京都', '日本', '旅遊', '美食']
 youtubeId: '9fqWmXUGRew'
+draft: true
 ---
 
 ## 影片逐字稿

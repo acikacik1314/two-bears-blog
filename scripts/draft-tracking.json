@@ -579,34 +579,40 @@
     "publishedAt": "2026-08-01T11:00:34.077Z"
   },
   "Brandon_Biggs_20260803-20260805_20260805_005926.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-sept-warning.md",
-    "draftedAt": "2026-08-05T04:42:44.738Z"
+    "draftedAt": "2026-08-05T04:42:44.738Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Joseph_Tittel_20260717-20260804_20260804_172716.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-taiwan-coast-warning.md",
-    "draftedAt": "2026-08-05T04:42:57.943Z"
+    "draftedAt": "2026-08-05T04:42:57.943Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Paul_Begley_20260726-20260801_20260801_232911.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-global-prophecy-alert.md",
-    "draftedAt": "2026-08-05T04:43:09.336Z"
+    "draftedAt": "2026-08-05T04:43:09.336Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Troy_Black_20260727-20260801_20260802_001656.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-global-crisis-prophecy.md",
-    "draftedAt": "2026-08-05T04:43:19.655Z"
+    "draftedAt": "2026-08-05T04:43:19.655Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260719-20260719_20260720_134301.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-2026-global-crisis.md",
-    "draftedAt": "2026-08-05T05:34:49.894Z"
+    "draftedAt": "2026-08-05T05:34:49.894Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260721-20260721_20260721_231404.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-prophecies-biggs.md",
-    "draftedAt": "2026-08-05T05:34:57.755Z"
+    "draftedAt": "2026-08-05T05:34:57.755Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260725-20260725_20260726_000505.md": {
     "status": "drafted",
@@ -614,24 +620,28 @@
     "draftedAt": "2026-08-05T05:35:04.826Z"
   },
   "Brandon_Biggs_20260726-20260726_20260726_215943.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-biggs-prophecy-alert.md",
-    "draftedAt": "2026-08-05T05:35:15.795Z"
+    "draftedAt": "2026-08-05T05:35:15.795Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260727-20260727_20260727_154955.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "russia-oil-crisis-election.md",
-    "draftedAt": "2026-08-05T05:35:24.425Z"
+    "draftedAt": "2026-08-05T05:35:24.425Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260727-20260727_20260727_203025.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-2024-energy-election.md",
-    "draftedAt": "2026-08-05T05:35:32.160Z"
+    "draftedAt": "2026-08-05T05:35:32.160Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260801-20260801_20260801_205456.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-2026-global-crisis-20260801.md",
-    "draftedAt": "2026-08-05T05:35:42.742Z"
+    "draftedAt": "2026-08-05T05:35:42.742Z",
+    "publishedAt": "2026-08-05T05:37:06.722Z"
   },
   "Brandon_Biggs_20260802-20260803_20260803_013916.md": {
     "status": "drafted",

@@ -649,13 +649,20 @@
     "draftedAt": "2026-08-05T05:35:51.922Z"
   },
   "Brandon_Biggs_20260805-20260805_20260805_214843.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-2026-prophecy-unveiled.md",
-    "draftedAt": "2026-08-08T06:25:24.663Z"
+    "draftedAt": "2026-08-08T06:25:24.663Z",
+    "publishedAt": "2026-08-08T06:26:46.999Z"
   },
   "Brandon_Biggs_20260807-20260807_20260807_212841.md": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-2026-merge-collapse.md",
-    "draftedAt": "2026-08-08T06:25:34.370Z"
+    "draftedAt": "2026-08-08T06:25:34.370Z",
+    "publishedAt": "2026-08-08T06:26:46.999Z"
+  },
+  "Brandon_Biggs_20260808-20260808_20260808_164705.md": {
+    "status": "drafted",
+    "draftFile": "biggs-2027-prophecy.md",
+    "draftedAt": "2026-08-08T12:45:45.522Z"
   }
 }

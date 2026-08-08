@@ -30,7 +30,6 @@ prophet: 比格斯
 pubDate: '2026-08-05'
 tags:
 - 預言
-- 末日
 - 財富轉移
 - 天災
 - Brandon Biggs

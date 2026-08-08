@@ -647,5 +647,15 @@
     "status": "drafted",
     "draftFile": "biggs-2026-prophecies.md",
     "draftedAt": "2026-08-05T05:35:51.922Z"
+  },
+  "Brandon_Biggs_20260805-20260805_20260805_214843.md": {
+    "status": "drafted",
+    "draftFile": "biggs-2026-prophecy-unveiled.md",
+    "draftedAt": "2026-08-08T06:25:24.663Z"
+  },
+  "Brandon_Biggs_20260807-20260807_20260807_212841.md": {
+    "status": "drafted",
+    "draftFile": "biggs-2026-merge-collapse.md",
+    "draftedAt": "2026-08-08T06:25:34.370Z"
   }
 }

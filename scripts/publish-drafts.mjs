@@ -211,6 +211,7 @@ async function main() {
       console.error('❌ git push 失敗（commit 已完成，請手動 push）。')
       process.exit(1)
     }
+
   }
 
   // 5. 更新追蹤狀態 + 清空 drafts/

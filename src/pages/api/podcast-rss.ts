@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import { supabaseAdmin } from '../../lib/supabase';
 import { fetchPodcastPayload } from '../../lib/podcast-fetch';
 
-const CACHE_MAX_AGE_MS = 2 * 60 * 60 * 1000; // 2 小時
+const CACHE_MAX_AGE_MS = 20 * 60 * 1000; // 20 分鐘
 
 export const GET: APIRoute = async () => {
   try {

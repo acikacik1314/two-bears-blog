@@ -155,7 +155,12 @@ async function main() {
 
     writeFileSync(join(OUTPUT_DIR, filename), content, 'utf-8')
 
-    // 存入 queue，不立即寫 tracking（等發布確認後才算完成）
+    // 立刻寫 "sourced" 進 tracking（不在 retryable 裡）
+    // 讓第二個 runner pull 後看到這集已被認領，避免重複處理
+    tracking[ep.guid] = { status: 'sourced', sourceFile: filename, title: ep.title, at: now.toISOString() }
+    save(TRACKING, tracking)
+
+    // 也存入 queue 供 --finalize 用
     queue[ep.guid] = { sourceFile: filename, title: ep.title, at: now.toISOString() }
     save(QUEUE_FILE, queue)
 

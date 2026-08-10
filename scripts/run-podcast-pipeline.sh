@@ -28,6 +28,13 @@ if ! node scripts/podcast-to-blog.mjs >> "$LOG" 2>&1; then
   exit 0
 fi
 
+# ── Step 1b: 立刻 commit tracking，讓 GH Actions 看到已認領的集數 ───────────
+git add scripts/podcast-sync-tracking.json >> "$LOG" 2>&1 || true
+if ! git diff --cached --quiet 2>/dev/null; then
+  git commit -m "chore: 認領新集數（防競態）" >> "$LOG" 2>&1 || true
+  git push origin main >> "$LOG" 2>&1 || true
+fi
+
 # ── Step 2: Gemini 生成草稿 ──────────────────────────────────────────────────
 echo "[2/4] 生成草稿..." >> "$LOG"
 node scripts/draft-posts.mjs --limit=5 >> "$LOG" 2>&1 || true

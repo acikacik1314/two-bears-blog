@@ -31,9 +31,10 @@ const PROPHETS_TS    = join(PROJECT_ROOT, 'src/data/prophets.ts')
 
 const RSS_URL    = 'https://anchor.fm/s/11310a874/podcast/rss'
 const MAX_EP     = parseInt(process.env.MAX_EPISODES ?? '3', 10)
+const MAX_DAILY  = parseInt(process.env.MAX_DAILY_EPISODES ?? '6', 10)
 const NOTIFY_THRESHOLD = 10
 const ADMIN_EMAIL = 'acikacik@gmail.com'
-const MAX_AGE_DAYS = 30  // 超過此天數的舊集數自動跳過，不列入待處理計數
+const MAX_AGE_DAYS = 7   // 超過此天數的舊集數自動標記 bypassed，不再處理
 
 // ── Gemini ────────────────────────────────────────────────────────────────────
 
@@ -353,19 +354,43 @@ async function main() {
 
   const cutoff = new Date(Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000)
 
-  // 最新在前（RSS 預設），篩出尚未處理的集數（只計近 MAX_AGE_DAYS 天）
-  const pending = episodes.filter(ep => {
-    if (skip(tracking[ep.guid])) return false
-    // 舊集數靜默跳過，不列入計數
+  // 超過 MAX_AGE_DAYS 天的集數，一律標記 bypassed（永久跳過，不再積壓）
+  let bypassedCount = 0
+  for (const ep of episodes) {
+    if (skip(tracking[ep.guid])) continue
     const epDate = new Date(ep.pubDate)
     if (!isNaN(epDate.getTime()) && epDate < cutoff) {
-      return false
+      tracking[ep.guid] = { status: 'bypassed', title: ep.title, at: new Date().toISOString() }
+      bypassedCount++
     }
+  }
+  if (bypassedCount > 0) {
+    save(TRACKING, tracking)
+    console.log(`  📦 ${bypassedCount} 集超過 ${MAX_AGE_DAYS} 天，已標記 bypassed。`)
+  }
+
+  // 日發布上限檢查
+  const todayStr = new Date().toISOString().slice(0, 10)
+  const publishedToday = Object.values(tracking).filter(v =>
+    v.status === 'published' && v.publishedAt?.slice(0, 10) === todayStr
+  ).length
+  console.log(`  今日已發布：${publishedToday} 篇（上限 ${MAX_DAILY}）`)
+  if (publishedToday >= MAX_DAILY) {
+    console.log(`  ✅ 已達今日上限，停止。`)
+    return
+  }
+  const canPublish = Math.min(MAX_EP, MAX_DAILY - publishedToday)
+
+  // 篩出近 MAX_AGE_DAYS 天待處理的集數
+  const pending = episodes.filter(ep => {
+    if (skip(tracking[ep.guid])) return false
+    const epDate = new Date(ep.pubDate)
+    if (!isNaN(epDate.getTime()) && epDate < cutoff) return false
     return true
   })
   console.log(`  近 ${MAX_AGE_DAYS} 天待處理：${pending.length} 集`)
 
-  // 待處理 > 閾值 → 通知並停止（--force 可跳過此檢查）
+  // 待處理 > 閾值 → 通知（本機用），--force 可略過
   const isForce = process.argv.includes('--force')
   if (pending.length > NOTIFY_THRESHOLD && !isForce) {
     console.log(`  ⚠️  待處理集數（${pending.length}）超過 ${NOTIFY_THRESHOLD}，寄信通知。`)
@@ -373,11 +398,8 @@ async function main() {
     await sendOverflowEmail(pending.length)
     return
   }
-  if (isForce && pending.length > NOTIFY_THRESHOLD) {
-    console.log(`  ℹ️  --force 模式，略過通知閾值，繼續處理。`)
-  }
 
-  const toProcess = pending.slice(0, MAX_EP)
+  const toProcess = pending.slice(0, canPublish)
   if (!toProcess.length) {
     console.log('✅ 沒有新集數，結束。')
     return

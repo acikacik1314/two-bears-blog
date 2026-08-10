@@ -36,7 +36,8 @@ jobs:
         env:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
           MAX_EPISODES: '3'
-        run: node scripts/podcast-to-blog.mjs
+          MAX_DAILY_EPISODES: '6'
+        run: node scripts/podcast-to-blog.mjs --force
 
       - name: 立刻 commit tracking（讓其他 runner 看到已認領的集數）
         run: |

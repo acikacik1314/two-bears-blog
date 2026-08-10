@@ -740,8 +740,9 @@
     "publishedAt": "2026-08-10T16:54:29.633Z"
   },
   "f956333d-584d-44ac-9171-1c3da9f6559b": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2028-ai-crypto-trump-end-times-prophecy.md",
-    "draftedAt": "2026-08-10T18:56:19.845Z"
+    "draftedAt": "2026-08-10T18:56:19.845Z",
+    "publishedAt": "2026-08-10T18:57:14.577Z"
   }
 }

@@ -250,15 +250,17 @@ function titleSimilarity(a, b) {
   return (2 * inter) / (sa.size + sb.size)
 }
 
-// 預-AI 重複偵測：相同預言家 + pubDate 前後 3 天（僅抓同日或鄰日）
+// 預-AI 重複偵測：相同預言家 + pubDate 完全相同（同一天）
+// 視窗從 3 天縮為 0，因為同一預言家每天都可能有新腳本，
+// 3 天視窗會把不同主題的新腳本全部誤判為重複。
+// 跨日的真重複由後段標題相似度警示（threshold 0.5）處理。
 function checkPreAIDuplicate(prophetIds, pubDate, blogIndex) {
   if (!prophetIds.length) return []
   const targetMs = new Date(pubDate).getTime()
-  const WINDOW   = 3 * 86400000
   return blogIndex.filter(post => {
     if (!post.prophets.some(p => prophetIds.includes(p))) return false
     const postMs = new Date(post.pubDate).getTime()
-    return !isNaN(postMs) && Math.abs(postMs - targetMs) <= WINDOW
+    return !isNaN(postMs) && postMs === targetMs
   })
 }
 

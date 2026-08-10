@@ -665,5 +665,11 @@
     "draftFile": "biggs-2027-prophecy.md",
     "draftedAt": "2026-08-08T12:45:45.522Z",
     "publishedAt": "2026-08-08T12:46:47.228Z"
+  },
+  "Brandon_Biggs_20260810-20260810_20260810_133430.md": {
+    "status": "drafted",
+    "draftFile": "biggs-2026-ai-virus-warning.md",
+    "draftedAt": "2026-08-10T06:37:02.377Z",
+    "note": "manually converted"
   }
 }

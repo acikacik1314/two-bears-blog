@@ -369,10 +369,12 @@ async function main() {
     console.log(`  📦 ${bypassedCount} 集超過 ${MAX_AGE_DAYS} 天，已標記 bypassed。`)
   }
 
-  // 日發布上限檢查
-  const todayStr = new Date().toISOString().slice(0, 10)
+  // 日發布上限檢查（以台北時間 UTC+8 為基準，避免 UTC 跨日造成一天發兩輪）
+  const todayStr = new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Taipei' }).slice(0, 10)
   const publishedToday = Object.values(tracking).filter(v =>
-    v.status === 'published' && v.publishedAt?.slice(0, 10) === todayStr
+    v.status === 'published' && v.publishedAt
+      ? new Date(v.publishedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Taipei' }).slice(0, 10) === todayStr
+      : false
   ).length
   console.log(`  今日已發布：${publishedToday} 篇（上限 ${MAX_DAILY}）`)
   if (publishedToday >= MAX_DAILY) {

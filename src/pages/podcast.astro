@@ -270,7 +270,7 @@ import { SITE_TITLE } from '../consts';
     }
   }
 
-  const CACHE_KEY = 'pod-rss-v1';
+  const CACHE_KEY = 'pod-rss-v2';
   const CACHE_TTL = 5 * 60 * 1000; // 5 分鐘
 
   function applyData(d: any) {
@@ -302,29 +302,35 @@ import { SITE_TITLE } from '../consts';
     const errorEl   = document.getElementById('pod-error')!;
     const contentEl = document.getElementById('pod-content')!;
 
+    let usedCache = false;
     try {
       const raw = localStorage.getItem(CACHE_KEY);
-      const cached = raw ? JSON.parse(raw) : null;
-      const fresh = !cached || (Date.now() - cached.ts > CACHE_TTL);
+      let cached = raw ? JSON.parse(raw) : null;
+      const stale = !cached || (Date.now() - cached.ts > CACHE_TTL);
 
       if (cached) {
-        // 立刻顯示快取，不等網路
-        applyData(cached.data);
-        loadingEl.style.display = 'none';
-        contentEl.style.display = 'block';
+        try {
+          applyData(cached.data);
+          loadingEl.style.display = 'none';
+          contentEl.style.display = 'block';
+          usedCache = true;
+        } catch {
+          // 格式壞掉，清除後走 fresh fetch
+          localStorage.removeItem(CACHE_KEY);
+          cached = null;
+        }
       }
 
-      if (fresh) {
-        // 快取不存在或超過 5 分鐘：背景（或前景）更新
+      if (stale || !cached) {
         const d = await fetchFresh();
         applyData(d);
-        if (!cached) {
+        if (!usedCache) {
           loadingEl.style.display = 'none';
           contentEl.style.display = 'block';
         }
       }
     } catch {
-      if (document.getElementById('pod-content')!.style.display !== 'block') {
+      if (contentEl.style.display !== 'block') {
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
       }

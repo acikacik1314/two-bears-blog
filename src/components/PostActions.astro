@@ -1,0 +1,113 @@
+---
+interface Props { slug: string }
+const { slug } = Astro.props;
+---
+
+<div class="post-actions" data-slug={slug}>
+  <button class="pa-btn like-btn" id="pa-like" type="button" aria-label="按讚">
+    <span class="pa-icon" id="pa-like-icon">🤍</span>
+    <span class="pa-count" id="pa-like-count">…</span>
+  </button>
+  <button class="pa-btn read-btn" id="pa-read" type="button" aria-label="標記已讀">
+    <span class="pa-icon" id="pa-read-icon">○</span>
+    <span class="pa-label">已讀</span>
+  </button>
+</div>
+
+<style>
+  .post-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin: 1.5em 0;
+  }
+  .pa-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.45em 1em;
+    border: 2px solid #e0e0e0;
+    border-radius: 2em;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.92em;
+    font-family: inherit;
+    color: #555;
+    transition: border-color 0.18s, background 0.18s, color 0.18s, transform 0.12s;
+    user-select: none;
+  }
+  .pa-btn:hover { border-color: #bbb; transform: scale(1.04); }
+  .pa-btn:active { transform: scale(0.97); }
+  .pa-icon { font-size: 1.05em; line-height: 1; }
+  .pa-count { font-weight: 700; min-width: 1.6ch; text-align: left; }
+
+  .like-btn.liked  { border-color: #e74c3c; background: #fef2f2; color: #c0392b; }
+  .read-btn.is-read { border-color: #27ae60; background: #f0faf5; color: #1e8449; }
+
+  @media (max-width: 480px) {
+    .pa-btn { padding: 0.4em 0.8em; font-size: 0.88em; }
+  }
+</style>
+
+<script>
+  (() => {
+    const container = document.querySelector<HTMLElement>('.post-actions');
+    if (!container) return;
+    const slug     = container.dataset.slug ?? location.pathname;
+    const likeBtn  = document.getElementById('pa-like')!;
+    const likeIcon = document.getElementById('pa-like-icon')!;
+    const likeCount = document.getElementById('pa-like-count')!;
+    const readBtn  = document.getElementById('pa-read')!;
+    const readIcon = document.getElementById('pa-read-icon')!;
+
+    const LIKE_KEY = `tw-liked:${slug}`;
+    const READ_KEY = `tw-read:${slug}`;
+
+    // ── 已讀（localStorage）───────────────────────────────────────
+    function applyReadState(read: boolean) {
+      readBtn.classList.toggle('is-read', read);
+      readIcon.textContent = read ? '✓' : '○';
+    }
+    applyReadState(!!localStorage.getItem(READ_KEY));
+
+    readBtn.addEventListener('click', () => {
+      const nowRead = !readBtn.classList.contains('is-read');
+      if (nowRead) localStorage.setItem(READ_KEY, '1');
+      else localStorage.removeItem(READ_KEY);
+      applyReadState(nowRead);
+    });
+
+    // ── 按讚（Blob API）──────────────────────────────────────────
+    let alreadyLiked = !!localStorage.getItem(LIKE_KEY);
+
+    function applyLikeState(liked: boolean, count: number | string) {
+      likeBtn.classList.toggle('liked', liked);
+      likeIcon.textContent = liked ? '❤️' : '🤍';
+      likeCount.textContent = String(count);
+    }
+
+    // 載入目前計數
+    fetch(`/api/likes?slug=${encodeURIComponent(slug)}`)
+      .then(r => r.json())
+      .then(d => applyLikeState(alreadyLiked, d.count ?? 0))
+      .catch(() => applyLikeState(alreadyLiked, '–'));
+
+    likeBtn.addEventListener('click', async () => {
+      if (alreadyLiked) return;
+      alreadyLiked = true;
+      localStorage.setItem(LIKE_KEY, '1');
+      // 樂觀更新
+      const cur = parseInt(likeCount.textContent ?? '0') || 0;
+      applyLikeState(true, cur + 1);
+      try {
+        const res = await fetch('/api/likes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug }),
+        });
+        const d = await res.json();
+        likeCount.textContent = String(d.count ?? cur + 1);
+      } catch { /* keep optimistic count */ }
+    });
+  })();
+</script>

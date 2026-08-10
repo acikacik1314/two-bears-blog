@@ -19,6 +19,7 @@ import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator
 import RelatedTools from '../components/RelatedTools.astro';
 import AdSlot from '../components/AdSlot.astro';
 import YouTubeComments from '../components/YouTubeComments.astro';
+import PostActions from '../components/PostActions.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { id?: string; transcriptSlug?: string };
 
@@ -619,6 +620,8 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					</p>
 
 					<AdSlot unit="4916286882" />
+
+					<PostActions slug={articleSlug} />
 
 					<!-- Share buttons -->
 					<div class="share-section">

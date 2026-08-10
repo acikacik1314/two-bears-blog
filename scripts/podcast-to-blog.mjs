@@ -18,14 +18,15 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { homedir } from 'os'
 
 const __dirname  = dirname(fileURLToPath(import.meta.url))
 const RSS_URL    = 'https://anchor.fm/s/11310a874/podcast/rss'
 const TRACKING   = join(__dirname, 'podcast-sync-tracking.json')
 const QUEUE_FILE = join(__dirname, 'podcast-queue.json')       // 未 commit，發布後清除
 const DRAFT_TRACKING = join(__dirname, 'draft-tracking.json')
-const OUTPUT_DIR = process.env.PODCAST_SOURCE_DIR ?? join(__dirname, '../sources/podcasts')
-const MAX_EP     = parseInt(process.env.MAX_EPISODES ?? '1', 10)
+const OUTPUT_DIR = process.env.PODCAST_SOURCE_DIR ?? join(homedir(), 'Downloads/未來人預言家')
+const MAX_EP     = parseInt(process.env.MAX_EPISODES ?? '5', 10)
 
 // ── AI 拒絕特徵 ───────────────────────────────────────────────────────────────
 
@@ -110,10 +111,9 @@ async function main() {
   const episodes = parseEpisodes(xml)
   console.log(`  共 ${episodes.length} 集`)
 
-  // 最新在前 → reverse 讓舊的先處理
+  // 最新在前（RSS 預設），直接取前 MAX_EP 集
   const newEps = episodes
     .filter(ep => !skip(tracking[ep.guid]))
-    .reverse()
     .slice(0, MAX_EP)
 
   if (!newEps.length) {

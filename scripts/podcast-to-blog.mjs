@@ -1,48 +1,120 @@
 /**
  * podcast-to-blog.mjs
  *
- * 從 Spotify/Anchor RSS 讀取新集數的文字版（description 欄位），
- * 儲存成 .md 來源檔供 draft-posts.mjs 生成部落格文章。
+ * RSS description → 原文照搬部落格文章（Gemini 只產生 frontmatter）
  *
  * 分兩個模式：
- *   node scripts/podcast-to-blog.mjs            — 主流程（建立來源檔）
+ *   node scripts/podcast-to-blog.mjs            — 主流程（建立草稿）
  *   node scripts/podcast-to-blog.mjs --finalize — 發布後確認，寫 tracking
  *
- * tracking 寫入時機：
- *   - AI 拒絕 / 太短 → 立刻寫（永久跳過）
- *   - 正常集數 → 存入 podcast-queue.json，
- *     等 --finalize 確認發布成功後才寫入 tracking
- *   - status: 'error' 或 'queued' → 下次可重試
+ * 設計：
+ *   - 正文 = RSS description 原文，HTML→Markdown 最小轉換，不重寫
+ *   - Gemini 只產生 frontmatter JSON（slug/title/desc/category/prophet/predictions）
+ *   - 草稿直接寫入 drafts/（跳過 draft-posts.mjs）
+ *   - 去重 key = RSS guid
+ *   - 每次最多處理 MAX_EPISODES 集（預設 3）
+ *   - 待處理 > 10 集時，寄信通知，不自動全跑
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { homedir } from 'os'
 
-const __dirname  = dirname(fileURLToPath(import.meta.url))
-const RSS_URL    = 'https://anchor.fm/s/11310a874/podcast/rss'
-const TRACKING   = join(__dirname, 'podcast-sync-tracking.json')
-const QUEUE_FILE = join(__dirname, 'podcast-queue.json')       // 未 commit，發布後清除
+const __dirname      = dirname(fileURLToPath(import.meta.url))
+const PROJECT_ROOT   = join(__dirname, '..')
+const DRAFTS_DIR     = join(PROJECT_ROOT, 'drafts')
+const TRACKING       = join(__dirname, 'podcast-sync-tracking.json')
+const QUEUE_FILE     = join(__dirname, 'podcast-queue.json')
 const DRAFT_TRACKING = join(__dirname, 'draft-tracking.json')
-const OUTPUT_DIR = process.env.PODCAST_SOURCE_DIR ?? join(homedir(), 'Downloads/未來人預言家')
-const MAX_EP     = parseInt(process.env.MAX_EPISODES ?? '5', 10)
+const PROPHETS_TS    = join(PROJECT_ROOT, 'src/data/prophets.ts')
 
-// ── AI 拒絕特徵 ───────────────────────────────────────────────────────────────
+const RSS_URL    = 'https://anchor.fm/s/11310a874/podcast/rss'
+const MAX_EP     = parseInt(process.env.MAX_EPISODES ?? '3', 10)
+const NOTIFY_THRESHOLD = 10
+const ADMIN_EMAIL = 'acikacik@gmail.com'
+const MAX_AGE_DAYS = 30  // 超過此天數的舊集數自動跳過，不列入待處理計數
 
-const REFUSAL_PATTERNS = [
-  '我們在此不直接撰寫',
-  '為了維護健康的資訊傳播環境',
-  '這些內容主要源自於個人的主觀靈性體驗',
-  '並非經過科學驗證',
-  '我們可以轉而探討',
-  '避免強化未經證實的恐慌感',
-  '如果您對影片製作與內容創作感興趣',
-  '我們可以轉而',
+// ── Gemini ────────────────────────────────────────────────────────────────────
+
+function getGeminiKeys() {
+  const keysFile = join(homedir(), '.claude/api_keys.json')
+  try {
+    const raw = JSON.parse(readFileSync(keysFile, 'utf-8'))
+    const k = raw.gemini
+    if (Array.isArray(k) && k.length) return k
+    if (typeof k === 'string' && k) return [k]
+  } catch {}
+  const env = process.env.GEMINI_API_KEYS
+  if (env) { try { return JSON.parse(env) } catch {} }
+  if (process.env.GEMINI_API_KEY) return [process.env.GEMINI_API_KEY]
+  return []
+}
+
+function getResendKey() {
+  const env = process.env.RESEND_API_KEY
+  if (env) return env
+  // read from .env.local silently
+  try {
+    const envFile = readFileSync(join(PROJECT_ROOT, '.env.local'), 'utf-8')
+    const match = envFile.match(/^RESEND_API_KEY=(.+)$/m)
+    if (match) return match[1].trim()
+  } catch {}
+  return null
+}
+
+const GEMINI_MODELS = [
+  'gemini-2.5-flash',
+  'gemini-2.5-flash-lite',
+  'gemini-3.5-flash',
+  'gemini-3.1-flash-lite',
 ]
 
-function detectRefusal(text) {
-  return REFUSAL_PATTERNS.find(p => text.includes(p)) ?? null
+async function callGeminiJSON(prompt, keys) {
+  const shuffled = [...keys].sort(() => Math.random() - 0.5)
+  for (const model of GEMINI_MODELS) {
+    for (const key of shuffled) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`
+        const body = JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          generationConfig: {
+            maxOutputTokens: 4096,
+            temperature: 0.3,
+            responseMimeType: 'application/json',
+            ...(model.startsWith('gemini-2.5') ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+          },
+        })
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+          signal: AbortSignal.timeout(30000),
+        })
+        if (res.status === 429 || res.status === 503 || res.status === 500) continue
+        if (res.status === 404) break
+        if (!res.ok) { console.warn(`  Gemini ${model}: HTTP ${res.status}`); continue }
+        const data = await res.json()
+        const parts = data?.candidates?.[0]?.content?.parts ?? []
+        const text = parts.filter(p => !p.thought).map(p => p.text ?? '').join('').trim()
+        if (!text) continue
+        return JSON.parse(text)
+      } catch (e) {
+        if (e.name === 'SyntaxError') throw e  // JSON parse error → bad output, don't retry
+        continue
+      }
+    }
+  }
+  throw new Error('所有 Gemini key/model 組合均失敗')
+}
+
+// ── Prophet ID 清單 ───────────────────────────────────────────────────────────
+
+function getProphetIds() {
+  try {
+    const src = readFileSync(PROPHETS_TS, 'utf-8')
+    return [...src.matchAll(/^\s+id:\s+'([^']+)'/gm)].map(m => m[1])
+  } catch { return [] }
 }
 
 // ── Tracking ──────────────────────────────────────────────────────────────────
@@ -55,7 +127,7 @@ function save(path, data) {
   writeFileSync(path, JSON.stringify(data, null, 2))
 }
 
-// ── RSS 解析 ──────────────────────────────────────────────────────────────────
+// ── RSS ───────────────────────────────────────────────────────────────────────
 
 async function fetchRSS() {
   const res = await fetch(RSS_URL, {
@@ -72,37 +144,205 @@ function extractCdata(tag, item) {
       ?? ''
 }
 
-function stripHtml(html) {
-  return html
-    .replace(/<br\s*\/?>/gi, '\n').replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ').replace(/&#\d+;/g, '').replace(/\n{3,}/g, '\n\n').trim()
-}
-
 function parseEpisodes(xml) {
   return xml.split('<item>').slice(1).map(item => ({
     guid:        item.match(/<guid[^>]*>([^<]+)<\/guid>/)?.[1]?.trim() ?? '',
     title:       extractCdata('title', item),
     pubDate:     item.match(/<pubDate>([^<]+)<\/pubDate>/)?.[1]?.trim() ?? '',
-    description: stripHtml(extractCdata('description', item)),
+    descriptionRaw: extractCdata('description', item),
   })).filter(ep => ep.guid && ep.title)
 }
 
-function toYYYYMMDD(pubDate) {
+function toDateStr(pubDate) {
   try {
     const d = new Date(pubDate)
-    if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10).replace(/-/g, '')
+    if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10)
   } catch {}
-  return new Date().toISOString().slice(0, 10).replace(/-/g, '')
+  return new Date().toISOString().slice(0, 10)
+}
+
+// ── HTML → Markdown 最小轉換 ──────────────────────────────────────────────────
+
+function htmlToMarkdown(html) {
+  let text = html
+    // 段落和換行
+    .replace(/<\/p>\s*<p[^>]*>/gi, '\n\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<p[^>]*>/gi, '')
+    // 粗體斜體
+    .replace(/<strong[^>]*>([\s\S]*?)<\/strong>/gi, '**$1**')
+    .replace(/<b[^>]*>([\s\S]*?)<\/b>/gi, '**$1**')
+    .replace(/<em[^>]*>([\s\S]*?)<\/em>/gi, '*$1*')
+    .replace(/<i[^>]*>([\s\S]*?)<\/i>/gi, '*$1*')
+    // 超連結 → 只保留文字
+    .replace(/<a[^>]*>([\s\S]*?)<\/a>/gi, '$1')
+    // 移除所有剩餘 HTML 標籤
+    .replace(/<[^>]+>/g, '')
+    // HTML 實體
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&[a-z]+;/gi, '')
+    // 清理空白
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+
+  // 清掉 Spotify 自動附加的推廣尾巴（含追蹤連結）
+  // 通常格式：以空行分隔的 "Support this podcast" 或 spotify.com 連結區塊
+  text = stripSpotifyTail(text)
+
+  return text
+}
+
+function stripSpotifyTail(text) {
+  // 常見 Spotify/Anchor 附加尾巴特徵
+  const patterns = [
+    /\n{1,2}---+\n[\s\S]*$/,
+    /\n{1,2}Support this podcast:[\s\S]*$/i,
+    /\n{1,2}https?:\/\/anchor\.fm\/[\s\S]*$/i,
+    /\n{1,2}https?:\/\/[^\n]*spotify\.com\/[^\n]*\n[\s\S]*$/i,
+    /\n{1,2}Become a supporter[\s\S]*$/i,
+    /\n{1,2}--- Send in a voice message:[\s\S]*$/i,
+    /\n{1,2}本集節目由.*贊助[\s\S]*$/,
+    /\n{1,2}廣告合作請洽[\s\S]*$/,
+  ]
+  for (const p of patterns) {
+    const trimmed = text.replace(p, '').trim()
+    if (trimmed.length > 100) text = trimmed  // 避免砍掉正文
+  }
+  return text
+}
+
+// ── AI 拒絕偵測（對 RSS description 原文） ───────────────────────────────────
+
+const REFUSAL_PATTERNS = [
+  '我們在此不直接撰寫',
+  '為了維護健康的資訊傳播環境',
+  '這些內容主要源自於個人的主觀靈性體驗',
+  '並非經過科學驗證',
+  '我們可以轉而探討',
+  '避免強化未經證實的恐慌感',
+  '如果您對影片製作與內容創作感興趣',
+  '我們可以轉而',
+]
+
+function detectRefusal(text) {
+  return REFUSAL_PATTERNS.find(p => text.includes(p)) ?? null
+}
+
+// ── Gemini Frontmatter Prompt ─────────────────────────────────────────────────
+
+function buildFrontmatterPrompt(ep, body, prophetIds) {
+  const pubDateStr = toDateStr(ep.pubDate)
+  return `你是一個部落格編輯助理。以下是一集 podcast 的資訊，請根據此資訊產生文章 frontmatter。
+
+【集數標題】
+${ep.title}
+
+【發布日期】
+${pubDateStr}
+
+【逐字稿（正文原文，已完整）】
+${body.slice(0, 3000)}
+
+---
+
+請以 JSON 格式回傳以下欄位（只回傳 JSON，不要加說明文字）：
+
+{
+  "slug": "kebab-case-slug，英文小寫加連字號，簡短描述集數核心主題，不超過 60 字元",
+  "title": "文章標題，直接使用 RSS 標題，若超過 60 字元則適當縮短",
+  "description": "SEO meta description，1-2 句，80-120 字元，繁體中文",
+  "category": "只能從以下選一個：預言、靈性、財經、異象、科技、歷史、社會、宗教。若完全判斷不出來就給空字串",
+  "tags": ["繁體中文標籤陣列，最多 6 個"],
+  "prophet": "只能是以下列表中完全一致的 ID，若找不到對應者給空字串：${prophetIds.join(', ')}",
+  "predictions": [
+    { "claim": "具體可驗證的預測，繁體中文，完整一句話", "saidOn": "${pubDateStr}" }
+  ]
+}
+
+注意事項：
+- predictions 只收具體、可在未來驗證真偽的預測。若無預測，給空陣列 []。
+- predictions 中的 claim 每條都要是完整獨立的句子，不要截斷。
+- 禁止在 predictions 中加入 hits/misses，全部用 pending 格式（已由外部程式處理）。
+- slug 必須是合法的 URL slug（只有英文小寫字母、數字、連字號）。
+- prophet 一定要完全匹配上面的 ID 列表，不能自創。`
+}
+
+// ── YAML 產生 ─────────────────────────────────────────────────────────────────
+
+function yamlStr(s) {
+  if (!s) return ''
+  if (/[:"'#{}[\]|>&*!,]/.test(s) || s.includes('\n') || s.startsWith(' ') || s.endsWith(' ')) {
+    return `'${s.replace(/'/g, "''")}'`
+  }
+  return s
+}
+
+function buildDraft(ep, body, fm) {
+  const pubDate = toDateStr(ep.pubDate)
+  const predictions = Array.isArray(fm.predictions) ? fm.predictions : []
+  const tags = Array.isArray(fm.tags) ? fm.tags : []
+
+  let yaml = `---\n`
+  yaml += `title: ${yamlStr(fm.title || ep.title)}\n`
+  yaml += `description: ${yamlStr(fm.description || '')}\n`
+  yaml += `pubDate: '${pubDate}'\n`
+  if (fm.category) yaml += `category: ${yamlStr(fm.category)}\n`
+  if (fm.prophet) yaml += `prophet: ${yamlStr(fm.prophet)}\n`
+  if (tags.length) yaml += `tags:\n${tags.map(t => `- ${yamlStr(t)}`).join('\n')}\n`
+  if (predictions.length) {
+    yaml += `predictions:\n  pending:\n`
+    for (const p of predictions) {
+      yaml += `  - claim: ${yamlStr(p.claim)}\n`
+      yaml += `    saidOn: '${p.saidOn || pubDate}'\n`
+    }
+  }
+  yaml += `draft: true\n`
+  yaml += `---\n\n`
+  yaml += body
+
+  return yaml
+}
+
+// ── Email 通知 ────────────────────────────────────────────────────────────────
+
+async function sendOverflowEmail(pendingCount) {
+  const key = getResendKey()
+  if (!key) {
+    console.warn(`  ⚠️  RESEND_API_KEY 未設定，無法寄信（待處理 ${pendingCount} 集）`)
+    return
+  }
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
+      body: JSON.stringify({
+        from: 'onboarding@resend.dev',
+        to: ADMIN_EMAIL,
+        subject: `[兩隻熊] 待處理 Podcast 集數過多：${pendingCount} 集`,
+        text: `Podcast 自動轉文章管線偵測到待處理集數已達 ${pendingCount} 集（閾值：${NOTIFY_THRESHOLD}）。\n\n請手動確認並執行：\nnpm run podcast-now\n\n或至 GitHub Actions 手動觸發。`,
+      }),
+      signal: AbortSignal.timeout(10000),
+    })
+    if (res.ok) console.log(`  📧 已寄出通知信至 ${ADMIN_EMAIL}`)
+    else console.warn(`  ⚠️  寄信失敗：HTTP ${res.status}`)
+  } catch (e) {
+    console.warn(`  ⚠️  寄信失敗：${e.message}`)
+  }
 }
 
 // ── 主流程 ────────────────────────────────────────────────────────────────────
 
 async function main() {
-  mkdirSync(OUTPUT_DIR, { recursive: true })
-  const tracking = load(TRACKING)
+  mkdirSync(DRAFTS_DIR, { recursive: true })
 
-  // 可重試的狀態
+  const tracking = load(TRACKING)
   const retryable = new Set(['error', 'queued'])
   const skip = (t) => t && !retryable.has(t.status)
 
@@ -111,25 +351,56 @@ async function main() {
   const episodes = parseEpisodes(xml)
   console.log(`  共 ${episodes.length} 集`)
 
-  // 最新在前（RSS 預設），直接取前 MAX_EP 集
-  const newEps = episodes
-    .filter(ep => !skip(tracking[ep.guid]))
-    .slice(0, MAX_EP)
+  const cutoff = new Date(Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000)
 
-  if (!newEps.length) {
+  // 最新在前（RSS 預設），篩出尚未處理的集數（只計近 MAX_AGE_DAYS 天）
+  const pending = episodes.filter(ep => {
+    if (skip(tracking[ep.guid])) return false
+    // 舊集數靜默跳過，不列入計數
+    const epDate = new Date(ep.pubDate)
+    if (!isNaN(epDate.getTime()) && epDate < cutoff) {
+      return false
+    }
+    return true
+  })
+  console.log(`  近 ${MAX_AGE_DAYS} 天待處理：${pending.length} 集`)
+
+  // 待處理 > 閾值 → 通知並停止（--force 可跳過此檢查）
+  const isForce = process.argv.includes('--force')
+  if (pending.length > NOTIFY_THRESHOLD && !isForce) {
+    console.log(`  ⚠️  待處理集數（${pending.length}）超過 ${NOTIFY_THRESHOLD}，寄信通知。`)
+    console.log(`  （手動觸發請用 npm run podcast-now 或加 --force 旗標跳過通知限制）`)
+    await sendOverflowEmail(pending.length)
+    return
+  }
+  if (isForce && pending.length > NOTIFY_THRESHOLD) {
+    console.log(`  ℹ️  --force 模式，略過通知閾值，繼續處理。`)
+  }
+
+  const toProcess = pending.slice(0, MAX_EP)
+  if (!toProcess.length) {
     console.log('✅ 沒有新集數，結束。')
     return
   }
-  console.log(`  待處理：${newEps.length} 集\n`)
+  console.log(`  本次處理：${toProcess.length} 集\n`)
 
+  const geminiKeys = getGeminiKeys()
+  if (!geminiKeys.length) {
+    console.error('❌ 未找到 Gemini API key，無法生成 frontmatter。')
+    process.exit(1)
+  }
+
+  const prophetIds = getProphetIds()
   const queue = load(QUEUE_FILE)
   let created = 0
 
-  for (const ep of newEps) {
+  for (const ep of toProcess) {
     console.log(`🎙 ${ep.title}`)
 
-    // AI 拒絕偵測
-    const hitPattern = detectRefusal(ep.description)
+    const rawBody = htmlToMarkdown(ep.descriptionRaw)
+
+    // AI 拒絕偵測（對 RSS description 原文）
+    const hitPattern = detectRefusal(rawBody)
     if (hitPattern) {
       console.log(`  ⛔ AI 拒絕內容（命中：「${hitPattern}」），跳過。`)
       tracking[ep.guid] = { status: 'rejected-ai-refusal', hitPattern, title: ep.title, at: new Date().toISOString() }
@@ -138,40 +409,65 @@ async function main() {
     }
 
     // 內容太短
-    if (ep.description.length < 150) {
-      console.log(`  ⚠️  文字版太短（${ep.description.length} 字），跳過。`)
-      tracking[ep.guid] = { status: 'skipped-too-short', chars: ep.description.length, title: ep.title, at: new Date().toISOString() }
+    if (rawBody.length < 150) {
+      console.log(`  ⚠️  文字版太短（${rawBody.length} 字），跳過。`)
+      tracking[ep.guid] = { status: 'skipped-too-short', chars: rawBody.length, title: ep.title, at: new Date().toISOString() }
       save(TRACKING, tracking)
       continue
     }
 
-    const dateStr  = toYYYYMMDD(ep.pubDate)
-    const now      = new Date()
-    const datePart = now.toISOString().slice(0, 10).replace(/-/g, '')
-    const timePart = now.toISOString().slice(11, 19).replace(/:/g, '')
-    const safeTitle = ep.title.replace(/[/\\?%*:|"<>[\]]/g, '_').slice(0, 50)
-    const filename  = `${safeTitle}_${dateStr}-${dateStr}_${datePart}_${timePart}.md`
-    const content   = `# ${ep.title}\n> 集數日期：${ep.pubDate}\n\n${ep.description}\n`
-
-    writeFileSync(join(OUTPUT_DIR, filename), content, 'utf-8')
-
-    // 立刻寫 "sourced" 進 tracking（不在 retryable 裡）
-    // 讓第二個 runner pull 後看到這集已被認領，避免重複處理
-    tracking[ep.guid] = { status: 'sourced', sourceFile: filename, title: ep.title, at: now.toISOString() }
+    // 立刻宣告認領（防競態）
+    tracking[ep.guid] = { status: 'sourced', title: ep.title, at: new Date().toISOString() }
     save(TRACKING, tracking)
 
-    // 也存入 queue 供 --finalize 用
-    queue[ep.guid] = { sourceFile: filename, title: ep.title, at: now.toISOString() }
+    // 呼叫 Gemini 產生 frontmatter JSON
+    let fm
+    try {
+      const prompt = buildFrontmatterPrompt(ep, rawBody, prophetIds)
+      fm = await callGeminiJSON(prompt, geminiKeys)
+      console.log(`  📝 Gemini frontmatter OK（prophet: ${fm.prophet || '（空）'}）`)
+    } catch (e) {
+      console.error(`  ❌ Gemini 失敗：${e.message}`)
+      tracking[ep.guid] = { status: 'error', title: ep.title, at: new Date().toISOString(), error: e.message }
+      save(TRACKING, tracking)
+      continue
+    }
+
+    // 產生草稿檔名（slug 優先，fallback 用時間戳）
+    const slug = (fm.slug || '').replace(/[^a-z0-9-]/g, '') || `podcast-${Date.now()}`
+    const draftFile = `${slug}.md`
+    const draftPath = join(DRAFTS_DIR, draftFile)
+
+    // 若 slug 衝突（已存在草稿），加時間戳後綴
+    const finalFile = existsSync(draftPath)
+      ? `${slug}-${Date.now()}.md`
+      : draftFile
+    const finalPath = join(DRAFTS_DIR, finalFile)
+
+    const content = buildDraft(ep, rawBody, fm)
+    writeFileSync(finalPath, content, 'utf-8')
+
+    // 更新 draft-tracking（keyed by guid，讓 publish-drafts 可標記 published）
+    const draftTracking = load(DRAFT_TRACKING)
+    draftTracking[ep.guid] = {
+      status:    'drafted',
+      draftFile: finalFile,
+      draftedAt: new Date().toISOString(),
+    }
+    save(DRAFT_TRACKING, draftTracking)
+
+    // 更新 podcast-queue（供 --finalize 用）
+    queue[ep.guid] = { draftFile: finalFile, title: ep.title, at: new Date().toISOString() }
     save(QUEUE_FILE, queue)
 
     created++
-    console.log(`  ✅ ${filename} （${ep.description.length} 字）`)
+    console.log(`  ✅ drafts/${finalFile}（正文 ${rawBody.length} 字）`)
   }
 
-  console.log(`\n完成：${created} 集排入佇列。`)
+  console.log(`\n完成：${created} 集已產生草稿。`)
 }
 
-// ── Finalize：發布後確認，寫 tracking ────────────────────────────────────────
+// ── Finalize：發布後確認，更新 podcast-sync-tracking ─────────────────────────
 
 async function finalize() {
   const queue = load(QUEUE_FILE)
@@ -184,18 +480,19 @@ async function finalize() {
   const draftTracking = load(DRAFT_TRACKING)
 
   for (const [guid, entry] of Object.entries(queue)) {
-    const dt = draftTracking[entry.sourceFile]
+    // draft-tracking 現在以 guid 為 key
+    const dt = draftTracking[guid]
     if (dt?.status === 'published') {
       console.log(`  ✅ 已確認發布：${entry.title}`)
-      tracking[guid] = { status: 'published', sourceFile: entry.sourceFile, title: entry.title, publishedAt: dt.publishedAt }
+      tracking[guid] = { status: 'published', draftFile: entry.draftFile, title: entry.title, publishedAt: dt.publishedAt }
     } else {
       console.log(`  ⚠️  未確認發布（${dt?.status ?? '不在追蹤中'}）：${entry.title}`)
-      tracking[guid] = { status: 'error', sourceFile: entry.sourceFile, title: entry.title, at: new Date().toISOString() }
+      tracking[guid] = { status: 'error', draftFile: entry.draftFile, title: entry.title, at: new Date().toISOString() }
     }
   }
 
   save(TRACKING, tracking)
-  save(QUEUE_FILE, {})  // 清空 queue
+  save(QUEUE_FILE, {})
   console.log('podcast-sync-tracking.json 已更新。')
 }
 

@@ -2,7 +2,7 @@ name: Podcast to Blog
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # 每 2 小時執行一次
+    - cron: '0 */2 * * *'  # 每 2 小時執行一次（備援，Mac 離線時用）
   workflow_dispatch:
 
 permissions:
@@ -27,42 +27,26 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: 設定 git 身份（所有步驟共用）
+      - name: 設定 git 身份
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: 從 RSS 取得新集數文字版（第一道 AI 拒絕偵測）
+      - name: 抓 RSS、Gemini 產 frontmatter、直接寫草稿（含競態防護）
         env:
-          PODCAST_SOURCE_DIR: /tmp/podcast-sources
-          MAX_EPISODES: '999'
-        run: |
-          mkdir -p /tmp/podcast-sources
-          node scripts/podcast-to-blog.mjs
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          MAX_EPISODES: '3'
+        run: node scripts/podcast-to-blog.mjs
 
       - name: 立刻 commit tracking（讓其他 runner 看到已認領的集數）
         run: |
-          git add scripts/podcast-sync-tracking.json
+          git add scripts/podcast-sync-tracking.json scripts/draft-tracking.json
           if git diff --cached --quiet; then
             echo "無新集數，tracking 無變更"
           else
             git commit -m "chore: 認領新集數（防競態）"
             git push origin main
           fi
-
-      - name: 檢查是否有新來源檔
-        id: check_sources
-        run: |
-          count=$(ls /tmp/podcast-sources/*.md 2>/dev/null | wc -l | tr -d ' ')
-          echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "新來源檔：$count"
-
-      - name: 用 Gemini 生成草稿（第二道 AI 拒絕偵測在 publish 步驟）
-        if: steps.check_sources.outputs.count != '0'
-        env:
-          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
-          PODCAST_SOURCE_DIR: /tmp/podcast-sources
-        run: node scripts/draft-posts.mjs
 
       - name: 檢查是否有新草稿
         id: check_drafts
@@ -71,7 +55,7 @@ jobs:
           echo "count=$count" >> "$GITHUB_OUTPUT"
           echo "新草稿：$count"
 
-      - name: Build 驗證 + 發布（含第二道 AI 拒絕偵測）
+      - name: Build 驗證 + 發布
         if: steps.check_drafts.outputs.count != '0'
         env:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
@@ -83,7 +67,7 @@ jobs:
 
       - name: Commit podcast-sync-tracking.json（最終 published 狀態）
         run: |
-          git add scripts/podcast-sync-tracking.json
+          git add scripts/podcast-sync-tracking.json scripts/draft-tracking.json
           if git diff --cached --quiet; then
             echo "tracking 無變更，跳過 commit"
           else

@@ -11,6 +11,7 @@
     "draft": "node scripts/draft-posts.mjs",
     "draft-batch": "node scripts/draft-posts.mjs",
     "publish": "node scripts/publish-drafts.mjs",
+    "podcast-now": "node scripts/podcast-to-blog.mjs --force && npm run publish && node scripts/podcast-to-blog.mjs --finalize",
     "sync:prophets": "node scripts/sync-prophet-posts.mjs",
     "preview": "astro preview",
     "astro": "astro"

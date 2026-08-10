@@ -16,7 +16,7 @@
  *   - 待處理 > 10 集時，寄信通知，不自動全跑
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { homedir } from 'os'
@@ -416,8 +416,18 @@ async function main() {
       continue
     }
 
-    // 立刻宣告認領（防競態）
-    tracking[ep.guid] = { status: 'sourced', title: ep.title, at: new Date().toISOString() }
+    // 嘗試以 per-guid 鎖檔宣告認領（同機競態防護）
+    const lockPath = `/tmp/podcast-lock-${ep.guid.replace(/[^a-z0-9]/gi, '')}`
+    try {
+      writeFileSync(lockPath, String(process.pid), { flag: 'wx' })  // 'wx'：若已存在則拋出
+    } catch {
+      console.log(`  ⏭  已被同機另一 runner 認領（lock 存在），跳過。`)
+      continue
+    }
+
+    // 立刻宣告認領（防跨機競態：寫 runner 唯一識別碼）
+    const runnerId = `${process.pid}-${Date.now()}`
+    tracking[ep.guid] = { status: 'sourced', title: ep.title, at: new Date().toISOString(), _runner: runnerId }
     save(TRACKING, tracking)
 
     // 呼叫 Gemini 產生 frontmatter JSON
@@ -430,6 +440,16 @@ async function main() {
       console.error(`  ❌ Gemini 失敗：${e.message}`)
       tracking[ep.guid] = { status: 'error', title: ep.title, at: new Date().toISOString(), error: e.message }
       save(TRACKING, tracking)
+      continue
+    }
+
+    // 二次確認：Gemini 回傳後再讀一次 tracking，防跨機競態
+    // 只有自己寫的那筆才繼續，其他 runner 寫的就放棄
+    const trackingNow = load(TRACKING)
+    const claimedBy = trackingNow[ep.guid]?._runner
+    if (claimedBy && claimedBy !== runnerId) {
+      console.log(`  ⏭  ${ep.guid.slice(0, 8)}… 已被另一 runner 認領，放棄。`)
+      try { unlinkSync(lockPath) } catch {}
       continue
     }
 
@@ -462,6 +482,9 @@ async function main() {
 
     created++
     console.log(`  ✅ drafts/${finalFile}（正文 ${rawBody.length} 字）`)
+
+    // 清除 per-guid 鎖檔
+    try { unlinkSync(lockPath) } catch {}
   }
 
   console.log(`\n完成：${created} 集已產生草稿。`)

@@ -12,6 +12,19 @@ MAX_LOG_LINES=500
 
 cd "$PROJ"
 
+# ── 同機鎖：防止 LaunchAgent 前一輪還沒跑完就啟動新一輪 ─────────────────────
+LOCK="/tmp/two-bears-podcast.lock"
+if [ -f "$LOCK" ]; then
+  AGE=$(( $(date +%s) - $(stat -f %m "$LOCK" 2>/dev/null || echo 0) ))
+  if [ "$AGE" -lt 600 ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ⏸ 前一輪仍在執行（lock $AGE 秒），跳過" >> "$LOG"
+    exit 0
+  fi
+  echo "$(date '+%Y-%m-%d %H:%M:%S') ⚠️  stale lock（$AGE 秒），強制覆蓋" >> "$LOG"
+fi
+echo $$ > "$LOCK"
+trap "rm -f '$LOCK'" EXIT
+
 echo "" >> "$LOG"
 echo "========================================" >> "$LOG"
 echo "$(date '+%Y-%m-%d %H:%M:%S') 開始自動發布" >> "$LOG"

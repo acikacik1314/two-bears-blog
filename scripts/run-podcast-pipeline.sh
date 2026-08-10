@@ -17,6 +17,10 @@ echo "========================================" >> "$LOG"
 echo "$(date '+%Y-%m-%d %H:%M:%S') 開始自動發布" >> "$LOG"
 echo "========================================" >> "$LOG"
 
+# ── Step 0: 先 pull 取得最新 tracking，避免和 GH Actions 衝突 ────────────────
+echo "[0/4] git pull..." >> "$LOG"
+git pull --rebase --quiet >> "$LOG" 2>&1 || true
+
 # ── Step 1: 從 RSS 抓新集數，存成來源檔 ──────────────────────────────────────
 echo "[1/4] 抓取 Podcast RSS..." >> "$LOG"
 if ! node scripts/podcast-to-blog.mjs >> "$LOG" 2>&1; then

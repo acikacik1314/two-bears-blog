@@ -24,6 +24,7 @@ import { homedir } from 'os'
 const __dirname      = dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT   = join(__dirname, '..')
 const DRAFTS_DIR     = join(PROJECT_ROOT, 'drafts')
+const BLOG_DIR       = join(PROJECT_ROOT, 'src/content/blog')
 const TRACKING       = join(__dirname, 'podcast-sync-tracking.json')
 const QUEUE_FILE     = join(__dirname, 'podcast-queue.json')
 const DRAFT_TRACKING = join(__dirname, 'draft-tracking.json')
@@ -481,10 +482,21 @@ async function main() {
     const slug = (fm.slug || '').replace(/[^a-z0-9-]/g, '') || `podcast-${Date.now()}`
     const draftFile = `${slug}.md`
     const draftPath = join(DRAFTS_DIR, draftFile)
+    const blogPath  = join(BLOG_DIR,   draftFile)
 
-    // 若 slug 衝突（已存在草稿），加時間戳後綴
+    // 若 slug 已在 content/blog 發布過 → 標記 published 跳過，不重複建草稿
+    if (existsSync(blogPath)) {
+      console.log(`  ⏭  slug "${slug}" 已在 blog 發布，跳過（標記 published）。`)
+      tracking[ep.guid] = { status: 'published', title: ep.title, publishedAt: new Date().toISOString(), draftFile }
+      save(TRACKING, tracking)
+      try { unlinkSync(lockPath) } catch {}
+      continue
+    }
+
+    // 若 slug 衝突（已存在草稿），加日期後綴
+    const pubDate = toDateStr(ep.pubDate)
     const finalFile = existsSync(draftPath)
-      ? `${slug}-${Date.now()}.md`
+      ? `${slug}-${pubDate}.md`
       : draftFile
     const finalPath = join(DRAFTS_DIR, finalFile)
 

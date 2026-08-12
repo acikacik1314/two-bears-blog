@@ -1040,9 +1040,9 @@
   },
   "f956333d-584d-44ac-9171-1c3da9f6559b": {
     "status": "published",
-    "draftFile": "2028-ai-crypto-trump-end-times-prophecy.md",
-    "title": "2028大浩劫預警：AI機器人與虛擬貨幣的終局之戰？川普回歸與全球局勢的末世預言，揭秘正在上演的毀滅劇本！",
-    "publishedAt": "2026-08-10T18:57:14.577Z"
+    "title": "2028大浩劫預警：AI機器人與虛擬貨幣的終局之戰？",
+    "publishedAt": "2026-08-10T00:00:00.000Z",
+    "draftFile": "2028-ai-crypto-trump-end-times-prophecy.md"
   },
   "5b927668-c705-47c1-a3e6-89470b4560d4": {
     "status": "published",
@@ -1067,5 +1067,11 @@
     "draftFile": "2026-global-reset-angels-warning-wealth-transfer-ai-apocalypse.md",
     "title": "2026 全球大洗牌？來自天使的警告：財富轉移與AI末世真相！這場「能量斷裂」將改變你的命運！",
     "publishedAt": "2026-08-12T01:52:28.914Z"
+  },
+  "5ba9465d-8448-4535-a9df-9c1cb0f83233": {
+    "status": "sourced",
+    "title": "【毀滅性預言】2024-2027 台灣衝突、經濟大崩潰與第三次世界大戰：布蘭登最新警告，這些預言正在發生！",
+    "at": "2026-08-12T12:44:50.894Z",
+    "_runner": "40371-1786538690894"
   }
 }

@@ -515,7 +515,7 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     label: 'Anne Tucker',
     color: '#0369a1',
     bg: 'rgba(3,105,161,.12)',
-    image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=160&h=160&fit=crop',
+    image: '/prophets/anne-tucker.webp',
     icon: '🌟',
     bio: '靈媒與預言家，透過靈視與感知分享對個人與全球事件的洞見',
     tags: ['靈媒', '靈視', '預言'],

@@ -739,6 +739,20 @@ export const PROPHET_PROFILES: ProphetProfile[] = [
     ],
   },
   {
+    id: 'Jennifer LeClaire',
+    name: 'Jennifer LeClaire',
+    emoji: '🔮',
+    color: '#7c3aed',
+    origin: '美國',
+    method: '先知異夢與啟示',
+    bio: '美國先知、作家及 Awakening House of Prayer 創辦人，以夢境異象分享末世警告，涵蓋美國政局、經濟泡沫與全球地緣政治預言。著有逾50本靈性書籍，長期透過 Podcast 與直播分享從禱告與異象中接收的預警。',
+    sampleQuotes: [
+      '我看見JD范斯被扶上美國下一任總統的位置，他當時穿著一件高領的紫色小丑服',
+      '虛擬貨幣泡沫、人工智慧泡沫，以及債務泡沫將同時破裂',
+      '在未來的日子裡，獨行俠將會耗盡、筋疲力盡',
+    ],
+  },
+  {
     id: 'Sadhguru',
     name: 'Sadhguru',
     emoji: '🪷',

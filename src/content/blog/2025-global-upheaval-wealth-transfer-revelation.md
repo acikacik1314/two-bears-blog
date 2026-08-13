@@ -3,6 +3,7 @@ title: 【2025全球大震盪】財富轉移真相曝光！前知名總編詹妮
 description: 前知名總編詹妮福揭露2025全球經濟震盪背後的超自然財富轉移，以及AI技術對靈界的影響，呼籲成為時代的守望者。
 pubDate: '2026-08-13'
 category: 預言
+prophet: 'Jennifer LeClaire'
 tags:
 - 全球經濟
 - AI

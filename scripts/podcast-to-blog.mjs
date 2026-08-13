@@ -345,7 +345,7 @@ async function main() {
   mkdirSync(DRAFTS_DIR, { recursive: true })
 
   const tracking = load(TRACKING)
-  const retryable = new Set(['error', 'queued'])
+  const retryable = new Set(['error', 'queued', 'sourced'])
   const skip = (t) => t && !retryable.has(t.status)
 
   console.log('📡 抓取 Podcast RSS...')

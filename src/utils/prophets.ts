@@ -410,6 +410,16 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '美國基督教預言家，Ark of Grace Ministry 創辦人，以夢境異象及直接神諭分享末世警告與復興信息',
     tags: ['基督教預言', '美國', '神諭'],
   },
+  'Jennifer LeClaire': {
+    en: 'Jennifer LeClaire',
+    label: 'Jennifer LeClaire',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,.12)',
+    image: '/prophets/jennifer-leclaire.webp',
+    icon: '🔮',
+    bio: '美國先知、作家及 Awakening House of Prayer 創辦人，以夢境異象分享末世警告，涵蓋美國政局、經濟泡沫與全球地緣政治預言',
+    tags: ['基督教預言', '先知', '美國'],
+  },
   'Joni Patry': {
     en: 'Joni Patry',
     label: 'Joni Patry',
@@ -633,6 +643,7 @@ export function detectProphet(title: string): string {
   if (/jeane.?dixon/i.test(title)) return 'Jeane Dixon';
   if (/susan.?miller/i.test(title)) return 'Susan Miller';
   if (/amanda.?grace/i.test(title)) return 'amanda-grace';
+  if (/jennifer.?leclaire|leclaire/i.test(title)) return 'Jennifer LeClaire';
   if (/joni.?patry/i.test(title)) return 'Joni Patry';
   if (/william.?taylor/i.test(title)) return 'William Taylor';
   if (/阿洛伊斯|irlmaier/i.test(title)) return '阿洛伊斯';

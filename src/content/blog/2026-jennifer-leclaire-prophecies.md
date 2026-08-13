@@ -3,6 +3,7 @@ title: '2026三大泡沫破裂？女先知揭川普命運與自救4關鍵！'
 description: '美國先知預警2026年川普遇刺、范斯穿小丑服登基，並指出虛擬幣、AI與債務三大經濟泡沫將同時引爆，南海地緣政治緊張。'
 pubDate: '2026-07-24'
 category: '預言'
+prophet: 'Jennifer LeClaire'
 tags: ["預言","末日","經濟危機","地緣政治","生存指南"]
 heroImage: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&h=450&fit=crop'
 predictions:

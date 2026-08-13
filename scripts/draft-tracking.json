@@ -775,8 +775,9 @@
     "draftedAt": "2026-08-12T12:44:59.026Z"
   },
   "aed0754d-598b-4bc4-abd5-1a8e51398661": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2025-global-upheaval-wealth-transfer-revelation.md",
-    "draftedAt": "2026-08-13T04:11:55.143Z"
+    "draftedAt": "2026-08-13T04:11:55.143Z",
+    "publishedAt": "2026-08-13T04:12:46.798Z"
   }
 }

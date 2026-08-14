@@ -791,13 +791,15 @@
     "publishedAt": "2026-08-14T01:52:49.366Z"
   },
   "b28d6ce2-ee5e-4358-8cc2-10a731b8c2b1": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "trump-assassination-virus-ww3-wealth-transfer-2026.md",
-    "draftedAt": "2026-08-14T07:23:28.271Z"
+    "draftedAt": "2026-08-14T07:23:28.271Z",
+    "publishedAt": "2026-08-14T07:24:26.657Z"
   },
   "7565b967-d70d-434c-9cc5-875cd8235bd5": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-doomsday-trump-nadi-leaf-prophecy-2028-war.md",
-    "draftedAt": "2026-08-14T07:23:34.598Z"
+    "draftedAt": "2026-08-14T07:23:34.598Z",
+    "publishedAt": "2026-08-14T07:24:26.657Z"
   }
 }

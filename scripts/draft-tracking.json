@@ -775,31 +775,30 @@
     "draftedAt": "2026-08-13T18:10:52.568Z"
   },
   "dccbf933-4563-44be-b6dd-e47410cde99c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "chicago-doomsday-warning-brandon-confession-us-hijacked.md",
-    "draftedAt": "2026-08-13T18:10:45.134Z"
+    "draftedAt": "2026-08-13T18:10:45.134Z",
+    "publishedAt": "2026-08-13T18:12:41.864Z"
   },
   "165611fa-693d-4521-bef8-015ea810bec5": {
-    "status": "drafted",
-    "draftFile": "2026-salome-taiwan-strait-prophecy-trump-musk.md",
-    "draftedAt": "2026-08-13T18:10:42.881Z"
-  },
-  "f7220ccc-b182-42a7-8c24-4395991a77d4": {
     "status": "published",
-    "draftFile": "hong-kong-prophet-quan-lang-2026-2027-predictions.md",
-    "draftedAt": "2026-08-14T01:51:59.022Z",
-    "publishedAt": "2026-08-14T01:52:49.366Z"
+    "draftFile": "2026-salome-taiwan-strait-prophecy-trump-musk.md",
+    "draftedAt": "2026-08-13T18:10:42.881Z",
+    "publishedAt": "2026-08-13T18:12:41.864Z"
   },
   "b28d6ce2-ee5e-4358-8cc2-10a731b8c2b1": {
-    "status": "published",
-    "draftFile": "trump-assassination-virus-ww3-wealth-transfer-2026.md",
-    "draftedAt": "2026-08-14T07:23:28.271Z",
-    "publishedAt": "2026-08-14T07:24:26.657Z"
+    "status": "drafted",
+    "draftFile": "2026-trump-assassination-virus-ww3-wealth-transfer.md",
+    "draftedAt": "2026-08-14T13:40:43.069Z"
   },
   "7565b967-d70d-434c-9cc5-875cd8235bd5": {
-    "status": "published",
-    "draftFile": "taiwan-doomsday-trump-nadi-leaf-prophecy-2028-war.md",
-    "draftedAt": "2026-08-14T07:23:34.598Z",
-    "publishedAt": "2026-08-14T07:24:26.657Z"
+    "status": "drafted",
+    "draftFile": "2028-taiwan-crisis-trump-nadi-leaves-prophecy.md",
+    "draftedAt": "2026-08-14T13:40:49.717Z"
+  },
+  "f7220ccc-b182-42a7-8c24-4395991a77d4": {
+    "status": "drafted",
+    "draftFile": "hong-kong-prophet-quan-lang-2026-2027-predictions.md",
+    "draftedAt": "2026-08-14T13:40:55.154Z"
   }
 }

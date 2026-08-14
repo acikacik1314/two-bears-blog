@@ -785,8 +785,9 @@
     "draftedAt": "2026-08-13T18:10:42.881Z"
   },
   "f7220ccc-b182-42a7-8c24-4395991a77d4": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "hong-kong-prophet-quan-lang-2026-2027-predictions.md",
-    "draftedAt": "2026-08-14T01:51:59.022Z"
+    "draftedAt": "2026-08-14T01:51:59.022Z",
+    "publishedAt": "2026-08-14T01:52:49.366Z"
   }
 }

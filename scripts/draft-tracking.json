@@ -792,9 +792,10 @@
     "draftedAt": "2026-08-14T16:52:19.188Z"
   },
   "7565b967-d70d-434c-9cc5-875cd8235bd5": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-doomsday-trump-third-term-nadi-leaves-prophecy.md",
-    "draftedAt": "2026-08-14T18:53:10.993Z"
+    "draftedAt": "2026-08-14T18:53:10.993Z",
+    "publishedAt": "2026-08-14T18:54:09.872Z"
   },
   "f7220ccc-b182-42a7-8c24-4395991a77d4": {
     "status": "drafted",

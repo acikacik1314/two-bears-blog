@@ -590,6 +590,26 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '中文網路神秘預言人物，以天道視角分析全球局勢走向',
     tags: ['網路預言', '天道', '全球局勢'],
   },
+  '小孟老師': {
+    en: 'Master Xiaomeng',
+    label: '小孟老師',
+    color: '#0ea5e9',
+    bg: 'rgba(14,165,233,.12)',
+    image: '/prophets/xiaomeng.webp',
+    icon: '🃏',
+    bio: '清水孟國際塔羅小孟老師，以星象、塔羅牌及大數據解讀財經趨勢與國運走向',
+    tags: ['塔羅', '財經命理', '台灣'],
+  },
+  '廖美然': {
+    en: 'Liao Meiran',
+    label: '廖美然',
+    color: '#7c3aed',
+    bg: 'rgba(124,58,237,.12)',
+    image: '/prophets/liao-meiran.webp',
+    icon: '🔮',
+    bio: '台灣靈媒，被譽為「台灣觀世音」，以通靈感應預言政治、自然災害及全球局勢',
+    tags: ['靈媒', '通靈', '台灣'],
+  },
 };
 
 export const DEFAULT_PROPHET: ProphetConfig = {

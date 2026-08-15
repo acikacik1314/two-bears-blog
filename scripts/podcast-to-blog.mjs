@@ -279,11 +279,14 @@ ${body.slice(0, 3000)}
 // ── YAML 產生 ─────────────────────────────────────────────────────────────────
 
 function yamlStr(s) {
-  if (!s) return ''
-  if (/[:"'#{}[\]|>&*!,]/.test(s) || s.includes('\n') || s.startsWith(' ') || s.endsWith(' ')) {
-    return `'${s.replace(/'/g, "''")}'`
+  if (s === null || s === undefined || s === '') return ''
+  const str = String(s)
+  // Quote pure numbers (YAML would parse '2026' as integer)
+  if (/^\d+$/.test(str)) return `'${str}'`
+  if (/[:"'#{}[\]|>&*!,]/.test(str) || str.includes('\n') || str.startsWith(' ') || str.endsWith(' ')) {
+    return `'${str.replace(/'/g, "''")}'`
   }
-  return s
+  return str
 }
 
 function buildDraft(ep, body, fm) {

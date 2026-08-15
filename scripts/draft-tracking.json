@@ -802,18 +802,21 @@
     "draftedAt": "2026-08-15T08:26:34.213Z"
   },
   "1081ab10-3c65-452d-88bd-01b5bd6aea5a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "trump-earthquake-global-disaster-biggs-2026-prophecy.md",
-    "draftedAt": "2026-08-15T12:35:29.927Z"
+    "draftedAt": "2026-08-15T12:35:29.927Z",
+    "publishedAt": "2026-08-15T12:36:33.800Z"
   },
   "7d487a31-0f68-4edd-856d-9eb2fbb4d9f7": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-stock-market-100k-xiaomeng-2026-trump-ai-housing.md",
-    "draftedAt": "2026-08-15T12:35:34.502Z"
+    "draftedAt": "2026-08-15T12:35:34.502Z",
+    "publishedAt": "2026-08-15T12:36:33.800Z"
   },
   "78e1e639-1b93-4c35-8b0c-9d4af66bc667": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-huoma-nian-liao-meiran-yuyan-gushi-bengpan-sanjie-dazhan.md",
-    "draftedAt": "2026-08-15T12:35:39.383Z"
+    "draftedAt": "2026-08-15T12:35:39.383Z",
+    "publishedAt": "2026-08-15T12:36:33.800Z"
   }
 }

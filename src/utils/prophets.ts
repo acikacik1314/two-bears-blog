@@ -115,10 +115,20 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     label: 'KFK',
     color: '#06b6d4',
     bg: 'rgba(6,182,212,.12)',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=160&h=160&fit=crop',
+    image: '/prophets/kfk.webp',
     icon: '⏰',
     bio: '2019年出現於豆瓣的神秘網路人物，自稱來自2060年的上海，在短時間內回答281個問題，多項預言已應驗',
     tags: ['未來人', '時間旅行', '中國互聯網'],
+  },
+  'David the Medium': {
+    en: 'David the Medium',
+    label: 'David the Medium',
+    color: '#5b21b6',
+    bg: 'rgba(91,33,182,.12)',
+    image: '/prophets/david-the-medium.webp',
+    icon: '🔮',
+    bio: '澳洲頂級靈媒，前政府反恐刑事起訴官，以法律人嚴謹思維結合靈性感知，曾精準預言新冠疫情墨爾本封城及川普遇刺事件',
+    tags: ['靈媒', '澳洲', '先知'],
   },
   'Tatsuki Ryo': {
     en: 'Tatsuki Ryo',
@@ -664,6 +674,7 @@ export function detectProphet(title: string): string {
   if (/susan.?miller/i.test(title)) return 'Susan Miller';
   if (/amanda.?grace/i.test(title)) return 'amanda-grace';
   if (/jennifer.?leclaire|leclaire/i.test(title)) return 'Jennifer LeClaire';
+  if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒/i.test(title)) return 'David the Medium';
   if (/小孟/i.test(title)) return '小孟老師';
   if (/廖美然|觀世音.*廖/i.test(title)) return '廖美然';
   if (/joni.?patry/i.test(title)) return 'Joni Patry';

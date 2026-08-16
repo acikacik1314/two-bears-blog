@@ -649,6 +649,51 @@
       "source": "/blog/yt-zSJrs3xKsRY",
       "destination": "/blog/2026-sansui-saf-4",
       "permanent": true
+    },
+    {
+      "source": "/blog/2026-sansui-saf",
+      "destination": "/blog/2020-06-21-sansui-air-fryer-oven-saf553w",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-sansui-saf-diy",
+      "destination": "/blog/2020-06-21-sansui-air-fryer-oven-saf553w",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-frigidaire-fdh",
+      "destination": "/blog/2021-01-07-frigidaire-dehumidifier-32l",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-sansui-swa",
+      "destination": "/blog/2021-05-12-sansui-portable-ac-swa-9900",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-chefborn-freseal",
+      "destination": "/blog/2022-02-14-chefborn-freseal-vacuum-sealer",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-frigidaire-cadr200-fap",
+      "destination": "/blog/2019-10-29-frigidaire-air-purifier-fap4205r",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yt-QypkH9exZFM",
+      "destination": "/blog/2019-10-02-frigidaire-washer-dryer-12kg",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-frigidaire-fpfu10f3rsn",
+      "destination": "/blog/2021-06-26-frigidaire-freezer-260l",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-sansui-soundbar-ssb",
+      "destination": "/blog/2020-10-06-sansui-soundbar-ssb255",
+      "permanent": true
     }
   ]
 }

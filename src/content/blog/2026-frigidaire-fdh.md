@@ -4,6 +4,7 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['開箱']
 youtubeId: 'OcZgpHQKDMs'
+draft: true
 ---
 
 ## 開箱兩台除濕機：大台 + 小台一次到位

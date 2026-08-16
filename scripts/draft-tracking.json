@@ -802,33 +802,38 @@
     "draftedAt": "2026-08-15T08:26:34.213Z"
   },
   "1081ab10-3c65-452d-88bd-01b5bd6aea5a": {
-    "status": "published",
-    "draftFile": "trump-earthquake-global-disaster-biggs-2026-prophecy.md",
-    "draftedAt": "2026-08-15T12:35:29.927Z",
-    "publishedAt": "2026-08-15T12:36:33.800Z"
+    "status": "drafted",
+    "draftFile": "trump-earthquake-global-disaster-biggers-prophecy-2026.md",
+    "draftedAt": "2026-08-15T08:27:21.152Z"
   },
   "7d487a31-0f68-4edd-856d-9eb2fbb4d9f7": {
-    "status": "published",
-    "draftFile": "taiwan-stock-market-100k-xiaomeng-2026-trump-ai-housing.md",
-    "draftedAt": "2026-08-15T12:35:34.502Z",
-    "publishedAt": "2026-08-15T12:36:33.800Z"
+    "status": "drafted",
+    "draftFile": "taiwan-stock-market-100k-xiaomeng-2026-prophecy.md",
+    "draftedAt": "2026-08-15T08:27:25.837Z"
   },
   "78e1e639-1b93-4c35-8b0c-9d4af66bc667": {
-    "status": "published",
-    "draftFile": "2026-huoma-nian-liao-meiran-yuyan-gushi-bengpan-sanjie-dazhan.md",
-    "draftedAt": "2026-08-15T12:35:39.383Z",
-    "publishedAt": "2026-08-15T12:36:33.800Z"
+    "status": "drafted",
+    "draftFile": "2026-huoma-nian-jingxun-liao-meiran-yuyan-gushi-bengpan-sanjie-dazhan-waixingren.md",
+    "draftedAt": "2026-08-15T08:27:31.985Z"
   },
-  "f49c934c-2c06-41f9-82e0-c966d633de8e": {
-    "status": "published",
-    "draftFile": "dalio-2026-great-disorder-taiwan-ai-us-debt.md",
-    "draftedAt": "2026-08-16T02:59:11.522Z",
-    "publishedAt": "2026-08-16T03:00:07.272Z"
+  "Brandon_Biggs_20260810-20260810_20260810_211537.md": {
+    "status": "skipped-duplicate",
+    "reason": "與既有文章重疊：biggs-2026-ai-virus-warning.md（2026-08-10）",
+    "at": "2026-08-16T14:31:36.108Z"
   },
-  "7bcf3bf3-cc58-4146-bfd6-2a965091c088": {
-    "status": "published",
-    "draftFile": "2026-hou-de-ming-yun-cai-fu-da-xi-pai-chuan-pu-ai-xu-ni-huo-bi.md",
-    "draftedAt": "2026-08-16T02:59:15.722Z",
-    "publishedAt": "2026-08-16T03:00:07.272Z"
+  "Brandon_Biggs_20260810-20260811_20260811_175000.md": {
+    "status": "skipped-duplicate",
+    "reason": "與既有文章重疊：japan-split-california-earthquake-biggers-prophecy.md（2026-08-11）",
+    "at": "2026-08-16T14:31:36.110Z"
+  },
+  "蝦米！預言家看到美國被入侵？連「聯合國藍盔部隊」都出現了是怎樣啦！_20260606-20260606_20260810_103028.md": {
+    "status": "drafted",
+    "draftFile": "us-invasion-un-blue-helmets.md",
+    "draftedAt": "2026-08-16T14:31:45.828Z"
+  },
+  "錢包掰掰變真的？阿曼達·預言2028銀行大崩盤，連虛擬貨幣都慘爆！你的錢還安全嗎？_20260606-20260606_20260810_103028.md": {
+    "status": "drafted",
+    "draftFile": "amanda-2028-bank-crash.md",
+    "draftedAt": "2026-08-16T14:31:55.948Z"
   }
 }

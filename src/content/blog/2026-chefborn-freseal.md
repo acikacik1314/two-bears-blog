@@ -4,6 +4,7 @@ description: '韓國旅遊實況紀錄，帶你深入探索當地的飯店、美
 pubDate: '2026-05-23'
 tags: ['開箱']
 youtubeId: '4-oveYkng9U'
+draft: true
 ---
 
 以下是整理後的文章內文：

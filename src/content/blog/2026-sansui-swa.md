@@ -4,6 +4,7 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['開箱']
 youtubeId: 'g3xF-kco2lY'
+draft: true
 ---
 
 ## 為什麼需要移動式冷氣？

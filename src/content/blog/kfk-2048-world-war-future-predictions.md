@@ -2,6 +2,7 @@
 title: 全球股市一小時內全部失去意義，二零四八年爆發世界大戰，未來人揭露二零二六後的動盪與轉折
 description: KFK預言2048年將爆發世界大戰，全球股市崩潰，並揭露2026年後的動盪與轉折，包含台灣、中國、美國的未來走向。
 pubDate: '2026-08-16'
+draft: true
 category: 預言
 prophet: KFK
 tags:

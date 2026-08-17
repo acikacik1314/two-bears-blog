@@ -842,9 +842,10 @@
     "draftedAt": "2026-08-17T01:15:11.983Z"
   },
   "7df64117-63c9-432c-b954-408793d3a786": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joni-patry-2026-august-world-predictions-trump-stock-market-aliens.md",
-    "draftedAt": "2026-08-17T10:31:41.185Z"
+    "draftedAt": "2026-08-17T10:31:41.185Z",
+    "publishedAt": "2026-08-17T10:32:37.044Z"
   },
   "4b8c0dee-1785-4564-bb92-0f942f1fcd87": {
     "status": "published",
@@ -859,8 +860,9 @@
     "publishedAt": "2026-08-17T04:12:40.773Z"
   },
   "1ab3238e-7bba-4d40-9f1d-d25a1f6a8c2f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-collective-consciousness-reset-wealth-transfer.md",
-    "draftedAt": "2026-08-17T10:31:25.886Z"
+    "draftedAt": "2026-08-17T10:31:25.886Z",
+    "publishedAt": "2026-08-17T10:32:37.044Z"
   }
 }

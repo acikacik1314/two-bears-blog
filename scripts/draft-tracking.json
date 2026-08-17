@@ -859,8 +859,9 @@
     "draftedAt": "2026-08-17T04:11:27.796Z"
   },
   "1ab3238e-7bba-4d40-9f1d-d25a1f6a8c2f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-collective-consciousness-reset-decade-transition.md",
-    "draftedAt": "2026-08-17T08:42:12.179Z"
+    "draftedAt": "2026-08-17T08:42:12.179Z",
+    "publishedAt": "2026-08-17T08:43:07.554Z"
   }
 }

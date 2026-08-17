@@ -842,14 +842,16 @@
     "draftedAt": "2026-08-17T01:15:11.983Z"
   },
   "7df64117-63c9-432c-b954-408793d3a786": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joni-patry-2026-august-prophecy-trump-stock-market.md",
-    "draftedAt": "2026-08-17T04:41:23.903Z"
+    "draftedAt": "2026-08-17T04:41:23.903Z",
+    "publishedAt": "2026-08-17T04:42:23.443Z"
   },
   "4b8c0dee-1785-4564-bb92-0f942f1fcd87": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "trump-assassination-ancient-ritual-2026-survival-code.md",
-    "draftedAt": "2026-08-17T04:41:27.329Z"
+    "draftedAt": "2026-08-17T04:41:27.329Z",
+    "publishedAt": "2026-08-17T04:42:23.443Z"
   },
   "884556ff-e0c7-4bb4-9be6-ea61177139cf": {
     "status": "drafted",

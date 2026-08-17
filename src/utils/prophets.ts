@@ -120,7 +120,7 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '2019年出現於豆瓣的神秘網路人物，自稱來自2060年的上海，在短時間內回答281個問題，多項預言已應驗',
     tags: ['未來人', '時間旅行', '中國互聯網'],
   },
-  'David the Medium': {
+  'david-the-medium': {
     en: 'David the Medium',
     label: 'David the Medium',
     color: '#5b21b6',

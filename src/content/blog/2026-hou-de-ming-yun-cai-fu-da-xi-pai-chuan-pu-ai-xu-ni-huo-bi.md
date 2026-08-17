@@ -3,7 +3,7 @@ title: 【2026後的命運】澳洲前檢察官靈媒大衛：川普新黃金時
 description: 澳洲前檢察官靈媒大衛預言2026年後的全球巨變，包括川普開啟的新黃金時代、AI與虛擬貨幣的影響，以及2027年的財富大洗牌。
 pubDate: '2026-08-15'
 category: 預言
-prophet: David the Medium
+prophet: david-the-medium
 tags:
 - 靈媒
 - 預言

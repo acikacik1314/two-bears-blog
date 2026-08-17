@@ -455,7 +455,7 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     label: 'Julie Poole',
     color: '#6d28d9',
     bg: 'rgba(109,40,217,.12)',
-    image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=160&h=160&fit=crop',
+    image: '/prophets/julie-poole.webp',
     icon: '💜',
     bio: '英國靈性教練與通靈師，透過高層次導師訊息分享個人療癒與地球轉化預言',
     tags: ['英國靈性', '通靈', '療癒'],

@@ -866,8 +866,9 @@
     "publishedAt": "2026-08-17T10:32:37.044Z"
   },
   "f0414079-5795-4678-a52b-99fd36f352be": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "cosmic-schism-alien-contact-timeline-bashar.md",
-    "draftedAt": "2026-08-18T04:34:31.472Z"
+    "draftedAt": "2026-08-18T04:34:31.472Z",
+    "publishedAt": "2026-08-18T04:35:21.665Z"
   }
 }

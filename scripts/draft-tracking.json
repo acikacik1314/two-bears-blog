@@ -878,8 +878,9 @@
     "publishedAt": "2026-08-18T06:42:00.369Z"
   },
   "56509152-f845-45ea-882a-c31856153f45": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "gold-surge-aliens-ww3-mastermind.md",
-    "draftedAt": "2026-08-19T06:41:43.383Z"
+    "draftedAt": "2026-08-19T06:41:43.383Z",
+    "publishedAt": "2026-08-19T06:42:35.001Z"
   }
 }

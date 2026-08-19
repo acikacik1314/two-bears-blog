@@ -1183,9 +1183,9 @@
     "publishedAt": "2026-08-18T06:42:00.369Z"
   },
   "56509152-f845-45ea-882a-c31856153f45": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "gold-surge-aliens-ww3-mastermind.md",
     "title": "黃金將暴漲突破十萬大關且外星人竟是第三次世界大戰的幕後黑手",
-    "at": "2026-08-19T06:41:40.488Z",
-    "_runner": "2305-1787121700488"
+    "publishedAt": "2026-08-19T06:42:35.001Z"
   }
 }

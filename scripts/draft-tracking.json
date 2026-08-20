@@ -902,8 +902,9 @@
     "publishedAt": "2026-08-20T08:38:15.698Z"
   },
   "44f76b51-8672-429c-8949-6098352e2e2e": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "supernatural-wealth-transfer-crypto-boom.md",
-    "draftedAt": "2026-08-20T22:26:37.684Z"
+    "draftedAt": "2026-08-20T22:26:37.684Z",
+    "publishedAt": "2026-08-20T22:27:22.398Z"
   }
 }

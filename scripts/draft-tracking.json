@@ -890,13 +890,15 @@
     "publishedAt": "2026-08-19T18:35:01.051Z"
   },
   "e17d7f88-64a5-4d8a-a37b-8c56ed74136a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-biometric-quantum-chip-apocalypse-prophecy.md",
-    "draftedAt": "2026-08-20T08:37:19.232Z"
+    "draftedAt": "2026-08-20T08:37:19.232Z",
+    "publishedAt": "2026-08-20T08:38:15.698Z"
   },
   "ce666392-f6f9-4692-b35c-eebbb78ba5c1": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "super-el-nino-climate-disaster-geopolitical-conflict.md",
-    "draftedAt": "2026-08-20T08:37:24.340Z"
+    "draftedAt": "2026-08-20T08:37:24.340Z",
+    "publishedAt": "2026-08-20T08:38:15.698Z"
   }
 }

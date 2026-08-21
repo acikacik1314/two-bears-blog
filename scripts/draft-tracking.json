@@ -893,18 +893,21 @@
     "draftedAt": "2026-08-21T01:55:40.809Z"
   },
   "364cb4ba-6dec-4e97-ad3f-20c818987c42": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "technology-destruction-atlantis-awakening-prophecy.md",
-    "draftedAt": "2026-08-21T08:39:17.445Z"
+    "draftedAt": "2026-08-21T08:39:17.445Z",
+    "publishedAt": "2026-08-21T08:40:17.554Z"
   },
   "9ed90dbf-597b-4e4e-8903-83f57c19b664": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "filter-negative-energy-reverse-fate-2026.md",
-    "draftedAt": "2026-08-21T08:39:19.819Z"
+    "draftedAt": "2026-08-21T08:39:19.819Z",
+    "publishedAt": "2026-08-21T08:40:17.554Z"
   },
   "c6559db1-6b98-4092-b8db-4cfc234b80e9": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "discard-plastics-chemicals-best-timeline-2028-cleansing.md",
-    "draftedAt": "2026-08-21T08:39:21.895Z"
+    "draftedAt": "2026-08-21T08:39:21.895Z",
+    "publishedAt": "2026-08-21T08:40:17.554Z"
   }
 }

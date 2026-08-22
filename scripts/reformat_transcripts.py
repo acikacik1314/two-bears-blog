@@ -32,7 +32,7 @@ PROMPT = """你是一位專業的中文部落格編輯。以下是一段 YouTube
 
 
 def call_gemini(text, key):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={key}"
     body = json.dumps({
         "contents": [{"parts": [{"text": PROMPT.format(transcript=text[:15000])}]}],
         "generationConfig": {"temperature": 0.3, "maxOutputTokens": 8192}

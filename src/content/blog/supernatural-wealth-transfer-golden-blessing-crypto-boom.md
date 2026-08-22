@@ -4,6 +4,7 @@ description: 本集探討超自然財富轉移、黃金祝福窗口與加密貨�
 pubDate: '2026-08-20'
 category: 預言
 prophet: 比格斯
+heroImage: '/biggs-prophet.png'
 tags:
 - 超自然
 - 財富轉移

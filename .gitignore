@@ -41,3 +41,6 @@ scripts/scrape-community-posts.py
 scripts/scrape-community-posts.mjs
 scripts/__pycache__/
 reports/
+
+# 預言家逐字稿資料庫（本機留存，不進 git）
+/prophets-db/

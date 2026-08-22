@@ -917,13 +917,15 @@
     "publishedAt": "2026-08-22T01:10:59.176Z"
   },
   "fd5df666-a32c-4ba7-9934-5a9b0d4a77e3": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2027-economic-collapse-super-drought-prediction.md",
-    "draftedAt": "2026-08-22T08:28:55.094Z"
+    "draftedAt": "2026-08-22T08:28:55.094Z",
+    "publishedAt": "2026-08-22T08:29:40.063Z"
   },
   "24653ccc-5da2-4bd6-90cf-07d6c0f73e6f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "economic-collapse-comet-impact-doomsday-warnings.md",
-    "draftedAt": "2026-08-22T08:28:44.946Z"
+    "draftedAt": "2026-08-22T08:28:44.946Z",
+    "publishedAt": "2026-08-22T08:29:40.063Z"
   }
 }

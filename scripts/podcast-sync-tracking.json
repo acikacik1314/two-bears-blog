@@ -1243,15 +1243,15 @@
     "publishedAt": "2026-08-22T01:10:59.176Z"
   },
   "fd5df666-a32c-4ba7-9934-5a9b0d4a77e3": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "2027-economic-collapse-super-drought-prediction.md",
     "title": "二零二七年將迎來比金融海嘯更可怕的經濟崩盤與超級大乾旱。",
-    "at": "2026-08-22T08:28:44.946Z",
-    "_runner": "2211-1787387324946"
+    "publishedAt": "2026-08-22T08:29:40.063Z"
   },
   "24653ccc-5da2-4bd6-90cf-07d6c0f73e6f": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "economic-collapse-comet-impact-doomsday-warnings.md",
     "title": "經濟即將大崩潰且有彗星可能撞擊地球的種種末日預警已經悄然現形",
-    "at": "2026-08-22T08:28:42.715Z",
-    "_runner": "2211-1787387322715"
+    "publishedAt": "2026-08-22T08:29:40.063Z"
   }
 }

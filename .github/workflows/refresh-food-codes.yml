@@ -1,0 +1,45 @@
+name: Refresh Food Codes
+
+on:
+  schedule:
+    - cron: '0 18 * * *'  # 每天台灣時間 02:00（UTC+8）
+  workflow_dispatch:       # 允許手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 設定 git 身份
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 爬取並更新優惠代碼
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: node scripts/refresh-food-codes.mjs
+
+      - name: 有變動才 commit + push
+        run: |
+          git add src/data/food-codes.json
+          if git diff --cached --quiet; then
+            echo "✅ 無新代碼，跳過 commit"
+          else
+            git commit -m "chore: 更新優惠代碼 $(date -u +'%Y-%m-%d')"
+            git push origin main
+            echo "✅ 已推送更新，Vercel 將自動重新部署"
+          fi

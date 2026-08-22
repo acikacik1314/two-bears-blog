@@ -6,10 +6,6 @@
       "schedule": "0 2 * * *"
     },
     {
-      "path": "/api/cron/refresh-food-codes",
-      "schedule": "0 2 * * *"
-    },
-    {
       "path": "/api/cron/refresh-cruise-deals",
       "schedule": "0 2 1 * *"
     }

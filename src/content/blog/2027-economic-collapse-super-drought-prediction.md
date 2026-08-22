@@ -3,6 +3,8 @@ title: 二零二七年將迎來比金融海嘯更可怕的經濟崩盤與超級�
 description: 布蘭登預言2027年全球將面臨比金融海嘯更嚴重的經濟崩盤與超級大乾旱，並提及美國政治、AI發展及第三次世界大戰的潛在危機。
 pubDate: '2026-08-22'
 category: 預言
+prophet: 比格斯
+heroImage: '/biggs-prophet.png'
 tags:
 - 經濟崩盤
 - 超級大乾旱

@@ -620,6 +620,16 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '台灣靈媒，被譽為「台灣觀世音」，以通靈感應預言政治、自然災害及全球局勢',
     tags: ['靈媒', '通靈', '台灣'],
   },
+  '伊莉莎白·愛普爾': {
+    en: 'Elizabeth April',
+    label: '伊莉莎白·愛普爾',
+    color: '#6d28d9',
+    bg: 'rgba(109,40,217,.12)',
+    image: '/elizabeth-april-prophet.jpg',
+    icon: '✨',
+    bio: '加拿大靈性導師與宇宙意識導師，以多維度視角分享靈性覺醒、時間線轉換與地球淨化的預言，強調個人頻率提升與宇宙連結',
+    tags: ['靈性', '宇宙意識', '時間線', '加拿大'],
+  },
   '水森太陽': {
     en: 'Mizumori Taiyo',
     label: '水森太陽',
@@ -695,6 +705,7 @@ export function detectProphet(title: string): string {
   if (/張盛舒/i.test(title)) return '張盛舒';
   if (/ian.?bremmer/i.test(title)) return 'Ian Bremmer';
   if (/clifford.?mahooty/i.test(title)) return 'Clifford Mahooty';
+  if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title)) return '伊莉莎白·愛普爾';
   if (/水森太陽|mizumori/i.test(title)) return '水森太陽';
   return '';
 }

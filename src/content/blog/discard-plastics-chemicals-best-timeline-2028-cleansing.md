@@ -2,6 +2,8 @@
 title: 丟掉家中塑膠與化學製品能轉移到最佳命運時間線，二零二八年前沒用能量將面臨大清洗
 description: 靈性導師伊莉莎白·愛普爾分享如何透過清理物質與能量世界，轉移到最佳命運時間線，並預言2028年前將面臨大清洗。
 pubDate: '2026-08-21'
+prophet: 伊莉莎白·愛普爾
+heroImage: '/elizabeth-april-prophet.jpg'
 category: 靈性
 tags:
 - 靈性

@@ -878,9 +878,10 @@
     "publishedAt": "2026-08-18T06:42:00.369Z"
   },
   "611a7859-31be-46cd-a6e0-c1ee14813ee3": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "supernatural-wealth-transfer-crypto-boom-2026.md",
-    "draftedAt": "2026-08-23T16:24:33.603Z"
+    "draftedAt": "2026-08-23T16:24:33.603Z",
+    "publishedAt": "2026-08-23T16:25:13.462Z"
   },
   "e17d7f88-64a5-4d8a-a37b-8c56ed74136a": {
     "status": "drafted",
@@ -935,8 +936,9 @@
     "publishedAt": "2026-08-22T14:20:58.906Z"
   },
   "51b76b8d-24fb-439b-918a-9050f0aec0fa": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-blockade-global-recession-martin-armstrong.md",
-    "draftedAt": "2026-08-23T16:24:20.185Z"
+    "draftedAt": "2026-08-23T16:24:20.185Z",
+    "publishedAt": "2026-08-23T16:25:13.462Z"
   }
 }

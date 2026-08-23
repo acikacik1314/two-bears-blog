@@ -6,19 +6,6 @@ import Footer from '../components/Footer.astro';
 import CTACard from '../components/CTACard.astro';
 import PredictionPoll from '../components/PredictionPoll.astro';
 import { SITE_TITLE } from '../consts';
-import { PROPHETS, DEFAULT_PROPHET } from '../utils/prophets';
-
-const clientProphets = JSON.stringify(
-  Object.fromEntries(
-    Object.entries(PROPHETS).map(([k, v]) => [k, {
-      label: v.label, color: v.color, bg: v.bg, image: v.image, icon: v.icon,
-    }])
-  )
-);
-const clientDefault = JSON.stringify({
-  label: DEFAULT_PROPHET.label, color: DEFAULT_PROPHET.color,
-  bg: DEFAULT_PROPHET.bg, image: DEFAULT_PROPHET.image, icon: DEFAULT_PROPHET.icon,
-});
 ---
 
 <!doctype html>
@@ -135,10 +122,6 @@ const clientDefault = JSON.stringify({
     </div>
 
     </main>
-
-    <script type="application/json" id="prophet-cfg" set:html={clientProphets}></script>
-    <script type="application/json" id="prophet-default" set:html={clientDefault}></script>
-
     <PredictionPoll />
 
     <div class="pod-kofi">
@@ -154,60 +137,98 @@ const clientDefault = JSON.stringify({
 </html>
 
 <script>
-  const PROPHETS_DATA: Record<string, { label: string; color: string; bg: string; image: string; icon: string }> =
-    JSON.parse((document.getElementById('prophet-cfg') as HTMLScriptElement).textContent!);
-  const DEFAULT_DATA: { label: string; color: string; bg: string; image: string; icon: string } =
-    JSON.parse((document.getElementById('prophet-default') as HTMLScriptElement).textContent!);
+  interface ProphetInfo { label: string; color: string; bg: string; image?: string; icon: string; }
 
-  function getProphet(name: string) {
-    return name ? (PROPHETS_DATA[name] ?? DEFAULT_DATA) : DEFAULT_DATA;
+  const PROPHETS: Record<string, ProphetInfo> = {
+    '比格斯':        { label: '比格斯',        color: '#f59e0b', bg: 'rgba(245,158,11,.15)', image: '/biggs-prophet.png',             icon: '✝️' },
+    '帕克':          { label: '帕克',          color: '#3b82f6', bg: 'rgba(59,130,246,.15)',                                          icon: '🔭' },
+    '麥克蒙尼格':    { label: '麥克蒙尼格',    color: '#10b981', bg: 'rgba(16,185,129,.15)',                                          icon: '🧠' },
+    '摩普萊':        { label: '摩普萊',        color: '#ef4444', bg: 'rgba(239,68,68,.15)',                                           icon: '🌏' },
+    '波蘭預言家':    { label: '波蘭預言家',    color: '#8b5cf6', bg: 'rgba(139,92,246,.15)',                                          icon: '🇵🇱' },
+    '英國神算':      { label: '英國神算',      color: '#06b6d4', bg: 'rgba(6,182,212,.15)',                                           icon: '🔮' },
+    '巴夏':          { label: '巴夏',          color: '#0ea5e9', bg: 'rgba(14,165,233,.15)',                                          icon: '👽' },
+    '薩洛梅':        { label: '薩洛梅',        color: '#ec4899', bg: 'rgba(236,72,153,.15)',                                          icon: '🌸' },
+    'KFK':           { label: 'KFK',           color: '#f97316', bg: 'rgba(249,115,22,.15)',                                          icon: '⏰' },
+    'Troy Black':    { label: 'Troy Black',    color: '#84cc16', bg: 'rgba(132,204,22,.15)',                                          icon: '📖' },
+    '鄭博見':        { label: '鄭博見',        color: '#a855f7', bg: 'rgba(168,85,247,.15)',                                          icon: '💎' },
+    'Paul Begley':   { label: 'Paul Begley',   color: '#ef4444', bg: 'rgba(239,68,68,.15)',                                           icon: '⚡' },
+    '阿南德':        { label: '阿南德',        color: '#f59e0b', bg: 'rgba(245,158,11,.15)',                                          icon: '🌟' },
+    '權朗':          { label: '權朗',          color: '#14b8a6', bg: 'rgba(20,184,166,.15)',                                          icon: '🀄' },
+    '朱迪海文利':    { label: '朱迪海文利',    color: '#6366f1', bg: 'rgba(99,102,241,.15)',                                          icon: '🌌' },
+    '國分玲':        { label: '國分玲',        color: '#f43f5e', bg: 'rgba(244,63,94,.15)',                                           icon: '🌸' },
+    'Omnec Onec':    { label: 'Omnec Onec',    color: '#8b5cf6', bg: 'rgba(139,92,246,.15)',                                          icon: '🛸' },
+    'Martin Armstrong': { label: 'Martin Armstrong', color: '#64748b', bg: 'rgba(100,116,139,.15)',                                    icon: '📊' },
+    'Jucelino':      { label: 'Jucelino',      color: '#22c55e', bg: 'rgba(34,197,94,.15)',                                           icon: '🌊' },
+    'Jessica Adams': { label: 'Jessica Adams', color: '#a855f7', bg: 'rgba(168,85,247,.15)',                                          icon: '⭐' },
+    'J.D. Farag':    { label: 'J.D. Farag',    color: '#3b82f6', bg: 'rgba(59,130,246,.15)',                                          icon: '✝️' },
+    'Adam Archon':   { label: 'Adam Archon',   color: '#0ea5e9', bg: 'rgba(14,165,233,.15)',                                          icon: '🌀' },
+    '袁天罡與李淳風': { label: '袁天罡與李淳風', color: '#78350f', bg: 'rgba(120,53,15,.15)',                                         icon: '📜' },
+    '倪海廈':        { label: '倪海廈',        color: '#047857', bg: 'rgba(4,120,87,.15)',                                            icon: '☯️' },
+    'Sadhguru':      { label: 'Sadhguru',      color: '#854d0e', bg: 'rgba(133,77,14,.15)',                                           icon: '🙏' },
+    'Clif High':     { label: 'Clif High',     color: '#0369a1', bg: 'rgba(3,105,161,.15)',                                           icon: '💻' },
+    'Lee Carroll':   { label: 'Lee Carroll',   color: '#7c3aed', bg: 'rgba(124,58,237,.15)',                                          icon: '✨' },
+    'Jonathan Cahn': { label: 'Jonathan Cahn', color: '#b45309', bg: 'rgba(180,83,9,.15)',                                            icon: '✡️' },
+    'Joseph Tittel': { label: 'Joseph Tittel', color: '#0891b2', bg: 'rgba(8,145,178,.15)',                                           icon: '🔮' },
+    'Jackowski':     { label: 'Jackowski',     color: '#4f46e5', bg: 'rgba(79,70,229,.15)',                                           icon: '🇵🇱' },
+    'amanda-grace':  { label: 'Amanda Grace',  color: '#db2777', bg: 'rgba(219,39,119,.15)',                                          icon: '🕊️' },
+    'Jennifer LeClaire': { label: 'Jennifer LeClaire', color: '#9333ea', bg: 'rgba(147,51,234,.15)',                                  icon: '🔥' },
+    'David the Medium': { label: 'David the Medium', color: '#0f766e', bg: 'rgba(15,118,110,.15)',                                    icon: '👁️' },
+    '小孟老師':      { label: '小孟老師',      color: '#0ea5e9', bg: 'rgba(14,165,233,.15)', image: '/prophets/xiaomeng.webp',        icon: '🃏' },
+    '廖美然':        { label: '廖美然',        color: '#7c3aed', bg: 'rgba(124,58,237,.15)', image: '/prophets/liao-meiran.webp',     icon: '🔮' },
+    'Joni Patry':    { label: 'Joni Patry',    color: '#d97706', bg: 'rgba(217,119,6,.15)',                                           icon: '⭐' },
+    '蔡上機':        { label: '蔡上機',        color: '#475569', bg: 'rgba(71,85,105,.15)',                                           icon: '📿' },
+    '杜金龍':        { label: '杜金龍',        color: '#0369a1', bg: 'rgba(3,105,161,.15)',                                           icon: '📈' },
+    '張盛舒':        { label: '張盛舒',        color: '#1f2937', bg: 'rgba(31,41,55,.15)',                                            icon: '⭐' },
+    '伊莉莎白·愛普爾': { label: '伊莉莎白·愛普爾', color: '#6d28d9', bg: 'rgba(109,40,217,.15)', image: '/elizabeth-april-prophet.jpg', icon: '✨' },
+    '水森太陽':      { label: '水森太陽',      color: '#0369a1', bg: 'rgba(3,105,161,.15)',  image: '/mizumori-prophet.jpg',          icon: '☀️' },
+  };
+
+  function getProphet(name: string): ProphetInfo {
+    return PROPHETS[name] ?? { label: name || '', color: '#64748b', bg: 'rgba(100,116,139,.12)', icon: '🔮' };
   }
 
   function detectProphet(title: string): string {
-    if (/比格斯|biggs/i.test(title))                              return '比格斯';
-    if (/帕克|parker/i.test(title))                               return '帕克';
-    if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title)) return '麥克蒙尼格';
-    if (/摩普萊/i.test(title))                                    return '摩普萊';
-    if (/波蘭預言家/i.test(title))                                return '波蘭預言家';
-    if (/英國神算/i.test(title))                                  return '英國神算';
-    if (/巴夏|bashar|darryl.?anka/i.test(title))                  return '巴夏';
-    if (/薩洛梅|salomé|athos.?salom/i.test(title))               return '薩洛梅';
-    if (/troy.?black/i.test(title))                               return 'Troy Black';
-    if (/鄭博見|zheng.?bojian|dato.?anthony/i.test(title))        return '鄭博見';
-    if (/\bKFK\b/i.test(title))                                   return 'KFK';
-    if (/tatsuki|辰巳りよ/i.test(title))                          return 'Tatsuki Ryo';
-    if (/paul.?begley/i.test(title))                              return 'Paul Begley';
-    if (/abhigya|阿南德/i.test(title))                            return '阿南德';
-    if (/權朗|quan.?lang/i.test(title))                           return '權朗';
-    if (/朱迪|judy.?hev/i.test(title))                            return '朱迪海文利';
-    if (/國分玲|kokubun/i.test(title))                            return '國分玲';
-    if (/omnec.?onec/i.test(title))                               return 'Omnec Onec';
-    if (/martin.?armstrong/i.test(title))                         return 'Martin Armstrong';
-    if (/jucelino/i.test(title))                                  return 'Jucelino';
-    if (/jessica.?adams/i.test(title))                            return 'Jessica Adams';
-    if (/j\.?d\.?.?farag/i.test(title))                          return 'J.D. Farag';
-    if (/adam.?archon/i.test(title))                              return 'Adam Archon';
-    if (/袁天罡|李淳風|推背圖/i.test(title))                       return '袁天罡與李淳風';
-    if (/倪海廈/i.test(title))                                    return '倪海廈';
-    if (/sadhguru/i.test(title))                                  return 'Sadhguru';
-    if (/clif.?high/i.test(title))                                return 'Clif High';
-    if (/lee.?carroll|克里昂/i.test(title))                       return 'Lee Carroll';
-    if (/jonathan.?cahn/i.test(title))                            return 'Jonathan Cahn';
-    if (/joseph.?tittel/i.test(title))                            return 'Joseph Tittel';
-    if (/jackowski/i.test(title))                                 return 'Jackowski';
-    if (/j\.?d\.?.?farag/i.test(title))                          return 'J.D. Farag';
-    if (/amanda.?grace/i.test(title))                             return 'amanda-grace';
-    if (/jennifer.?leclaire|leclaire/i.test(title))               return 'Jennifer LeClaire';
+    if (/比格斯|biggs/i.test(title))                                      return '比格斯';
+    if (/帕克|parker/i.test(title))                                       return '帕克';
+    if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title))       return '麥克蒙尼格';
+    if (/摩普萊/i.test(title))                                            return '摩普萊';
+    if (/波蘭預言家/i.test(title))                                        return '波蘭預言家';
+    if (/英國神算/i.test(title))                                          return '英國神算';
+    if (/巴夏|bashar|darryl.?anka/i.test(title))                          return '巴夏';
+    if (/薩洛梅|salomé|athos.?salom/i.test(title))                       return '薩洛梅';
+    if (/troy.?black/i.test(title))                                       return 'Troy Black';
+    if (/鄭博見|dato.?anthony/i.test(title))                              return '鄭博見';
+    if (/\bKFK\b/i.test(title))                                           return 'KFK';
+    if (/paul.?begley/i.test(title))                                      return 'Paul Begley';
+    if (/abhigya|阿南德/i.test(title))                                    return '阿南德';
+    if (/權朗/i.test(title))                                              return '權朗';
+    if (/朱迪|judy.?hev/i.test(title))                                    return '朱迪海文利';
+    if (/國分玲|kokubun/i.test(title))                                    return '國分玲';
+    if (/omnec.?onec/i.test(title))                                       return 'Omnec Onec';
+    if (/martin.?armstrong/i.test(title))                                 return 'Martin Armstrong';
+    if (/jucelino/i.test(title))                                          return 'Jucelino';
+    if (/jessica.?adams/i.test(title))                                    return 'Jessica Adams';
+    if (/j\.?d\.?.?farag/i.test(title))                                   return 'J.D. Farag';
+    if (/adam.?archon/i.test(title))                                      return 'Adam Archon';
+    if (/袁天罡|李淳風|推背圖/i.test(title))                               return '袁天罡與李淳風';
+    if (/倪海廈/i.test(title))                                            return '倪海廈';
+    if (/sadhguru/i.test(title))                                          return 'Sadhguru';
+    if (/clif.?high/i.test(title))                                        return 'Clif High';
+    if (/lee.?carroll|克里昂/i.test(title))                               return 'Lee Carroll';
+    if (/jonathan.?cahn/i.test(title))                                    return 'Jonathan Cahn';
+    if (/joseph.?tittel/i.test(title))                                    return 'Joseph Tittel';
+    if (/jackowski/i.test(title))                                         return 'Jackowski';
+    if (/amanda.?grace/i.test(title))                                     return 'amanda-grace';
+    if (/jennifer.?leclaire|leclaire/i.test(title))                       return 'Jennifer LeClaire';
     if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒/i.test(title)) return 'David the Medium';
-    if (/小孟/i.test(title))                                      return '小孟老師';
-    if (/廖美然|觀世音.*廖/i.test(title))                          return '廖美然';
-    if (/joni.?patry/i.test(title))                               return 'Joni Patry';
-    if (/william.?taylor/i.test(title))                           return 'William Taylor';
-    if (/蔡上機/i.test(title))                                    return '蔡上機';
-    if (/杜金龍/i.test(title))                                    return '杜金龍';
-    if (/張盛舒/i.test(title))                                    return '張盛舒';
-    if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))          return '伊莉莎白·愛普爾';
-    if (/水森太陽|mizumori/i.test(title))                         return '水森太陽';
+    if (/小孟/i.test(title))                                              return '小孟老師';
+    if (/廖美然|觀世音.*廖/i.test(title))                                  return '廖美然';
+    if (/joni.?patry/i.test(title))                                       return 'Joni Patry';
+    if (/蔡上機/i.test(title))                                            return '蔡上機';
+    if (/杜金龍/i.test(title))                                            return '杜金龍';
+    if (/張盛舒/i.test(title))                                            return '張盛舒';
+    if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))                 return '伊莉莎白·愛普爾';
+    if (/水森太陽|mizumori/i.test(title))                                 return '水森太陽';
     return '';
   }
 
@@ -246,16 +267,16 @@ const clientDefault = JSON.stringify({
 
       const card = document.createElement('div');
       card.className = 'pod-card';
-      card.style.setProperty('--accent', p.color);
+      card.style.setProperty('--accent', ep._prophet ? p.color : '#64748b');
       card.innerHTML = `
         <div class="pod-card-top">
           <div class="pod-avatar" style="background:${p.bg}">
-            ${p.image ? `<img class="pod-avatar-img" src="${p.image}" alt="${p.label || '預言家'}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-            <span class="pod-avatar-emoji" style="${p.image ? 'display:none' : ''}">${p.icon || '🔮'}</span>
+            ${p.image ? `<img class="pod-avatar-img" src="${p.image}" alt="${p.label}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <span class="pod-avatar-emoji"${p.image ? ' style="display:none"' : ''}>${p.icon}</span>
           </div>
           <div class="pod-card-info">
             <div class="pod-card-meta">
-              ${ep._prophet ? `<span class="pod-card-prophet" style="color:${p.color}">${p.label || ep._prophet}</span>` : ''}
+              ${p.label ? `<span class="pod-card-prophet" style="color:${p.color}">${p.label}</span>` : ''}
               ${date ? `<span class="pod-card-date">${date}</span>` : ''}
               ${dur  ? `<span class="pod-card-dur">⏱ ${dur}</span>` : ''}
             </div>

@@ -217,13 +217,13 @@ import { SITE_TITLE } from '../consts';
     if (/lee.?carroll|克里昂/i.test(title))                               return 'Lee Carroll';
     if (/jonathan.?cahn/i.test(title))                                    return 'Jonathan Cahn';
     if (/joseph.?tittel/i.test(title))                                    return 'Joseph Tittel';
-    if (/jackowski/i.test(title))                                         return 'Jackowski';
+    if (/jackowski|雅克沃斯基/i.test(title))                              return 'Jackowski';
     if (/amanda.?grace/i.test(title))                                     return 'amanda-grace';
     if (/jennifer.?leclaire|leclaire/i.test(title))                       return 'Jennifer LeClaire';
     if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒/i.test(title)) return 'David the Medium';
     if (/小孟/i.test(title))                                              return '小孟老師';
     if (/廖美然|觀世音.*廖/i.test(title))                                  return '廖美然';
-    if (/joni.?patry/i.test(title))                                       return 'Joni Patry';
+    if (/joni.?patry|喬尼.?帕特/i.test(title))                           return 'Joni Patry';
     if (/蔡上機/i.test(title))                                            return '蔡上機';
     if (/杜金龍/i.test(title))                                            return '杜金龍';
     if (/張盛舒/i.test(title))                                            return '張盛舒';
@@ -352,11 +352,15 @@ import { SITE_TITLE } from '../consts';
   const CACHE_KEY = 'pod-rss-v2';
   const CACHE_TTL = 5 * 60 * 1000; // 5 分鐘
 
+  function stripHtml(s: string) {
+    return s ? s.replace(/<[^>]+>/g, ' ') : '';
+  }
+
   function applyData(d: any) {
     allEpisodes = (d.episodes as any[]).map((ep: any, i: number) => ({
       ...ep,
       _idx: i,
-      _prophet: detectProphet(ep.title),
+      _prophet: detectProphet(ep.title + ' ' + stripHtml(ep.description || '')),
     }));
     const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
     if (coverEl && d.coverImage) coverEl.src = d.coverImage;

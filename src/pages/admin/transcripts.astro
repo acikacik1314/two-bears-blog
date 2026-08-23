@@ -127,11 +127,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   padding: .65rem 0;
 }
 .search-hit:last-child { border-bottom: none; padding-bottom: 0; }
-.sh-meta {
-  font-size: .78rem;
-  color: #64748b;
-  margin-bottom: .2rem;
-}
+.sh-meta { font-size: .78rem; color: #64748b; margin-bottom: .2rem; }
 .sh-title { font-size: .88rem; color: #c7d2fe; font-weight: 600; margin-bottom: .35rem; }
 .sh-snippets { font-size: .8rem; color: #94a3b8; line-height: 1.7; }
 .sh-snippets mark { background: #fef08a; color: #1e293b; border-radius: 2px; padding: 0 2px; }
@@ -161,7 +157,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
 }
 .tr-table-head {
   display: grid;
-  grid-template-columns: 2rem 1fr 7rem 6rem;
+  grid-template-columns: 2rem 1fr 7rem 6rem 2.5rem;
   gap: .5rem;
   padding: .65rem 1rem;
   border-bottom: 1px solid #334155;
@@ -174,7 +170,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
 }
 .tr-row {
   display: grid;
-  grid-template-columns: 2rem 1fr 7rem 6rem;
+  grid-template-columns: 2rem 1fr 7rem 6rem 2.5rem;
   gap: .5rem;
   padding: .7rem 1rem;
   border-bottom: 1px solid #1a2744;
@@ -201,6 +197,21 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
 .tr-link a { font-size: .73rem; color: #38bdf8; text-decoration: none; word-break: break-all; }
 .tr-link a:hover { text-decoration: underline; }
 .no-link { font-size: .73rem; color: #334155; }
+
+/* Delete button */
+.tr-del-btn {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #475569;
+  cursor: pointer;
+  font-size: .9rem;
+  padding: .2rem .35rem;
+  line-height: 1;
+  transition: color .12s, border-color .12s, background .12s;
+  margin-top: 1px;
+}
+.tr-del-btn:hover { color: #f87171; border-color: #7f1d1d; background: rgba(239,68,68,.08); }
 
 .tr-empty { text-align: center; color: #475569; padding: 2.5rem 1rem; font-size: .9rem; }
 
@@ -229,9 +240,83 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   margin-right: .35rem;
 }
 
+/* ── Delete confirmation modal ───────────────────────────── */
+.del-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.del-overlay.open { display: flex; }
+.del-modal {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 1.75rem;
+  width: 90%;
+  max-width: 420px;
+}
+.del-modal h3 { font-size: 1rem; color: #f1f5f9; margin: 0 0 .4rem; }
+.del-modal-title { font-size: .82rem; color: #94a3b8; margin: 0 0 1.25rem; }
+.del-modal label { font-size: .75rem; color: #64748b; font-weight: 600; letter-spacing: .04em; display: block; margin-bottom: .3rem; }
+.del-modal input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .55rem .75rem;
+  border: 1px solid #334155;
+  border-radius: 9px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: .95rem;
+  font-family: inherit;
+  letter-spacing: .15em;
+  margin-bottom: 1rem;
+}
+.del-modal input:focus { outline: none; border-color: #ef4444; }
+.del-modal-btns { display: flex; gap: .6rem; justify-content: flex-end; }
+.del-cancel {
+  padding: .5rem 1rem;
+  border-radius: 9px;
+  border: 1px solid #334155;
+  background: none;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+.del-cancel:hover { background: #334155; }
+.del-confirm {
+  padding: .5rem 1.1rem;
+  border-radius: 9px;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.del-confirm:hover { background: #dc2626; }
+.del-confirm:disabled { background: #475569; cursor: not-allowed; }
+.del-error { font-size: .78rem; color: #fca5a5; margin-bottom: .75rem; }
+.del-warn {
+  font-size: .76rem;
+  color: #facc15;
+  background: rgba(250,204,21,.08);
+  border: 1px solid rgba(250,204,21,.2);
+  border-radius: 7px;
+  padding: .5rem .7rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 640px) {
   .tr-table-head, .tr-row {
-    grid-template-columns: 2rem 1fr;
+    grid-template-columns: 2rem 1fr 2.5rem;
   }
   .tr-date, .tr-link { display: none; }
 }
@@ -250,7 +335,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
 
 <main class="tr-wrap">
   <h1>逐字稿管理</h1>
-  <p class="tr-sub">共 {items.length} 支逐字稿 · 可批次勾選匯出、跨稿關鍵字搜尋</p>
+  <p class="tr-sub">共 {items.length} 支逐字稿 · 批次勾選匯出 · 跨稿關鍵字搜尋 · 刪除文章</p>
 
   <!-- Toolbar -->
   <div class="tr-toolbar">
@@ -282,6 +367,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
       <span>標題 / 預言家</span>
       <span>日期</span>
       <span>影片連結</span>
+      <span></span>
     </div>
     <div id="trList">
       {items.map(item => (
@@ -303,6 +389,14 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
               : <span class="no-link">—</span>
             }
           </div>
+          <div>
+            <button
+              class="tr-del-btn"
+              data-id={item.id}
+              data-title={item.title}
+              title="刪除這篇文章"
+            >🗑</button>
+          </div>
         </div>
       ))}
     </div>
@@ -314,6 +408,25 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   </div>
 </main>
 
+<!-- Delete confirmation modal -->
+<div class="del-overlay" id="delOverlay">
+  <div class="del-modal">
+    <h3>刪除文章</h3>
+    <p class="del-modal-title" id="delModalTitle"></p>
+    <div class="del-warn">
+      ⚠️ 刪除後文章從網站消失，tracking 記錄不受影響，<strong>正常管線不會重跑</strong>。
+      僅 <code>npm run draft --all</code> 才會繞過 tracking。
+    </div>
+    <div class="del-error" id="delError" style="display:none"></div>
+    <label for="delPin">管理員密碼</label>
+    <input type="password" id="delPin" placeholder="• • • • • •" autocomplete="off" />
+    <div class="del-modal-btns">
+      <button class="del-cancel" id="delCancel">取消</button>
+      <button class="del-confirm" id="delConfirm">確認刪除</button>
+    </div>
+  </div>
+</div>
+
 <Footer />
 
 <script>
@@ -321,21 +434,31 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   // State
   // ─────────────────────────────────────────────
   const selected = new Set<string>()
+  let pendingDeleteId   = ''
+  let pendingDeleteTitle = ''
 
   // ─────────────────────────────────────────────
   // DOM refs
   // ─────────────────────────────────────────────
-  const searchInput    = document.getElementById('searchInput') as HTMLInputElement
-  const searchPanel    = document.getElementById('searchPanel')!
+  const searchInput      = document.getElementById('searchInput') as HTMLInputElement
+  const searchPanel      = document.getElementById('searchPanel')!
   const searchPanelTitle = document.getElementById('searchPanelTitle')!
-  const searchResults  = document.getElementById('searchResults')!
-  const selCount       = document.getElementById('selCount')!
-  const selCountBottom = document.getElementById('selCountBottom')!
-  const btnExport      = document.getElementById('btnExport') as HTMLButtonElement
-  const btnSelectAll   = document.getElementById('btnSelectAll')!
-  const btnClear       = document.getElementById('btnClear')!
-  const trEmpty        = document.getElementById('trEmpty')!
-  const rows           = Array.from(document.querySelectorAll<HTMLElement>('.tr-row'))
+  const searchResults    = document.getElementById('searchResults')!
+  const selCount         = document.getElementById('selCount')!
+  const selCountBottom   = document.getElementById('selCountBottom')!
+  const btnExport        = document.getElementById('btnExport') as HTMLButtonElement
+  const btnSelectAll     = document.getElementById('btnSelectAll')!
+  const btnClear         = document.getElementById('btnClear')!
+  const trEmpty          = document.getElementById('trEmpty')!
+  const rows             = Array.from(document.querySelectorAll<HTMLElement>('.tr-row'))
+
+  // Delete modal
+  const delOverlay   = document.getElementById('delOverlay')!
+  const delModalTitle = document.getElementById('delModalTitle')!
+  const delPin       = document.getElementById('delPin') as HTMLInputElement
+  const delConfirm   = document.getElementById('delConfirm') as HTMLButtonElement
+  const delCancel    = document.getElementById('delCancel')!
+  const delError     = document.getElementById('delError')!
 
   // ─────────────────────────────────────────────
   // Helpers
@@ -348,11 +471,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   }
 
   function setChecked(id: string, checked: boolean) {
-    if (checked) {
-      selected.add(id)
-    } else {
-      selected.delete(id)
-    }
+    if (checked) { selected.add(id) } else { selected.delete(id) }
     const row = document.querySelector<HTMLElement>(`.tr-row[data-id="${id}"]`)
     const cb  = document.querySelector<HTMLInputElement>(`.tr-cb[data-id="${id}"]`)
     if (row) row.classList.toggle('selected', checked)
@@ -371,8 +490,10 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
       setChecked(id, cb.checked)
     })
     row.addEventListener('click', e => {
-      if ((e.target as Element).classList.contains('tr-cb')) return
-      if ((e.target as Element).tagName === 'A') return
+      const t = e.target as Element
+      if (t.classList.contains('tr-cb')) return
+      if (t.tagName === 'A') return
+      if (t.classList.contains('tr-del-btn')) return
       setChecked(id, !selected.has(id))
     })
   })
@@ -388,7 +509,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   })
 
   // ─────────────────────────────────────────────
-  // Client-side title/prophet filter (instant)
+  // Search: local filter + API full-text
   // ─────────────────────────────────────────────
   let searchTimer: ReturnType<typeof setTimeout>
 
@@ -401,17 +522,12 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   searchInput.addEventListener('input', () => {
     clearTimeout(searchTimer)
     const q = searchInput.value.trim()
-
     if (!q) {
-      // Show all rows, hide search panel
       rows.forEach(r => r.classList.remove('hidden'))
-      const visible = rows.filter(r => !r.classList.contains('hidden')).length
-      trEmpty.style.display = visible ? 'none' : 'block'
+      trEmpty.style.display = rows.some(r => !r.classList.contains('hidden')) ? 'none' : 'block'
       searchPanel.classList.remove('visible')
       return
     }
-
-    // Quick local filter by title/prophet
     const lq = q.toLowerCase()
     let anyVisible = false
     rows.forEach(r => {
@@ -420,23 +536,16 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
       if (match) anyVisible = true
     })
     trEmpty.style.display = anyVisible ? 'none' : 'block'
-
-    // Debounced full-text search via API
     searchTimer = setTimeout(() => doApiSearch(q), 500)
   })
 
-  // ─────────────────────────────────────────────
-  // API search (full transcript text)
-  // ─────────────────────────────────────────────
   async function doApiSearch(q: string) {
     if (q.length < 2) return
-
     searchPanel.classList.add('visible')
     searchPanelTitle.textContent = `逐字稿全文搜尋「${q}」`
     searchResults.innerHTML = '<div class="search-loading"><span class="spin"></span>搜尋中…</div>'
-
     try {
-      const r = await fetch(`/api/transcript-search?q=${encodeURIComponent(q)}`)
+      const r    = await fetch(`/api/transcript-search?q=${encodeURIComponent(q)}`)
       const data = await r.json()
       if (!data.ok || !data.results) {
         searchResults.innerHTML = `<div class="search-empty">搜尋失敗：${data.error ?? '未知錯誤'}</div>`
@@ -446,15 +555,11 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
         searchResults.innerHTML = '<div class="search-empty">逐字稿全文中找不到此關鍵字</div>'
         return
       }
-
       searchPanelTitle.textContent = `逐字稿全文搜尋「${q}」— 找到 ${data.results.length} 筆`
-
       searchResults.innerHTML = data.results.map((hit: {
         id: string; title: string; prophet: string; date: string; videoUrl: string; snippets: string[]
       }) => {
-        const snippetHtml = hit.snippets
-          .map((s: string) => highlightSnippet(escHtml(s), q))
-          .join('<br>')
+        const snippetHtml = hit.snippets.map((s: string) => highlightSnippet(escHtml(s), q)).join('<br>')
         const isAdded = selected.has(hit.id)
         return `
           <div class="search-hit">
@@ -467,8 +572,6 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
           </div>
         `
       }).join('')
-
-      // Bind add buttons
       searchResults.querySelectorAll<HTMLButtonElement>('.sh-add-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const id = btn.dataset.id!
@@ -492,9 +595,8 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
   // ─────────────────────────────────────────────
   btnExport.addEventListener('click', async () => {
     if (selected.size === 0) return
-    btnExport.disabled = true
-    btnExport.innerHTML = '<span class="spin"></span>產生中…'
-
+    btnExport.disabled   = true
+    btnExport.innerHTML  = '<span class="spin"></span>產生中…'
     try {
       const r = await fetch('/api/transcript-export', {
         method: 'POST',
@@ -502,7 +604,7 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
         body: JSON.stringify({ ids: Array.from(selected) }),
       })
       if (!r.ok) {
-        const err = await r.json().catch(() => ({}))
+        const err = await r.json().catch(() => ({})) as { error?: string }
         alert('匯出失敗：' + (err.error ?? r.status))
         return
       }
@@ -516,10 +618,89 @@ h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
     } catch {
       alert('匯出失敗，請重試')
     } finally {
-      btnExport.disabled = selected.size === 0
+      btnExport.disabled  = selected.size === 0
       btnExport.textContent = '匯出選取'
     }
   })
+
+  // ─────────────────────────────────────────────
+  // Delete: open modal
+  // ─────────────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>('.tr-del-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation()
+      pendingDeleteId    = btn.dataset.id    ?? ''
+      pendingDeleteTitle = btn.dataset.title ?? ''
+      delModalTitle.textContent = `《${pendingDeleteTitle}》`
+      delPin.value  = ''
+      delError.style.display = 'none'
+      delConfirm.disabled = false
+      delConfirm.textContent = '確認刪除'
+      delOverlay.classList.add('open')
+      delPin.focus()
+    })
+  })
+
+  delCancel.addEventListener('click', () => closeDelModal())
+  delOverlay.addEventListener('click', e => { if (e.target === delOverlay) closeDelModal() })
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDelModal() })
+  delPin.addEventListener('keydown', e => { if (e.key === 'Enter') doDelete() })
+
+  function closeDelModal() {
+    delOverlay.classList.remove('open')
+    pendingDeleteId    = ''
+    pendingDeleteTitle = ''
+  }
+
+  // ─────────────────────────────────────────────
+  // Delete: confirm & call API
+  // ─────────────────────────────────────────────
+  delConfirm.addEventListener('click', doDelete)
+
+  async function doDelete() {
+    if (!pendingDeleteId) return
+    delError.style.display = 'none'
+    delConfirm.disabled    = true
+    delConfirm.innerHTML   = '<span class="spin"></span>刪除中…'
+
+    try {
+      const r = await fetch('/api/delete-post', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-pin': delPin.value,
+        },
+        body: JSON.stringify({ postId: pendingDeleteId }),
+      })
+      const data = await r.json() as { ok: boolean; error?: string; note?: string }
+
+      if (!data.ok) {
+        delError.textContent   = data.error ?? '刪除失敗'
+        delError.style.display = 'block'
+        delConfirm.disabled    = false
+        delConfirm.textContent = '確認刪除'
+        return
+      }
+
+      // Success: remove row from DOM
+      const row = document.querySelector<HTMLElement>(`.tr-row[data-id="${pendingDeleteId}"]`)
+      if (row) row.remove()
+      selected.delete(pendingDeleteId)
+      updateCounts()
+
+      if (data.note) {
+        // Local dev — show note
+        alert(data.note)
+      }
+
+      closeDelModal()
+    } catch {
+      delError.textContent   = '網路錯誤，請重試'
+      delError.style.display = 'block'
+      delConfirm.disabled    = false
+      delConfirm.textContent = '確認刪除'
+    }
+  }
 </script>
 </body>
 </html>

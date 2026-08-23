@@ -11,6 +11,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { getPostCategory, CATEGORY_COLORS } from '../../utils/category';
 import { getPostThumbnail, CATEGORY_DEFAULT_IMAGES } from '../../utils/thumbnail';
 import AdSlot from '../../components/AdSlot.astro';
+import { getProphetConfig } from '../../utils/prophets';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	const posts = (await getCollection('blog')).filter(p => !p.data.draft).sort(
@@ -148,6 +149,21 @@ const pageTitle = page.currentPage > 1
 			}
 			ul li a:hover .card-title { color: var(--accent); }
 			.card-date { margin: 0; color: #94a3b8; font-size: 0.78em; }
+			.prophet-badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3em;
+				font-size: 0.72em;
+				font-weight: 700;
+				padding: 0.15em 0.55em;
+				border-radius: 99px;
+				margin-bottom: 0.35em;
+				opacity: 0.92;
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 			.pagination {
 				display: flex;
 				align-items: center;
@@ -196,6 +212,8 @@ const pageTitle = page.currentPage > 1
 					const thumb = getThumbnail(post, cat);
 					const gradient = CATEGORY_GRADIENTS[cat] ?? CATEGORY_GRADIENTS['其他'];
 					const icon = CATEGORY_ICONS[cat] ?? '📝';
+					const prophetName = post.data.prophet ?? '';
+					const prophetCfg = prophetName ? getProphetConfig(prophetName) : null;
 					return (
 						<>
 							{i === 6 && (
@@ -215,6 +233,12 @@ const pageTitle = page.currentPage > 1
 										<span class="cat-badge" style={`background:${color}`}>{cat}</span>
 									</div>
 									<div class="card-body">
+										{prophetCfg && (
+											<div class="prophet-badge" style={`background:${prophetCfg.bg};color:${prophetCfg.color}`}>
+												<span>{prophetCfg.icon}</span>
+												<span>{prophetName}</span>
+											</div>
+										)}
 										<h4 class="card-title">{post.data.title}</h4>
 										<p class="card-date"><FormattedDate date={post.data.pubDate} /></p>
 									</div>

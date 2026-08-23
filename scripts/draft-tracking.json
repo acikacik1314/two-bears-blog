@@ -942,18 +942,21 @@
     "publishedAt": "2026-08-23T16:25:13.462Z"
   },
   "fe5e704a-bfd7-44cf-b07e-51551e9773fa": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "thailand-flood-family-crisis-grey-panda-invasion-black-horse-rise.md",
-    "draftedAt": "2026-08-23T18:27:48.333Z"
+    "draftedAt": "2026-08-23T18:27:48.333Z",
+    "publishedAt": "2026-08-23T18:28:52.954Z"
   },
   "ae49e528-853c-4fde-a937-8262e791c16c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "middle-east-nuclear-war-europe-plague-gold-ai-humanity.md",
-    "draftedAt": "2026-08-23T18:27:55.518Z"
+    "draftedAt": "2026-08-23T18:27:55.518Z",
+    "publishedAt": "2026-08-23T18:28:52.954Z"
   },
   "5d307217-cd9e-4236-90c5-5d3fe040b009": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "real-estate-crash-stock-market-crisis-alien-life-revelation.md",
-    "draftedAt": "2026-08-23T18:28:00.376Z"
+    "draftedAt": "2026-08-23T18:28:00.376Z",
+    "publishedAt": "2026-08-23T18:28:52.954Z"
   }
 }

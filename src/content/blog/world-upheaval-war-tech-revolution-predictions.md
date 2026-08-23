@@ -2,6 +2,8 @@
 title: 世界即將迎來大翻轉，戰爭爆發與科技革命雙重夾擊的驚人預測
 description: 日本占卜師水森太陽預測2026-2027年世界局勢，包含台灣、中國、美國的政治經濟動盪，以及AI科技革命帶來的挑戰與財富轉移。
 pubDate: '2026-08-22'
+prophet: 水森太陽
+heroImage: '/mizumori-prophet.jpg'
 category: 預言
 tags:
 - 水森太陽

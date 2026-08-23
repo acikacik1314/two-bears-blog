@@ -620,6 +620,16 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '台灣靈媒，被譽為「台灣觀世音」，以通靈感應預言政治、自然災害及全球局勢',
     tags: ['靈媒', '通靈', '台灣'],
   },
+  '水森太陽': {
+    en: 'Mizumori Taiyo',
+    label: '水森太陽',
+    color: '#0369a1',
+    bg: 'rgba(3,105,161,.12)',
+    image: '/mizumori-prophet.jpg',
+    icon: '☀️',
+    bio: '日本東京池袋占卜沙龍專業占卜師，以占星術、四柱推命與易經占卜解讀全球局勢與未來趨勢',
+    tags: ['日本', '占星', '四柱推命', '易經'],
+  },
 };
 
 export const DEFAULT_PROPHET: ProphetConfig = {
@@ -685,5 +695,6 @@ export function detectProphet(title: string): string {
   if (/張盛舒/i.test(title)) return '張盛舒';
   if (/ian.?bremmer/i.test(title)) return 'Ian Bremmer';
   if (/clifford.?mahooty/i.test(title)) return 'Clifford Mahooty';
+  if (/水森太陽|mizumori/i.test(title)) return '水森太陽';
   return '';
 }

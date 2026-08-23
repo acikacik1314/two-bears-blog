@@ -184,51 +184,51 @@ import { SITE_TITLE } from '../consts';
   };
 
   function getProphet(name: string): ProphetInfo {
-    return PROPHETS[name] ?? { label: name || '', color: '#64748b', bg: 'rgba(100,116,139,.12)', icon: '🔮' };
+    return PROPHETS[name] ?? { label: name || '', color: '#64748b', bg: 'rgba(100,116,139,.15)', icon: '🔮' };
   }
 
   function detectProphet(title: string): string {
-    if (/比格斯|biggs/i.test(title))                                      return '比格斯';
-    if (/帕克|parker/i.test(title))                                       return '帕克';
-    if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title))       return '麥克蒙尼格';
-    if (/摩普萊/i.test(title))                                            return '摩普萊';
-    if (/波蘭預言家/i.test(title))                                        return '波蘭預言家';
-    if (/英國神算/i.test(title))                                          return '英國神算';
-    if (/巴夏|bashar|darryl.?anka/i.test(title))                          return '巴夏';
-    if (/薩洛梅|salomé|athos.?salom/i.test(title))                       return '薩洛梅';
-    if (/troy.?black/i.test(title))                                       return 'Troy Black';
-    if (/鄭博見|dato.?anthony/i.test(title))                              return '鄭博見';
-    if (/\bKFK\b/i.test(title))                                           return 'KFK';
-    if (/paul.?begley/i.test(title))                                      return 'Paul Begley';
-    if (/abhigya|阿南德/i.test(title))                                    return '阿南德';
-    if (/權朗/i.test(title))                                              return '權朗';
-    if (/朱迪|judy.?hev/i.test(title))                                    return '朱迪海文利';
-    if (/國分玲|kokubun/i.test(title))                                    return '國分玲';
-    if (/omnec.?onec/i.test(title))                                       return 'Omnec Onec';
-    if (/martin.?armstrong/i.test(title))                                 return 'Martin Armstrong';
-    if (/jucelino/i.test(title))                                          return 'Jucelino';
-    if (/jessica.?adams/i.test(title))                                    return 'Jessica Adams';
-    if (/j\.?d\.?.?farag/i.test(title))                                   return 'J.D. Farag';
-    if (/adam.?archon/i.test(title))                                      return 'Adam Archon';
-    if (/袁天罡|李淳風|推背圖/i.test(title))                               return '袁天罡與李淳風';
-    if (/倪海廈/i.test(title))                                            return '倪海廈';
-    if (/sadhguru/i.test(title))                                          return 'Sadhguru';
-    if (/clif.?high/i.test(title))                                        return 'Clif High';
-    if (/lee.?carroll|克里昂/i.test(title))                               return 'Lee Carroll';
-    if (/jonathan.?cahn/i.test(title))                                    return 'Jonathan Cahn';
-    if (/joseph.?tittel/i.test(title))                                    return 'Joseph Tittel';
-    if (/jackowski|雅克沃斯基/i.test(title))                              return 'Jackowski';
-    if (/amanda.?grace/i.test(title))                                     return 'amanda-grace';
-    if (/jennifer.?leclaire|leclaire/i.test(title))                       return 'Jennifer LeClaire';
-    if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒/i.test(title)) return 'David the Medium';
-    if (/小孟/i.test(title))                                              return '小孟老師';
-    if (/廖美然|觀世音.*廖/i.test(title))                                  return '廖美然';
-    if (/joni.?patry|喬尼.?帕特/i.test(title))                           return 'Joni Patry';
-    if (/蔡上機/i.test(title))                                            return '蔡上機';
-    if (/杜金龍/i.test(title))                                            return '杜金龍';
-    if (/張盛舒/i.test(title))                                            return '張盛舒';
-    if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))                 return '伊莉莎白·愛普爾';
-    if (/水森太陽|mizumori/i.test(title))                                 return '水森太陽';
+    if (/比格斯|biggs/i.test(title))                                                   return '比格斯';
+    if (/帕克|parker/i.test(title))                                                    return '帕克';
+    if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title))                    return '麥克蒙尼格';
+    if (/摩普萊|普萊醫生|หมอปลาย/i.test(title))                                       return '摩普萊';
+    if (/波蘭預言家/i.test(title))                                                     return '波蘭預言家';
+    if (/英國神算/i.test(title))                                                       return '英國神算';
+    if (/巴夏|bashar|darryl.?anka/i.test(title))                                      return '巴夏';
+    if (/薩洛梅|salomé|athos.?salom/i.test(title))                                    return '薩洛梅';
+    if (/troy.?black/i.test(title))                                                   return 'Troy Black';
+    if (/鄭博見|dato.?anthony/i.test(title))                                          return '鄭博見';
+    if (/KFK|ＫＦＫ/i.test(title))                                                    return 'KFK';
+    if (/paul.?begley|保羅.?貝格利/i.test(title))                                     return 'Paul Begley';
+    if (/abhigya|阿南德/i.test(title))                                                return '阿南德';
+    if (/權朗/i.test(title))                                                          return '權朗';
+    if (/朱迪|judy.?hev/i.test(title))                                                return '朱迪海文利';
+    if (/國分玲|kokubun/i.test(title))                                                return '國分玲';
+    if (/omnec.?onec/i.test(title))                                                   return 'Omnec Onec';
+    if (/martin.?armstrong|馬丁.?阿姆斯特朗|馬丁.?阿姆斯壯/i.test(title))            return 'Martin Armstrong';
+    if (/jucelino/i.test(title))                                                      return 'Jucelino';
+    if (/jessica.?adams/i.test(title))                                                return 'Jessica Adams';
+    if (/j\.?d\.?.?farag|JD牧師/i.test(title))                                        return 'J.D. Farag';
+    if (/adam.?archon/i.test(title))                                                  return 'Adam Archon';
+    if (/袁天罡|李淳風|推背圖/i.test(title))                                           return '袁天罡與李淳風';
+    if (/倪海廈/i.test(title))                                                        return '倪海廈';
+    if (/sadhguru|薩古魯|賽古魯/i.test(title))                                        return 'Sadhguru';
+    if (/clif.?high/i.test(title))                                                    return 'Clif High';
+    if (/lee.?carroll|克里昂/i.test(title))                                           return 'Lee Carroll';
+    if (/jonathan.?cahn|喬納森.?卡恩/i.test(title))                                   return 'Jonathan Cahn';
+    if (/joseph.?tittel|喬瑟夫.?蒂特爾/i.test(title))                                 return 'Joseph Tittel';
+    if (/jackowski|雅克沃斯基|克日什托夫/i.test(title))                                return 'Jackowski';
+    if (/amanda.?grace|阿曼達.?格雷斯/i.test(title))                                  return 'amanda-grace';
+    if (/jennifer.?leclaire|leclaire|詹妮福/i.test(title))                            return 'Jennifer LeClaire';
+    if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒|通靈.*大衛|大衛.*通靈/i.test(title)) return 'David the Medium';
+    if (/小孟/i.test(title))                                                          return '小孟老師';
+    if (/廖美然|觀世音.*廖/i.test(title))                                              return '廖美然';
+    if (/joni.?patry|喬尼.?帕特/i.test(title))                                       return 'Joni Patry';
+    if (/蔡上機/i.test(title))                                                        return '蔡上機';
+    if (/杜金龍/i.test(title))                                                        return '杜金龍';
+    if (/張盛舒/i.test(title))                                                        return '張盛舒';
+    if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))                             return '伊莉莎白·愛普爾';
+    if (/水森太陽|mizumori/i.test(title))                                             return '水森太陽';
     return '';
   }
 
@@ -268,11 +268,12 @@ import { SITE_TITLE } from '../consts';
       const card = document.createElement('div');
       card.className = 'pod-card';
       card.style.setProperty('--accent', ep._prophet ? p.color : '#64748b');
+      const avatarInitial = p.label ? p.label[0] : '?';
       card.innerHTML = `
         <div class="pod-card-top">
-          <div class="pod-avatar" style="background:${p.bg}">
+          <div class="pod-avatar" style="background:${p.color}25;border:2px solid ${p.color}80">
             ${p.image ? `<img class="pod-avatar-img" src="${p.image}" alt="${p.label}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-            <span class="pod-avatar-emoji"${p.image ? ' style="display:none"' : ''}>${p.icon}</span>
+            <span class="pod-avatar-initial" style="color:${p.color}${p.image ? ';display:none' : ''}">${avatarInitial}</span>
           </div>
           <div class="pod-card-info">
             <div class="pod-card-meta">
@@ -585,10 +586,12 @@ import { SITE_TITLE } from '../consts';
     width: 100%; height: 100%;
     object-fit: cover; display: block;
   }
-  .pod-avatar-emoji {
-    font-size: 1.5em;
+  .pod-avatar-initial {
+    font-size: 1.35em;
+    font-weight: 900;
     display: flex; align-items: center; justify-content: center;
     width: 100%; height: 100%;
+    font-family: system-ui, sans-serif;
   }
   .pod-card-info { flex: 1; min-width: 0; }
   .pod-card-meta {

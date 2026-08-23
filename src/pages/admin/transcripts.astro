@@ -1,0 +1,525 @@
+---
+export const prerender = false
+
+import { getCollection } from 'astro:content'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+
+function findMarker(body: string): string | null {
+  for (const m of ['\n## 逐字稿', '\n## 影片逐字稿']) {
+    if (body.indexOf(m) > 200) return m
+  }
+  return null
+}
+
+const all = await getCollection('blog')
+const items = all
+  .filter(p => !p.data.draft && !!p.body && findMarker(p.body!) !== null)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .map(p => ({
+    id: p.id,
+    title: p.data.title,
+    prophet: Array.isArray(p.data.prophet) ? p.data.prophet.join('、') : (p.data.prophet ?? ''),
+    date: new Date(p.data.pubDate).toLocaleDateString('zh-TW'),
+    videoUrl: p.data.youtubeId
+      ? `https://www.youtube.com/watch?v=${p.data.youtubeId}`
+      : (p.data.rumblePage ?? ''),
+  }))
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+
+.tr-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 { font-size: 1.3rem; font-weight: 700; color: #f1f5f9; margin: 0 0 .25rem; }
+.tr-sub { font-size: .82rem; color: #64748b; margin: 0 0 1.75rem; }
+
+/* Toolbar */
+.tr-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+}
+
+.tr-search-wrap {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.tr-search-wrap input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .55rem .75rem .55rem 2rem;
+  border: 1px solid #334155;
+  border-radius: 9px;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: .88rem;
+  font-family: inherit;
+}
+.tr-search-wrap input:focus { outline: none; border-color: #6366f1; }
+.tr-search-wrap .search-icon {
+  position: absolute;
+  left: .55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #475569;
+  font-size: .9rem;
+  pointer-events: none;
+}
+
+.tr-btn {
+  padding: .5rem 1rem;
+  border-radius: 9px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: .82rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  white-space: nowrap;
+}
+.tr-btn:hover { background: #334155; }
+.tr-btn.primary {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #fff;
+  font-weight: 600;
+}
+.tr-btn.primary:hover { background: #4f46e5; }
+.tr-btn.primary:disabled { background: #334155; border-color: #334155; color: #64748b; cursor: not-allowed; }
+
+.tr-count {
+  font-size: .8rem;
+  color: #64748b;
+  align-self: center;
+}
+.tr-count strong { color: #a5b4fc; }
+
+/* Search results panel */
+.search-panel {
+  display: none;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.search-panel.visible { display: block; }
+.search-panel-title {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .75rem;
+}
+.search-hit {
+  border-bottom: 1px solid #1e293b;
+  padding: .65rem 0;
+}
+.search-hit:last-child { border-bottom: none; padding-bottom: 0; }
+.sh-meta {
+  font-size: .78rem;
+  color: #64748b;
+  margin-bottom: .2rem;
+}
+.sh-title { font-size: .88rem; color: #c7d2fe; font-weight: 600; margin-bottom: .35rem; }
+.sh-snippets { font-size: .8rem; color: #94a3b8; line-height: 1.7; }
+.sh-snippets mark { background: #fef08a; color: #1e293b; border-radius: 2px; padding: 0 2px; }
+.sh-add-btn {
+  font-size: .73rem;
+  padding: .25rem .65rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: none;
+  color: #94a3b8;
+  cursor: pointer;
+  margin-top: .35rem;
+  font-family: inherit;
+  transition: background .15s, color .15s;
+}
+.sh-add-btn:hover { background: #334155; color: #e2e8f0; }
+.sh-add-btn.added { color: #4ade80; border-color: #166534; }
+.search-empty { color: #64748b; font-size: .85rem; text-align: center; padding: 1rem 0; }
+.search-loading { color: #64748b; font-size: .85rem; padding: .5rem 0; }
+
+/* Table */
+.tr-table-wrap {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tr-table-head {
+  display: grid;
+  grid-template-columns: 2rem 1fr 7rem 6rem;
+  gap: .5rem;
+  padding: .65rem 1rem;
+  border-bottom: 1px solid #334155;
+  font-size: .72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  align-items: center;
+}
+.tr-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr 7rem 6rem;
+  gap: .5rem;
+  padding: .7rem 1rem;
+  border-bottom: 1px solid #1a2744;
+  align-items: start;
+  transition: background .12s;
+  cursor: pointer;
+}
+.tr-row:last-child { border-bottom: none; }
+.tr-row:hover { background: rgba(99,102,241,.07); }
+.tr-row.selected { background: rgba(99,102,241,.12); }
+.tr-row.hidden { display: none; }
+
+.tr-cb {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: #6366f1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.tr-title { font-size: .84rem; color: #e2e8f0; line-height: 1.4; }
+.tr-prophet { font-size: .78rem; color: #a5b4fc; margin-top: .15rem; }
+.tr-date { font-size: .78rem; color: #64748b; }
+.tr-link a { font-size: .73rem; color: #38bdf8; text-decoration: none; word-break: break-all; }
+.tr-link a:hover { text-decoration: underline; }
+.no-link { font-size: .73rem; color: #334155; }
+
+.tr-empty { text-align: center; color: #475569; padding: 2.5rem 1rem; font-size: .9rem; }
+
+/* Bottom bar */
+.tr-bottom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.tr-selected-info { font-size: .82rem; color: #94a3b8; flex: 1; }
+.tr-selected-info strong { color: #a5b4fc; }
+
+/* Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #4f46e5;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  vertical-align: middle;
+  margin-right: .35rem;
+}
+
+@media (max-width: 640px) {
+  .tr-table-head, .tr-row {
+    grid-template-columns: 2rem 1fr;
+  }
+  .tr-date, .tr-link { display: none; }
+}
+</style>
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>逐字稿管理｜兩隻熊</title>
+</head>
+<body>
+<Header />
+
+<main class="tr-wrap">
+  <h1>逐字稿管理</h1>
+  <p class="tr-sub">共 {items.length} 支逐字稿 · 可批次勾選匯出、跨稿關鍵字搜尋</p>
+
+  <!-- Toolbar -->
+  <div class="tr-toolbar">
+    <div class="tr-search-wrap">
+      <span class="search-icon">🔍</span>
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="關鍵字搜尋（跨所有逐字稿內容）"
+        autocomplete="off"
+      />
+    </div>
+    <button class="tr-btn" id="btnSelectAll">全選</button>
+    <button class="tr-btn" id="btnClear">清除</button>
+    <span class="tr-count">已選 <strong id="selCount">0</strong> 支</span>
+    <button class="tr-btn primary" id="btnExport" disabled>匯出選取</button>
+  </div>
+
+  <!-- Search results panel -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-panel-title" id="searchPanelTitle"></div>
+    <div id="searchResults"></div>
+  </div>
+
+  <!-- Table -->
+  <div class="tr-table-wrap">
+    <div class="tr-table-head">
+      <span></span>
+      <span>標題 / 預言家</span>
+      <span>日期</span>
+      <span>影片連結</span>
+    </div>
+    <div id="trList">
+      {items.map(item => (
+        <div
+          class="tr-row"
+          data-id={item.id}
+          data-prophet={item.prophet.toLowerCase()}
+          data-title={item.title.toLowerCase()}
+        >
+          <input type="checkbox" class="tr-cb" data-id={item.id} />
+          <div>
+            <div class="tr-title">{item.title}</div>
+            {item.prophet && <div class="tr-prophet">{item.prophet}</div>}
+          </div>
+          <div class="tr-date">{item.date}</div>
+          <div class="tr-link">
+            {item.videoUrl
+              ? <a href={item.videoUrl} target="_blank" rel="noopener">連結</a>
+              : <span class="no-link">—</span>
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="tr-empty" id="trEmpty" style="display:none">沒有符合的逐字稿</div>
+  </div>
+
+  <div class="tr-bottom">
+    <span class="tr-selected-info">已選 <strong id="selCountBottom">0</strong> 支逐字稿，匯出為純文字檔</span>
+  </div>
+</main>
+
+<Footer />
+
+<script>
+  // ─────────────────────────────────────────────
+  // State
+  // ─────────────────────────────────────────────
+  const selected = new Set<string>()
+
+  // ─────────────────────────────────────────────
+  // DOM refs
+  // ─────────────────────────────────────────────
+  const searchInput    = document.getElementById('searchInput') as HTMLInputElement
+  const searchPanel    = document.getElementById('searchPanel')!
+  const searchPanelTitle = document.getElementById('searchPanelTitle')!
+  const searchResults  = document.getElementById('searchResults')!
+  const selCount       = document.getElementById('selCount')!
+  const selCountBottom = document.getElementById('selCountBottom')!
+  const btnExport      = document.getElementById('btnExport') as HTMLButtonElement
+  const btnSelectAll   = document.getElementById('btnSelectAll')!
+  const btnClear       = document.getElementById('btnClear')!
+  const trEmpty        = document.getElementById('trEmpty')!
+  const rows           = Array.from(document.querySelectorAll<HTMLElement>('.tr-row'))
+
+  // ─────────────────────────────────────────────
+  // Helpers
+  // ─────────────────────────────────────────────
+  function updateCounts() {
+    const n = selected.size
+    selCount.textContent       = String(n)
+    selCountBottom.textContent = String(n)
+    btnExport.disabled         = n === 0
+  }
+
+  function setChecked(id: string, checked: boolean) {
+    if (checked) {
+      selected.add(id)
+    } else {
+      selected.delete(id)
+    }
+    const row = document.querySelector<HTMLElement>(`.tr-row[data-id="${id}"]`)
+    const cb  = document.querySelector<HTMLInputElement>(`.tr-cb[data-id="${id}"]`)
+    if (row) row.classList.toggle('selected', checked)
+    if (cb)  cb.checked = checked
+    updateCounts()
+  }
+
+  // ─────────────────────────────────────────────
+  // Row click / checkbox
+  // ─────────────────────────────────────────────
+  rows.forEach(row => {
+    const id = row.dataset.id!
+    const cb = row.querySelector<HTMLInputElement>('.tr-cb')!
+    cb.addEventListener('change', e => {
+      e.stopPropagation()
+      setChecked(id, cb.checked)
+    })
+    row.addEventListener('click', e => {
+      if ((e.target as Element).classList.contains('tr-cb')) return
+      if ((e.target as Element).tagName === 'A') return
+      setChecked(id, !selected.has(id))
+    })
+  })
+
+  // ─────────────────────────────────────────────
+  // Select all / clear
+  // ─────────────────────────────────────────────
+  btnSelectAll.addEventListener('click', () => {
+    rows.filter(r => !r.classList.contains('hidden')).forEach(r => setChecked(r.dataset.id!, true))
+  })
+  btnClear.addEventListener('click', () => {
+    selected.forEach(id => setChecked(id, false))
+  })
+
+  // ─────────────────────────────────────────────
+  // Client-side title/prophet filter (instant)
+  // ─────────────────────────────────────────────
+  let searchTimer: ReturnType<typeof setTimeout>
+
+  function highlightSnippet(text: string, q: string): string {
+    if (!q) return text
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>')
+  }
+
+  searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimer)
+    const q = searchInput.value.trim()
+
+    if (!q) {
+      // Show all rows, hide search panel
+      rows.forEach(r => r.classList.remove('hidden'))
+      const visible = rows.filter(r => !r.classList.contains('hidden')).length
+      trEmpty.style.display = visible ? 'none' : 'block'
+      searchPanel.classList.remove('visible')
+      return
+    }
+
+    // Quick local filter by title/prophet
+    const lq = q.toLowerCase()
+    let anyVisible = false
+    rows.forEach(r => {
+      const match = (r.dataset.title ?? '').includes(lq) || (r.dataset.prophet ?? '').includes(lq)
+      r.classList.toggle('hidden', !match)
+      if (match) anyVisible = true
+    })
+    trEmpty.style.display = anyVisible ? 'none' : 'block'
+
+    // Debounced full-text search via API
+    searchTimer = setTimeout(() => doApiSearch(q), 500)
+  })
+
+  // ─────────────────────────────────────────────
+  // API search (full transcript text)
+  // ─────────────────────────────────────────────
+  async function doApiSearch(q: string) {
+    if (q.length < 2) return
+
+    searchPanel.classList.add('visible')
+    searchPanelTitle.textContent = `逐字稿全文搜尋「${q}」`
+    searchResults.innerHTML = '<div class="search-loading"><span class="spin"></span>搜尋中…</div>'
+
+    try {
+      const r = await fetch(`/api/transcript-search?q=${encodeURIComponent(q)}`)
+      const data = await r.json()
+      if (!data.ok || !data.results) {
+        searchResults.innerHTML = `<div class="search-empty">搜尋失敗：${data.error ?? '未知錯誤'}</div>`
+        return
+      }
+      if (data.results.length === 0) {
+        searchResults.innerHTML = '<div class="search-empty">逐字稿全文中找不到此關鍵字</div>'
+        return
+      }
+
+      searchPanelTitle.textContent = `逐字稿全文搜尋「${q}」— 找到 ${data.results.length} 筆`
+
+      searchResults.innerHTML = data.results.map((hit: {
+        id: string; title: string; prophet: string; date: string; videoUrl: string; snippets: string[]
+      }) => {
+        const snippetHtml = hit.snippets
+          .map((s: string) => highlightSnippet(escHtml(s), q))
+          .join('<br>')
+        const isAdded = selected.has(hit.id)
+        return `
+          <div class="search-hit">
+            <div class="sh-meta">${escHtml(hit.prophet)} · ${hit.date}</div>
+            <div class="sh-title">${escHtml(hit.title)}</div>
+            <div class="sh-snippets">${snippetHtml}</div>
+            <button class="sh-add-btn ${isAdded ? 'added' : ''}" data-id="${hit.id}">
+              ${isAdded ? '✓ 已加入選取' : '+ 加入選取'}
+            </button>
+          </div>
+        `
+      }).join('')
+
+      // Bind add buttons
+      searchResults.querySelectorAll<HTMLButtonElement>('.sh-add-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id!
+          const nowAdded = !selected.has(id)
+          setChecked(id, nowAdded)
+          btn.textContent = nowAdded ? '✓ 已加入選取' : '+ 加入選取'
+          btn.classList.toggle('added', nowAdded)
+        })
+      })
+    } catch {
+      searchResults.innerHTML = '<div class="search-empty">網路錯誤，請重試</div>'
+    }
+  }
+
+  function escHtml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  }
+
+  // ─────────────────────────────────────────────
+  // Export
+  // ─────────────────────────────────────────────
+  btnExport.addEventListener('click', async () => {
+    if (selected.size === 0) return
+    btnExport.disabled = true
+    btnExport.innerHTML = '<span class="spin"></span>產生中…'
+
+    try {
+      const r = await fetch('/api/transcript-export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: Array.from(selected) }),
+      })
+      if (!r.ok) {
+        const err = await r.json().catch(() => ({}))
+        alert('匯出失敗：' + (err.error ?? r.status))
+        return
+      }
+      const blob = await r.blob()
+      const url  = URL.createObjectURL(blob)
+      const a    = document.createElement('a')
+      a.href     = url
+      a.download = `transcripts-${new Date().toISOString().slice(0, 10)}.txt`
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch {
+      alert('匯出失敗，請重試')
+    } finally {
+      btnExport.disabled = selected.size === 0
+      btnExport.textContent = '匯出選取'
+    }
+  })
+</script>
+</body>
+</html>

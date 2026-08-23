@@ -6,6 +6,19 @@ import Footer from '../components/Footer.astro';
 import CTACard from '../components/CTACard.astro';
 import PredictionPoll from '../components/PredictionPoll.astro';
 import { SITE_TITLE } from '../consts';
+import { PROPHETS, DEFAULT_PROPHET } from '../utils/prophets';
+
+const clientProphets = JSON.stringify(
+  Object.fromEntries(
+    Object.entries(PROPHETS).map(([k, v]) => [k, {
+      label: v.label, color: v.color, bg: v.bg, image: v.image, icon: v.icon,
+    }])
+  )
+);
+const clientDefault = JSON.stringify({
+  label: DEFAULT_PROPHET.label, color: DEFAULT_PROPHET.color,
+  bg: DEFAULT_PROPHET.bg, image: DEFAULT_PROPHET.image, icon: DEFAULT_PROPHET.icon,
+});
 ---
 
 <!doctype html>
@@ -122,6 +135,10 @@ import { SITE_TITLE } from '../consts';
     </div>
 
     </main>
+
+    <script type="application/json" id="prophet-cfg" set:html={clientProphets}></script>
+    <script type="application/json" id="prophet-default" set:html={clientDefault}></script>
+
     <PredictionPoll />
 
     <div class="pod-kofi">
@@ -137,24 +154,61 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <script>
-  const PROPHETS: Record<string, { label: string; color: string }> = {
-    '比格斯':     { label: '比格斯',     color: '#f59e0b' },
-    '帕克':       { label: '帕克',       color: '#3b82f6' },
-    '麥克蒙尼格': { label: '麥克蒙尼格', color: '#10b981' },
-    '摩普萊':     { label: '摩普萊',     color: '#ef4444' },
-    '波蘭預言家': { label: '波蘭預言家', color: '#8b5cf6' },
-    '英國神算':   { label: '英國神算',   color: '#06b6d4' },
-    'default':    { label: '',          color: '#64748b' },
-  };
+  const PROPHETS_DATA: Record<string, { label: string; color: string; bg: string; image: string; icon: string }> =
+    JSON.parse((document.getElementById('prophet-cfg') as HTMLScriptElement).textContent!);
+  const DEFAULT_DATA: { label: string; color: string; bg: string; image: string; icon: string } =
+    JSON.parse((document.getElementById('prophet-default') as HTMLScriptElement).textContent!);
+
+  function getProphet(name: string) {
+    return name ? (PROPHETS_DATA[name] ?? DEFAULT_DATA) : DEFAULT_DATA;
+  }
 
   function detectProphet(title: string): string {
-    if (/比格斯|biggs|pastor|末日牧師/i.test(title))          return '比格斯';
-    if (/帕克|parker/i.test(title))                           return '帕克';
+    if (/比格斯|biggs/i.test(title))                              return '比格斯';
+    if (/帕克|parker/i.test(title))                               return '帕克';
     if (/麥克蒙尼格|mcmoneagle|遙視員|遙視者|CIA遙視/i.test(title)) return '麥克蒙尼格';
-    if (/摩普萊/i.test(title))                                return '摩普萊';
-    if (/波蘭/i.test(title))                                  return '波蘭預言家';
-    if (/英國神算/i.test(title))                              return '英國神算';
-    return 'default';
+    if (/摩普萊/i.test(title))                                    return '摩普萊';
+    if (/波蘭預言家/i.test(title))                                return '波蘭預言家';
+    if (/英國神算/i.test(title))                                  return '英國神算';
+    if (/巴夏|bashar|darryl.?anka/i.test(title))                  return '巴夏';
+    if (/薩洛梅|salomé|athos.?salom/i.test(title))               return '薩洛梅';
+    if (/troy.?black/i.test(title))                               return 'Troy Black';
+    if (/鄭博見|zheng.?bojian|dato.?anthony/i.test(title))        return '鄭博見';
+    if (/\bKFK\b/i.test(title))                                   return 'KFK';
+    if (/tatsuki|辰巳りよ/i.test(title))                          return 'Tatsuki Ryo';
+    if (/paul.?begley/i.test(title))                              return 'Paul Begley';
+    if (/abhigya|阿南德/i.test(title))                            return '阿南德';
+    if (/權朗|quan.?lang/i.test(title))                           return '權朗';
+    if (/朱迪|judy.?hev/i.test(title))                            return '朱迪海文利';
+    if (/國分玲|kokubun/i.test(title))                            return '國分玲';
+    if (/omnec.?onec/i.test(title))                               return 'Omnec Onec';
+    if (/martin.?armstrong/i.test(title))                         return 'Martin Armstrong';
+    if (/jucelino/i.test(title))                                  return 'Jucelino';
+    if (/jessica.?adams/i.test(title))                            return 'Jessica Adams';
+    if (/j\.?d\.?.?farag/i.test(title))                          return 'J.D. Farag';
+    if (/adam.?archon/i.test(title))                              return 'Adam Archon';
+    if (/袁天罡|李淳風|推背圖/i.test(title))                       return '袁天罡與李淳風';
+    if (/倪海廈/i.test(title))                                    return '倪海廈';
+    if (/sadhguru/i.test(title))                                  return 'Sadhguru';
+    if (/clif.?high/i.test(title))                                return 'Clif High';
+    if (/lee.?carroll|克里昂/i.test(title))                       return 'Lee Carroll';
+    if (/jonathan.?cahn/i.test(title))                            return 'Jonathan Cahn';
+    if (/joseph.?tittel/i.test(title))                            return 'Joseph Tittel';
+    if (/jackowski/i.test(title))                                 return 'Jackowski';
+    if (/j\.?d\.?.?farag/i.test(title))                          return 'J.D. Farag';
+    if (/amanda.?grace/i.test(title))                             return 'amanda-grace';
+    if (/jennifer.?leclaire|leclaire/i.test(title))               return 'Jennifer LeClaire';
+    if (/david.the.medium|david.*medium|靈媒.*大衛|大衛.*靈媒/i.test(title)) return 'David the Medium';
+    if (/小孟/i.test(title))                                      return '小孟老師';
+    if (/廖美然|觀世音.*廖/i.test(title))                          return '廖美然';
+    if (/joni.?patry/i.test(title))                               return 'Joni Patry';
+    if (/william.?taylor/i.test(title))                           return 'William Taylor';
+    if (/蔡上機/i.test(title))                                    return '蔡上機';
+    if (/杜金龍/i.test(title))                                    return '杜金龍';
+    if (/張盛舒/i.test(title))                                    return '張盛舒';
+    if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))          return '伊莉莎白·愛普爾';
+    if (/水森太陽|mizumori/i.test(title))                         return '水森太陽';
+    return '';
   }
 
   function fmtDate(s: string) {
@@ -186,7 +240,7 @@ import { SITE_TITLE } from '../consts';
     }
 
     eps.forEach((ep: any) => {
-      const p = PROPHETS[ep._prophet];
+      const p = getProphet(ep._prophet);
       const dur = fmtDur(ep.duration);
       const date = fmtDate(ep.date);
 
@@ -195,9 +249,13 @@ import { SITE_TITLE } from '../consts';
       card.style.setProperty('--accent', p.color);
       card.innerHTML = `
         <div class="pod-card-top">
+          <div class="pod-avatar" style="background:${p.bg}">
+            ${p.image ? `<img class="pod-avatar-img" src="${p.image}" alt="${p.label || '預言家'}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <span class="pod-avatar-emoji" style="${p.image ? 'display:none' : ''}">${p.icon || '🔮'}</span>
+          </div>
           <div class="pod-card-info">
             <div class="pod-card-meta">
-              ${p.label ? `<span class="pod-card-prophet" style="color:${p.color}">${p.label}</span>` : ''}
+              ${ep._prophet ? `<span class="pod-card-prophet" style="color:${p.color}">${p.label || ep._prophet}</span>` : ''}
               ${date ? `<span class="pod-card-date">${date}</span>` : ''}
               ${dur  ? `<span class="pod-card-dur">⏱ ${dur}</span>` : ''}
             </div>
@@ -484,7 +542,30 @@ import { SITE_TITLE } from '../consts';
 
   .pod-card-top {
     padding: 1em 1.2em .8em;
+    display: flex;
+    gap: .9em;
+    align-items: flex-start;
   }
+  .pod-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .1em;
+  }
+  .pod-avatar-img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .pod-avatar-emoji {
+    font-size: 1.5em;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+  }
+  .pod-card-info { flex: 1; min-width: 0; }
   .pod-card-meta {
     display: flex; align-items: center; gap: .8em;
     margin-bottom: .4em; flex-wrap: wrap;

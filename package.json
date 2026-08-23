@@ -13,6 +13,7 @@
     "publish": "node scripts/publish-drafts.mjs",
     "podcast-now": "node scripts/podcast-to-blog.mjs --force && npm run publish && node scripts/podcast-to-blog.mjs --finalize",
     "sync:prophets": "node scripts/sync-prophet-posts.mjs",
+    "find-dupes": "node scripts/find-duplicates.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

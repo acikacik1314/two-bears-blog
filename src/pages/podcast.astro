@@ -181,6 +181,7 @@ import { SITE_TITLE } from '../consts';
     '張盛舒':        { label: '張盛舒',        color: '#1f2937', bg: 'rgba(31,41,55,.15)',                                                   icon: '⭐' },
     '伊莉莎白·愛普爾': { label: '伊莉莎白·愛普爾', color: '#6d28d9', bg: 'rgba(109,40,217,.15)', image: '/elizabeth-april-prophet.jpg',     icon: '✨' },
     '水森太陽':      { label: '水森太陽',      color: '#0369a1', bg: 'rgba(3,105,161,.15)',  image: '/mizumori-prophet.jpg',                 icon: '☀️' },
+    'Julie Poole':   { label: 'Julie Poole',   color: '#a78bfa', bg: 'rgba(167,139,250,.15)', image: '/prophets/julie-poole.jpg',            icon: '🌿' },
   };
 
   function getProphet(name: string): ProphetInfo {
@@ -229,6 +230,7 @@ import { SITE_TITLE } from '../consts';
     if (/張盛舒/i.test(title))                                                        return '張盛舒';
     if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title))                             return '伊莉莎白·愛普爾';
     if (/水森太陽|mizumori/i.test(title))                                             return '水森太陽';
+    if (/julie.?poole|茱莉.?普勒/i.test(title))                                      return 'Julie Poole';
     return '';
   }
 

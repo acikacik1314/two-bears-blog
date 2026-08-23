@@ -1,0 +1,44 @@
+name: Remove Duplicate Posts
+
+on:
+  schedule:
+    - cron: '0 17 * * *'  # 每天台灣時間 01:00（UTC+8）
+  workflow_dispatch:       # 允許手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  dedup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 設定 git 身份
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 掃描並刪除重複文章
+        run: node scripts/find-duplicates.mjs --delete
+
+      - name: 有刪除才 commit + push
+        run: |
+          git add -u src/content/blog/
+          if git diff --cached --quiet; then
+            echo "✅ 無重複文章，跳過 commit"
+          else
+            DELETED=$(git diff --cached --name-only | grep "^src/content/blog/" | wc -l | tr -d ' ')
+            git commit -m "chore: 自動刪除 ${DELETED} 篇重複文章 $(date -u +'%Y-%m-%d')"
+            git push origin main
+            echo "✅ 已推送，Vercel 將自動重新部署"
+          fi

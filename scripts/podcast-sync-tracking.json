@@ -1189,10 +1189,10 @@
     "publishedAt": "2026-08-23T16:25:13.462Z"
   },
   "e17d7f88-64a5-4d8a-a37b-8c56ed74136a": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "global-biometric-quantum-chip-apocalypse-prophecy.md",
     "title": "全球生物識別控制與超自然量子晶片技術悄然部署完畢，世界末日的終極預言時間表已經指明我們正生活在歷史的最後一刻。",
-    "at": "2026-08-24T16:36:17.155Z",
-    "_runner": "2313-1787589377155"
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   },
   "ce666392-f6f9-4692-b35c-eebbb78ba5c1": {
     "status": "sourced",
@@ -1267,15 +1267,15 @@
     "publishedAt": "2026-08-23T18:28:52.954Z"
   },
   "a1e50ea7-35ef-49ce-8503-5f17bcb76298": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "china-taiwan-blockade-apophis-comet-doomsday-warning.md",
     "title": "中國封鎖台灣致天然氣十天耗盡與阿波菲斯彗星兩度飛掠地球的末日警訊",
-    "at": "2026-08-24T16:35:59.180Z",
-    "_runner": "2313-1787589359180"
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   },
   "8b4478a4-7226-49e4-8a8c-2bd68ca8f9b4": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "future-world-warning-taiwan-ai-flaws-prophecy.md",
     "title": "未來世界的驚人警告，從台海局勢到人工智慧致命缺陷的預言",
-    "at": "2026-08-24T16:36:10.083Z",
-    "_runner": "2313-1787589370083"
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   }
 }

@@ -884,9 +884,10 @@
     "publishedAt": "2026-08-23T16:25:13.462Z"
   },
   "e17d7f88-64a5-4d8a-a37b-8c56ed74136a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-biometric-quantum-chip-apocalypse-prophecy.md",
-    "draftedAt": "2026-08-24T16:36:23.186Z"
+    "draftedAt": "2026-08-24T16:36:23.186Z",
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   },
   "ce666392-f6f9-4692-b35c-eebbb78ba5c1": {
     "status": "drafted",
@@ -960,13 +961,15 @@
     "publishedAt": "2026-08-23T18:28:52.954Z"
   },
   "a1e50ea7-35ef-49ce-8503-5f17bcb76298": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "china-taiwan-blockade-apophis-comet-doomsday-warning.md",
-    "draftedAt": "2026-08-24T16:36:10.083Z"
+    "draftedAt": "2026-08-24T16:36:10.083Z",
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   },
   "8b4478a4-7226-49e4-8a8c-2bd68ca8f9b4": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "future-world-warning-taiwan-ai-flaws-prophecy.md",
-    "draftedAt": "2026-08-24T16:36:17.153Z"
+    "draftedAt": "2026-08-24T16:36:17.153Z",
+    "publishedAt": "2026-08-24T16:37:18.532Z"
   }
 }

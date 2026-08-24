@@ -1195,10 +1195,10 @@
     "publishedAt": "2026-08-24T16:37:18.532Z"
   },
   "ce666392-f6f9-4692-b35c-eebbb78ba5c1": {
-    "status": "sourced",
+    "status": "published",
     "title": "超級聖嬰現象將在年底引爆全球氣候災難與地緣政治衝突白熱化",
-    "at": "2026-08-21T01:55:35.403Z",
-    "_runner": "24606-1787277335403"
+    "publishedAt": "2026-08-24T18:38:36.325Z",
+    "draftFile": "super-el-nino-climate-disaster-geopolitical-conflict.md"
   },
   "48bcfaad-8396-4485-977b-07066b063c90": {
     "status": "published",
@@ -1277,5 +1277,17 @@
     "draftFile": "future-world-warning-taiwan-ai-flaws-prophecy.md",
     "title": "未來世界的驚人警告，從台海局勢到人工智慧致命缺陷的預言",
     "publishedAt": "2026-08-24T16:37:18.532Z"
+  },
+  "a138f7e9-51f7-4a82-9a70-bf54efb04396": {
+    "status": "sourced",
+    "title": "經濟崩潰與虛擬貨幣黃金時代即將來臨，美日台大變局與第三次世界大戰爆發異象解析",
+    "at": "2026-08-24T18:38:36.326Z",
+    "_runner": "2440-1787596716326"
+  },
+  "56509152-f845-45ea-882a-c31856153f45": {
+    "status": "published",
+    "title": "黃金將暴漲突破十萬大關且外星人竟是第三次世界大戰的幕後黑手",
+    "publishedAt": "2026-08-24T18:38:47.820Z",
+    "draftFile": "gold-surge-aliens-ww3-mastermind.md"
   }
 }

@@ -979,18 +979,21 @@
     "publishedAt": "2026-08-24T18:39:42.826Z"
   },
   "32313f74-31d9-4d4c-b3e9-239cc6affd9a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "dana-coverstone-covid-preview-us-destroyers-warning.md",
-    "draftedAt": "2026-08-25T16:36:13.027Z"
+    "draftedAt": "2026-08-25T16:36:13.027Z",
+    "publishedAt": "2026-08-25T16:37:16.971Z"
   },
   "a2e0cae2-9539-4a64-ad4b-6a5a9f2b8d1c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "troy-black-fictional-demon-resurrected-in-reality.md",
-    "draftedAt": "2026-08-25T16:36:15.190Z"
+    "draftedAt": "2026-08-25T16:36:15.190Z",
+    "publishedAt": "2026-08-25T16:37:16.971Z"
   },
   "9c12c987-55d4-49ea-866b-a20c2891b53b": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "nikki-dutta-body-betrayal-abandonment-healing-timeline.md",
-    "draftedAt": "2026-08-25T16:36:18.149Z"
+    "draftedAt": "2026-08-25T16:36:18.149Z",
+    "publishedAt": "2026-08-25T16:37:16.971Z"
   }
 }

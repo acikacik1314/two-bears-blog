@@ -6,6 +6,17 @@ import Footer from '../components/Footer.astro';
 import CTACard from '../components/CTACard.astro';
 import PredictionPoll from '../components/PredictionPoll.astro';
 import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const allBlogs = await getCollection('blog', p => !p.data.draft && !!p.data.prophet);
+const blogProphetMap: Record<string, string> = {};
+for (const post of allBlogs) {
+  const prophet = post.data.prophet;
+  const prophetName = Array.isArray(prophet) ? prophet[0] : prophet;
+  if (!prophetName) continue;
+  const key = post.data.title.trim().replace(/\s+/g, '').replace(/[！？。，、；：…‥～〜·・!?.,;:~「」『』【】〈〉《》""'']/g, '').toLowerCase();
+  blogProphetMap[key] = prophetName;
+}
 ---
 
 <!doctype html>
@@ -26,6 +37,7 @@ import { SITE_TITLE } from '../consts';
       "webFeed": "https://anchor.fm/s/11310a874/podcast/rss",
       "author": { "@type": "Person", "name": "兩隻熊" }
     })} />
+    <script type="application/json" id="blog-prophet-map" set:html={JSON.stringify(blogProphetMap)} />
   </head>
   <body class="pod-page">
     <Header />
@@ -365,12 +377,19 @@ import { SITE_TITLE } from '../consts';
     return s ? s.replace(/<[^>]+>/g, ' ') : '';
   }
 
+  function normTitle(t: string): string {
+    return t ? t.trim().replace(/\s+/g, '').replace(/[！？。，、；：…‥～〜·・!?.,;:~「」『』【】〈〉《》""'']/g, '').toLowerCase() : '';
+  }
+
+  const blogProphetMapEl = document.getElementById('blog-prophet-map');
+  const blogProphetMap: Record<string, string> = blogProphetMapEl ? JSON.parse(blogProphetMapEl.textContent || '{}') : {};
+
   function applyData(d: any) {
-    allEpisodes = (d.episodes as any[]).map((ep: any, i: number) => ({
-      ...ep,
-      _idx: i,
-      _prophet: detectProphet(ep.title + ' ' + stripHtml(ep.description || '')),
-    }));
+    allEpisodes = (d.episodes as any[]).map((ep: any, i: number) => {
+      const byKeyword = detectProphet(ep.title + ' ' + stripHtml(ep.description || ''));
+      const byBlog = blogProphetMap[normTitle(ep.title)] || '';
+      return { ...ep, _idx: i, _prophet: byKeyword || byBlog };
+    });
     const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
     if (coverEl && d.coverImage) coverEl.src = d.coverImage;
     const totalEl = document.getElementById('pod-total');

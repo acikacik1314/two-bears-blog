@@ -864,6 +864,20 @@ export const PROPHET_PROFILES: ProphetProfile[] = [
       '靈界長老放寬了記憶限制，因為人類文明正處於一個關鍵的轉折點',
     ],
   },
+  {
+    id: '阿拉約米',
+    name: '阿拉約米',
+    emoji: '🕊️',
+    color: '#7c2d12',
+    origin: '奈及利亞',
+    method: '聖靈啟示、異夢異象',
+    bio: '奈及利亞先知牧師 Taiwo Arayomi，以聖靈感動與異夢異象預言全球局勢，涵蓋台海緊張、美國政治動盪、AI風險與全球經濟變局，在英語基督教預言社群具有廣泛影響力。',
+    sampleQuotes: [
+      '台灣將在2025至2030年間經歷極大憂傷，但入侵企圖將被強力牽制',
+      '中國內部將點燃烈火，遭遇包括蝗蟲、洪水在內的超自然天災',
+      '2026年將是財富女性興起之年，她們的資源將被用於神的事工',
+    ],
+  },
 ];
 
 const profileMap = new Map(PROPHET_PROFILES.map(p => [p.id, p]));

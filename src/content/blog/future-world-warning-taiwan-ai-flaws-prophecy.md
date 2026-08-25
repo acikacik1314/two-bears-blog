@@ -2,6 +2,8 @@
 title: 未來世界的驚人警告，從台海局勢到人工智慧致命缺陷的預言
 description: 本集探討從台海緊張局勢到AI致命缺陷的未來預言，以及全球經濟、政治與社會的潛在變革。
 pubDate: '2026-08-24'
+heroImage: '/prophets/arayomi.jpg'
+prophet: 阿拉約米
 category: 預言
 tags:
 - 台海局勢

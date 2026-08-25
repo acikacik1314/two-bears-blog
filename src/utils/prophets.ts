@@ -640,6 +640,16 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '日本東京池袋占卜沙龍專業占卜師，以占星術、四柱推命與易經占卜解讀全球局勢與未來趨勢',
     tags: ['日本', '占星', '四柱推命', '易經'],
   },
+  '阿拉約米': {
+    en: 'Taiwo Arayomi',
+    label: '阿拉約米',
+    color: '#7c2d12',
+    bg: 'rgba(124,45,18,.12)',
+    image: '/prophets/arayomi.jpg',
+    icon: '🕊️',
+    bio: '奈及利亞先知牧師，以聖靈啟示與異夢異象預言全球局勢，涵蓋台海、美國政治、AI與經濟變局',
+    tags: ['基督教預言', '奈及利亞', '聖靈啟示', '全球局勢'],
+  },
 };
 
 export const DEFAULT_PROPHET: ProphetConfig = {
@@ -707,5 +717,6 @@ export function detectProphet(title: string): string {
   if (/clifford.?mahooty/i.test(title)) return 'Clifford Mahooty';
   if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title)) return '伊莉莎白·愛普爾';
   if (/水森太陽|mizumori/i.test(title)) return '水森太陽';
+  if (/阿拉約米|arayomi/i.test(title)) return '阿拉約米';
   return '';
 }

@@ -183,6 +183,8 @@ import { SITE_TITLE } from '../consts';
     '水森太陽':      { label: '水森太陽',      color: '#0369a1', bg: 'rgba(3,105,161,.15)',  image: '/mizumori-prophet.jpg',                 icon: '☀️' },
     'Julie Poole':   { label: 'Julie Poole',   color: '#a78bfa', bg: 'rgba(167,139,250,.15)', image: '/prophets/julie-poole.jpg',            icon: '🌿' },
     'Ray Dalio':     { label: 'Ray Dalio',     color: '#475569', bg: 'rgba(71,85,105,.15)',   image: '/prophets/ray-dalio.jpg',               icon: '📊' },
+    '安妮塔·馬蒂爾·里維拉': { label: '安妮塔·馬蒂爾·里維拉', color: '#6d28d9', bg: 'rgba(109,40,217,.15)', image: '/prophets/anita-rivera.jpg', icon: '⚡' },
+    '阿拉約米':      { label: '阿拉約米',      color: '#7c2d12', bg: 'rgba(124,45,18,.15)',  image: '/prophets/arayomi.jpg',                  icon: '🕊️' },
   };
 
   function getProphet(name: string): ProphetInfo {
@@ -233,6 +235,8 @@ import { SITE_TITLE } from '../consts';
     if (/水森太陽|mizumori/i.test(title))                                             return '水森太陽';
     if (/julie.?poole|茱莉.?普勒/i.test(title))                                      return 'Julie Poole';
     if (/ray.?dalio|雷.?達利歐/i.test(title))                                        return 'Ray Dalio';
+    if (/安妮塔.*里維拉|里維拉|anita.*rivera|rivera.*anita/i.test(title))             return '安妮塔·馬蒂爾·里維拉';
+    if (/阿拉約米|arayomi/i.test(title))                                              return '阿拉約米';
     return '';
   }
 

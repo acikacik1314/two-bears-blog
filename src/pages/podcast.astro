@@ -180,7 +180,9 @@ for (const post of allBlogs) {
     }
 
     eps.forEach((ep: any) => {
-      const p = getProphet(ep._prophet);
+      const p = ep._prophet
+        ? getProphet(ep._prophet)
+        : { label: '', color: '#64748b', bg: 'rgba(100,116,139,.15)', image: '', icon: '🔮' };
       const dur = fmtDur(ep.duration);
       const date = fmtDate(ep.date);
 

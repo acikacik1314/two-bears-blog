@@ -2,6 +2,8 @@
 title: 中國封鎖台灣致天然氣十天耗盡與阿波菲斯彗星兩度飛掠地球的末日警訊
 description: 安妮塔·馬蒂爾·里維拉預言中國將全面封鎖台灣，導致天然氣十天耗盡，並揭示川普、美國經濟、AI、第三次世界大戰及天災等末日警訊。
 pubDate: '2026-08-24'
+heroImage: '/prophets/anita-rivera.jpg'
+prophet: 安妮塔·馬蒂爾·里維拉
 category: 預言
 tags:
 - 安妮塔·馬蒂爾·里維拉

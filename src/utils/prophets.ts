@@ -640,6 +640,16 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '日本東京池袋占卜沙龍專業占卜師，以占星術、四柱推命與易經占卜解讀全球局勢與未來趨勢',
     tags: ['日本', '占星', '四柱推命', '易經'],
   },
+  '安妮塔·馬蒂爾·里維拉': {
+    en: 'Anita Martir Rivera',
+    label: '安妮塔·馬蒂爾·里維拉',
+    color: '#6d28d9',
+    bg: 'rgba(109,40,217,.12)',
+    image: '/prophets/anita-rivera.jpg',
+    icon: '⚡',
+    bio: '波多黎各裔基督教先知，以聖靈異夢異象預言台海、彗星天象、美國政治與全球末世危機',
+    tags: ['基督教預言', '末世', '天象', '台海'],
+  },
   '阿拉約米': {
     en: 'Taiwo Arayomi',
     label: '阿拉約米',
@@ -718,5 +728,6 @@ export function detectProphet(title: string): string {
   if (/elizabeth.?april|伊莉莎白.*愛普爾/i.test(title)) return '伊莉莎白·愛普爾';
   if (/水森太陽|mizumori/i.test(title)) return '水森太陽';
   if (/阿拉約米|arayomi/i.test(title)) return '阿拉約米';
+  if (/安妮塔.*里維拉|里維拉|anita.*rivera|rivera.*anita/i.test(title)) return '安妮塔·馬蒂爾·里維拉';
   return '';
 }

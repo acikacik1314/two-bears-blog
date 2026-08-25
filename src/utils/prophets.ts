@@ -729,6 +729,8 @@ export function detectProphet(title: string): string {
   if (/水森太陽|mizumori/i.test(title)) return '水森太陽';
   if (/julie.?poole|茱莉.*普勒/i.test(title)) return 'Julie Poole';
   if (/ray.?dalio|雷.*達利歐/i.test(title)) return 'Ray Dalio';
+  if (/妮基.*杜塔|nikki.*dut/i.test(title)) return '妮基·杜塔';
+  if (/達納.*科弗斯通|dana.*coverstone/i.test(title)) return '達納·科弗斯通';
   if (/阿拉約米|arayomi/i.test(title)) return '阿拉約米';
   if (/安妮塔.*里維拉|里維拉|anita.*rivera|rivera.*anita/i.test(title)) return '安妮塔·馬蒂爾·里維拉';
   return '';

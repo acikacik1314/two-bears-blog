@@ -207,12 +207,13 @@ for (const post of allBlogs) {
       const card = document.createElement('div');
       card.className = 'pod-card';
       card.style.setProperty('--accent', ep._prophet ? p.color : '#64748b');
+      const avatarImage = p.image || ep.image || '';
       const avatarInitial = p.label ? p.label[0] : '?';
       card.innerHTML = `
         <div class="pod-card-top">
           <div class="pod-avatar" style="background:${p.color}25;border:2px solid ${p.color}80">
-            ${p.image ? `<img class="pod-avatar-img" src="${p.image}" alt="${p.label}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-            <span class="pod-avatar-initial" style="color:${p.color}${p.image ? ';display:none' : ''}">${avatarInitial}</span>
+            ${avatarImage ? `<img class="pod-avatar-img" src="${avatarImage}" alt="${p.label || ep.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <span class="pod-avatar-initial" style="color:${p.color}${avatarImage ? ';display:none' : ''}">${avatarInitial}</span>
           </div>
           <div class="pod-card-info">
             <div class="pod-card-meta">

@@ -660,6 +660,26 @@ export const PROPHETS: Record<string, ProphetConfig> = {
     bio: '奈及利亞先知牧師，以聖靈啟示與異夢異象預言全球局勢，涵蓋台海、美國政治、AI與經濟變局',
     tags: ['基督教預言', '奈及利亞', '聖靈啟示', '全球局勢'],
   },
+  '妮基·杜塔': {
+    en: 'Nikki Dutta',
+    label: '妮基·杜塔',
+    color: '#0891b2',
+    bg: 'rgba(8,145,178,.12)',
+    image: '/prophets/nikki-dutta.jpg',
+    icon: '👁️',
+    bio: '印度通靈師與遠端遙視專家，曾協助 FBI 及英國警方處理失蹤人口，預言地球大重置與2032意識轉換',
+    tags: ['遠端遙視', '印度', '靈媒', '外星人'],
+  },
+  '達納·科弗斯通': {
+    en: 'Dana Coverstone',
+    label: '達納·科弗斯通',
+    color: '#b45309',
+    bg: 'rgba(180,83,9,.12)',
+    image: '/prophets/dana-coverstone.jpg',
+    icon: '✝️',
+    bio: '美國牧師，以重複夢境分享末世異象，涵蓋美國政治危機、疾病與社會動亂',
+    tags: ['基督教預言', '末世', '夢境異象', '美國'],
+  },
 };
 
 export const DEFAULT_PROPHET: ProphetConfig = {

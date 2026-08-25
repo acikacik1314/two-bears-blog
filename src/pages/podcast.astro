@@ -149,7 +149,27 @@ for (const post of allBlogs) {
 </html>
 
 <script>
-  import { getProphetConfig as getProphet, detectProphet } from '../utils/prophets';
+  import { getProphetConfig, detectProphet, PROPHETS } from '../utils/prophets';
+
+  function getProphet(name: string) {
+    if (!name) return { label: '', color: '#64748b', bg: 'rgba(100,116,139,.15)', image: '', icon: '🔮' };
+    if (name in PROPHETS) return getProphetConfig(name);
+    return { label: name, color: '#94a3b8', bg: 'rgba(148,163,184,.15)', image: '', icon: '🔮' };
+  }
+
+  function extractMainProphet(rawDesc: string): string {
+    const desc = rawDesc.replace(/<[^>]+>/g, ' ');
+    // 「主角是[English]中文名。」— 取中文部分
+    let m = desc.match(/主角是[A-Za-z\s]*([一-鿿·]{2,})/);
+    if (m) return m[1].trim();
+    // 「主角是 中文名 。」
+    m = desc.match(/主角是\s*([一-鿿·\s]{2,30}?)\s*[。，\s]/);
+    if (m) return m[1].trim();
+    // 「以下[內容完全]是 X 本人的」
+    m = desc.match(/以下(?:內容完全)?是\s*([一-鿿·A-Za-z\s]{2,30}?)\s*本人的/);
+    if (m) return m[1].trim();
+    return '';
+  }
 
   function fmtDate(s: string) {
     if (!s) return '';
@@ -180,9 +200,7 @@ for (const post of allBlogs) {
     }
 
     eps.forEach((ep: any) => {
-      const p = ep._prophet
-        ? getProphet(ep._prophet)
-        : { label: '', color: '#64748b', bg: 'rgba(100,116,139,.15)', image: '', icon: '🔮' };
+      const p = getProphet(ep._prophet);
       const dur = fmtDur(ep.duration);
       const date = fmtDate(ep.date);
 
@@ -287,9 +305,11 @@ for (const post of allBlogs) {
 
   function applyData(d: any) {
     allEpisodes = (d.episodes as any[]).map((ep: any, i: number) => {
-      const byKeyword = detectProphet(ep.title + ' ' + stripHtml(ep.description || ''));
-      const byBlog = blogProphetMap[normTitle(ep.title)] || '';
-      return { ...ep, _idx: i, _prophet: byKeyword || byBlog };
+      const text = ep.title + ' ' + stripHtml(ep.description || '');
+      const prophet = detectProphet(text)
+        || blogProphetMap[normTitle(ep.title)]
+        || extractMainProphet(ep.description || '');
+      return { ...ep, _idx: i, _prophet: prophet };
     });
     const coverEl = document.querySelector<HTMLImageElement>('.pod-cover');
     if (coverEl && d.coverImage) coverEl.src = d.coverImage;

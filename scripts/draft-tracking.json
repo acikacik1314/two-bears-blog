@@ -1015,13 +1015,15 @@
     "publishedAt": "2026-08-27T18:53:14.259Z"
   },
   "59446b08-7805-4b1d-82af-4c51dc912b83": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "soul-afterlife-craig-hamilton-parker-revelations.md",
-    "draftedAt": "2026-08-29T02:43:17.437Z"
+    "draftedAt": "2026-08-29T02:43:17.437Z",
+    "publishedAt": "2026-08-29T02:44:22.063Z"
   },
   "90465762-3667-47e7-9fe3-a0bde341018b": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "doomsday-war-cashless-society-prophecy-economic-shakeup.md",
-    "draftedAt": "2026-08-29T02:43:33.911Z"
+    "draftedAt": "2026-08-29T02:43:33.911Z",
+    "publishedAt": "2026-08-29T02:44:22.063Z"
   }
 }

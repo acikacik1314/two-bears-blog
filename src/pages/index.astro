@@ -358,6 +358,11 @@ const CATEGORY_ICONS: Record<string, string> = {
         return;
       }
       let html = general.map(e => codeRowHtml(e, color)).join('');
+      if (general.length === 0 && regional.length > 0) {
+        html += `<div class="code-row" style="--accent:${color}">
+          <div class="code-info"><div class="code-desc">本月通用代碼整理中，目前只有地區限定代碼</div></div>
+        </div>`;
+      }
       if (regional.length > 0) {
         html += `<button class="code-expand-btn" onclick="toggleRegion('${rid}')">🗺 還有 ${regional.length} 個地區限定代碼 ▼</button>
           <div id="${rid}" class="code-regional" style="display:none">${regional.map(e => codeRowHtml(e, color)).join('')}</div>`;
@@ -366,7 +371,7 @@ const CATEGORY_ICONS: Record<string, string> = {
     }
 
     try {
-      const res = await fetch('/api/food-codes');
+      const res = await fetch('/api/food-codes', { signal: AbortSignal.timeout(8000) });
       const data = await res.json();
       const allCodes: CodeEntry[] = (data as any).codes ?? [];
 

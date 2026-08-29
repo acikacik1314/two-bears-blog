@@ -59,7 +59,7 @@ html body { background: #0f172a; color: #e2e8f0; }
               <div class="card-acc muted-acc">—</div>
             )}
             <div class="card-stats">
-              <span class="cs-hit">✅ {s.hitCount}</span>
+              <span class="cs-hit" title={`${s.hitCount} 條標記命中，其中 ${s.reasonedHitCount} 條已附查證依據`}>✅ {s.reasonedHitCount}/{s.hitCount}</span>
               <span class="cs-miss">❌ {s.missCount}</span>
               <span class="cs-pend">⏳ {s.pendingCount}</span>
             </div>

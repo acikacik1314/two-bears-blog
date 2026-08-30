@@ -1039,8 +1039,9 @@
     "publishedAt": "2026-08-30T09:47:04.073Z"
   },
   "da02a556-3177-4dec-8835-96c16bfbbeab": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "europe-ww3-wealth-transfer-new-energy-prophecy.md",
-    "draftedAt": "2026-08-30T19:03:33.987Z"
+    "draftedAt": "2026-08-30T19:03:33.987Z",
+    "publishedAt": "2026-08-30T19:04:30.806Z"
   }
 }

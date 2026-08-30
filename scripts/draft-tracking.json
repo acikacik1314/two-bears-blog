@@ -1033,8 +1033,9 @@
     "publishedAt": "2026-08-29T20:29:08.731Z"
   },
   "6eb3bb30-c133-44ba-a533-ed8e6ce4e9f9": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "elizabeth-april-2026-global-turmoil-personal-awakening.md",
-    "draftedAt": "2026-08-30T09:46:05.005Z"
+    "draftedAt": "2026-08-30T09:46:05.005Z",
+    "publishedAt": "2026-08-30T09:47:04.073Z"
   }
 }

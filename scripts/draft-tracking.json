@@ -1045,8 +1045,9 @@
     "publishedAt": "2026-08-30T19:04:30.806Z"
   },
   "714de666-9552-4750-906f-5892729a94d9": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "isaac-arthur-moon-logistics-hub-mars-cities-ai-black-holes.md",
-    "draftedAt": "2026-08-31T03:53:33.552Z"
+    "draftedAt": "2026-08-31T03:53:33.552Z",
+    "publishedAt": "2026-08-31T03:54:32.376Z"
   }
 }

@@ -1363,9 +1363,9 @@
     "publishedAt": "2026-08-31T03:54:32.376Z"
   },
   "04cbeb44-ae51-4ff4-bba5-e5d9633a6be9": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "dana-coverstone-prophecy-currency-collapse.md",
     "title": "Dana Coverstone 預言貨幣將亡",
-    "at": "2026-09-01T14:32:13.583Z",
-    "_runner": "2341-1788273133583"
+    "publishedAt": "2026-09-01T14:33:16.725Z"
   }
 }

@@ -1075,8 +1075,9 @@
     "publishedAt": "2026-09-03T03:08:29.887Z"
   },
   "6d028dc6-ea9c-4a19-8e46-2ec312889c08": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "quan-lang-2027-year-of-goat-ox-financial-blood-disaster.md",
-    "draftedAt": "2026-09-03T08:34:41.553Z"
+    "draftedAt": "2026-09-03T08:34:41.553Z",
+    "publishedAt": "2026-09-03T08:35:38.938Z"
   }
 }

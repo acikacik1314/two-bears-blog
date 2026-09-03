@@ -78,7 +78,38 @@
         "expires": null
       }
     ],
-    "existing": []
+    "existing": [
+      {
+        "code": "爽爽送",
+        "desc": "精選餐廳滿 $360 折 $70／$110",
+        "expires": "2026-09-30"
+      },
+      {
+        "code": "psctbc609",
+        "desc": "中信 Line Pay 卡舊會員滿 $260 折 $20",
+        "expires": "2026-09-30"
+      },
+      {
+        "code": "psctbce609",
+        "desc": "中信 Line Pay 卡早餐時段滿 $200 折 $15",
+        "expires": "2026-09-30"
+      },
+      {
+        "code": "揪你自取",
+        "desc": "自取滿 $100 享 5 折最高折 $100",
+        "expires": "2026-09-30"
+      },
+      {
+        "code": "SHOPS",
+        "desc": "生鮮雜貨首購，兌完為止",
+        "expires": null
+      },
+      {
+        "code": "FRESH",
+        "desc": "生鮮雜貨首購，兌完為止",
+        "expires": null
+      }
+    ]
   },
   "fetched": "2026-09-03T00:00:00.000Z",
   "source": "callingtaiwan"

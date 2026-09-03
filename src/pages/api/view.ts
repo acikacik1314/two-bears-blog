@@ -1,22 +1,24 @@
 export const prerender = false;
+
 import type { APIRoute } from 'astro';
-import { put, list } from '@vercel/blob';
+import { supabaseAdmin } from '../../lib/supabase';
 
-const BLOB_PATH = 'view-counts.json';
-
-async function getViewCounts(): Promise<Record<string, number>> {
-  try {
-    const { blobs } = await list({ prefix: BLOB_PATH });
-    if (blobs.length === 0) return {};
-    const res = await fetch(blobs[0].url);
-    return await res.json();
-  } catch {
-    return {};
-  }
-}
-
+// GET: slug→count の Map を返す（index.astro のスコアリングに使用）
 export const GET: APIRoute = async () => {
-  const counts = await getViewCounts();
+  const { data, error } = await supabaseAdmin
+    .from('post_views')
+    .select('slug, count');
+
+  if (error) {
+    console.error('[view] GET failed:', error.message);
+    return new Response(JSON.stringify({}), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  const counts: Record<string, number> = {};
+  for (const row of data ?? []) counts[row.slug] = row.count;
+
   return new Response(JSON.stringify(counts), {
     headers: {
       'Content-Type': 'application/json',
@@ -25,27 +27,28 @@ export const GET: APIRoute = async () => {
   });
 };
 
+// POST { slug }: 原子的に +1、失敗は 503 で明示する
 export const POST: APIRoute = async ({ request }) => {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
-    return new Response('OK', { status: 200 });
-  }
   try {
-    const { slug } = await request.json();
-    if (!slug || typeof slug !== 'string') return new Response('Bad Request', { status: 400 });
+    const body = await request.json();
+    const slug = typeof body?.slug === 'string' ? body.slug.trim() : '';
+    if (!slug) return new Response('Bad Request', { status: 400 });
 
-    const counts = await getViewCounts();
-    counts[slug] = (counts[slug] || 0) + 1;
+    const { data, error } = await supabaseAdmin.rpc('increment_view', { p_slug: slug });
 
-    await put(BLOB_PATH, JSON.stringify(counts), {
-      access: 'public',
-      addRandomSuffix: false,
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-    });
+    if (error) {
+      console.error('[view] increment_view failed:', error.message);
+      return new Response(JSON.stringify({ error: error.message }), {
+        status: 503,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
-    return new Response(JSON.stringify({ views: counts[slug] }), {
+    return new Response(JSON.stringify({ views: data as number }), {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (e) {
-    return new Response('OK', { status: 200 });
+    console.error('[view] unexpected error:', e);
+    return new Response('Server Error', { status: 500 });
   }
 };

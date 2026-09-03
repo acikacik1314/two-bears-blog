@@ -1069,8 +1069,9 @@
     "publishedAt": "2026-09-02T08:26:34.726Z"
   },
   "d23d05a9-7146-48fa-9948-d5fbe09fb72d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "dollar-purchasing-power-halved-crypto-wealth-transfer.md",
-    "draftedAt": "2026-09-03T03:07:44.763Z"
+    "draftedAt": "2026-09-03T03:07:44.763Z",
+    "publishedAt": "2026-09-03T03:08:29.887Z"
   }
 }

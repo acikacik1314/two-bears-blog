@@ -18,6 +18,38 @@ import ProphecyLeaderboard from '../components/ProphecyLeaderboard.astro';
 import MultiCityWeather from '../components/MultiCityWeather.astro';
 import HomeToolShowcase from '../components/HomeToolShowcase.astro';
 import AdSlot from '../components/AdSlot.astro';
+import foodData from '../data/food-codes.json';
+
+// ── Food delivery codes (server-rendered from JSON) ──────────────────────────
+const todayISO = new Date().toISOString().slice(0, 10);
+const CODE_COLORS = [
+	{ bg: 'rgba(251,191,36,.15)',  border: 'rgba(251,191,36,.4)',  text: '#fbbf24' },
+	{ bg: 'rgba(52,211,153,.15)',  border: 'rgba(52,211,153,.4)',  text: '#34d399' },
+	{ bg: 'rgba(167,139,250,.15)', border: 'rgba(167,139,250,.4)', text: '#a78bfa' },
+	{ bg: 'rgba(251,146,60,.15)',  border: 'rgba(251,146,60,.4)',  text: '#fb923c' },
+	{ bg: 'rgba(96,165,250,.15)',  border: 'rgba(96,165,250,.4)',  text: '#60a5fa' },
+	{ bg: 'rgba(244,114,182,.15)', border: 'rgba(244,114,182,.4)', text: '#f472b6' },
+	{ bg: 'rgba(74,222,128,.15)',  border: 'rgba(74,222,128,.4)',  text: '#4ade80' },
+	{ bg: 'rgba(248,113,113,.15)', border: 'rgba(248,113,113,.4)', text: '#f87171' },
+] as const;
+type ColorEntry = typeof CODE_COLORS[number];
+
+interface CodeEntry { code: string; desc: string; expires?: string | null }
+
+function filterActive(codes: CodeEntry[]): CodeEntry[] {
+	return (codes ?? []).filter(c => !c.expires || c.expires >= todayISO);
+}
+
+const pandaExisting = filterActive(foodData.foodpanda.existing as CodeEntry[]);
+const uberExisting  = filterActive(foodData.ubereats.existing  as CodeEntry[]);
+
+const foodFetched = new Date(foodData.fetched);
+const foodUpdateNote = `📌 上次更新：${foodFetched.getMonth()+1}月${foodFetched.getDate()}日 · 每日自動刷新`;
+
+function expireLabel(entry: CodeEntry): string {
+	return entry.expires ? `・${entry.expires.slice(5).replace('-', '/')} 到期` : '';
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 let viewCounts: Record<string, number> = {};
 try {
@@ -246,7 +278,26 @@ const CATEGORY_ICONS: Record<string, string> = {
 				</div>
 				<p class="fp-disclaimer">代碼有分眾限制，部分帳號無法使用——結帳前先在 App 輸入確認有折抵再送出。</p>
 				<div id="food-codes-panda">
-					<div class="code-loading"><span class="code-spin">⟳</span> 載入中...</div>
+					{pandaExisting.length === 0 ? (
+						<div class="code-row" style="--accent:#d70f64">
+							<div class="code-info"><div class="code-desc">本月暫無公開代碼</div></div>
+							<a href="https://www.facebook.com/foodpanda.taiwan" target="_blank" rel="noopener noreferrer" class="code-fb-btn">粉專 →</a>
+						</div>
+					) : pandaExisting.map((entry, i) => {
+						const c: ColorEntry = CODE_COLORS[i % CODE_COLORS.length];
+						return (
+							<div class="code-row" style="--accent:#d70f64">
+								<div class="code-info">
+									<div class="code-desc">{entry.desc}{expireLabel(entry)}</div>
+								</div>
+								<button class="code-copy-btn" data-code={entry.code} onclick="copyCode(this)"
+									style={`background:${c.bg};border-color:${c.border}`}>
+									<span class="code-val" style={`color:${c.text}`}>{entry.code}</span>
+									<span class="copy-label">複製</span>
+								</button>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 
@@ -272,12 +323,31 @@ const CATEGORY_ICONS: Record<string, string> = {
 					📅 老顧客代碼
 				</div>
 				<div id="food-codes-uber">
-					<div class="code-loading"><span class="code-spin">⟳</span> 載入中...</div>
+					{uberExisting.length === 0 ? (
+						<div class="code-row" style="--accent:#00b140">
+							<div class="code-info"><div class="code-desc">本月暫無公開代碼</div></div>
+							<a href="https://www.facebook.com/UberEatsTaiwan" target="_blank" rel="noopener noreferrer" class="code-fb-btn">粉專 →</a>
+						</div>
+					) : uberExisting.map((entry, i) => {
+						const c: ColorEntry = CODE_COLORS[(i + 4) % CODE_COLORS.length];
+						return (
+							<div class="code-row" style="--accent:#00b140">
+								<div class="code-info">
+									<div class="code-desc">{entry.desc}{expireLabel(entry)}</div>
+								</div>
+								<button class="code-copy-btn" data-code={entry.code} onclick="copyCode(this)"
+									style={`background:${c.bg};border-color:${c.border}`}>
+									<span class="code-val" style={`color:${c.text}`}>{entry.code}</span>
+									<span class="copy-label">複製</span>
+								</button>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 
 		</div>
-		<p class="food-update-note" id="food-update-note">📌 每日自動從全網更新最新有效代碼</p>
+		<p class="food-update-note">{foodUpdateNote}</p>
 	</section>
 
 	<!-- ── Daily Quote ── -->
@@ -309,90 +379,6 @@ const CATEGORY_ICONS: Record<string, string> = {
   }
   (window as any).toggleRegion = toggleRegion;
 
-  // ── Auto-load food delivery codes ──
-  async function loadFoodCodes() {
-    const pandaEl = document.getElementById('food-codes-panda');
-    const uberEl  = document.getElementById('food-codes-uber');
-    const note    = document.getElementById('food-update-note');
-
-    type CodeEntry = { platform: string; code: string; desc: string; expires?: string; general: boolean; source?: string };
-
-    const CODE_COLORS = [
-      { bg: 'rgba(251,191,36,.15)',  border: 'rgba(251,191,36,.4)',  text: '#fbbf24' },
-      { bg: 'rgba(52,211,153,.15)',  border: 'rgba(52,211,153,.4)',  text: '#34d399' },
-      { bg: 'rgba(167,139,250,.15)', border: 'rgba(167,139,250,.4)', text: '#a78bfa' },
-      { bg: 'rgba(251,146,60,.15)',  border: 'rgba(251,146,60,.4)',  text: '#fb923c' },
-      { bg: 'rgba(96,165,250,.15)',  border: 'rgba(96,165,250,.4)',  text: '#60a5fa' },
-      { bg: 'rgba(244,114,182,.15)', border: 'rgba(244,114,182,.4)', text: '#f472b6' },
-      { bg: 'rgba(74,222,128,.15)',  border: 'rgba(74,222,128,.4)',  text: '#4ade80' },
-      { bg: 'rgba(248,113,113,.15)', border: 'rgba(248,113,113,.4)', text: '#f87171' },
-    ];
-    let codeColorIdx = 0;
-
-    function codeRowHtml(entry: CodeEntry, accentColor: string): string {
-      const expireStr = entry.expires ? `・${entry.expires.slice(5).replace('-','/')} 到期` : '';
-      const autoTag   = entry.source === 'auto' ? '<span style="font-size:.6em;opacity:.5;margin-left:.3em">網路搜尋</span>' : '';
-      const c = CODE_COLORS[codeColorIdx % CODE_COLORS.length];
-      codeColorIdx++;
-      return `<div class="code-row" style="--accent:${accentColor}">
-        <div class="code-info">
-          <div class="code-desc">${entry.desc}${expireStr}${autoTag}</div>
-        </div>
-        <button class="code-copy-btn" data-code="${entry.code}" onclick="copyCode(this)"
-          style="background:${c.bg};border-color:${c.border}">
-          <span class="code-val" style="color:${c.text}">${entry.code}</span>
-          <span class="copy-label">複製</span>
-        </button>
-      </div>`;
-    }
-
-    function renderPlatform(el: HTMLElement | null, codes: CodeEntry[], color: string, fbUrl: string, rid: string) {
-      if (!el) return;
-      const general  = codes.filter(c => c.general);
-      const regional = codes.filter(c => !c.general);
-      if (codes.length === 0) {
-        el.innerHTML = `<div class="code-row" style="--accent:${color}">
-          <div class="code-info"><div class="code-desc">本月暫無公開代碼</div></div>
-          <a href="${fbUrl}" target="_blank" rel="noopener noreferrer" class="code-fb-btn">粉專 →</a>
-        </div>`;
-        return;
-      }
-      let html = general.map(e => codeRowHtml(e, color)).join('');
-      if (general.length === 0 && regional.length > 0) {
-        html += `<div class="code-row" style="--accent:${color}">
-          <div class="code-info"><div class="code-desc">本月通用代碼整理中，目前只有地區限定代碼</div></div>
-        </div>`;
-      }
-      if (regional.length > 0) {
-        html += `<button class="code-expand-btn" onclick="toggleRegion('${rid}')">🗺 還有 ${regional.length} 個地區限定代碼 ▼</button>
-          <div id="${rid}" class="code-regional" style="display:none">${regional.map(e => codeRowHtml(e, color)).join('')}</div>`;
-      }
-      el.innerHTML = html;
-    }
-
-    try {
-      const res = await fetch('/api/food-codes', { signal: AbortSignal.timeout(8000) });
-      const data = await res.json();
-      const allCodes: CodeEntry[] = (data as any).codes ?? [];
-
-      const todayStr = new Date().toISOString().slice(0, 10);
-      const activeCodes = allCodes.filter(c => !c.expires || c.expires >= todayStr);
-
-      codeColorIdx = 0;
-      renderPlatform(pandaEl, activeCodes.filter(c => c.platform === 'foodpanda'), '#d70f64', 'https://www.facebook.com/foodpanda.taiwan', 'region-panda');
-      codeColorIdx = 4;
-      renderPlatform(uberEl,  activeCodes.filter(c => c.platform === 'ubereats'),  '#00b140', 'https://www.facebook.com/UberEatsTaiwan',    'region-uber');
-
-      if (note && (data as any).fetched) {
-        const d = new Date((data as any).fetched);
-        note.textContent = `📌 上次更新：${d.getMonth()+1}月${d.getDate()}日 · 每日自動刷新`;
-      }
-    } catch {
-      if (pandaEl) pandaEl.innerHTML = '<p class="code-error">載入失敗</p>';
-      if (uberEl)  uberEl.innerHTML  = '<p class="code-error">載入失敗</p>';
-    }
-  }
-  loadFoodCodes();
 
 </script>
 

@@ -1081,18 +1081,21 @@
     "publishedAt": "2026-09-03T08:35:38.938Z"
   },
   "b69bdd13-9ab3-46cc-927f-121b7d30adf5": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-upheaval-stock-market-crash-natural-disasters-joseph-tittel.md",
-    "draftedAt": "2026-09-04T14:01:44.933Z"
+    "draftedAt": "2026-09-04T14:01:44.933Z",
+    "publishedAt": "2026-09-04T14:03:11.727Z"
   },
   "4621b501-c9d9-4cf7-9298-4551dd0f475a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "zheng-bo-jian-2026-global-shock-nine-fire-dragon-new-era.md",
-    "draftedAt": "2026-09-04T14:01:51.298Z"
+    "draftedAt": "2026-09-04T14:01:51.298Z",
+    "publishedAt": "2026-09-04T14:03:11.727Z"
   },
   "72ac096f-f783-4fa8-8619-fb5c945ab188": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-dollar-economy-collapse-doomsday-2026-2033-prophecy.md",
-    "draftedAt": "2026-09-04T14:02:00.277Z"
+    "draftedAt": "2026-09-04T14:02:00.277Z",
+    "publishedAt": "2026-09-04T14:03:11.727Z"
   }
 }

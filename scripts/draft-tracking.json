@@ -1123,13 +1123,15 @@
     "publishedAt": "2026-09-06T13:26:06.761Z"
   },
   "5d696828-9dea-4bcf-82ea-5ff1c45784be": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-brics-dollar-prophecy-2026-2031-timeline.md",
-    "draftedAt": "2026-09-07T08:57:30.102Z"
+    "draftedAt": "2026-09-07T08:57:30.102Z",
+    "publishedAt": "2026-09-07T08:58:38.128Z"
   },
   "c1c70050-0f0c-42cf-89d2-08d7adc924bf": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "krzysztof-jackowski-prediction-economic-collapse-war.md",
-    "draftedAt": "2026-09-07T08:57:38.337Z"
+    "draftedAt": "2026-09-07T08:57:38.337Z",
+    "publishedAt": "2026-09-07T08:58:38.128Z"
   }
 }

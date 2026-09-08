@@ -1141,8 +1141,9 @@
     "publishedAt": "2026-09-08T03:15:35.313Z"
   },
   "ed1443b8-6e69-432f-bd4f-8567971674a5": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "hawaii-taiwan-pearl-harbor-asteroid-tsunami-2029.md",
-    "draftedAt": "2026-09-08T08:38:01.949Z"
+    "draftedAt": "2026-09-08T08:38:01.949Z",
+    "publishedAt": "2026-09-08T08:39:10.159Z"
   }
 }

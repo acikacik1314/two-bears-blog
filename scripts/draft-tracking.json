@@ -1135,8 +1135,9 @@
     "publishedAt": "2026-09-07T08:58:38.128Z"
   },
   "a51a698d-26ae-4a8f-9808-2692f16b8443": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jessica-adams-2026-07-08-finance-real-estate-change.md",
-    "draftedAt": "2026-09-08T03:14:29.853Z"
+    "draftedAt": "2026-09-08T03:14:29.853Z",
+    "publishedAt": "2026-09-08T03:15:35.313Z"
   }
 }

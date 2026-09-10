@@ -566,7 +566,7 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 
 					{prophetConfig && (
 						<div class="prophet-banner" style={`border-color:${prophetConfig.color};background:${prophetConfig.bg}`}>
-							<img class="prophet-avatar" src={prophetConfig.image} alt={prophetConfig.label} />
+							<img class="prophet-avatar" src={prophetConfig.image} alt={prophetConfig.label} loading="lazy" decoding="async" />
 							<div class="prophet-info">
 								<div class="prophet-name" style={`color:${prophetConfig.color}`}>
 									{prophetConfig.icon} {prophetConfig.en}（{prophetConfig.label}）

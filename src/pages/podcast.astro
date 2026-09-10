@@ -212,7 +212,7 @@ for (const post of allBlogs) {
       card.innerHTML = `
         <div class="pod-card-top">
           <div class="pod-avatar" style="background:${p.color}25;border:2px solid ${p.color}80">
-            ${avatarImage ? `<img class="pod-avatar-img" src="${avatarImage}" alt="${p.label || ep.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            ${avatarImage ? `<img class="pod-avatar-img" src="${avatarImage}" alt="${p.label || ep.title}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
             <span class="pod-avatar-initial" style="color:${p.color}${avatarImage ? ';display:none' : ''}">${avatarInitial}</span>
           </div>
           <div class="pod-card-info">

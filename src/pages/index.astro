@@ -92,6 +92,34 @@ const CATEGORY_ICONS: Record<string, string> = {
 <html lang="zh-TW">
 <head>
 	<BaseHead title={SITE_TITLE} description="追蹤 52 位預言家的每一條預言，命中、失誤、待驗全部公開記帳，連判定率都攤開給你看。每天更新最新預言分析、國際局勢與旅遊情報。" />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "兩隻熊的旅遊記事｜未來人預言家",
+		"alternateName": "兩隻熊",
+		"url": "https://twobears.vercel.app",
+		"logo": "https://twobears.vercel.app/images/two-bears-avatar.jpg",
+		"description": "追蹤全球預言家命中率的觀測站，每則預言公開記帳、附證據判定。",
+		"foundingDate": "2024",
+		"email": "acikacik@gmail.com",
+		"sameAs": [
+			"https://open.spotify.com/show/033nZopH7VWW9G0RdIchZG",
+			"https://ko-fi.com/twobear2"
+		]
+	})} />
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "兩隻熊的旅遊記事｜未來人預言家",
+		"url": "https://twobears.vercel.app",
+		"inLanguage": "zh-Hant-TW",
+		"publisher": { "@type": "Organization", "name": "兩隻熊" },
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": "https://twobears.vercel.app/blog?q={search_term_string}",
+			"query-input": "required name=search_term_string"
+		}
+	})} />
 </head>
 <body>
 <Header />

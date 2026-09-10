@@ -121,6 +121,46 @@ const description = '誰說旅遊只能留在當下？兩隻熊異象觀測站�
       margin: 0;
     }
 
+    /* ── EDITORIAL POLICY ── */
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .editorial-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,245,255,0.12);
+      border-left: 3px solid #00f5ff;
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+    }
+    .editorial-item h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0 0 0.5rem;
+    }
+    .editorial-item p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .editorial-item a { color: #00f5ff; text-decoration: underline; }
+    .editorial-item strong { color: #e2e8f0; }
+    .editorial-contact {
+      text-align: center;
+      padding: 1.2rem;
+      background: rgba(0,245,255,0.05);
+      border: 1px solid rgba(0,245,255,0.2);
+      border-radius: 10px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+    .editorial-contact a { color: #00f5ff; text-decoration: underline; margin: 0 0.3em; }
+    .editorial-loc { color: #64748b; font-size: 0.82rem; margin-left: 0.5em; }
+
     /* ── WHY CARDS ── */
     .why-grid {
       display: grid;
@@ -386,6 +426,45 @@ const description = '誰說旅遊只能留在當下？兩隻熊異象觀測站�
           <p>這是一個專為「對未來保持警覺、拒絕盲從」的人打造的地下公會，我們共同應對金融重組與時代變革，不孤單前行。</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <hr class="about-divider" />
+
+  <!-- ── EDITORIAL POLICY ── -->
+  <section class="about-section" id="editorial-policy">
+    <div class="about-section-label">編輯政策</div>
+    <div class="about-section-title">我們如何整理與查證內容</div>
+    <div class="editorial-grid">
+      <div class="editorial-item">
+        <h3>🧭 內容立場</h3>
+        <p>本站專注於「公開預言的紀錄與驗證」，不代言、不推銷任何預言家或投資標的。每一位預言家皆以其公開影片、文章、訪談為基礎建檔，並附連結至原始來源。</p>
+      </div>
+      <div class="editorial-item">
+        <h3>🔍 事實查核流程</h3>
+        <p>每則預言於整理時會標記三種狀態：<strong>命中（hits）</strong>需附具體事件與日期作為證據；<strong>失誤（misses）</strong>需時限已過且明確未發生；<strong>待驗（pending）</strong>為時限未到或難以判定者。完整規則請見 <a href="/methodology">計分方法</a>。</p>
+      </div>
+      <div class="editorial-item">
+        <h3>📚 原始來源與版權</h3>
+        <p>我們整理的預言逐字稿皆來自公開影片，並保留完整原始出處連結。文章中的分析、摘要、統計為兩隻熊團隊之原創編輯內容。若您是原作者且不希望被引用，歡迎來信告知，我們將立即下架。</p>
+      </div>
+      <div class="editorial-item">
+        <h3>🤖 AI 使用聲明</h3>
+        <p>本站使用 Google Gemini 協助整理逐字稿與初步摘要，所有內容皆經人工編輯、事實查對與觀點審視後才發布。AI 產出的段落會標明「AI 輔助整理」，供讀者辨識。</p>
+      </div>
+      <div class="editorial-item">
+        <h3>🛠️ 更正政策</h3>
+        <p>若您發現任何事實錯誤、判定爭議、或連結失效，請寄信至 <a href="mailto:acikacik@gmail.com">acikacik@gmail.com</a>。我們會在 7 天內回覆並更新內容，重大更正會於文章末段標註更新日期。</p>
+      </div>
+      <div class="editorial-item">
+        <h3>⚠️ 免責聲明</h3>
+        <p>本站所有預言整理僅供研究與娛樂參考，<strong>不構成投資、醫療、避難、法律或人身安全建議</strong>。地震、金融、災害資訊請以中央氣象署、USGS、金管會、衛福部等官方單位公告為準。</p>
+      </div>
+    </div>
+    <div class="editorial-contact">
+      <strong>📮 聯絡我們：</strong>
+      <a href="mailto:acikacik@gmail.com">acikacik@gmail.com</a>
+      <span class="editorial-loc">· 位於台灣 · 使用繁體中文（zh-Hant）</span>
     </div>
   </section>
 

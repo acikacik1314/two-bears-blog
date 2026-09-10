@@ -1,0 +1,63 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_TITLE } from '../consts'
+---
+
+<style is:global>
+html body { background: #FFF8EC; color: #3B2A1E; }
+</style>
+
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <BaseHead title={`頁面走失了 — ${SITE_TITLE}`} description="這個頁面找不到，也許是預言家把它藏起來了。看看首頁或最新文章吧。" />
+</head>
+<body>
+<Header />
+<main class="e-main">
+  <div class="e-wrap">
+    <div class="e-emoji">🐻🔍</div>
+    <h1 class="e-title">頁面走失了</h1>
+    <p class="e-desc">
+      這個網址對應不到任何文章或工具。<br/>
+      也許連結過期了，或是被兩隻熊悄悄搬家。
+    </p>
+    <div class="e-btns">
+      <a href="/" class="e-btn e-btn-primary">🏠 回首頁</a>
+      <a href="/prophets" class="e-btn">📊 看預言家排行</a>
+      <a href="/blog" class="e-btn">📝 最新文章</a>
+    </div>
+    <div class="e-search">
+      <p class="e-search-hint">或試試這些熱門頁面：</p>
+      <ul>
+        <li><a href="/oracle">🔮 時空因果觀測站</a></li>
+        <li><a href="/biggsgpt">🤖 比格斯 GPT 助手</a></li>
+        <li><a href="/omikuji">🎋 每日命運籤</a></li>
+        <li><a href="/hotels">🏨 超省飯店搜尋器</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<Footer />
+</body>
+</html>
+
+<style>
+.e-main { max-width: 720px; margin: 0 auto; padding: 3em 1.2em 4em; text-align: center; }
+.e-emoji { font-size: 4em; margin-bottom: .3em; }
+.e-title { font-size: 2.2em; font-weight: 900; color: #3B2A1E; margin: 0 0 .5em; }
+.e-desc { color: #5C4A35; font-size: 1em; line-height: 1.8; margin: 0 0 2em; }
+.e-btns { display: flex; gap: .6em; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5em; }
+.e-btn { display: inline-flex; align-items: center; gap: .3em; padding: .7em 1.3em; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: .92em; color: #3B2A1E; background: #FFFFFF; border: 1.5px solid #EADFC8; transition: all .15s; }
+.e-btn:hover { border-color: #E8920A; transform: translateY(-1px); }
+.e-btn-primary { background: #E8920A; color: #fff; border-color: #E8920A; }
+.e-btn-primary:hover { background: #C2740A; border-color: #C2740A; }
+.e-search { border-top: 1px solid #EADFC8; padding-top: 2em; text-align: left; max-width: 380px; margin: 0 auto; }
+.e-search-hint { color: #8B6A4A; font-size: .88em; margin: 0 0 .8em; text-align: center; }
+.e-search ul { list-style: none; padding: 0; margin: 0; }
+.e-search li { margin-bottom: .5em; }
+.e-search a { color: #E8920A; text-decoration: none; font-weight: 600; font-size: .95em; }
+.e-search a:hover { text-decoration: underline; }
+</style>

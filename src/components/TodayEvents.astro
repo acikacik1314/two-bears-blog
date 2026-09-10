@@ -28,10 +28,10 @@
       const quakes: any[] = Array.isArray(eqRes.value) ? eqRes.value : [];
       for (const q of quakes.slice(0, 5)) {
         const mag = q.mag ?? 0;
-        if (mag >= 5) {
+        if (mag >= 4) {
           const place = q.place ?? '';
           const hrs = Math.floor((Date.now() - q.time) / 3600000);
-          events.push({ text: `${place} M${mag} 地震`, time: hrs < 1 ? '剛剛' : `${hrs}小時前`, level: mag >= 6.5 ? 'high' : 'medium' });
+          events.push({ text: `${place} M${mag} 地震`, time: hrs < 1 ? '剛剛' : `${hrs}小時前`, level: mag >= 6.5 ? 'high' : mag >= 5 ? 'medium' : 'low' });
         }
       }
     }
@@ -77,7 +77,10 @@
     }).join('');
   }
 
-  loadEvents();
+  loadEvents().catch(() => {
+    const body = document.getElementById('te-body');
+    if (body) body.innerHTML = '<div class="te-empty">暫時無法載入</div>';
+  });
 </script>
 
 <style>

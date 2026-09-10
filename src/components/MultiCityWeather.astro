@@ -144,6 +144,8 @@
     } catch {
       const container = document.getElementById('mcw-cities');
       if (container) container.innerHTML = '<div class="mcw-loading">無法取得天氣資料</div>';
+      const textEl = document.getElementById('outfit-text');
+      if (textEl) textEl.textContent = '穿搭建議暫時無法載入';
     }
 
     // Star & crystal

@@ -1177,18 +1177,21 @@
     "publishedAt": "2026-09-10T08:42:58.782Z"
   },
   "7f7322b6-8316-4570-ad5b-c5bd1fee6880": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "prophecy-ww3-us-russia-economy-collapse-timeline.md",
-    "draftedAt": "2026-09-10T14:05:07.863Z"
+    "draftedAt": "2026-09-10T14:05:07.863Z",
+    "publishedAt": "2026-09-10T14:06:33.622Z"
   },
   "531341e5-6c42-4722-8bc2-db09fcb0a6db": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "internet-power-outage-disaster-timeline-taiwan-weapons.md",
-    "draftedAt": "2026-09-10T14:05:19.235Z"
+    "draftedAt": "2026-09-10T14:05:19.235Z",
+    "publishedAt": "2026-09-10T14:06:33.622Z"
   },
   "a9a6932a-2e91-432c-849e-e6e2d04914e6": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joni-patry-global-changes-cosmic-codes-2026.md",
-    "draftedAt": "2026-09-10T14:05:23.561Z"
+    "draftedAt": "2026-09-10T14:05:23.561Z",
+    "publishedAt": "2026-09-10T14:06:33.622Z"
   }
 }

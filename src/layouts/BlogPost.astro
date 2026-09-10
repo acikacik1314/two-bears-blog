@@ -355,6 +355,20 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 				transition: color 0.15s;
 			}
 			.transcript-link-btn:hover { color: #e2e8f0; }
+			.post-disclaimer {
+				margin: 2.5em auto 1em;
+				max-width: 780px;
+				padding: 1em 1.2em;
+				background: #FFF6E0;
+				border: 1px solid #E8CC7A;
+				border-left: 4px solid #E8920A;
+				border-radius: 8px;
+				color: #5C4A35;
+				font-size: 0.82em;
+				line-height: 1.7;
+			}
+			.post-disclaimer a { color: #C2740A; text-decoration: underline; }
+			.post-disclaimer strong { color: #3B2A1E; }
 			.youtube-link {
 				display: block;
 				text-align: center;
@@ -683,6 +697,9 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 						</script>
 					</div>
 				</div>
+				<aside class="post-disclaimer" role="note" aria-label="免責聲明">
+					<strong>⚠️ 免責聲明：</strong>本文內容為公開預言、預測與資訊整理，僅供研究與娛樂參考，<strong>不構成投資、醫療、避難、法律或人身安全建議</strong>。地震、金融、災害等資訊請以<a href="https://www.cwa.gov.tw" target="_blank" rel="noopener">中央氣象署</a>、<a href="https://earthquake.usgs.gov" target="_blank" rel="noopener">USGS</a>等官方單位公告為準。讀者應自行判斷並承擔風險，本站不負任何責任。詳見<a href="/privacy">隱私政策與免責聲明</a>。
+				</aside>
 			</article>
 		</main>
 		<Footer />

@@ -58,6 +58,15 @@ const year = new Date().getFullYear()
   </div>
   <div class="sf-bottom">
     <p>🐻🐻 &copy; {year} 兩隻熊的旅遊記事｜未來人預言家</p>
+    <p class="sf-legal">
+      <a href="/about">關於我們</a> ·
+      <a href="/privacy">隱私政策與免責聲明</a> ·
+      <a href="/methodology">計分方法</a> ·
+      <a href="mailto:acikacik@gmail.com">聯絡我們</a>
+    </p>
+    <p class="sf-disclaimer">
+      本站內容為公開預言、預測與資訊整理，僅供研究與娛樂參考，不構成投資、醫療、避難或法律建議。
+    </p>
     <p>
       如果這裡的內容讓你多了解了一點什麼,歡迎
       <a href="https://ko-fi.com/twobear2" target="_blank" rel="noopener">請兩隻熊喝杯咖啡 ☕</a>
@@ -103,6 +112,10 @@ const year = new Date().getFullYear()
     margin-top: 0.5rem;
   }
   .sf-bottom p { margin: 0.3rem 0; font-size: 0.8rem; }
+  .sf-legal { color: #64748b !important; }
+  .sf-legal a { color: #64748b !important; border-bottom: none !important; margin: 0 0.15em; }
+  .sf-legal a:hover { color: #a855f7 !important; }
+  .sf-disclaimer { color: #475569 !important; font-size: 0.72rem !important; max-width: 600px; margin: 0.6rem auto !important; line-height: 1.5; }
   .sf-bottom a {
     color: #475569;
     text-decoration: none;

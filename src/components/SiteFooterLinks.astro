@@ -32,6 +32,7 @@ const COLUMNS: Column[] = [
     links: [
       { label: '所有文章', href: '/blog' },
       { label: '播客', href: '/podcast' },
+      { label: '📄 逐字稿檔案室', href: 'https://twobearstranscripts.blogspot.com' },
       { label: '熊熊選物', href: '/picks' },
       { label: '情報交換站', href: '/friends' },
       { label: '會員中心', href: '/member' },
@@ -50,7 +51,11 @@ const year = new Date().getFullYear()
         <h3>{col.title}</h3>
         <ul>
           {col.links.map((l) => (
-            <li><a href={l.href}>{l.label}</a></li>
+            <li>{l.href.startsWith('http') ? (
+              <a href={l.href} target="_blank" rel="noopener">{l.label} ↗</a>
+            ) : (
+              <a href={l.href}>{l.label}</a>
+            )}</li>
           ))}
         </ul>
       </nav>

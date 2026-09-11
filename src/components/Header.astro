@@ -59,6 +59,7 @@ const path = Astro.url.pathname;
         <HeaderLink href="/">首頁</HeaderLink>
         <HeaderLink href="/blog">文章</HeaderLink>
         <HeaderLink href="/podcast">播客</HeaderLink>
+        <a href="https://twobearstranscripts.blogspot.com" target="_blank" rel="noopener" class="nav-external-link">📄 逐字稿</a>
       </nav>
       <div class="header-right">
         <UserMenu />
@@ -316,6 +317,21 @@ const path = Astro.url.pathname;
     background: rgba(168,85,247,0.12);
   }
   .site-nav-main :global(a.active) { color: #a855f7; }
+  .site-nav-main .nav-external-link {
+    display: inline-flex; align-items: center; gap: .2em;
+    padding: 0.4em 0.8em; margin-left: 0.3em;
+    font-size: 0.82em; font-weight: 600;
+    color: #fbbf24; text-decoration: none;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .site-nav-main .nav-external-link:hover {
+    background: rgba(251, 191, 36, 0.18);
+    border-color: rgba(251, 191, 36, 0.6);
+    color: #fde68a;
+  }
 
   /* header-right */
   .header-right {

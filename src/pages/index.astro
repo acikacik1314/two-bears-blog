@@ -196,6 +196,18 @@ const CATEGORY_ICONS: Record<string, string> = {
 		<div class="hotel-banner-cta">立即找最低價 →</div>
 	</a>
 
+	<!-- ── Blogger Transcripts Banner ── -->
+	<a href="https://twobearstranscripts.blogspot.com" target="_blank" rel="noopener" class="transcript-banner">
+		<div class="tb-left">
+			<span class="tb-emoji">📄</span>
+			<div>
+				<div class="tb-title">兩隻熊逐字稿檔案室</div>
+				<div class="tb-sub">75+ 篇完整原始逐字稿 · 未來人預言 · 靈性訊息 · 深度解讀</div>
+			</div>
+		</div>
+		<div class="tb-cta">前往檔案室 ↗</div>
+	</a>
+
 	<AdSlot unit="4916286882" format="horizontal" />
 
 	<!-- ── Main grid: articles + sidebar ── -->
@@ -491,6 +503,22 @@ const CATEGORY_ICONS: Record<string, string> = {
 .btn-kofi:hover { background: rgba(255,94,91,.12); border-color: rgba(255,94,91,.7); color: #fecaca; }
 
 /* ── Hotel Banner ── */
+.transcript-banner {
+	display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1em;
+	background: linear-gradient(135deg, rgba(124,58,237,.25) 0%, rgba(79,70,229,.15) 100%);
+	border: 1px solid rgba(167,139,250,.35);
+	border-radius: 16px; padding: 1em 1.4em; margin-bottom: 1.2em;
+	text-decoration: none; transition: border-color .2s, box-shadow .2s;
+}
+.transcript-banner:hover { border-color: rgba(167,139,250,.7); box-shadow: 0 0 24px rgba(124,58,237,.2); }
+.tb-left { display: flex; align-items: center; gap: .9em; }
+.tb-emoji { font-size: 2em; }
+.tb-title { color: #e2e8f0; font-weight: 800; font-size: 1.05em; line-height: 1.2; }
+.tb-sub { color: #cbd5e1; font-size: .82em; margin-top: .25em; }
+.tb-cta { background: rgba(167,139,250,.2); color: #c4b5fd; padding: .5em 1em; border-radius: 8px; font-weight: 700; font-size: .88em; white-space: nowrap; }
+.transcript-banner:hover .tb-cta { background: rgba(167,139,250,.35); color: #f5f3ff; }
+@media (max-width: 600px) { .tb-cta { width: 100%; text-align: center; } }
+
 .hotel-banner {
 	display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1em;
 	background: linear-gradient(135deg, rgba(146,64,14,.25) 0%, rgba(217,119,6,.15) 100%);

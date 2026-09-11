@@ -1195,13 +1195,15 @@
     "publishedAt": "2026-09-10T14:06:33.622Z"
   },
   "3a8454b4-de02-4d99-99da-658497e99525": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-financial-beast-system-ww3-timeline-2026.md",
-    "draftedAt": "2026-09-11T14:04:51.394Z"
+    "draftedAt": "2026-09-11T14:04:51.394Z",
+    "publishedAt": "2026-09-11T14:06:07.652Z"
   },
   "2d229701-2948-4c03-99c6-6c12e2fce38d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2028-global-financial-bubble-burst-taiwan-strait-military-standoff-prediction.md",
-    "draftedAt": "2026-09-11T14:04:58.979Z"
+    "draftedAt": "2026-09-11T14:04:58.979Z",
+    "publishedAt": "2026-09-11T14:06:07.652Z"
   }
 }

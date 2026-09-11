@@ -1,0 +1,273 @@
+{
+  "_note": "prophet 欄位必須完全匹配 prophets.ts 名冊。type: self=本人頻道，interview=訪談型（prophet 由逐字稿推斷）。tier: daily=每次都掃，low=每天掃一次就夠。priority 1 優先轉錄。",
+  "channels": [
+    {
+      "prophet": "比格斯",
+      "en": "Brandon Biggs",
+      "channel_id": "UCBqj7_4xib9pKATW4394PmQ",
+      "channel_name": "Last Days",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 1
+    },
+    {
+      "prophet": "Troy Black",
+      "en": "Troy Black",
+      "channel_id": "UC9ZSIfsqXEUuDZ9cZ6_HEVA",
+      "channel_name": "Troy Black",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Paul Begley",
+      "en": "Paul Begley",
+      "channel_id": "UC4SH8rh0OjYV3zwqnIfqNbA",
+      "channel_name": "Paul Begley",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Joni Patry",
+      "en": "Joni Patry",
+      "channel_id": "UCzQ5JiuXVX3enojkU3Plalw",
+      "channel_name": "Joni Patry Astrology",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "帕克",
+      "en": "Craig Hamilton-Parker",
+      "channel_id": "UCVGmZRjalLvFeF6AgIWH4sg",
+      "channel_name": "Craig Hamilton-Parker",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 1
+    },
+    {
+      "prophet": "Martin Armstrong",
+      "en": "Martin Armstrong",
+      "channel_id": "UCaoSDiNkFmGQfvhvZMWxOHw",
+      "channel_name": "Martin Armstrong",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 1
+    },
+    {
+      "prophet": "Joseph Tittel",
+      "en": "Joseph Tittel",
+      "channel_id": "UC2HXaFmf5YYy-PeIN90Sryg",
+      "channel_name": "Joseph Tittel",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Elizabeth April",
+      "en": "Elizabeth April",
+      "channel_id": "UC3Pdep93CKklB-WAMpJXN5w",
+      "channel_name": "Elizabeth April",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "阿南德",
+      "en": "Abhigya Anand",
+      "channel_id": "UCco7hZ6tU33lXbAV6aO7XPA",
+      "channel_name": "Abhigya Anand | Praajna Jyotisha",
+      "type": "self",
+      "tier": "low",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "J.D. Farag",
+      "en": "J.D. Farag",
+      "channel_id": "UCkz3m787ygph7Uvjxzngl-g",
+      "channel_name": "J.D. Farag",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Isaac Arthur",
+      "en": "Isaac Arthur",
+      "channel_id": "UCZFipeZtQM5CKUjx6grh54g",
+      "channel_name": "Isaac Arthur",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 3,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "Dana Coverstone",
+      "en": "Dana Coverstone",
+      "channel_id": "UCRLULdKGs9xjf9J0FUSY6bQ",
+      "channel_name": "Dana Coverstone",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "撒督",
+      "en": "Sadhu Sundar Selvaraj",
+      "channel_id": "UCqH519PgGm2Pp92fR7VYAzg",
+      "channel_name": "Jesus Ministries",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "Jonathan Cahn",
+      "en": "Jonathan Cahn",
+      "channel_id": "UCjsoQpzk-XQOt4YM6nzq_-Q",
+      "channel_name": "Jonathan Cahn Official",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "david-the-medium",
+      "en": "David Stevens",
+      "channel_id": "UC4os-abwMQFagKhk9qX2jNw",
+      "channel_name": "Medium at Large Podcast",
+      "type": "interview",
+      "tier": "low",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Jackowski",
+      "en": "Krzysztof Jackowski",
+      "channel_id": "UCbS8vsbx1MSl1aGrja2-4kg",
+      "channel_name": "JASNOWIDZ Krzysztof Jackowski Official",
+      "type": "self",
+      "tier": "daily",
+      "lang": "pl",
+      "priority": 1
+    },
+    {
+      "prophet": "Tyler Henry",
+      "en": "Tyler Henry",
+      "channel_id": "UC9aRKPT_J5mtgics0v9wNHg",
+      "channel_name": "Tyler Henry - The Hollywood Medium",
+      "type": "self",
+      "tier": "low",
+      "lang": "en",
+      "priority": 2,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "Jessica Adams",
+      "en": "Jessica Adams",
+      "channel_id": "UCWVZ7OIszku2aw1Gw4G_o6A",
+      "channel_name": "JESSICA ADAMS",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "Nikki Dutta",
+      "en": "Nicki Datta",
+      "channel_id": "UCs1NJERAPeKyekD3JHlYp1w",
+      "channel_name": "Tranquillity with Nikki",
+      "type": "self",
+      "tier": "daily",
+      "lang": "en",
+      "priority": 2
+    },
+    {
+      "prophet": "小孟老師",
+      "en": "",
+      "channel_id": "UCn1gS-mmL9KJheSRoHzb8qg",
+      "channel_name": "小孟老師星座塔羅",
+      "type": "self",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 2
+    },
+    {
+      "prophet": "張盛舒",
+      "en": "",
+      "channel_id": "UC01maKxjUg6EJq32od-4dcg",
+      "channel_name": "科技紫微_張盛舒",
+      "type": "self",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 2
+    },
+    {
+      "prophet": "江學勤",
+      "en": "",
+      "channel_id": "UC11aHtNnc5bEPLI4jf6mnYg",
+      "channel_name": "Predictive History",
+      "type": "self",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 2,
+      "_note": "prophet 尚未加入 prophets.ts，草稿 prophet 欄留空待人工確認"
+    },
+    {
+      "prophet": "廖美然",
+      "en": "",
+      "channel_id": "UC0PTA66NwUV7a8qpO9LX7Pg",
+      "channel_name": "蓮華觀音殿-廖美然老師",
+      "type": "self",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 2
+    },
+    {
+      "prophet": "鄭博見",
+      "en": "Dato Cheng",
+      "channel_id": "UCRykoXOF-1jb0DS4P34NG6Q",
+      "channel_name": "拿督郑博见DAC",
+      "type": "self",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 1
+    },
+    {
+      "prophet": "權朗",
+      "en": "",
+      "channel_id": "UCGG5LxdOACwegZ_9FlA0zDg",
+      "channel_name": "香港TV",
+      "type": "interview",
+      "tier": "daily",
+      "lang": "zh",
+      "priority": 2,
+      "_note": "頻道名為「香港TV」，需確認是否為權朗本人頻道，type 暫設 interview，prophet 由逐字稿推斷"
+    },
+    {
+      "prophet": "Love Me Do",
+      "en": "Love Me Do",
+      "channel_id": "UCL6F7R0unHipZwsXJ3hVHzg",
+      "channel_name": "占いTV Love Me Do ラブちゃん",
+      "type": "self",
+      "tier": "daily",
+      "lang": "ja",
+      "priority": 2
+    }
+  ],
+  "daily_transcribe_limit": 100
+}

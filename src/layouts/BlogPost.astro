@@ -18,6 +18,7 @@ import { getPostThumbnail } from '../utils/thumbnail';
 import ArmstrongPiCycleCalculator from '../components/ArmstrongPiCycleCalculator.astro';
 import RelatedTools from '../components/RelatedTools.astro';
 import AdSlot from '../components/AdSlot.astro';
+import bloggerMap from '../../scripts/blogger-map.json';
 import YouTubeComments from '../components/YouTubeComments.astro';
 import PostActions from '../components/PostActions.astro';
 
@@ -605,13 +606,17 @@ const catColor = derivedCategory ? (CATEGORY_COLORS[derivedCategory] ?? '#7f8c8d
 					)}
 					{youtubeId && <YouTubeEmbed videoId={youtubeId} title={title} />}
 					<slot />
-					{transcriptSlug && (
-						<div class="transcript-link-box">
-							<a href={`/transcript/${transcriptSlug}`} class="transcript-link-btn" target="_blank" rel="noopener">
-								📄 查看原始逐字稿 →
-							</a>
-						</div>
-					)}
+					{transcriptSlug && (() => {
+						const map = bloggerMap as any;
+						const blogger = map[transcriptSlug];
+						const href = blogger?.url || `/transcript/${transcriptSlug}`;
+						const label = blogger ? '📄 到逐字稿檔案室看完整逐字稿 →' : '📄 查看原始逐字稿 →';
+						return (
+							<div class="transcript-link-box">
+								<a href={href} class="transcript-link-btn" target="_blank" rel="noopener">{label}</a>
+							</div>
+						);
+					})()}
 					{predictions && (
 						<PredictionCheck
 							hits={predictions.hits}

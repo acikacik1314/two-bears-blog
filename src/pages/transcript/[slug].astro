@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { SITE_TITLE } from '../../consts';
+import bloggerMap from '../../../scripts/blogger-map.json';
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   function findMarker(body: string): string | null {
@@ -28,6 +29,8 @@ const _body = post.body!;
 const _marker = ['\n## 逐字稿', '\n## 影片逐字稿'].find(m => _body.indexOf(m) > 200)!;
 const transcriptText = _body.split(_marker).slice(1).join(_marker).trim();
 const articleUrl = `/blog/${post.id}`;
+const bloggerEntry = (bloggerMap as any)[post.id];
+const bloggerUrl = bloggerEntry?.url;
 ---
 
 <!doctype html>
@@ -36,57 +39,39 @@ const articleUrl = `/blog/${post.id}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
+    {bloggerUrl && (
+      <>
+        <meta http-equiv="refresh" content={`0; url=${bloggerUrl}`} />
+        <link rel="canonical" href={bloggerUrl} />
+      </>
+    )}
     <title>逐字稿：{post.data.title} | {SITE_TITLE}</title>
     <style>
-      main {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 2em 1em;
-      }
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4em;
-        color: #94a3b8;
-        text-decoration: none;
-        font-size: 0.85em;
-        margin-bottom: 1.5em;
-      }
+      main { width: 720px; max-width: calc(100% - 2em); margin: auto; padding: 2em 1em; }
+      .back-link { display: inline-flex; align-items: center; gap: 0.4em; color: #94a3b8; text-decoration: none; font-size: 0.85em; margin-bottom: 1.5em; }
       .back-link:hover { color: #e2e8f0; }
-      .transcript-header {
-        border-bottom: 1px solid #334155;
-        padding-bottom: 1em;
-        margin-bottom: 1.5em;
-      }
-      .transcript-label {
-        font-size: 0.75em;
-        font-weight: 700;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin: 0 0 0.4em;
-      }
-      h1 {
-        font-size: 1.15em;
-        color: #e2e8f0;
-        margin: 0 0 0.4em;
-        line-height: 1.4;
-      }
+      .transcript-header { border-bottom: 1px solid #334155; padding-bottom: 1em; margin-bottom: 1.5em; }
+      .transcript-label { font-size: 0.75em; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.4em; }
+      h1 { font-size: 1.15em; color: #e2e8f0; margin: 0 0 0.4em; line-height: 1.4; }
       .transcript-date { color: #64748b; font-size: 0.8em; margin: 0; }
-      .transcript-body {
-        color: #cbd5e1;
-        font-size: 0.88em;
-        line-height: 2;
-        white-space: pre-wrap;
-        word-break: break-word;
-      }
+      .transcript-body { color: #cbd5e1; font-size: 0.88em; line-height: 2; white-space: pre-wrap; word-break: break-word; }
+      .redirect-notice { background:#fef3c7; color:#78350f; padding:1em 1.2em; border-radius:8px; margin:1em 0; font-size:.92em; line-height:1.7; }
+      .redirect-notice a { color:#b45309; font-weight:700; text-decoration:underline; }
     </style>
+    {bloggerUrl && (
+      <script is:inline set:html={`setTimeout(function(){location.replace(${JSON.stringify(bloggerUrl)})},50);`} />
+    )}
   </head>
   <body>
     <Header />
     <main>
       <a href={articleUrl} class="back-link">← 返回文章</a>
+      {bloggerUrl && (
+        <div class="redirect-notice">
+          📎 逐字稿已搬到「兩隻熊逐字稿檔案室」，正在跳轉…<br/>
+          如未自動跳轉請點：<a href={bloggerUrl}>{bloggerUrl}</a>
+        </div>
+      )}
       <div class="transcript-header">
         <p class="transcript-label">原始逐字稿（未經整理）</p>
         <h1>{post.data.title}</h1>

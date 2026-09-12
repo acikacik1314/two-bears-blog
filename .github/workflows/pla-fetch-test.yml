@@ -5,6 +5,9 @@ name: PLA MND Fetch Test (one-off)
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pla-fetch-test.yml'
 
 jobs:
   test-fetch:

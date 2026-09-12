@@ -1213,8 +1213,9 @@
     "publishedAt": "2026-09-12T13:23:25.558Z"
   },
   "63d37f35-6cc3-49ec-a207-996f987960a4": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-election-global-economy-climate-tech-change.md",
-    "draftedAt": "2026-09-12T20:14:04.361Z"
+    "draftedAt": "2026-09-12T20:14:04.361Z",
+    "publishedAt": "2026-09-12T20:15:14.609Z"
   }
 }

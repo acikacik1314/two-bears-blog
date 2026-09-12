@@ -1207,8 +1207,9 @@
     "publishedAt": "2026-09-11T14:06:07.652Z"
   },
   "934563c9-f7ea-4eba-af23-31e724da2e01": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-stock-market-crash-ww3-2040-doomsday-astrology.md",
-    "draftedAt": "2026-09-12T13:22:18.992Z"
+    "draftedAt": "2026-09-12T13:22:18.992Z",
+    "publishedAt": "2026-09-12T13:23:25.558Z"
   }
 }

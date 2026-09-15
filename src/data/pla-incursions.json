@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-15T10:58:57.161Z",
+  "updated": "2026-09-15T11:02:41.857Z",
   "source": "https://www.mnd.gov.tw/news/plaactlist",
   "total_records": 1800,
   "records": [
@@ -11592,7 +11592,7 @@
       "ocr_raw": "二6 ) 中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間:112年9月5日0900時\nSep. 5, 2023 09:00 (UTC+8 )\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n中華民國112年9月4日 ( 星期一) 0600時至9月5日 (星期\n二) 0600時止。\n\n6to6am. (UTC+8) Monday to Tuesday, Sep. 4-5\n\n二、活動動態PLAactivities :\n迄0600時止,偵獲共艦1艘軟,持續在臺海周邊活動。\n軍運用任務艦及岸置飛彈系統嚴密監控與應處。\n\nIPLAN vessels around Talwan were detected by 6\na.m.(UTC+8) today. R.O.C. Armed Forces have monltored the\nSltuatlon and tasked Navy vessels and ]and-based mlsslle\nsystems to respond these activltles.\n\n三、上述期間共機無逾越海峽中線及西南空域,故無提供\n航跡圖。\n\nIllustration of flight path 1s not provlded due to no trace f\nPLA aircraft crossing the median line of the Talwan Stralt or\nentering Talwan's southwestern ADIZ during the time frame.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "naval:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -14328,7 +14328,7 @@
       "ocr_raw": ",膠會\n\n7中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n發布時間:113年2月4日0900時\n0900hr (UTC+8), Feb. 4, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年2月3日 ( 星期六) 0600時至2月4日 ( 星期\n日)0600時止。\n\n6to6am. (UTC+8) Saturday to Sunday , Feb. 3-4\n二、活動動態PLA activities:\n\n迄0600時止,偵獲共機7架軟(其中逾越海峽中線及其延伸線\n進入西南空域1架次)、共艦4番坎,持續在臺海周邊活動。國\n軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n7PLA aircraft and 4 PLAN vessels operating around Taiwan\nWere detected up umtil 6 am. (UTC+8) today. l of the aircraft\ncrossed the median line of the Taiwan Stralit and entered Taiwan's\nsouthwestern ADIZ. ROC Armed Forces have monitored the\nSltuatlon and employed CAP aircraft, Navy vessels, and coastal\nml1sslle systems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -14445,15 +14445,15 @@
       "roc_date": "113.02.11",
       "url": "https://www.mnd.gov.tw/news/plaact/82565",
       "aircraft_total": 6,
-      "crossed_median": null,
-      "adiz_entry": null,
+      "crossed_median": 0,
+      "adiz_entry": 1,
       "naval": 4,
       "official_ships": null,
       "format_version": "ocr_gap_2024",
       "source": "ocr",
       "ocr_raw": "7中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n69\n\n發布時間:113年2月11日0900時\n0900hr (UTC+8), Feb. 11, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年2月10日 (星期六) 0600時至2月11日 (星期\n日) 0600時止。\n\n6to6am (UTC+8) Saturday to Sunday , Feb. 10-11\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機6架軟(其中進入西南空域1架欽)、共\n艦4和次,持續在臺海周邊活動。國軍運用任務機、艦及岸\n置飛彈系統嚴密監控與應處。\n\n6 PLA aircraft and 4 PLAN vessels operating around Taiwan\nWere detected up umtil 6 am. (UTC+8) today. l of the aircraft\nentered Taiwan's southwestern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft, Navy\nVessels, and coastal mlsslle systems In response to the detected\nactivltles.\n",
-      "parse_note": "ocr-degraded-no-english-verify",
-      "ocr_degraded": true,
+      "parse_note": "",
+      "ocr_degraded": false,
       "source_detail": null,
       "note": null
     },
@@ -14490,7 +14490,7 @@
       "ocr_raw": "和3@ 中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年2月13日0900時\n0900hr (UTC+8), Feb. 13, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLAactivitiesin the watersand airspacearound Taiwan\n一、日期Date:\n\n中華民國113年2月12日 (星期一) 0600時至2月13日\n(星期二) 0600時止。\n\n6to6a.m (UTC+8) Monday to Tuesday, Feb. 12-13\n二、活動動態PLA activities:\n\n迄0600時止,偵獲共機2架次(其中逾越海峽中線及其\n延伸線進入北部空域1架軟)、共艦4艘坎,持續在臺\n海周邊活動。國軍運用任務機、艦及岸置飛彈系統\n嚴密監控與應處。\n\n2PLA aircraft and 4 PLAN vessels were detected\noperating around Taiwan up until 6 a.m (UTC+8) today.\nlofthe aircraft crossed the median line ofthe Tailwan\nStralt and entered Taiwan's northern ADIZ. ROC Armed\nForces monltored the situation and employed CAP\nalrcraft, Navy vessels, and coastal misslle systems In\nresponse to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -14535,15 +14535,15 @@
       "roc_date": "113.02.16",
       "url": "https://www.mnd.gov.tw/news/plaact/82579",
       "aircraft_total": 8,
-      "crossed_median": null,
-      "adiz_entry": null,
+      "crossed_median": 0,
+      "adiz_entry": 1,
       "naval": 7,
       "official_ships": null,
       "format_version": "ocr_gap_2024",
       "source": "ocr",
       "ocr_raw": "7中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n69\n\n發布時間:113年2月16日0900時\n0900hr (UTC+8), Feb. 16, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年2月15日 (星期四) 0600時至2月16日 (星期\n五) 0600時止。\n\n6to6am. (UTC+8) Thursday to Friday , Feb. 15-16\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機8架軟(其中進入西南空域1架欽)、共\n艦7艘次,持續在臺海周邊活動。國軍運用任務機、艦及岸\n置飛彈系統嚴密監控與應處。\n\n8PLA aircraft and 7 PLAN vessels operating around Tailwan\nWere detected up umtil 6 am. (UTC+8) today. l of the aircraft\nentered Taiwan's southwestern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft, Navy\nVessels, and coastal mlsslle systems In response to the detected\nactivltles.\n",
-      "parse_note": "ocr-degraded-no-english-verify",
-      "ocr_degraded": true,
+      "parse_note": "",
+      "ocr_degraded": false,
       "source_detail": null,
       "note": null
     },
@@ -14589,15 +14589,15 @@
       "roc_date": "113.02.19",
       "url": "https://www.mnd.gov.tw/news/plaact/82591",
       "aircraft_total": 7,
-      "crossed_median": null,
-      "adiz_entry": null,
+      "crossed_median": 0,
+      "adiz_entry": 1,
       "naval": 7,
       "official_ships": null,
       "format_version": "ocr_gap_2024",
       "source": "ocr",
       "ocr_raw": "7中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n69\n\n發布時間:113年2月19日0900時\n0900hr (UTC+8), Feb. 19. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年2月18日 ( 星期日) 0600時至2月19日 (星期\n一 ) 0600時止。\n\n6to6am. (UTC+8) Sunday to Monday , Feb. 18-19\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機7架軟(其中進入西南空域1架欽)、共\n艦7艘次,持續在臺海周邊活動。國軍運用任務機、艦及岸\n置飛彈系統嚴密監控與應處。\n\n7PLA aircraft and 7 PLAN vessels operating around Taiwan\nWere detected up umtil 6 am. (UTC+8) today. l of the aircraft\nentered Taiwan's southwestern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft, Navy\nVessels, and coastal mlsslle systems In response to the detected\n\nactlvltles.\n",
-      "parse_note": "ocr-degraded-no-english-verify",
-      "ocr_degraded": true,
+      "parse_note": "",
+      "ocr_degraded": false,
       "source_detail": null,
       "note": null
     },
@@ -14657,7 +14657,7 @@
       "date": "2024-02-23",
       "roc_date": "113.02.23",
       "url": "https://www.mnd.gov.tw/news/plaact/82624",
-      "aircraft_total": null,
+      "aircraft_total": 11,
       "crossed_median": 2,
       "adiz_entry": 2,
       "naval": 6,
@@ -14668,7 +14668,7 @@
       "parse_note": "",
       "ocr_degraded": false,
       "source_detail": null,
-      "note": "total: 中文=11 英文=1 待人工確認"
+      "note": null
     },
     {
       "article_id": "82626",
@@ -15621,7 +15621,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n發布時間: 113年4月16日0900時\n0900hr (UTC+8), Apr.16, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in fhe waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年4月15日 ( 星期一) 0600時至4月16日 (星\n期二) 0600時止。\n\n6to6a.m. (UTC+8) Monday to Tuesday, Apr. 15-16\n二、活動動態PLA activities:\n\n迄0600時止,偵獲共機11架軟 (其中逾越海峽中線、進\n入西南及東部空域8架次) 、共艦8艘軟,持續在臺海周\n邊活動。國軍運用任務機、艦及岸置飛彈系統嚴密監控\n與應處。\n\nIl PLA aircraft and 8 PLAN vessels operating around\nTalwan were detected up unmtil 6 a.m. (UTC+8) today. 8ofthe\nalrcraft crossed the median line of the Tailwan Stralt and\nentered Talwan's southwestern and eastern ADIZ. ROC\nArmed Forces have monitored the sltuation and employed\nCAP aircraft, Navy VesSels, and coastal misslle systems In\nresponse to the detected actlvltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "total:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -15639,7 +15639,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n發布時間: 113年4月16日0900時\n0900hr (UTC+8), Apr.16, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in fhe waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年4月15日 ( 星期一) 0600時至4月16日 (星\n期二) 0600時止。\n\n6to6a.m. (UTC+8) Monday to Tuesday, Apr. 15-16\n二、活動動態PLA activities:\n\n迄0600時止,偵獲共機11架軟 (其中逾越海峽中線、進\n入西南及東部空域8架次) 、共艦8艘軟,持續在臺海周\n邊活動。國軍運用任務機、艦及岸置飛彈系統嚴密監控\n與應處。\n\nIl PLA aircraft and 8 PLAN vessels operating around\nTalwan were detected up unmtil 6 a.m. (UTC+8) today. 8ofthe\nalrcraft crossed the median line of the Tailwan Stralt and\nentered Talwan's southwestern and eastern ADIZ. ROC\nArmed Forces have monitored the sltuation and employed\nCAP aircraft, Navy VesSels, and coastal misslle systems In\nresponse to the detected actlvltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "total:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -15981,7 +15981,7 @@
       "ocr_raw": ",膠會\n\n7中華民國國防部\n\nMinistry of National Defense, R.O.C.\n\n發布時間: 113年5月5日0900時\n0900hr (UTC+8), May 5, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期 Date :\n\n中華民國113年5月4日 (星期六) 0600時至5月5日 (星期\n日) 0600時止。\n\n6to6am (UTC+8) Saturday to Sunday, May 4-5\n二、活動動態PLA activities :\n\n迄0600時止,偵獲共機7架軟(其中逾越海峽中線進入西南\n空域1架軟)、共艦5艘次,持續在臺海周邊活動。國軍運\n用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n7PLA aircraft and 5 PLAN vessels operating around Taliwan\nwere detected up umtil 6 am. (UTC+8) today. l of the aircraft\ncrossed the median line of the Taiwan Stralt and entered\nTaiwan's southwestern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft,。 Navy\nVessels, and coastal mlsslle systems In response to the detected\nactivltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17295,7 +17295,7 @@
       "ocr_raw": "和3@ 中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年7月16日0900時\n0900hr (UTC+S8), JuL 16, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLAactivitiesin the watersand airspacearound Taiwan\n\n一、日期Date:\n\n中華民國113年7月15日 (星期一) 0600時至7月16日\n(星期二) 0600時止。\n\n6to6a.m. (UTC+8) Monday to Tuesday, Jul. 15-16\n二、活動動態PLA activities :\n\n迄0600時止,偵獲共機18架軟 (其中逾越海峽中線、\n進入東部及西南空域8架次) 、共艦6艘次及公務船1\n艘,持續在臺海周邊活動。國軍運用任務機、艦及岸\n置飛彈系統嚴密監控與應處。\n\n18 PLA aircraft, 6 PLAN vessels and l official ship\noperating around Taiwan were detected up until 6 a.m.\n(UTC+8) today. 8ofthe aircraft crossed the median line\nof the Taiwan Stralt and entered Talwan's eastern and\nSouthwestern ADIZ. ROC Armed Forces have monitored\nthe situation and employed CAP aircraft, Navy vesSels,\nand coastal misslle systems In response to the detected\nactlvltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17349,7 +17349,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年7月19日0900時\n0900hr (UTC+8), JuL 19, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年7月18日 (星期四) 0600時至7月19日\n( 星期五) 0600時止。\n\n6to6am (UTC+8) Thursday to Friday, Jul. 18-19\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機17架軟  火(其中逾越海峽中線及進\n入北部、西南、東部空域12架軟) 、共艦9艘次及公務\n船1艘,持續在臺海周邊活動。  國軍運用任務機、  艦\n及岸置飛彈人系統嚴密監控與應處。\n\n17 PLA aircraft, 9PLAN vessels and l officlal ship\noperating around Talwan were detected up umtil 6 a.m\n(UTC+8) today. 12 of the aircraft crossed the median line\nof the Talwan Stralt and entered Taiwan's northern,\nsouthwestern and eastern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft,。 Navy\nVessels, and coastal mlsslle systems In response to the\ndetected activitles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17385,7 +17385,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年7月21日0900時\n0900hr (UTC+8), JuL 21. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年7月20日 ( 星期六) 0600時至7月21日\n( 星期日) 0600時止。\n\n6to6am (UTC+8) Saturday to Sunday, Jul. 20-21\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機22架殲  火(其中逾越海峽中線及進\n入北部、西南及東部空域15架殲) 、共艦8艘次及公務\n船1艘,持續在臺海周邊活動。  國軍運用任務機、  艦\n\n及岸置飛彈人系統嚴密監控與應處。\n\n22 PLA aircraft, 8PLAN vessels and l officlal ship\noperating around Talwan were detected up umtil 6 a.m\n(UTC+8) today. 15 of the aircraft crossed the median line\nof the Talwan Stralt and entered Taiwan's northern,\nsouthwestern and eastern ADIZ. ROC Armed Forces have\nmonltored the situation and employed CAP aircraft,。 Navy\nVessels, and coastal mlsslle systems In response to the\ndetected activitles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17403,7 +17403,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年7月22日0900時\n0900hr (UTC+8), JuL 22, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date :\n\n中華民國113年7月21日 (星期日) 0600時至7月22日\n( 星期一) 0600時止。\n\n6to6am. (UTC+8) Sunday to Monday, Jul. 21-22\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機12架殲(其中逾越海峽中線及進\n入西南空域5架次) 、共艦7委久及公務船1委,持續在\n如海周邊活動。國軍軍用任務機、貓及岸置并品系統\n嚴密監控與應處\n\n12 PLA aircraft, 7 PLAN vessels and l officlal ship\noperating around Taiwan were detected up umtil 6 a.m.-\n(UTC+8) today. 5 of the aircraft crossed the median line\nof the Talwan Stralt and entered Talwan's southwestern\nADIZ. ROC Armed Forces have monltored the sltuatlion\n\nand employed CAP aircraft, Navy vessels, and coastal\nml1sslle systems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17439,7 +17439,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年7月24日0900時\n0900hr (UTC+8), JuL 24. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年7月23日 ( 星期二) 0600時至7月24日\n( 星期三) 0600時止。\n\n6to6am (UTC+8) Tuesday to Wednesday, Jul. 23-24\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機22架殲(其中逾越海峽中線及進\n\n入西南空域12架多) 、共艦9角欠及公務船1艘,持續\n\n在書尖周邊活動。國界軍用任務機、 艦及岸置飛彈系\n統嚴密監控與\n\n22 PLA aircraft, and 9PLAN vessels and l oficlal ship\noperating around Tailwan were detected up umtil 6 a.m-\n(UTC+8) today. 12 of the aircraft crossed the median line\nof the Talwan Stralt and entered Talwan's southwestern\nADIZ. ROC Armed Forces have monltored the situation\nand employed CAP aircraft, Navy vessels, and coastal\nml1sslle systems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -17943,7 +17943,7 @@
       "ocr_raw": "會\n十@) 中華民國國防部\n\n發布時間: 113年8月21日0900時\n0900hr (UTC+8), Aug. 21, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLAactivities in the waters and airspace around Taiwan\n一、日期 Date :\n\n中華民國113年8月20日 (星期二) 0600時至8月21日\n(星期三) 0600時止。\n\n6to6am. (UTC+8) Tuesday to Wednesday, Aug. 20-21\n二、活動動態 PLA activities:\n\n迄0600時止,偵獲共機11架次(其中逾越海峽中線進入\n北部及東部空域7架次) 、共艦8角欠,持續在臺海周\n邊活動。國軍運用任務機、艦及岸置飛彈系統嚴密監\n控與應處。\n\n1IPLA aircraft, and 8 PLAN vessels operating around\nTaiwan were detected up until 6 a.m. (UTC+8) today. 7 0f\nthe aircraft crossed the median line of the Taiwan Strait\nand entered Taiwan's northern and eastern ADIZ. ROC\nArmed Forces have monitored the situation and employed\nCAP aircraft, Navy vessels, and coastal missile systems in\nTesponse to the detected activities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "total:chinese_only;crossed:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -18069,7 +18069,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年8月28日0900時\n0900hr (UTC+8)。 Aug. 28. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date :\n\n中華民國113年8月27日 ( 星期二) 0600時至8月28日(星\n期三) 0600時止。\n\n6to6am. (UTC+8) Tuesday to Wednesday, Aug. 27-28\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機30架次  火(其中逾越海峽中斷進入丁\n南及東部空域27架軟) 、共艦7和鰻軟及公務船1番,持續在\n二生人全衝動?  國軍運用任務機、  艦及岸置飛彈人系統嚴密\n\n30 PLA aircraft, 7 PLAN vessels and l officlal ship operating\naround Talwan were detected up until 6 am (UTC+8) today.\n27 of the aircraft crossed the median line of the Taiwan Stralt\nand entered Taiwan's southwestern and eastern ADIZ. ROC\nArmed Forces have monltored the sltuation and employed\nCAP aircraft, Navy vessels, and coastal mlsslle systems in\nITesponse to the detected actlivltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -18177,7 +18177,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年9月3日0900時\n0900hr (UTC+8),。 Sep. 3, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年9月2日 ( 星期一) 0600時至9月3日 ( 星期\n二) 0600時止。\n\n6to6am. (UTC+8) Monday to Tuesday, Sep. 2-3\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機19架次 (其中逾越海峽中線進入北\n部、西南及東部空域16架次) 、共艦8艘次及公務船1艘,\n持續在臺海周邊活動。 國軍運用任務機、 艦及岸置飛彈系\n統嚴密監控與應處。\n\n19 PLA aircraft, 8PLAN vessels and l officlal ship operating\naround Talwan were detected up until 6 am (UTC+8) today.\n16 of the aircraft crossed the median line of the Talwan Stralt\nand entered Talwan's northern, southwestern, and eastern\nADIZ. ROC Armed Forces have monltored the sltuatlion and\nemployed CAP aircraft, Navy vessels, and coastal misslle\nsystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -18249,7 +18249,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年9月7日0900時\n0900hr (UTC+8),。 Sep. 7, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年9月6日 ( 星期五) 0600時至9月7日 (星期\n六) 0600時止。\n\n6to6am. (UTC+8) Friday to Saturday, Sep. 6-7\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機9架次 (其中逾越海峽中線1架)\n共艦7艘多及公務船1和角,持續在臺海周邊活動。國軍運用\n任務機、艦及岸置飛彈系統有嚴密監控與應處。\n\n9PLA aircraft, 7 PLAN vessels and l officlial ship operating\naround Talwan were detected up until 6 am (UTC+8) today.\nlofthe aircraft crossed the median line of the Taiwan Strait .\nROC Armed Forces have monltored the situation and\nemployed CAP aircraft, Navy vessels, and coastal misslle\nsystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "official:chinese_only",
       "note": null
     },
     {
@@ -18303,7 +18303,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年9月10日0900時\n0900hr (UTC+8), Sep. 10. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年9月9日 ( 星期一) 0600時至9月10日 (星期\n二) 0600時止。\n\n6to6am. (UTC+8) Monday to Tuesday, Sep. 9-10\n、活動動態PLA activities:\n\n錠0600時止,偵獲共機17架次 (其中逾越海峽中線進入北\n部、中部及西南空域12架) 、     共艦7艘殲  火及公務船1艘,持\n全在計海周邊活動。 國軍運用任務機、艦及岸置飛彈人系統\n服密監控與說\n\n17 PLA aircraft, 7 PLAN vessels and l officlal ship operating\naround Talwan were detected up until 6 am (UTC+8) today.\n12 of the aircraft crossed the median line of the Talwan Stralt\nand entered Talwan's northern, central, and southwestern\nADIZ. ROC Armed Forces have monltored the sltuatlion and\nemployed CAP aircraft, Navy vessels, and coastal misslle\nsystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -18339,7 +18339,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間:113年9月12日0900時\n0900hr (UTC+8),。 Sep. 12. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年9月11日 ( 星期三) 0600時至9月12日 (星\n期四) 0600時止。\n\n6to6am (UTC+8) Wednesday to Thursday, Sep. 11-12\n二、活動動態PLA activities:\n\n迄0600時止,偵獲共機29架軟 (其中逾越海峽中線及進入\n北部、中部、西南空域20架軟) 、共艦8和角軟及公務船1\n艘,持續在臺海周邊活動。國軍運用任務機、艦及岸置飛\n彈系統嚴密監控與應處。\n\n29 PLA aircraft, 8PLAN vessels and l officlal ship operating\naround Talwan were detected up until 6 a.m. (UTC+$8) today.\n20 of the aircraft crossed the median line of the Talwan Stralt\nand entered Talwan's northern, central, and southwestern\nADIZ. ROC Armed Forces have monltored the sltuation and\nemployed CAP aircraft, Navy vessels, and coastal mlsslle\nSystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -18825,7 +18825,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年10月9日0900時\n0900hr (UTC+8)。Oct. 9, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date :\n\n中華民國113年10月8日 (星期二) 0600時至10月9日 (星\n期三) 0600時止。\n\n6to6am (UTC+8) Tuesday to Wednesday, Oct. 8-9\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機12架次 (逾越海峽中線進入北部、\n中部 、西南及東部空域9架次) 、共艦8艘軟及公務船1艘\n殲,持續在臺海周邊活動。  國軍運用任務機、  艦及岸置飛\n彈人系統嚴密監控與應處。\n\n12 PLA aircraft。8PLAN vessels and l officlal ships operating\naround Talwan were detected up until 6 am (UTC+8) today.\n9ofthe aircraft crossed the median line of the Talwan Stralt\nand entered Talwan's northern。 central, southwestern and\neastern ADIZ. ROC Armed Forces have monltored the\nsltuatlon and employed CAP aircraft Navy vessels, and\ncoastal mlsslle systems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19059,7 +19059,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年10月22日0900時\n0900hr (UTC+8)。 Oct. 22, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年10月21日 (星期一) 0600時至10月22日(星期\n二) 0600時止。\n\n6to6am. (UTC+8) Mondayto Tuesday, Oct. 21-22\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機17架次(其中逾越海峽中線進入北部、\n中部及西南空域11架次) 、共艦9艘,持續在臺海周邊活動。\n國軍運用任務機、 艦及岸置飛彈系統嚴密監控與應處。\n\n17PLA aircraft and 9PLAN vessels operating aroundTaiwan\nwere detectedupuntil6 a.m. (UTC+8) today. ll of the aircraft\ncrossedthe median llne of the Taiwan Stralt and entered Tailwan's\nnorthern, central,and southwestern ADIZ. ROC Armed Forces\nhave monitoredthe situationandemployed CAP arrcraft, Navy\nvessels, and coastalmissile systems in response to the detected\nactivitles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19077,7 +19077,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年10月23日0900時\n0900hr (UTC+8), Oct. 23, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年10月22日 (星期二) 0600時至10月23日\n(星期三) 0600時止。\n\n6to6am (UTC+8)Tuesday to Wednesday, Oct. 22-23\n二、活動動態PLA activities :\n\n迄0600時止,偵獲共機15架軟 (其中逾越海峽中線進入中\n部、東南及西南空域11架軟) 、共艦6重,持續在臺海周\n和全 。國軍運用任務機、艦及岸置飛彈系統嚴密監控與\n應處。\n\n15 PLA aircraft and 6 PLAN vessels operating around Talwan\nwere detected up until 6 a.m. (UTC+8) today. ll of the\nalrcraft crossed the median llne of the Talwan Stralt and\nentered Talwan's central, southeastern and southwestern\nADIZ. ROC Armed Forces have monltored the sltuatlon and\nemployed CAP alrcraft, Navy vessels, and coastal mlsslle\nsystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19311,7 +19311,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年11月4日0900時\n0900hr (UTC+8),。 Nov 4. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期 Date:\n\n中華民國113年11月3日 ( 星期日) 0600時至11月4日(星\n期一) 0600時止。\n\n6to6am (UTC+8) Sunday to Monday, Nov. 3-4\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機44架次 (其中逾越海峽中線及進入\n西南及東南空域37架軟) 、共艦6艘軟及公務船1番,持續\n集訓汪全全當生9  國軍運用任務機、艦及岸置飛彈系統嚴\n密監控與\n\n44 PLA aircraft, 6 PLAN vessels and l officlal ship operating\naround Talwan were detected up until 6 a.m. (UTC+$8) today.\n37 of the aircraft crossed the median line of the Talwan Stralt\nand entered Talwan's southwestern and southeastern ADIZ.\nROC Armed Forces have monltored the sltuation and\nemployed CAP aircraft, Navy vessels, and coastal mlsslle\nSystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19395,13 +19395,13 @@
       "crossed_median": null,
       "adiz_entry": null,
       "naval": 5,
-      "official_ships": null,
+      "official_ships": 1,
       "format_version": "ocr_gap_2024",
       "source": "ocr",
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間:113年11月9日0900時\n0900hr (UTC+8),。 Nov 9, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月8日(星期五) 0600時至11月9日 (星期\n六)0600時止。\n\n6to6am. (UTC+8)Friday to Saturday, Nov 8-9\n\n二、活動動態PLAactivities:\n\n包0600時止,偵獲共機12架痰(逾越海峽中線及其延伸線進\n信汪時) 中部及馬南補誠9扣交)、共外5生天及公務咎1全,\n持續企室漲周店活動。固軍軍用任務機、 艦及岸置飛彈償\n\n最密監控與應處。\n\n12 PLA aircraft, 5 PLAN vessels and l official ship operating\naround Taiwan were detectedup unmtil6 am. (UTC+8)today.9ef\nthe aircraft crossed themedian line ofthe Taiwan Stralt and\nenteredTaiwan's northern, centraland southwesternADIZ. ROC\nArmed Forceshave monitoredthe situationandemployedCAP\naircTaft, Navy vessels, and coastalimlsslle systems in response to\nthe detectedactivities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;naval:english_only",
+      "source_detail": "crossed:chinese_only;naval:english_only;official:english_only",
       "note": null
     },
     {
@@ -19419,7 +19419,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月10日0900時\n0900hr (UTC+8), Nov 10. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月9日 (星期六) 0600時至11月10日(星期\n日) 0600時止。\n\n6to6am. (UTC+8) Saturdayto Sunday,Nov 9-10\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機9架次 (其中逾越海峽中線及進入北\n部、西南及東部空域6架次) 、共艦5艘及公務船1鰻,持續在\n臺海周邊活動。國軍運用任務機、艦及岸置飛彈系統嚴密監\n\n9PLA aircraft, 5 PLAN vessels and l official ship operating\naround Taiwan were detectedup until6 am. (UTC+8)today.69f\nthe aircraft crossed themedian line ofthe Taiwan Stralt and\nenteredTaiwan's northern, southwesternand eastern ADIZ. ROC\nArmed Forceshave monitoredthe situation and employedCAP\naircTaft, Navy vessels, and coastalimlsslle systems in response to\nthe detectedactivities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -19491,7 +19491,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月14日0900時\n0900hr (UTC+8), Nov 14. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月13日 (星期三) 0600時至11月14日 (星期\n四)0600時止。\n\n6to6am. (UTC+8) Wednesdayto Thursday, Nov. 13-14\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機15架次 (其中逾越海峽中線進入北部\n及西南空域9架軟) 及共艦9艘及公務船1番,持續在臺海周邊\n當生 。國軍運用任務機、艦及岸置飛彈人系統嚴密監控與應\n\n處。\n\n15 PLA aircraft and 9PLAN vessels andl official ship operating\naround Taiwan were detectedup umtil6 am. (UTC+8)today.9 cf\nthe aircraft crossed themedian line ofthe Taiwan Strait and\nenteredTaiwan's northernandsouthwestern ADIZ. ROC Armed\nForces have monmlitoredthe situationandemployed CAP aircraft,\nNavy vessels, and coastalmlssile systems In responsetothe\ndetectedactivities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -19509,7 +19509,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月15日0900時\n0900hr (UTC+8), Nov 15.2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月14日 ( 星期四) 0600時至11月15日(星期\n五) 0600時止。\n\n6to6am. (UTC+8) Thursday toFriday, Nov. 14-15\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機8架次 (其中逾越海峽中線進入北部及\n西南空域4架次) 及共艦9艘及公務船1艘,持續在臺海周邊活\n動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n8PLA aircraft and 9PLAN vessels and l official ship operating\naround Taiwan were detectedup unmtil6 am._ (UTC+8)today.49f\nthe aircraft crossed themedian line ofthe Taiwan Strait and\nenteredTaiwan's northernandsouthwestern ADIZ. ROC Armed\nForces have monmlitoredthe situationandemployed CAP aircraft,\nNavy vessels, and coastalmlssile systems in response to the\ndetectedactivities-\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -19671,7 +19671,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月24日0900時\n0900hr (UTC+8),。 Nov 24. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月23日 ( 星期六) 0600時至11月24日 (星期\n日) 0600時止。\n\n6to6am. (UTC+8) Saturdayto Sunday,Nov. 23-24\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機8架次 (其中逾越海峽中線進入北部及\n西南空域4架次) 、共艦7艘及公務船1艘,持續在臺海周邊活\n動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n8PLA aircraft and 7 PLAN vessels, and l official ships operating\naround Taiwan were detectedupuntil6 a.m. (UTC+8)today.49f\nthe aircraft crossed themedian line ofthe Taiwan Stralit and\nenteredTaiwan's northernandsouthwestern ADIZ. ROC Armed\nForces have monmitoredthe situationandemployed CAP aircraft,\nNavy vessels, and coastalmlsslle systems in response to the\ndetectedactivities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -19689,7 +19689,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年11月25日0900時\n0900hr (UTC+8), Nov. 25, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in the waters and airspace around Taiwan\n一、日期 Date:\n\n中華民國113年11月24日 ( 星期日) 0600時至11月25日\n(星期一) 0600時止。\n\n6to6am. (UTC+8) Sunday to Monday, Nov. 24-25\n二、活動動態PLA activities :\n\n迄0600時止,偵獲共機12架軟 (其中逾越海峽中線進入西\n南空域8架軟) 、共艦7艘及公務船1番,持續在臺海周邊\n活動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應\n處。\n\n12 PLA aircraftand 7 PLAN vessels, and l officlal ships\noperating around Talwan were detected up umtil6 a.m.\n(UTC+8) today. 8ofthe aircraft crossed the median line of the\nTaiwan Stralt and entered Taiwan's southwestern ADIZ.ROC\nArmed Forces have monltored the sltuation and employed\nCAP aircraft, Navy vessels, and coastal mlsslle systems In\nTesponse to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19707,7 +19707,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月26日0900時\n0900hr (UTC+8),。 Nov 26. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年11月25日 (星期一) 0600時至11月26日(星期\n二) 0600時止。\n\n6to6am. (UTC+8) Mondayto Tuesday, Nov. 25-26\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機5架次 (其中逾越海峽中線及進入西南\n空域4架次) 、共艦7番及公務船1和角,持續在臺海周邊活動。\n國軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n5PLA aircraft and 7 PLAN vessels, and l officlal ship operating\naround Taiwan were detectedupuntil6 a.m. (UTC+8)today.\n4ofthe aircraft crossed themedian line of the Talwan Straltand\nenteredTaiwan's southwestern ADIZ. ROC Armed Forcesharve\nmonltoredthe situationand employed CAP aircraft, Navy vessels,\nand coastalmisslle systems in responseto the detectedactivitles-\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19779,7 +19779,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年11月30日0900時\n0900hr (UTC+8),。 Nov 30. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n\n一、日期Date:\n\n中華民國113年11月29日 ( 星期五) 0600時至11月30日 (星期\n六) 0600時止。\n\n6to6am. (UTC+8)Friday to Saturday, Nov. 29-30\n\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機18架次 (其中逾越海峽中線進入西南\n空域7架次) 、共艦7艘及公務船1艘,持續在臺海周邊活\n動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n18PLA aircraft, 7 PLAN vessels, and l official ship operating\naround Taiwan were detectedup until6 am. (UTC+8)today. 7 9f\nthe aircraft crossed themedian line ofthe Taiwan Strait and\nenteredTaiwan's southwestern ADIZ. ROC Armed Forceshave\nmonitoredthe situationand employed CAP aircraft, Navy vessels,\nand coastalmissile systems in responseto the detectedactivitles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only;official:chinese_only",
+      "source_detail": "crossed:chinese_only",
       "note": null
     },
     {
@@ -19797,7 +19797,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年12月1日0900時\n0900hr (UTC+8), Dec. 1. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年11月30日 (星期六) 0600時至12月1日 (星期\n日) 0600時止。\n\n6to6am. (UTC+8) Saturdayto Sunday,Nov. 30-Dec. 1\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機9架次 (其中逾越海峽中線進入北部及\n西南空域3架次) 及共艦7艘及公務船1艘,持續在臺海周邊活\n動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n9PLA aircraft and 7 PLAN vessels, and l officlal ship operating\naroundTaiwan were detectedupuntil6 am. (UTC+8) today.\n3ofthe aircraft crossed themedian line of the Taiwan Strait and\nenteredTaiwan's northernandsouthwestern ADIZ. ROC Armed\nForces have monmlitoredthe situationandemployed CAP aircraft,\nNavy vessels, and coastalmlissile systems in response to the\ndetectedactivities-\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19815,7 +19815,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年12月2日0900時\n0900hr (UTC+8), Deec. 2. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年12月1日(星期日) 0600時至12月2日 (星期\n一)0600時止。\n\n6to6am. (UTC+8) Sunday to Monday,Dec. 1-2\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機15架次 (其中逾越海峽中線進入西南\n及東部空域11架次) 、共艦7番及公務船2艘,持續在臺海周\n邊活動。國軍運用任務機、艦及岸置飛彈系統嚴密監控與應\n處 身\n\n15 PLA aircraft and 7 PLAN vessels, and 2 official ships operating\naround Taiwan were detectedupuntil6 am. (UTC+8) today.\nllofthe aircraft crossed themedian line of the Taiwan Strait and\nenteredTaiwan's southwesternandeastern ADIZ. ROC Armed\nForces have monmitoredthe situationand employed CAP aircraft,\nNavy vessels, and coastalmlsslle systems in response to the\ndetectedactivities.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19851,7 +19851,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National pefense, R.O.C\n\n發布時間: 113年12月4日0900時\n0900hr (UTC+8), Deec. 4. 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期Date:\n\n中華民國113年12月3日(星期二) 0600時至12月4日 (星期\n三) 0600時止。\n\n6to6am. (UTC+8) Tuesday to Wednesday, Dec. 3-4\n二、活動動態PLAactivities:\n\n迄0600時止,偵獲共機15架次 (其中進入西南部空域4架\n殲) 、共艦7艘及公務船1艘,持續在臺海周邊活動。國軍運\n用任務機、艦及岸置飛彈系統嚴密監控與應處。\n\n15 PLA aircraft, 7 PLAN vessels, and l official ship operating\naroundTaiwan were detectedupuntil6 a.m. (UTC+8)today.49f\ntheaircraft entered Taiwan's southwesternADIZ. ROC Armed\nForces have monmlitoredthe situationandemployed CAP arrcraft,\nNavy vessels, and coastalmlissile systems in response to the\ndetectedactivltles.\n",
       "parse_note": "ocr-degraded-no-english-verify",
       "ocr_degraded": true,
-      "source_detail": "official:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -19905,7 +19905,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年12月7日0900時\n0900hr (UTC+8), Dec. 7, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activitiesin the waters and airspace around Taiwan\n一、日期 Date :\n\n中華民國113年12月6日 ( 星期五) 0600時至12月7日 (星\n期日) 0600時止。\n\n6Gto6am. (UTC+8) Friday to Saturday, Dec. 6-7\n、活動動態PLA activities:\n\n迄0600時止,偵獲共機15架次 (其中逾越海峽中線及進入\n北部及西南空域11架次) 、共艦8艘次及公務船4和角,持續\n集訓汪全全當生9  國軍運用任務機、  艦及岸置飛彈人系統嚴\n密監控與\n\n15 PLA aircraft, 8PLAN vessels and 4 officlal ships operating\naround Talwan were detected up until 6 a.m. (UTC+$8) today.\nll of the aircraft crossed the median line of the Taiwan Stralt\nand entered Taiwan's northern and southwestern ADIZ. ROC\nArmed Forces have monltored the sltuation and employed\nCAP aircraft Navy vessels, and coastal mlsslle systems In\nITesponse to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -20067,7 +20067,7 @@
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年12月16日0900時\n0900hr (UTC+8), Dec. 16, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in the waters and airspace around Taiwan\n一、日期 Date:\n\n中華民國113年12月15日 (星期日) 0600時至12月16日\n(星期一) 0600時止。\n\n6to6am. (UTC+8) Sunday to Monday, Dec. 15-16\n、活動動態PLAactivities :\n歸0600時止,    偵獲共機5架軟 (其中逾越海峽中線延伸線1\n\n架) 及共艦6艘持續在臺海周邊活動。 國軍運用任務\n機 艦及岸置飛彈系統嚴密監控與應處。\n\n5 PLA aircraftand 6 PLAN vessels operating around Talwan\nwere detected up until6 a.m. (UTC+8) today. lofthe aircraft\ncrossed the extension ofmedian line ofthe Tailwan Stralt\nROC Armed Forces have monltored the sItuation and\nemployed CAP alrcraft, Navy vessels, and coastal mlsslle\nsystems In response to the detected activltles.\n",
       "parse_note": "",
       "ocr_degraded": false,
-      "source_detail": "crossed:chinese_only",
+      "source_detail": null,
       "note": null
     },
     {
@@ -20220,15 +20220,15 @@
       "roc_date": "113.12.25",
       "url": "https://www.mnd.gov.tw/news/plaact/83837",
       "aircraft_total": 3,
-      "crossed_median": null,
-      "adiz_entry": null,
+      "crossed_median": 0,
+      "adiz_entry": 1,
       "naval": 6,
       "official_ships": null,
       "format_version": "ocr_gap_2024",
       "source": "ocr",
       "ocr_raw": "中華民國國防部\n\nMinistry of National Defense, R.O.C\n\n發布時間: 113年12月25日0900時\n0900hr (UTC+8), Dec. 25, 2024\n\n中共解放軍臺海周邊海、空域動態\n\nPLA activities in the waters and airspace around Taiwan\n一、日期 Date:\n\n中華民國113年12月24日 (星期二) 0600時至12月25日\n(星期三) 0600時止。\n\n6to6am. (UTC+8)Tuesday to Wednesday, Dec. 24-25\n、活動動態PLAactivities :\n\n迄0600時止,偵獲共機3架次 (其中進入東部空域1架) 及\n共艦6番,持續在臺海周邊活動。國軍運用任務機、艦及\n岸置飛彈人系統嚴密監控與應處。\n\n3PLA aircraftand 6 PLAN vessels operating around Talwan\nwere detected up until6 a.m. (UTC+8) today. lofthe aircraft\nentered Taiwan's eastern ADIZ. ROC Armed Forces have\nmonltored the sltuation and employed CAP aircraft, Navy\nVessels, and coastal mlsslle systems In response to the\ndetected activlties.\n",
-      "parse_note": "ocr-degraded-no-english-verify",
-      "ocr_degraded": true,
+      "parse_note": "",
+      "ocr_degraded": false,
       "source_detail": null,
       "note": null
     },

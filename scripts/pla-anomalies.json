@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-15T10:58:57.169Z",
-  "count": 16,
+  "updated": "2026-09-15T11:02:41.869Z",
+  "count": 15,
   "anomalies": [
     {
       "article_id": "82588",
@@ -8,13 +8,6 @@
       "url": "https://www.mnd.gov.tw/news/plaact/82588",
       "reason": "multi-paren-no-english-fallback",
       "detail": "field=crossed"
-    },
-    {
-      "article_id": "82624",
-      "date": "2024-02-23",
-      "url": "https://www.mnd.gov.tw/news/plaact/82624",
-      "reason": "cn-en-mismatch",
-      "detail": "field=total cn=11 en=1"
     },
     {
       "article_id": "82838",
@@ -28,12 +21,7 @@
       "date": "2024-05-25",
       "url": "https://www.mnd.gov.tw/news/plaact/83011",
       "reason": "range-check-fail",
-      "detail": "total(62)>60",
-      "parsed": {
-        "total": 62,
-        "crossed": 47,
-        "naval": 27
-      }
+      "detail": "total(62)>60"
     },
     {
       "article_id": "83023",
@@ -68,24 +56,14 @@
       "date": "2024-07-11",
       "url": "https://www.mnd.gov.tw/news/plaact/83189",
       "reason": "range-check-fail",
-      "detail": "total(66)>60",
-      "parsed": {
-        "total": 66,
-        "crossed": 56,
-        "naval": 7
-      }
+      "detail": "total(66)>60"
     },
     {
       "article_id": "83571",
       "date": "2024-10-15",
       "url": "https://www.mnd.gov.tw/news/plaact/83571",
       "reason": "range-check-fail",
-      "detail": "total(153)>60",
-      "parsed": {
-        "total": 153,
-        "crossed": 111,
-        "naval": null
-      }
+      "detail": "total(153)>60"
     },
     {
       "article_id": "83571",

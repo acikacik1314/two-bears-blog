@@ -40,29 +40,40 @@ export function extractChinese(clean) {
 }
 
 // ── 英文抽取（用大小寫敏感 + 容錯字元）───────────────────────
+// OCR 常見錯字: 1↔l↔I、0↔O、i↔l 等
+// 用工具函式把數字 token 從 [\d, l, I] 混合中還原：l/I 視為 1
+function digitToken(s) {
+  if (!s) return null;
+  const cleaned = s.replace(/[lI]/g, '1');
+  const n = parseInt(cleaned, 10);
+  return isNaN(n) ? null : n;
+}
+
 export function extractEnglish(clean) {
-  // OCR 常見錯字: l→I, 0→O, i→l 等，用寬鬆比對
-  const e = { total: null, crossed: null, entered: null, naval: null, official: null };
+  const e = {
+    total: null, crossed: null, entered: null, naval: null, official: null,
+    has_crossed_keyword: false, has_entered_keyword: false,
+  };
 
-  // "N PLA aircraft"
-  const tm = clean.match(/(\d+)PLAa[il1]rcraft/);
-  if (tm) e.total = parseInt(tm[1]);
+  // 語義關鍵字檢查（不看數字），用來判斷 semantic 上是否有跨中線
+  e.has_crossed_keyword = /oftheaircraftcrossed|aircraftha[dv]crossed|thealrcraftcrossed/i.test(clean);
+  e.has_entered_keyword = /oftheaircraftentered|thealrcraftentered/i.test(clean);
 
-  // "N of the aircraft crossed" — 主要跨中線指標
-  const cm = clean.match(/(\d+)ofthea[il1]rcraftcrossed/i);
-  if (cm) e.crossed = parseInt(cm[1]);
+  // 數字抽取（容錯 l/I → 1）
+  const tm = clean.match(/([\dlI]+)PLAa[il1]rcraft/);
+  if (tm) e.total = digitToken(tm[1]);
 
-  // "N of the aircraft entered" — 只有進入沒跨中線的情況
-  const em = clean.match(/(\d+)ofthea[il1]rcraftentered/i);
-  if (em) e.entered = parseInt(em[1]);
+  const cm = clean.match(/([\dlI]+)ofthea[il1]rcraftcrossed/i);
+  if (cm) e.crossed = digitToken(cm[1]);
 
-  // "N PLAN vessels"
-  const nm = clean.match(/(\d+)PLANvessels/);
-  if (nm) e.naval = parseInt(nm[1]);
+  const em = clean.match(/([\dlI]+)ofthea[il1]rcraftentered/i);
+  if (em) e.entered = digitToken(em[1]);
 
-  // "N official ship(s)"
-  const om = clean.match(/(\d+)off?[il1]c[il1]alship/i);
-  if (om) e.official = parseInt(om[1]);
+  const nm = clean.match(/([\dlI]+)PLANvessels/);
+  if (nm) e.naval = digitToken(nm[1]);
+
+  const om = clean.match(/([\dlI]+)off?[il1]c[il1]alship/i);
+  if (om) e.official = digitToken(om[1]);
 
   return e;
 }
@@ -129,27 +140,42 @@ export function crossValidate(rawText, source) {
       r.source_detail = (r.source_detail ? r.source_detail + ';' : '') + 'crossed:chinese_only';
     }
   } else if (cn.paren_num !== null) {
-    // 中文括號有數字但沒「逾」— 兩種可能，用英文分辨
-    if (en.crossed !== null) {
-      // 英文明白說 crossed → 中文的「逾」被 OCR 讀壞
-      r.crossed_median = null; r.adiz_entry = null;
-      r.ocr_degraded = true;
-      r.parse_note = 'ocr-degraded-yu-missing';
-    } else if (en.entered !== null) {
-      // 英文說 entered、沒 crossed → 原文本來就沒跨中線
-      if (cn.paren_num === en.entered) {
-        r.crossed_median = 0; r.adiz_entry = cn.paren_num;
-      } else {
-        // ADIZ 數字兩邊不一致
+    // 中文括號有數字但沒「逾」
+    // Text 來源：中文權威，沒「逾」就是 MND 明白寫沒跨中線
+    // OCR 來源：需要英文語義驗證，區分「原文沒逾」vs「OCR讀壞逾」
+    if (source === 'text') {
+      // 若英文與中文語義矛盾（en有crossed但cn無逾）→ 真異常
+      if (en.has_crossed_keyword) {
         r.crossed_median = null; r.adiz_entry = null;
-        addNote(r, `adiz: 中文=${cn.paren_num} 英文=${en.entered} 待人工確認`);
-        anomalies.push({ field: 'adiz', cn: cn.paren_num, en: en.entered });
+        addNote(r, `semantic mismatch: 中文括號無「逾」但英文說 crossed 待人工確認`);
+        anomalies.push({ field: 'crossed_semantic', cn: 'no_yu', en: 'has_crossed' });
+      } else {
+        // 一致（都表示 ADIZ-only）或英文無明確語義 → 信任中文
+        r.crossed_median = 0;
+        r.adiz_entry = cn.paren_num;
       }
     } else {
-      // 英文段落沒讀到，只能相信中文；但沒「逾」→ 保守起見標 degraded
-      r.crossed_median = null; r.adiz_entry = null;
-      r.ocr_degraded = true;
-      r.parse_note = 'ocr-degraded-no-english-verify';
+      // OCR 來源，需英文語義驗證
+      if (en.has_crossed_keyword) {
+        // 英文有 crossed → 中文「逾」被 OCR 讀壞
+        r.crossed_median = null; r.adiz_entry = null;
+        r.ocr_degraded = true;
+        r.parse_note = 'ocr-degraded-yu-missing';
+      } else if (en.has_entered_keyword) {
+        // 英文只有 entered → 原文本來就沒跨中線
+        if (en.entered !== null && cn.paren_num !== en.entered) {
+          r.crossed_median = null; r.adiz_entry = null;
+          addNote(r, `adiz: 中文=${cn.paren_num} 英文=${en.entered} 待人工確認`);
+          anomalies.push({ field: 'adiz', cn: cn.paren_num, en: en.entered });
+        } else {
+          r.crossed_median = 0; r.adiz_entry = cn.paren_num;
+        }
+      } else {
+        // 英文既無 crossed 也無 entered 關鍵字 → OCR 兩邊都壞
+        r.crossed_median = null; r.adiz_entry = null;
+        r.ocr_degraded = true;
+        r.parse_note = 'ocr-degraded-no-english-verify';
+      }
     }
   } else {
     // 中文沒括號 → 看英文

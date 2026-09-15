@@ -1,7 +1,126 @@
 {
-  "updated": "2026-09-15T11:02:41.869Z",
-  "count": 15,
+  "updated": "2026-09-15T12:33:38.627Z",
+  "count": 32,
   "anomalies": [
+    {
+      "article_id": "78737",
+      "date": "2021-06-18",
+      "url": "https://www.mnd.gov.tw/news/plaact/78737",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78739",
+      "date": "2021-06-19",
+      "url": "https://www.mnd.gov.tw/news/plaact/78739",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78741",
+      "date": "2021-06-20",
+      "url": "https://www.mnd.gov.tw/news/plaact/78741",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78766",
+      "date": "2021-06-26",
+      "url": "https://www.mnd.gov.tw/news/plaact/78766",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78852",
+      "date": "2021-07-02",
+      "url": "https://www.mnd.gov.tw/news/plaact/78852",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78849",
+      "date": "2021-07-02",
+      "url": "https://www.mnd.gov.tw/news/plaact/78849",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78854",
+      "date": "2021-07-03",
+      "url": "https://www.mnd.gov.tw/news/plaact/78854",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78856",
+      "date": "2021-07-04",
+      "url": "https://www.mnd.gov.tw/news/plaact/78856",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78864",
+      "date": "2021-07-07",
+      "url": "https://www.mnd.gov.tw/news/plaact/78864",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78867",
+      "date": "2021-07-08",
+      "url": "https://www.mnd.gov.tw/news/plaact/78867",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78873",
+      "date": "2021-07-12",
+      "url": "https://www.mnd.gov.tw/news/plaact/78873",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "78871",
+      "date": "2021-07-12",
+      "url": "https://www.mnd.gov.tw/news/plaact/78871",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "79331",
+      "date": "2021-11-22",
+      "url": "https://www.mnd.gov.tw/news/plaact/79331",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "79334",
+      "date": "2021-11-23",
+      "url": "https://www.mnd.gov.tw/news/plaact/79334",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "79336",
+      "date": "2021-11-24",
+      "url": "https://www.mnd.gov.tw/news/plaact/79336",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "79339",
+      "date": "2021-11-25",
+      "url": "https://www.mnd.gov.tw/news/plaact/79339",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
+    {
+      "article_id": "79347",
+      "date": "2021-11-26",
+      "url": "https://www.mnd.gov.tw/news/plaact/79347",
+      "reason": "refetch-fail",
+      "detail": "The operation was aborted due to timeout"
+    },
     {
       "article_id": "82588",
       "date": "2024-02-18",
@@ -21,7 +140,12 @@
       "date": "2024-05-25",
       "url": "https://www.mnd.gov.tw/news/plaact/83011",
       "reason": "range-check-fail",
-      "detail": "total(62)>60"
+      "detail": "total(62)>60",
+      "parsed": {
+        "total": 62,
+        "crossed": 47,
+        "naval": 27
+      }
     },
     {
       "article_id": "83023",
@@ -56,14 +180,24 @@
       "date": "2024-07-11",
       "url": "https://www.mnd.gov.tw/news/plaact/83189",
       "reason": "range-check-fail",
-      "detail": "total(66)>60"
+      "detail": "total(66)>60",
+      "parsed": {
+        "total": 66,
+        "crossed": 56,
+        "naval": 7
+      }
     },
     {
       "article_id": "83571",
       "date": "2024-10-15",
       "url": "https://www.mnd.gov.tw/news/plaact/83571",
       "reason": "range-check-fail",
-      "detail": "total(153)>60"
+      "detail": "total(153)>60",
+      "parsed": {
+        "total": 153,
+        "crossed": 111,
+        "naval": null
+      }
     },
     {
       "article_id": "83571",

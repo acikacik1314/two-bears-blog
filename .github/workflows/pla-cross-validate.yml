@@ -1,4 +1,4 @@
-name: PLA Cross-Validate (one-off)
+name: PLA Cross-Validate (one-off, round 2)
 
 # 對 pla-incursions.json 做中英交叉驗證重跑
 on:

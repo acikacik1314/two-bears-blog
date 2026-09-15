@@ -1249,8 +1249,9 @@
     "publishedAt": "2026-09-15T13:11:08.856Z"
   },
   "b1f3e0a7-c464-4e13-a38e-4c6ceee81a9c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-global-disasters-food-shortage-community-farms.md",
-    "draftedAt": "2026-09-15T17:56:51.070Z"
+    "draftedAt": "2026-09-15T17:56:51.070Z",
+    "publishedAt": "2026-09-15T17:57:44.664Z"
   }
 }

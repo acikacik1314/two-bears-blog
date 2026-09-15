@@ -1561,9 +1561,9 @@
     "publishedAt": "2026-09-15T13:11:08.856Z"
   },
   "b1f3e0a7-c464-4e13-a38e-4c6ceee81a9c": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "2026-global-disasters-food-shortage-community-farms.md",
     "title": "2026年全球連環災難與糧食短缺危機爆發，建立城外社區農場與糧食配給成生存關鍵",
-    "at": "2026-09-15T17:56:48.599Z",
-    "_runner": "2155-1789495008599"
+    "publishedAt": "2026-09-15T17:57:44.664Z"
   }
 }

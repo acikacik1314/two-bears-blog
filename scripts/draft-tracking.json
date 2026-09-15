@@ -1237,13 +1237,15 @@
     "publishedAt": "2026-09-15T00:20:49.973Z"
   },
   "cec02001-bda9-447f-8082-9c04e428c182": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "churches-end-times-three-types-god.md",
-    "draftedAt": "2026-09-15T13:09:56.367Z"
+    "draftedAt": "2026-09-15T13:09:56.367Z",
+    "publishedAt": "2026-09-15T13:11:08.856Z"
   },
   "a2bb9773-6ced-42c6-873d-e330aa41eb8d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "zhang-sheng-shu-zi-wei-yu-yan-2027-yun-shi.md",
-    "draftedAt": "2026-09-15T13:09:57.854Z"
+    "draftedAt": "2026-09-15T13:09:57.854Z",
+    "publishedAt": "2026-09-15T13:11:08.856Z"
   }
 }

@@ -1,0 +1,37 @@
+======================================================================
+PLA 中英交叉驗證重跑報告
+======================================================================
+
+總筆數: 1800
+OCR (用既有 ocr_raw): 403
+Text (重抓): 1387 (失敗 0)
+
+── 變化統計 ──
+變動筆數: 399
+  其中「原本 ocr_degraded → 修正為 crossed=0」: 18
+  其中「multi-paren 用英文救回」: 7
+剩餘 ocr_degraded 筆數: 315
+
+── Anomalies ──
+中英不一致 (cn-en-mismatch): 10
+  multi-paren-no-english-fallback: 3
+  cn-en-mismatch: 10
+  range-check-fail: 3
+總 anomalies: 16
+
+── 使用者指定的 3 筆檢查 ──
+  2024-02-11: total=6 crossed=null adiz=null naval=4 degraded=true
+  2024-02-19: total=7 crossed=null adiz=null naval=7 degraded=true
+  2024-03-24: total=6 crossed=0 adiz=1 naval=8 degraded=false
+
+── CN-EN mismatches (前 10 筆) ──
+  2024-02-23 | field=total cn=11 en=1 | https://www.mnd.gov.tw/news/plaact/82624
+  2024-05-28 | field=crossed cn=null en=3 | https://www.mnd.gov.tw/news/plaact/83023
+  2024-06-11 | field=total cn=11 en=511 | https://www.mnd.gov.tw/news/plaact/83089
+  2024-06-12 | field=total cn=13 en=513 | https://www.mnd.gov.tw/news/plaact/83091
+  2024-07-01 | field=total cn=6 en=86 | https://www.mnd.gov.tw/news/plaact/83151
+  2024-10-15 | field=naval cn=14 en=114 | https://www.mnd.gov.tw/news/plaact/83571
+  2025-01-02 | field=total cn=3 en=83 | https://www.mnd.gov.tw/news/plaact/83866
+  2025-01-04 | field=total cn=5 en=85 | https://www.mnd.gov.tw/news/plaact/83873
+  2025-01-13 | field=total cn=6 en=86 | https://www.mnd.gov.tw/news/plaact/83901
+  2025-01-24 | field=total cn=10 en=810 | https://www.mnd.gov.tw/news/plaact/83951

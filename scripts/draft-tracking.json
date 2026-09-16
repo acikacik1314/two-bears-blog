@@ -1255,8 +1255,9 @@
     "publishedAt": "2026-09-15T17:57:44.664Z"
   },
   "4cc32f96-1114-4d21-945e-0743abef4c63": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jian-shao-nian-2027-taiwan-economy-power-shift-global-change.md",
-    "draftedAt": "2026-09-16T10:54:44.989Z"
+    "draftedAt": "2026-09-16T10:54:44.989Z",
+    "publishedAt": "2026-09-16T10:56:00.479Z"
   }
 }

@@ -1597,15 +1597,15 @@
     "publishedAt": "2026-09-17T13:05:32.003Z"
   },
   "62cc45c6-593b-4e72-adb8-ad873a3a8dc3": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "global-blackout-population-reduction-prophecy.md",
     "title": "全球將爆發長達五年的恐怖大停電與人口銳減至二十億的災難預言真相",
-    "at": "2026-09-17T17:56:38.075Z",
-    "_runner": "2176-1789667798075"
+    "publishedAt": "2026-09-17T17:58:25.435Z"
   },
   "01ce5d5e-915f-471f-a2cc-d0932db46b72": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "us-japan-earthquake-2030-spiritual-awakening.md",
     "title": "美國東岸與日本二〇三〇年恐面臨強震危機與全球靈性覺醒時間表",
-    "at": "2026-09-17T17:57:16.202Z",
-    "_runner": "2176-1789667836202"
+    "publishedAt": "2026-09-17T17:58:25.435Z"
   }
 }

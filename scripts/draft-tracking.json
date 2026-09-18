@@ -1297,8 +1297,9 @@
     "publishedAt": "2026-09-17T17:58:25.435Z"
   },
   "773060fa-fbe2-4dbb-9546-2b218f8b4edf": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-infrastructure-cyberattack-trump-family-threat.md",
-    "draftedAt": "2026-09-18T14:07:18.179Z"
+    "draftedAt": "2026-09-18T14:07:18.179Z",
+    "publishedAt": "2026-09-18T14:08:32.508Z"
   }
 }

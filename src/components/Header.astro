@@ -75,6 +75,7 @@ const path = Astro.url.pathname;
         <a href="/food"     class={path.startsWith('/food')     ? 'active' : ''}>🍜 好料</a>
         <a href="/pick"     class={path === '/pick'             ? 'active' : ''}>💰 比價</a>
         <a href="/cruise"   class={path.startsWith('/cruise')   ? 'active' : ''}>🚢 郵輪</a>
+        <a href="/prep-checklist" class={path.startsWith('/prep-checklist') ? 'active' : ''}>🎒 防災</a>
         <span class="nav-sep"></span>
         <a href="/oracle"   class={path.startsWith('/oracle')   ? 'active' : ''} data-oracle>🔮 觀測</a>
         <a href="/fortune"  class={path.startsWith('/fortune')  ? 'active' : ''}>命理</a>

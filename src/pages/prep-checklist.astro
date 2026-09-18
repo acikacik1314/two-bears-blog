@@ -1,0 +1,434 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const categories = [
+  {
+    id: 'water',
+    title: '💧 飲用水與電解質',
+    items: [
+      '瓶裝水，每人每天 3 公升 × 至少 3 天份',
+      '大桶裝礦泉水（5 公升以上）備用',
+      '空水桶或折疊水袋，臨時停水時裝水',
+      '市售電解質粉包／運動飲料粉',
+      '口服電解質補充液（藥局可買）',
+      '濾水壺或濾水瓶（濁水應急）',
+      '自來水消毒用漂白水（未過期、無香精）',
+    ],
+    notes: [
+      '⚠️ 漂白水稀釋比例與消毒作法請以官方公告為準，不要憑記憶抓比例：<a href="https://www.mohw.gov.tw" target="_blank" rel="noopener">衛生福利部</a>、<a href="https://www.nfa.gov.tw" target="_blank" rel="noopener">內政部消防署</a>。',
+      '⚠️ 自行調配電解質請對照 <a href="https://www.who.int" target="_blank" rel="noopener">世界衛生組織（WHO）口服補液鹽 ORS</a> 的官方比例，不要自己抓鹽糖量。',
+    ],
+  },
+  {
+    id: 'staple',
+    title: '🍚 耐放主食',
+    items: [
+      '白米（真空包或密封罐）',
+      '乾麵條、義大利麵',
+      '即食米飯／調理包',
+      '無鹽蘇打餅、全麥餅乾',
+      '燕麥片（即食型）',
+      '沖泡式麥片粥',
+      '真空包裝饅頭、吐司（可冷凍保存）',
+    ],
+    notes: [],
+  },
+  {
+    id: 'protein',
+    title: '🥫 蛋白質與罐頭',
+    items: [
+      '鮪魚罐頭、鯖魚罐頭',
+      '肉醬罐頭、午餐肉',
+      '雞肉罐頭或即食雞胸',
+      '花生醬（大罐、玻璃瓶）',
+      '綜合堅果、無調味堅果條',
+      '真空包裝豆干、滷味',
+      '奶粉或常溫保久乳',
+      '雞蛋（1～2 週內吃完）',
+    ],
+    notes: [],
+  },
+  {
+    id: 'energy',
+    title: '⚡ 高能量應急食品',
+    items: [
+      '能量棒、穀物棒',
+      '巧克力（黑巧克力較耐放）',
+      '蜂蜜（小罐分裝）',
+      '葡萄乾、蔓越莓乾等果乾',
+      '肉乾、肉鬆',
+      '軍用／登山口糧',
+      '固態糖果、硬糖（低血糖應急）',
+    ],
+    notes: [],
+  },
+  {
+    id: 'season',
+    title: '🧂 調味品與腸道保健',
+    items: [
+      '鹽（1 公斤以上）',
+      '砂糖或冰糖',
+      '醬油（小瓶裝易輪換）',
+      '食用油（一小桶）',
+      '大蒜、洋蔥（陰涼處放）',
+      '薑（可冷凍）',
+      '益生菌粉包或膠囊',
+      '止瀉藥、腸胃藥（家用常備）',
+    ],
+    notes: [],
+  },
+  {
+    id: 'storage',
+    title: '📦 儲存與輪換原則',
+    items: [
+      '所有物資標註購買日期',
+      '採「先進先出」，新的放後面',
+      '每 3 個月盤點一次效期',
+      '快到期的先吃、再補新的',
+      '存放在陰涼、乾燥、避免日曬的位置',
+      '罐頭與瓶裝分開放，避免瓶身碰撞破裂',
+      '準備 1 份清單放冰箱門，家人都看得到',
+      '颱風／地震季前提前一週再檢查一次',
+    ],
+    notes: [],
+  },
+];
+---
+
+<style is:global>
+html body { background: #0f172a; color: #e2e8f0; }
+</style>
+
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <BaseHead
+    title="防災物資清單｜颱風、地震、停水停電前先備好"
+    description="六大類防災物資清單，可勾選、可列印、可一鍵複製購物備忘錄。針對颱風、地震、停水停電情境設計。"
+  />
+</head>
+<body>
+  <div class="no-print"><Header /></div>
+
+  <main class="prep-page">
+    <header class="prep-hero">
+      <p class="prep-eyebrow">兩隻熊生活防備</p>
+      <h1>防災物資清單</h1>
+      <p class="prep-sub">
+        颱風、地震、停水停電來之前，一次把家裡缺的補齊。
+        勾選狀態會自動存在這台裝置，下次打開還在。
+      </p>
+    </header>
+
+    <section class="prep-overall">
+      <div class="overall-head">
+        <span class="overall-label">整體完成度</span>
+        <span class="overall-count"><span id="overallDone">0</span> / <span id="overallTotal">0</span></span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="overallBar"></div></div>
+
+      <div class="prep-actions no-print">
+        <button type="button" id="copyBtn" class="btn-primary">📋 複製「還沒買」清單</button>
+        <button type="button" id="printBtn" class="btn-ghost">🖨️ 列印</button>
+        <button type="button" id="resetBtn" class="btn-ghost">↺ 全部重置</button>
+      </div>
+      <p class="copy-feedback" id="copyMsg" hidden>已複製到剪貼簿，可以貼進手機備忘錄了 ✅</p>
+    </section>
+
+    {categories.map(cat => (
+      <section class="prep-cat" data-cat={cat.id}>
+        <header class="cat-head">
+          <h2>{cat.title}</h2>
+          <span class="cat-count">
+            <span class="cat-done" data-done>0</span> / <span class="cat-total">{cat.items.length}</span>
+          </span>
+        </header>
+
+        <ul class="check-list">
+          {cat.items.map((item, i) => {
+            const key = `${cat.id}-${i}`;
+            return (
+              <li>
+                <label class="check-row">
+                  <input type="checkbox" class="check-box" data-key={key} />
+                  <span class="check-mark" aria-hidden="true"></span>
+                  <span class="check-text">{item}</span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+
+        {cat.notes.length > 0 && (
+          <div class="cat-notes">
+            {cat.notes.map(n => <p set:html={n}></p>)}
+          </div>
+        )}
+      </section>
+    ))}
+
+    <footer class="prep-foot">
+      <p>本清單僅供參考，實際需求請依家庭人數、居住環境、健康狀況與在地災害風險調整。</p>
+    </footer>
+  </main>
+
+  <div class="no-print"><Footer /></div>
+</body>
+</html>
+
+<style>
+.prep-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.prep-hero { text-align: center; padding: 2rem 1rem 1.5rem; }
+.prep-eyebrow {
+  font-size: .8rem; letter-spacing: .1em; color: #f59e0b;
+  text-transform: uppercase; margin: 0 0 .6rem;
+}
+.prep-hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800;
+  color: #f1f5f9; margin: 0 0 .8rem;
+}
+.prep-sub { color: #94a3b8; font-size: 1rem; line-height: 1.7; margin: 0 auto; max-width: 560px; }
+
+/* overall */
+.prep-overall {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+  padding: 1.25rem 1.4rem; margin: 1.5rem 0 2.5rem;
+}
+.overall-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: .6rem;
+}
+.overall-label { color: #cbd5e1; font-weight: 600; }
+.overall-count { color: #f59e0b; font-weight: 700; font-variant-numeric: tabular-nums; }
+.progress-track {
+  height: 10px; background: #0f172a; border-radius: 999px; overflow: hidden;
+  border: 1px solid #334155;
+}
+.progress-fill {
+  height: 100%; width: 0%; background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  transition: width .3s ease;
+}
+
+.prep-actions {
+  display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem;
+}
+.btn-primary, .btn-ghost {
+  padding: .7rem 1.1rem; border-radius: 10px; font-size: .95rem; font-weight: 600;
+  cursor: pointer; border: 1px solid transparent; transition: all .15s;
+}
+.btn-primary { background: #f59e0b; color: #0f172a; border-color: #f59e0b; }
+.btn-primary:hover { background: #d97706; border-color: #d97706; }
+.btn-ghost { background: transparent; color: #cbd5e1; border-color: #334155; }
+.btn-ghost:hover { border-color: #f59e0b; color: #f59e0b; }
+.copy-feedback { margin: .8rem 0 0; color: #4ade80; font-size: .9rem; }
+
+/* category */
+.prep-cat {
+  background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+  padding: 1.25rem 1.4rem; margin-bottom: 1.25rem;
+}
+.cat-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: .8rem; margin-bottom: 1rem;
+  padding-bottom: .7rem; border-bottom: 1px solid #334155;
+}
+.cat-head h2 {
+  font-size: 1.15rem; font-weight: 700; color: #f1f5f9; margin: 0;
+}
+.cat-count { color: #94a3b8; font-size: .9rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cat-done { color: #f59e0b; font-weight: 700; }
+
+/* checklist rows — big touch targets */
+.check-list { list-style: none; margin: 0; padding: 0; }
+.check-list li { margin: 0; }
+
+.check-row {
+  display: flex; align-items: center; gap: .85rem;
+  padding: .7rem .3rem; cursor: pointer;
+  border-bottom: 1px solid rgba(51,65,85,.4);
+  min-height: 48px;
+}
+.check-list li:last-child .check-row { border-bottom: none; }
+.check-row:hover { background: rgba(245,158,11,.05); }
+
+.check-box { position: absolute; opacity: 0; pointer-events: none; }
+.check-mark {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border: 2px solid #64748b; border-radius: 6px;
+  background: #0f172a; display: inline-flex; align-items: center; justify-content: center;
+  transition: all .15s;
+}
+.check-mark::after {
+  content: ''; width: 14px; height: 8px;
+  border-left: 3px solid #0f172a; border-bottom: 3px solid #0f172a;
+  transform: rotate(-45deg) translateY(-2px) scale(0);
+  transition: transform .15s;
+}
+.check-box:checked + .check-mark {
+  background: #f59e0b; border-color: #f59e0b;
+}
+.check-box:checked + .check-mark::after { transform: rotate(-45deg) translateY(-2px) scale(1); }
+.check-box:focus-visible + .check-mark { outline: 2px solid #f59e0b; outline-offset: 2px; }
+
+.check-text { color: #e2e8f0; font-size: 1rem; line-height: 1.5; }
+.check-box:checked ~ .check-text {
+  color: #64748b; text-decoration: line-through;
+}
+
+.cat-notes {
+  margin-top: 1rem; padding: .9rem 1rem;
+  background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.25);
+  border-radius: 8px;
+}
+.cat-notes p { margin: 0 0 .4rem; color: #fbbf24; font-size: .88rem; line-height: 1.6; }
+.cat-notes p:last-child { margin-bottom: 0; }
+.cat-notes a { color: #fbbf24; text-decoration: underline; }
+
+.prep-foot {
+  margin-top: 2.5rem; padding: 1.2rem;
+  text-align: center; color: #64748b; font-size: .85rem; line-height: 1.7;
+  border-top: 1px solid #1e293b;
+}
+
+/* mobile: bigger boxes, comfortable spacing */
+@media (max-width: 600px) {
+  .prep-page { padding: 1rem .8rem 3rem; }
+  .prep-cat, .prep-overall { padding: 1rem 1rem; }
+  .check-row { padding: .85rem .2rem; gap: 1rem; min-height: 54px; }
+  .check-mark { width: 32px; height: 32px; }
+  .check-mark::after { width: 16px; height: 9px; }
+  .check-text { font-size: 1.02rem; }
+  .btn-primary, .btn-ghost { flex: 1 1 auto; padding: .85rem 1rem; }
+}
+
+/* print */
+@media print {
+  html body { background: #ffffff !important; color: #111111 !important; }
+  .no-print, .prep-actions, .copy-feedback { display: none !important; }
+  .prep-page { max-width: 100%; padding: 0; }
+  .prep-hero { padding: .5rem 0 1rem; }
+  .prep-hero h1, .cat-head h2, .check-text, .overall-label, .prep-sub, .prep-foot { color: #111 !important; }
+  .prep-overall, .prep-cat {
+    background: #fff !important; border: 1px solid #999 !important;
+    box-shadow: none !important; page-break-inside: avoid;
+    margin-bottom: .8rem;
+  }
+  .cat-head { border-color: #ccc !important; }
+  .check-row { border-color: #eee !important; min-height: 0; padding: .35rem .2rem; }
+  .check-mark {
+    background: #fff !important; border-color: #333 !important;
+    width: 18px !important; height: 18px !important;
+  }
+  .check-mark::after { display: none; }
+  .check-box:checked + .check-mark { background: #fff !important; }
+  .check-box:checked + .check-mark::after {
+    display: block; border-color: #111 !important;
+    width: 10px !important; height: 6px !important;
+    transform: rotate(-45deg) translateY(-1px) scale(1) !important;
+  }
+  .check-box:checked ~ .check-text { color: #666 !important; }
+  .progress-track { border-color: #999 !important; background: #eee !important; }
+  .progress-fill { background: #666 !important; }
+  .cat-notes {
+    background: #f6f6f6 !important; border-color: #ccc !important;
+  }
+  .cat-notes p, .cat-notes a { color: #333 !important; }
+  a { color: #333 !important; text-decoration: underline; }
+}
+</style>
+
+<script>
+const STORAGE_KEY = 'prep-checklist-v1';
+
+type State = Record<string, boolean>;
+
+function loadState(): State {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveState(s: State) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {}
+}
+
+const state = loadState();
+const boxes = Array.from(document.querySelectorAll<HTMLInputElement>('.check-box'));
+
+boxes.forEach(box => {
+  const key = box.dataset.key!;
+  if (state[key]) box.checked = true;
+  box.addEventListener('change', () => {
+    if (box.checked) state[key] = true; else delete state[key];
+    saveState(state);
+    updateCounts();
+  });
+});
+
+function updateCounts() {
+  let totalAll = 0, doneAll = 0;
+  document.querySelectorAll<HTMLElement>('.prep-cat').forEach(section => {
+    const inputs = section.querySelectorAll<HTMLInputElement>('.check-box');
+    const doneEl = section.querySelector<HTMLElement>('[data-done]')!;
+    let done = 0;
+    inputs.forEach(i => { if (i.checked) done++; });
+    doneEl.textContent = String(done);
+    totalAll += inputs.length;
+    doneAll += done;
+  });
+  const overallDone = document.getElementById('overallDone')!;
+  const overallTotal = document.getElementById('overallTotal')!;
+  const bar = document.getElementById('overallBar') as HTMLElement;
+  overallDone.textContent = String(doneAll);
+  overallTotal.textContent = String(totalAll);
+  bar.style.width = totalAll ? `${Math.round((doneAll / totalAll) * 100)}%` : '0%';
+}
+
+updateCounts();
+
+document.getElementById('copyBtn')!.addEventListener('click', async () => {
+  const lines: string[] = ['防災物資 — 還沒買的清單', ''];
+  document.querySelectorAll<HTMLElement>('.prep-cat').forEach(section => {
+    const title = section.querySelector('h2')!.textContent!.trim();
+    const missing: string[] = [];
+    section.querySelectorAll<HTMLElement>('.check-list li').forEach(li => {
+      const cb = li.querySelector<HTMLInputElement>('.check-box')!;
+      if (!cb.checked) {
+        const t = li.querySelector('.check-text')!.textContent!.trim();
+        missing.push(`  □ ${t}`);
+      }
+    });
+    if (missing.length) {
+      lines.push(title);
+      lines.push(...missing);
+      lines.push('');
+    }
+  });
+  const text = lines.length > 2 ? lines.join('\n').trim() : '全部都已勾選 ✅';
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); ta.remove();
+  }
+  const msg = document.getElementById('copyMsg')!;
+  msg.hidden = false;
+  setTimeout(() => { msg.hidden = true; }, 2500);
+});
+
+document.getElementById('printBtn')!.addEventListener('click', () => window.print());
+
+document.getElementById('resetBtn')!.addEventListener('click', () => {
+  if (!confirm('確定要清空所有勾選嗎？')) return;
+  boxes.forEach(b => { b.checked = false; });
+  for (const k of Object.keys(state)) delete state[k];
+  saveState(state);
+  updateCounts();
+});
+</script>

@@ -1303,8 +1303,9 @@
     "publishedAt": "2026-09-18T14:08:32.508Z"
   },
   "5e64dadb-0b42-4ade-a0f1-d3bb0536071b": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-civil-war-europe-ww3-economic-collapse-climate-disaster.md",
-    "draftedAt": "2026-09-19T17:00:46.334Z"
+    "draftedAt": "2026-09-19T17:00:46.334Z",
+    "publishedAt": "2026-09-19T17:01:55.957Z"
   }
 }

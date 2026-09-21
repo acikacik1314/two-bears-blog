@@ -1627,9 +1627,9 @@
     "publishedAt": "2026-09-20T13:59:14.199Z"
   },
   "25a44850-26a0-43e0-b07f-09e246e4cc56": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "martin-armstrong-2027-global-war-economic-change.md",
     "title": "馬丁·阿姆斯壯預言：2027年全球戰爭與經濟巨變，黃金與貨幣的未來走向",
-    "at": "2026-09-21T09:37:59.081Z",
-    "_runner": "2374-1789983479081"
+    "publishedAt": "2026-09-21T09:39:12.877Z"
   }
 }

@@ -1631,5 +1631,11 @@
     "draftFile": "martin-armstrong-2027-global-war-economic-change.md",
     "title": "馬丁·阿姆斯壯預言：2027年全球戰爭與經濟巨變，黃金與貨幣的未來走向",
     "publishedAt": "2026-09-21T09:39:12.877Z"
+  },
+  "a8d51a9a-9e26-435b-9ada-3e6a05246fa8": {
+    "status": "error",
+    "title": "Troy Black預言2026年印尼7.7級地震應驗一半",
+    "at": "2026-09-22T07:21:48.791Z",
+    "error": "Unterminated string in JSON at position 7011 (line 298 column 46)"
   }
 }

@@ -1321,18 +1321,21 @@
     "publishedAt": "2026-09-21T09:39:12.877Z"
   },
   "c72f1868-9c66-4a79-a01f-19324de9137d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-economic-collapse-food-crisis-latin-america-revival.md",
-    "draftedAt": "2026-09-22T17:58:00.750Z"
+    "draftedAt": "2026-09-22T17:58:00.750Z",
+    "publishedAt": "2026-09-22T17:59:35.679Z"
   },
   "c51d0953-4841-48c7-9a03-dd03d912b724": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-economy-collapse-food-crisis-latin-america-revival.md",
-    "draftedAt": "2026-09-22T17:58:07.608Z"
+    "draftedAt": "2026-09-22T17:58:07.608Z",
+    "publishedAt": "2026-09-22T17:59:35.679Z"
   },
   "a8d51a9a-9e26-435b-9ada-3e6a05246fa8": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "troy-black-indonesia-earthquake-prophecy-half-fulfilled.md",
-    "draftedAt": "2026-09-22T17:58:22.134Z"
+    "draftedAt": "2026-09-22T17:58:22.134Z",
+    "publishedAt": "2026-09-22T17:59:35.679Z"
   }
 }

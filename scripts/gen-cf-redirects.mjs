@@ -38,20 +38,14 @@ export function buildRedirectLines() {
   lines.push(`/api/* ${MAIN}/api/:splat 302`);
   lines.push('');
   lines.push(`# --- Vercel.json redirects (${(vj.redirects || []).length} × 301) ---`);
-  // CF Pages _redirects matches source case-insensitively; lowercase to avoid silent misses.
-  const seen = new Set();
-  for (const r of vj.redirects || []) {
-    const src = r.source.toLowerCase();
-    if (seen.has(src)) continue; // dedupe collisions caused by lowercasing
-    seen.add(src);
-    lines.push(`${src} ${r.destination} ${r.permanent ? 301 : 302}`);
-  }
+  // NOTE: vercel.json's 143 redirects are handled by functions/_middleware.js instead,
+  // because CF Pages free plan silently caps _redirects at ~100 static rules.
+  // See writeRedirectMap() below.
   return lines;
 }
 
 export function totalRedirectCount() {
-  const vj = JSON.parse(readFileSync(resolve('vercel.json'), 'utf-8'));
-  return (vj.redirects || []).length + EXCLUDED_PAGES.length + EXCLUDED_DIR_PATHS.length + 1 + API_STATIC_SNAPSHOTS.length;
+  return EXCLUDED_PAGES.length + EXCLUDED_DIR_PATHS.length + 1 + API_STATIC_SNAPSHOTS.length;
 }
 
 export function writeRedirects(distDir = 'dist') {
@@ -60,8 +54,21 @@ export function writeRedirects(distDir = 'dist') {
   return lines.length;
 }
 
+// Build lowercase source -> destination map for functions/_middleware.js.
+export function writeRedirectMap() {
+  const vj = JSON.parse(readFileSync(resolve('vercel.json'), 'utf-8'));
+  const map = {};
+  for (const r of vj.redirects || []) {
+    const key = r.source.toLowerCase().replace(/\/+$/, '') || '/';
+    if (!(key in map)) map[key] = r.destination;
+  }
+  writeFileSync(resolve('functions/redirect-map.json'), JSON.stringify(map, null, 2), 'utf-8');
+  return Object.keys(map).length;
+}
+
 // CLI usage
 if (import.meta.url === `file://${process.argv[1]}`) {
   const n = writeRedirects();
-  console.log(`[gen-cf-redirects] Wrote ${n} lines, total redirect rules: ${totalRedirectCount()}`);
+  const m = writeRedirectMap();
+  console.log(`[gen-cf-redirects] _redirects: ${n} lines, ${totalRedirectCount()} rules; middleware map: ${m} entries`);
 }

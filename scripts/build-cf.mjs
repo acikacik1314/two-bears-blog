@@ -9,7 +9,7 @@
 import { renameSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import { execSync, spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
-import { writeRedirects, totalRedirectCount } from './gen-cf-redirects.mjs';
+import { writeRedirects, totalRedirectCount, writeRedirectMap } from './gen-cf-redirects.mjs';
 import { snapshotPodcast } from './snapshot-podcast.mjs';
 
 const PAGES_DIR = resolve('src/pages');
@@ -96,9 +96,10 @@ async function main() {
     // Snapshot podcast RSS (3 retries; throws on final failure)
     await snapshotPodcast('dist');
 
-    // Redirects
+    // Redirects: small ruleset in _redirects, bulk map in functions/redirect-map.json
     const lineCount = writeRedirects('dist');
-    console.log(`[build-cf] wrote dist/_redirects (${lineCount} lines, ${totalRedirectCount()} rules)`);
+    const mapCount = writeRedirectMap();
+    console.log(`[build-cf] wrote dist/_redirects (${lineCount} lines, ${totalRedirectCount()} rules); redirect-map: ${mapCount} entries`);
 
     // Headers: force JSON content-type for snapshot API files (no extension)
     mkdirSync('dist', { recursive: true });

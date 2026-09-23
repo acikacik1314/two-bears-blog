@@ -8,6 +8,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:cf": "node scripts/build-cf.mjs",
+    "search:index": "node scripts/build-search-index.mjs",
+    "search:index:full": "node scripts/build-search-index.mjs --full",
+    "search:index:local": "node scripts/build-search-index.mjs --local",
     "draft": "node scripts/draft-posts.mjs",
     "draft-batch": "node scripts/draft-posts.mjs",
     "publish": "node scripts/publish-drafts.mjs",

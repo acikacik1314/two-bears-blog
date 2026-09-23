@@ -1,0 +1,29 @@
+---
+const isCloudflare = import.meta.env.PUBLIC_DEPLOY_TARGET === 'cloudflare';
+---
+
+{isCloudflare && (
+  <div class="backup-banner">
+    這是兩隻熊的備用網站，部分互動功能只在主站提供，主站網址
+    <a href="https://twobears.vercel.app" rel="noopener">twobears.vercel.app</a>
+  </div>
+)}
+
+<style>
+  html body .backup-banner {
+    background: #E8920A;
+    color: #3B2A1E;
+    padding: 8px 14px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    border-bottom: 1px solid #C2740A;
+  }
+  html body .backup-banner a {
+    color: #3B2A1E;
+    text-decoration: underline;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+</style>

@@ -2,9 +2,12 @@
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import UserMenu from './UserMenu.astro';
+import BackupBanner from './BackupBanner.astro';
 
 const path = Astro.url.pathname;
 ---
+
+<BackupBanner />
 
 <!-- Ticker bar -->
 <div class="ticker-bar">

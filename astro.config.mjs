@@ -11,6 +11,8 @@ import { PROPHET_PROFILES } from './src/data/prophets.ts';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
+const isCloudflare = process.env.PUBLIC_DEPLOY_TARGET === 'cloudflare';
+
 /** @returns {import('astro').AstroIntegration} */
 function validateProphets() {
   return {
@@ -60,10 +62,16 @@ function validateProphets() {
 export default defineConfig({
 	site: 'https://twobears.vercel.app',
 	trailingSlash: 'never',
-	adapter: vercel(),
-	integrations: [mdx(), sitemap({
-		filter: (page) => !page.includes('/admin/') && !page.includes('/keystatic/'),
-	}), react(), keystatic(), validateProphets()],
+	...(isCloudflare ? {} : { adapter: vercel() }),
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => !page.includes('/admin/') && !page.includes('/keystatic/') && !page.includes('/tools/'),
+		}),
+		react(),
+		...(isCloudflare ? [] : [keystatic()]),
+		validateProphets(),
+	],
 	vite: {
 		plugins: [tailwindcss()],
 	},

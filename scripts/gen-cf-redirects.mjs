@@ -38,8 +38,13 @@ export function buildRedirectLines() {
   lines.push(`/api/* ${MAIN}/api/:splat 302`);
   lines.push('');
   lines.push(`# --- Vercel.json redirects (${(vj.redirects || []).length} × 301) ---`);
+  // CF Pages _redirects matches source case-insensitively; lowercase to avoid silent misses.
+  const seen = new Set();
   for (const r of vj.redirects || []) {
-    lines.push(`${r.source} ${r.destination} ${r.permanent ? 301 : 302}`);
+    const src = r.source.toLowerCase();
+    if (seen.has(src)) continue; // dedupe collisions caused by lowercasing
+    seen.add(src);
+    lines.push(`${src} ${r.destination} ${r.permanent ? 301 : 302}`);
   }
   return lines;
 }

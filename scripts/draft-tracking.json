@@ -1339,13 +1339,15 @@
     "publishedAt": "2026-09-22T17:59:35.679Z"
   },
   "795d2659-92b2-485b-aba3-90cd87bd1a64": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-global-stock-housing-market-crash-new-currency-reset.md",
-    "draftedAt": "2026-09-23T13:23:17.109Z"
+    "draftedAt": "2026-09-23T13:23:17.109Z",
+    "publishedAt": "2026-09-23T13:24:35.118Z"
   },
   "83e2b2c1-2893-4b4f-bc9c-fd0a71b3fd4d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jill-jackson-2026-global-transformation-prophecy.md",
-    "draftedAt": "2026-09-23T13:23:23.171Z"
+    "draftedAt": "2026-09-23T13:23:23.171Z",
+    "publishedAt": "2026-09-23T13:24:35.118Z"
   }
 }

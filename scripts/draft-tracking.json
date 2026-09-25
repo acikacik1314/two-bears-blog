@@ -1357,18 +1357,21 @@
     "publishedAt": "2026-09-24T14:40:21.982Z"
   },
   "cdf75a85-b9d7-4b0a-ae53-9f343f94f1ac": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "malaysia-airlines-mh370-sewol-ferry-prophecy-mor-plai.md",
-    "draftedAt": "2026-09-25T19:50:54.908Z"
+    "draftedAt": "2026-09-25T19:50:54.908Z",
+    "publishedAt": "2026-09-25T19:52:36.725Z"
   },
   "f3dd40be-a62c-4e21-ae49-a7facbc71899": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2028-taiwan-blockade-us-china-submarine-war-china-collapse.md",
-    "draftedAt": "2026-09-25T19:51:04.254Z"
+    "draftedAt": "2026-09-25T19:51:04.254Z",
+    "publishedAt": "2026-09-25T19:52:36.725Z"
   },
   "5cc51a35-b786-4fec-b5bc-6736c4153295": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "new-york-subway-climate-supernatural-prophecy.md",
-    "draftedAt": "2026-09-25T19:51:10.698Z"
+    "draftedAt": "2026-09-25T19:51:10.698Z",
+    "publishedAt": "2026-09-25T19:52:36.725Z"
   }
 }

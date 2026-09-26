@@ -1375,18 +1375,21 @@
     "publishedAt": "2026-09-25T19:52:36.725Z"
   },
   "041cd536-0d06-4c1b-a42f-a59bf30f2298": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-election-global-economy-ai-alien-phenomena.md",
-    "draftedAt": "2026-09-26T09:09:28.281Z"
+    "draftedAt": "2026-09-26T09:09:28.281Z",
+    "publishedAt": "2026-09-26T09:10:48.823Z"
   },
   "bff1816d-b585-42a1-96bf-f38dc28f7aba": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-fed-panic-global-financial-collapse-fireballs-doomsday.md",
-    "draftedAt": "2026-09-26T09:09:34.220Z"
+    "draftedAt": "2026-09-26T09:09:34.220Z",
+    "publishedAt": "2026-09-26T09:10:48.823Z"
   },
   "53b799ab-4bf8-4475-8a7e-b53df6c1ef6f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "diana-princess-spirit-message-royal-family-sensing.md",
-    "draftedAt": "2026-09-26T09:09:35.863Z"
+    "draftedAt": "2026-09-26T09:09:35.863Z",
+    "publishedAt": "2026-09-26T09:10:48.823Z"
   }
 }

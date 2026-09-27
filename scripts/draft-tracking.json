@@ -1405,13 +1405,15 @@
     "publishedAt": "2026-09-26T19:04:07.141Z"
   },
   "c6fddde7-5030-4251-8a4e-e122841e3817": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-public-transport-un-crisis-extreme-weather-international-timeline.md",
-    "draftedAt": "2026-09-27T09:50:42.399Z"
+    "draftedAt": "2026-09-27T09:50:42.399Z",
+    "publishedAt": "2026-09-27T09:52:06.580Z"
   },
   "278e4335-5ea7-4f63-a399-4343bca4f6a8": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "cosmic-energy-tears-global-system-dollar-empire-collapse.md",
-    "draftedAt": "2026-09-27T09:50:48.083Z"
+    "draftedAt": "2026-09-27T09:50:48.083Z",
+    "publishedAt": "2026-09-27T09:52:06.580Z"
   }
 }

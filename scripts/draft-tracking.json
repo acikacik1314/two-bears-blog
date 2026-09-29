@@ -1417,13 +1417,15 @@
     "publishedAt": "2026-09-27T09:52:06.580Z"
   },
   "f7824a64-c0c3-4147-9fd6-b9d372eaf29a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "molly-mccord-2026-2027-ai-crisis-personal-era.md",
-    "draftedAt": "2026-09-29T00:12:38.609Z"
+    "draftedAt": "2026-09-29T00:12:38.609Z",
+    "publishedAt": "2026-09-29T00:13:57.449Z"
   },
   "5d54278d-9679-4313-9bd5-cab7742dbcda": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "nikki-dutta-predicts-2032-turmoil-2050-change.md",
-    "draftedAt": "2026-09-29T00:12:40.460Z"
+    "draftedAt": "2026-09-29T00:12:40.460Z",
+    "publishedAt": "2026-09-29T00:13:57.449Z"
   }
 }

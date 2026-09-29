@@ -1729,15 +1729,15 @@
     "publishedAt": "2026-09-27T09:52:06.580Z"
   },
   "f7824a64-c0c3-4147-9fd6-b9d372eaf29a": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "molly-mccord-2026-2027-ai-crisis-personal-era.md",
     "title": "莫莉·麥考德預言2026至2027年全球四大行星大交會將帶來人工智慧危機與四百年一遇的個人時代巨變預言",
-    "at": "2026-09-29T00:12:27.265Z",
-    "_runner": "2399-1790640747265"
+    "publishedAt": "2026-09-29T00:13:57.449Z"
   },
   "5d54278d-9679-4313-9bd5-cab7742dbcda": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "nikki-dutta-predicts-2032-turmoil-2050-change.md",
     "title": "Nikki Dutta 預言2032年動盪2050年巨變",
-    "at": "2026-09-29T00:12:38.611Z",
-    "_runner": "2399-1790640758611"
+    "publishedAt": "2026-09-29T00:13:57.449Z"
   }
 }

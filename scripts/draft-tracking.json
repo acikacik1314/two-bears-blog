@@ -1435,8 +1435,9 @@
     "publishedAt": "2026-09-29T07:56:47.492Z"
   },
   "cffcce14-525d-4fc4-91ab-f53edf2c0c90": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "isaac-arthur-laser-communication-seti-dark-biosphere.md",
-    "draftedAt": "2026-09-30T21:54:35.461Z"
+    "draftedAt": "2026-09-30T21:54:35.461Z",
+    "publishedAt": "2026-09-30T21:55:33.841Z"
   }
 }

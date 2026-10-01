@@ -13,6 +13,67 @@ import { join, resolve } from 'node:path';
 
 const isCloudflare = process.env.PUBLIC_DEPLOY_TARGET === 'cloudflare';
 
+function buildSitemapExclusions() {
+  const blogDir = resolve('./src/content/blog');
+  const files = readdirSync(blogDir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
+  const thinSlugs = new Set();
+  const categoryCounts = {};
+  const prophetCounts = {};
+  for (const file of files) {
+    const text = readFileSync(join(blogDir, file), 'utf-8');
+    if (!text.startsWith('---')) continue;
+    const fmEnd = text.indexOf('\n---', 3);
+    if (fmEnd === -1) continue;
+    const fm = text.slice(3, fmEnd);
+    if (/^draft:\s*true/m.test(fm)) continue;
+    const slug = file.replace(/\.mdx?$/, '');
+    if (/^thin:\s*true/m.test(fm)) thinSlugs.add(slug);
+    const catMatch = fm.match(/^category:[ \t]*(.+)$/m);
+    const cat = catMatch ? catMatch[1].trim().replace(/^['"]|['"]$/g, '') : '';
+    if (cat) categoryCounts[cat] = (categoryCounts[cat] ?? 0) + 1;
+    const propLine = fm.match(/^prophet:[ \t]*(.+)$/m);
+    if (propLine) {
+      const raw = propLine[1].trim();
+      const ids = raw.startsWith('[')
+        ? (raw.match(/['"]((?:[^'"\\]|\\.)+)['"]/g) ?? []).map(s => s.slice(1, -1))
+        : [raw.replace(/^['"]|['"]$/g, '')];
+      for (const id of ids) if (id) prophetCounts[id] = (prophetCounts[id] ?? 0) + 1;
+    }
+  }
+  const sparseCategories = new Set(Object.entries(categoryCounts).filter(([, n]) => n < 3).map(([c]) => c));
+  const sparseProphets = new Set(Object.entries(prophetCounts).filter(([, n]) => n < 3).map(([id]) => id));
+  return { thinSlugs, sparseCategories, sparseProphets };
+}
+
+const { thinSlugs, sparseCategories, sparseProphets } = buildSitemapExclusions();
+
+function sitemapFilter(page) {
+  if (page.includes('/admin/') || page.includes('/keystatic/') || page.includes('/tools/')) return false;
+  let u;
+  try { u = new URL(page); } catch { return true; }
+  const path = u.pathname.replace(/\/$/, '');
+  // /blog/<slug> — exclude thin
+  const blogSlug = path.match(/^\/blog\/([^/]+)$/);
+  if (blogSlug && thinSlugs.has(decodeURIComponent(blogSlug[1]))) return false;
+  // /blog/<n> paginated listing — exclude page >= 2
+  const blogPage = path.match(/^\/blog\/(\d+)$/);
+  if (blogPage && Number(blogPage[1]) >= 2) return false;
+  // /category/<cat> or /category/<cat>/<n> — exclude sparse or page >= 2
+  const cat = path.match(/^\/category\/([^/]+)(?:\/(\d+))?$/);
+  if (cat) {
+    const catName = decodeURIComponent(cat[1]);
+    const pageNum = cat[2] ? Number(cat[2]) : 1;
+    if (pageNum >= 2) return false;
+    if (sparseCategories.has(catName)) return false;
+  }
+  // /prophet/<id> — exclude sparse
+  const prophet = path.match(/^\/prophet\/([^/]+)$/);
+  if (prophet && sparseProphets.has(decodeURIComponent(prophet[1]))) return false;
+  // /transcript/* already noindex, keep out of sitemap
+  if (path.startsWith('/transcript/')) return false;
+  return true;
+}
+
 /** @returns {import('astro').AstroIntegration} */
 function validateProphets() {
   return {
@@ -65,9 +126,7 @@ export default defineConfig({
 	...(isCloudflare ? {} : { adapter: vercel() }),
 	integrations: [
 		mdx(),
-		sitemap({
-			filter: (page) => !page.includes('/admin/') && !page.includes('/keystatic/') && !page.includes('/tools/'),
-		}),
+		sitemap({ filter: sitemapFilter }),
 		react(),
 		...(isCloudflare ? [] : [keystatic()]),
 		validateProphets(),

@@ -1441,8 +1441,9 @@
     "publishedAt": "2026-09-30T21:55:33.841Z"
   },
   "634babd1-b668-4f63-a64c-1e46ad4560fb": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jackowski-world-war-economic-collapse-predictions.md",
-    "draftedAt": "2026-10-01T08:21:29.204Z"
+    "draftedAt": "2026-10-01T08:21:29.204Z",
+    "publishedAt": "2026-10-01T08:22:50.222Z"
   }
 }

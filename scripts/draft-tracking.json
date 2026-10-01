@@ -1447,13 +1447,15 @@
     "publishedAt": "2026-10-01T08:22:50.222Z"
   },
   "96717348-d885-45ab-8ea0-cc29d41c81a4": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-economy-titanic-trump-mind-interference-prophecy.md",
-    "draftedAt": "2026-10-01T16:53:54.524Z"
+    "draftedAt": "2026-10-01T16:53:54.524Z",
+    "publishedAt": "2026-10-01T16:55:15.999Z"
   },
   "b7dc5ad7-19e3-441f-b070-2e9cccf8dbd0": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-earthquake-economy-global-shifts-prophecy-prayer.md",
-    "draftedAt": "2026-10-01T16:54:00.152Z"
+    "draftedAt": "2026-10-01T16:54:00.152Z",
+    "publishedAt": "2026-10-01T16:55:15.999Z"
   }
 }

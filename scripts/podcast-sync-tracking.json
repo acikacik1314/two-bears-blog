@@ -1759,15 +1759,15 @@
     "publishedAt": "2026-10-01T08:22:50.222Z"
   },
   "96717348-d885-45ab-8ea0-cc29d41c81a4": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "global-economy-titanic-trump-mind-interference-prophecy.md",
     "title": "全球經濟如鐵達尼號沉沒與川普心智受干擾的最新預言口播文稿",
-    "at": "2026-10-01T16:53:50.705Z",
-    "_runner": "2419-1790873630705"
+    "publishedAt": "2026-10-01T16:55:15.999Z"
   },
   "b7dc5ad7-19e3-441f-b070-2e9cccf8dbd0": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "biggs-earthquake-economy-global-shifts-prophecy-prayer.md",
     "title": "大地震經濟崩潰與全球局勢劇變的最新預言與禱告告白",
-    "at": "2026-10-01T16:53:54.525Z",
-    "_runner": "2419-1790873634525"
+    "publishedAt": "2026-10-01T16:55:15.999Z"
   }
 }

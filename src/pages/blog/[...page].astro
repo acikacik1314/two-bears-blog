@@ -62,6 +62,7 @@ const pageTitle = page.currentPage > 1
 <html lang="zh-TW">
 	<head>
 		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+		{page.currentPage > 1 && <meta name="robots" content="noindex, follow" />}
 		<style>
 			main {
 				width: 960px;
@@ -216,7 +217,7 @@ const pageTitle = page.currentPage > 1
 					const prophetCfg = prophetName ? getProphetConfig(prophetName) : null;
 					return (
 						<>
-							{i === 6 && (
+							{i === 6 && page.currentPage === 1 && (
 								<li style="grid-column: 1 / -1; list-style: none; padding: 0;">
 									<AdSlot unit="4916286882" format="horizontal" />
 								</li>

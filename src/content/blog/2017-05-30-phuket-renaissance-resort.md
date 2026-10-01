@@ -5,6 +5,8 @@ pubDate: '2017-05-30'
 tags: ['旅遊分享', '泰國住宿', '五星飯店']
 heroImage: '/images/blog/2017-05-30-phuket-renaissance-resort.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5065563498'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780829308/blog/acikacik/1496127951-3551550080_l.jpg)

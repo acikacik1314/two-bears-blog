@@ -5,6 +5,8 @@ pubDate: '2017-11-25'
 tags: ['旅遊分享', '日本住宿', '飯店評測']
 heroImage: '/images/blog/2017-11-25-chitose-ana-crowne-plaza-hokkaido.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5066263106'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780850796/blog/acikacik/1511622413-1397592083_l.jpg)

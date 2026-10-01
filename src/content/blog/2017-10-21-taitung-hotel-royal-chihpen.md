@@ -5,6 +5,8 @@ pubDate: '2017-10-21'
 tags: ['旅遊分享', '台東住宿', '飯店評測', '溫泉']
 heroImage: '/images/blog/2017-10-21-taitung-hotel-royal-chihpen.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5066136215'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780850365/blog/acikacik/1508569773-3488448551_l.jpg)

@@ -80,6 +80,7 @@ const pageTitle = page.currentPage > 1
 <html lang="zh-TW">
   <head>
     <BaseHead title={pageTitle} description={`${SITE_TITLE} 的 ${category} 分類文章`} />
+    {(page.total < 3 || page.currentPage > 1) && <meta name="robots" content="noindex, follow" />}
     <style>
       main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 2em 1em; }
       .category-header { text-align: center; margin-bottom: 1.5em; }

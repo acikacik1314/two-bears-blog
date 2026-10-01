@@ -5,6 +5,8 @@ pubDate: '2018-11-16'
 tags: ['旅遊分享', '台中住宿', '飯店評測']
 heroImage: '/images/blog/2018-11-16-taichung-hotel-the-place.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067479756'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780853338/blog/acikacik/1542356525-4061292116_l.jpg)

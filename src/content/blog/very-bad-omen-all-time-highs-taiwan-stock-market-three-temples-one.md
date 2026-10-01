@@ -7,4 +7,6 @@ tags:
 title: 'A Very Bad Omen vs. All-Time Highs in the Taiwan Stock Market: Three Temples,
   One Analyst, Who Go...'
 youtubeId: sXUuj5f8pd0
+draft: true
+
 ---

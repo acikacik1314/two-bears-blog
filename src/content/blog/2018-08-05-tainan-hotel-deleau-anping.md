@@ -5,6 +5,8 @@ pubDate: '2018-08-05'
 tags: ['旅遊分享', '台南住宿', '飯店評測']
 heroImage: '/images/blog/2018-08-05-tainan-hotel-deleau-anping.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5067065669'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780852675/blog/acikacik/1533473305-2377872805_l.jpg)

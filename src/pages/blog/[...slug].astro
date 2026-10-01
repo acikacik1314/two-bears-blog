@@ -7,13 +7,13 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import BlogPost from '../../layouts/BlogPost.astro';
 
-// Minimum chars before a marker to qualify as a meaningful summary
-const MIN_SUMMARY = 200;
-
 function findTranscriptMarker(body: string): { marker: string; index: number } | null {
 	for (const marker of ['\n## 逐字稿', '\n## 影片逐字稿']) {
 		const idx = body.indexOf(marker);
-		if (idx > MIN_SUMMARY) return { marker, index: idx };
+		if (idx >= 0) return { marker, index: idx };
+	}
+	for (const bare of ['## 逐字稿', '## 影片逐字稿']) {
+		if (body.startsWith(bare)) return { marker: bare, index: 0 };
 	}
 	return null;
 }

@@ -7,4 +7,6 @@ tags:
 title: 'The Fujian Aircraft Carrier Transits the Taiwan Strait: What Do Six Prophets
   Say? Some Predict Do...'
 youtubeId: pEqhWsunmW0
+draft: true
+
 ---

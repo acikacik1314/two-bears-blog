@@ -7,4 +7,6 @@ tags:
 title: 'Predicted War on Feb 28th a Year in Advance! Polish Psychic Jackowski: Taiwan
   Will Be Encircled i...'
 youtubeId: kkRVfi4Mzwo
+draft: true
+
 ---

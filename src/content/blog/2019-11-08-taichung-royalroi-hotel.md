@@ -5,6 +5,8 @@ pubDate: '2019-11-08'
 tags: ['旅遊分享', '台中住宿', '飯店評測']
 heroImage: '/images/blog/2019-11-08-taichung-royalroi-hotel.jpg'
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5068493692'
+draft: true
+
 ---
 
 ![](https://res.cloudinary.com/dxnu4ceop/image/upload/v1780856770/blog/acikacik/1573212836-3832842225_l.jpg)

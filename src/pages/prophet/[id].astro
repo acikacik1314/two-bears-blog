@@ -49,6 +49,7 @@ html body { background: #0f172a; color: #e2e8f0; }
 <html lang="zh-Hant">
 <head>
   <BaseHead title={title} description={description} />
+  {allPosts.length < 3 && <meta name="robots" content="noindex, follow" />}
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>
 <body>

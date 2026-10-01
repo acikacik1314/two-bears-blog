@@ -4,6 +4,8 @@ description: '兩隻熊帶你深入探索，分享最真實的旅遊與生活體
 pubDate: '2026-05-23'
 tags: ['短片', '台東', '旅遊', '美食']
 youtubeId: '8h2NIB6DmGk'
+thin: true
+
 ---
 
 ## 沒有預約吃不到的隱藏版海鮮

@@ -47,7 +47,7 @@ if (found) {
 const { Content } = hasTranscript ? { Content: null } : await render(post);
 ---
 
-<BlogPost {...post.data} transcriptSlug={hasTranscript ? post.id : undefined}>
+<BlogPost {...post.data} transcriptSlug={hasTranscript ? post.id : undefined} thin={post.data.thin}>
 	{hasTranscript
 		? <Fragment set:html={summaryHtml} />
 		: Content && <Content />

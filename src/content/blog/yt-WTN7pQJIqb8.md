@@ -4,6 +4,8 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['短片', '台東', '旅遊', '美食', '開箱']
 youtubeId: 'WTN7pQJIqb8'
+thin: true
+
 ---
 
 ## 台東長濱隱藏版無菜單料理

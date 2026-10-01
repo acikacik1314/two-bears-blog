@@ -4,6 +4,8 @@ description: '兩隻熊帶你深入探索，分享最真實的旅遊與生活體
 pubDate: '2026-05-23'
 tags: ['美國', '旅遊', '飯店']
 youtubeId: '9YDqPl7ZIOc'
+thin: true
+
 ---
 
 ## 凌晨三點的購物狂歡

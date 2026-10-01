@@ -4,6 +4,8 @@ description: '台南旅遊美食實況分享，帶你品嚐府城獨特的在地
 pubDate: '2026-05-23'
 tags: ['短片', '台南', '旅遊', '美食', '開箱']
 youtubeId: 'GJ3mwHLZEa0'
+thin: true
+
 ---
 
 ## 初嚐鱔魚意麵：朋友力推的台南在地味

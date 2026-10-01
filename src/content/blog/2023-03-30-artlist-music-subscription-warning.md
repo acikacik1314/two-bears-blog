@@ -5,6 +5,8 @@ pubDate: '2023-03-30'
 tags: ['生活綜合', '數位生活']
 pixnetSource: 'https://acikacik.pixnet.net/blog/posts/5070446666'
 heroImage: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=450&fit=crop'
+thin: true
+
 ---
 
 Artlist是一個以音樂為主的訂閱式音效平台，它提供高質量的音樂和音效，以滿足編輯、製作人員、獨立創作者和其他需要音效的人的需求。這個平台已經被許多人使用，因為它有許多優點，以下是一些值得注意的：

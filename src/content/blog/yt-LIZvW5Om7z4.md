@@ -4,6 +4,8 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['開箱']
 youtubeId: 'LIZvW5Om7z4'
+thin: true
+
 ---
 
 ## 開箱初體驗

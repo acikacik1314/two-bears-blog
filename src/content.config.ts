@@ -87,6 +87,7 @@ const blog = defineCollection({
 			pixnetSource: emptyToUndefined,
 			prophet: z.union([z.string(), z.array(z.string())]).optional(),
 			draft: z.boolean().optional(),
+			thin: z.boolean().optional(),
 		predictions: z.union([
 				// Format A: flat list (single prophet, or genuinely shared predictions)
 				z.object({

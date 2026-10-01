@@ -4,6 +4,8 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['台北', '旅遊', '飯店', '開箱']
 youtubeId: '00XYlSdyaCc'
+thin: true
+
 ---
 
 ## 入住方式

@@ -4,6 +4,8 @@ description: '居家好物開箱實測，詳細介紹產品功能與使用心得
 pubDate: '2026-05-23'
 tags: ['短片', '美食', '開箱']
 youtubeId: '35-RzcBZAD8'
+thin: true
+
 ---
 
 ## 開場：難得來就吃好一點

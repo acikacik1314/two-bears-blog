@@ -4,6 +4,8 @@ description: '曼谷旅遊實況分享，帶你探索當地美食、飯店與購
 pubDate: '2026-05-23'
 tags: ['曼谷', '旅遊', '美食']
 youtubeId: '8z6IYMBtOX4'
+thin: true
+
 ---
 
 ## 曼谷拉差達火車夜市：火山排骨初體驗

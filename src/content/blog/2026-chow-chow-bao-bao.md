@@ -4,6 +4,8 @@ description: '兩隻熊影片：chow chow Bao bao又可以刷毛，又可以當�
 pubDate: '2026-06-08'
 tags: ['影片']
 youtubeId: 'PKJ3O6_pPJc'
+thin: true
+
 ---
 
 最近兩隻熊頻道又帶來了讓人融化的新內容！這次的主角是可愛的恰恰（Chow Chow），牠們不只毛茸茸的模樣讓人想抱緊處理，竟然還發現了牠們的新用途——可以刷毛，又能當玩具！是不是聽起來就超療癒又實用呢？

@@ -1771,9 +1771,9 @@
     "publishedAt": "2026-10-01T16:55:15.999Z"
   },
   "b706be13-e971-499c-84be-d6cdb517fa1f": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "ai-subscription-1000-usd-global-economic-reset-doomsday-prophecy.md",
     "title": "人工智慧訂閱費飆升至一千美元與全球經濟大洗牌的末日預言解析",
-    "at": "2026-10-02T11:56:55.198Z",
-    "_runner": "2427-1790942215198"
+    "publishedAt": "2026-10-02T11:58:14.731Z"
   }
 }

@@ -1465,8 +1465,9 @@
     "publishedAt": "2026-10-02T11:58:14.731Z"
   },
   "53730c71-4bf3-4dbf-9611-51c008ed31e5": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jd-farag-dreams-gods-plan-christ-kingdom-eternity.md",
-    "draftedAt": "2026-10-03T07:38:19.121Z"
+    "draftedAt": "2026-10-03T07:38:19.121Z",
+    "publishedAt": "2026-10-03T07:39:35.552Z"
   }
 }

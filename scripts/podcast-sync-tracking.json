@@ -1801,15 +1801,15 @@
     "publishedAt": "2026-10-03T13:05:10.248Z"
   },
   "e6e75fd1-2797-48c8-8882-54e7b7756d37": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "parker-pure-self-awareness-soul-concept.md",
     "title": "帕克認為，靈魂最基本、最核心的概念就是純粹的自我認知。",
-    "at": "2026-10-03T17:47:56.387Z",
-    "_runner": "2277-1791049676387"
+    "publishedAt": "2026-10-03T17:49:05.632Z"
   },
   "7614ae37-0bba-481b-9a09-df000421aaea": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "jd-farag-god-reveals-plans-through-dreams-christ-kingdom.md",
     "title": "J.D. Farag提到上帝如何透過夢境揭示祂的計畫，並強調基督國度的永恆性。",
-    "at": "2026-10-03T17:47:59.049Z",
-    "_runner": "2277-1791049679049"
+    "publishedAt": "2026-10-03T17:49:05.632Z"
   }
 }

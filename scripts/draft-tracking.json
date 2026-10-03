@@ -1489,13 +1489,15 @@
     "publishedAt": "2026-10-03T13:05:10.248Z"
   },
   "e6e75fd1-2797-48c8-8882-54e7b7756d37": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "parker-pure-self-awareness-soul-concept.md",
-    "draftedAt": "2026-10-03T17:47:59.048Z"
+    "draftedAt": "2026-10-03T17:47:59.048Z",
+    "publishedAt": "2026-10-03T17:49:05.632Z"
   },
   "7614ae37-0bba-481b-9a09-df000421aaea": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jd-farag-god-reveals-plans-through-dreams-christ-kingdom.md",
-    "draftedAt": "2026-10-03T17:48:00.372Z"
+    "draftedAt": "2026-10-03T17:48:00.372Z",
+    "publishedAt": "2026-10-03T17:49:05.632Z"
   }
 }

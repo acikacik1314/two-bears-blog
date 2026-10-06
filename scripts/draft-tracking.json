@@ -1507,13 +1507,15 @@
     "publishedAt": "2026-10-05T08:25:58.007Z"
   },
   "d41752dc-10bb-451f-bee0-028f2187c4cf": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "new-plague-global-economic-shutdown-prophecy.md",
-    "draftedAt": "2026-10-06T01:08:13.745Z"
+    "draftedAt": "2026-10-06T01:08:13.745Z",
+    "publishedAt": "2026-10-06T01:09:46.154Z"
   },
   "aff5921b-0315-451b-9149-68f598102b9d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-upheaval-financial-reshuffle-ww3-prophecy.md",
-    "draftedAt": "2026-10-06T01:08:29.669Z"
+    "draftedAt": "2026-10-06T01:08:29.669Z",
+    "publishedAt": "2026-10-06T01:09:46.154Z"
   }
 }

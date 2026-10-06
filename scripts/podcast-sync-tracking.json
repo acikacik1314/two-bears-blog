@@ -1819,15 +1819,15 @@
     "publishedAt": "2026-10-05T08:25:58.007Z"
   },
   "d41752dc-10bb-451f-bee0-028f2187c4cf": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "new-plague-global-economic-shutdown-prophecy.md",
     "title": "新型變種黑死病與全球經濟停擺大震撼",
-    "at": "2026-10-06T01:08:07.555Z",
-    "_runner": "2398-1791248887555"
+    "publishedAt": "2026-10-06T01:09:46.154Z"
   },
   "aff5921b-0315-451b-9149-68f598102b9d": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "global-upheaval-financial-reshuffle-ww3-prophecy.md",
     "title": "全球大動盪與金融洗牌即將爆發以及第三次世界大戰前兆預言",
-    "at": "2026-10-06T01:08:13.745Z",
-    "_runner": "2398-1791248893745"
+    "publishedAt": "2026-10-06T01:09:46.154Z"
   }
 }

@@ -1525,18 +1525,21 @@
     "publishedAt": "2026-10-06T16:32:28.740Z"
   },
   "d1f850bd-5806-44d4-b372-b92bd775c6cc": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "new-virus-economic-collapse-ww3-prophecy-biggers.md",
-    "draftedAt": "2026-10-08T17:12:57.863Z"
+    "draftedAt": "2026-10-08T17:12:57.863Z",
+    "publishedAt": "2026-10-08T17:14:12.122Z"
   },
   "358427d2-184d-478f-9a0f-408ca4f79911": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-global-economy-collapse-nuclear-threats-end-times.md",
-    "draftedAt": "2026-10-08T17:13:02.579Z"
+    "draftedAt": "2026-10-08T17:13:02.579Z",
+    "publishedAt": "2026-10-08T17:14:12.122Z"
   },
   "e3b30030-0e57-450c-bc2f-97a712e3e236": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "trump-inner-pass-great-controversy-divine-power-rest.md",
-    "draftedAt": "2026-10-08T17:13:04.854Z"
+    "draftedAt": "2026-10-08T17:13:04.854Z",
+    "publishedAt": "2026-10-08T17:14:12.122Z"
   }
 }

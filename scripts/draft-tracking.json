@@ -1543,13 +1543,15 @@
     "publishedAt": "2026-10-08T17:14:12.122Z"
   },
   "e41983ed-60ab-4a92-9167-11b2b1c76e57": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "david-medium-las-vegas-emotions-life-blueprint.md",
-    "draftedAt": "2026-10-08T22:57:38.183Z"
+    "draftedAt": "2026-10-08T22:57:38.183Z",
+    "publishedAt": "2026-10-08T22:58:58.406Z"
   },
   "da8ea8db-2332-499f-ae7a-3c79900687e7": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-prophet-moprai-predictions-2026-2027.md",
-    "draftedAt": "2026-10-08T22:57:40.445Z"
+    "draftedAt": "2026-10-08T22:57:40.445Z",
+    "publishedAt": "2026-10-08T22:58:58.406Z"
   }
 }

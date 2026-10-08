@@ -1855,15 +1855,15 @@
     "publishedAt": "2026-10-08T17:14:12.122Z"
   },
   "e41983ed-60ab-4a92-9167-11b2b1c76e57": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "david-medium-las-vegas-emotions-life-blueprint.md",
     "title": "靈媒大衛 David揭示：美國賭城連結、情緒影響健康，以及你的人生藍圖",
-    "at": "2026-10-08T22:57:35.760Z",
-    "_runner": "2436-1791500255760"
+    "publishedAt": "2026-10-08T22:58:58.406Z"
   },
   "da8ea8db-2332-499f-ae7a-3c79900687e7": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "taiwan-prophet-moprai-predictions-2026-2027.md",
     "title": "年底驚傳高官洗牌與夜店空中爆炸，明年初爆發肉類傳染病價格飆漲",
-    "at": "2026-10-08T22:57:38.184Z",
-    "_runner": "2436-1791500258184"
+    "publishedAt": "2026-10-08T22:58:58.406Z"
   }
 }

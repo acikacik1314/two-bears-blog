@@ -1555,8 +1555,9 @@
     "publishedAt": "2026-10-08T22:58:58.406Z"
   },
   "1beb579d-36d3-40ab-8f54-e5db6ddfb856": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "starlink-mars-base-tsunami-extreme-weather-prophecy.md",
-    "draftedAt": "2026-10-09T12:38:38.299Z"
+    "draftedAt": "2026-10-09T12:38:38.299Z",
+    "publishedAt": "2026-10-09T12:40:02.617Z"
   }
 }

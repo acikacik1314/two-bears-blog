@@ -1585,8 +1585,9 @@
     "publishedAt": "2026-10-11T16:10:53.567Z"
   },
   "ab208542-ed47-444c-8220-a3b14135d9f1": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-fed-panic-financial-collapse-81-fireballs.md",
-    "draftedAt": "2026-10-12T19:38:19.630Z"
+    "draftedAt": "2026-10-12T19:38:19.630Z",
+    "publishedAt": "2026-10-12T19:39:30.200Z"
   }
 }

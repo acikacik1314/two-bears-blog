@@ -1897,9 +1897,9 @@
     "publishedAt": "2026-10-11T16:10:53.567Z"
   },
   "ab208542-ed47-444c-8220-a3b14135d9f1": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "paul-begley-fed-panic-financial-collapse-81-fireballs.md",
     "title": "Paul Begley預言美聯儲恐慌引爆金融崩潰與八十一顆火球",
-    "at": "2026-10-12T19:38:13.967Z",
-    "_runner": "2200-1791833893967"
+    "publishedAt": "2026-10-12T19:39:30.200Z"
   }
 }

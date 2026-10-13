@@ -1591,8 +1591,9 @@
     "publishedAt": "2026-10-12T19:39:30.200Z"
   },
   "f1e02866-6f54-483c-b156-efbdbc0480c1": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "chariot-palmistry-global-health-crisis-economic-outlook.md",
-    "draftedAt": "2026-10-13T22:19:02.551Z"
+    "draftedAt": "2026-10-13T22:19:02.551Z",
+    "publishedAt": "2026-10-13T22:20:27.113Z"
   }
 }

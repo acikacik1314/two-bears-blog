@@ -1597,13 +1597,15 @@
     "publishedAt": "2026-10-13T22:20:27.113Z"
   },
   "cad4f02e-7ea2-484d-8868-87aa448a9f19": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-hormuz-strait-ai-bible-review.md",
-    "draftedAt": "2026-10-14T19:59:37.672Z"
+    "draftedAt": "2026-10-14T19:59:37.672Z",
+    "publishedAt": "2026-10-14T20:01:03.480Z"
   },
   "c1b27260-c969-439d-a756-8529e15a8ac7": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2027-global-economic-turmoil-us-china-taiwan-prophecy.md",
-    "draftedAt": "2026-10-14T19:59:49.740Z"
+    "draftedAt": "2026-10-14T19:59:49.740Z",
+    "publishedAt": "2026-10-14T20:01:03.480Z"
   }
 }

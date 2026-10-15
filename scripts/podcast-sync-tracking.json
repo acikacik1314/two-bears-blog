@@ -1927,9 +1927,9 @@
     "error": "Unterminated string in JSON at position 7424 (line 378 column 14)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "major-pandemic-ai-medical-breakthroughs-global-politics-tech-predictions.md",
     "title": "重大病毒大流行與AI醫學突破即將來臨未來幾年全球政局與科技預言。",
-    "at": "2026-10-15T14:40:51.103Z",
-    "_runner": "2427-1792075251103"
+    "publishedAt": "2026-10-15T14:42:41.055Z"
   }
 }

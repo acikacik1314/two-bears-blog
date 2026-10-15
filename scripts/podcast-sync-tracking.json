@@ -1923,8 +1923,8 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-15T14:41:16.751Z",
-    "error": "Unterminated string in JSON at position 7424 (line 378 column 14)"
+    "at": "2026-10-15T19:42:50.208Z",
+    "error": "Unterminated string in JSON at position 7426 (line 378 column 24)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",

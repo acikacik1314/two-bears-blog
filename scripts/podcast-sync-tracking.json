@@ -1933,9 +1933,9 @@
     "publishedAt": "2026-10-15T14:42:41.055Z"
   },
   "970577a0-50f4-4cf6-b31e-7333fd644e8c": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "jackowski-russia-missile-poland-attack-prediction.md",
     "title": "Jackowski預言俄羅斯導彈攻擊波蘭事件",
-    "at": "2026-10-16T08:46:16.516Z",
-    "_runner": "2210-1792140376516"
+    "publishedAt": "2026-10-16T08:47:58.083Z"
   }
 }

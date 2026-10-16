@@ -1923,13 +1923,19 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-16T03:18:40.696Z",
-    "error": "Unterminated string in JSON at position 7399 (line 370 column 8)"
+    "at": "2026-10-16T08:46:44.591Z",
+    "error": "Unterminated string in JSON at position 7371 (line 366 column 25)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",
     "draftFile": "major-pandemic-ai-medical-breakthroughs-global-politics-tech-predictions.md",
     "title": "重大病毒大流行與AI醫學突破即將來臨未來幾年全球政局與科技預言。",
     "publishedAt": "2026-10-15T14:42:41.055Z"
+  },
+  "970577a0-50f4-4cf6-b31e-7333fd644e8c": {
+    "status": "sourced",
+    "title": "Jackowski預言俄羅斯導彈攻擊波蘭事件",
+    "at": "2026-10-16T08:46:16.516Z",
+    "_runner": "2210-1792140376516"
   }
 }

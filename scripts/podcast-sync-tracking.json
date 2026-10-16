@@ -1923,8 +1923,8 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-16T08:46:44.591Z",
-    "error": "Unterminated string in JSON at position 7371 (line 366 column 25)"
+    "at": "2026-10-16T14:34:01.802Z",
+    "error": "Unexpected end of JSON input"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",
@@ -1937,5 +1937,11 @@
     "draftFile": "jackowski-russia-missile-poland-attack-prediction.md",
     "title": "Jackowski預言俄羅斯導彈攻擊波蘭事件",
     "publishedAt": "2026-10-16T08:47:58.083Z"
+  },
+  "4c1b02fc-f43e-42b8-98a9-fcdf520912c3": {
+    "status": "sourced",
+    "title": "Joni Patry 預言：2026年全球將迎來驚人劇變，台灣、中國、美國都難逃衝擊？",
+    "at": "2026-10-16T14:33:38.369Z",
+    "_runner": "2425-1792161218369"
   }
 }

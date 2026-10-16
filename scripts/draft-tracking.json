@@ -1621,8 +1621,9 @@
     "publishedAt": "2026-10-16T08:47:58.083Z"
   },
   "4c1b02fc-f43e-42b8-98a9-fcdf520912c3": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joni-patry-2026-global-upheaval-taiwan-china-us.md",
-    "draftedAt": "2026-10-16T14:33:45.530Z"
+    "draftedAt": "2026-10-16T14:33:45.530Z",
+    "publishedAt": "2026-10-16T14:35:16.115Z"
   }
 }

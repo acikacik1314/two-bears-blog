@@ -1923,8 +1923,8 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-17T08:17:07.628Z",
-    "error": "Unexpected end of JSON input"
+    "at": "2026-10-17T13:28:39.091Z",
+    "error": "Expected double-quoted property name in JSON at position 7437 (line 377 column 55)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",
@@ -1943,5 +1943,11 @@
     "draftFile": "joni-patry-2026-global-upheaval-taiwan-china-us.md",
     "title": "Joni Patry 預言：2026年全球將迎來驚人劇變，台灣、中國、美國都難逃衝擊？",
     "publishedAt": "2026-10-16T14:35:16.115Z"
+  },
+  "113ada5a-dce9-4496-8ac6-ea88bfcb5bd7": {
+    "status": "sourced",
+    "title": "X行星即將現身？AI失控、全球大戰與末日預兆：Paul Begley的緊急警告",
+    "at": "2026-10-17T13:28:16.794Z",
+    "_runner": "2209-1792243696794"
   }
 }

@@ -1923,8 +1923,8 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-19T22:02:24.316Z",
-    "error": "Unterminated string in JSON at position 7448 (line 378 column 28)"
+    "at": "2026-10-20T03:35:01.902Z",
+    "error": "Unterminated string in JSON at position 7400 (line 373 column 13)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",
@@ -1961,5 +1961,17 @@
     "draftFile": "jackowski-cruel-future-economic-collapse-digital-commune.md",
     "title": "預言家傑科夫斯基：世界將走向更殘酷的未來，經濟崩潰與數位公社的崛起",
     "publishedAt": "2026-10-18T08:36:18.331Z"
+  },
+  "9bd0d8e4-f7d4-489e-b783-114b41dfd8a1": {
+    "status": "sourced",
+    "title": "Paul Begley預言中國軍事部署達前所未有程度",
+    "at": "2026-10-20T03:34:40.540Z",
+    "_runner": "2417-1792467280540"
+  },
+  "1777763c-b752-40c2-964a-64f6fc0c59ae": {
+    "status": "sourced",
+    "title": "美國大選紅牆擋下藍潮與超級智能時代爆發，從川普健康到科技巨變的驚人預測與時間表",
+    "at": "2026-10-20T03:34:42.061Z",
+    "_runner": "2417-1792467282061"
   }
 }

@@ -1963,15 +1963,15 @@
     "publishedAt": "2026-10-18T08:36:18.331Z"
   },
   "9bd0d8e4-f7d4-489e-b783-114b41dfd8a1": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "paul-begley-china-military-deployment-unprecedented.md",
     "title": "Paul Begley預言中國軍事部署達前所未有程度",
-    "at": "2026-10-20T03:34:40.540Z",
-    "_runner": "2417-1792467280540"
+    "publishedAt": "2026-10-20T03:36:20.286Z"
   },
   "1777763c-b752-40c2-964a-64f6fc0c59ae": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "us-election-red-wall-super-ai-trump-health-predictions.md",
     "title": "美國大選紅牆擋下藍潮與超級智能時代爆發，從川普健康到科技巨變的驚人預測與時間表",
-    "at": "2026-10-20T03:34:42.061Z",
-    "_runner": "2417-1792467282061"
+    "publishedAt": "2026-10-20T03:36:20.286Z"
   }
 }

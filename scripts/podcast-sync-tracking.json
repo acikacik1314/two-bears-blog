@@ -1923,8 +1923,8 @@
   "16321349-188c-4fca-93d1-0d0f8736945b": {
     "status": "error",
     "title": "Joseph Tittel 預言中國2026年攻台引發恐慌",
-    "at": "2026-10-20T22:56:56.093Z",
-    "error": "Unterminated string in JSON at position 7394 (line 373 column 13)"
+    "at": "2026-10-21T03:28:39.204Z",
+    "error": "Unterminated string in JSON at position 7435 (line 377 column 47)"
   },
   "d022cec0-4d92-4322-ae4c-e964e72de3df": {
     "status": "published",
@@ -1973,5 +1973,11 @@
     "draftFile": "us-election-red-wall-super-ai-trump-health-predictions.md",
     "title": "美國大選紅牆擋下藍潮與超級智能時代爆發，從川普健康到科技巨變的驚人預測與時間表",
     "publishedAt": "2026-10-20T03:36:20.286Z"
+  },
+  "8d42cce5-a41e-467e-a8d7-9cfd0b6ac44d": {
+    "status": "sourced",
+    "title": "帕克預言：2027年川普、美中台、經濟與全球變局",
+    "at": "2026-10-21T03:28:13.401Z",
+    "_runner": "2407-1792553293401"
   }
 }

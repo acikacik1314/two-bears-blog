@@ -1975,9 +1975,9 @@
     "publishedAt": "2026-10-20T03:36:20.286Z"
   },
   "8d42cce5-a41e-467e-a8d7-9cfd0b6ac44d": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "parker-prophecy-2027-trump-us-china-taiwan-economy.md",
     "title": "帕克預言：2027年川普、美中台、經濟與全球變局",
-    "at": "2026-10-21T03:28:13.401Z",
-    "_runner": "2407-1792553293401"
+    "publishedAt": "2026-10-21T03:29:59.770Z"
   }
 }

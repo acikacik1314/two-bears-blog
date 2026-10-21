@@ -1657,8 +1657,9 @@
     "publishedAt": "2026-10-20T03:36:20.286Z"
   },
   "8d42cce5-a41e-467e-a8d7-9cfd0b6ac44d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "parker-prophecy-2027-trump-us-china-taiwan-economy.md",
-    "draftedAt": "2026-10-21T03:28:24.293Z"
+    "draftedAt": "2026-10-21T03:28:24.293Z",
+    "publishedAt": "2026-10-21T03:29:59.770Z"
   }
 }

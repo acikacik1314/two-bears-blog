@@ -1663,8 +1663,9 @@
     "publishedAt": "2026-10-21T03:29:59.770Z"
   },
   "25a7a99c-877c-4d56-9c55-ed020099c7e4": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "brandon-biggs-us-election-red-wall-global-changes-2026.md",
-    "draftedAt": "2026-10-22T14:53:02.145Z"
+    "draftedAt": "2026-10-22T14:53:02.145Z",
+    "publishedAt": "2026-10-22T14:54:22.656Z"
   }
 }

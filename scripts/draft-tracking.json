@@ -1675,8 +1675,9 @@
     "publishedAt": "2026-10-23T09:08:55.207Z"
   },
   "43789bbc-7007-475b-b125-be4d071afce6": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-financial-network-chaos-economic-turmoil-future-predictions.md",
-    "draftedAt": "2026-10-23T19:48:05.457Z"
+    "draftedAt": "2026-10-23T19:48:05.457Z",
+    "publishedAt": "2026-10-23T19:49:27.182Z"
   }
 }

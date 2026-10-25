@@ -1681,13 +1681,15 @@
     "publishedAt": "2026-10-23T19:49:27.182Z"
   },
   "4b404334-80e3-4cfe-9132-b58da9ec622e": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2027-global-economic-collapse-ww3-prediction.md",
-    "draftedAt": "2026-10-25T07:18:27.477Z"
+    "draftedAt": "2026-10-25T07:18:27.477Z",
+    "publishedAt": "2026-10-25T07:19:58.336Z"
   },
   "fcff080d-1c5e-43ea-93d2-9f90215984b1": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-financial-network-chaos-economic-turmoil-prophecy.md",
-    "draftedAt": "2026-10-25T07:18:33.513Z"
+    "draftedAt": "2026-10-25T07:18:33.513Z",
+    "publishedAt": "2026-10-25T07:19:58.336Z"
   }
 }

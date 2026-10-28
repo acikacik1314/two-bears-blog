@@ -1705,8 +1705,9 @@
     "publishedAt": "2026-10-27T09:39:26.188Z"
   },
   "a50c7da0-008b-4ed4-9807-11684cdd0d57": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jackowski-russia-missile-attack-poland-2026.md",
-    "draftedAt": "2026-10-28T07:57:15.543Z"
+    "draftedAt": "2026-10-28T07:57:15.543Z",
+    "publishedAt": "2026-10-28T07:58:37.671Z"
   }
 }

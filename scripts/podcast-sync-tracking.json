@@ -2028,9 +2028,9 @@
     "publishedAt": "2026-10-28T07:58:37.671Z"
   },
   "a35349c3-fdb5-4746-94ea-df2983832484": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "paul-begley-us-election-turmoil-financial-black-swan.md",
     "title": "Paul Begley 預言：美國大選動盪、金融黑天鵝與末日警訊",
-    "at": "2026-10-29T08:03:59.980Z",
-    "_runner": "2432-1793261039980"
+    "publishedAt": "2026-10-29T08:05:31.158Z"
   }
 }

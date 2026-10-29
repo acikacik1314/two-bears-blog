@@ -1711,8 +1711,9 @@
     "publishedAt": "2026-10-28T07:58:37.671Z"
   },
   "a35349c3-fdb5-4746-94ea-df2983832484": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-us-election-turmoil-financial-black-swan.md",
-    "draftedAt": "2026-10-29T08:04:04.713Z"
+    "draftedAt": "2026-10-29T08:04:04.713Z",
+    "publishedAt": "2026-10-29T08:05:31.158Z"
   }
 }

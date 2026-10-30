@@ -2034,9 +2034,9 @@
     "publishedAt": "2026-10-29T08:05:31.158Z"
   },
   "25459455-c65b-43ad-90d8-420d4ebf195d": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "joseph-tittel-ai-robots-vs-humans.md",
     "title": "Joseph Tittel 預言 AI 機器人將對抗人類",
-    "at": "2026-10-30T04:33:28.869Z",
-    "_runner": "2448-1793334808869"
+    "publishedAt": "2026-10-30T04:35:07.260Z"
   }
 }

@@ -1723,8 +1723,9 @@
     "publishedAt": "2026-10-30T04:35:07.260Z"
   },
   "f3714833-1831-4934-b125-5df253a5f8b9": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-north-korea-apophis-predictions.md",
-    "draftedAt": "2026-10-31T04:15:47.744Z"
+    "draftedAt": "2026-10-31T04:15:47.744Z",
+    "publishedAt": "2026-10-31T04:16:58.964Z"
   }
 }

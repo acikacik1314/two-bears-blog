@@ -1735,8 +1735,9 @@
     "publishedAt": "2026-11-01T08:46:45.163Z"
   },
   "07b54e44-8d2b-4639-a512-39501d2c01c3": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "quan-lang-malaysia-2026-storm-flood-robbery.md",
-    "draftedAt": "2026-11-02T19:59:07.121Z"
+    "draftedAt": "2026-11-02T19:59:07.121Z",
+    "publishedAt": "2026-11-02T20:00:38.605Z"
   }
 }

@@ -1741,13 +1741,15 @@
     "publishedAt": "2026-11-02T20:00:38.605Z"
   },
   "0248f1e5-0289-4ffb-bdf8-d900cc02b42c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-stock-market-crash-biological-virus-prophecy-2026.md",
-    "draftedAt": "2026-11-04T08:39:57.445Z"
+    "draftedAt": "2026-11-04T08:39:57.445Z",
+    "publishedAt": "2026-11-04T08:41:30.714Z"
   },
   "5defa13e-00db-4f5c-a3e4-2a47e8f6a80f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "biggs-predictions-what-he-foretold.md",
-    "draftedAt": "2026-11-04T08:40:04.253Z"
+    "draftedAt": "2026-11-04T08:40:04.253Z",
+    "publishedAt": "2026-11-04T08:41:30.714Z"
   }
 }

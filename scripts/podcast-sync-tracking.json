@@ -2070,15 +2070,15 @@
     "publishedAt": "2026-11-04T08:41:30.714Z"
   },
   "962df908-684c-4775-9e92-13421b676afb": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "2026-midterm-election-deadlock-economic-volatility.md",
     "title": "二零二六年中期選舉可能引發僵局政府與經濟大幅波動的最新預警",
-    "at": "2026-11-04T17:46:23.395Z",
-    "_runner": "2432-1793814383395"
+    "publishedAt": "2026-11-04T17:48:10.162Z"
   },
   "614ada16-8b5f-49fe-a3b9-8ec77b5dc9d7": {
-    "status": "sourced",
+    "status": "published",
+    "draftFile": "love-me-do-predictions-2026-11-04.md",
     "title": "預言大公開：Love Me Do 揭示未來走向，你準備好了嗎？",
-    "at": "2026-11-04T17:46:25.999Z",
-    "_runner": "2432-1793814385999"
+    "publishedAt": "2026-11-04T17:48:10.162Z"
   }
 }

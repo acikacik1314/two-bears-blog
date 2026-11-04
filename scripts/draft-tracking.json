@@ -1753,13 +1753,15 @@
     "publishedAt": "2026-11-04T08:41:30.714Z"
   },
   "962df908-684c-4775-9e92-13421b676afb": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "2026-midterm-election-deadlock-economic-volatility.md",
-    "draftedAt": "2026-11-04T17:46:25.997Z"
+    "draftedAt": "2026-11-04T17:46:25.997Z",
+    "publishedAt": "2026-11-04T17:48:10.162Z"
   },
   "614ada16-8b5f-49fe-a3b9-8ec77b5dc9d7": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "love-me-do-predictions-2026-11-04.md",
-    "draftedAt": "2026-11-04T17:46:37.320Z"
+    "draftedAt": "2026-11-04T17:46:37.320Z",
+    "publishedAt": "2026-11-04T17:48:10.162Z"
   }
 }

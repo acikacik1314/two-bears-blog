@@ -1765,8 +1765,9 @@
     "publishedAt": "2026-11-04T17:48:10.162Z"
   },
   "d31c1f0c-f0a3-4489-8aa0-96fe503cbd3a": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-strait-us-stock-market-2026-prophecy.md",
-    "draftedAt": "2026-11-05T14:02:55.502Z"
+    "draftedAt": "2026-11-05T14:02:55.502Z",
+    "publishedAt": "2026-11-05T14:04:03.319Z"
   }
 }

@@ -1795,13 +1795,15 @@
     "publishedAt": "2026-11-09T15:19:56.781Z"
   },
   "8900559a-1828-4895-ae00-79c1b19e0d80": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "extreme-blackout-ai-surveillance-economic-recession.md",
-    "draftedAt": "2026-11-11T21:04:12.619Z"
+    "draftedAt": "2026-11-11T21:04:12.619Z",
+    "publishedAt": "2026-11-11T21:05:46.257Z"
   },
   "9b7bfb1f-50ce-43f2-8565-e046763fa621": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "global-economic-collapse-ai-surveillance-extreme-disasters-2027-2032.md",
-    "draftedAt": "2026-11-11T21:04:18.281Z"
+    "draftedAt": "2026-11-11T21:04:18.281Z",
+    "publishedAt": "2026-11-11T21:05:46.257Z"
   }
 }

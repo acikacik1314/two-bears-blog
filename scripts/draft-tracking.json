@@ -1807,13 +1807,15 @@
     "publishedAt": "2026-11-11T21:05:46.257Z"
   },
   "b415bbd4-c16b-41ae-b8ed-3c57f941bc8f": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "ai-surveillance-global-economy-turning-point-prophecy.md",
-    "draftedAt": "2026-11-13T19:15:05.700Z"
+    "draftedAt": "2026-11-13T19:15:05.700Z",
+    "publishedAt": "2026-11-13T19:16:49.910Z"
   },
   "bea09bd0-de6b-468f-8753-40aa9cf165b8": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "ai-financial-bubble-global-online-banking-halt.md",
-    "draftedAt": "2026-11-13T19:15:11.202Z"
+    "draftedAt": "2026-11-13T19:15:11.202Z",
+    "publishedAt": "2026-11-13T19:16:49.910Z"
   }
 }

@@ -1819,18 +1819,21 @@
     "publishedAt": "2026-11-13T19:16:49.910Z"
   },
   "030ef95e-0847-49ea-bc21-3a7a8f633f0c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "love-me-do-november-2026-predictions-nuclear-virus-celebrity-news.md",
-    "draftedAt": "2026-11-14T16:23:02.163Z"
+    "draftedAt": "2026-11-14T16:23:02.163Z",
+    "publishedAt": "2026-11-14T16:24:40.937Z"
   },
   "240625b2-de6f-4b91-9af0-9ad49fc9f43d": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "jackowski-poland-zloty-collapse-euro-invasion-2026.md",
-    "draftedAt": "2026-11-14T16:23:13.397Z"
+    "draftedAt": "2026-11-14T16:23:13.397Z",
+    "publishedAt": "2026-11-14T16:24:40.937Z"
   },
   "ded6c564-052c-4c49-87f4-a0d88e8d7854": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joseph-tittel-2026-global-events-war-disaster-tech-paralysis.md",
-    "draftedAt": "2026-11-14T16:23:23.115Z"
+    "draftedAt": "2026-11-14T16:23:23.115Z",
+    "publishedAt": "2026-11-14T16:24:40.937Z"
   }
 }

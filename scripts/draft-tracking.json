@@ -1842,8 +1842,9 @@
     "draftedAt": "2026-11-15T22:30:34.585Z"
   },
   "04b9bc9e-3a6a-46ca-855b-b3ad2eecb3f9": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "nvidia-chip-blackmail-spy-storm-global-bank-fraud-crisis-prediction.md",
-    "draftedAt": "2026-11-17T17:24:15.075Z"
+    "draftedAt": "2026-11-17T17:24:15.075Z",
+    "publishedAt": "2026-11-17T17:25:44.799Z"
   }
 }

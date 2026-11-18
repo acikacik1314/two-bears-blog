@@ -1848,13 +1848,15 @@
     "publishedAt": "2026-11-17T17:25:44.799Z"
   },
   "027d3b51-7674-496b-8dc9-efe5e2d2e1d7": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-singapore-disaster-stock-market-warning.md",
-    "draftedAt": "2026-11-18T09:46:24.959Z"
+    "draftedAt": "2026-11-18T09:46:24.959Z",
+    "publishedAt": "2026-11-18T09:48:01.761Z"
   },
   "1ff0609c-22bd-4bab-a301-788d08ff6b2b": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "paul-begley-global-upheaval-debt-nuclear-drills.md",
-    "draftedAt": "2026-11-18T09:46:28.850Z"
+    "draftedAt": "2026-11-18T09:46:28.850Z",
+    "publishedAt": "2026-11-18T09:48:01.761Z"
   }
 }

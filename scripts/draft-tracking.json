@@ -1860,13 +1860,15 @@
     "publishedAt": "2026-11-18T09:48:01.761Z"
   },
   "3fdb29f4-6370-4b4d-90f8-4ed17f8b5ddd": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "us-military-stockpile-drone-chips-2029-doomsday.md",
-    "draftedAt": "2026-11-19T18:52:50.643Z"
+    "draftedAt": "2026-11-19T18:52:50.643Z",
+    "publishedAt": "2026-11-19T18:54:28.758Z"
   },
   "1aaba5e7-144a-4375-860e-2a29af4e7b6c": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joseph-tittel-predictions-warnings.md",
-    "draftedAt": "2026-11-19T18:52:57.503Z"
+    "draftedAt": "2026-11-19T18:52:57.503Z",
+    "publishedAt": "2026-11-19T18:54:28.758Z"
   }
 }

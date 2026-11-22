@@ -1884,18 +1884,21 @@
     "publishedAt": "2026-11-22T05:18:36.392Z"
   },
   "8e6d71a4-6c9c-4162-bead-79f273c7e065": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "ai-bank-accounts-emptied-global-24hr-shock-prophecy.md",
-    "draftedAt": "2026-11-22T14:07:12.481Z"
+    "draftedAt": "2026-11-22T14:07:12.481Z",
+    "publishedAt": "2026-11-22T14:08:31.828Z"
   },
   "854b7dde-81e0-4a14-9eff-21794830f314": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "joni-patry-2026-prophecies-wealth-leadership-world-changes.md",
-    "draftedAt": "2026-11-22T14:07:16.930Z"
+    "draftedAt": "2026-11-22T14:07:16.930Z",
+    "publishedAt": "2026-11-22T14:08:31.828Z"
   },
   "f0db110a-76ca-4b44-80ae-c8325781535e": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "zhang-sheng-shu-2027-career-predictions.md",
-    "draftedAt": "2026-11-22T14:07:20.522Z"
+    "draftedAt": "2026-11-22T14:07:20.522Z",
+    "publishedAt": "2026-11-22T14:08:31.828Z"
   }
 }

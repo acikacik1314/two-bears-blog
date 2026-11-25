@@ -1902,8 +1902,9 @@
     "publishedAt": "2026-11-22T14:08:31.828Z"
   },
   "45d4e35d-f918-416b-a8a3-e4b5c1661118": {
-    "status": "drafted",
+    "status": "published",
     "draftFile": "taiwan-global-economy-ww3-prophecy-analysis.md",
-    "draftedAt": "2026-11-25T21:06:27.378Z"
+    "draftedAt": "2026-11-25T21:06:27.378Z",
+    "publishedAt": "2026-11-25T21:07:34.069Z"
   }
 }
